@@ -1,0 +1,76 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtualenv
+.venv/
+venv/
+env/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+*.secret
+*.secrets
+secrets/
+secret/
+
+# Logs
+*.log
+logs/
+tmp/
+temp/
+
+# Test / cache / tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Build / dist
+build/
+dist/
+*.egg-info/
+
+# Local runtime / data artifacts
+data/
+artifacts/
+uploads/
+previews/
+results/
+var/
+.supervisor/
+*.bak
+*.bak*
+docs/continuity/payloads/
+docs/continuity/bootstrap/latest_snapshot.json
+docs/continuity/bootstrap/latest_snapshot.txt
+docs/continuity/opening_context/latest_new_chat_context.txt
+docs/continuity/evals/latest_project_brain_ranking_eval.json
+docs/continuity/evals/latest_project_brain_ranking_eval.md
+
+# SQLite / local dbs
+*.db
+*.sqlite
+*.sqlite3
+
+# Audio / generated media
+*.wav
+*.mp3
+*.m4a
+*.flac
+*.ogg
+
+# Node
+node_modules/

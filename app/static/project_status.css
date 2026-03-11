@@ -1,0 +1,261 @@
+:root {
+  --bg: #f2f4f7;
+  --panel: #ffffff;
+  --text: #0f1720;
+  --muted: #526070;
+  --border: #d9e0e8;
+
+  --ok-bg: #e8f7ee;
+  --ok-text: #1b6a3a;
+  --partial-bg: #fff4db;
+  --partial-text: #8a5b10;
+  --obs-bg: #e8f0ff;
+  --obs-text: #1c4db4;
+  --progress-bg: #e7f3ff;
+  --progress-text: #0b63b7;
+  --scope-bg: #f3efff;
+  --scope-text: #5e3fa3;
+  --ns-bg: #f2f2f2;
+  --ns-text: #555;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  line-height: 1.35;
+}
+
+.layout {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 36px;
+  letter-spacing: 0.4px;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+}
+
+p, li {
+  font-size: 18px;
+}
+
+ul, ol {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.header-meta {
+  display: grid;
+  gap: 6px;
+  min-width: 320px;
+}
+
+.meta-line {
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.status-badge {
+  display: inline-block;
+  width: fit-content;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+}
+
+.status-badge.observing,
+.state-card.observing {
+  background: var(--obs-bg);
+  color: var(--obs-text);
+}
+
+.status-badge.info {
+  background: var(--obs-bg);
+  color: var(--obs-text);
+}
+
+.status-badge.completed,
+.state-card.completed {
+  background: var(--ok-bg);
+  color: var(--ok-text);
+}
+
+.status-badge.partial,
+.state-card.partial {
+  background: var(--partial-bg);
+  color: var(--partial-text);
+}
+
+.status-badge.not-started,
+.state-card.not-started {
+  background: var(--ns-bg);
+  color: var(--ns-text);
+}
+
+.status-badge.in-progress {
+  background: var(--progress-bg);
+  color: var(--progress-text);
+}
+
+.status-badge.out-of-scope {
+  background: var(--scope-bg);
+  color: var(--scope-text);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.state-card {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.now-block {
+  border-left: 5px solid var(--obs-text);
+}
+
+.now-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.risk-list li {
+  margin-bottom: 4px;
+}
+
+.footer-panel {
+  background: #f9fbfd;
+}
+
+.stage-index {
+  display: grid;
+  gap: 10px;
+}
+
+.stage-row {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.stage-row.current {
+  border: 2px solid var(--obs-text);
+  background: #f5f9ff;
+}
+
+.stage-main {
+  min-width: 0;
+}
+
+.stage-title {
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+
+.stage-desc,
+.stage-deps {
+  margin: 0;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.stage-side {
+  display: grid;
+  gap: 6px;
+  justify-items: end;
+}
+
+.status-pill {
+  display: inline-block;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.status-pill.completed { background: var(--ok-bg); color: var(--ok-text); }
+.status-pill.in-progress { background: var(--progress-bg); color: var(--progress-text); }
+.status-pill.partial { background: var(--partial-bg); color: var(--partial-text); }
+.status-pill.not-started { background: var(--ns-bg); color: var(--ns-text); }
+.status-pill.out-of-scope { background: var(--scope-bg); color: var(--scope-text); }
+
+.current-flag {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--obs-text);
+}
+
+@media (max-width: 1100px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .two-col,
+  .now-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    flex-direction: column;
+  }
+
+  .header-meta {
+    min-width: auto;
+  }
+}

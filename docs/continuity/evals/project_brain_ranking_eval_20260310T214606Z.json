@@ -1,0 +1,1611 @@
+{
+  "generated_at": "20260310T214606Z",
+  "project": "livecopilot",
+  "wrapper": "/lab/projects/livecopilot/scripts/project_brain_query.sh",
+  "settings": {
+    "top_n": 5,
+    "facts_limit": 8,
+    "memory_limit": 8,
+    "queries_count": 16
+  },
+  "queries": [
+    {
+      "category": "continuidade_operacional",
+      "query": "continuidade",
+      "mode": "hybrid"
+    },
+    {
+      "category": "continuidade_operacional",
+      "query": "checkpoint da rodada",
+      "mode": "hybrid"
+    },
+    {
+      "category": "continuidade_operacional",
+      "query": "new chat context",
+      "mode": "hybrid"
+    },
+    {
+      "category": "estado_recente",
+      "query": "ultimo closeout",
+      "mode": "hybrid"
+    },
+    {
+      "category": "estado_recente",
+      "query": "smoke round continuity",
+      "mode": "hybrid"
+    },
+    {
+      "category": "estado_recente",
+      "query": "embedding maintenance",
+      "mode": "hybrid"
+    },
+    {
+      "category": "decisoes_projeto",
+      "query": "separacao question_bank knowledge",
+      "mode": "hybrid"
+    },
+    {
+      "category": "decisoes_projeto",
+      "query": "adotar 3 niveis de continuidade",
+      "mode": "hybrid"
+    },
+    {
+      "category": "decisoes_projeto",
+      "query": "comando padrao operador scripts round",
+      "mode": "hybrid"
+    },
+    {
+      "category": "riscos_bloqueios",
+      "query": "risco runuser postgres peer auth",
+      "mode": "hybrid"
+    },
+    {
+      "category": "riscos_bloqueios",
+      "query": "drift de embeddings",
+      "mode": "hybrid"
+    },
+    {
+      "category": "memoria_historica",
+      "query": "mvp continuidade",
+      "mode": "semantic"
+    },
+    {
+      "category": "memoria_historica",
+      "query": "fatos canonicos project_facts",
+      "mode": "semantic"
+    },
+    {
+      "category": "tecnico_semantico",
+      "query": "ranking debug score_final",
+      "mode": "semantic"
+    },
+    {
+      "category": "tecnico_semantico",
+      "query": "realtime",
+      "mode": "semantic"
+    },
+    {
+      "category": "tecnico_semantico",
+      "query": "knowledge_search ranking",
+      "mode": "semantic"
+    }
+  ],
+  "results": [
+    {
+      "category": "continuidade_operacional",
+      "query": "continuidade",
+      "mode": "hybrid",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "fact"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 2,
+          "run_id": 1,
+          "fact_id": 1,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "docs/continuity/CONTINUITY_MVP.md",
+          "similarity": 0.538313,
+          "score_original": 0.538313,
+          "type_weight": 1.5,
+          "recency_weight": 0.969469,
+          "score_final": 0.782816,
+          "excerpt": "Fact [decision/active]: Adotar 3 niveis de continuidade\nComponent: continuity Priority: high\n\nO MVP foi estruturado com project_runs, project_facts e project_memory_chunks para separar trilha operacional, fatos canonicos e memoria semantica."
+        },
+        {
+          "rank": 2,
+          "id": 22,
+          "run_id": 7,
+          "fact_id": 15,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_FACTS_ENRICHMENT.md",
+          "similarity": 0.574161,
+          "score_original": 0.574161,
+          "type_weight": 1.1,
+          "recency_weight": 0.969843,
+          "score_final": 0.61253,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: Enriquecimento de facts explícitos na continuidade.\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: Enriquecimento de facts explícitos na continuidade.."
+        },
+        {
+          "rank": 3,
+          "id": 10,
+          "run_id": 3,
+          "fact_id": 7,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_AUTOMATION.md",
+          "similarity": 0.555044,
+          "score_original": 0.555044,
+          "type_weight": 1.1,
+          "recency_weight": 0.969716,
+          "score_final": 0.592059,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: Automacao minima de continuidade integrada ao fluxo.\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: Automacao minima de continuidade integrada ao fluxo.."
+        },
+        {
+          "rank": 4,
+          "id": 16,
+          "run_id": 5,
+          "fact_id": 11,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_AUTOMATION.md",
+          "similarity": 0.54452,
+          "score_original": 0.54452,
+          "type_weight": 1.1,
+          "recency_weight": 0.969726,
+          "score_final": 0.580839,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: Wrapper semi-automatico de continuidade validado.\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: Wrapper semi-automatico de continuidade validado.."
+        },
+        {
+          "rank": 5,
+          "id": 117,
+          "run_id": 26,
+          "fact_id": 91,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.510524,
+          "score_original": 0.510524,
+          "type_weight": 1.1,
+          "recency_weight": 0.999998,
+          "score_final": 0.561575,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: smoke-round-continuity-20260310T214533Z\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: smoke-round-continuity-20260310T214533Z."
+        }
+      ],
+      "observations": [
+        "top3_dominated_by_fact",
+        "diversity_low"
+      ]
+    },
+    {
+      "category": "continuidade_operacional",
+      "query": "checkpoint da rodada",
+      "mode": "hybrid",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "fact"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 117,
+          "run_id": 26,
+          "fact_id": 91,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.563085,
+          "score_original": 0.563085,
+          "type_weight": 1.1,
+          "recency_weight": 0.999997,
+          "score_final": 0.619392,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: smoke-round-continuity-20260310T214533Z\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: smoke-round-continuity-20260310T214533Z."
+        },
+        {
+          "rank": 2,
+          "id": 112,
+          "run_id": 25,
+          "fact_id": 87,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.560554,
+          "score_original": 0.560554,
+          "type_weight": 1.1,
+          "recency_weight": 0.992474,
+          "score_final": 0.611969,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: smoke-round-continuity-20260310T161920Z\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: smoke-round-continuity-20260310T161920Z."
+        },
+        {
+          "rank": 3,
+          "id": 107,
+          "run_id": 24,
+          "fact_id": 83,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.560502,
+          "score_original": 0.560502,
+          "type_weight": 1.1,
+          "recency_weight": 0.992456,
+          "score_final": 0.611901,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: smoke-round-continuity-20260310T161833Z\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: smoke-round-continuity-20260310T161833Z."
+        },
+        {
+          "rank": 4,
+          "id": 102,
+          "run_id": 23,
+          "fact_id": 79,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.561523,
+          "score_original": 0.561523,
+          "type_weight": 1.1,
+          "recency_weight": 0.986508,
+          "score_final": 0.609342,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: smoke-round-continuity-20260310T115853Z\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: smoke-round-continuity-20260310T115853Z."
+        },
+        {
+          "rank": 5,
+          "id": 97,
+          "run_id": 22,
+          "fact_id": 75,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.561412,
+          "score_original": 0.561412,
+          "type_weight": 1.1,
+          "recency_weight": 0.978754,
+          "score_final": 0.604433,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: smoke-round-continuity-20260310T061758Z\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: smoke-round-continuity-20260310T061758Z."
+        }
+      ],
+      "observations": [
+        "top3_dominated_by_fact",
+        "diversity_low"
+      ]
+    },
+    {
+      "category": "continuidade_operacional",
+      "query": "new chat context",
+      "mode": "hybrid",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "fact",
+        "run_summary"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 52,
+          "run_id": 13,
+          "fact_id": 39,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "/lab/projects/livecopilot/.supervisor/checkpoints/20260307T1525316252060000_run_once.md",
+          "similarity": 0.315123,
+          "score_original": 0.315123,
+          "type_weight": 1.1,
+          "recency_weight": 0.971611,
+          "score_final": 0.336795,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: Li o arquivo /lab/projects/livecopilot/app/services/state.py, responsável pelo gerenciamento do estado de conversas no sistema.\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continu"
+        },
+        {
+          "rank": 2,
+          "id": 51,
+          "run_id": 13,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "/lab/projects/livecopilot/.supervisor/checkpoints/20260307T1525316252060000_run_once.md",
+          "similarity": 0.290799,
+          "score_original": 0.290799,
+          "type_weight": 1.0,
+          "recency_weight": 0.971611,
+          "score_final": 0.282544,
+          "excerpt": "Run summary (run_once): Li o arquivo /lab/projects/livecopilot/app/services/state.py, responsável pelo gerenciamento do estado de conversas no sistema.\n\n1) What you inspected - Li o arquivo /lab/projects/livecopilot/app/services/state.py, responsável pelo gere"
+        },
+        {
+          "rank": 3,
+          "id": 42,
+          "run_id": 11,
+          "fact_id": 31,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": ".supervisor/checkpoints/20260307T1525316252060000_run_once.md",
+          "similarity": 0.245581,
+          "score_original": 0.245581,
+          "type_weight": 1.1,
+          "recency_weight": 0.971437,
+          "score_final": 0.262423,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: Real flow hook integration\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: Real flow hook integration."
+        },
+        {
+          "rank": 4,
+          "id": 71,
+          "run_id": 17,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.20789,
+          "score_original": 0.20789,
+          "type_weight": 1.0,
+          "recency_weight": 0.976248,
+          "score_final": 0.202952,
+          "excerpt": "Run summary (run_once): Consolidacao fluxo real default hook\n\nRodada curta para validar default hook + embedding maintenance no launcher round"
+        },
+        {
+          "rank": 5,
+          "id": 72,
+          "run_id": 17,
+          "fact_id": 55,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.224012,
+          "score_original": 0.224012,
+          "type_weight": 1.1,
+          "recency_weight": 0.976248,
+          "score_final": 0.24056,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: Consolidacao fluxo real default hook\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: Consolidacao fluxo real default hook."
+        }
+      ],
+      "observations": [
+        "diversity_good"
+      ]
+    },
+    {
+      "category": "estado_recente",
+      "query": "ultimo closeout",
+      "mode": "hybrid",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "fact",
+        "run_summary"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 62,
+          "run_id": 15,
+          "fact_id": 47,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.421479,
+          "score_original": 0.421479,
+          "type_weight": 1.1,
+          "recency_weight": 0.974619,
+          "score_final": 0.45186,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: Closeout sem embedding maintenance\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: Closeout sem embedding maintenance."
+        },
+        {
+          "rank": 2,
+          "id": 67,
+          "run_id": 16,
+          "fact_id": 51,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.418062,
+          "score_original": 0.418062,
+          "type_weight": 1.1,
+          "recency_weight": 0.974619,
+          "score_final": 0.448196,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: Closeout com embedding maintenance (sem faltantes)\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: Closeout com embedding maintenance (sem faltantes)."
+        },
+        {
+          "rank": 3,
+          "id": 66,
+          "run_id": 16,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.431286,
+          "score_original": 0.431286,
+          "type_weight": 1.0,
+          "recency_weight": 0.974619,
+          "score_final": 0.42034,
+          "excerpt": "Run summary (implementation): Closeout com embedding maintenance (sem faltantes)\n\nTeste de closeout com maintenance habilitada e nenhum faltante."
+        },
+        {
+          "rank": 4,
+          "id": 61,
+          "run_id": 15,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.428917,
+          "score_original": 0.428917,
+          "type_weight": 1.0,
+          "recency_weight": 0.974619,
+          "score_final": 0.418031,
+          "excerpt": "Run summary (implementation): Closeout sem embedding maintenance\n\nTeste de closeout com maintenance desabilitada."
+        },
+        {
+          "rank": 5,
+          "id": 111,
+          "run_id": 25,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.367438,
+          "score_original": 0.367438,
+          "type_weight": 1.0,
+          "recency_weight": 0.992473,
+          "score_final": 0.364672,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T161920Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        }
+      ],
+      "observations": [
+        "diversity_good"
+      ]
+    },
+    {
+      "category": "estado_recente",
+      "query": "smoke round continuity",
+      "mode": "hybrid",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "run_summary"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 116,
+          "run_id": 26,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.595306,
+          "score_original": 0.595306,
+          "type_weight": 1.0,
+          "recency_weight": 0.999995,
+          "score_final": 0.595303,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T214533Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        },
+        {
+          "rank": 2,
+          "id": 101,
+          "run_id": 23,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.596982,
+          "score_original": 0.596982,
+          "type_weight": 1.0,
+          "recency_weight": 0.986506,
+          "score_final": 0.588926,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T115853Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        },
+        {
+          "rank": 3,
+          "id": 91,
+          "run_id": 21,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.59915,
+          "score_original": 0.59915,
+          "type_weight": 1.0,
+          "recency_weight": 0.97674,
+          "score_final": 0.585214,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T044904Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        },
+        {
+          "rank": 4,
+          "id": 106,
+          "run_id": 24,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.589089,
+          "score_original": 0.589089,
+          "type_weight": 1.0,
+          "recency_weight": 0.992454,
+          "score_final": 0.584644,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T161833Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        },
+        {
+          "rank": 5,
+          "id": 111,
+          "run_id": 25,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.588846,
+          "score_original": 0.588846,
+          "type_weight": 1.0,
+          "recency_weight": 0.992472,
+          "score_final": 0.584413,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T161920Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        }
+      ],
+      "observations": [
+        "top3_dominated_by_run_summary",
+        "absence_of_fact_in_operational_query",
+        "diversity_low",
+        "hybrid_without_fact_memory_type"
+      ]
+    },
+    {
+      "category": "estado_recente",
+      "query": "embedding maintenance",
+      "mode": "hybrid",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "fact",
+        "run_summary"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 69,
+          "run_id": 16,
+          "fact_id": 53,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_AUTOMATION.md",
+          "similarity": 0.343955,
+          "score_original": 0.343955,
+          "type_weight": 1.3,
+          "recency_weight": 0.974618,
+          "score_final": 0.435792,
+          "excerpt": "Fact [milestone/historical]: Continuity automation minima validada\nComponent: continuity Priority: high\n\nWrapper de captura passou a gerar payload canônico e acionar ingest com idempotencia por run_key."
+        },
+        {
+          "rank": 2,
+          "id": 44,
+          "run_id": 11,
+          "fact_id": 33,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_AUTOMATION.md",
+          "similarity": 0.343955,
+          "score_original": 0.343955,
+          "type_weight": 1.3,
+          "recency_weight": 0.971435,
+          "score_final": 0.434369,
+          "excerpt": "Fact [milestone/historical]: Continuity automation minima validada\nComponent: continuity Priority: high\n\nWrapper de captura passou a gerar payload canônico e acionar ingest com idempotencia por run_key."
+        },
+        {
+          "rank": 3,
+          "id": 61,
+          "run_id": 15,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.414195,
+          "score_original": 0.414195,
+          "type_weight": 1.0,
+          "recency_weight": 0.974618,
+          "score_final": 0.403682,
+          "excerpt": "Run summary (implementation): Closeout sem embedding maintenance\n\nTeste de closeout com maintenance desabilitada."
+        },
+        {
+          "rank": 4,
+          "id": 66,
+          "run_id": 16,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.376955,
+          "score_original": 0.376955,
+          "type_weight": 1.0,
+          "recency_weight": 0.974618,
+          "score_final": 0.367387,
+          "excerpt": "Run summary (implementation): Closeout com embedding maintenance (sem faltantes)\n\nTeste de closeout com maintenance habilitada e nenhum faltante."
+        },
+        {
+          "rank": 5,
+          "id": 34,
+          "run_id": 9,
+          "fact_id": 25,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_AUTOMATION.md",
+          "similarity": 0.343955,
+          "score_original": 0.343955,
+          "type_weight": 1.3,
+          "recency_weight": 0.971248,
+          "score_final": 0.434285,
+          "excerpt": "Fact [milestone/historical]: Continuity automation minima validada\nComponent: continuity Priority: high\n\nWrapper de captura passou a gerar payload canônico e acionar ingest com idempotencia por run_key."
+        }
+      ],
+      "observations": [
+        "diversity_good"
+      ]
+    },
+    {
+      "category": "decisoes_projeto",
+      "query": "separacao question_bank knowledge",
+      "mode": "hybrid",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "fact"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 108,
+          "run_id": 24,
+          "fact_id": 84,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.625987,
+          "score_original": 0.625987,
+          "type_weight": 1.5,
+          "recency_weight": 0.992453,
+          "score_final": 0.931894,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        },
+        {
+          "rank": 2,
+          "id": 73,
+          "run_id": 17,
+          "fact_id": 56,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.625929,
+          "score_original": 0.625929,
+          "type_weight": 1.5,
+          "recency_weight": 0.976246,
+          "score_final": 0.916591,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        },
+        {
+          "rank": 3,
+          "id": 68,
+          "run_id": 16,
+          "fact_id": 52,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.625987,
+          "score_original": 0.625987,
+          "type_weight": 1.5,
+          "recency_weight": 0.974617,
+          "score_final": 0.915147,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        },
+        {
+          "rank": 4,
+          "id": 63,
+          "run_id": 15,
+          "fact_id": 48,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.625929,
+          "score_original": 0.625929,
+          "type_weight": 1.5,
+          "recency_weight": 0.974617,
+          "score_final": 0.915062,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        },
+        {
+          "rank": 5,
+          "id": 53,
+          "run_id": 13,
+          "fact_id": 40,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.625929,
+          "score_original": 0.625929,
+          "type_weight": 1.5,
+          "recency_weight": 0.971608,
+          "score_final": 0.912237,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        }
+      ],
+      "observations": [
+        "top3_dominated_by_fact",
+        "diversity_low"
+      ]
+    },
+    {
+      "category": "decisoes_projeto",
+      "query": "adotar 3 niveis de continuidade",
+      "mode": "hybrid",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "fact",
+        "run_summary"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 2,
+          "run_id": 1,
+          "fact_id": 1,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "docs/continuity/CONTINUITY_MVP.md",
+          "similarity": 0.622868,
+          "score_original": 0.622868,
+          "type_weight": 1.5,
+          "recency_weight": 0.969464,
+          "score_final": 0.905772,
+          "excerpt": "Fact [decision/active]: Adotar 3 niveis de continuidade\nComponent: continuity Priority: high\n\nO MVP foi estruturado com project_runs, project_facts e project_memory_chunks para separar trilha operacional, fatos canonicos e memoria semantica."
+        },
+        {
+          "rank": 2,
+          "id": 16,
+          "run_id": 5,
+          "fact_id": 11,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_AUTOMATION.md",
+          "similarity": 0.497267,
+          "score_original": 0.497267,
+          "type_weight": 1.1,
+          "recency_weight": 0.969721,
+          "score_final": 0.530431,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: Wrapper semi-automatico de continuidade validado.\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: Wrapper semi-automatico de continuidade validado.."
+        },
+        {
+          "rank": 3,
+          "id": 1,
+          "run_id": 1,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_MVP.md",
+          "similarity": 0.458005,
+          "score_original": 0.458005,
+          "type_weight": 1.0,
+          "recency_weight": 0.969464,
+          "score_final": 0.444019,
+          "excerpt": "Run summary (implementation): MVP de continuidade com persistencia em PostgreSQL criado.\n\nNesta rodada foi implementada uma camada minima de continuidade operacional com schema de banco, ingestao canonica de rodada, fatos estruturados e memoria semantica resum"
+        },
+        {
+          "rank": 4,
+          "id": 9,
+          "run_id": 3,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_AUTOMATION.md",
+          "similarity": 0.457712,
+          "score_original": 0.457712,
+          "type_weight": 1.0,
+          "recency_weight": 0.969712,
+          "score_final": 0.443849,
+          "excerpt": "Run summary (implementation): Automacao minima de continuidade integrada ao fluxo.\n\nRodada implementou builder canônico de payload, wrapper de captura e documentação operacional de continuidade."
+        },
+        {
+          "rank": 5,
+          "id": 22,
+          "run_id": 7,
+          "fact_id": 15,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_FACTS_ENRICHMENT.md",
+          "similarity": 0.494592,
+          "score_original": 0.494592,
+          "type_weight": 1.1,
+          "recency_weight": 0.969838,
+          "score_final": 0.527642,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: Enriquecimento de facts explícitos na continuidade.\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: Enriquecimento de facts explícitos na continuidade.."
+        }
+      ],
+      "observations": [
+        "diversity_good"
+      ]
+    },
+    {
+      "category": "decisoes_projeto",
+      "query": "comando padrao operador scripts round",
+      "mode": "hybrid",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "run_summary"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 116,
+          "run_id": 26,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.446756,
+          "score_original": 0.446756,
+          "type_weight": 1.0,
+          "recency_weight": 0.999992,
+          "score_final": 0.446753,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T214533Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        },
+        {
+          "rank": 2,
+          "id": 106,
+          "run_id": 24,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.445122,
+          "score_original": 0.445122,
+          "type_weight": 1.0,
+          "recency_weight": 0.992451,
+          "score_final": 0.441762,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T161833Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        },
+        {
+          "rank": 3,
+          "id": 101,
+          "run_id": 23,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.446475,
+          "score_original": 0.446475,
+          "type_weight": 1.0,
+          "recency_weight": 0.986504,
+          "score_final": 0.440449,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T115853Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        },
+        {
+          "rank": 4,
+          "id": 111,
+          "run_id": 25,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.442798,
+          "score_original": 0.442798,
+          "type_weight": 1.0,
+          "recency_weight": 0.992469,
+          "score_final": 0.439463,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T161920Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        },
+        {
+          "rank": 5,
+          "id": 96,
+          "run_id": 22,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.44758,
+          "score_original": 0.44758,
+          "type_weight": 1.0,
+          "recency_weight": 0.978749,
+          "score_final": 0.438069,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T061758Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        }
+      ],
+      "observations": [
+        "top3_dominated_by_run_summary",
+        "run_summary_dominates_where_fact_expected",
+        "diversity_low",
+        "hybrid_without_fact_memory_type"
+      ]
+    },
+    {
+      "category": "riscos_bloqueios",
+      "query": "risco runuser postgres peer auth",
+      "mode": "hybrid",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "fact"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 100,
+          "run_id": 22,
+          "fact_id": 78,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.618719,
+          "score_original": 0.618719,
+          "type_weight": 1.2,
+          "recency_weight": 0.978749,
+          "score_final": 0.726685,
+          "excerpt": "Fact [risk/active]: Autenticacao peer no PostgreSQL local\nComponent: database Priority: medium\n\nNo ambiente atual, comandos DB precisam do usuario postgres para execucao sem erro de role root."
+        },
+        {
+          "rank": 2,
+          "id": 95,
+          "run_id": 21,
+          "fact_id": 74,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.618719,
+          "score_original": 0.618719,
+          "type_weight": 1.2,
+          "recency_weight": 0.976737,
+          "score_final": 0.725191,
+          "excerpt": "Fact [risk/active]: Autenticacao peer no PostgreSQL local\nComponent: database Priority: medium\n\nNo ambiente atual, comandos DB precisam do usuario postgres para execucao sem erro de role root."
+        },
+        {
+          "rank": 3,
+          "id": 90,
+          "run_id": 20,
+          "fact_id": 70,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.618719,
+          "score_original": 0.618719,
+          "type_weight": 1.2,
+          "recency_weight": 0.976435,
+          "score_final": 0.724966,
+          "excerpt": "Fact [risk/active]: Autenticacao peer no PostgreSQL local\nComponent: database Priority: medium\n\nNo ambiente atual, comandos DB precisam do usuario postgres para execucao sem erro de role root."
+        },
+        {
+          "rank": 4,
+          "id": 85,
+          "run_id": 19,
+          "fact_id": 66,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.618719,
+          "score_original": 0.618719,
+          "type_weight": 1.2,
+          "recency_weight": 0.976423,
+          "score_final": 0.724958,
+          "excerpt": "Fact [risk/active]: Autenticacao peer no PostgreSQL local\nComponent: database Priority: medium\n\nNo ambiente atual, comandos DB precisam do usuario postgres para execucao sem erro de role root."
+        },
+        {
+          "rank": 5,
+          "id": 75,
+          "run_id": 17,
+          "fact_id": 58,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.618719,
+          "score_original": 0.618719,
+          "type_weight": 1.2,
+          "recency_weight": 0.976244,
+          "score_final": 0.724825,
+          "excerpt": "Fact [risk/active]: Autenticacao peer no PostgreSQL local\nComponent: database Priority: medium\n\nNo ambiente atual, comandos DB precisam do usuario postgres para execucao sem erro de role root."
+        }
+      ],
+      "observations": [
+        "top3_dominated_by_fact",
+        "diversity_low"
+      ]
+    },
+    {
+      "category": "riscos_bloqueios",
+      "query": "drift de embeddings",
+      "mode": "hybrid",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "fact",
+        "run_summary"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 63,
+          "run_id": 15,
+          "fact_id": 48,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.199733,
+          "score_original": 0.199733,
+          "type_weight": 1.5,
+          "recency_weight": 0.974615,
+          "score_final": 0.291994,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        },
+        {
+          "rank": 2,
+          "id": 53,
+          "run_id": 13,
+          "fact_id": 40,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.199733,
+          "score_original": 0.199733,
+          "type_weight": 1.5,
+          "recency_weight": 0.971606,
+          "score_final": 0.291093,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        },
+        {
+          "rank": 3,
+          "id": 61,
+          "run_id": 15,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.240703,
+          "score_original": 0.240703,
+          "type_weight": 1.0,
+          "recency_weight": 0.974615,
+          "score_final": 0.234593,
+          "excerpt": "Run summary (implementation): Closeout sem embedding maintenance\n\nTeste de closeout com maintenance desabilitada."
+        },
+        {
+          "rank": 4,
+          "id": 71,
+          "run_id": 17,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.224333,
+          "score_original": 0.224333,
+          "type_weight": 1.0,
+          "recency_weight": 0.976243,
+          "score_final": 0.219004,
+          "excerpt": "Run summary (run_once): Consolidacao fluxo real default hook\n\nRodada curta para validar default hook + embedding maintenance no launcher round"
+        },
+        {
+          "rank": 5,
+          "id": 43,
+          "run_id": 11,
+          "fact_id": 32,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.199733,
+          "score_original": 0.199733,
+          "type_weight": 1.5,
+          "recency_weight": 0.971432,
+          "score_final": 0.29104,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        }
+      ],
+      "observations": [
+        "diversity_good"
+      ]
+    },
+    {
+      "category": "memoria_historica",
+      "query": "mvp continuidade",
+      "mode": "semantic",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "fact",
+        "run_summary"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 2,
+          "run_id": 1,
+          "fact_id": 1,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "docs/continuity/CONTINUITY_MVP.md",
+          "similarity": 0.559076,
+          "score_original": 0.559076,
+          "type_weight": 1.5,
+          "recency_weight": 0.969462,
+          "score_final": 0.813004,
+          "excerpt": "Fact [decision/active]: Adotar 3 niveis de continuidade\nComponent: continuity Priority: high\n\nO MVP foi estruturado com project_runs, project_facts e project_memory_chunks para separar trilha operacional, fatos canonicos e memoria semantica."
+        },
+        {
+          "rank": 2,
+          "id": 69,
+          "run_id": 16,
+          "fact_id": 53,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_AUTOMATION.md",
+          "similarity": 0.444046,
+          "score_original": 0.444046,
+          "type_weight": 1.3,
+          "recency_weight": 0.974614,
+          "score_final": 0.562605,
+          "excerpt": "Fact [milestone/historical]: Continuity automation minima validada\nComponent: continuity Priority: high\n\nWrapper de captura passou a gerar payload canônico e acionar ingest com idempotencia por run_key."
+        },
+        {
+          "rank": 3,
+          "id": 1,
+          "run_id": 1,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_MVP.md",
+          "similarity": 0.497868,
+          "score_original": 0.497868,
+          "type_weight": 1.0,
+          "recency_weight": 0.969462,
+          "score_final": 0.482664,
+          "excerpt": "Run summary (implementation): MVP de continuidade com persistencia em PostgreSQL criado.\n\nNesta rodada foi implementada uma camada minima de continuidade operacional com schema de banco, ingestao canonica de rodada, fatos estruturados e memoria semantica resum"
+        },
+        {
+          "rank": 4,
+          "id": 44,
+          "run_id": 11,
+          "fact_id": 33,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_AUTOMATION.md",
+          "similarity": 0.444046,
+          "score_original": 0.444046,
+          "type_weight": 1.3,
+          "recency_weight": 0.971431,
+          "score_final": 0.560768,
+          "excerpt": "Fact [milestone/historical]: Continuity automation minima validada\nComponent: continuity Priority: high\n\nWrapper de captura passou a gerar payload canônico e acionar ingest com idempotencia por run_key."
+        },
+        {
+          "rank": 5,
+          "id": 34,
+          "run_id": 9,
+          "fact_id": 25,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_AUTOMATION.md",
+          "similarity": 0.444046,
+          "score_original": 0.444046,
+          "type_weight": 1.3,
+          "recency_weight": 0.971245,
+          "score_final": 0.56066,
+          "excerpt": "Fact [milestone/historical]: Continuity automation minima validada\nComponent: continuity Priority: high\n\nWrapper de captura passou a gerar payload canônico e acionar ingest com idempotencia por run_key."
+        }
+      ],
+      "observations": [
+        "diversity_good"
+      ]
+    },
+    {
+      "category": "memoria_historica",
+      "query": "fatos canonicos project_facts",
+      "mode": "semantic",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "fact",
+        "run_summary"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 2,
+          "run_id": 1,
+          "fact_id": 1,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "docs/continuity/CONTINUITY_MVP.md",
+          "similarity": 0.458067,
+          "score_original": 0.458067,
+          "type_weight": 1.5,
+          "recency_weight": 0.969461,
+          "score_final": 0.666117,
+          "excerpt": "Fact [decision/active]: Adotar 3 niveis de continuidade\nComponent: continuity Priority: high\n\nO MVP foi estruturado com project_runs, project_facts e project_memory_chunks para separar trilha operacional, fatos canonicos e memoria semantica."
+        },
+        {
+          "rank": 2,
+          "id": 108,
+          "run_id": 24,
+          "fact_id": 84,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.360432,
+          "score_original": 0.360432,
+          "type_weight": 1.5,
+          "recency_weight": 0.992449,
+          "score_final": 0.536565,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        },
+        {
+          "rank": 3,
+          "id": 21,
+          "run_id": 7,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_FACTS_ENRICHMENT.md",
+          "similarity": 0.489947,
+          "score_original": 0.489947,
+          "type_weight": 1.0,
+          "recency_weight": 0.969835,
+          "score_final": 0.475168,
+          "excerpt": "Run summary (implementation): Enriquecimento de facts explícitos na continuidade.\n\nBuilder e wrapper atualizados para facts-file com contrato canônico e validação forte."
+        },
+        {
+          "rank": 4,
+          "id": 68,
+          "run_id": 16,
+          "fact_id": 52,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.360432,
+          "score_original": 0.360432,
+          "type_weight": 1.5,
+          "recency_weight": 0.974613,
+          "score_final": 0.526923,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        },
+        {
+          "rank": 5,
+          "id": 43,
+          "run_id": 11,
+          "fact_id": 32,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.360409,
+          "score_original": 0.360409,
+          "type_weight": 1.5,
+          "recency_weight": 0.971431,
+          "score_final": 0.525168,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        }
+      ],
+      "observations": [
+        "diversity_good"
+      ]
+    },
+    {
+      "category": "tecnico_semantico",
+      "query": "ranking debug score_final",
+      "mode": "semantic",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "run_summary"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 106,
+          "run_id": 24,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.272409,
+          "score_original": 0.272409,
+          "type_weight": 1.0,
+          "recency_weight": 0.992448,
+          "score_final": 0.270352,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T161833Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        },
+        {
+          "rank": 2,
+          "id": 101,
+          "run_id": 23,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.273559,
+          "score_original": 0.273559,
+          "type_weight": 1.0,
+          "recency_weight": 0.9865,
+          "score_final": 0.269866,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T115853Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        },
+        {
+          "rank": 3,
+          "id": 91,
+          "run_id": 21,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.276264,
+          "score_original": 0.276264,
+          "type_weight": 1.0,
+          "recency_weight": 0.976734,
+          "score_final": 0.269836,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T044904Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        },
+        {
+          "rank": 4,
+          "id": 96,
+          "run_id": 22,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.274291,
+          "score_original": 0.274291,
+          "type_weight": 1.0,
+          "recency_weight": 0.978746,
+          "score_final": 0.268461,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T061758Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        },
+        {
+          "rank": 5,
+          "id": 86,
+          "run_id": 20,
+          "fact_id": null,
+          "memory_type": "run_summary",
+          "source_type": "run_summary",
+          "source_path": "STATUS.md",
+          "similarity": 0.273243,
+          "score_original": 0.273243,
+          "type_weight": 1.0,
+          "recency_weight": 0.976432,
+          "score_final": 0.266803,
+          "excerpt": "Run summary (smoke): smoke-round-continuity-20260310T043542Z\n\nSmoke curto para validar round padrao + closeout + continuidade + embedding maintenance."
+        }
+      ],
+      "observations": [
+        "top3_dominated_by_run_summary",
+        "diversity_low"
+      ]
+    },
+    {
+      "category": "tecnico_semantico",
+      "query": "realtime",
+      "mode": "semantic",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "fact"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 52,
+          "run_id": 13,
+          "fact_id": 39,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "/lab/projects/livecopilot/.supervisor/checkpoints/20260307T1525316252060000_run_once.md",
+          "similarity": 0.322325,
+          "score_original": 0.322325,
+          "type_weight": 1.1,
+          "recency_weight": 0.971603,
+          "score_final": 0.344489,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: Li o arquivo /lab/projects/livecopilot/app/services/state.py, responsável pelo gerenciamento do estado de conversas no sistema.\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continu"
+        },
+        {
+          "rank": 2,
+          "id": 42,
+          "run_id": 11,
+          "fact_id": 31,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": ".supervisor/checkpoints/20260307T1525316252060000_run_once.md",
+          "similarity": 0.314248,
+          "score_original": 0.314248,
+          "type_weight": 1.1,
+          "recency_weight": 0.971429,
+          "score_final": 0.335797,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: Real flow hook integration\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: Real flow hook integration."
+        },
+        {
+          "rank": 3,
+          "id": 117,
+          "run_id": 26,
+          "fact_id": 91,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.287793,
+          "score_original": 0.287793,
+          "type_weight": 1.1,
+          "recency_weight": 0.999988,
+          "score_final": 0.316569,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: smoke-round-continuity-20260310T214533Z\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: smoke-round-continuity-20260310T214533Z."
+        },
+        {
+          "rank": 4,
+          "id": 102,
+          "run_id": 23,
+          "fact_id": 79,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.287877,
+          "score_original": 0.287877,
+          "type_weight": 1.1,
+          "recency_weight": 0.9865,
+          "score_final": 0.31239,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: smoke-round-continuity-20260310T115853Z\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: smoke-round-continuity-20260310T115853Z."
+        },
+        {
+          "rank": 5,
+          "id": 72,
+          "run_id": 17,
+          "fact_id": 55,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.288964,
+          "score_original": 0.288964,
+          "type_weight": 1.1,
+          "recency_weight": 0.976241,
+          "score_final": 0.310308,
+          "excerpt": "Fact [checkpoint/active]: Checkpoint da rodada: Consolidacao fluxo real default hook\nComponent: continuity Priority: high\n\nCheckpoint operacional registrado para continuidade. Resumo: Consolidacao fluxo real default hook."
+        }
+      ],
+      "observations": [
+        "top3_dominated_by_fact",
+        "diversity_low"
+      ]
+    },
+    {
+      "category": "tecnico_semantico",
+      "query": "knowledge_search ranking",
+      "mode": "semantic",
+      "semantic_warning": null,
+      "memory_types_detected": [
+        "fact"
+      ],
+      "top_results": [
+        {
+          "rank": 1,
+          "id": 108,
+          "run_id": 24,
+          "fact_id": 84,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.33129,
+          "score_original": 0.33129,
+          "type_weight": 1.5,
+          "recency_weight": 0.992447,
+          "score_final": 0.493182,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        },
+        {
+          "rank": 2,
+          "id": 73,
+          "run_id": 17,
+          "fact_id": 56,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.331253,
+          "score_original": 0.331253,
+          "type_weight": 1.5,
+          "recency_weight": 0.97624,
+          "score_final": 0.485074,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        },
+        {
+          "rank": 3,
+          "id": 68,
+          "run_id": 16,
+          "fact_id": 52,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.33129,
+          "score_original": 0.33129,
+          "type_weight": 1.5,
+          "recency_weight": 0.974611,
+          "score_final": 0.484319,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        },
+        {
+          "rank": 4,
+          "id": 63,
+          "run_id": 15,
+          "fact_id": 48,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.331253,
+          "score_original": 0.331253,
+          "type_weight": 1.5,
+          "recency_weight": 0.974611,
+          "score_final": 0.484264,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        },
+        {
+          "rank": 5,
+          "id": 53,
+          "run_id": 13,
+          "fact_id": 40,
+          "memory_type": "fact",
+          "source_type": "fact",
+          "source_path": "STATUS.md",
+          "similarity": 0.331253,
+          "score_original": 0.331253,
+          "type_weight": 1.5,
+          "recency_weight": 0.971603,
+          "score_final": 0.482769,
+          "excerpt": "Fact [decision/active]: Separacao question_bank vs knowledge\nComponent: semantic-model Priority: high\n\nMantida separacao para evitar contaminacao da base documental por conteudo avaliativo."
+        }
+      ],
+      "observations": [
+        "top3_dominated_by_fact",
+        "diversity_low"
+      ]
+    }
+  ],
+  "aggregate": {
+    "memory_type_global_distribution": {
+      "fact": 52,
+      "run_summary": 28
+    },
+    "memory_type_distribution_by_query": {
+      "adotar 3 niveis de continuidade": {
+        "fact": 3,
+        "run_summary": 2
+      },
+      "checkpoint da rodada": {
+        "fact": 5
+      },
+      "comando padrao operador scripts round": {
+        "run_summary": 5
+      },
+      "continuidade": {
+        "fact": 5
+      },
+      "drift de embeddings": {
+        "fact": 3,
+        "run_summary": 2
+      },
+      "embedding maintenance": {
+        "fact": 3,
+        "run_summary": 2
+      },
+      "fatos canonicos project_facts": {
+        "fact": 4,
+        "run_summary": 1
+      },
+      "knowledge_search ranking": {
+        "fact": 5
+      },
+      "mvp continuidade": {
+        "fact": 4,
+        "run_summary": 1
+      },
+      "new chat context": {
+        "fact": 3,
+        "run_summary": 2
+      },
+      "ranking debug score_final": {
+        "run_summary": 5
+      },
+      "realtime": {
+        "fact": 5
+      },
+      "risco runuser postgres peer auth": {
+        "fact": 5
+      },
+      "separacao question_bank knowledge": {
+        "fact": 5
+      },
+      "smoke round continuity": {
+        "run_summary": 5
+      },
+      "ultimo closeout": {
+        "fact": 2,
+        "run_summary": 3
+      }
+    },
+    "observation_distribution": {
+      "absence_of_fact_in_operational_query": 1,
+      "diversity_good": 7,
+      "diversity_low": 9,
+      "hybrid_without_fact_memory_type": 2,
+      "run_summary_dominates_where_fact_expected": 1,
+      "top3_dominated_by_fact": 6,
+      "top3_dominated_by_run_summary": 3
+    }
+  }
+}

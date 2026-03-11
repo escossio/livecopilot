@@ -1,0 +1,29 @@
+{
+  "relevance_floor": 0.25,
+  "context_limit": 3,
+  "domain_signals_primary": [
+    "kubernetes",
+    "docker",
+    "vpc",
+    "security group",
+    "nacl",
+    "helm",
+    "probe",
+    "healthcheck",
+    "cache",
+    "backend",
+    "api"
+  ],
+  "adjacent_technical_signals": [
+    "regex",
+    "javascript",
+    "ansible",
+    "jenkins",
+    "sed",
+    "awk",
+    "windows",
+    "cpf",
+    "playbook",
+    "pipeline"
+  ]
+}

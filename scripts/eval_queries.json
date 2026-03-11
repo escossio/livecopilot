@@ -1,0 +1,206 @@
+[
+  {
+    "query": "liveness probe nginx em kubernetes?",
+    "expected_topics": ["kubernetes", "healthcheck"],
+    "expected_keywords": ["liveness", "probe", "kubernetes"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "docker compose healthcheck redis?",
+    "expected_topics": ["docker", "compose"],
+    "expected_keywords": ["docker", "healthcheck", "redis"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "terraform apply s3 bucket best practices?",
+    "expected_topics": ["terraform", "aws"],
+    "expected_keywords": ["terraform", "apply", "s3"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "fastapi dependency injection exemplo?",
+    "expected_topics": ["python", "fastapi"],
+    "expected_keywords": ["fastapi", "dependency", "injection"],
+    "expected_domain": "backend"
+  },
+  {
+    "query": "kubectl create namespace staging?",
+    "expected_topics": ["kubernetes", "kubectl"],
+    "expected_keywords": ["kubectl", "namespace", "staging"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "kubernetes service clusterip vs nodeport?",
+    "expected_topics": ["kubernetes", "networking"],
+    "expected_keywords": ["service", "clusterip", "nodeport"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "configmap from file kubernetes?",
+    "expected_topics": ["kubernetes", "config"],
+    "expected_keywords": ["configmap", "file", "kubernetes"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "aws iam policy least privilege?",
+    "expected_topics": ["aws", "iam"],
+    "expected_keywords": ["iam", "policy", "privilege"],
+    "expected_domain": "cloud"
+  },
+  {
+    "query": "python async await explicacao?",
+    "expected_topics": ["python", "async"],
+    "expected_keywords": ["python", "async", "await"],
+    "expected_domain": "backend"
+  },
+  {
+    "query": "kubernetes ingress nginx tls?",
+    "expected_topics": ["kubernetes", "ingress"],
+    "expected_keywords": ["ingress", "nginx", "tls"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "serviceaccount token projected kubernetes",
+    "expected_topics": ["kubernetes", "security", "serviceaccount"],
+    "expected_keywords": ["serviceaccount", "token", "projected"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "kubectl create token serviceaccount",
+    "expected_topics": ["kubernetes", "security", "serviceaccount"],
+    "expected_keywords": ["kubectl", "create", "token"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "rbac role rolebinding serviceaccount kubernetes",
+    "expected_topics": ["kubernetes", "security", "rbac"],
+    "expected_keywords": ["rbac", "rolebinding", "serviceaccount"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "networkpolicy kubernetes example ingress",
+    "expected_topics": ["kubernetes", "networking", "networkpolicy"],
+    "expected_keywords": ["networkpolicy", "ingress", "kubernetes"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "default deny all networkpolicy kubernetes",
+    "expected_topics": ["kubernetes", "networking", "networkpolicy"],
+    "expected_keywords": ["default", "deny", "networkpolicy"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "logs previous crashloopbackoff kubernetes",
+    "expected_topics": ["kubernetes", "debugging"],
+    "expected_keywords": ["logs", "previous", "crashloopbackoff"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "kubectl describe pod events troubleshooting",
+    "expected_topics": ["kubernetes", "debugging"],
+    "expected_keywords": ["describe", "pod", "events"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "persistentvolume persistentvolumeclaim kubernetes",
+    "expected_topics": ["kubernetes", "storage"],
+    "expected_keywords": ["persistentvolume", "persistentvolumeclaim", "storage"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "statefulset volumeclaimtemplates kubernetes",
+    "expected_topics": ["kubernetes", "stateful", "storage"],
+    "expected_keywords": ["statefulset", "volumeclaimtemplates", "kubernetes"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "ingress host path rule kubernetes",
+    "expected_topics": ["kubernetes", "ingress", "networking"],
+    "expected_keywords": ["ingress", "host", "path"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "configmap secret difference kubernetes",
+    "expected_topics": ["kubernetes", "configuration", "security"],
+    "expected_keywords": ["configmap", "secret", "difference"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "mount secret as env var kubernetes pod",
+    "expected_topics": ["kubernetes", "configuration", "secret"],
+    "expected_keywords": ["mount", "secret", "env"],
+    "expected_domain": "devops"
+  },
+  {
+    "query": "capital da franca e populacao?",
+    "expected_topics": ["general"],
+    "expected_keywords": ["franca", "populacao"],
+    "expected_domain": "out_of_scope"
+  },
+  {
+    "query": "como cozinhar arroz soltinho?",
+    "expected_topics": ["general"],
+    "expected_keywords": ["arroz", "cozinhar"],
+    "expected_domain": "out_of_scope"
+  },
+  {
+    "query": "melhor treino para hipertrofia em casa?",
+    "expected_topics": ["fitness"],
+    "expected_keywords": ["treino", "hipertrofia", "casa"],
+    "expected_domain": "out_of_scope"
+  },
+  {
+    "query": "qual filme ganhou o oscar de 2020?",
+    "expected_topics": ["cinema"],
+    "expected_keywords": ["filme", "oscar", "2020"],
+    "expected_domain": "out_of_scope"
+  },
+  {
+    "query": "roteiro de viagem de 7 dias no japao",
+    "expected_topics": ["travel"],
+    "expected_keywords": ["viagem", "japao", "roteiro"],
+    "expected_domain": "out_of_scope"
+  },
+  {
+    "query": "receita de pao de queijo mineiro",
+    "expected_topics": ["culinaria"],
+    "expected_keywords": ["receita", "pao", "queijo"],
+    "expected_domain": "out_of_scope"
+  },
+  {
+    "query": "dicas para entrevista de design grafico",
+    "expected_topics": ["career"],
+    "expected_keywords": ["entrevista", "design", "grafico"],
+    "expected_domain": "out_of_scope"
+  },
+  {
+    "query": "regex para validar cpf em javascript",
+    "expected_topics": ["programming", "regex"],
+    "expected_keywords": ["regex", "cpf", "javascript"],
+    "expected_domain": "out_of_scope"
+  },
+  {
+    "query": "ansible playbook para instalar nginx",
+    "expected_topics": ["ansible", "automation"],
+    "expected_keywords": ["ansible", "playbook", "nginx"],
+    "expected_domain": "out_of_scope"
+  },
+  {
+    "query": "jenkins pipeline declarativa exemplo",
+    "expected_topics": ["jenkins", "cicd"],
+    "expected_keywords": ["jenkins", "pipeline", "declarativa"],
+    "expected_domain": "out_of_scope"
+  },
+  {
+    "query": "linux sed e awk exemplos praticos",
+    "expected_topics": ["linux", "shell"],
+    "expected_keywords": ["linux", "sed", "awk"],
+    "expected_domain": "out_of_scope"
+  },
+  {
+    "query": "configuracao de impressora wifi no windows",
+    "expected_topics": ["suporte", "windows"],
+    "expected_keywords": ["impressora", "wifi", "windows"],
+    "expected_domain": "out_of_scope"
+  }
+]

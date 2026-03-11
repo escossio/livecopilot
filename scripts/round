@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+REAL_FLOW="$PROJECT_ROOT/scripts/run_real_round_flow.sh"
+
+if [[ ! -x "$REAL_FLOW" ]]; then
+  echo "Launcher real nao encontrado: $REAL_FLOW" >&2
+  exit 1
+fi
+
+args=("$@")
+has_mode=0
+has_continuity_toggle=0
+has_embedding_toggle=0
+for arg in "${args[@]}"; do
+  if [[ "$arg" == "--mode" ]]; then
+    has_mode=1
+  fi
+  if [[ "$arg" == "--enable-continuity-hook" || "$arg" == "--disable-continuity-hook" ]]; then
+    has_continuity_toggle=1
+  fi
+  if [[ "$arg" == "--enable-embedding-maintenance" || "$arg" == "--disable-embedding-maintenance" ]]; then
+    has_embedding_toggle=1
+  fi
+done
+
+if [[ "$has_mode" -eq 0 ]]; then
+  args=(--mode run-once "${args[@]}")
+fi
+
+if [[ "$has_continuity_toggle" -eq 0 ]]; then
+  args=(--enable-continuity-hook "${args[@]}")
+fi
+
+if [[ "$has_embedding_toggle" -eq 0 ]]; then
+  args=(--enable-embedding-maintenance "${args[@]}")
+fi
+
+exec "$REAL_FLOW" "${args[@]}"

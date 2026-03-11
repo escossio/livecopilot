@@ -1,0 +1,18 @@
+[
+  {"category": "continuidade_operacional", "query": "continuidade", "mode": "hybrid"},
+  {"category": "continuidade_operacional", "query": "checkpoint da rodada", "mode": "hybrid"},
+  {"category": "continuidade_operacional", "query": "new chat context", "mode": "hybrid"},
+  {"category": "estado_recente", "query": "ultimo closeout", "mode": "hybrid"},
+  {"category": "estado_recente", "query": "smoke round continuity", "mode": "hybrid"},
+  {"category": "estado_recente", "query": "embedding maintenance", "mode": "hybrid"},
+  {"category": "decisoes_projeto", "query": "separacao question_bank knowledge", "mode": "hybrid"},
+  {"category": "decisoes_projeto", "query": "adotar 3 niveis de continuidade", "mode": "hybrid"},
+  {"category": "decisoes_projeto", "query": "comando padrao operador scripts round", "mode": "hybrid"},
+  {"category": "riscos_bloqueios", "query": "risco runuser postgres peer auth", "mode": "hybrid"},
+  {"category": "riscos_bloqueios", "query": "drift de embeddings", "mode": "hybrid"},
+  {"category": "memoria_historica", "query": "mvp continuidade", "mode": "semantic"},
+  {"category": "memoria_historica", "query": "fatos canonicos project_facts", "mode": "semantic"},
+  {"category": "tecnico_semantico", "query": "ranking debug score_final", "mode": "semantic"},
+  {"category": "tecnico_semantico", "query": "realtime", "mode": "semantic"},
+  {"category": "tecnico_semantico", "query": "knowledge_search ranking", "mode": "semantic"}
+]

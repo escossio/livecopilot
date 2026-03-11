@@ -1,0 +1,313 @@
+{
+  "project_name": "Livecopilot",
+  "mission_subtitle": "Copiloto silencioso de conversacao tecnica em tempo real",
+  "status_badge": {
+    "label": "ATIVO (POS-ETAPA 14)",
+    "kind": "info"
+  },
+  "last_updated": "2026-03-11",
+  "mission_current": "Ajudar o usuario durante conversas tecnicas reais com suporte visual em tela, sem interromper a fala e sem fingir completude quando o contexto local for insuficiente.",
+  "round_focus": "Correcao de prioridade do roadmap: etapa 15 oficializada para ingestao das literaturas no banco semantico; expansao externa movida para etapa posterior.",
+  "now": {
+    "current_stage_number": 15,
+    "current_stage": "Etapa 15 aberta (nao iniciada): ingestao das literaturas no banco semantico.",
+    "current_blocker": "Lacuna arquitetural: literaturas ainda nao estao consolidadas no banco semantico local-first.",
+    "next_step": "Executar 15.1 para formalizar contrato operacional de ingestao antes de implementacao funcional.",
+    "avoid_now": "Abrir expansao ampla de busca externa antes de consolidar a base interna."
+  },
+  "drift_risks": [
+    "Promover modo satelite como missao principal.",
+    "Reabrir tuning continuo sem evidencia comparavel.",
+    "Misturar frentes encerradas com backlog futuro.",
+    "Transformar painel em dashboard complexo e perder legibilidade de longe.",
+    "Tratar base local como conhecimento completo."
+  ],
+  "recommended_sequence": [
+    "Reconhecer formalmente etapas 9 e 10 como concluidas apos a 8.",
+    "Retomar etapa 11 como proxima etapa oficial aberta.",
+    "Explicitar dependencia parcial da etapa 6 antes de fechar etapa 11.",
+    "Registrar checkpoint objetivo no STATUS ao concluir cada etapa.",
+    "Preservar contrato governante como gate de escopo."
+  ],
+  "dependencies": [
+    "Fundacao MVP -> nucleo realtime",
+    "Nucleo realtime -> knowledge core e question bank",
+    "Knowledge/question bank -> gap learning e curadoria",
+    "Continuidade -> Project Brain e bootstrap",
+    "Project Brain -> observacao/calibracao com evidencia"
+  ],
+  "stage_index": [
+    {
+      "number": 1,
+      "name": "Fundacao MVP local",
+      "description": "Base executavel FastAPI + UI local + fluxo textual/mock inicial.",
+      "status": "concluida",
+      "dependencies": []
+    },
+    {
+      "number": 2,
+      "name": "Nucleo realtime silencioso",
+      "description": "Contexto de conversa + sugestoes curtas em tela como fluxo principal.",
+      "status": "concluida",
+      "dependencies": [
+        1
+      ]
+    },
+    {
+      "number": 3,
+      "name": "Knowledge core local",
+      "description": "Ingestao documental, chunking, busca local e explainability.",
+      "status": "concluida",
+      "dependencies": [
+        1
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Question bank separado",
+      "description": "Trilha separada de perguntas/avaliacao com coverage/action plan.",
+      "status": "concluida",
+      "dependencies": [
+        3
+      ]
+    },
+    {
+      "number": 5,
+      "name": "Gap learning operacional",
+      "description": "Deteccao de lacunas, priorizacao e ingestao acionada por gaps.",
+      "status": "concluida",
+      "dependencies": [
+        4
+      ]
+    },
+    {
+      "number": 6,
+      "name": "Curadoria de fontes",
+      "description": "Staging/revisao/promocao manual para fontes externas controladas.",
+      "status": "parcial",
+      "dependencies": [
+        3,
+        4
+      ]
+    },
+    {
+      "number": 7,
+      "name": "Continuidade operacional",
+      "description": "Persistencia de runs/facts/memory e trilho de closeout.",
+      "status": "concluida",
+      "dependencies": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "number": 8,
+      "name": "Project Brain + ranking",
+      "description": "Query operacional, bateria offline e calibracao conservadora por evidencia.",
+      "status": "concluida",
+      "dependencies": [
+        7
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Auth PostgreSQL de aplicacao",
+      "description": "DATABASE_URL + role dedicada + TCP/SCRAM no fluxo principal.",
+      "status": "concluida",
+      "dependencies": [
+        7
+      ]
+    },
+    {
+      "number": 10,
+      "name": "Bootstrap/contexto inicial",
+      "description": "Action brief compacto para abertura de nova rodada/chat.",
+      "status": "concluida",
+      "dependencies": [
+        7,
+        8,
+        9
+      ]
+    },
+    {
+      "number": 11,
+      "name": "Busca externa controlada",
+      "description": "Camada complementar sob politica de insuficiencia/curadoria.",
+      "status": "concluida",
+      "dependencies": [
+        3,
+        4,
+        6
+      ]
+    },
+    {
+      "number": 12,
+      "name": "Audio/compreensao plugavel",
+      "description": "Captura de audio local + integracao plugavel, com preferencia operacional atual por API/modelo externo para compreensao de fala e geracao de contexto reconhecido.",
+      "status": "concluida",
+      "dependencies": [
+        2
+      ]
+    },
+    {
+      "number": 13,
+      "name": "Resposta falada realtime",
+      "description": "Saida de voz em tempo real como capacidade futura.",
+      "status": "concluida",
+      "dependencies": [
+        2,
+        12
+      ]
+    },
+    {
+      "number": 14,
+      "name": "ASR local robusto",
+      "description": "Transcricao local robusta em hardware dedicado.",
+      "status": "concluida",
+      "dependencies": [
+        12
+      ]
+    },
+    {
+      "number": 15,
+      "name": "Ingestao das literaturas no banco semantico",
+      "description": "Consolidar base interna local-first com chunking, embeddings, persistencia e validacao de recuperacao.",
+      "status": "nao iniciada",
+      "dependencies": [
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "number": 16,
+      "name": "Busca externa com governanca ampliada",
+      "description": "Expansao externa posterior e controlada, complementar ao core local consolidado.",
+      "status": "fora do escopo atual",
+      "dependencies": [
+        11,
+        15
+      ]
+    }
+  ],
+  "refresh_routine": {
+    "update_when": [
+      "conclusao de frente",
+      "mudanca de prioridade",
+      "mudanca de fase",
+      "regressao importante",
+      "troca do proximo passo recomendado"
+    ],
+    "must_update": [
+      "docs/project_status_state.json",
+      "docs/PROJECT_STAGE_INDEX.md",
+      "STATUS.md",
+      "round summary/handoff da rodada quando aplicavel"
+    ]
+  },
+  "stage_8_focus": {
+    "current_substage": "8.6",
+    "substage_status": "concluida",
+    "stage_status": "concluida",
+    "breakdown_doc": "docs/PROJECT_STAGE_8_BREAKDOWN.md",
+    "is_active_focus": false
+  },
+  "next_official_stage_after_8": {
+    "concluded_after_8": [
+      9,
+      10,
+      11,
+      12,
+      13,
+      14
+    ],
+    "next_open_stage_number": 15,
+    "next_open_stage_name": "Ingestao das literaturas no banco semantico",
+    "next_open_stage_status": "nao iniciada",
+    "reason": "Com a etapa 14 concluida, a prioridade correta e consolidar a base interna de conhecimento (etapa 15) antes da expansao externa.",
+    "dependencies_satisfied": [
+      3,
+      5,
+      6
+    ],
+    "dependencies_pending": []
+  },
+  "stage_11_focus": {
+    "breakdown_doc": "docs/PROJECT_STAGE_11_BREAKDOWN.md",
+    "current_substage": "11.5",
+    "substage_name": "Fechamento da etapa 11",
+    "substage_status": "concluida",
+    "sequence": [
+      "11.1",
+      "11.2",
+      "11.3",
+      "11.4",
+      "11.5"
+    ],
+    "is_active_focus": false
+  },
+  "stage_12_focus": {
+    "definition": "audio/compreensao plugavel",
+    "current_substage": "12.4",
+    "current_substage_status": "concluida",
+    "completed_substages": [
+      "12.1",
+      "12.2",
+      "12.3",
+      "12.4",
+      "12.5"
+    ],
+    "open_substages": [],
+    "stage_status": "concluida",
+    "is_active_focus": false,
+    "external_preferred": true,
+    "local_asr_required": false,
+    "breakdown_doc": "docs/PROJECT_STAGE_12_BREAKDOWN.md",
+    "guardrails_doc": "docs/STAGE_12_5_GUARDRAILS.md"
+  },
+  "stage_13_focus": {
+    "definition": "resposta falada realtime opt-in",
+    "current_substage": "13.4",
+    "current_substage_status": "concluida",
+    "completed_substages": [
+      "13.1",
+      "13.2",
+      "13.3",
+      "13.4"
+    ],
+    "open_substages": [],
+    "stage_status": "concluida",
+    "is_active_focus": false,
+    "voice_output_default_enabled": false,
+    "silent_mode_default": true,
+    "contract_doc": "docs/STAGE_13_1_VOICE_OUTPUT_CONTRACT.md",
+    "adapter_service": "app/services/voice_output.py"
+  },
+  "stage_14_focus": {
+    "definition": "ASR local robusto",
+    "current_substage": "14.4",
+    "current_substage_status": "concluida",
+    "substage_name": "Validacao operacional minima e fechamento da etapa 14",
+    "completed_substages": [
+      "14.1",
+      "14.2",
+      "14.3",
+      "14.4"
+    ],
+    "open_substages": [],
+    "stage_status": "concluida",
+    "is_active_focus": false,
+    "scope_doc": "docs/ROUND_SUMMARY_STAGE_14_SCOPE.md",
+    "contract_doc": "docs/STAGE_14_1_ASR_LOCAL_CONTRACT.md",
+    "adapter_service": "app/services/transcription_local.py"
+  },
+  "next_stage_proposal": {
+    "number": 15,
+    "name": "Ingestao das literaturas no banco semantico",
+    "status": "oficializada (nao iniciada)",
+    "proposal_doc": "docs/ROUND_SUMMARY_NEXT_STAGE_PROPOSAL_AFTER_14.md",
+    "recommended_first_substage": "15.1",
+    "recommended_first_substage_name": "Contrato operacional de ingestao"
+  }
+}

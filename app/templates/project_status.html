@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Livecopilot - Acompanhamento Executivo</title>
+  <link rel="stylesheet" href="/static/project_status.css" />
+</head>
+<body>
+  <main class="layout">
+    <header class="header panel">
+      <div>
+        <h1 id="project-name">Livecopilot</h1>
+        <p class="subtitle" id="mission-subtitle">Carregando estado...</p>
+      </div>
+      <div class="header-meta">
+        <div class="status-badge observing" id="status-badge">CARREGANDO</div>
+        <div class="meta-line">Ultima atualizacao: <strong id="last-updated">--</strong></div>
+        <div class="meta-line">Horario local: <strong id="clock">--:--:--</strong></div>
+      </div>
+    </header>
+
+    <section class="panel">
+      <h2>Missao Atual</h2>
+      <p id="mission-current">Carregando...</p>
+    </section>
+
+    <section class="panel now-block">
+      <h2>Agora</h2>
+      <div class="now-grid">
+        <div>
+          <h3>Etapa Atual (Oficial)</h3>
+          <p id="now-current">--</p>
+        </div>
+        <div>
+          <h3>Proximo Passo</h3>
+          <p id="now-next">--</p>
+        </div>
+        <div>
+          <h3>Evitar Agora</h3>
+          <p id="now-avoid">--</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Sequencia Oficial de Etapas</h2>
+      <div id="stage-index" class="stage-index"></div>
+    </section>
+
+    <section class="panel footer-panel">
+      <h2>Foco da Rodada</h2>
+      <p id="round-focus">--</p>
+    </section>
+  </main>
+
+  <script src="/static/project_status.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+[
+  {
+    "fact_type": "decision",
+    "title": "Separacao question_bank vs knowledge",
+    "body": "Mantida separacao para evitar contaminacao da base documental por conteudo avaliativo.",
+    "fact_status": "active",
+    "component": "semantic-model",
+    "priority": "high",
+    "source_path": "STATUS.md",
+    "source_section": "checkpoint 2026-03-09"
+  },
+  {
+    "fact_type": "milestone",
+    "title": "Continuity automation minima validada",
+    "body": "Wrapper de captura passou a gerar payload canônico e acionar ingest com idempotencia por run_key.",
+    "fact_status": "historical",
+    "component": "continuity",
+    "priority": "high",
+    "source_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_AUTOMATION.md",
+    "source_section": "implementacao realizada"
+  },
+  {
+    "fact_type": "risk",
+    "title": "Autenticacao peer no PostgreSQL local",
+    "body": "No ambiente atual, comandos DB precisam do usuario postgres para execucao sem erro de role root.",
+    "fact_status": "active",
+    "component": "database",
+    "priority": "medium",
+    "source_path": "STATUS.md",
+    "source_section": "observacao operacional"
+  }
+]

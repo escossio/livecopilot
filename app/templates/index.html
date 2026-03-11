@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>livecopilot</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="layout">
+    <header class="header">
+      <div>
+        <h1>livecopilot</h1>
+        <p>Copiloto de comunicacao em tempo real (MVP local)</p>
+      </div>
+      <div class="status" id="status">desconectado</div>
+    </header>
+
+    <section class="input-panel">
+      <form id="ingest-form">
+        <label for="mock-input">Entrada simulada de fala</label>
+        <div class="row">
+          <input id="mock-input" type="text" placeholder="Digite uma frase para simular a fala" />
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <h2>Transcricao</h2>
+        <ul id="transcript"></ul>
+      </div>
+
+      <div class="panel">
+        <h2>Sugestoes</h2>
+        <ul id="suggestions"></ul>
+      </div>
+
+      <div class="panel">
+        <h2>Respostas Rapidas</h2>
+        <ul id="quick-replies"></ul>
+      </div>
+
+      <div class="panel">
+        <h2>Frases de Sustentacao</h2>
+        <ul id="fillers"></ul>
+      </div>
+
+      <div class="panel">
+        <h2>Termos Tecnicos</h2>
+        <ul id="term-hints"></ul>
+      </div>
+    </section>
+
+    <section class="panel debug-panel hidden" id="debug-panel">
+      <h2>Debug Recuperacao</h2>
+      <pre id="knowledge-debug"></pre>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

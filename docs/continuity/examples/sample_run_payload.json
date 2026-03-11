@@ -1,0 +1,42 @@
+{
+  "project_name": "livecopilot",
+  "session_id": "agent-livecopilot",
+  "actor": "codex",
+  "run_type": "implementation",
+  "summary_short": "MVP de continuidade com persistencia em PostgreSQL criado.",
+  "summary_full": "Nesta rodada foi implementada uma camada minima de continuidade operacional com schema de banco, ingestao canonica de rodada, fatos estruturados e memoria semantica resumida para recuperacao futura.",
+  "status_md_path": "STATUS.md",
+  "checkpoint_path": "docs/continuity/ROUND_SUMMARY_CONTINUITY_MVP.md",
+  "facts": [
+    {
+      "fact_type": "decision",
+      "title": "Adotar 3 niveis de continuidade",
+      "body": "O MVP foi estruturado com project_runs, project_facts e project_memory_chunks para separar trilha operacional, fatos canonicos e memoria semantica.",
+      "fact_status": "active",
+      "component": "continuity",
+      "priority": "high",
+      "source_path": "docs/continuity/CONTINUITY_MVP.md",
+      "source_section": "Arquitetura do MVP"
+    },
+    {
+      "fact_type": "milestone",
+      "title": "Schema inicial de continuidade criado",
+      "body": "Foram criadas tabelas SQL com indices e chaves de idempotencia basica para ingestao repetivel.",
+      "fact_status": "active",
+      "component": "database",
+      "priority": "high",
+      "source_path": "scripts/continuity_schema.sql",
+      "source_section": "DDL"
+    },
+    {
+      "fact_type": "pending",
+      "title": "Integracao automatica no loop principal",
+      "body": "A execucao permanece manual no MVP. Integracao automatica sera feita em rodada futura apos validacao operacional.",
+      "fact_status": "partial",
+      "component": "orchestration",
+      "priority": "medium",
+      "source_path": "docs/continuity/CONTINUITY_MVP.md",
+      "source_section": "Limitacoes atuais"
+    }
+  ]
+}
