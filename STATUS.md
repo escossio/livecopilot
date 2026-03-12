@@ -1,3 +1,2795 @@
+## Checkpoint 2026-03-12: closeout UTF-8 dos testes de contrato do round_plan
+- Scanner UTF-8 executado:
+  - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_round_plan_contract_tests_closeout.json --pretty`
+- Resultado:
+  - `total_chunks_scanned=1222`
+  - `bad_chunks_count=0`
+  - `affected_source_files_count=0`
+- Artefato:
+  - `docs/coverage/utf8_hygiene_scan_validation_round_plan_contract_tests_closeout.json`
+
+## Checkpoint 2026-03-12: blindagem automatizada do contrato do round_plan.sh
+- Hipotese da rodada:
+  - reduzir risco de regressao no formato/markers/contrato do plano consolidado por prefixo com teste CLI dedicado em cima do script real.
+- Testes adicionados:
+  - novo arquivo: `tests/test_round_plan_cli_contract.py`
+  - cobertura implementada:
+    - prefixo unico com `--json` e validacao de contrato
+    - multiplos prefixos com `--json` e validacao de contrato
+    - saida humana com header/estrutura minima + payload JSON embarcado
+    - prefixo inexistente com `--strict-source-prefix` falhando com `exit=2` e mensagem clara
+    - validacao basica de zero side-effects (snapshot hash/tamanho para arquivos de estado existentes)
+- Contrato blindado:
+  - campos obrigatorios verificados no JSON consolidado:
+    - `plan_mode`
+    - `source_prefixes`
+    - `ingest_dry_run`
+    - `semantic_list_targets`
+    - `totals`
+    - `divergence`
+  - estrutura humana verificada:
+    - `ROUND PLAN (prefix preview)`
+    - linha `- Prefixos:`
+    - JSON parseavel ao final da saida
+- Resultado dos testes:
+  - suite dedicada:
+    - `./.venv/bin/python -m unittest tests/test_round_plan_cli_contract.py`
+    - `Ran 5 tests in 253.982s` -> `OK`
+  - gate local:
+    - `./scripts/unit_test_gate.sh`
+    - `Ran 191 tests` -> `OK`
+- Evidencias:
+  - `docs/coverage/round_plan_contract_tests_validation_20260312T214600Z.json`
+- Impacto operacional:
+  - regressao de contrato/estrutura do `round_plan.sh` passa a ser detectada automaticamente no fluxo local.
+- Handoff da rodada:
+  - `docs/HANDOFF_ROUND_PLAN_CONTRACT_TESTS_20260312T214600Z.md`
+- Proximo passo recomendado:
+  - opcional: incluir essa suite dedicada como etapa explicita no pipeline CI do projeto.
+
+## Checkpoint 2026-03-12: closeout round_plan prefix mode (UTF-8)
+- Fechamento UTF-8 executado:
+  - comando:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_round_plan_closeout.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=1222`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+  - artefato:
+    - `docs/coverage/utf8_hygiene_scan_validation_round_plan_closeout.json`
+- Status da rodada:
+  - sem pendencias operacionais para o objetivo do comando unificado de planejamento.
+
+## Checkpoint 2026-03-12: comando unificado de planejamento por prefixo (round_plan)
+- Hipotese da rodada:
+  - reduzir friccao operacional com um unico comando de pre-visualizacao que una ingestao (`--dry-run`) e persistencia semantica (`--list-targets`) por prefixo, sem alterar estado.
+- Implementacao do comando de plano:
+  - script operacional: `scripts/round_plan.sh`
+  - entrada suportada:
+    - `--source-prefix` (repetivel)
+    - `--strict-source-prefix`
+    - `--json` (saida consolidada somente em JSON)
+  - composicao interna reaproveitada (sem duplicar logica de dominio):
+    - `python -m app.services.knowledge_ingest ... --dry-run`
+    - `python -m app.services.knowledge_ingest ... --semantic-persist --list-targets`
+  - consolidacao entregue no plano:
+    - `plan_mode`, `source_prefixes`
+    - bloco `ingest_dry_run` (contagens, amostras, truncation)
+    - bloco `semantic_list_targets` (contagens, amostras, truncation, payload kind)
+    - `totals`
+    - `divergence` (ingest_only/semantic_only)
+- Exemplos de uso:
+  - `./scripts/round_plan.sh --source-prefix continuity_docs_selected/`
+  - `./scripts/round_plan.sh --source-prefix continuity_docs_selected/ --source-prefix terraform_docs_selected_incremental/`
+  - `./scripts/round_plan.sh --source-prefix continuity_docs_selected/ --json`
+- Validacao executada:
+  - cenarios obrigatorios:
+    - prefixo unico: `exit=0`, `ingest_total_found=12`, `semantic_total_source_files=12`
+    - multiplos prefixos: `exit=0`, `ingest_total_found=23`, `semantic_total_source_files=23`
+    - prefixo inexistente sem strict: `exit=0`, `payload_kind=semantic_noop_summary`, totais zerados
+    - prefixo inexistente com strict: `exit=2`, erro claro (`strict-source-prefix habilitado...`)
+  - contrato JSON validado:
+    - `plan_mode`, `source_prefixes`, `ingest_dry_run`, `semantic_list_targets`, `totals`, flags de truncation
+  - artefatos:
+    - `docs/coverage/round_plan_single_20260312T213700Z.log`
+    - `docs/coverage/round_plan_multi_20260312T213700Z.log`
+    - `docs/coverage/round_plan_missing_non_strict_20260312T213700Z.log`
+    - `docs/coverage/round_plan_missing_strict_20260312T213700Z.log`
+    - `docs/coverage/round_plan_single_json_20260312T213700Z.json`
+    - `docs/coverage/round_plan_multi_json_20260312T213700Z.json`
+    - `docs/coverage/round_plan_validation_20260312T213700Z.json`
+- Zero side-effects:
+  - verificado snapshot antes/depois em `source_files` (sha256 e tamanho identicos).
+  - `data/knowledge_state.json` e `var/semantic_min.db` ausentes no ambiente durante a checagem; nenhum arquivo de estado foi alterado.
+- Testes executados:
+  - `./.venv/bin/python -m unittest tests/test_knowledge_ingest_cli_modes.py` -> `OK (9 testes)`
+  - `./scripts/unit_test_gate.sh` -> `OK (191 testes)`
+- Documentacao:
+  - novo runbook: `docs/ROUND_PLAN_PREFIX_MODE.md`
+  - referencia adicionada em `docs/INGESTION_SELECTIVE_PREFIX_MODE.md`
+- Impacto operacional:
+  - operador passa a validar escopo de rodada (ingestao + persistencia) em uma unica pre-visualizacao auditavel, sem risco de mutacao de estado.
+- Handoff da rodada:
+  - `docs/HANDOFF_ROUND_PLAN_PREFIX_MODE_20260312T213700Z.md`
+- Proximo passo recomendado:
+  - adicionar teste automatizado dedicado para `scripts/round_plan.sh` (contrato de saida consolidada) no suite de CLI.
+
+## Checkpoint 2026-03-12: refatoracao da resolucao de prefixo para modulo reutilizavel
+- Hipotese da rodada:
+  - centralizar normalizacao/validacao/resolucao de prefixos em modulo comum, sem mudar comportamento externo.
+- Extracao realizada:
+  - novo modulo comum: `app/services/source_prefix_resolution.py`
+  - funcoes extraidas:
+    - `normalize_source_prefix(...)`
+    - `validate_source_prefix(...)`
+    - `normalize_source_prefixes(...)`
+    - `matches_source_prefix(...)`
+    - `resolve_source_files_from_prefixes(...)`
+- Integracao:
+  - `app/services/knowledge_ingest.py` passou a consumir o modulo comum.
+  - comportamento preservado:
+    - precedencia de `--semantic-source-file`
+    - selecao por `--source-prefix` quando nao ha source_file explicito
+    - modo legado sem prefixo
+    - strict e no-op semantico
+- Compatibilidade:
+  - interface CLI externa inalterada.
+  - output de troubleshooting preservado (`selection_mode`, prefixos, contagens e total resolvido).
+- Validacao de regressao (5 cenarios):
+  - logs:
+    - `docs/coverage/prefix_semantic_refactor_valid_single_20260312T200125Z.log`
+    - `docs/coverage/prefix_semantic_refactor_valid_multi_20260312T200125Z.log`
+    - `docs/coverage/prefix_semantic_refactor_missing_non_strict_20260312T200125Z.log`
+    - `docs/coverage/prefix_semantic_refactor_missing_strict_20260312T200125Z.log`
+    - `docs/coverage/prefix_semantic_refactor_explicit_sourcefile_compat_20260312T200125Z.log`
+  - consolidado:
+    - `docs/coverage/prefix_semantic_refactor_validation_20260312T200125Z.json`
+  - assertivas:
+    - `valid_single_semantic_prefix_mode=true`
+    - `valid_multi_semantic_prefix_mode=true`
+    - `missing_non_strict_noop=true`
+    - `missing_strict_fails=true`
+    - `explicit_sourcefile_kept=true`
+- Documentacao:
+  - sem alteracao nesta rodada (interface externa nao mudou).
+- Fechamento checklist (UTF-8):
+  - `docs/coverage/utf8_hygiene_scan_validation_prefix_resolution_refactor_closeout.json`
+  - `total_chunks_scanned=1222`, `bad_chunks_count=0`, `affected_source_files_count=0`
+- Arquivos alterados nesta rodada:
+  - `app/services/source_prefix_resolution.py`
+  - `app/services/knowledge_ingest.py`
+  - `STATUS.md`
+  - `docs/HANDOFF_PREFIX_RESOLUTION_REFACTOR_20260312T200733Z.md`
+  - `docs/coverage/prefix_semantic_refactor_*.log`
+  - `docs/coverage/prefix_semantic_refactor_validation_20260312T200125Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_prefix_resolution_refactor_closeout.json`
+  - `STATUS.md.bak-20260312T200733Z-prefix-resolution-refactor`
+- Proximo passo recomendado:
+  - expor essas funcoes reutilizaveis em outros fluxos internos que ainda validam prefixo localmente para reduzir divergencia futura.
+
+## Checkpoint 2026-03-12: persistencia semantica seletiva por prefixo
+- Hipotese da rodada:
+  - reutilizar a trilha existente por `--semantic-source-file`, mas habilitar selecao por `--source-prefix` no caminho de `--semantic-persist`.
+- Implementacao realizada:
+  - `app/services/knowledge_ingest.py`
+    - adicionada resolucao `prefixo -> source_files` a partir do estado canônico (`knowledge_state.json`) para o caminho semântico.
+    - regras de selecao na persistencia:
+      - se `--semantic-source-file` explicito existir: prioridade total (modo legado preservado)
+      - senao, se `--source-prefix` existir: resolve `source_files` por prefixo e persiste apenas esse conjunto
+      - sem prefixo e sem source_file explicito: comportamento atual preservado
+    - troubleshooting no output semântico:
+      - prefixos normalizados
+      - contagem de source_files resolvidos por prefixo
+      - total resolvido
+      - `selection_mode` no JSON final (`resolved_from_source_prefix` ou `explicit_source_file`)
+    - com prefixo sem matches:
+      - sem strict: no-op semantico (nao persiste nada) com resumo explicito
+      - com strict: falha clara.
+- Compatibilidade preservada:
+  - caminho legado por `--semantic-source-file` mantido e validado.
+  - ingestao seletiva ja existente nao foi quebrada.
+- Validacao executada (5 cenarios):
+  - artefatos de log:
+    - `docs/coverage/prefix_semantic_persist_valid_single_20260312T193529Z.log`
+    - `docs/coverage/prefix_semantic_persist_valid_multi_20260312T193529Z.log`
+    - `docs/coverage/prefix_semantic_persist_missing_non_strict_20260312T193529Z.log`
+    - `docs/coverage/prefix_semantic_persist_missing_strict_20260312T193529Z.log`
+    - `docs/coverage/prefix_semantic_persist_explicit_sourcefile_compat_20260312T193529Z.log`
+  - consolidado:
+    - `docs/coverage/prefix_semantic_persist_validation_20260312T193529Z.json`
+  - resultados:
+    - prefixo valido: `documents_selected=12`, `documents_processed=12`, `chunks_persisted=39`, `selection_mode=resolved_from_source_prefix`
+    - multiplos prefixos: `documents_selected=23`, `documents_processed=23`, `chunks_persisted=111`, `selection_mode=resolved_from_source_prefix`
+    - prefixo inexistente sem strict: `documents_selected=0` (no-op), sem erro
+    - prefixo inexistente com strict: falha clara (`exit=2`)
+    - compat legado `--semantic-source-file` explicito: `documents_selected=1`, `documents_processed=1`, `selection_mode=explicit_source_file`
+  - assertivas do consolidado:
+    - `valid_single_semantic_prefix_mode=true`
+    - `valid_multi_semantic_prefix_mode=true`
+    - `missing_non_strict_noop=true`
+    - `missing_strict_fails=true`
+    - `explicit_sourcefile_kept=true`
+- Documentacao atualizada:
+  - `docs/INGESTION_SELECTIVE_PREFIX_MODE.md`
+  - inclui persistencia por prefixo, prioridade entre filtros, strict e troubleshooting.
+- Fechamento checklist (UTF-8):
+  - `docs/coverage/utf8_hygiene_scan_validation_prefix_semantic_persist_closeout.json`
+- Arquivos alterados nesta rodada:
+  - `app/services/knowledge_ingest.py`
+  - `docs/INGESTION_SELECTIVE_PREFIX_MODE.md`
+  - `STATUS.md`
+  - `docs/HANDOFF_PREFIX_SEMANTIC_PERSIST_20260312T194126Z.md`
+  - `docs/coverage/prefix_semantic_persist_*.log`
+  - `docs/coverage/prefix_semantic_persist_validation_20260312T193529Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_prefix_semantic_persist_closeout.json`
+  - `STATUS.md.bak-20260312T194126Z-prefix-semantic-persist`
+- Proximo passo recomendado:
+  - adicionar interface direta opcional por prefixo na camada `semantic_min_api` para reduzir acoplamento de resolucao no wrapper e facilitar observabilidade por dominio.
+
+## Checkpoint 2026-03-12: hardening minimo do modo seletivo por prefixo
+- Hipotese da rodada:
+  - adicionar guardrails/ergonomia ao `--source-prefix` sem quebrar compatibilidade e sem tocar na persistencia semantica.
+- Implementacao realizada:
+  - `app/services/knowledge_ingest.py`
+    - validacao explicita de prefixos:
+      - rejeita valor vazio apos normalizacao
+      - rejeita prefixo com segmento `..` (path traversal)
+    - novo flag: `--strict-source-prefix`
+      - com prefixos informados e `found=0`, falha com erro claro (exit code `2`)
+      - sem strict, comportamento atual preservado (`found=0` permitido)
+    - resumo melhorado:
+      - imprime prefixos normalizados
+      - imprime contagem de arquivos encontrados por prefixo
+    - tratamento de erro amigavel:
+      - retorna `Erro: ...` sem traceback verboso para falhas de validacao.
+  - `docs/INGESTION_SELECTIVE_PREFIX_MODE.md`
+    - documentacao de strict mode
+    - regras de validacao de prefixo
+    - exemplos de erro esperado.
+- Persistencia semantica:
+  - nao alterada nesta rodada.
+- Validacao executada (5 cenarios):
+  - artefatos de log:
+    - `docs/coverage/prefix_ingest_hardening_valid_single_20260312T192630Z.log`
+    - `docs/coverage/prefix_ingest_hardening_valid_multi_20260312T192630Z.log`
+    - `docs/coverage/prefix_ingest_hardening_missing_non_strict_20260312T192630Z.log`
+    - `docs/coverage/prefix_ingest_hardening_missing_strict_20260312T192630Z.log`
+    - `docs/coverage/prefix_ingest_hardening_invalid_dotdot_20260312T192630Z.log`
+  - consolidado:
+    - `docs/coverage/prefix_ingest_hardening_validation_20260312T192630Z.json`
+  - resultados:
+    - valido (prefixo unico): `found=12`, `exit=0`
+    - valido (multiplos): `found=23`, `exit=0`
+    - inexistente sem strict: `found=0`, `exit=0`
+    - inexistente com strict: `exit=2`, erro claro
+    - invalido com `..`: `exit=2`, erro claro
+  - assertivas:
+    - `valid_single_ok=true`
+    - `valid_multi_ok=true`
+    - `missing_non_strict_ok=true`
+    - `missing_strict_fails_cleanly=true`
+    - `invalid_dotdot_fails_cleanly=true`
+- Fechamento checklist (UTF-8):
+  - `docs/coverage/utf8_hygiene_scan_validation_prefix_ingest_hardening_closeout.json`
+  - `total_chunks_scanned=1282`
+  - `bad_chunks_count=0`
+  - `affected_source_files_count=0`
+- Arquivos alterados nesta rodada:
+  - `app/services/knowledge_ingest.py`
+  - `docs/INGESTION_SELECTIVE_PREFIX_MODE.md`
+  - `STATUS.md`
+  - `docs/HANDOFF_PREFIX_INGEST_HARDENING_20260312T193121Z.md`
+  - `docs/coverage/prefix_ingest_hardening_*.log`
+  - `docs/coverage/prefix_ingest_hardening_validation_20260312T192630Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_prefix_ingest_hardening_closeout.json`
+  - `STATUS.md.bak-20260312T193121Z-prefix-ingest-hardening`
+- Proximo passo recomendado:
+  - iniciar extensao natural: persistencia semantica seletiva por prefixo (mapear prefixo -> source_files no state e aplicar no `ingest_knowledge_base_min`).
+
+## Checkpoint 2026-03-12: suporte nativo a ingestao seletiva por prefixo
+- Hipotese da rodada:
+  - permitir rodadas incrementais previsiveis via filtro de origem por prefixo sem quebrar o modo legado.
+- Analise do pipeline atual:
+  - `scripts/ingest_knowledge.sh` atua como wrapper e repassa args para `app.services.knowledge_ingest`.
+  - varredura de candidatos ocorre em `process_knowledge_base` via `list_raw_files()`.
+  - limpeza de estado/artefatos e geracao de manifest sao feitas no mesmo fluxo.
+- Implementacao realizada:
+  - `app/services/knowledge_ingest.py`
+    - novo argumento CLI repetivel: `--source-prefix`
+    - normalizacao de prefixo relativo a `data/knowledge_raw`
+    - filtro de candidatos por prefixo no fluxo de ingestao canonica
+    - modo sem prefixo mantido (comportamento legado)
+    - em modo seletivo:
+      - limpeza de stale state restrita ao escopo dos prefixos
+      - limpeza de parsed/chunks restrita ao escopo dos prefixos
+    - resumo imprime `Prefixos de origem` quando ativo.
+  - `scripts/ingest_knowledge.sh`
+    - comentario operacional com exemplos de `--source-prefix` (wrapper segue repassando args).
+  - documentacao nova:
+    - `docs/INGESTION_SELECTIVE_PREFIX_MODE.md`
+- Como funciona:
+  - sem prefixo:
+    - `scripts/ingest_knowledge.sh` => varredura completa de `knowledge_raw` (legado)
+  - com prefixo unico:
+    - `scripts/ingest_knowledge.sh --source-prefix continuity_docs_selected/`
+  - com multiplos prefixos:
+    - `scripts/ingest_knowledge.sh --source-prefix continuity_docs_selected/ --source-prefix terraform_docs_selected_incremental/`
+- Validacao controlada (artefatos):
+  - logs:
+    - `docs/coverage/prefix_ingest_test_default_controlled_20260312T184818Z.log`
+    - `docs/coverage/prefix_ingest_test_selective_20260312T184818Z.log`
+    - `docs/coverage/prefix_ingest_test_selective_multi_20260312T184818Z.log`
+  - consolidado:
+    - `docs/coverage/prefix_ingest_validation_20260312T184818Z.json`
+  - resultados:
+    - default (sem prefixo, validacao controlada): `found=269`, `processed=0`, `prefixes=''`
+    - seletivo unico (`continuity_docs_selected/`): `found=12`, `processed=0`, `prefixes='continuity_docs_selected'`
+    - seletivo multiplo (`continuity_docs_selected/ + terraform_docs_selected_incremental/`): `found=23`, `processed=0`, `prefixes='continuity_docs_selected, terraform_docs_selected_incremental'`
+    - assertivas: `default_mode_kept=true`, `single_prefix_scoped=true`, `multi_prefix_scoped=true`
+- Observacao operacional:
+  - tentativa inicial de teste legado bruto (com clones oficiais no corpus completo) foi interrompida por custo alto de varredura; validacao final foi concluida em modo controlado mantendo semantica do comando sem prefixo.
+- Impacto no pipeline:
+  - melhora previsibilidade de rodadas incrementais/continuidade.
+  - elimina necessidade de isolamento manual para cenarios de ingestao seletiva.
+  - nao houve alteracao na persistencia semantica.
+- Fechamento checklist (UTF-8):
+  - `docs/coverage/utf8_hygiene_scan_validation_prefix_ingest_closeout.json`
+  - `total_chunks_scanned=1282`, `bad_chunks_count=0`, `affected_source_files_count=0`
+- Arquivos alterados nesta rodada:
+  - `app/services/knowledge_ingest.py`
+  - `scripts/ingest_knowledge.sh`
+  - `docs/INGESTION_SELECTIVE_PREFIX_MODE.md`
+  - `STATUS.md`
+  - `docs/HANDOFF_PREFIX_INGEST_SELECTIVE_MODE_20260312T190253Z.md`
+  - `docs/coverage/prefix_ingest_test_default_controlled_20260312T184818Z.log`
+  - `docs/coverage/prefix_ingest_test_selective_20260312T184818Z.log`
+  - `docs/coverage/prefix_ingest_test_selective_multi_20260312T184818Z.log`
+  - `docs/coverage/prefix_ingest_validation_20260312T184818Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_prefix_ingest_closeout.json`
+  - `STATUS.md.bak-20260312T190253Z-prefix-ingest`
+- Proximo passo recomendado:
+  - adicionar `--source-prefix` aos runbooks/automacoes de rodadas incrementais para evitar varredura desnecessaria do corpus completo.
+
+## Checkpoint 2026-03-12: rodada de continuidade (ingestao + persistencia seletiva)
+- Hipotese da rodada:
+  - transformar conhecimento operacional/procedimental recente em continuidade semantica com recorte pequeno, canônico e durável.
+- Inventario e classificacao executados:
+  - artefato classificado:
+    - `docs/coverage/continuity_inventory_classified_20260312T183209Z.json`
+  - categorias aplicadas:
+    - `canonico_ingerivel`
+    - `util_mas_derivado`
+    - `efemero_nao_ingerir`
+- Criterio de selecao:
+  - incluir apenas `.md` operacionais duraveis (checklists/handoffs estruturais).
+  - excluir logs volumosos e JSONs analiticos efemeros para evitar ruido semantico.
+- Recorte selecionado (12 docs):
+  - `docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md`
+  - `docs/UTF8_HYGIENE_SCANNER.md`
+  - `docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md`
+  - `docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md`
+  - `docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md`
+  - `docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md`
+  - `docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md`
+  - `docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md`
+  - `docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md`
+  - `docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md`
+  - `docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md`
+  - `docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md`
+  - inventario final:
+    - `docs/coverage/continuity_docs_selected_20260312T183209Z.json`
+    - `docs/coverage/continuity_docs_selected_20260312T183209Z.txt`
+- Materializacao do recorte:
+  - diretorio canonico:
+    - `data/knowledge_raw/continuity_docs_selected`
+  - validacao:
+    - `docs/coverage/continuity_materialization_validation_20260312T183209Z.json`
+    - `docs/coverage/continuity_materialized_files_20260312T183209Z.txt`
+  - total materializado: `12`.
+- Ingestao canonica controlada:
+  - comando executado com isolamento temporario de `_official_repo_clones` para evitar varredura indevida.
+  - log:
+    - `docs/coverage/continuity_ingest_controlled_20260312T183209Z.log`
+  - validacao:
+    - `docs/coverage/continuity_ingest_controlled_validation_20260312T183209Z.json`
+    - `docs/coverage/continuity_source_files_ingested_20260312T183209Z.txt`
+  - resultados:
+    - `Arquivos encontrados=269`
+    - `Arquivos processados=12`
+    - `Arquivos ignorados=257`
+    - `Erros=0`
+    - `Nao suportados=0`
+    - `docs de continuidade no state=12`
+    - `chunks de continuidade no state=39`
+- Persistencia semantica seletiva:
+  - comando:
+    - `scripts/with-semantic-env.sh .venv/bin/python -m app.services.knowledge_ingest --semantic-persist --semantic-limit-docs 12 --semantic-max-chunks-per-doc 10 --semantic-source-file <cada source_file de continuity>`
+  - log:
+    - `docs/coverage/continuity_semantic_persist_20260312T183209Z.log`
+  - validacao:
+    - `docs/coverage/continuity_semantic_persist_validation_20260312T183209Z.json`
+  - resultados:
+    - `documents_selected=12`
+    - `documents_processed=12`
+    - `documents_validated=12`
+    - `documents_failed=0`
+    - `chunks_persisted=39`
+    - `sources_with_error=[]`
+    - `duplicate_source_checksum_rows=[]`
+    - parametro usado: `--semantic-max-chunks-per-doc=10`.
+- Validacao semantica (queries de prova):
+  - `checklist de fechamento semantico utf8 hygiene scan`
+    - top1: `continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md`
+  - `regra c feature flag enable rule c`
+    - top1: `continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md`
+  - `threshold global well max 0.60 terraform`
+    - top1: `continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md`
+  - `knowledge gap engine priorizacao por dominio`
+    - top1: `continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md`
+- Fechamento checklist (UTF-8):
+  - comando:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_continuity_round_closeout.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=1282`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+- Observacao operacional:
+  - duas tentativas iniciais de ingestao/persistencia dispararam varredura de `_official_repo_clones`; fluxo corrigido com isolamento fora de `knowledge_raw` e rerun controlado.
+- Proximo passo recomendado:
+  - executar micro-bateria de regressao semantica focada em perguntas de continuidade (processo/checklists/governanca) para confirmar estabilidade de recuperacao apos novas rodadas de dominio.
+
+## Checkpoint 2026-03-12: preparacao da Regra C para promocao controlada (flag experimental)
+- Hipotese da rodada:
+  - consolidar a Regra C em trilha sustentavel e auditavel para promocao futura, mantendo baseline como padrao de producao.
+- Leitura/inspecao executada:
+  - `STATUS.md`
+  - `scripts/composed_rule_experimental_eval.py`
+  - `app/services/semantic_classification_experimental.py`
+  - artefatos cross-domain existentes em `docs/coverage/`.
+- Preparacao de codigo realizada (sem alterar producao):
+  - mantido modulo experimental reutilizavel:
+    - `app/services/semantic_classification_experimental.py`
+  - utilitario experimental preparado com modos explicitos e isolamento:
+    - `scripts/composed_rule_experimental_eval.py`
+  - ajuste de robustez aplicado:
+    - bootstrap de `PROJECT_ROOT` no `sys.path` para evitar dependencia de `PYTHONPATH=.`.
+- Como a feature flag/modo experimental funciona:
+  - padrao seguro (baseline):
+    - `--mode baseline` (default)
+  - Regra C apenas sob ativacao explicita:
+    - `--mode rule_c` ou `--mode compare`
+    - + `--enable-rule-c` OU `LIVECOPILOT_EXPERIMENTAL_RULE_C=1`
+  - sem ativacao explicita, o script bloqueia execucao da Regra C.
+- Fluxo reutilizavel baseline vs experimental:
+  - comparacao completa:
+    - `scripts/with-semantic-env.sh .venv/bin/python scripts/composed_rule_experimental_eval.py --signals-file docs/coverage/composed_rule_signals_consolidated_20260312T180937Z.json --output-prefix docs/coverage/rule_c_promotion_prep --mode compare --enable-rule-c --pretty`
+  - guardrails em modo dedicado (reuso sobre artefato):
+    - `--mode guardrails --comparison-file <arquivo_compare.json>`
+- Guardrails automatizados (PASS/FAIL):
+  - `no_well_to_partial_regressions`
+  - `no_non_official_promotions`
+  - `non_target_well_gain_cap <= 1`
+  - `target_domain_terraform_gain >= 1`
+- Validacao executada nesta rodada:
+  - comparacao rodada via fluxo novo:
+    - `docs/coverage/rule_c_promotion_prep_baseline_vs_rule_c_20260312T182232Z.json`
+    - `docs/coverage/rule_c_promotion_prep_guardrails_20260312T182232Z.json`
+    - `docs/coverage/rule_c_promotion_prep_decision_20260312T182232Z.json`
+  - recheck de guardrails em modo dedicado:
+    - `docs/coverage/rule_c_promotion_prep_recheck_guardrails_20260312T182150Z.json`
+    - `docs/coverage/rule_c_promotion_prep_recheck_decision_20260312T182150Z.json`
+- Equivalencia de resultado confirmada:
+  - baseline: `well=31`, `partial=13`, `gap=0`
+  - experimental Regra C: `well=33`, `partial=11`, `gap=0`
+  - delta: `well=+2`, `partial=-2`, `gap=0`
+  - impacto por dominio: Terraform `+2`, demais `+0`
+  - guardrails: `all_pass=true`
+- Estado de prontidao para promocao:
+  - `ready_for_controlled_promotion_next_phase=true`
+  - interpretacao: pronto para fase seguinte controlada (ex.: PR/CI experimental), ainda sem ativacao padrao em producao.
+- Fechamento checklist (UTF-8):
+  - comando:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_rule_c_promotion_prep_closeout.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=1243`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+- Arquivos alterados nesta rodada:
+  - `STATUS.md`
+  - `scripts/composed_rule_experimental_eval.py`
+  - `docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md`
+  - `docs/coverage/rule_c_promotion_prep_baseline_vs_rule_c_20260312T182147Z.json`
+  - `docs/coverage/rule_c_promotion_prep_guardrails_20260312T182147Z.json`
+  - `docs/coverage/rule_c_promotion_prep_decision_20260312T182147Z.json`
+  - `docs/coverage/rule_c_promotion_prep_baseline_vs_rule_c_20260312T182232Z.json`
+  - `docs/coverage/rule_c_promotion_prep_guardrails_20260312T182232Z.json`
+  - `docs/coverage/rule_c_promotion_prep_decision_20260312T182232Z.json`
+  - `docs/coverage/rule_c_promotion_prep_recheck_guardrails_20260312T182150Z.json`
+  - `docs/coverage/rule_c_promotion_prep_recheck_decision_20260312T182150Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_rule_c_promotion_prep_closeout.json`
+  - `STATUS.md.bak-20260312T182232Z-rule-c-promotion-prep`
+- Proximo passo recomendado:
+  - preparar PR de promocao controlada da Regra C em trilha experimental (flag default off) com gate de CI para os guardrails e comparacao baseline-vs-experimental.
+
+## Checkpoint 2026-03-12: prototipo experimental offline da Regra C (com guardrails)
+- Hipotese da rodada:
+  - validar se a Regra C melhora classificacao de Terraform sem efeitos colaterais relevantes nos demais dominios, sem alterar producao.
+- Implementacao experimental realizada:
+  - novo utilitario isolado: `scripts/composed_rule_experimental_eval.py`
+  - comportamento:
+    - classifica baseline (regra atual)
+    - classifica Regra C experimental
+    - compara por dominio/global
+    - avalia guardrails
+    - emite artefatos de comparacao, guardrails e decisao
+  - isolamento:
+    - nenhum ponto de producao foi alterado.
+- Regra C prototipada (experimental):
+  - well se baseline atual for satisfeito
+  - OU se:
+    - `max_score >= 0.55`
+    - `avg_score >= 0.50`
+    - `top1_expected_official = true`
+  - mantido:
+    - `gap_if_max_below=0.45`
+- Base usada na avaliacao:
+  - sinais consolidados cross-domain (44 queries):
+    - `docs/coverage/composed_rule_signals_consolidated_20260312T180937Z.json`
+- Artefatos gerados nesta rodada:
+  - baseline vs experimental:
+    - `docs/coverage/rule_c_experimental_baseline_vs_rule_c_20260312T181537Z.json`
+  - guardrails:
+    - `docs/coverage/rule_c_experimental_guardrails_20260312T181537Z.json`
+  - decisao final:
+    - `docs/coverage/rule_c_experimental_decision_20260312T181537Z.json`
+- Resultado baseline vs Regra C (global):
+  - baseline: `well=31`, `partial=13`, `gap=0`
+  - experimental: `well=33`, `partial=11`, `gap=0`
+  - delta: `well=+2`, `partial=-2`, `gap=0`
+- Impacto por dominio:
+  - `terraform`: `partial->well=+2`, `delta_well=+2`
+  - `aws_iam`: `0`
+  - `docker`: `0`
+  - `observability`: `0`
+  - `kubernetes`: `0`
+  - regressao `well->partial`: `0` em todos.
+- Guardrails aplicados e resultado:
+  - `no_well_to_partial_regressions`: pass (`0`)
+  - `no_non_official_promotions`: pass (`0`)
+  - `non_target_well_gain_cap <=1`: pass (`0`)
+  - `target_domain_terraform_gain >=1`: pass (`2`)
+  - `all_pass=true`
+- Decisao objetiva:
+  - `rule_c_ready_for_promotion_preparation`
+  - interpretacao:
+    - Regra C merece evoluir para etapa de preparacao de promocao (ainda com validacao ampliada), sem promocao direta.
+- Fechamento checklist (UTF-8):
+  - comando:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_rule_c_experimental_closeout.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=1243`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+- Arquivos alterados nesta rodada:
+  - `STATUS.md`
+  - `docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md`
+  - `scripts/composed_rule_experimental_eval.py`
+  - `docs/coverage/rule_c_experimental_baseline_vs_rule_c_20260312T181537Z.json`
+  - `docs/coverage/rule_c_experimental_guardrails_20260312T181537Z.json`
+  - `docs/coverage/rule_c_experimental_decision_20260312T181537Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_rule_c_experimental_closeout.json`
+  - `STATUS.md.bak-20260312T181537Z-rule-c-experimental-round`
+- Proximo passo recomendado:
+  - abrir PR de preparacao (feature flag/offline mode) para Regra C com bateria cross-domain ampliada e suite de guardrails automatizada antes de decisao de rollout.
+
+## Checkpoint 2026-03-12: simulacao de regra composta minima (cross-domain, sem alteracao em producao)
+- Hipotese da rodada:
+  - verificar se uma regra composta simples (alem de `max_score`) captura casos borderline de Terraform sem inflar injustamente outros dominios.
+- Escopo executado:
+  - reutilizacao dos artefatos cross-domain existentes (44 queries, 5 dominios).
+  - consolidacao de sinais por query.
+  - simulacao de 3 regras compostas auditaveis (A/B/C).
+  - comparacao contra baseline atual (`well_max=0.60`, `avg>=0.45`, `gap<0.45`).
+  - nenhum ajuste da regra real de producao.
+- Sinais usados (por query):
+  - `max_score`
+  - `avg_score`
+  - `class_current`
+  - `top1_source_file`
+  - `top1_expected_official`
+  - `topk_expected_count`, `top3_expected_count`, `topk_expected_ratio`
+  - `topk_score_spread` (top1-top5)
+  - `topk_convergent_approx` (aproximacao explicita: `top3_expected_count>=2` e `spread<=0.08`)
+  - `delta_max_vs_before` (quando `before` comparavel estava disponivel)
+- Artefatos desta rodada:
+  - `docs/coverage/composed_rule_signals_consolidated_20260312T180937Z.json`
+  - `docs/coverage/composed_rule_simulation_20260312T180937Z.json`
+  - `docs/coverage/composed_rule_decision_20260312T180937Z.json`
+- Regras compostas simuladas:
+  - Regra A (`rule_A_max055_official`):
+    - well se baseline OU (`max>=0.55` e `avg>=0.45` e `top1_expected_official`)
+  - Regra B (`rule_B_max056_official_convergent`):
+    - well se baseline OU (`max>=0.56` e `avg>=0.45` e `top1_expected_official` e `topk_convergent_approx`)
+  - Regra C (`rule_C_max055_avg050_official`):
+    - well se baseline OU (`max>=0.55` e `avg>=0.50` e `top1_expected_official`)
+- Impacto por regra (resumo):
+  - Baseline:
+    - `well=31/44`
+  - Regra A:
+    - `well=34/44` (`+3`)
+    - `partial->well`: Terraform `+2`, nao-Terraform `+1` (Observability)
+  - Regra B:
+    - `well=31/44` (`+0`)
+    - `partial->well`: Terraform `+0`, nao-Terraform `+0`
+  - Regra C:
+    - `well=33/44` (`+2`)
+    - `partial->well`: Terraform `+2`, nao-Terraform `+0`
+- Conclusao objetiva:
+  - melhor candidato: **Regra C**.
+  - motivo:
+    - melhora Terraform (`+2`) sem inflacao lateral nos demais dominios (`+0`),
+    - sem regressao `well->partial`.
+- Decisao da rodada:
+  - classificacao: `regra_composta_minima_merece_prototipo`.
+  - recomendacao:
+    - prototipar Regra C em branch experimental com avaliacao ampliada antes de qualquer mudanca de producao.
+- Fechamento checklist (UTF-8):
+  - comando:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_composed_rule_closeout.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=1243`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+- Arquivos alterados nesta rodada:
+  - `STATUS.md`
+  - `docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md`
+  - `docs/coverage/composed_rule_signals_consolidated_20260312T180937Z.json`
+  - `docs/coverage/composed_rule_simulation_20260312T180937Z.json`
+  - `docs/coverage/composed_rule_decision_20260312T180937Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_composed_rule_closeout.json`
+  - `STATUS.md.bak-20260312T180937Z-composed-rule-simulation`
+- Proximo passo recomendado:
+  - abrir prototipo implementavel da Regra C apenas em modo experimento/offline, com guardrails cross-domain e comparacao direta contra baseline atual.
+
+## Checkpoint 2026-03-12: simulacao cross-domain de threshold semantico (well/partial/gap)
+- Hipotese da rodada:
+  - validar se reduzir `well_max` melhoraria Terraform sem inflacao artificial nos demais dominios validados.
+- Dominios comparados (artefatos `after` reais):
+  - `aws_iam`
+  - `docker`
+  - `terraform` (round2 after)
+  - `observability`
+  - `kubernetes`
+- Coleta comparavel consolidada:
+  - artefato: `docs/coverage/threshold_cross_domain_query_consolidated_20260312T180249Z.json`
+  - total de queries comparadas: `44`
+  - campos por query: `domain`, `query`, `max_score`, `avg_score`, `coverage_class`, `top1_source_file`, `top1_expected_official`.
+- Thresholds simulados (sem alterar sistema real):
+  - `well_max`: `0.60`, `0.59`, `0.58`, `0.57`, `0.56`, `0.55`, `0.54`
+  - fixos: `gap_if_max_below=0.45`, `well_covered_requires_avg_at_least=0.45`
+  - artefato: `docs/coverage/threshold_cross_domain_simulation_20260312T180249Z.json`
+- Resultado da simulacao por threshold (resumo global):
+  - `0.60`: `well=31/44` (`70.45%`), `partial_to_well=0`
+  - `0.58`: `well=32/44` (`72.73%`), `partial_to_well=1` (ganho fora de Terraform)
+  - `0.57`: `well=33/44` (`75.00%`), `partial_to_well=2` (ganho fora de Terraform)
+  - `0.56`: `well=34/44` (`77.27%`), `partial_to_well=3` (ganho fora de Terraform)
+  - `0.55`: `well=36/44` (`81.82%`), `partial_to_well=5`
+    - Terraform: `+2 well`
+    - nao-Terraform: `+3 well` (inflacao lateral maior que ganho Terraform)
+  - `0.54`: `well=38/44` (`86.36%`), inflacao ainda maior.
+- Impacto por dominio (ponto-chave):
+  - Terraform so comeca a converter `partial -> well` em `well_max=0.55`.
+  - Antes disso (`0.59` a `0.56`), quem infla primeiro sao outros dominios (ex.: Kubernetes/Observability), sem resolver Terraform.
+- Simulacao de regra composta minima (analitica):
+  - regra testada: `avg>=0.45` e (`max>=0.60` ou (`max>=0.57` e `top1_expected_official`)).
+  - artefato: `docs/coverage/threshold_cross_domain_composed_rule_simulation_20260312T180249Z.json`
+  - resultado:
+    - Terraform: `partial_to_well=0`
+    - nao-Terraform: `partial_to_well=1`
+  - leitura: regra composta minima testada nao resolveu Terraform neste corte.
+- Decisao objetiva (cross-domain):
+  - artefato: `docs/coverage/threshold_cross_domain_decision_20260312T180249Z.json`
+  - decisao: `manter_threshold_global_atual`
+  - racional:
+    - Terraform so converte com afrouxamento agressivo (`well_max=0.55`),
+    - e neste ponto a inflacao de `well` nos demais dominios (`+3`) supera o ganho de Terraform (`+2`).
+- Recomendacao:
+  - manter `well_max=0.60` global nesta etapa.
+  - nao recalibrar threshold real agora.
+  - evoluir diagnostico/avaliacao por sinal adicional e tuning de queryset/retrieval nas queries residuals.
+- Fechamento checklist (UTF-8):
+  - comando:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_threshold_cross_domain_closeout.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=1243`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+- Arquivos alterados nesta rodada:
+  - `STATUS.md`
+  - `docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md`
+  - `docs/coverage/threshold_cross_domain_query_consolidated_20260312T180249Z.json`
+  - `docs/coverage/threshold_cross_domain_simulation_20260312T180249Z.json`
+  - `docs/coverage/threshold_cross_domain_composed_rule_simulation_20260312T180249Z.json`
+  - `docs/coverage/threshold_cross_domain_decision_20260312T180249Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_threshold_cross_domain_closeout.json`
+  - `STATUS.md.bak-20260312T180249Z-threshold-cross-domain-diagnosis`
+- Proximo passo recomendado:
+  - executar micro-round de recall/queryset nas queries Terraform ainda `partial` e rerodar esta mesma analise cross-domain antes de qualquer mudanca de threshold real.
+
+## Checkpoint 2026-03-12: diagnostico de classificacao semantica Terraform (threshold calibration)
+- Hipotese da rodada:
+  - verificar se o `partial` residual de Terraform apos round2 foi causado por threshold muito rigido ou por residual legitimo de relevancia.
+- Base analisada:
+  - `docs/coverage/semantic_coverage_audit_terraform_incremental_round2_after_20260312T165211Z.json`
+  - bateria comparavel: 8 queries Terraform.
+- Thresholds atuais identificados:
+  - `gap_if_max_below=0.45`
+  - `well_covered_if_max_at_least=0.60`
+  - `well_covered_requires_avg_at_least=0.45`
+- Artefatos de diagnostico gerados:
+  - `docs/coverage/terraform_threshold_diagnosis_scores_20260312T174039Z.json`
+  - `docs/coverage/terraform_threshold_diagnosis_distribution_20260312T174039Z.json`
+  - `docs/coverage/terraform_threshold_diagnosis_simulation_20260312T174039Z.json`
+  - `docs/coverage/terraform_threshold_diagnosis_report_20260312T174039Z.json`
+- Extracao de scores (por query):
+  - para cada query: `score_max`, `score_avg`, thresholds e distancia ate o threshold de `well`.
+  - distancia media ao threshold de `well` por `max_score`:
+    - `avg_distance_to_well_max=0.016099`
+  - distancia media ao threshold de `well` por `avg_score`:
+    - `avg_distance_to_well_avg=-0.107130` (avg ja acima do minimo; gargalo e `max_score`).
+- Distribuicao de scores (Terraform round2 after):
+  - `max_score`: `min=0.535169`, `max=0.633677`, `mean=0.583901`, `p50=0.580524`, `p75=0.618958`, `p90=0.627171`
+  - `avg_score`: `min=0.528387`, `max=0.616037`, `mean=0.557130`, `p50=0.554769`, `p75=0.565001`, `p90=0.582036`
+  - leitura: a distribuicao geral esta relativamente saudavel, mas parte das queries fica abaixo de `well_max=0.60`.
+- Simulacao de recalibracao de `well_max`:
+  - testados cenarios: `0.59`, `0.58`, `0.57`, `0.56`, `0.55`, `0.54`.
+  - resultado:
+    - sem conversao `partial -> well` em `0.59/0.58/0.57/0.56`.
+    - primeira conversao sem regressao aparece somente em `0.55`.
+- Conclusao objetiva:
+  - classificacao: `threshold_correto_partial_legitimo`.
+  - racional:
+    - para converter classes, seria necessario afrouxar `well_max` ate `0.55` (ou menor), considerado ajuste agressivo para um criterio geral.
+    - portanto, o `partial` residual atual e mais consistente com limite real de recall/relevancia das queries residuais do que com erro simples de threshold.
+- Recomendacao:
+  - manter thresholds atuais na classificacao geral.
+  - atacar residual via ajuste de queryset/recall para as queries restantes em `partial`.
+  - se houver intencao de calibrar threshold, validar primeiro em modo offline multi-dominio antes de promover.
+- Fechamento checklist (UTF-8):
+  - comando:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_threshold_round_closeout.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=1243`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+- Arquivos alterados nesta rodada:
+  - `STATUS.md`
+  - `docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md`
+  - `docs/coverage/terraform_threshold_diagnosis_scores_20260312T174039Z.json`
+  - `docs/coverage/terraform_threshold_diagnosis_distribution_20260312T174039Z.json`
+  - `docs/coverage/terraform_threshold_diagnosis_simulation_20260312T174039Z.json`
+  - `docs/coverage/terraform_threshold_diagnosis_report_20260312T174039Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_threshold_round_closeout.json`
+  - `STATUS.md.bak-20260312T174039Z-terraform-threshold-diagnosis`
+- Proximo passo recomendado:
+  - rodada micro-targeted nas 3 queries ainda `partial` com foco em recall/contexto da query, sem reduzir `well_max` global neste momento.
+
+## Checkpoint 2026-03-12: Terraform incremental round 2 operacional (query-residual guided)
+- Hipotese da rodada:
+  - reduzir `partial` residual de Terraform com recorte minimo orientado pelas 4 queries remanescentes `partial`.
+- Recorte executado:
+  - diretorio canonico: `data/knowledge_raw/terraform_docs_selected_incremental_round2`
+  - total de docs: `12` (7 refresh seletivo + 5 docs oficiais faltantes)
+  - workaround aplicado: `.mdx -> .md` apenas no recorte materializado (compatibilidade comprovada do parser).
+  - artefato:
+    - `docs/coverage/terraform_incremental_round2_materialization_validation_20260312T165211Z.json`
+- Ingestao canonica controlada:
+  - execucao final em escopo correto com `_official_repo_clones` isolado fora de `knowledge_raw` durante a ingestao.
+  - artefato:
+    - `docs/coverage/terraform_incremental_round2_ingest_validation_20260312T165211Z.json`
+  - resultado:
+    - `total_found=257`
+    - `processed=12`
+    - `skipped=245`
+    - `errors=0`
+    - `unsupported=0`
+    - `state_entries=12`
+    - `parsed_files_count=12`
+    - `chunk_files_count=12`
+    - `chunk_total_from_state=177`
+    - `manifest_delta: document_count=+12, chunk_document_count=+12, chunk_count=+177`
+- Persistencia semantica seletiva:
+  - executada somente para os `source_files` do recorte round2.
+  - parametro explicito: `--semantic-max-chunks-per-doc=32`.
+  - implementacao operacional para manter escopo:
+    - persistencia chamada direto via `ingest_knowledge_base_min` (evitando reingestao ampla automatica do CLI de ingest).
+  - artefato:
+    - `docs/coverage/terraform_incremental_round2_semantic_persist_validation_20260312T165211Z.json`
+  - resultado:
+    - `documents_selected=12`
+    - `documents_processed=12`
+    - `documents_validated=12`
+    - `documents_failed=0`
+    - `chunks_persisted=171`
+    - `sources_with_error_count=0`
+    - `duplicate_source_checksum_rows_count=0`
+- Auditoria before/after (mesma bateria comparavel):
+  - before (reuso explicito do after da round1):
+    - `docs/coverage/semantic_coverage_audit_terraform_incremental_round2_before_20260312T165211Z.json`
+  - after:
+    - `docs/coverage/semantic_coverage_audit_terraform_incremental_round2_after_20260312T165211Z.json`
+  - compare:
+    - `docs/coverage/semantic_coverage_audit_terraform_incremental_round2_compare_before_after_20260312T165211Z.json`
+  - agregados:
+    - before: `well=4 partial=4 gap=0 avg_max=0.579820 avg_avg=0.550237 top1_from_incremental_count=0`
+    - after: `well=4 partial=4 gap=0 avg_max=0.583901 avg_avg=0.557130 top1_from_incremental_count=1`
+    - delta: `well=0 partial=0 gap=0 avg_max=+0.004081 avg_avg=+0.006893 top1_from_incremental_count=+1`
+    - `questions_class_changed=[]`
+- Foco nas 4 queries que estavam `partial`:
+  - artefato:
+    - `docs/coverage/terraform_incremental_round2_partial_queries_impact_20260312T165211Z.json`
+  - resultado:
+    - `terraform force unlock`: classe manteve `parcial`, `delta_max=0.000000`, `delta_avg=+0.009684`
+    - `terraform modules best practices`: classe manteve `parcial`, `delta_max=0.000000`, `delta_avg=+0.004323`
+    - `terraform module sources`: classe manteve `parcial`, `delta_max=0.000000`, `delta_avg=+0.005295`
+    - `terraform init plan apply workflow`: classe manteve `parcial`, `delta_max=+0.032656`, `delta_avg=+0.035815`, top1 migrou para `intro/core-workflow` do recorte round2
+- Impacto em prioridade Terraform:
+  - gap engine:
+    - `docs/coverage/knowledge_gap_engine_validation_post_terraform_incremental_round2_20260312T165211Z.json`
+  - impacto consolidado:
+    - `docs/coverage/terraform_incremental_round2_priority_impact_20260312T165211Z.json`
+  - before: `priority_score=34.410`, `partial=4`
+  - after: `priority_score=33.847`, `partial=4`
+  - delta: `priority_score=-0.563`, `partial=0`, `avg_max=+0.004081`, `avg_avg=+0.006893`
+  - classificacao: `melhora_marginal` (com queda material de score, sem reduzir contagem de partial)
+- Incidente operacional e correcao aplicada:
+  - duas tentativas iniciais acionaram processamento indevido de `_official_repo_clones` (isolamento interno em `knowledge_raw` e uso do CLI com `--semantic-persist` que reingere a base).
+  - correcao: interrompido, saneado com ingestao controlada, isolamento movido para `/tmp`, e persistencia seletiva feita sem reingestao ampla.
+- Fechamento checklist (UTF-8):
+  - comando:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_terraform_incremental_round2_closeout_20260312T165211Z.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=1243`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+  - artefatos:
+    - `docs/coverage/utf8_hygiene_scan_validation_terraform_incremental_round2_closeout_20260312T165211Z.json`
+    - `docs/coverage/utf8_hygiene_scan_validation_terraform_incremental_round2_closeout.json`
+- Arquivos alterados nesta rodada:
+  - `STATUS.md`
+  - `docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md`
+  - `docs/coverage/terraform_incremental_round2_materialization_validation_20260312T165211Z.json`
+  - `docs/coverage/terraform_incremental_round2_materialized_files_20260312T165211Z.txt`
+  - `docs/coverage/terraform_incremental_round2_ingest_20260312T165211Z.log`
+  - `docs/coverage/terraform_incremental_round2_ingest_sanitize_20260312T165211Z.log`
+  - `docs/coverage/terraform_incremental_round2_ingest_validation_20260312T165211Z.json`
+  - `docs/coverage/terraform_incremental_round2_source_files_ingested_20260312T165211Z.txt`
+  - `docs/coverage/terraform_incremental_round2_persist_20260312T165211Z.log`
+  - `docs/coverage/terraform_incremental_round2_semantic_persist_validation_20260312T165211Z.json`
+  - `docs/coverage/semantic_coverage_audit_terraform_incremental_round2_before_20260312T165211Z.json`
+  - `docs/coverage/semantic_coverage_audit_terraform_incremental_round2_after_20260312T165211Z.json`
+  - `docs/coverage/semantic_coverage_audit_terraform_incremental_round2_compare_before_after_20260312T165211Z.json`
+  - `docs/coverage/terraform_incremental_round2_partial_queries_impact_20260312T165211Z.json`
+  - `docs/coverage/knowledge_gap_engine_validation_post_terraform_incremental_round2_20260312T165211Z.json`
+  - `docs/coverage/terraform_incremental_round2_priority_impact_20260312T165211Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_terraform_incremental_round2_closeout_20260312T165211Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_terraform_incremental_round2_closeout.json`
+  - `STATUS.md.bak-20260312T165211Z-terraform-incremental-round2-operational`
+- Proximo passo recomendado:
+  - manter Terraform em monitoramento (score caiu para `33.847`) e abrir rodada micro-targeted apenas para as 3 queries ainda estaveis em `parcial` (`force unlock`, `modules best practices`, `module sources`) com ajuste fino de queryset/threshold antes de novo aumento de corpus.
+
+## Checkpoint 2026-03-12: Terraform incremental round 2 - diagnostico por query residual
+- Hipotese da rodada:
+  - explicar por que 4 queries Terraform seguiram `partial` apos a round incremental 1 e decidir, com evidencia, se a round 2 deve executar.
+- Escopo executado (sem nova persistencia):
+  - leitura dos artefatos reais da round incremental 1 (`after` + `compare`).
+  - extracao objetiva das 4 queries `partial` com top1/top-k/sources.
+  - classificacao de causa por query.
+  - validacao de docs oficiais candidatos no clone local e presenca/ausencia no corpus chunked.
+  - proposta minima de recorte round 2 guiada por query residual.
+  - fechamento UTF-8.
+- Queries que permaneceram `partial` (AFTER):
+  - `terraform force unlock` (`max=0.557261`, `avg=0.533286`, `top1` incremental)
+  - `terraform modules best practices` (`max=0.535169`, `avg=0.524064`)
+  - `terraform module sources` (`max=0.554565`, `avg=0.540309`)
+  - `terraform init plan apply workflow` (`max=0.512563`, `avg=0.492652`, `top1` incremental)
+- Diagnostico por query (categoria objetiva):
+  - `terraform force unlock`:
+    - categoria: `query_ja_melhorou_mas_ainda_nao_cruza_threshold`
+    - evidencia: top1 ja oficial incremental; ganho em `avg` (+0.020609), mas sem troca de classe; top-k com duplicacao entre base e incremental.
+  - `terraform modules best practices`:
+    - categoria: `falta_documento_oficial_especifico`
+    - evidencia: top-k concentrado em `modules/develop/structure`; doc oficial `language/style.mdx` existe no clone e estava ausente no corpus chunked.
+  - `terraform module sources`:
+    - categoria: `falta_documento_oficial_especifico`
+    - evidencia: top-k concentrado em `modules/sources`; doc oficial `language/block/module.mdx` (detalhe do argumento `source`) existe no clone e estava ausente no corpus chunked.
+  - `terraform init plan apply workflow`:
+    - categoria: `falta_documento_oficial_especifico`
+    - evidencia: top-k dominado por `plan/apply`; docs de visao de workflow (`cli/run/index.mdx`, `intro/core-workflow.mdx`, `cli/commands/index.mdx`) existem no clone e estavam ausentes no corpus chunked.
+- Leitura consolidada da causa residual:
+  - principal: `falta_documento_oficial_especifico` em `3/4` queries.
+  - secundaria: `query_ja_melhorou_mas_ainda_nao_cruza_threshold` em `1/4` query.
+- Proposta minima para round 2 (guiada por query):
+  - `recommended_semantic_max_chunks_per_doc=32`.
+  - manter para refresh semantico seletivo (7 docs):
+    - `force-unlock`, `locking`, `plan`, `init`, `apply`, `modules/sources`, `modules/develop/structure`.
+  - adicionar (materializar + ingerir) 5 docs oficiais faltantes:
+    - `content/terraform/v1.14.x/docs/language/style.mdx`
+    - `content/terraform/v1.14.x/docs/language/block/module.mdx`
+    - `content/terraform/v1.14.x/docs/cli/run/index.mdx`
+    - `content/terraform/v1.14.x/docs/intro/core-workflow.mdx`
+    - `content/terraform/v1.14.x/docs/cli/commands/index.mdx`
+  - nota de pipeline: manter compatibilidade materializando `.mdx -> .md` no diretorio incremental round 2.
+- Decisao recomendada:
+  - **executar Terraform incremental round 2** (controlada), pois ha evidencia clara e acionavel de docs oficiais ausentes diretamente alinhados as queries `partial`.
+- Fechamento checklist (UTF-8):
+  - comando:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_terraform_incremental_round2_diagnosis_closeout_20260312T164346Z.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=1072`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+- Artefatos gerados nesta rodada:
+  - `docs/coverage/terraform_incremental_partial_queries_after_20260312T164346Z.json`
+  - `docs/coverage/terraform_incremental_round2_query_diagnosis_20260312T164346Z.json`
+  - `docs/coverage/terraform_incremental_round2_missing_docs_validation_20260312T164346Z.json`
+  - `docs/coverage/terraform_incremental_round2_docs_selected_proposed_20260312T164346Z.json`
+  - `docs/coverage/terraform_incremental_round2_docs_selected_proposed_20260312T164346Z.txt`
+  - `docs/coverage/utf8_hygiene_scan_validation_terraform_incremental_round2_diagnosis_closeout_20260312T164346Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_terraform_incremental_round2_diagnosis_closeout.json`
+  - `docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md`
+  - `STATUS.md`
+  - `STATUS.md.bak-20260312T164346Z-terraform-round2-diagnosis`
+- Proximo passo recomendado:
+  - executar a round 2 operacional com recorte minimo proposto (5 docs novos + refresh seletivo dos 7 docs-alvo) e `--semantic-max-chunks-per-doc=32`, seguida da mesma bateria before/after para validar queda de `partial` e `priority_score`.
+
+## Checkpoint 2026-03-12: Terraform incremental operacional (ingestao + persistencia + auditoria)
+- Hipotese da rodada:
+  - reduzir partial residual de Terraform com recorte incremental oficial focado em `modules`, `locking` e `workflow`, aumentando densidade semantica por doc (`--semantic-max-chunks-per-doc > 8`).
+- Escopo executado (rodada completa):
+  - materializacao canonica do recorte incremental em `data/knowledge_raw/terraform_docs_selected_incremental`.
+  - ingestao canonica controlada (`scripts/ingest_knowledge.sh`) com isolamento temporario de `_official_repo_clones`.
+  - persistencia semantica seletiva somente para `terraform_docs_selected_incremental/*`.
+  - auditoria Terraform before/after comparavel + compare.
+  - reavaliacao de prioridade via gap engine.
+  - scanner UTF-8 de fechamento.
+- Evidencia de bloqueio real e correcao minima:
+  - primeira tentativa com extensoes `.mdx` falhou no parser de ingestao (`unsupported=11`, `chunk_files_count=0`, `chunks_persisted=0`).
+  - correcao aplicada sem ampliar escopo: rematerializacao do mesmo recorte convertendo `.mdx -> .md` apenas no diretorio incremental alvo.
+  - artefatos da tentativa inicial (mantidos para auditoria):
+    - `docs/coverage/terraform_incremental_ingest_validation_20260312T162513Z.json`
+    - `docs/coverage/terraform_incremental_semantic_persist_validation_20260312T162513Z.json`
+- Materializacao incremental (corrigida):
+  - artefato: `docs/coverage/terraform_incremental_materialization_fix_mdx_to_md_20260312T163007Z.json`
+  - `proposed_count=11`
+  - `materialized_count=11`
+  - `missing_count=0`
+  - `markdown_count=11`
+- Ingestao canonica controlada (corrigida):
+  - artefato: `docs/coverage/terraform_incremental_ingest_validation_fix_mdx_to_md_20260312T163007Z.json`
+  - `total_found=245`, `processed=11`, `skipped=234`, `errors=0`, `unsupported=0`
+  - `state_entries=11`, `parsed_files_count=11`, `chunk_files_count=11`
+  - `chunk_total_from_state=134`
+  - `manifest_delta: document_count=0, chunk_document_count=+11, chunk_count=+134`
+- Persistencia semantica seletiva (corrigida):
+  - comando base: `scripts/with-semantic-env.sh .venv/bin/python -m app.services.knowledge_ingest --semantic-persist --semantic-source-file terraform_docs_selected_incremental/* --semantic-max-chunks-per-doc 24`
+  - artefato: `docs/coverage/terraform_incremental_semantic_persist_validation_fix_mdx_to_md_20260312T163007Z.json`
+  - parametro usado: `semantic_max_chunks_per_doc=24`
+  - `documents_selected=11`
+  - `documents_processed=11`
+  - `documents_validated=11`
+  - `documents_failed=0`
+  - `chunks_persisted=132`
+  - `sources_with_error_count=0`
+  - `duplicate_source_checksum_rows_count=0`
+- Auditoria before/after Terraform (8 queries, bateria comparavel):
+  - before: `docs/coverage/semantic_coverage_audit_terraform_incremental_before_20260312T162513Z.json`
+    - `well=4`, `partial=4`, `gap=0`, `avg_max=0.579812`, `avg_avg=0.543165`, `top1_from_incremental_count=0`
+  - after: `docs/coverage/semantic_coverage_audit_terraform_incremental_after_fix_mdx_to_md_20260312T163007Z.json`
+    - `well=4`, `partial=4`, `gap=0`, `avg_max=0.579820`, `avg_avg=0.550237`, `top1_from_incremental_count=2`
+  - compare: `docs/coverage/semantic_coverage_audit_terraform_incremental_compare_before_after_fix_mdx_to_md_20260312T163007Z.json`
+    - delta: `well=0`, `partial=0`, `gap=0`, `avg_max=+0.000008`, `avg_avg=+0.007072`, `top1_from_incremental_count=+2`
+    - sem mudanca de classe; migrou top1 para incremental em:
+      - `terraform force unlock`
+      - `terraform init plan apply workflow`
+- Reavaliacao de prioridade Terraform:
+  - gap engine: `docs/coverage/knowledge_gap_engine_validation_post_terraform_incremental_fix_mdx_to_md_20260312T163007Z.json`
+  - impacto: `docs/coverage/terraform_incremental_priority_impact_fix_mdx_to_md_20260312T163007Z.json`
+  - before: `priority_score=34.411`, `partial=4`
+  - after: `priority_score=34.410`, `partial=4`
+  - delta: `priority_score=-0.001`, `partial=0`, `avg_avg=+0.007072`
+  - classificacao objetiva: `melhora_marginal`.
+- Fechamento checklist (UTF-8):
+  - comando:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_terraform_incremental_round_closeout.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=1072`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+- Arquivos alterados nesta rodada:
+  - `STATUS.md`
+  - `docs/HANDOFF_TERRAFORM_INCREMENTAL_OPERATIONAL_ROUND_20260312T163007Z.md`
+  - `docs/coverage/terraform_incremental_materialization_validation_20260312T162513Z.json`
+  - `docs/coverage/terraform_incremental_materialized_files_20260312T162513Z.txt`
+  - `docs/coverage/terraform_incremental_ingest_validation_20260312T162513Z.json`
+  - `docs/coverage/terraform_incremental_source_files_ingested_20260312T162513Z.txt`
+  - `docs/coverage/terraform_incremental_semantic_persist_validation_20260312T162513Z.json`
+  - `docs/coverage/semantic_coverage_audit_terraform_incremental_before_20260312T162513Z.json`
+  - `docs/coverage/semantic_coverage_audit_terraform_incremental_after_20260312T162513Z.json`
+  - `docs/coverage/semantic_coverage_audit_terraform_incremental_compare_before_after_20260312T162513Z.json`
+  - `docs/coverage/knowledge_gap_engine_validation_post_terraform_incremental_20260312T162513Z.json`
+  - `docs/coverage/terraform_incremental_priority_impact_20260312T162513Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_terraform_incremental_round_closeout_20260312T162513Z.json`
+  - `docs/coverage/terraform_incremental_materialization_fix_mdx_to_md_20260312T163007Z.json`
+  - `docs/coverage/terraform_incremental_materialized_files_fix_mdx_to_md_20260312T163007Z.txt`
+  - `docs/coverage/terraform_incremental_ingest_fix_mdx_to_md_20260312T163007Z.log`
+  - `docs/coverage/terraform_incremental_ingest_validation_fix_mdx_to_md_20260312T163007Z.json`
+  - `docs/coverage/terraform_incremental_source_files_ingested_fix_mdx_to_md_20260312T163007Z.txt`
+  - `docs/coverage/terraform_incremental_persist_fix_mdx_to_md_20260312T163007Z.log`
+  - `docs/coverage/terraform_incremental_semantic_persist_validation_fix_mdx_to_md_20260312T163007Z.json`
+  - `docs/coverage/semantic_coverage_audit_terraform_incremental_after_fix_mdx_to_md_20260312T163007Z.json`
+  - `docs/coverage/semantic_coverage_audit_terraform_incremental_compare_before_after_fix_mdx_to_md_20260312T163007Z.json`
+  - `docs/coverage/knowledge_gap_engine_validation_post_terraform_incremental_fix_mdx_to_md_20260312T163007Z.json`
+  - `docs/coverage/terraform_incremental_priority_impact_fix_mdx_to_md_20260312T163007Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_terraform_incremental_round_closeout_20260312T163007Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_terraform_incremental_round_closeout.json`
+  - `STATUS.md.bak-20260312T163007Z-terraform-incremental-operational-final`
+- Proximo passo recomendado:
+  - executar uma rodada incremental Terraform 2, ainda seletiva, focando apenas queries que permaneceram `partial` e subindo densidade para docs longos de workflow/modules em `--semantic-max-chunks-per-doc` de 32 (com mesma bateria before/after para validar se reduz `partial`).
+
+## Checkpoint 2026-03-12: Terraform incremental prep orientado por subtema residual
+- Hipotese da rodada:
+  - explicar por que Terraform ainda lidera `priority_score` e preparar um recorte incremental pequeno, sem nova ingestao/persistencia nesta etapa.
+- Diagnostico objetivo (sem execucao de ingestao):
+  - artefatos inspecionados:
+    - `docs/coverage/semantic_coverage_audit_terraform_before_20260312.json`
+    - `docs/coverage/semantic_coverage_audit_terraform_after_20260312.json`
+    - `docs/coverage/semantic_coverage_audit_terraform_compare_before_after_20260312.json`
+    - `docs/coverage/domain_coverage_consolidated_20260312.json`
+    - `docs/coverage/knowledge_gap_engine_validation_post_kubernetes_20260312T155249Z.json`
+  - evidencias consolidadas em:
+    - `docs/coverage/terraform_priority_diagnosis_20260312T161918Z.json`
+  - leitura tecnica do `priority_score=34.411`:
+    - `gap=0` (nao ha lacuna residual)
+    - `partial=4/8` queries (residual principal)
+    - decomposicao da formula:
+      - `gap_ratio=0.0`
+      - `partial_ratio=0.5`
+      - `quality_penalty=max(0,0.6-avg_max)=0.020188`
+      - `weight=1.15`
+      - `priority_score_recomputed=34.411`
+  - conclusao de causa:
+    - Terraform lidera por **partial residual + peso do dominio**, nao por `gap`.
+    - problema atual e principalmente de **densidade/recall semantico** em docs longos (ex.: `plan.md 26->8`, `modules/sources.md 21->8` no `semantic_chunk_count`).
+    - nao foi observado problema de governanca de fonte nas queries parciais (top results ja em `terraform_docs_selected/*`).
+- Subtemas priorizados (residuais):
+  - definidos a partir do gap engine e das queries parciais:
+    - `modules` (`partial=2`, `avg_max=0.544858`)
+    - `locking` (`partial=1`, `avg_max=0.557296`)
+    - `workflow` (`partial=1`, `avg_max=0.564817`)
+  - artefato:
+    - `docs/coverage/terraform_subthemes_prioritized_20260312T161918Z.json`
+- Fontes oficiais mapeadas:
+  - `hashicorp/web-unified-docs` (clone local):
+    - `data/knowledge_raw/_official_repo_clones/web-unified-docs`
+    - raiz de docs alvo: `content/terraform/v1.14.x/docs`
+  - `developer.hashicorp.com/terraform` (equivalente publico oficial)
+  - artefato:
+    - `docs/coverage/terraform_official_sources_mapping_incremental_20260312T161918Z.json`
+- Recorte seletivo sugerido (pequeno e controlado):
+  - alvo da proxima rodada:
+    - `data/knowledge_raw/terraform_docs_selected_incremental`
+  - inventario proposto (11 docs .mdx oficiais v1.14.x):
+    - `content/terraform/v1.14.x/docs/language/modules/sources.mdx`
+    - `content/terraform/v1.14.x/docs/language/modules/develop/structure.mdx`
+    - `content/terraform/v1.14.x/docs/language/modules/develop/composition.mdx`
+    - `content/terraform/v1.14.x/docs/language/modules/develop/providers.mdx`
+    - `content/terraform/v1.14.x/docs/language/modules/develop/refactoring.mdx`
+    - `content/terraform/v1.14.x/docs/cli/commands/plan.mdx`
+    - `content/terraform/v1.14.x/docs/cli/commands/init.mdx`
+    - `content/terraform/v1.14.x/docs/cli/commands/apply.mdx`
+    - `content/terraform/v1.14.x/docs/cli/commands/force-unlock.mdx`
+    - `content/terraform/v1.14.x/docs/language/state/locking.mdx`
+    - `content/terraform/v1.14.x/docs/cli/commands/modules.mdx`
+  - artefatos:
+    - `docs/coverage/terraform_incremental_docs_selected_proposed_20260312T161918Z.json`
+    - `docs/coverage/terraform_incremental_docs_selected_proposed_20260312T161918Z.txt`
+- Decisao desta rodada:
+  - manter escopo de preparacao (sem ingestao/persistencia nova) e avançar para rodada incremental Terraform focada nesses subtemas com `--semantic-max-chunks-per-doc` maior que 8.
+- Fechamento checklist (UTF-8):
+  - comando:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_terraform_incremental_prep_closeout_20260312T161931Z.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=940`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+- Arquivos alterados nesta rodada:
+  - `STATUS.md`
+  - `docs/HANDOFF_TERRAFORM_INCREMENTAL_PREP_20260312T161931Z.md`
+  - `docs/coverage/terraform_priority_diagnosis_20260312T161918Z.json`
+  - `docs/coverage/terraform_subthemes_prioritized_20260312T161918Z.json`
+  - `docs/coverage/terraform_official_sources_mapping_incremental_20260312T161918Z.json`
+  - `docs/coverage/terraform_incremental_docs_selected_proposed_20260312T161918Z.json`
+  - `docs/coverage/terraform_incremental_docs_selected_proposed_20260312T161918Z.txt`
+  - `docs/coverage/utf8_hygiene_scan_validation_terraform_incremental_prep_closeout_20260312T161931Z.json`
+  - `STATUS.md.bak-20260312T161931Z-terraform-incremental-prep`
+- Proximo passo recomendado:
+  - rodada operacional curta:
+    1) materializar `terraform_docs_selected_incremental`;
+    2) ingestao canonica controlada;
+    3) persistencia seletiva com `--semantic-max-chunks-per-doc` maior;
+    4) reauditoria before/after Terraform e decisao manter/reverter.
+
+## Checkpoint 2026-03-12: reavaliacao pos-Kubernetes (consolidado + gap engine + decisao)
+- Hipotese da rodada:
+  - reavaliar, sem nova ingestao/persistencia, se Kubernetes exige segunda rodada de densidade semantica ou se a prioridade operacional deve migrar para outro dominio.
+- Consolidado atualizado:
+  - consolidado pos-Kubernetes gerado:
+    - `docs/coverage/domain_coverage_consolidated_post_kubernetes_20260312T155249Z.json`
+  - consolidado canonico do dia atualizado:
+    - `docs/coverage/domain_coverage_consolidated_20260312.json`
+  - linha Kubernetes no consolidado:
+    - `documents_selected=12`
+    - `chunks_persisted=95`
+    - before: `well=6 partial=5 gap=1 avg_max=0.617786 avg_avg=0.552623`
+    - after: `well=9 partial=3 gap=0 avg_max=0.648533 avg_avg=0.605661`
+    - delta: `well=+3 partial=-2 gap=-1 avg_max=+0.030747 avg_avg=+0.053038`
+    - `gain_classification=marginal_positivo`
+- Gap engine (snapshot comparavel com Kubernetes):
+  - execucao:
+    - `scripts/with-semantic-env.sh .venv/bin/python -m app.services.knowledge_gap_engine --domain aws_iam --domain docker --domain terraform --domain observability --domain kubernetes --top-k 5 --output docs/coverage/knowledge_gap_engine_validation_post_kubernetes_20260312T155249Z.json --pretty`
+  - ranking por `priority_score`:
+    - `terraform=34.411` (rank 1)
+    - `observability=22.688` (rank 2)
+    - `docker=14.438` (rank 3)
+    - `kubernetes=11.0` (rank 4)
+    - `aws_iam=6.875` (rank 5)
+  - Kubernetes no gap engine:
+    - `well=5 partial=1 gap=0 avg_max=0.671841 avg_avg=0.607098`
+    - `weak_subthemes=[]`
+  - artefatos:
+    - `docs/coverage/knowledge_gap_engine_validation_post_kubernetes_20260312T155249Z.json`
+    - `docs/coverage/kubernetes_post_semantic_priority_decision_20260312T155249Z.json`
+- Decisao recomendada (evidencia objetiva):
+  - **avancar para outro dominio** nesta proxima rodada.
+  - racional:
+    - Kubernetes ja zerou `gap` no before/after focado (`1 -> 0`) e elevou cobertura (`well 6 -> 9`).
+    - no ranking comparavel do gap engine, Kubernetes caiu para `rank 4/5` com `priority_score=11.0`, abaixo de Terraform/Observability/Docker.
+    - houve ganho de source governance (`top1_from_kubernetes_docs_selected_count +5`), reduzindo urgencia de segunda rodada imediata.
+- Fechamento checklist (UTF-8):
+  - comando:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_kubernetes_reassessment_closeout_20260312T155326Z.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=940`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+- Arquivos alterados nesta rodada:
+  - `STATUS.md`
+  - `docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md`
+  - `app/services/knowledge_coverage_consolidator.py`
+  - `docs/coverage/domain_coverage_consolidated_post_kubernetes_20260312T155249Z.json`
+  - `docs/coverage/domain_coverage_consolidated_20260312.json`
+  - `docs/coverage/knowledge_gap_engine_validation_post_kubernetes_20260312T155249Z.json`
+  - `docs/coverage/kubernetes_post_semantic_priority_decision_20260312T155249Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_kubernetes_reassessment_closeout_20260312T155326Z.json`
+  - `STATUS.md.bak-20260312T155326Z-kubernetes-reassessment-priority`
+- Proximo passo recomendado:
+  - executar rodada curta no dominio com maior `priority_score` atual (`terraform`) com recorte seletivo incremental e auditoria before/after comparavel.
+
+## Checkpoint 2026-03-12: Kubernetes - persistencia semantica seletiva + auditoria before/after
+- Hipotese da rodada:
+  - persistir semanticamente apenas `kubernetes_docs_selected/*` e medir impacto de ranking com bateria pratica focada no dominio.
+- Validacao de estado inicial:
+  - `source_files` Kubernetes no `knowledge_state`: `12`.
+  - parsed Kubernetes presentes: `12`.
+  - chunk payloads Kubernetes presentes: `12`.
+  - artefato:
+    - `docs/coverage/kubernetes_semantic_persist_precheck_20260312T153820Z.json`
+- Persistencia semantica seletiva executada:
+  - comando canonico (equivalente ao solicitado, com os 12 `--semantic-source-file` explicitos):
+    - `scripts/with-semantic-env.sh .venv/bin/python -m app.services.knowledge_ingest --semantic-persist --semantic-limit-docs 12 --semantic-source-file <12x kubernetes_docs_selected/...>`
+  - controle de escopo:
+    - `_official_repo_clones` isolado temporariamente durante a execucao para impedir varredura fora do recorte.
+  - resultado final da persistencia:
+    - `documents_selected=12`
+    - `documents_processed=12`
+    - `documents_validated=12`
+    - `documents_failed=0`
+    - `chunks_persisted=95`
+    - `sources_with_error_count=0`
+    - `duplicate_source_checksum_rows_count=0`
+  - embedding mode:
+    - `openai`
+  - artefatos:
+    - `docs/coverage/kubernetes_semantic_persist_validation_20260312T154518Z.json`
+    - log: `/tmp/kubernetes_semantic_persist_final_20260312T154518Z.log`
+- Auditoria BEFORE/AFTER focada em Kubernetes:
+  - queryset pratico (pods, deployment, service, ingress, probes, rbac, serviceaccount, pvc/storageclass, debug pod, namespaces, configmap):
+    - `docs/coverage/kubernetes_audit_queryset_20260312T153820Z.json`
+  - BEFORE:
+    - `well=6`, `partial=5`, `gap=1`, `avg_max=0.617786`, `avg_avg=0.552623`
+    - `top1_from_kubernetes_docs_selected_count=0`
+    - artefato: `docs/coverage/semantic_coverage_audit_kubernetes_before_20260312T153820Z.json`
+  - AFTER:
+    - `well=9`, `partial=3`, `gap=0`, `avg_max=0.648533`, `avg_avg=0.605661`
+    - `top1_from_kubernetes_docs_selected_count=5`
+    - artefato: `docs/coverage/semantic_coverage_audit_kubernetes_after_20260312T154518Z.json`
+  - Comparativo:
+    - `delta well=+3`
+    - `delta partial=-2`
+    - `delta gap=-1`
+    - `delta avg_max=+0.030747`
+    - `delta avg_avg=+0.053038`
+    - `delta top1_kubernetes=+5`
+    - artefato: `docs/coverage/semantic_coverage_audit_kubernetes_compare_before_after_20260312T154518Z.json`
+- Fechamento checklist (UTF-8):
+  - comando requerido executado:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_kubernetes_semantic_closeout.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=940`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+  - artefatos:
+    - `docs/coverage/utf8_hygiene_scan_validation_kubernetes_semantic_closeout.json`
+    - `docs/coverage/utf8_hygiene_scan_validation_kubernetes_semantic_closeout_20260312T154518Z.json`
+- Arquivos alterados nesta rodada:
+  - `STATUS.md`
+  - `docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md`
+  - `docs/coverage/kubernetes_semantic_persist_precheck_20260312T153820Z.json`
+  - `docs/coverage/kubernetes_audit_queryset_20260312T153820Z.json`
+  - `docs/coverage/semantic_coverage_audit_kubernetes_before_20260312T153820Z.json`
+  - `docs/coverage/kubernetes_semantic_persist_validation_20260312T154518Z.json`
+  - `docs/coverage/semantic_coverage_audit_kubernetes_after_20260312T154518Z.json`
+  - `docs/coverage/semantic_coverage_audit_kubernetes_compare_before_after_20260312T154518Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_kubernetes_semantic_closeout_20260312T154518Z.json`
+  - `docs/coverage/utf8_hygiene_scan_validation_kubernetes_semantic_closeout.json`
+  - `STATUS.md.bak-20260312T154518Z-kubernetes-semantic-persist-round`
+- Proximo passo recomendado:
+  - expandir persistencia semantica Kubernetes alem do limite minimo por documento (`--semantic-max-chunks-per-doc`), depois reauditar para medir ganho incremental de recall/top-1.
+
+## Checkpoint 2026-03-12: Kubernetes - reexecucao controlada de ingestao canonica (auditoria de fechamento)
+- Hipotese da rodada:
+  - reexecutar o fluxo canonicamente (clone/materializacao/ingestao/validacao/closeout UTF-8) para confirmar estado auditavel do recorte Kubernetes sem persistencia semantica.
+- Preparacao executada:
+  - clone oficial sincronizado:
+    - `data/knowledge_raw/_official_repo_clones/kubernetes-website` (fetch + reset em `origin/main`).
+  - recorte rematerializado em:
+    - `data/knowledge_raw/kubernetes_docs_selected`
+  - validacao de materializacao:
+    - `proposed_count=12`
+    - `materialized_count=12`
+    - `markdown_count=12`
+    - `non_markdown_count=0`
+    - `missing_from_materialized=[]`
+    - `extra_in_materialized=[]`
+  - artefatos:
+    - `docs/coverage/kubernetes_docs_selected_materialization_validation_20260312T152144Z.json`
+    - `docs/coverage/kubernetes_docs_selected_materialized_files_20260312T152144Z.txt`
+- Ingestao canonica controlada:
+  - comando:
+    - `scripts/ingest_knowledge.sh`
+  - controle de escopo:
+    - `_official_repo_clones` foi isolado temporariamente durante a execucao para impedir varredura do clone completo.
+  - log:
+    - `/tmp/kubernetes_ingest_controlled_20260312T152144Z.log`
+  - resumo da execucao:
+    - `Arquivos encontrados: 234`
+    - `Arquivos processados: 0`
+    - `Arquivos ignorados: 234`
+    - `Erros de parsing: 0`
+    - `Arquivos nao suportados: 0`
+- Validacao objetiva pos-ingestao:
+  - `knowledge_state` com prefixo `kubernetes_docs_selected/*`: `12` entradas.
+  - parsed presentes (`kubernetes_docs_selected__*.json`): `12`.
+  - chunks presentes (`kubernetes_docs_selected__*.chunks.json`): `12`.
+  - total de chunks Kubernetes no recorte: `431`.
+  - manifest atual:
+    - `document_count=234`
+    - `chunk_document_count=234`
+    - `chunk_count=54141`
+  - artefatos:
+    - `docs/coverage/kubernetes_ingest_controlled_validation_20260312T152144Z.json`
+    - `docs/coverage/kubernetes_source_files_ingested_20260312T152144Z.txt`
+- Persistencia semantica:
+  - **nao executada nesta rodada** (restricao atendida).
+- Fechamento via checklist semantico:
+  - scanner UTF-8 executado:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_kubernetes_ingest_closeout_20260312T152144Z.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=845`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+  - status do closeout: **aprovado**.
+- Arquivos alterados nesta rodada:
+  - `STATUS.md`
+  - `docs/HANDOFF_KUBERNETES_CONTROLLED_INGESTION_20260312T152144Z.md`
+  - `docs/coverage/kubernetes_docs_selected_materialization_validation_20260312T152144Z.json`
+  - `docs/coverage/kubernetes_docs_selected_materialized_files_20260312T152144Z.txt`
+  - `docs/coverage/kubernetes_ingest_controlled_validation_20260312T152144Z.json`
+  - `docs/coverage/kubernetes_source_files_ingested_20260312T152144Z.txt`
+  - `docs/coverage/utf8_hygiene_scan_validation_kubernetes_ingest_closeout_20260312T152144Z.json`
+  - `STATUS.md.bak-20260312T152144Z-kubernetes-controlled-ingest-rerun`
+- Proximo passo recomendado:
+  - executar persistencia semantica seletiva do prefixo `kubernetes_docs_selected/*` e auditoria before/after focada em consultas Kubernetes.
+
+## Checkpoint 2026-03-12: Kubernetes - ingestao canonica controlada do recorte oficial (12 docs)
+- Hipotese da rodada:
+  - executar ingestao canonica do recorte Kubernetes ja definido (12 markdowns oficiais), sem persistencia semantica nesta etapa.
+- Preparacao executada:
+  - clone oficial realizado:
+    - `data/knowledge_raw/_official_repo_clones/kubernetes-website` (`https://github.com/kubernetes/website`).
+  - recorte materializado em:
+    - `data/knowledge_raw/kubernetes_docs_selected`
+  - validacao de materializacao:
+    - `proposed_count=12`
+    - `materialized_count=12`
+    - `markdown_count=12`
+    - `non_markdown_count=0`
+  - artefatos:
+    - `docs/coverage/kubernetes_docs_selected_materialization_validation_20260312.json`
+    - `docs/coverage/kubernetes_docs_selected_materialized_files_20260312.txt`
+- Ingestao canonica controlada:
+  - comando:
+    - `scripts/ingest_knowledge.sh`
+  - controle de escopo:
+    - `_official_repo_clones` foi isolado temporariamente durante a execucao para evitar varredura do clone completo fora do recorte selecionado.
+  - log:
+    - `/tmp/kubernetes_ingest_controlled_20260312.log`
+  - resumo:
+    - `Arquivos encontrados: 234`
+    - `Arquivos processados: 12`
+    - `Arquivos ignorados: 222`
+    - `Erros de parsing: 0`
+    - `Arquivos não suportados: 0`
+- Validacao objetiva pos-ingestao:
+  - `knowledge_state` com prefixo `kubernetes_docs_selected/*`: `12` entradas.
+  - parsed gerados (`kubernetes_docs_selected__*.json`): `12`.
+  - chunks gerados (`kubernetes_docs_selected__*.chunks.json`): `12`.
+  - total de chunks no recorte (soma dos `chunk_count` no state): `431`.
+  - manifest:
+    - antes: `document_count=222`, `chunk_document_count=222`, `chunk_count=53710`
+    - depois: `document_count=234`, `chunk_document_count=234`, `chunk_count=54141`
+    - delta: `+12 documentos`, `+12 chunk_documents`, `+431 chunks`
+  - artefatos:
+    - `docs/coverage/kubernetes_ingest_controlled_validation_20260312.json`
+    - `docs/coverage/kubernetes_source_files_ingested_20260312.txt`
+- Persistencia semantica:
+  - **nao executada nesta rodada** (restricao atendida).
+- Fechamento via checklist canonico:
+  - scanner UTF-8 executado:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_kubernetes_ingest_closeout.json --pretty`
+  - resultado:
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+    - `total_chunks_scanned=845`
+  - status do closeout: **aprovado**.
+- Arquivos alterados nesta rodada:
+  - `STATUS.md`
+  - `docs/HANDOFF_KUBERNETES_CONTROLLED_INGESTION_20260312.md`
+  - `docs/coverage/kubernetes_docs_selected_materialization_validation_20260312.json`
+  - `docs/coverage/kubernetes_docs_selected_materialized_files_20260312.txt`
+  - `docs/coverage/kubernetes_ingest_controlled_validation_20260312.json`
+  - `docs/coverage/kubernetes_source_files_ingested_20260312.txt`
+  - `docs/coverage/utf8_hygiene_scan_validation_kubernetes_ingest_closeout.json`
+- Limitacoes atuais:
+  - recorte Kubernetes ainda nao foi persistido semanticamente.
+  - impacto before/after em retrieval semantico ainda nao foi medido para este dominio.
+- Proximo passo recomendado:
+  - executar persistencia semantica **somente** dos 12 `source_files` de `kubernetes_docs_selected/*` e, em seguida, auditoria before/after focada em Kubernetes.
+
+## Checkpoint 2026-03-12: priorizacao e preparo controlado do proximo dominio (Kubernetes)
+- Hipotese da rodada:
+  - validar com evidencia se Kubernetes segue como proximo dominio para expansao controlada, mapear fontes oficiais e deixar recorte pequeno pronto para a proxima rodada sem executar ingestao nesta etapa.
+- Evidencias usadas para priorizacao:
+  - consolidado multi-dominio atual: `docs/coverage/domain_coverage_consolidated_20260312.json`.
+  - snapshot novo do gap engine (5 dominios, incluindo Kubernetes):
+    - `docs/coverage/knowledge_gap_engine_validation_k8s_prep_20260312.json`.
+  - extrato de priorizacao da rodada:
+    - `docs/coverage/kubernetes_round_prioritization_20260312.json`.
+- Leitura objetiva da priorizacao:
+  - por `priority_score` bruto do gap engine, Kubernetes nao e o primeiro (`kubernetes=11.0`, abaixo de `terraform=34.412`, `observability=22.688`, `docker=14.438`).
+  - porem, no dominio Kubernetes, os top-1 atuais estao concentrados em fontes nao canonicas (`tmp/*` e `data/raw_review/*`), sem recorte oficial dedicado:
+    - `tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md`
+    - `tmp/semantic_gap_round2/networkpolicy_access_control.md`
+    - `tmp/semantic_gap_round2/rbac_quick_basics.md`
+    - `data/raw_review/ckad_exercises_modules/g.state.md`
+  - decisao: **Kubernetes confirmado como proximo dominio por risco de governanca de fonte**, mesmo sem lacuna semantica numerica alta.
+- Fontes oficiais mapeadas (estrategia hibrida mantida):
+  - `kubernetes/website` (docs puro) como fonte primaria para clone seletivo.
+  - `kubernetes.io/docs` como referencia HTML complementar.
+  - `kubernetes/kubernetes` apenas complemento pontual (alto ruido, fora deste ciclo inicial).
+  - artefato: `docs/coverage/kubernetes_official_sources_mapping_20260312.json`.
+  - validacao remota minima:
+    - `kubernetes/website` HEAD -> `refs/heads/main`
+    - `kubernetes/kubernetes` HEAD -> `refs/heads/master`
+- Recorte seletivo proposto (pequeno e operacional):
+  - artefatos:
+    - `docs/coverage/kubernetes_docs_selected_proposed_20260312.json`
+    - `docs/coverage/kubernetes_docs_selected_proposed_20260312.txt`
+  - tamanho proposto: `12` arquivos markdown focados em:
+    - pods, deployments, services, ingress, configmaps, probes,
+    - service accounts, rbac,
+    - persistent volumes, storage classes,
+    - troubleshooting de pod e namespaces.
+  - diretorio canonico alvo (proxima rodada): `data/knowledge_raw/kubernetes_docs_selected`.
+- Execucao desta rodada:
+  - **nao houve ingestao nova** (decisao deliberada para manter controle de escopo e comparabilidade).
+  - rodada fechada como preparacao operacional com plano de aquisicao/recorte pronto.
+- Fechamento via checklist canonico:
+  - scanner UTF-8 executado:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_20260312_kubernetes_prep_closeout.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=845`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+  - status do closeout: **aprovado**.
+- Arquivos alterados nesta rodada:
+  - `STATUS.md`
+  - `docs/HANDOFF_KUBERNETES_NEXT_DOMAIN_PREP_20260312.md`
+  - `docs/coverage/knowledge_gap_engine_validation_k8s_prep_20260312.json`
+  - `docs/coverage/kubernetes_round_prioritization_20260312.json`
+  - `docs/coverage/kubernetes_official_sources_mapping_20260312.json`
+  - `docs/coverage/kubernetes_docs_selected_proposed_20260312.json`
+  - `docs/coverage/kubernetes_docs_selected_proposed_20260312.txt`
+  - `docs/coverage/utf8_hygiene_scan_validation_20260312_kubernetes_prep_closeout.json`
+- Limitacoes atuais:
+  - recorte ainda esta em modo proposto (sem clone/aquisicao local do `kubernetes/website` nesta rodada).
+  - validacao de existencia dos paths do recorte no clone real fica para a rodada de aquisicao.
+- Proximo passo recomendado:
+  - executar rodada curta de aquisicao controlada Kubernetes:
+    1) clonar `kubernetes/website`;
+    2) materializar `data/knowledge_raw/kubernetes_docs_selected` com os `12` paths propostos;
+    3) rodar ingestao canonica e validacao de artefatos antes de qualquer persistencia semantica.
+
+## Checkpoint 2026-03-12: checklist canonico de fechamento semantico com UTF-8 obrigatorio (processo)
+- Hipotese da rodada:
+  - padronizar o fechamento de rodadas semanticas com checklist unico, incorporando o scanner UTF-8 como etapa obrigatoria de processo, sem hook automatico e sem mudar pipeline.
+- Inspecao executada:
+  - mapeados os pontos atuais de operacao/checkpoint em `STATUS.md`, handoffs `docs/HANDOFF_*.md` e documentacao do scanner em `docs/UTF8_HYGIENE_SCANNER.md`.
+  - confirmado que havia recomendacao previa para acoplar o scanner ao fechamento, mas sem checklist canonico consolidado.
+- Implementacao realizada:
+  - criado checklist canonico em `docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md`.
+  - definido fluxo minimo obrigatorio:
+    - validacao de ingestao
+    - validacao de persistencia semantica
+    - auditoria before/after
+    - scanner UTF-8
+    - consolidacao de artefatos
+    - atualizacao de `STATUS.md`
+    - criacao de handoff
+  - incluido template curto reutilizavel de fechamento no mesmo documento.
+- Scanner UTF-8 no processo:
+  - comando padrao documentado:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_<YYYYMMDD>_<rodada>.json --pretty`
+  - criterios de aprovacao:
+    - `bad_chunks_count == 0`
+    - `affected_source_files_count == 0`
+  - criterio de reprovacao:
+    - `bad_chunks_count > 0` (exige evidencia em artefato + rodada curta separada de higiene).
+- Validacao objetiva nesta rodada:
+  - comando executado:
+    - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_20260312_closeout.json --pretty`
+  - resultado:
+    - `total_chunks_scanned=845`
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+    - `read_only=true`
+  - artefato:
+    - `docs/coverage/utf8_hygiene_scan_validation_20260312_closeout.json`
+- Arquivos alterados nesta rodada:
+  - `docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md`
+  - `docs/HANDOFF_SEMANTIC_ROUND_CLOSEOUT_CHECKLIST_UTF8_20260312.md`
+  - `docs/coverage/utf8_hygiene_scan_validation_20260312_closeout.json`
+  - `STATUS.md`
+- Limitacoes atuais:
+  - checklist e processual/manual (nao acoplado como hook tecnico).
+  - aprovacao depende de disciplina de execucao no fechamento de cada rodada.
+- Proximo passo recomendado:
+  - aplicar este checklist no proximo fechamento semantico e manter a serie de artefatos em `docs/coverage/` para comparabilidade entre dominios.
+
+## Checkpoint 2026-03-12: scanner read-only de higiene UTF-8 para fechamento semântico
+- Hipotese da rodada:
+  - transformar o diagnostico manual de UTF-8 em um scanner reutilizavel, read-only e scriptavel para detectar regressao cedo sem alterar pipeline.
+- Implementacao realizada:
+  - criado utilitario canonico `scripts/utf8_hygiene_scan.py`.
+  - criado wrapper operacional `scripts/utf8_hygiene_scan.sh` (via `with-semantic-env.sh`).
+  - criado guia curto de uso `docs/UTF8_HYGIENE_SCANNER.md`.
+- Decisao tecnica de seguranca:
+  - removida contagem via `TEMP TABLE/DO` no scanner para manter execucao estritamente de leitura.
+  - contagem total (`bad_chunks_count`) agora e feita no mesmo loop de probe por `chunk_pk` com `SAVEPOINT` + `ROLLBACK TO SAVEPOINT` em `CharacterNotInRepertoire`.
+- O que o scanner detecta:
+  - probe que quebra em `LEFT(content, 180)`.
+  - contagem total de rows problematicas.
+  - linhas afetadas com `chunk_pk`, `document_id`, `chunk_id`, `sequence`, `source_file` e `error`.
+  - agrupamento por `source_file`.
+- Formato JSON de saida:
+  - `generated_at`
+  - `scanner`
+  - `read_only`
+  - `snippet_probe_sql`
+  - `total_chunks_scanned`
+  - `bad_chunks_count`
+  - `affected_source_files_count`
+  - `affected_rows`
+  - `affected_rows_returned`
+  - `affected_rows_truncated`
+  - `grouped_by_source_file`
+- Exemplo de uso:
+  - `scripts/utf8_hygiene_scan.sh --pretty`
+  - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_20260312.json --pretty`
+- Validacao executada:
+  - compilacao: `.venv/bin/python -m py_compile scripts/utf8_hygiene_scan.py`.
+  - execucao do scanner no estado atual do banco:
+    - `bad_chunks_count=0`
+    - `affected_source_files_count=0`
+    - `total_chunks_scanned=845`
+  - artefato salvo em:
+    - `docs/coverage/utf8_hygiene_scan_validation_20260312.json`
+- Arquivos alterados nesta rodada:
+  - `scripts/utf8_hygiene_scan.py`
+  - `scripts/utf8_hygiene_scan.sh`
+  - `docs/UTF8_HYGIENE_SCANNER.md`
+  - `docs/coverage/utf8_hygiene_scan_validation_20260312.json`
+  - `STATUS.md`
+- Limitacoes atuais:
+  - scanner e on-demand (nao hook obrigatorio no fechamento).
+  - diagnostico baseado no probe `LEFT(content, 180)`; nao cobre todo tipo possivel de corrupcao fora desse caminho.
+- Proximo passo recomendado:
+  - acoplar a chamada do scanner ao checklist de fechamento de rodada semantica (ainda opcional), mantendo pipeline principal inalterado.
+
+## Checkpoint 2026-03-12: higiene curta de chunks.content corrompido (UTF-8)
+- Hipotese da rodada:
+  - havia poucos registros legados corrompidos em `chunks.content` que ainda acionavam fallback de snippet; uma correcao seletiva por chunk resolveria sem alterar pipeline.
+- Diagnostico objetivo (antes):
+  - scanner SQL server-side com `LEFT(content,180)` + captura de `character_not_in_repertoire` encontrou:
+    - `bad_chunks_count=2`
+    - concentrados em `1` source_file:
+      - `observability_docs_selected/alertmanager/docs/high_availability.md`
+    - chunks afetados:
+      - `chunk_pk=963`, `sequence=0002`
+      - `chunk_pk=969`, `sequence=0008`
+  - evidencias:
+    - `docs/coverage/utf8_corrupted_chunks_diagnostic_20260312.json`
+- Analise de origem (hipotese mais provavel):
+  - payload canônico local (`data/knowledge_chunks/...high_availability.md.chunks.json`) codifica em UTF-8 sem erro.
+  - portanto, a causa mais provavel e legado de armazenamento semantico em rows especificas (nao o corpus atual bruto/parsing atual).
+  - evidencia:
+    - `docs/coverage/utf8_corrupted_chunks_origin_analysis_20260312.json`
+- Estrategia escolhida (menor risco):
+  - tentativa inicial de reingestao semantica seletiva de `1` source_file (executada), que nao eliminou os 2 rows corrompidos.
+  - correcao final aplicada de forma cirurgica:
+    - atualizar somente os `2` chunks identificados, com conteudo canonico saneado do payload local.
+    - manter documento/fonte/ordem/chunk_id; adicionar marca em `metadata_json` para rastreio.
+  - justificativa:
+    - evita operacao ampla;
+    - preserva valor semantico util;
+    - totalmente rastreavel por `chunk_pk`.
+- Execucao da correcao:
+  - rows alvo: `2`
+  - rows atualizados: `2`
+  - arquivos de rastreio:
+    - `docs/coverage/utf8_corrupted_chunks_fix_plan_20260312.json`
+    - `docs/coverage/utf8_corrupted_chunks_fix_execution_20260312.json`
+- Validacao (depois):
+  - scanner de corrupcao rerodado:
+    - `bad_chunks_count=0`
+    - evidencia: `docs/coverage/utf8_corrupted_chunks_post_fix_scan_20260312.json`
+  - probes `semantic_search` focados no caso afetado:
+    - `snippet_fallback_due_encoding=false` em todas as probes novas e na busca scoped por source_file.
+    - evidencia: `docs/coverage/utf8_corrupted_chunks_semantic_search_validation_20260312.json`
+- Resultado objetivo:
+  - fallback por title foi eliminado para os casos afetados nesta rodada.
+  - sem alteracao de pipeline e sem nova frente de corpus.
+- Arquivos tocados nesta rodada:
+  - `STATUS.md`
+  - `docs/HANDOFF_UTF8_HYGIENE_CHUNKS_20260312.md`
+  - `docs/coverage/utf8_corrupted_chunks_diagnostic_20260312.json`
+  - `docs/coverage/utf8_corrupted_chunks_origin_analysis_20260312.json`
+  - `docs/coverage/utf8_corrupted_chunks_fix_plan_20260312.json`
+  - `docs/coverage/utf8_corrupted_chunks_fix_execution_20260312.json`
+  - `docs/coverage/utf8_corrupted_chunks_post_fix_scan_20260312.json`
+  - `docs/coverage/utf8_corrupted_chunks_semantic_search_validation_20260312.json`
+- Limitacoes remanescentes:
+  - fix foi focado em rows atualmente detectaveis; monitoramento deve permanecer ativo para detectar eventual recorrencia em outros legados.
+- Proximo passo recomendado:
+  - automatizar um check leve de higiene UTF-8 (scanner read-only) no fechamento de rodada semantica para capturar regressao cedo.
+
+## Checkpoint 2026-03-12: correcao minima de encoding UTF-8 no semantic_search
+- Hipotese da rodada:
+  - o erro UTF-8 do `semantic_search` estava no trecho de query que tentava montar snippet com `LEFT(c.content, 180)`, e nao na busca vetorial em si.
+- Reproducao e causa identificada (evidencia concreta):
+  - stack trace do fluxo padrao apontando `cur.execute` em `app/services/semantic_min_api.py` (`semantic_search`) com:
+    - `psycopg.errors.CharacterNotInRepertoire: sequência de bytes é inválida para codificação "UTF8": 0xe2 0x94`
+  - diagnostico tecnico (`docs/coverage/semantic_search_utf8_diagnostic_20260312.json`):
+    - `server_encoding=UTF8`
+    - `client_encoding=UTF8`
+    - tabela/campo: `chunks.content` (`text`)
+    - probe com snippet via `content` falha
+    - probe equivalente sem ler `content` (snippet de `title`) funciona
+  - causa operacional:
+    - existem registros legados com bytes invalidos em `chunks.content`; ao projetar `LEFT(c.content, 180)` a consulta falha antes de retornar resultados.
+- Ponto de correcao escolhido (menor ponto seguro):
+  - `semantic_search` em `app/services/semantic_min_api.py`.
+  - justificativa:
+    - preserva ranking vetorial e pipeline de ingestao/persistencia;
+    - corrige somente a etapa de snippet (apresentacao) que estava bloqueando a busca.
+- Correcao aplicada:
+  - adicionado `SAVEPOINT` ao bloco de busca em `semantic_search`.
+  - tentativa primaria mantida: snippet com `LEFT(c.content, 180)`.
+  - em `CharacterNotInRepertoire`:
+    - `ROLLBACK TO SAVEPOINT`
+    - rerun da mesma busca com snippet seguro via `LEFT(COALESCE(c.title, ''), 180)`.
+  - flags explicitas no retorno/cache:
+    - `snippet_fallback_due_encoding`
+    - `snippet_fallback_error`
+  - nenhuma alteracao no ranking, filtro, top-k ou pipeline.
+- Validacao executada:
+  - `py_compile` do modulo alterado.
+  - `semantic_search` apos fix executa sem excecao no caminho padrao (retorna `count=5`).
+  - fallback de snippet registrado de forma explicita (`snippet_fallback_due_encoding=true`) para queries testadas.
+  - `knowledge_gap_engine` rerodado (4 dominios) sem fallback historico:
+    - `docs/coverage/knowledge_gap_engine_validation_post_utf8_fix_20260312.json`
+    - `historical_fallback_rows=0` em todos os dominios.
+  - artefato consolidado da validacao:
+    - `docs/coverage/semantic_search_utf8_fix_validation_20260312.json`
+- Arquivos tocados nesta rodada:
+  - `app/services/semantic_min_api.py`
+  - `STATUS.md`
+  - `docs/HANDOFF_SEMANTIC_SEARCH_UTF8_FIX_20260312.md`
+  - `docs/coverage/semantic_search_utf8_diagnostic_20260312.json`
+  - `docs/coverage/knowledge_gap_engine_validation_post_utf8_fix_20260312.json`
+  - `docs/coverage/semantic_search_utf8_fix_validation_20260312.json`
+- Limitações remanescentes:
+  - dados legados com bytes invalidos continuam no banco (`chunks.content`), mas nao bloqueiam mais o caminho padrao de busca.
+  - snippet pode vir de `title` (fallback) enquanto houver esses registros.
+- Proximo passo recomendado:
+  - rodada curta de higiene de dados legados em `chunks.content` (identificar e corrigir/reenfileirar apenas registros corrompidos) para reduzir uso do fallback de snippet.
+
+## Checkpoint 2026-03-12: AWS IAM controlado (policy evaluation/simulator/boundaries/SCP) - recorte oficial + ingestao + persistencia + auditoria robusta
+- Hipotese da rodada:
+  - reduzir lacunas residuais em `policy evaluation`, `policy simulator`, `permissions boundaries` e `SCP` com recorte oficial AWS pequeno e bateria before/after totalmente comparavel (8/8 perguntas iguais nos dois lados).
+- Estado inicial auditado:
+  - rodada AWS anterior usava `5` fontes (`aws/*`, majoritariamente PDFs quase duplicados) e baseline comparavel fraco (`1` pergunta com before).
+  - evidencias:
+    - `docs/coverage/semantic_coverage_audit_iam_compare_after_aws5_20260311.json`
+    - `docs/HANDOFF_SEMANTIC_PERSISTENCE_AWS5_IAM_AUDIT_20260311.md`
+  - limitacao tecnica ainda presente: chamada direta `semantic_search` falha em alguns casos por encoding UTF-8 legado:
+    - evidencia objetiva: `{'status': 'error', 'error': 'sequência de bytes é inválida para codificação "UTF8": 0xe2 0x94'}`
+- Fontes oficiais escolhidas (AWS docs):
+  - IAM:
+    - `reference_policies_evaluation-logic`
+    - `reference_policies_evaluation-logic_policy-eval-denyallow`
+    - `access_policies_testing-policies`
+    - `access_policies_boundaries`
+    - `reference_policies_elements_notaction`
+    - `reference_policies_elements_condition`
+  - Organizations / SCP:
+    - `orgs_manage_policies_scps`
+    - `orgs_manage_policies_scps_evaluation`
+    - `orgs_manage_policies_scps_syntax`
+    - `orgs_manage_policies_scps_examples`
+  - evidencias:
+    - `docs/coverage/aws_iam_official_sources_mapping_20260312.json`
+    - `docs/coverage/aws_iam_docs_selected_inventory_20260312.json`
+- Recorte seletivo definido e materializado:
+  - caminho: `data/knowledge_raw/aws_iam_docs_selected`
+  - total: `10` arquivos `.md`
+  - inventario/lista:
+    - `docs/coverage/aws_iam_docs_selected_inventory_20260312.json`
+    - `docs/coverage/aws_iam_docs_selected_files_20260312.txt`
+- Auditoria BEFORE (nova bateria robusta, 8 perguntas praticas):
+  - arquivo: `docs/coverage/semantic_coverage_audit_aws_iam_before_20260312.json`
+  - agregado:
+    - `well_covered=0`
+    - `partial=3`
+    - `gap=5`
+    - `avg_max=0.456336`
+    - `avg_avg=0.442417`
+- Ingestao canonica controlada do recorte AWS IAM:
+  - isolamento temporario de `_official_repo_clones` para evitar desvio de escopo.
+  - log: `/tmp/aws_iam_ingest_controlled_20260312.log`
+  - resultado:
+    - `Arquivos encontrados: 222`
+    - `Arquivos processados: 10`
+    - `Arquivos ignorados: 212`
+    - `Erros de parsing: 0`
+    - `Arquivos não suportados: 0`
+  - validacao:
+    - `10` parsed `aws_iam_docs_selected__*.json`
+    - `10` chunks `aws_iam_docs_selected__*.chunks.json`
+    - `knowledge_state`: `10` entradas `aws_iam_docs_selected/*` com `status=parsed`
+    - manifest: `document_count=222`, `chunk_document_count=222`, `chunk_count=53710`
+  - evidencia: `docs/coverage/aws_iam_ingest_controlled_validation_20260312.json`
+- Persistencia semantica seletiva (somente o recorte novo):
+  - comando canonico com `--semantic-limit-docs 10` + `--semantic-source-file` para os 10 source_files
+  - log: `/tmp/aws_iam_semantic_persist_20260312.log`
+  - resultado validado:
+    - `documents_selected=10`
+    - `documents_processed=10`
+    - `documents_validated=10`
+    - `documents_failed=0`
+    - `chunks_persisted=73`
+    - `sources_with_error=[]`
+    - `duplicate_source_checksum_rows=[]`
+  - evidencia: `docs/coverage/semantic_persist_aws_iam_docs_selected_20260312_validation.json`
+- Auditoria AFTER (mesma bateria):
+  - arquivo: `docs/coverage/semantic_coverage_audit_aws_iam_after_20260312.json`
+  - agregado:
+    - `well_covered=7`
+    - `partial=1`
+    - `gap=0`
+    - `avg_max=0.629874`
+    - `avg_avg=0.595118`
+- Comparativo BEFORE/AFTER:
+  - arquivo: `docs/coverage/semantic_coverage_audit_aws_iam_compare_before_after_20260312.json`
+  - delta:
+    - `well: +7`
+    - `partial: -2`
+    - `gap: -5`
+    - `avg_max: +0.173538`
+    - `avg_avg: +0.152701`
+  - mudanca de classe: `8/8`
+  - top-1 migrando para `aws_iam_docs_selected/*`: `8/8`
+- Interpretacao objetiva:
+  - classificacao da rodada: **ganho estrutural forte**.
+  - motivo: lacunas zeradas (`5 -> 0`), melhora forte de score medio e migracao total de top-1 para fontes oficiais do recorte.
+- Ajustes de base para proximas auditorias:
+  - `config/auditable_domains.json`: bateria AWS IAM atualizada para 8 perguntas operacionais novas.
+  - `config/knowledge_source_catalog.json`: subtemas/sources AWS IAM expandidos para `policy_evaluation` e `boundaries_scp`.
+  - `app/services/knowledge_gap_engine.py`: fallback historico inclui `semantic_coverage_audit_aws_iam_after_20260312.json`.
+  - snapshot pos-rodada do engine:
+    - `docs/coverage/knowledge_gap_engine_validation_after_aws_iam_20260312.json`
+    - prioridade observada: `terraform > observability > docker > aws_iam` (AWS IAM caiu para menor prioridade apos fechamento dos gaps do recorte).
+- Arquivos tocados nesta rodada:
+  - `data/knowledge_raw/aws_iam_docs_selected/*.md` (10 arquivos)
+  - `docs/coverage/aws_iam_docs_selected_inventory_20260312.json`
+  - `docs/coverage/aws_iam_docs_selected_files_20260312.txt`
+  - `docs/coverage/aws_iam_source_files_ingested_20260312.txt`
+  - `docs/coverage/aws_iam_official_sources_mapping_20260312.json`
+  - `docs/coverage/aws_iam_ingest_controlled_validation_20260312.json`
+  - `docs/coverage/semantic_persist_aws_iam_docs_selected_20260312_validation.json`
+  - `docs/coverage/aws_iam_audit_queryset_20260312.json`
+  - `docs/coverage/semantic_coverage_audit_aws_iam_before_20260312.json`
+  - `docs/coverage/semantic_coverage_audit_aws_iam_after_20260312.json`
+  - `docs/coverage/semantic_coverage_audit_aws_iam_compare_before_after_20260312.json`
+  - `docs/coverage/knowledge_gap_engine_validation_after_aws_iam_20260312.json`
+  - `config/auditable_domains.json`
+  - `config/knowledge_source_catalog.json`
+  - `app/services/knowledge_gap_engine.py`
+  - `STATUS.md`
+- Proximo passo recomendado:
+  - atacar a divida tecnica de encoding UTF-8 do `semantic_search` em rodada dedicada curta (sem mexer no pipeline), para voltar a auditoria via API padrao sem workaround de consulta segura.
+
+## Checkpoint 2026-03-12: fundacao knowledge_gap_engine v1 + knowledge_source_recommender v1
+- Hipotese:
+  - consolidar evidencias de IAM/Docker/Terraform/Observability em um reporte unico e criar base minima executavel para detectar lacunas por dominio/subtema e recomendar proximo recorte oficial.
+- O que foi lido antes da implementacao:
+  - `AGENTS.md` (raiz de `/lab/projects`) e `STATUS.md`
+  - artefatos de cobertura em `docs/coverage/` das rodadas IAM, Docker, Terraform e Observability
+  - implementacoes existentes de `semantic_search` e CLIs em `app/services`
+- Implementacao realizada (sem alterar pipeline):
+  - configuracao canonica de dominios auditaveis criada em `config/auditable_domains.json` com:
+    - dominios: `aws_iam`, `docker`, `terraform`, `observability`, `kubernetes`
+    - campos: `name`, `weight`, `subthemes`, `queries`
+    - thresholds compatíveis com rodadas anteriores (`gap<0.45`, `well if max>=0.6 and avg>=0.45`)
+  - consolidacao unica dos ciclos ja concluidos implementada em:
+    - modulo: `app/services/knowledge_coverage_consolidator.py`
+    - artefato: `docs/coverage/domain_coverage_consolidated_20260312.json`
+  - engine v1 implementado em:
+    - `app/services/knowledge_gap_engine.py`
+    - recursos:
+      - carrega dominios/subtemas/queries
+      - audita por query (top_k)
+      - classifica `bem_coberta/parcial/lacuna`
+      - agrega por subtema e dominio
+      - calcula `priority_score`
+      - define `recommended_next_action`
+    - robustez v1:
+      - fallback para artefatos historicos `after` quando `semantic_search` falha por erro de encoding do banco (`UTF8`), sem alterar pipeline
+  - recommender v1 implementado em:
+    - configuracao: `config/knowledge_source_catalog.json`
+    - modulo: `app/services/knowledge_source_recommender.py`
+    - recursos:
+      - recomenda fontes oficiais por dominio/subtema
+      - retorna sugestao textual de proximo recorte
+- Validacao minima executada:
+  - `python -m py_compile` dos novos modulos
+  - consolidado gerado com sucesso (4 dominios)
+  - engine v1 validado para dominios existentes e salvo em:
+    - `docs/coverage/knowledge_gap_engine_validation_20260312.json`
+  - recommender v1 validado (5 casos) e salvo em:
+    - `docs/coverage/knowledge_source_recommender_validation_20260312.json`
+- Evidencias objetivas (resumo):
+  - consolidado interdominios:
+    - `aws_iam`: docs=5, delta avg_max `+0.098575`, ganho `inconclusivo_com_sinal_positivo` (baseline comparavel=1 pergunta)
+    - `docker`: docs=79, chunks=84, delta avg_max `+0.170414`, ganho `estrutural_forte`
+    - `terraform`: docs=43, chunks=209, delta avg_max `+0.200268`, ganho `estrutural_forte`
+    - `observability`: docs=35, chunks=234, delta avg_max `+0.275144`, ganho `estrutural_forte`
+  - ranking atual de prioridade do engine (dominios existentes):
+    - `aws_iam` (mais alto), depois `terraform`, `observability`, `docker`
+- Arquivos tocados nesta rodada:
+  - `config/auditable_domains.json`
+  - `config/knowledge_source_catalog.json`
+  - `app/services/knowledge_coverage_consolidator.py`
+  - `app/services/knowledge_gap_engine.py`
+  - `app/services/knowledge_source_recommender.py`
+  - `docs/coverage/domain_coverage_consolidated_20260312.json`
+  - `docs/coverage/knowledge_gap_engine_validation_20260312.json`
+  - `docs/coverage/knowledge_source_recommender_validation_20260312.json`
+  - `STATUS.md`
+- Exemplos de uso:
+  - consolidado:
+    - `.venv/bin/python -m app.services.knowledge_coverage_consolidator --output docs/coverage/domain_coverage_consolidated_20260312.json --pretty`
+  - engine (dominio unico):
+    - `scripts/with-semantic-env.sh .venv/bin/python -m app.services.knowledge_gap_engine --domain terraform --top-k 5 --pretty`
+  - engine (multidominio + artefato):
+    - `scripts/with-semantic-env.sh .venv/bin/python -m app.services.knowledge_gap_engine --domain aws_iam --domain docker --domain terraform --domain observability --output docs/coverage/knowledge_gap_engine_validation_20260312.json --pretty`
+  - recommender:
+    - `.venv/bin/python -m app.services.knowledge_source_recommender --domain terraform --subtheme remote_state_s3 --pretty`
+- Limitacoes atuais:
+  - em runtime, parte das consultas diretas ao banco via `semantic_search` pode falhar por erro de codificacao UTF-8 em dados legados; o engine v1 opera com fallback para artefatos historicos quando isso ocorre.
+  - `kubernetes` esta como esqueleto inicial (config + catalogo), sem rodada de recorte/ingestao dedicada nesta etapa.
+- Proximo passo recomendado:
+  - abrir rodada controlada de aquisicao/recorte para `aws_iam` (subtemas `policy_evaluation`, `policy_simulator`, `boundaries_scp`) para reduzir prioridade residual e confirmar ganho estrutural com baseline completo.
+
+## Checkpoint 2026-03-12: observabilidade - persistencia semantica seletiva (35) + auditoria before/after
+- Hipotese da rodada:
+  - medir ganho semantico real no recorte `observability_docs_selected/*` com o mesmo padrao de comparacao usado em Docker/Terraform (8 perguntas before/after, top_k=5, thresholds estaveis).
+- Estado inicial validado:
+  - `35` `source_files` `observability_docs_selected/*` em `knowledge_state` (`status=parsed`).
+  - banco semantico antes da rodada: `0` documentos e `0` chunks para `observability_docs_selected/*`.
+  - evidencias:
+    - `docs/coverage/observability_source_files_ingested_20260312.txt`
+    - consulta SQL pre-persistencia em `documents/chunks`.
+- Plano executado (estado real):
+  1. auditoria BEFORE focada em Observabilidade (8 perguntas praticas; top_k=5; classes `lacuna/parcial/bem_coberta`).
+  2. persistencia semantica restrita aos 35 `source_files` do recorte.
+  3. auditoria AFTER com as mesmas perguntas.
+  4. comparativo before/after com delta agregado, mudanca de classe e migracao de top-1.
+- Auditoria BEFORE:
+  - arquivo: `docs/coverage/semantic_coverage_audit_observability_before_20260312.json`
+  - agregado:
+    - `well_covered=0`
+    - `partial=0`
+    - `gap=8`
+    - `avg_max=0.342409`
+    - `avg_avg=0.32384`
+- Persistencia semantica (escopo estrito no recorte):
+  - comando canonico usado:
+    - `scripts/with-semantic-env.sh .venv/bin/python -m app.services.knowledge_ingest --semantic-persist --semantic-limit-docs 35 --semantic-source-file ...`
+  - incidente operacional detectado e corrigido:
+    - primeira tentativa sem isolamento de `_official_repo_clones` iniciou reprocessamento de clones; execucao interrompida imediatamente.
+    - rerun controlado com stash temporario de `data/knowledge_raw/_official_repo_clones` (mesmo padrao Docker/Terraform), mantendo escopo estrito no recorte.
+  - resultado da execucao controlada:
+    - etapa de ingestao canonica: `processados=0`, `ignorados=212` (sem reingestao efetiva de corpus).
+    - persistencia semantica:
+      - `documents_selected=35`
+      - `documents_processed=35`
+      - `documents_validated=35`
+      - `documents_failed=0`
+      - `chunks_persisted=234`
+      - `sources_with_error=[]`
+      - `duplicate_source_checksum_rows=[]`
+      - `embedding_mode_used=openai`
+      - `cache_invalidation`: `semantic_search_cache_entries_cleared=16`, `query_embedding_cache_entries_cleared=16`
+  - evidencias:
+    - `docs/coverage/semantic_persist_observability35_validation_20260312.json`
+    - log: `/tmp/observability_semantic_persist_controlled_20260312.log`
+- Auditoria AFTER:
+  - arquivo: `docs/coverage/semantic_coverage_audit_observability_after_20260312.json`
+  - agregado:
+    - `well_covered=5`
+    - `partial=3`
+    - `gap=0`
+    - `avg_max=0.617553`
+    - `avg_avg=0.570856`
+- Comparativo before/after:
+  - arquivo: `docs/coverage/semantic_coverage_audit_observability_compare_before_after_20260312.json`
+  - delta:
+    - `well: +5`
+    - `partial: +3`
+    - `gap: -8`
+    - `avg_max: +0.275144`
+    - `avg_avg: +0.247016`
+  - mudanca de classe: `8/8` perguntas
+  - top-1 migrando para `observability_docs_selected/*`: `8/8`
+  - top-1 em `observability_docs_selected/*` no after: `8/8`
+- Leitura objetiva da rodada:
+  - classificacao: **ganho estrutural forte** (lacunas zeradas no recorte focado, mudanca de classe total e dominancia de top-1 em fonte oficial selecionada).
+- Proximo passo recomendado:
+  - consolidar snapshot comparativo interdominios (AWS IAM, Docker, Terraform, Observabilidade) em relatorio unico e definir proximo dominio com maior `gap residual` fora dos eixos ja fortalecidos.
+
+## Checkpoint 2026-03-12: observabilidade (Prometheus + Grafana + Alertmanager) - aquisicao, recorte e ingestao canonica controlada
+- Hipotese da rodada:
+  - iniciar dominio de Observabilidade com fontes oficiais e recorte seletivo de alto valor pratico, sem expansao descontrolada de corpus e sem alterar pipeline.
+- Inspecao de estrategia/convenções reutilizadas:
+  - rodadas AWS, Docker e Terraform confirmaram padrao operacional: `data/knowledge_raw` como entrada oficial, recorte seletivo em `*_docs_selected`, ingestao canonica via `scripts/ingest_knowledge.sh`, controle de contaminacao via stash temporario de `_official_repo_clones` durante ingestao.
+  - handoffs de referencia usados: `docs/HANDOFF_INGEST_CANONICAL_AWS_ZIP_20260311.md`, `docs/HANDOFF_DOCKER_CONTROLLED_INGESTION_20260312.md`, `docs/HANDOFF_TERRAFORM_CONTROLLED_INGESTION_20260312.md`.
+- Fontes oficiais mapeadas e validadas (HEAD remoto + link de docs):
+  - Prometheus:
+    - docs-site: `https://github.com/prometheus/docs` (`HEAD=14e26f4...`)
+    - repo tecnico principal (escolhido para recorte): `https://github.com/prometheus/prometheus` (`HEAD=a732020`)
+  - Grafana:
+    - repo oficial com docs embutida: `https://github.com/grafana/grafana` (`HEAD=e220fb6...`)
+  - Alertmanager:
+    - repo oficial: `https://github.com/prometheus/alertmanager` (`HEAD=eac945c...`)
+  - evidencia consolidada: `docs/coverage/observability_official_sources_mapping_20260312.json`.
+- Aquisicao controlada executada:
+  - clones oficiais em `data/knowledge_raw/_official_repo_clones/`:
+    - `prometheus-docs`
+    - `prometheus` (sparse em `docs/`)
+    - `grafana` (sparse em `docs/sources/`)
+    - `alertmanager`
+- Recorte seletivo definido e materializado:
+  - caminho: `data/knowledge_raw/observability_docs_selected`
+  - contagem final: `35` arquivos `.md`:
+    - `prometheus=11`
+    - `grafana=16`
+    - `alertmanager=8`
+  - focos cobertos:
+    - Prometheus: `configuration` (scrape/rules/relabel), `http_sd`, `promtool`, `querying` (basics/operators/functions/examples)
+    - Grafana: datasources Prometheus, dashboards/variables, alerting (policies/inhibition/silence), provisioning
+    - Alertmanager: routing/receivers/grouping/inhibition/silences/templates e APIs relevantes
+  - inventario do recorte:
+    - `docs/coverage/observability_docs_selected_files_20260312.txt`
+    - `docs/coverage/observability_docs_selected_files_20260312.json`
+- Ingestao canonica (executada com seguranca):
+  - acao de controle: stash temporario de `data/knowledge_raw/_official_repo_clones` para evitar contaminacao fora do recorte.
+  - comando canonico: `scripts/ingest_knowledge.sh`
+  - log: `/tmp/observability_ingest_controlled_20260312.log`
+  - resultado objetivo:
+    - `Arquivos encontrados: 212`
+    - `Arquivos processados: 35`
+    - `Arquivos ignorados: 177`
+    - `Erros de parsing: 0`
+    - `Arquivos nao suportados: 0`
+    - `Chunks gerados: 53529`
+  - manifest before -> after:
+    - `document_count: 177 -> 212` (`+35`)
+    - `chunk_document_count: 177 -> 212` (`+35`)
+    - `chunk_count: 52722 -> 53529` (`+807`)
+  - validacao de artefatos do recorte:
+    - `data/knowledge_parsed`: `35` arquivos `observability_docs_selected__*.json`
+    - `data/knowledge_chunks`: `35` arquivos `observability_docs_selected__*.chunks.json`
+    - `knowledge_state`: `35` `source_file` `observability_docs_selected/*` com `status=parsed`
+  - evidencias:
+    - `docs/coverage/observability_source_files_ingested_20260312.txt`
+    - `docs/coverage/observability_ingest_controlled_validation_20260312.json`
+- Estado final desta subetapa:
+  - recorte de Observabilidade adquirido, curado e ingerido no pipeline canonico.
+  - persistencia semantica do recorte **nao executada** nesta rodada.
+- Proximo passo recomendado:
+  - executar persistencia semantica focada apenas nos `35` `source_files` de `observability_docs_selected/*` e auditar before/after do tema Observabilidade para manter comparabilidade com Docker/Terraform.
+
+## Checkpoint 2026-03-12: persistencia semantica Terraform (43) + auditoria focada before/after
+- Objetivo da rodada:
+  - persistir semanticamente os `43` `source_files` `terraform_docs_selected/*` e medir impacto real no tema Terraform.
+- Leitura de contexto executada em:
+  - `STATUS.md`
+  - `docs/HANDOFF_TERRAFORM_CONTROLLED_INGESTION_20260312.md`
+  - `docs/coverage/terraform_source_files_ingested_20260312.txt`
+  - `docs/coverage/terraform_ingest_controlled_validation_20260312.json`
+  - `data/knowledge_index/knowledge_manifest.json`
+  - `data/knowledge_index/knowledge_state.json`
+- Persistencia semantica executada (comando canonico preparado + source_files Terraform):
+  - `documents_selected=43`
+  - `documents_processed=43`
+  - `documents_validated=43`
+  - `documents_failed=0`
+  - `chunks_persisted=209`
+  - `sources_with_error=[]`
+  - `duplicate_source_checksum_rows=[]`
+  - evidencia: `docs/coverage/semantic_persist_terraform43_validation_20260312.json`
+- Auditoria Terraform focada (8 perguntas, `top_k=5`):
+  - before (`docs/coverage/semantic_coverage_audit_terraform_before_20260312.json`):
+    - `well_covered=0`, `partial=0`, `gap=8`
+    - `global_avg_of_max_score=0.379537`
+    - `global_avg_of_avg_score=0.349114`
+  - after (`docs/coverage/semantic_coverage_audit_terraform_after_20260312.json`):
+    - `well_covered=4`, `partial=4`, `gap=0`
+    - `global_avg_of_max_score=0.579805`
+    - `global_avg_of_avg_score=0.543157`
+  - delta (`docs/coverage/semantic_coverage_audit_terraform_compare_before_after_20260312.json`):
+    - `well_covered: +4`, `partial: +4`, `gap: -8`
+    - `global_avg_of_max_score: +0.200268`
+    - `global_avg_of_avg_score: +0.194043`
+    - mudanca de classe em `8/8` perguntas
+    - top-1 migrando para `terraform_docs_selected/*` em `8/8` perguntas
+- Leitura objetiva:
+  - houve ganho estrutural claro no tema Terraform (lacunas zeradas no recorte focado e dominancia de top-1 em fonte oficial recortada).
+- Entrega documental:
+  - `docs/HANDOFF_SEMANTIC_PERSIST_TERRAFORM43_AUDIT_20260312.md`
+  - `docs/coverage/semantic_persist_terraform43_validation_20260312.json`
+  - `docs/coverage/semantic_coverage_audit_terraform_before_20260312.json`
+  - `docs/coverage/semantic_coverage_audit_terraform_after_20260312.json`
+  - `docs/coverage/semantic_coverage_audit_terraform_compare_before_after_20260312.json`
+- Restricoes respeitadas:
+  - sem alteracao de pipeline
+  - sem abertura de Etapa 16
+  - sem adicao de novos conteudos
+  - foco exclusivo em impacto do recorte Terraform ja ingerido
+
+## Checkpoint 2026-03-12: ingestao canonica controlada do recorte Terraform
+- Objetivo da rodada:
+  - executar ingestao canonica controlada de `terraform_docs_selected` sem alteracao de pipeline e sem persistencia semantica.
+- Confirmacoes pre-execucao:
+  - `data/knowledge_raw/terraform_docs_selected` presente
+  - recorte com `43` arquivos `.md`
+  - `data/knowledge_raw/_official_repo_clones` presente
+- Execucao controlada realizada:
+  - isolamento temporario de `_official_repo_clones` fora de `knowledge_raw`
+  - execucao de `scripts/ingest_knowledge.sh`
+  - restauracao de `_official_repo_clones` ao final
+  - log: `/tmp/terraform_ingest_controlled_20260312.log`
+- Resultado da ingestao:
+  - `Arquivos encontrados: 177`
+  - `Arquivos processados: 43`
+  - `Arquivos ignorados: 134`
+  - `Erros de parsing: 0`
+  - `Arquivos nao suportados: 0`
+  - `Chunks gerados: 52722`
+- Validacao de artefatos:
+  - `data/knowledge_parsed/`: `43` arquivos `terraform_docs_selected__*.json`
+  - `data/knowledge_chunks/`: `43` arquivos `terraform_docs_selected__*.chunks.json`
+  - `data/knowledge_index/knowledge_manifest.json`:
+    - `document_count=177`
+    - `chunk_document_count=177`
+    - `chunk_count=52722`
+  - `data/knowledge_index/knowledge_state.json`:
+    - `43` entradas `terraform_docs_selected/*`
+    - todas `status=parsed`
+    - `chunk_count` total do recorte: `332`
+- Evidencias geradas:
+  - `docs/coverage/terraform_ingest_controlled_validation_20260312.json`
+  - `docs/coverage/terraform_source_files_ingested_20260312.txt`
+  - `docs/HANDOFF_TERRAFORM_CONTROLLED_INGESTION_20260312.md`
+- Proximo comando correto (nao executado) para persistencia semantica:
+  - usar `scripts/with-semantic-env.sh .venv/bin/python -m app.services.knowledge_ingest --semantic-persist --semantic-limit-docs 43` com os `--semantic-source-file` da lista em `docs/coverage/terraform_source_files_ingested_20260312.txt`.
+- Restricoes respeitadas:
+  - sem alteracao de pipeline
+  - sem abrir Etapa 16
+  - sem iniciar persistencia semantica nesta rodada
+  - foco exclusivo na ingestao canonica controlada do recorte Terraform
+
+## Checkpoint 2026-03-12: ciclo 1 controlado de aquisicao/recorte Terraform
+- Objetivo da rodada:
+  - preparar fontes oficiais e recorte seletivo Terraform para os gaps de `remote state S3`, `locking`, `governanca de state`, `modulos` e `workflow real`, sem ingestao cega.
+- Leitura de contexto executada em:
+  - `STATUS.md`
+  - `README.md`
+  - `INGESTION_POLICY.md`
+  - `docs/PROJECT_STAGE_INDEX.md`
+  - `docs/HANDOFF_TERRAFORM_ACQUISITION_STRATEGY_EXPANSION_20260311.md`
+  - `docs/HANDOFF_SEMANTIC_PERSISTENCE_AWS5_IAM_AUDIT_20260311.md`
+  - `docs/HANDOFF_SEMANTIC_PERSIST_DOCKER79_AUDIT_20260312.md`
+- Fontes oficiais preparadas:
+  - Terraform core: `data/knowledge_raw/_official_repo_clones/terraform` (clone oficial feito; baixa aderencia direta para docs de usuario dos gaps desta rodada).
+  - Terraform docs principal: `data/knowledge_raw/_official_repo_clones/web-unified-docs` (clone oficial feito; caminho aderente em `content/terraform/v1.14.x/docs`).
+  - Terraform AWS provider: `data/knowledge_raw/_official_repo_clones/terraform-provider-aws` (clone oficial feito; avaliado como opcional e nao necessario para os gaps centrais deste ciclo).
+- Diagnostico estrutural Terraform docs (v1.14.x):
+  - `language/backend`: `13` arquivos
+  - `language/state`: `10` arquivos
+  - `language/modules`: `9` arquivos
+  - `cli/commands/state`: `8` arquivos
+  - `cli/commands/workspace`: `6` arquivos
+  - `cli/state`: `6` arquivos
+  - `intro/phases`: `5` arquivos
+- Recorte seletivo recomendado e materializado:
+  - caminho: `data/knowledge_raw/terraform_docs_selected`
+  - contagem: `43` arquivos
+  - trilhas cobertas no recorte: backend (`s3`/`remote`), state (locking/remote-state/refactor/remove/import/workspaces), modules (configuration/sources/develop), workflow CLI (`init/plan/apply/state/workspace/force-unlock`) e governanca (`intro/phases/govern`, `collaborate`).
+  - compatibilidade operacional: arquivos normalizados para `.md` (origem MDX), sem alterar pipeline.
+- Artefatos da rodada:
+  - `docs/coverage/terraform_docs_selected_files_20260312.txt`
+  - `docs/coverage/terraform_docs_selected_files_20260312.json`
+  - `docs/coverage/terraform_acquisition_diagnostic_cycle1_20260312.json`
+  - `docs/HANDOFF_TERRAFORM_CONTROLLED_ACQUISITION_CYCLE1_20260312.md`
+- Proximo comando correto (nao executado) para ingestao canonica controlada:
+  - isolar temporariamente `_official_repo_clones`, executar `scripts/ingest_knowledge.sh`, e restaurar o diretorio de clones para evitar varredura massiva fora do recorte.
+- Restricoes respeitadas:
+  - sem alteracao de pipeline
+  - sem abrir Etapa 16
+  - sem ingestao massiva cega
+  - foco exclusivo em aquisicao/recorte seletivo Terraform
+
+## Checkpoint 2026-03-12: persistencia semantica do recorte Docker (79) + reauditoria focada
+- Objetivo da rodada:
+  - persistir semanticamente apenas `docker_docs_selected/*` ja ingerido e medir ganho real no tema Docker.
+- Leitura de contexto executada em:
+  - `STATUS.md`
+  - `data/knowledge_index/knowledge_state.json`
+  - `docs/HANDOFF_DOCKER_CONTROLLED_INGESTION_20260312.md`
+  - `docs/coverage/semantic_coverage_audit_pre_stage16_20260311.json`
+- Escopo operacional executado:
+  - identificacao automatica de `79` `source_file` com prefixo `docker_docs_selected/` em `knowledge_state.json`;
+  - persistencia semantica focada nesses `79` source_files (sem alterar pipeline);
+  - auditoria Docker before/after com `8` perguntas e `top_k=5`;
+  - comparativo de classe/score/top-1 por pergunta.
+- Validacao de persistencia (`docs/coverage/semantic_persist_docker79_validation_20260312.json`):
+  - `documents_selected=79`
+  - `documents_processed=79`
+  - `documents_validated=79`
+  - `documents_failed=0`
+  - `chunks_persisted=84`
+  - `sources_with_error=[]`
+  - `duplicate_source_checksum_rows=[]`
+- Auditoria Docker focada:
+  - before (`docs/coverage/semantic_coverage_audit_docker_before_20260312.json`):
+    - `well_covered=0`, `partial=2`, `gap=6`
+    - `global_avg_of_max_score=0.436232`
+    - `global_avg_of_avg_score=0.400084`
+  - after (`docs/coverage/semantic_coverage_audit_docker_after_20260312.json`):
+    - `well_covered=6`, `partial=2`, `gap=0`
+    - `global_avg_of_max_score=0.606646`
+    - `global_avg_of_avg_score=0.539499`
+  - delta (`docs/coverage/semantic_coverage_audit_docker_compare_before_after_20260312.json`):
+    - `well_covered: +6`, `partial: +0`, `gap: -6`
+    - `global_avg_of_max_score: +0.170414`
+    - `global_avg_of_avg_score: +0.139415`
+    - mudanca de classe em `6/8` perguntas
+    - top-1 migrou para `docker_docs_selected/*` em `7/8` perguntas
+- Leitura objetiva:
+  - houve ganho estrutural no tema Docker (lacunas zeradas na amostra focada e predominio de fonte oficial no top-1).
+  - ponto ainda parcial: `docker image hardening` (classe parcial mantida; top-1 nao migrou para `docker_docs_selected/*`).
+- Entrega documental:
+  - `docs/HANDOFF_SEMANTIC_PERSIST_DOCKER79_AUDIT_20260312.md`
+  - `docs/coverage/docker_source_files_selected_20260312.json`
+  - `docs/coverage/docker_source_files_selected_20260312.txt`
+  - `docs/coverage/semantic_persist_docker79_validation_20260312.json`
+  - `docs/coverage/semantic_coverage_audit_docker_before_20260312.json`
+  - `docs/coverage/semantic_coverage_audit_docker_after_20260312.json`
+  - `docs/coverage/semantic_coverage_audit_docker_compare_before_after_20260312.json`
+- Restricoes respeitadas:
+  - sem alterar pipeline
+  - sem abrir Etapa 16
+  - sem adicionar novo conteudo
+  - foco exclusivo em medir impacto do recorte Docker ja ingerido
+
+## Checkpoint 2026-03-12: ingestao canonica controlada do recorte Docker (clone oficial)
+- Objetivo da rodada:
+  - executar ingestao canonica de `docker_docs_selected` sem alterar pipeline e sem persistencia semantica.
+- Confirmacoes iniciais:
+  - clone oficial presente em `data/knowledge_raw/_official_repo_clones/docker-docs`.
+  - recorte aprovado materializado em `data/knowledge_raw/docker_docs_selected` com `79` arquivos `.md`.
+  - diretorio solicitado `content/manuals/engine/container` nao existe no `docker/docs` atual.
+- Execucao canonica (tentativa inicial):
+  - comando: `scripts/ingest_knowledge.sh`.
+  - comportamento observado: o pipeline varreu `knowledge_raw` inteiro e tambem processou `_official_repo_clones/docker-docs`.
+  - evidencia de log (`/tmp/docker_ingest_20260311.log`):
+    - `knowledge_file_processed` total: `1421`
+    - dentro de `docker_docs_selected/`: `79`
+    - dentro de `_official_repo_clones/docker-docs/`: `1342`
+  - parsing com erro: nenhum erro encontrado no log.
+- Correcao operacional (sem alterar pipeline):
+  - clone bruto foi movido temporariamente para fora de `knowledge_raw`, executado novamente o comando canonico e restaurado ao final.
+  - evidencias da execucao controlada (`/tmp/docker_ingest_controlled_20260311.log`):
+    - `Arquivos encontrados: 134`
+    - `Arquivos processados: 0`
+    - `Arquivos ignorados: 134`
+    - `Erros de parsing: 0`
+    - `Arquivos nao suportados: 0`
+    - `Chunks gerados: 52390`
+- Estado final validado:
+  - `data/knowledge_parsed/` contem `79` artefatos com prefixo `docker_docs_selected__`.
+  - `data/knowledge_chunks/` contem `79` artefatos com prefixo `docker_docs_selected__`.
+  - `knowledge_manifest.json`: `document_count=134`, `chunk_document_count=134`, `chunk_count=52390`.
+  - `knowledge_state.json`: `79` entradas `docker_docs_selected/*`, todas com `status=parsed`.
+- Restricoes respeitadas:
+  - sem alteracao de pipeline.
+  - sem ingestao do repo completo como estrategia final desta rodada.
+  - sem persistencia semantica nesta rodada.
+
+## Checkpoint 2026-03-11: ciclo 1 de aquisicao controlada por clone oficial (Docker docs)
+- Objetivo da rodada:
+  - executar primeiro ciclo controlado de aquisicao por clone oficial (`docker/docs`) e diagnosticar recorte para ingestao, sem alterar pipeline.
+- Leitura de contexto executada em:
+  - `STATUS.md`
+  - `README.md`
+  - `INGESTION_POLICY.md`
+  - `docs/PROJECT_STAGE_INDEX.md`
+  - `docs/HANDOFF_HYBRID_ACQUISITION_STRATEGY_MULTI_DOMAIN_20260311.md`
+  - `docs/HANDOFF_OFFICIAL_REPO_SELECTION_HYBRID_K8S_PROM_DOCKER_GRAFANA_20260311.md`.
+- Caminho canonico de aquisicao criado:
+  - `data/knowledge_raw/_official_repo_clones/docker-docs`.
+- Clone oficial executado (controlado):
+  - `git clone --depth 1 https://github.com/docker/docs.git data/knowledge_raw/_official_repo_clones/docker-docs`.
+- Estrutura/volume observados:
+  - tamanho local aproximado: `79M`;
+  - markdown total no repo: `1259`;
+  - markdown em `content/`: `1113`;
+  - nao-markdown: `998`.
+- Diagnostico de aderencia aos gaps priorizados:
+  - areas fortes encontradas para:
+    - multi-stage builds
+    - build cache / buildkit
+    - Dockerfile best practices
+    - networking
+    - volumes
+    - security / hardening.
+- Recorte recomendado para ingestao seletiva (nao executada):
+  - `content/manuals/build/building` (9 md)
+  - `content/manuals/build/buildkit` (4 md)
+  - `content/manuals/build/cache` (11 md)
+  - `content/manuals/engine/network` (14 md)
+  - `content/manuals/engine/storage` (14 md)
+  - `content/manuals/engine/security` (18 md)
+  - `content/manuals/security` (9 md)
+  - total recomendado: `79` arquivos `.md`.
+- Avaliacao de limpeza para ingestao:
+  - fonte oficial e adequada, porem com frontmatter/shortcodes Hugo e muitos assets;
+  - conclusao: **nao** fazer ingestao total cega do clone;
+  - recomendacao: ingestao seletiva do recorte.
+- Entrega documental:
+  - `docs/HANDOFF_DOCKER_OFFICIAL_CLONE_CYCLE1_20260311.md`.
+- Restricoes respeitadas:
+  - sem alteracao de pipeline;
+  - sem abertura de Etapa 16;
+  - sem ingestao massiva;
+  - ingestao nao executada nesta rodada.
+
+## Checkpoint 2026-03-11: selecao de repositorios oficiais para estrategia hibrida (Kubernetes/Prometheus/Docker/Grafana)
+- Objetivo da rodada:
+  - mapear e validar as melhores fontes oficiais por clone para aquisicao documental complementar, sem iniciar ingestao.
+- Leitura de contexto executada em:
+  - `STATUS.md`
+  - `README.md`
+  - `INGESTION_POLICY.md`
+  - `docs/PROJECT_STAGE_INDEX.md`
+  - `docs/HANDOFF_HYBRID_ACQUISITION_STRATEGY_MULTI_DOMAIN_20260311.md`
+  - `docs/HANDOFF_PIPELINE_AUDIT_EXISTING_BOOK_INGESTION_20260311.md`.
+- Validacao externa minima (sem clone completo) executada:
+  - inspecao de paginas oficiais de docs para confirmar repositorios de origem/edit;
+  - `git ls-remote --symref <repo> HEAD` nos repositorios selecionados.
+- Repositorios oficiais selecionados por dominio:
+  - Kubernetes: `https://github.com/kubernetes/website` (docs puro) -> recomendacao: `ambos` (HTML + clone).
+  - Prometheus: `https://github.com/prometheus/docs` (docs puro) -> recomendacao: `ambos` (HTML + clone).
+  - Docker: `https://github.com/docker/docs` (docs puro) -> recomendacao: `ambos` (HTML + clone).
+  - Grafana: `https://github.com/grafana/grafana` (repo principal com docs embutida) -> recomendacao: `hibrido priorizado` (HTML + clone seletivo).
+- Classificacao consolidada de tipo de fonte:
+  - docs puro: Kubernetes, Prometheus, Docker;
+  - repo principal + complemento hibrido: Grafana.
+- Recomendacao objetiva de proximo dominio para aquisicao:
+  - **Docker** (repositorio de docs puro e mapeamento oficial direto no site).
+- Entrega documental:
+  - `docs/HANDOFF_OFFICIAL_REPO_SELECTION_HYBRID_K8S_PROM_DOCKER_GRAFANA_20260311.md`.
+- Restricoes respeitadas:
+  - sem alteracao de pipeline;
+  - sem abertura de Etapa 16;
+  - sem ingestao massiva;
+  - sem clone completo nesta rodada.
+
+## Checkpoint 2026-03-11: expansao multi-dominio da estrategia hibrida de aquisicao documental
+- Objetivo da rodada:
+  - estender para outros dominios tecnicos o padrao ja adotado para Terraform: **mesclar, nao substituir**.
+- Leitura de contexto executada em:
+  - `STATUS.md`
+  - `README.md`
+  - `INGESTION_POLICY.md`
+  - `docs/PROJECT_STAGE_INDEX.md`
+  - `docs/HANDOFF_TERRAFORM_ACQUISITION_STRATEGY_EXPANSION_20260311.md`
+  - `docs/HANDOFF_PIPELINE_AUDIT_EXISTING_BOOK_INGESTION_20260311.md`.
+- Atualizacao documental aplicada:
+  - `README.md`: estrategia hibrida generalizada para dominios tecnicos com documentacao oficial aberta, incluindo regra curta por dominio.
+  - `INGESTION_POLICY.md`: secao de estrategia combinada migrada para escopo multi-dominio com lista formal de dominios cobertos e regra curta de escolha.
+  - `docs/PROJECT_STAGE_INDEX.md`: Etapa 6 passou a explicitar os dominios cobertos pela aquisicao combinada.
+  - `docs/HANDOFF_HYBRID_ACQUISITION_STRATEGY_MULTI_DOMAIN_20260311.md`: handoff curto da rodada.
+- Dominios formalmente cobertos nesta expansao:
+  - Kubernetes
+  - Prometheus
+  - Grafana
+  - Docker
+  - Ansible
+  - PostgreSQL
+- Estrategia consolidada por dominio:
+  - HTML espelhado continua caminho valido;
+  - repo oficial clonado e caminho complementar quando a fonte for mais limpa/estruturada;
+  - escolha por qualidade estrutural + fidelidade + deduplicacao por conteudo/origem;
+  - coexistencia das duas abordagens permitida.
+- Restricoes respeitadas:
+  - sem alteracao de pipeline funcional;
+  - sem aquisicao real de conteudo nesta rodada;
+  - sem abertura de Etapa 16;
+  - foco exclusivo em formalizacao documental/arquitetural.
+
+## Checkpoint 2026-03-11: estrategia combinada de aquisicao documental Terraform (mesclar, nao substituir)
+- Objetivo da rodada:
+  - formalizar em documentacao a coexistencia de dois caminhos validos de aquisicao documental oficial (HTML espelhado e repo oficial clonado), sem mudar pipeline.
+- Leitura de contexto executada em:
+  - `STATUS.md`
+  - `docs/PROJECT_STAGE_INDEX.md`
+  - `docs/project_status_state.json`
+  - `docs/HANDOFF_PIPELINE_AUDIT_EXISTING_BOOK_INGESTION_20260311.md`
+  - `docs/PROJECT_STAGE_11_BREAKDOWN.md`
+  - `docs/HANDOFF_STAGE_11_4_COMPLETION.md`
+  - `docs/ROUND_SUMMARY_STAGE_11_4_SCOPE.md`
+  - `README.md`
+  - `INGESTION_POLICY.md`.
+- Atualizacao documental aplicada:
+  - `README.md`: estrategia combinada explicita na camada curada (HTML espelhado continua + repo oficial clonado como opcao complementar).
+  - `INGESTION_POLICY.md`: nova secao com regra combinada para documentacao oficial (Terraform e similares), incluindo criterio de escolha e deduplicacao por conteudo/origem.
+  - `docs/PROJECT_STAGE_INDEX.md`: Etapa 6 passou a explicitar aquisicao combinada quando aplicavel.
+  - `docs/HANDOFF_TERRAFORM_ACQUISITION_STRATEGY_EXPANSION_20260311.md`: handoff curto desta rodada.
+- Decisao consolidada:
+  - abordagem atual via HTML espelhado **mantida**;
+  - aquisicao via repo oficial **adicionada** como possibilidade complementar;
+  - estrategia oficial: **mesclar, nao substituir**.
+- Restricoes respeitadas:
+  - sem alteracao da logica funcional do pipeline;
+  - sem abertura de Etapa 16;
+  - foco exclusivo em documentacao arquitetural/operacional.
+
+## Checkpoint 2026-03-11: persistencia semantica dos 5 AWS + reauditoria IAM focada
+- Objetivo da rodada:
+  - persistir semanticamente apenas os 5 novos `source_file` AWS e medir impacto real no tema IAM.
+- Execucao de persistencia (escopo fechado nos 5 AWS):
+  - comando canônico com ambiente semântico: `scripts/with-semantic-env.sh .venv/bin/python -m app.services.knowledge_ingest --semantic-persist --semantic-limit-docs 5 --semantic-source-file ...`.
+  - resultado validado:
+    - `documents_selected=5`
+    - `documents_processed=5`
+    - `documents_validated=5`
+    - `documents_failed=0`
+    - `chunks_persisted=40`
+    - `sources_with_error=0`
+    - `duplicate_source_checksum_rows=[]`
+- Auditoria IAM focada (8 perguntas) executada:
+  - agregados pós-persistência:
+    - `well_covered_count=0`
+    - `partial_count=6`
+    - `gap_count=2`
+    - `global_avg_of_max_score=0.470363`
+    - `global_avg_of_avg_score=0.468348`
+  - comparativo com baseline histórico disponível:
+    - cobertura comparável em `1/8` pergunta (`aws iam least privilege policy`);
+    - evolução objetiva: `lacuna -> parcial`, `max +0.098575`, `avg +0.169022`, top-1 mudou para documento novo AWS.
+  - dominância do novo acervo IAM:
+    - `7/8` perguntas com `top-1` vindo de `aws/*`.
+- Reauditoria global opcional (20 perguntas) executada:
+  - `bem_coberta: 5 -> 5`
+  - `parcial: 5 -> 6`
+  - `lacuna: 10 -> 9`
+  - `global_avg_of_max_score: +0.008203`
+  - `global_avg_of_avg_score: +0.014236`
+- Artefatos da rodada:
+  - `docs/coverage/semantic_persist_aws5_validation_20260311.json`
+  - `docs/coverage/semantic_coverage_audit_iam_after_aws5_20260311.json`
+  - `docs/coverage/semantic_coverage_audit_iam_compare_after_aws5_20260311.json`
+  - `docs/coverage/semantic_coverage_audit_post_aws5_20260311.json`
+  - `docs/coverage/semantic_coverage_audit_compare_pre_after_aws5_20260311.json`
+  - `docs/HANDOFF_SEMANTIC_PERSISTENCE_AWS5_IAM_AUDIT_20260311.md`
+- Restricoes respeitadas:
+  - sem abrir Etapa 16;
+  - sem alterar pipeline;
+  - sem adicionar novos livros/documentos.
+
+## Checkpoint 2026-03-11: ingestao canonica de aws.zip (5 novos arquivos AWS)
+- Objetivo da rodada:
+  - processar `aws.zip` no trilho oficial sem criar fluxo novo.
+- Auditoria inicial executada:
+  - `aws.zip` presente e validado;
+  - conteudo interno com 5 arquivos suportados (`4 PDF` IAM/security/policies + `1 EPUB` AWS Security Cookbook);
+  - antes da extracao, os 5 nomes nao existiam em `data/knowledge_raw`.
+- Procedimento canonico executado:
+  1. `unzip -o aws.zip -d data/knowledge_raw`
+  2. `scripts/ingest_knowledge.sh`
+- Resultado objetivo da execucao:
+  - `Arquivos encontrados: 55`
+  - `Arquivos processados: 5`
+  - `Arquivos ignorados: 50`
+  - `Erros de parsing: 0`
+  - `Arquivos nao suportados: 0`
+  - `Chunks gerados: 51554`
+- Novos `source_file` efetivamente ingeridos:
+  - `aws/Security best practices in IAM.pdf`
+  - `aws/Policy evaluation logic.pdf`
+  - `aws/Permissions boundaries for IAM entities.pdf`
+  - `aws/IAM policy testing with the IAM policy simulator.pdf`
+  - `aws/AWS Security Cookbook by Heartin Kanikathottu.epub`
+- Evidencias de artefatos gerados:
+  - 5 novos parseados em `data/knowledge_parsed/aws__*.json`;
+  - 5 novos chunks em `data/knowledge_chunks/aws__*.chunks.json`;
+  - `knowledge_manifest.json` atualizado para `document_count=55`, `chunk_document_count=55`, `chunk_count=51554`;
+  - `knowledge_state.json` atualizado com os 5 novos registros em `status=parsed`.
+- Persistencia semantica:
+  - nao executada nesta rodada;
+  - comando pronto para persistir apenas os 5 novos `source_file` registrado no handoff.
+- Entrega documental:
+  - `docs/HANDOFF_INGEST_CANONICAL_AWS_ZIP_20260311.md`.
+- Restricoes respeitadas:
+  - sem pipeline novo;
+  - sem alteracao funcional;
+  - sem abrir Etapa 16.
+
+## Checkpoint 2026-03-11: persistencia semantica dos 8 novos livros + reauditoria de cobertura (mesmas 20 perguntas)
+- Objetivo da rodada:
+  - persistir semanticamente apenas os 8 novos `source_file` ja ingeridos e medir impacto real na cobertura sem mudar pipeline.
+- Persistencia executada (escopo fechado nos 8 livros):
+  - comando efetivo: `.venv/bin/python -m app.services.knowledge_ingest --semantic-persist --semantic-only --semantic-source-file <8 source_file>`
+  - resultado objetivo: `documents_selected=8`, `documents_processed=8`, `documents_validated=8`, `documents_failed=0`, `chunks_persisted=64`.
+  - sem erro por `source_file` no lote validado.
+- Reauditoria executada com as mesmas 20 perguntas do baseline:
+  - baseline: `docs/coverage/semantic_coverage_audit_pre_stage16_20260311.json`
+  - after: `docs/coverage/semantic_coverage_audit_after_8books_20260311.json`
+  - comparativo: `docs/coverage/semantic_coverage_audit_compare_pre_after_8books_20260311.json`
+- Before/after consolidado:
+  - `bem_coberta`: `5 -> 5`
+  - `parcial`: `5 -> 5`
+  - `lacuna`: `10 -> 10`
+  - `global_avg_of_max_score`: `0.503941 -> 0.507058` (`+0.003117`)
+  - `global_avg_of_avg_score`: `0.439589 -> 0.443904` (`+0.004315`)
+  - perguntas com melhora: `1` (`python async await e event loop`, ainda `lacuna`).
+- Impacto tematico pedido:
+  - Docker: ganho leve de score medio, sem mudanca de classe agregada.
+  - FastAPI: ganho leve de score medio, permanecendo `lacuna` no item avaliado.
+  - Kubernetes conceitual: estabilidade pratica (sem mudanca de classe agregada).
+- Gaps que seguem carentes (confirmacao explicita):
+  - AWS IAM: `lacuna`
+  - Observabilidade: `lacuna`
+  - Terraform: `lacuna`
+- Evidencia de consistencia/deduplicacao no recorte da rodada:
+  - `sources_total=8`, `sources_ok=8`, `sources_with_error=0`;
+  - `duplicate_source_checksum_rows=[]`.
+- Entrega documental:
+  - `docs/HANDOFF_SEMANTIC_PERSISTENCE_8BOOKS_REAUDIT_20260311.md`.
+- Restricoes respeitadas:
+  - sem abrir Etapa 16;
+  - sem alterar pipeline;
+  - sem adicionar novos livros.
+
+## Checkpoint 2026-03-11: ingestao canonica dos novos livros auditados (sem alteracao de pipeline)
+- Objetivo da rodada:
+  - executar o fluxo canonico existente para os novos livros em `livros.zip`, sem criar logica nova.
+- Validacao inicial executada:
+  - `livros.zip` confirmado na raiz do projeto;
+  - `data/knowledge_raw/` listado e sem os 8 novos `.epub` do zip antes da extracao.
+- Procedimento executado (canonico):
+  1. `unzip -o livros.zip -d data/knowledge_raw`
+  2. `scripts/ingest_knowledge.sh`
+- Resultado objetivo da execucao:
+  - `Arquivos encontrados: 50`
+  - `Arquivos processados: 8`
+  - `Arquivos ignorados: 42`
+  - `Erros de parsing: 0`
+  - `Arquivos nao suportados: 0`
+  - `Chunks gerados: 26795`
+- Novos `source_file` efetivamente ingeridos:
+  - `livros/docker/Nigel_Poulton/Docker for Sysadmins_ Linux Windows VMware by Nigel Poulton.epub`
+  - `livros/docker/Nigel_Poulton/Getting Started with Docker (for Raymond Rhine) by Nigel Poulton.epub`
+  - `livros/docker/Nigel_Poulton/Docker Deep Dive - Second Edition by Nigel Poulton.epub`
+  - `livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub`
+  - `livros/docker/Nigel_Poulton/The KCNA Book by Nigel Poulton.epub`
+  - `livros/fastapi/Alireza Parandeh/Building Generative AI Services with FastAPI by Alireza Parandeh.epub`
+  - `livros/fastapi/Bill Lubanovic/FastAPI by Bill Lubanovic.epub`
+  - `livros/fastapi/Giunio De Luca/FastAPI Cookbook_ Develop high-performance APIs and web applications with Python by Giunio De Luca.epub`
+- Evidencias de artefatos gerados:
+  - 8 novos parseados em `data/knowledge_parsed/livros__*.json`;
+  - 8 novos chunks em `data/knowledge_chunks/livros__*.chunks.json`;
+  - `knowledge_manifest.json` atualizado para `document_count=50`, `chunk_document_count=50`, `chunk_count=26795`;
+  - `knowledge_state.json` atualizado com os 8 novos registros em `status=parsed` e `file_type=epub`.
+- Erros por arquivo:
+  - nenhum erro na rodada (`Erros de parsing: 0`).
+- Persistencia semantica:
+  - nao executada nesta rodada; apenas ingestao canonica de parse/chunk/index concluida.
+- Entrega documental:
+  - `docs/HANDOFF_INGEST_CANONICAL_NEW_BOOKS_20260311.md`.
+
+## Checkpoint 2026-03-11: auditoria do pipeline existente de curadoria/ingestao de livros (sem alteracao funcional)
+- Objetivo da rodada:
+  - localizar o caminho canonico ja existente para ingestao/curadoria de literaturas e evitar duplicacao de logica.
+- Leitura/auditoria executada em:
+  - `README.md`
+  - `INGESTION_POLICY.md`
+  - `docs/STAGE_15_1_INGESTION_OPERATIONAL_CONTRACT.md`
+  - `docs/HANDOFF_STAGE_15_2_COMPLETION.md`
+  - `docs/HANDOFF_STAGE_11_4_COMPLETION.md`
+  - `app/services/knowledge_ingest.py`
+  - `app/services/knowledge_parsers.py`
+  - `app/services/knowledge_chunks.py`
+  - `app/services/semantic_min_api.py`
+  - `app/services/curated_sources.py`
+  - `app/services/knowledge_imports.py`
+  - `scripts/ingest_knowledge.sh`
+  - `scripts/import_downloads.sh`
+  - `data/knowledge_index/knowledge_manifest.json`
+  - `data/knowledge_index/knowledge_state.json`
+  - `data/source_candidates/source_candidates_manifest.json`.
+- Diagnostico factual consolidado:
+  - entrada oficial de livros brutos: `data/knowledge_raw/`;
+  - ponto de execucao canonico: `scripts/ingest_knowledge.sh` (`python3 -m app.services.knowledge_ingest`);
+  - ordem real do fluxo principal: parse (`knowledge_parsers`) -> chunking/tags/manifest (`knowledge_chunks`) -> atualizacao de `knowledge_state`/`knowledge_manifest`;
+  - persistencia semantica minima existe e e opcional via `--semantic-persist` (reuso de chunks + escrita em `documents/chunks` no PostgreSQL);
+  - reingestao incremental ja implementada por `sha256`, `tag_pipeline_version` e presenca de artefatos (`_needs_processing`);
+  - camada de triagem/selecao de documentos existe em paralelo na curadoria (`curated_sources`: review/check-promotion/promote-candidate), promovendo artefatos locais para `data/knowledge_raw/`.
+- Estado dos livros novos do usuario:
+  - `livros.zip` encontrado na raiz do projeto com novos `.epub` de Docker/FastAPI;
+  - comparacao com `data/knowledge_raw/` confirma que os novos nomes do zip ainda nao estao no raw;
+  - conclusao: os livros novos ainda nao entraram no ponto de entrada canonico do pipeline.
+- Entrega documental da rodada:
+  - `docs/HANDOFF_PIPELINE_AUDIT_EXISTING_BOOK_INGESTION_20260311.md`.
+- Restricoes respeitadas:
+  - nenhuma mudanca funcional no pipeline;
+  - nenhuma abertura de nova etapa;
+  - foco exclusivo em auditoria/documentacao do caminho existente.
+
+## Checkpoint 2026-03-11: auditoria de cobertura da base semantica (pre-etapa 16)
+- Objetivo da rodada:
+  - medir cobertura real da base semantica interna antes de abrir busca externa no runtime.
+- Escopo executado (sem mudanca funcional):
+  - conjunto inicial de `20` perguntas representativas do dominio tecnico;
+  - execucao de `semantic_search` com `top_k=5` por pergunta;
+  - coleta de `max_score`, `avg_score`, `top_source_file` e presenca de resultado relevante;
+  - classificacao por threshold:
+    - `lacuna` se `max_score < 0.45`
+    - `bem_coberta` se `max_score >= 0.60` e `avg_score >= 0.45`
+    - `parcial` nos demais casos.
+- Estatisticas consolidadas:
+  - `total_questions=20`
+  - `well_covered_count=5`
+  - `partial_count=5`
+  - `gap_count=10`
+  - `global_avg_of_max_score=0.503941`
+  - `global_avg_of_avg_score=0.439589`
+- Evidencias objetivas:
+  - bem cobertas (exemplos): `logs previous crashloopbackoff kubernetes`, `kubectl create token serviceaccount`, `rbac role rolebinding serviceaccount kubernetes`.
+  - parciais (exemplos): `docker compose healthcheck redis`, `aws vpc security group vs nacl`, `statefulset volumeclaimtemplates kubernetes`.
+  - lacunas (exemplos): `docker multi stage build best practices`, `fastapi dependency injection com exemplos`, `aws iam least privilege policy`, `observabilidade prometheus grafana alertmanager`, `terraform aws s3 backend remote state locking`.
+- Artefatos gerados:
+  - `docs/coverage/semantic_coverage_audit_pre_stage16_20260311.json`
+  - `docs/ROUND_SUMMARY_SEMANTIC_COVERAGE_AUDIT_PRE_STAGE_16.md`
+  - `docs/HANDOFF_SEMANTIC_COVERAGE_AUDIT_PRE_STAGE_16.md`
+- Recomendacao objetiva:
+  - executar ciclo de ingestao local direcionado para gaps (literatura focada em Docker avancado, FastAPI DI, IAM/Terraform/AWS networking, observabilidade Prometheus/Grafana/Alertmanager, service types/ingress/storage em Kubernetes) antes de abrir busca externa em runtime.
+- Restricoes respeitadas:
+  - sem busca externa;
+  - sem alteracao do pipeline semantico;
+  - sem implementacao de adaptador/crawler.
+
+## Checkpoint 2026-03-11: subetapa 16.1 concluida (contrato operacional da busca externa com governanca)
+- Leitura/revisao consolidada concluida em:
+  - `STATUS.md`
+  - `docs/PROJECT_STAGE_INDEX.md`
+  - `docs/project_status_state.json`
+  - `docs/HANDOFF_STAGE_15_MACRO_CLOSURE.md`
+  - `docs/HANDOFF_STAGE_15_4_COMPLETION.md`
+  - `docs/ROUND_SUMMARY_STAGE_15_4_RUNTIME_LOCAL_FIRST.md`.
+- Entregas da 16.1 criadas:
+  - `docs/STAGE_16_1_EXTERNAL_SEARCH_CONTRACT.md`
+  - `docs/HANDOFF_STAGE_16_1_COMPLETION.md`.
+- Contrato da 16.1 formalizado com:
+  - objetivo da busca externa complementar;
+  - precedencia obrigatoria do `semantic_local`;
+  - criterios minimos de disparo por insuficiencia local;
+  - provedores permitidos em nivel conceitual (sem implementacao);
+  - limites de resultados, politica de dominios confiaveis e normalizacao minima;
+  - separacao explicita entre contexto temporario e ingestao permanente;
+  - governanca de qualidade minima;
+  - estados operacionais da busca externa e evidencia minima de validacao.
+- Fora de escopo mantido explicitamente:
+  - crawler amplo;
+  - scraping massivo;
+  - ingestao automatica da web;
+  - redesign do runtime;
+  - mudanca na arquitetura da memoria semantica.
+- Riscos/dividas tecnicas registrados:
+  - dependencia de credencial OpenAI para parte da camada semantica;
+  - fallback lexical mantido como degradacao segura;
+  - Etapa 16 ainda sem adaptador implementado nesta rodada.
+- Decisao de estado:
+  - **16.1 concluida** no escopo documental;
+  - Etapa 16 passa para **parcial/em andamento**;
+  - nenhum adaptador/crawler implementado nesta rodada.
+- Backups estruturais antes das edicoes:
+  - `STATUS.md.bak-20260311T113757Z-stage16_1-contract`
+  - `docs/PROJECT_STAGE_INDEX.md.bak-20260311T113757Z-stage16_1-contract`
+  - `docs/project_status_state.json.bak-20260311T113757Z-stage16_1-contract`
+
+## Checkpoint 2026-03-11: fechamento macro da Etapa 15 consolidado como baseline oficial (sem nova etapa aberta)
+- Leitura/revisao consolidada concluida em:
+  - `STATUS.md`
+  - `docs/PROJECT_STAGE_INDEX.md`
+  - `docs/project_status_state.json`
+  - `docs/HANDOFF_STAGE_15_1_COMPLETION.md`
+  - `docs/HANDOFF_STAGE_15_2_COMPLETION.md`
+  - `docs/HANDOFF_STAGE_15_3_COMPLETION.md`
+  - `docs/HANDOFF_STAGE_15_4_COMPLETION.md`
+  - `docs/ROUND_SUMMARY_STAGE_15_4_RUNTIME_LOCAL_FIRST.md`.
+- Entrega macro criada:
+  - `docs/HANDOFF_STAGE_15_MACRO_CLOSURE.md`.
+- Consolidacao oficial da baseline pos-etapa 15:
+  - Etapa 15 permanece **concluida** no escopo atual;
+  - baseline runtime local-first confirmada para `/ingest` e `/realtime/respond`;
+  - fallback lexical mantido como degradacao segura.
+- Evidencias por subetapa preservadas:
+  - `15.1`: contrato operacional;
+  - `15.2`: pipeline minimo de persistencia;
+  - `15.3`: validacao objetiva da base;
+  - `15.4`: integracao runtime local-first + fallback sem quebra.
+- Riscos/dividas tecnicas registrados sem reabrir etapa:
+  - dependencia de credencial OpenAI para parte da camada semantica;
+  - fallback lexical como degradacao segura (com menor qualidade semantica);
+  - Etapa 16 segue fora do escopo e sem priorizacao explicita.
+- Decisao desta rodada:
+  - **nao abrir nova etapa**;
+  - manter baseline oficial estabilizada apos fechamento macro da Etapa 15.
+- Backups estruturais antes das edicoes:
+  - `STATUS.md.bak-20260311T113150Z-stage15-macro-closure`
+  - `docs/PROJECT_STAGE_INDEX.md.bak-20260311T113150Z-stage15-macro-closure`
+  - `docs/project_status_state.json.bak-20260311T113150Z-stage15-macro-closure`
+
+## Checkpoint 2026-03-11: subetapa 15.4 concluida (integracao local-first no runtime) e encerramento da Etapa 15
+- Leitura/revisao consolidada concluida em:
+  - `STATUS.md`
+  - `docs/PROJECT_STAGE_INDEX.md`
+  - `docs/project_status_state.json`
+  - `docs/HANDOFF_STAGE_15_3_COMPLETION.md`
+  - `docs/STAGE_15_1_INGESTION_OPERATIONAL_CONTRACT.md`
+  - `app/services/knowledge_ingest.py`
+  - `app/services/semantic_min_api.py`
+  - `app/api/routes.py`
+  - `app/services/pipeline.py`
+  - `app/services/suggestions.py`
+  - `app/services/knowledge_search.py`.
+- Caminho real do runtime confirmado:
+  - `/ingest` e `/realtime/respond` convergem em `process_ingest` -> `generate_suggestions`.
+  - Contexto de conhecimento sai em `knowledge_context` com `search_backend`, `semantic_api_ok`, `fallback_used` e `result_count`.
+- Correcao minima aplicada:
+  - `app/services/suggestions.py` atualizado para priorizar busca semantica local em processo (`semantic_search`) quando disponivel.
+  - cadeia de fallback preservada: `semantic_local` -> `semantic_api` -> `local_knowledge_search`.
+- Bateria curta e auditavel executada (TestClient + ambiente canônico):
+  - `/ingest` (`backend java aws ...`) => `search_backend=semantic_local`, `semantic_api_ok=true`, `fallback_used=false`, `result_count=3`.
+  - `/realtime/respond` (`analytics para product owner ...`) => `search_backend=semantic_local`, `semantic_api_ok=true`, `fallback_used=false`, `result_count=3`.
+  - `/realtime/respond` (`helm liveness probe ...`) => `search_backend=semantic_local`, `semantic_api_ok=true`, `fallback_used=false`, `result_count=3`.
+  - caso de fallback preservado (OpenAI indisponivel): `/realtime/respond` => `search_backend=local_knowledge_search`, `semantic_api_ok=false`, `fallback_used=true`, `result_count=3`, status `200`.
+- Criterios de aceite 15.4:
+  - **atingidos** para local-first real no runtime e fallback sem quebra.
+- Fora de escopo mantido:
+  - ranking avancado;
+  - redesign de arquitetura;
+  - expansao de busca externa.
+- Handoff da subetapa:
+  - `docs/HANDOFF_STAGE_15_4_COMPLETION.md`.
+- Decisao final:
+  - **15.4 concluida**;
+  - **Etapa 15 encerrada no escopo atual**.
+- Backups estruturais antes das edicoes:
+  - `STATUS.md.bak-20260311T112719Z-stage15_4-runtime-local-first`
+  - `docs/PROJECT_STAGE_INDEX.md.bak-20260311T112719Z-stage15_4-runtime-local-first`
+  - `docs/project_status_state.json.bak-20260311T112719Z-stage15_4-runtime-local-first`
+
+## Checkpoint 2026-03-11: subetapa 15.3 concluida (validacao objetiva da base semantica)
+- Leitura consolidada concluida em:
+  - `STATUS.md`
+  - `docs/PROJECT_STAGE_INDEX.md`
+  - `docs/project_status_state.json`
+  - `docs/HANDOFF_STAGE_15_2_COMPLETION.md`
+  - `docs/STAGE_15_1_INGESTION_OPERATIONAL_CONTRACT.md`
+  - `app/services/knowledge_ingest.py`
+  - `app/services/semantic_min_api.py`
+  - `data/knowledge_index/knowledge_manifest.json`
+  - `data/knowledge_index/knowledge_state.json`.
+- Bateria curta e auditavel executada com amostra multipla de documentos reais:
+  - `duplicado_do_conteudo.md`
+  - `relatorio_final.docx`
+  - `teste_exportado.html`
+- Persistencia/estados da amostra:
+  - `documents_selected=3`
+  - `documents_processed=3`
+  - `documents_validated=3`
+  - `documents_failed=0`
+  - `chunks_persisted=3`
+  - estados finais: `validated`.
+- Integridade estrutural validada:
+  - `documents_total=39`
+  - `chunks_total=141`
+  - `orphan_chunks=0`
+  - coerencia documento↔chunks na amostra: `documents=1` e `chunks=1` por `source_file`.
+- Consistencia de metadados validada:
+  - alinhamento de `semantic_status`, `semantic_chunk_count` e `semantic_document_id` entre banco/state/manifest na amostra;
+  - flags globais do manifest: `embedding_status=ready`, `vector_store_status=built`.
+- Deduplicacao previsivel:
+  - anomalia legada detectada: duplicata em `source_file+checksum` para `__smoke_openai__.md`;
+  - correcao minima local aplicada no banco (manter linha mais recente);
+  - revalidacao: `duplicate_source_checksum_rows=[]`.
+- Recuperacao semantica minima validada com queries reais:
+  - `conteudo local importacao automatizada` -> top `duplicado_do_conteudo.md`;
+  - `backend java aws` -> top `relatorio_final.docx`;
+  - `analytics product owner` -> top `teste_exportado.html`.
+- Criterio de aceite 15.3:
+  - **atingido** para integridade, consistencia de metadados, deduplicacao e recuperacao coerente na amostra.
+- Fora de escopo mantido:
+  - tuning avancado de ranking/retrieval;
+  - busca externa;
+  - refatoracao grande.
+- Handoff da subetapa:
+  - `docs/HANDOFF_STAGE_15_3_COMPLETION.md`.
+- Decisao de estado:
+  - **15.3 concluida**;
+  - Etapa 15 segue **parcial/em andamento**;
+  - proximo passo oficial: **15.4 (integracao local-first no runtime e fechamento da etapa)**.
+- Backups estruturais antes das edicoes:
+  - `STATUS.md.bak-20260311T055123Z-stage15_3-validation`
+  - `docs/PROJECT_STAGE_INDEX.md.bak-20260311T055123Z-stage15_3-validation`
+  - `docs/project_status_state.json.bak-20260311T055123Z-stage15_3-validation`.
+
+## Checkpoint 2026-03-11: subetapa 15.2 concluida (pipeline minimo de ingestao semantica)
+- Leitura consolidada concluida em:
+  - `docs/STAGE_15_1_INGESTION_OPERATIONAL_CONTRACT.md`
+  - `docs/HANDOFF_STAGE_15_1_COMPLETION.md`
+  - `STATUS.md`
+  - `docs/PROJECT_STAGE_INDEX.md`
+  - `docs/project_status_state.json`
+  - `app/services/knowledge_ingest.py`
+  - `app/services/semantic_min_api.py`
+  - `scripts/semantic_schema.sql`
+  - `data/knowledge_index/knowledge_manifest.json`
+  - `data/knowledge_index/knowledge_state.json`.
+- Consolidacao minima implementada:
+  - ponto de entrada canonico no pipeline existente (`app/services/knowledge_ingest.py`) com flag `--semantic-persist`;
+  - persistencia semantica minima por documento reaproveitando chunks existentes (sem recriar chunks quando nao necessario);
+  - embedding com modo operacional `auto|openai|mock`;
+  - deduplicacao/reingestao previsivel por `source_file + checksum`;
+  - atualizacao de estado/manifest com metadados semanticos por documento;
+  - resumo final auditavel por execucao.
+- Validacao objetiva executada (documento real):
+  - alvo: `duplicado_do_conteudo.md`;
+  - execucao 1: `documents_selected=1`, `documents_validated=1`, `chunks_persisted=1`, estado final `validated`;
+  - execucao 2 (mesmo documento): sem duplicacao indevida (`documents=1`, `chunks=1` para o `source_file` no banco);
+  - estado atualizado:
+    - `knowledge_state`: `semantic_status=validated`, `semantic_chunk_count=1`, `semantic_document_id=57`;
+    - `knowledge_manifest`: `semantic_status=validated`, `embedding_status=ready`, `vector_store_status=built`.
+- Evidencia adicional:
+  - pipeline executado via `.venv/bin/python -m app.services.knowledge_ingest --semantic-persist ...`;
+  - `python3 -m py_compile app/services/knowledge_ingest.py app/services/semantic_min_api.py` sem erro.
+- Handoff da subetapa:
+  - `docs/HANDOFF_STAGE_15_2_COMPLETION.md`.
+- Decisao de estado:
+  - **15.2 concluida**;
+  - Etapa 15 segue **parcial/em andamento**;
+  - proximo passo oficial: **15.3 (validacao da base)**.
+- Backups estruturais antes das edicoes:
+  - `STATUS.md.bak-20260311T054611Z-stage15_2-pipeline`
+  - `docs/PROJECT_STAGE_INDEX.md.bak-20260311T054611Z-stage15_2-pipeline`
+  - `docs/project_status_state.json.bak-20260311T054611Z-stage15_2-pipeline`.
+
+## Checkpoint 2026-03-11: subetapa 15.1 concluida (contrato operacional de ingestao das literaturas)
+- Leitura consolidada de contexto concluida em:
+  - `STATUS.md`
+  - `docs/PROJECT_STAGE_INDEX.md`
+  - `docs/project_status_state.json`
+  - `docs/HANDOFF_STAGE_14_MACRO_CLOSURE.md`
+  - `docs/HANDOFF_ROADMAP_PRIORITY_CORRECTION_AFTER_14.md`
+  - `docs/ROUND_SUMMARY_NEXT_STAGE_PROPOSAL_AFTER_14.md`
+  - `README.md`, `INGESTION_POLICY.md`
+  - `app/services/knowledge_ingest.py`, `app/services/knowledge_chunks.py`, `app/services/knowledge_parsers.py`, `app/services/knowledge_search.py`, `app/services/semantic_min_api.py`
+  - `scripts/ingest_knowledge.sh`, `scripts/semantic_cli.py`, `scripts/semantic_schema.sql`.
+- Auditoria objetiva do baseline existente:
+  - literaturas em `data/knowledge_raw/`;
+  - chunks ja gerados em `data/knowledge_chunks/`;
+  - manifest/state existentes em `data/knowledge_index/knowledge_manifest.json` e `data/knowledge_index/knowledge_state.json`;
+  - pipeline parcial operacional em `knowledge_ingest`;
+  - camada semantica minima existente (`documents/chunks/ingest_jobs` + `/semantic/ingest-min` + `/semantic/search`);
+  - recuperacao local-first com fallback lexical ja ativa no runtime.
+- Entrega da 15.1 criada:
+  - `docs/STAGE_15_1_INGESTION_OPERATIONAL_CONTRACT.md`.
+- Contrato formalizado com:
+  - objetivo, escopo e formatos suportados;
+  - unidade de entrada (`documento`) e unidade de recuperacao (`chunk`);
+  - metadados obrigatorios por documento/chunk;
+  - regra de `document_id` e `chunk_id`;
+  - versionamento/reingestao/update e deduplicacao;
+  - estados oficiais (`discovered`, `extracted`, `chunked`, `embedded`, `persisted`, `validated`, `failed`);
+  - criterios de sucesso/falha e evidencias minimas de validacao;
+  - relacao com runtime local-first e limites fora de escopo da 15.1.
+- Handoff da subetapa:
+  - `docs/HANDOFF_STAGE_15_1_COMPLETION.md`.
+- Estado resultante:
+  - **15.1 concluida**;
+  - Etapa 15 passa para **parcial/em andamento**;
+  - proximo passo oficial: **15.2 (pipeline minimo de ingestao)**.
+- Backups estruturais antes das edicoes:
+  - `STATUS.md.bak-20260311T053805Z-stage15_1-contract`
+  - `docs/PROJECT_STAGE_INDEX.md.bak-20260311T053805Z-stage15_1-contract`
+  - `docs/project_status_state.json.bak-20260311T053805Z-stage15_1-contract`
+
 ## Checkpoint 2026-03-11: baseline Git local inicializada para transicao da Etapa 14 para Etapa 15
 - Repositorio Git local inicializado em `/lab/projects/livecopilot` com branch `main`.
 - `.gitignore` criado com baseline segura e ajustado para evitar versionamento de:
@@ -6434,3 +9226,263 @@ Arquivo de status operacional do projeto, atualizado pelo codex-supervisor.
   - sem assumir hardware indisponivel;
   - sem mudanca funcional/banco/schema;
   - alinhamento com contrato preservado.
+
+## Checkpoint 2026-03-12: testes unitarios para source_prefix_resolution
+- Hipotese da rodada:
+  - reduzir regressao na resolucao de prefixos cobrindo normalizacao, validacao, matching e resolucao com testes de unidade pequenos e deterministas.
+- Testes adicionados:
+  - novo arquivo: `tests/test_source_prefix_resolution.py`
+  - cobertura funcional:
+    - normalizacao:
+      - prefixo simples
+      - com `./`
+      - com barra final
+      - vazio apos normalizacao
+      - separadores redundantes internos
+    - validacao:
+      - prefixo valido
+      - prefixo com `..` (erro)
+      - prefixo vazio (erro)
+      - deduplicacao preservando ordem via `normalize_source_prefixes`
+    - matching:
+      - `abc` casa com `abc/foo.md`
+      - `abc` nao casa com `abcd/foo.md`
+      - multiplos prefixos
+      - prefixo aninhado
+    - resolucao:
+      - prefixo valido
+      - multiplos prefixos
+      - prefixo inexistente sem strict (retorna vazio + contagens zeradas)
+      - contrato de strict no consumidor (resolved vazio permite erro no caller)
+      - contagem por prefixo
+      - fallback quando `state['files']` nao e dict
+- Resultado da execucao:
+  - comando: `python3 -m unittest -v tests/test_source_prefix_resolution.py`
+  - resultado: `Ran 18 tests ... OK`
+- Ajuste no modulo:
+  - nenhum ajuste necessario em `app/services/source_prefix_resolution.py`.
+- Evidencias:
+  - handoff: `docs/HANDOFF_PREFIX_RESOLUTION_UNIT_TESTS_20260312T204736Z.md`
+  - backup STATUS: `STATUS.md.bak-20260312T204736Z-prefix-resolution-unit-tests`
+- Proximo passo recomendado:
+  - incluir esta suite no gate padrao de CI/quality para bloquear regressao de prefixo antes de rodadas de ingestao/persistencia.
+
+## Checkpoint 2026-03-12: integracao de test_source_prefix_resolution no gate padrao
+- Hipotese da rodada:
+  - sem CI formal versionado, o ponto minimo e previsivel para bloquear regressao e um gate local padrao em scripts executando as suites unitarias oficiais.
+- Gate atual identificado:
+  - nao ha workflow em .github/workflows.
+  - validacoes sao conduzidas por scripts locais; nao existia agregador padrao de unit tests.
+- Integracao realizada:
+  - novo gate: scripts/unit_test_gate.sh
+  - suites executadas no gate:
+    - tests/test_curated_sources_validation.py
+    - tests/test_question_bank_items.py
+    - tests/test_question_bank_metadata.py
+    - tests/test_source_prefix_resolution.py
+    - tests/test_transcription_routing.py
+  - efeito de gate:
+    - falha em qualquer suite retorna exit code != 0 e interrompe o gate
+    - sucesso em todas suites retorna exit code 0
+- Como o teste de prefixo entra no gate:
+  - entrada explicita em scripts/unit_test_gate.sh via tests/test_source_prefix_resolution.py.
+- Validacao executada:
+  - comando: ./scripts/unit_test_gate.sh
+  - resultado: Ran 182 tests ... OK
+  - evidencia de inclusao: execucao listou todos os casos tests.test_source_prefix_resolution.*
+- Documentacao minima:
+  - README atualizado com secao curta de gate padrao e comando de execucao.
+- Arquivos alterados nesta rodada:
+  - scripts/unit_test_gate.sh
+  - README.md
+  - STATUS.md
+  - docs/HANDOFF_PREFIX_RESOLUTION_CI_GATE_20260312T205335Z.md
+  - STATUS.md.bak-20260312T205335Z-prefix-resolution-ci-gate
+- Proximo passo recomendado:
+  - acoplar scripts/unit_test_gate.sh ao pipeline externo de CI (quando existir) como etapa obrigatoria pre-smoke.
+
+## Checkpoint 2026-03-12: modo dry-run/list-targets para prefixo em ingestao e persistencia semantica
+- Hipotese da rodada:
+  - adicionar visibilidade operacional pre-execucao para prefixos, sem side-effects, reduz risco de rodada errada sem alterar o fluxo padrao.
+- Implementacao realizada:
+  - `app/services/knowledge_ingest.py`:
+    - nova flag `--dry-run`:
+      - resolve alvos de ingestao por prefixo
+      - exibe `selection_mode`, prefixos normalizados, contagem por prefixo, total e amostra de arquivos
+      - nao gera parsed/chunks
+      - nao altera `knowledge_state.json` nem `knowledge_manifest.json`
+    - nova flag `--list-targets`:
+      - exige `--semantic-persist`
+      - resolve `source_files` da persistencia semantica por prefixo (ou `--semantic-source-file` explicito)
+      - exibe `selection_mode`, prefixos, contagem por prefixo, total e amostra
+      - nao executa ingestao semantica (sem embeddings/sem escrita em banco)
+    - `process_knowledge_base(..., dry_run=True)` desvia antes de qualquer escrita em disco.
+  - `scripts/ingest_knowledge.sh`:
+    - comentario de uso atualizado para `--dry-run` e `--list-targets`.
+  - `docs/INGESTION_SELECTIVE_PREFIX_MODE.md`:
+    - secoes novas de operacao para `--dry-run` e `--list-targets`.
+- Compatibilidade preservada:
+  - sem flags novas, comportamento legado permanece.
+  - `--strict-source-prefix` segue valendo nos modos de listagem.
+- Validacao executada:
+  - consolidado: `docs/coverage/prefix_dryrun_listtargets_validation_20260312T210951Z.json`
+  - cenarios cobertos:
+    - ingestao com prefixo unico + `--dry-run`
+    - ingestao com multiplos prefixos + `--dry-run`
+    - persistencia com prefixo unico + `--list-targets`
+    - persistencia com multiplos prefixos + `--list-targets`
+    - compatibilidade do fluxo legado sem flags novas (modo controlado sem `--dry-run/--list-targets`)
+    - inexistente com strict em `--list-targets`
+  - resultado: `all_pass=true`.
+  - logs:
+    - `docs/coverage/prefix_dryrun_single_20260312T210951Z.log`
+    - `docs/coverage/prefix_dryrun_multi_20260312T210951Z.log`
+    - `docs/coverage/prefix_list_targets_single_20260312T210951Z.log`
+    - `docs/coverage/prefix_list_targets_multi_20260312T210951Z.log`
+    - `docs/coverage/prefix_legacy_flow_no_new_flags_20260312T210951Z.log`
+    - `docs/coverage/prefix_dryrun_listtargets_missing_strict_20260312T210951Z.log`
+- Testes:
+  - `python3 -m unittest -v tests/test_source_prefix_resolution.py` => `Ran 18 tests ... OK`
+  - `./scripts/unit_test_gate.sh` => `Ran 182 tests ... OK`
+- Impacto operacional:
+  - operador consegue confirmar escopo da rodada (ingestao/persistencia) antes da execucao real.
+  - reduz risco de escrita acidental fora do prefixo esperado.
+- Proximo passo recomendado:
+  - adicionar teste unitario/funcional de CLI para os modos `--dry-run` e `--list-targets` para blindar contrato de output.
+
+## Checkpoint 2026-03-12: testes de CLI para --dry-run e --list-targets
+- Hipotese da rodada:
+  - blindar o contrato operacional das flags de listagem via testes automatizados de CLI, garantindo JSON estavel e ausencia de side-effects.
+- Testes adicionados:
+  - novo arquivo: `tests/test_knowledge_ingest_cli_modes.py`
+  - cobertura de `--dry-run`:
+    - JSON valido
+    - campos esperados: `selection_mode`, `source_prefixes`, `files_found_by_prefix`, `total_found`, `targets_sample`
+    - prefixo unico e multiplos prefixos
+    - prefixo inexistente com strict (falha limpa)
+    - zero side-effects: sem `parse_file`, `write_parsed_payload`, `write_chunk_payload`, `write_state`, `write_index_manifest`, `ingest_knowledge_base_min`
+  - cobertura de `--list-targets`:
+    - JSON valido
+    - campos esperados: `selection_mode`, `source_prefixes`, `source_files_resolved_by_prefix`, `source_files_resolved_total`, `source_files_sample`
+    - prefixo unico e multiplos prefixos
+    - compatibilidade com `--semantic-source-file` (`selection_mode=explicit_source_file`)
+    - prefixo inexistente com strict (falha limpa)
+    - zero side-effects: sem embeddings e sem escrita de estado/manifest/chunks/parsed
+- Integracao no gate:
+  - `scripts/unit_test_gate.sh` atualizado para incluir `tests/test_knowledge_ingest_cli_modes.py`.
+- Validacao executada:
+  - suite nova: `python3 -m unittest -v tests/test_knowledge_ingest_cli_modes.py` => `Ran 9 tests ... OK`
+  - gate local: `./scripts/unit_test_gate.sh` => `Ran 191 tests ... OK`
+  - consolidado: `docs/coverage/prefix_dryrun_listtargets_cli_tests_validation_20260312T211925Z.json` (`all_pass=true`)
+  - logs:
+    - `docs/coverage/prefix_dryrun_listtargets_cli_tests_20260312T211925Z.log`
+    - `docs/coverage/prefix_dryrun_listtargets_cli_tests_gate_20260312T211925Z.log`
+- Contrato blindado:
+  - testes validam estrutura JSON e chaveamento minimo esperado dos modos de listagem.
+- Proximo passo recomendado:
+  - opcional: adicionar verificacao de schema JSON no CI externo quando pipeline remoto for formalizado.
+
+## Checkpoint 2026-03-12: saneamento controlado do root `/lab/projects` consolidado no `livecopilot`
+- Escopo executado com inventario -> classificacao -> plano -> execucao -> validacao, sem delecoes e sem limpeza massiva.
+- Inventario gerado em `docs/coverage/projects_root_inventory_20260312T215756Z.{json,txt}` cobrindo conteudo imediato de `/lab/projects` e `/lab/projects/livecopilot`.
+- Classificacao de itens fora de `/lab/projects/livecopilot`:
+  - `livecopilot_clear=66`
+  - `other_project_clear=2` (`.codex`, `.venv`)
+  - `ambiguous_quarantine=1` (`.supervisor`)
+- Plano de reorganizacao gerado em `docs/coverage/projects_root_reorganization_plan_20260312T215756Z.json` com politica de mover somente alta confianca.
+- Execucao controlada concluida em `docs/coverage/projects_root_reorganization_execution_20260312T215756Z.json`:
+  - `moved=66`, `errors=0`, `skipped_missing_source=0`
+  - conflitos de nome resolvidos de forma conservadora em `_root_recovered_20260312T215756Z/` para nao sobrescrever:
+    - `README.md`
+    - `STATUS.md`
+    - `logs/`
+- Validacao pos-movimento:
+  - existencia confirmada de `app/`, `docs/`, `scripts/`, `tests/`, `STATUS.md`, `README.md`, `queue/`, `results/`, `state/`, `logs/`, `loop`
+  - `./scripts/unit_test_gate.sh` executado com sucesso (`Ran 191 tests`, `OK`).
+- Causa raiz provavel confirmada por evidencia:
+  - o loop gera estado relativo ao diretorio do proprio script (`ROOT_DIR=...dirname...`) em `codex_loop.sh`.
+  - quando o script estava em `/lab/projects`, os artefatos foram gravados no root poluido (`queue/`, `results/`, `state/`, `logs/`, `AGENTS.md`, etc.).
+  - o README legado movido para `_root_recovered_20260312T215756Z/README.md` orientava explicitamente `cd /lab/projects`.
+- Prevencao minima aplicada:
+  - `loop` teve texto de uso ajustado para `/lab/projects/livecopilot/loop`, reduzindo risco operacional de execucao no root errado.
+
+## Checkpoint 2026-03-12: limpeza organizacional da raiz do projeto
+- Objetivo executado:
+  - limpeza conservadora da raiz sem exclusoes, movendo backups e artefatos para trilhas de organizacao.
+- Estrutura criada/garantida:
+  - `_history`
+  - `_archive`
+  - `_quarantine`
+- Movido para `_history`:
+  - total: 228 itens
+  - padroes aplicados: `AGENTS.md.bak*`, `CHANGELOG.md.bak*`, `codex_loop.sh.bak*`, `INGESTION_POLICY.md.bak*`, `README.md.bak*`, `STATUS.md.bak*`, `loop.bak*`
+- Movido para `_archive`:
+  - total: 4 itens
+  - itens: `aws.zip`, `livros.zip`, `chat_livecopilot.txt`, `hardware-report.txt`
+- Movido para `_quarantine`:
+  - total: 1 item
+  - item: `_root_recovered_20260312T215756Z`
+- Mantido na raiz por cautela:
+  - total: 0 itens
+  - nenhum item da lista alvo ficou na raiz por conflito/ambiguidade.
+- Inventarios/execucao gerados:
+  - `root_cleanup_inventory_before_20260312T221311Z.txt`
+  - `root_cleanup_inventory_before_20260312T221311Z.json`
+  - `root_cleanup_inventory_after_20260312T221311Z.txt`
+  - `root_cleanup_inventory_after_20260312T221311Z.json`
+  - `root_cleanup_execution_20260312T221311Z.json`
+- Validacao:
+  - arquivos canonicos conferidos: `AGENTS.md`, `README.md`, `STATUS.md`, `CHANGELOG.md`, `INGESTION_POLICY.md`, `codex_loop.sh`, `loop`, `scripts/unit_test_gate.sh`
+  - gate: `./scripts/unit_test_gate.sh` -> `Ran 191 tests` / `OK`
+- Handoff:
+  - `docs/HANDOFF_ROOT_CLEANUP_20260312T221311Z.md`
+
+## Checkpoint 2026-03-12: preparo para Git limpo (auditoria + .gitignore + pre-validacao)
+- Hipotese da rodada:
+  - reduzir risco de ruido operacional antes de qualquer preparo para GitHub, classificando versionamento e endurecendo `.gitignore` com criterio conservador.
+- O que foi auditado:
+  - raiz do projeto e diretorios principais com foco em `_history/`, `_archive/`, `_quarantine/`, `logs/`, `results/`, `state/`, `tmp/`, `var/`, `docs/coverage/`, bancos locais e artefatos compactados.
+  - estado do Git local existente (repositorio ja inicializado em `main`, com historico e alteracoes pendentes).
+- Criterios de versionamento usados:
+  - entrar no Git: codigo, scripts, testes, configs, documentacao estrutural e evidencias leves.
+  - nao entrar: runtime state/cache/logs, backups, historicos, quarentena, datasets massivos, bancos locais e compactados/dumps operacionais.
+- Artefatos gerados:
+  - inventario/classificacao: `docs/coverage/git_prepare_inventory_20260312T222717Z.json`
+  - pre-validacao: `docs/coverage/git_prepare_prevalidation_20260312T222840Z.json`
+- Decisao sobre `.gitignore`:
+  - atualizado para cobrir explicitamente: `state/`, `queue/`, `_history/`, `_archive/`, `_quarantine/`, `codex-supervisor/state/`, `codex-supervisor/logs/`, `docs/coverage/*.log`, `root_cleanup_*.json`, `root_cleanup_*.txt`, `*.db-shm`, `*.db-wal`, `*.dump`, `*.zip`, `*.tar`, `*.tar.gz`, `*.tgz`.
+  - decisoes explicitas:
+    - `STATUS.md` mantido versionado (arquivo estrutural).
+    - `docs/coverage/` mantido para evidencias (`.json/.md/.txt`), mas logs de cobertura foram ignorados.
+- Resultado da pre-validacao:
+  - candidatos apos regras: `575` arquivos.
+  - ignorados apos regras: `15557` arquivos.
+  - scan objetivo de segredos em candidatos: sem token real detectado (somente placeholders/documentacao).
+  - risco remanescente: ainda ha ruido/ambiguidade para decisao humana (ex.: `TREE.md`, `.md`, `source_files`, `well`, volume documental historico).
+- Git local nesta rodada:
+  - nao foi inicializado (ja existia `.git`).
+  - nao foi feito "primeiro commit" nesta rodada por pre-validacao ainda nao limpa para commit conservador.
+- Proximo passo recomendado para GitHub:
+  - fechar lista final de inclusao (principalmente docs historicos e arquivos ambiguos), aplicar ignorados adicionais pontuais, rerodar pre-validacao e somente depois preparar commit curado para publicacao remota.
+
+## Checkpoint 2026-03-12: curadoria final para commit Git local
+- Decisoes humanas finais aplicadas no `.gitignore`:
+  - ignorar `TREE.md`
+  - ignorar `source_files`/`source_files/`
+  - ignorar `well`/`well/`
+  - manter `STATUS.md` versionado
+  - manter docs canonicos/handoffs versionados
+  - manter `docs/coverage` estruturado, com logs operacionais ignorados (`docs/coverage/*.log`)
+- Evidencia objetiva de aplicacao:
+  - `git check-ignore -v TREE.md source_files well` apontando regras em `.gitignore`.
+- Pre-validacao final:
+  - artefato: `docs/coverage/git_prepare_prevalidation_final_20260312T225034Z.json`
+  - candidatos (`git ls-files -co --exclude-standard`): `574`
+  - ignorados (`git ls-files -o -i --exclude-standard`): `15562`
+  - ambiguidade remanescente relevante: nenhuma nova relevante; residuo menor observado: arquivo isolado `.md`.
+- Commit local curado:
+  - realizado nesta rodada apenas com artefatos de curadoria final (`.gitignore`, `STATUS.md`, pre-validacao final e handoff desta rodada).
+  - sem configuracao de remoto e sem push.
+- Riscos remanescentes antes do GitHub:
+  - arvore de trabalho ainda possui muitas mudancas nao comitadas fora do escopo desta curadoria.
+  - antes de publicar no GitHub, manter estrategia de commit curado por lote tematico para evitar mistura de frentes.

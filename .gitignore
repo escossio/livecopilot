@@ -49,21 +49,38 @@ artifacts/
 uploads/
 previews/
 results/
+state/
+queue/
 var/
 .supervisor/
 *.bak
 *.bak*
+_history/
+_archive/
+_quarantine/
 docs/continuity/payloads/
 docs/continuity/bootstrap/latest_snapshot.json
 docs/continuity/bootstrap/latest_snapshot.txt
 docs/continuity/opening_context/latest_new_chat_context.txt
 docs/continuity/evals/latest_project_brain_ranking_eval.json
 docs/continuity/evals/latest_project_brain_ranking_eval.md
+docs/coverage/*.log
+codex-supervisor/state/
+codex-supervisor/logs/
+root_cleanup_*.json
+root_cleanup_*.txt
 
 # SQLite / local dbs
 *.db
 *.sqlite
 *.sqlite3
+*.db-shm
+*.db-wal
+*.dump
+*.zip
+*.tar
+*.tar.gz
+*.tgz
 
 # Audio / generated media
 *.wav
@@ -74,3 +91,10 @@ docs/continuity/evals/latest_project_brain_ranking_eval.md
 
 # Node
 node_modules/
+
+# Curadoria final aprovada
+TREE.md
+source_files
+source_files/
+well
+well/
