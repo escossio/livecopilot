@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-03-12T04:25:27.577946+00:00",
+  "bad_chunks_count": 2,
+  "by_source_file": [
+    {
+      "source_file": "observability_docs_selected/alertmanager/docs/high_availability.md",
+      "bad_chunks": 2
+    }
+  ],
+  "examples": [
+    {
+      "chunk_pk": 671,
+      "document_id": 230,
+      "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/high_availability.md::ca757a6cffb0::0002::8483262f",
+      "source_file": "observability_docs_selected/alertmanager/docs/high_availability.md",
+      "error": "sequência de bytes é inválida para codificação \"UTF8\": 0xe2 0x94"
+    },
+    {
+      "chunk_pk": 677,
+      "document_id": 230,
+      "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/high_availability.md::ca757a6cffb0::0008::046df237",
+      "source_file": "observability_docs_selected/alertmanager/docs/high_availability.md",
+      "error": "sequência de bytes é inválida para codificação \"UTF8\": 0xe2 0x94"
+    }
+  ]
+}

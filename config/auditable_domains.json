@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "default_top_k": 5,
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "domains": [
+    {
+      "id": "aws_iam",
+      "name": "AWS IAM",
+      "weight": 1.0,
+      "subthemes": [
+        {"id": "least_privilege", "name": "Least privilege"},
+        {"id": "policy_evaluation", "name": "Policy evaluation logic"},
+        {"id": "boundaries_scp", "name": "Boundaries and SCP"},
+        {"id": "policy_simulator", "name": "Policy simulator"},
+        {"id": "best_practices", "name": "Best practices"}
+      ],
+      "queries": [
+        {"query": "aws iam policy evaluation order explicit deny allow", "subtheme": "policy_evaluation"},
+        {"query": "aws iam policy simulator simulate-principal-policy", "subtheme": "policy_simulator"},
+        {"query": "aws iam permissions boundaries effective permissions", "subtheme": "boundaries_scp"},
+        {"query": "aws organizations service control policy scp evaluation logic", "subtheme": "boundaries_scp"},
+        {"query": "aws iam identity policy resource policy permissions boundary scp interaction", "subtheme": "policy_evaluation"},
+        {"query": "aws iam policy simulator context keys condition testing", "subtheme": "policy_simulator"},
+        {"query": "aws scp syntax deny guardrails examples", "subtheme": "boundaries_scp"},
+        {"query": "aws iam permissions boundary vs scp differences", "subtheme": "boundaries_scp"}
+      ]
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "weight": 1.05,
+      "subthemes": [
+        {"id": "build_multistage", "name": "Multi-stage build"},
+        {"id": "build_cache", "name": "Build cache and BuildKit"},
+        {"id": "networking", "name": "Networking drivers"},
+        {"id": "storage", "name": "Volumes and storage drivers"},
+        {"id": "security", "name": "Security and hardening"}
+      ],
+      "queries": [
+        {"query": "docker multi stage build best practices", "subtheme": "build_multistage"},
+        {"query": "docker build cache", "subtheme": "build_cache"},
+        {"query": "docker buildkit", "subtheme": "build_cache"},
+        {"query": "docker networking bridge host overlay", "subtheme": "networking"},
+        {"query": "docker volumes vs bind mounts", "subtheme": "storage"},
+        {"query": "docker storage drivers", "subtheme": "storage"},
+        {"query": "docker security best practices", "subtheme": "security"},
+        {"query": "docker image hardening", "subtheme": "security"}
+      ]
+    },
+    {
+      "id": "terraform",
+      "name": "Terraform",
+      "weight": 1.15,
+      "subthemes": [
+        {"id": "remote_state_s3", "name": "Remote state with S3"},
+        {"id": "locking", "name": "State locking"},
+        {"id": "state_ops", "name": "State operations"},
+        {"id": "modules", "name": "Modules"},
+        {"id": "workflow", "name": "Init/Plan/Apply workflow"}
+      ],
+      "queries": [
+        {"query": "terraform aws s3 backend remote state locking", "subtheme": "remote_state_s3"},
+        {"query": "terraform remote state s3", "subtheme": "remote_state_s3"},
+        {"query": "terraform force unlock", "subtheme": "locking"},
+        {"query": "terraform state mv", "subtheme": "state_ops"},
+        {"query": "terraform modules best practices", "subtheme": "modules"},
+        {"query": "terraform module sources", "subtheme": "modules"},
+        {"query": "terraform init plan apply workflow", "subtheme": "workflow"},
+        {"query": "terraform workspace vs backend", "subtheme": "workflow"}
+      ]
+    },
+    {
+      "id": "observability",
+      "name": "Observability",
+      "weight": 1.1,
+      "subthemes": [
+        {"id": "prometheus_config", "name": "Prometheus config and rules"},
+        {"id": "promql", "name": "PromQL"},
+        {"id": "grafana_datasource_dashboards", "name": "Grafana datasource and dashboards"},
+        {"id": "grafana_alerting", "name": "Grafana alerting"},
+        {"id": "alertmanager", "name": "Alertmanager routing"}
+      ],
+      "queries": [
+        {"query": "prometheus scrape_configs relabel_configs example", "subtheme": "prometheus_config"},
+        {"query": "prometheus recording rules and alerting rules", "subtheme": "prometheus_config"},
+        {"query": "prometheus service discovery http_sd kubernetes", "subtheme": "prometheus_config"},
+        {"query": "promql rate sum by instance", "subtheme": "promql"},
+        {"query": "grafana prometheus datasource configuration", "subtheme": "grafana_datasource_dashboards"},
+        {"query": "grafana dashboard variables template variables", "subtheme": "grafana_datasource_dashboards"},
+        {"query": "grafana alerting provisioning contact points", "subtheme": "grafana_alerting"},
+        {"query": "alertmanager route receivers grouping inhibition silences templates", "subtheme": "alertmanager"}
+      ]
+    },
+    {
+      "id": "kubernetes",
+      "name": "Kubernetes",
+      "weight": 1.2,
+      "subthemes": [
+        {"id": "workloads", "name": "Workloads and rollout"},
+        {"id": "networking", "name": "Networking and network policy"},
+        {"id": "security", "name": "Security and RBAC"},
+        {"id": "storage", "name": "Storage and persistence"},
+        {"id": "troubleshooting", "name": "Operations and troubleshooting"}
+      ],
+      "queries": [
+        {"query": "kubernetes deployment rollout strategy", "subtheme": "workloads"},
+        {"query": "kubernetes ingress service clusterip nodeport loadbalancer", "subtheme": "networking"},
+        {"query": "kubernetes networkpolicy default deny", "subtheme": "networking"},
+        {"query": "kubernetes rbac service account least privilege", "subtheme": "security"},
+        {"query": "kubernetes persistentvolume persistentvolumeclaim storageclass", "subtheme": "storage"},
+        {"query": "kubectl logs describe events troubleshooting", "subtheme": "troubleshooting"}
+      ]
+    }
+  ]
+}

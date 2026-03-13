@@ -1,0 +1,937 @@
+{
+  "generated_at": "2026-03-11T21:24:33.107311+00:00",
+  "top_k": 5,
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "total_questions": 20,
+  "well_covered_count": 5,
+  "partial_count": 6,
+  "gap_count": 9,
+  "global_avg_of_max_score": 0.512144,
+  "global_avg_of_avg_score": 0.453825,
+  "rows": [
+    {
+      "question": "kubernetes liveness probe e readiness probe diferenca",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.723821,
+      "avg_score": 0.714243,
+      "top_source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-2",
+          "title": "## Liveness, readiness and startup probes",
+          "similarity": 0.723821,
+          "snippet": "## Liveness, readiness and startup probes"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-2",
+          "title": "## Liveness, readiness and startup probes",
+          "similarity": 0.723711,
+          "snippet": "## Liveness, readiness and startup probes"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-3",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readine",
+          "similarity": 0.72085,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-3",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readine",
+          "similarity": 0.72085,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/"
+        },
+        {
+          "source_file": "inline://smoke-semantic-api",
+          "chunk_id": "semantic-api-85f18cac-1",
+          "title": "1. Em Kubernetes, liveness probe detecta travamento do container.",
+          "similarity": 0.681984,
+          "snippet": "1. Em Kubernetes, liveness probe detecta travamento do container."
+        }
+      ]
+    },
+    {
+      "question": "kubernetes service clusterip vs nodeport vs loadbalancer",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.416779,
+      "avg_score": 0.4104,
+      "top_source_file": "data/raw_review/ckad_exercises_modules/c.pod_design.md",
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/c.pod_design.md",
+          "chunk_id": "semantic-api-51df61f1-3",
+          "title": "Deployments",
+          "similarity": 0.416779,
+          "snippet": "## Deployments\n\nkubernetes.io > Documentation > Concepts > Workloads > Workload Resources > [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment)\n\n###"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "chunk_id": "semantic-api-b34a20f9-1",
+          "title": "# Kubernetes NetworkPolicy Example",
+          "similarity": 0.412875,
+          "snippet": "# Kubernetes NetworkPolicy Example"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/pod_events_troubleshooting.md",
+          "chunk_id": "semantic-api-28455024-1",
+          "title": "# Kubernetes Pod Events Troubleshooting",
+          "similarity": 0.409221,
+          "snippet": "# Kubernetes Pod Events Troubleshooting"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/a.core_concepts.md",
+          "chunk_id": "semantic-api-50280721-4",
+          "title": "kubernetes.io > Documentation > Tasks > Access Applications in a Cluster > [Configure Access to Mult",
+          "similarity": 0.408351,
+          "snippet": "kubernetes.io > Documentation > Tasks > Access Applications in a Cluster > [Configure Access to Multiple Clusters](https://kubernetes.io/docs/tasks/access-application-cluster/confi"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "chunk_id": "semantic-api-b34a20f9-5",
+          "title": "Keywords: networkpolicy kubernetes example ingress policy.",
+          "similarity": 0.404772,
+          "snippet": "Keywords: networkpolicy kubernetes example ingress policy."
+        }
+      ]
+    },
+    {
+      "question": "networkpolicy default deny all kubernetes",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.604422,
+      "avg_score": 0.518349,
+      "top_source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "chunk_id": "semantic-api-b34a20f9-1",
+          "title": "# Kubernetes NetworkPolicy Example",
+          "similarity": 0.604422,
+          "snippet": "# Kubernetes NetworkPolicy Example"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "chunk_id": "semantic-api-b34a20f9-5",
+          "title": "Keywords: networkpolicy kubernetes example ingress policy.",
+          "similarity": 0.522417,
+          "snippet": "Keywords: networkpolicy kubernetes example ingress policy."
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "chunk_id": "semantic-api-b34a20f9-3",
+          "title": "## Example NetworkPolicy",
+          "similarity": 0.517128,
+          "snippet": "## Example NetworkPolicy\n```yaml\nkind: NetworkPolicy\napiVersion: networking.k8s.io/v1\nmetadata:\n  name: access-nginx\nspec:\n  podSelector:\n    matchLabels:\n      app: nginx\n  ingres"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "chunk_id": "semantic-api-b34a20f9-4",
+          "title": "## Validate policy behavior",
+          "similarity": 0.487741,
+          "snippet": "## Validate policy behavior\n- Denied pod: `kubectl run busybox --image=busybox --rm -it --restart=Never -- wget -O- http://nginx:80 --timeout 2`\n- Allowed pod: `kubectl run busybox"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "chunk_id": "semantic-api-b34a20f9-2",
+          "title": "## Restrict ingress to selected pods",
+          "similarity": 0.460036,
+          "snippet": "## Restrict ingress to selected pods\n- Create deployment and service:\n  - `kubectl create deployment nginx --image=nginx --replicas=2`\n  - `kubectl expose deployment nginx --port=8"
+        }
+      ]
+    },
+    {
+      "question": "rbac role rolebinding serviceaccount kubernetes",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.725451,
+      "avg_score": 0.559615,
+      "top_source_file": "tmp/semantic_gap_round2/rbac_quick_basics.md",
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "tmp/semantic_gap_round2/rbac_quick_basics.md",
+          "chunk_id": "semantic-api-851de524-3",
+          "title": "3. Bind Role to service account with RoleBinding.",
+          "similarity": 0.725451,
+          "snippet": "3. Bind Role to service account with RoleBinding.\n## Verify access\n- `kubectl auth can-i get pods --as=system:serviceaccount:default:app-sa -n default`\nKeywords: rbac role rolebind"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/sa_tokens_projection.md",
+          "chunk_id": "semantic-api-a109268b-5",
+          "title": "Keywords: serviceaccount token projected kubernetes token projection.",
+          "similarity": 0.548899,
+          "snippet": "Keywords: serviceaccount token projected kubernetes token projection."
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/sa_tokens_projection.md",
+          "chunk_id": "semantic-api-a109268b-1",
+          "title": "# Kubernetes ServiceAccount Tokens",
+          "similarity": 0.541521,
+          "snippet": "# Kubernetes ServiceAccount Tokens"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/rbac_quick_basics.md",
+          "chunk_id": "semantic-api-851de524-2",
+          "title": "2. Create Role with read access to pods.",
+          "similarity": 0.502913,
+          "snippet": "2. Create Role with read access to pods."
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/i.crd.md",
+          "chunk_id": "semantic-api-9d1041f3-3",
+          "title": "## CRD in K8s",
+          "similarity": 0.479292,
+          "snippet": "## CRD in K8s"
+        }
+      ]
+    },
+    {
+      "question": "kubectl create token serviceaccount",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.726654,
+      "avg_score": 0.627628,
+      "top_source_file": "tmp/kubectl_ops_round/kubectl_create_token_serviceaccount.md",
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_create_token_serviceaccount.md",
+          "chunk_id": "semantic-api-a6efa75a-2",
+          "title": "2. `kubectl create token myuser`",
+          "similarity": 0.726654,
+          "snippet": "2. `kubectl create token myuser`\nKeywords: kubectl create token serviceaccount."
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/sa_tokens_projection.md",
+          "chunk_id": "semantic-api-a109268b-1",
+          "title": "# Kubernetes ServiceAccount Tokens",
+          "similarity": 0.696751,
+          "snippet": "# Kubernetes ServiceAccount Tokens"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/sa_tokens_projection.md",
+          "chunk_id": "semantic-api-a109268b-5",
+          "title": "Keywords: serviceaccount token projected kubernetes token projection.",
+          "similarity": 0.675839,
+          "snippet": "Keywords: serviceaccount token projected kubernetes token projection."
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/rbac_quick_basics.md",
+          "chunk_id": "semantic-api-851de524-1",
+          "title": "1. Create service account: `kubectl create sa app-sa -n default`",
+          "similarity": 0.532159,
+          "snippet": "1. Create service account: `kubectl create sa app-sa -n default`"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/sa_tokens_projection.md",
+          "chunk_id": "semantic-api-a109268b-2",
+          "title": "## ServiceAccount basics",
+          "similarity": 0.506735,
+          "snippet": "## ServiceAccount basics\n- List service accounts: `kubectl get sa -A`\n- Create service account: `kubectl create sa myuser`"
+        }
+      ]
+    },
+    {
+      "question": "logs previous crashloopbackoff kubernetes",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.860962,
+      "avg_score": 0.746533,
+      "top_source_file": "tmp/semantic_gap_round2/debug_crashloop_logs_previous.md",
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "tmp/semantic_gap_round2/debug_crashloop_logs_previous.md",
+          "chunk_id": "semantic-api-a0792de0-1",
+          "title": "# Kubernetes CrashLoopBackOff and Previous Logs",
+          "similarity": 0.860962,
+          "snippet": "# Kubernetes CrashLoopBackOff and Previous Logs"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_logs_previous_container.md",
+          "chunk_id": "semantic-api-6e9a49bc-5",
+          "title": "Keywords: kubectl logs previous container crashloopbackoff.",
+          "similarity": 0.803658,
+          "snippet": "Keywords: kubectl logs previous container crashloopbackoff."
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/debug_crashloop_logs_previous.md",
+          "chunk_id": "semantic-api-a0792de0-5",
+          "title": "Keywords: logs previous crashloopbackoff kubectl logs previous container.",
+          "similarity": 0.792316,
+          "snippet": "Keywords: logs previous crashloopbackoff kubectl logs previous container."
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/debug_crashloop_logs_previous.md",
+          "chunk_id": "semantic-api-a0792de0-2",
+          "title": "## CrashLoopBackOff troubleshooting",
+          "similarity": 0.71236,
+          "snippet": "## CrashLoopBackOff troubleshooting\n- Check pod status and restarts: `kubectl get pod <pod>`\n- Inspect pod events: `kubectl describe pod <pod>`"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_logs_previous_container.md",
+          "chunk_id": "semantic-api-6e9a49bc-1",
+          "title": "# kubectl logs previous container",
+          "similarity": 0.56337,
+          "snippet": "# kubectl logs previous container"
+        }
+      ]
+    },
+    {
+      "question": "ingress nginx tls host path",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.466998,
+      "avg_score": 0.426287,
+      "top_source_file": "knowledge-gap::gap_20260310t234507_3291540000_4e3b1d6abc47_gap_flow_validation_ingress_nginx_timeout_504.md",
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "knowledge-gap::gap_20260310t234507_3291540000_4e3b1d6abc47_gap_flow_validation_ingress_nginx_timeout_504.md",
+          "chunk_id": "semantic-api-08ed3122-1",
+          "title": "Query",
+          "similarity": 0.466998,
+          "snippet": "## Query\n\ngap flow validation: ingress nginx timeout 504"
+        },
+        {
+          "source_file": "__smoke_openai__.md",
+          "chunk_id": "smoke-openai-1",
+          "title": "Smoke Chunk 1",
+          "similarity": 0.44474,
+          "snippet": "liveness probe nginx example"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "chunk_id": "semantic-api-b34a20f9-2",
+          "title": "## Restrict ingress to selected pods",
+          "similarity": 0.444593,
+          "snippet": "## Restrict ingress to selected pods\n- Create deployment and service:\n  - `kubectl create deployment nginx --image=nginx --replicas=2`\n  - `kubectl expose deployment nginx --port=8"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/f.services.md",
+          "chunk_id": "semantic-api-647333a6-2",
+          "title": "### Create a pod with image nginx called nginx and expose its port 80",
+          "similarity": 0.387551,
+          "snippet": "### Create a pod with image nginx called nginx and expose its port 80"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/f.services.md",
+          "chunk_id": "semantic-api-647333a6-2",
+          "title": "### Create a pod with image nginx called nginx and expose its port 80",
+          "similarity": 0.387551,
+          "snippet": "### Create a pod with image nginx called nginx and expose its port 80"
+        }
+      ]
+    },
+    {
+      "question": "statefulset volumeclaimtemplates kubernetes",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.532397,
+      "avg_score": 0.506329,
+      "top_source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-2",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Vo",
+          "similarity": 0.532397,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Volume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/confi"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-2",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Vo",
+          "similarity": 0.532397,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Volume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/confi"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-3",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Pe",
+          "similarity": 0.506167,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a PersistentVolume for Storage](https://kubernetes.io/docs/tasks/configure-pod-conta"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-3",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Pe",
+          "similarity": 0.506167,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a PersistentVolume for Storage](https://kubernetes.io/docs/tasks/configure-pod-conta"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-4",
+          "title": "## Define volumes",
+          "similarity": 0.454519,
+          "snippet": "## Define volumes"
+        }
+      ]
+    },
+    {
+      "question": "persistentvolume persistentvolumeclaim reclaim policy",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.468944,
+      "avg_score": 0.452294,
+      "top_source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-3",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Pe",
+          "similarity": 0.468944,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a PersistentVolume for Storage](https://kubernetes.io/docs/tasks/configure-pod-conta"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-3",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Pe",
+          "similarity": 0.468944,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a PersistentVolume for Storage](https://kubernetes.io/docs/tasks/configure-pod-conta"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-4",
+          "title": "## Define volumes",
+          "similarity": 0.459503,
+          "snippet": "## Define volumes"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-4",
+          "title": "## Define volumes",
+          "similarity": 0.459503,
+          "snippet": "## Define volumes"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-2",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Vo",
+          "similarity": 0.404575,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Volume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/confi"
+        }
+      ]
+    },
+    {
+      "question": "docker compose healthcheck redis",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.702062,
+      "avg_score": 0.431852,
+      "top_source_file": "__smoke_openai__.md",
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "__smoke_openai__.md",
+          "chunk_id": "smoke-openai-2",
+          "title": "Smoke Chunk 2",
+          "similarity": 0.702062,
+          "snippet": "docker container healthcheck example"
+        },
+        {
+          "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+          "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0001::5959e8cd",
+          "title": "Title Page",
+          "similarity": 0.369583,
+          "snippet": "Docker Deep Dive - Third Edition"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_logs_previous_container.md",
+          "chunk_id": "semantic-api-6e9a49bc-1",
+          "title": "# kubectl logs previous container",
+          "similarity": 0.369218,
+          "snippet": "# kubectl logs previous container"
+        },
+        {
+          "source_file": "__inline_semantic_min__.txt",
+          "chunk_id": "semantic-api-2a6705e8-1",
+          "title": "1. Liveness probe verifica saude de container.",
+          "similarity": 0.366967,
+          "snippet": "1. Liveness probe verifica saude de container."
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_get_events_pod.md",
+          "chunk_id": "semantic-api-48fca2be-4",
+          "title": "## Liveness and failure triage",
+          "similarity": 0.351432,
+          "snippet": "## Liveness and failure triage\n- Inspect `Warning` and `Unhealthy` events for pods."
+        }
+      ]
+    },
+    {
+      "question": "docker multi stage build best practices",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.44863,
+      "avg_score": 0.416506,
+      "top_source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+          "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0001::5959e8cd",
+          "title": "Title Page",
+          "similarity": 0.44863,
+          "snippet": "Docker Deep Dive - Third Edition"
+        },
+        {
+          "source_file": "__smoke_openai__.md",
+          "chunk_id": "smoke-openai-2",
+          "title": "Smoke Chunk 2",
+          "similarity": 0.435276,
+          "snippet": "docker container healthcheck example"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+          "chunk_id": "semantic-api-4a878265-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)",
+          "similarity": 0.413101,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)\n# Multi-container Pods (10%)"
+        },
+        {
+          "source_file": "livros/docker/Nigel_Poulton/Getting Started with Docker (for Raymond Rhine) by Nigel Poulton.epub",
+          "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Getting-Started-with-Docker-for-Raymond-Rhine-by-Nigel-Poulton.epub::1dadb2302b11::0001::0a5919d0",
+          "title": "Title Page",
+          "similarity": 0.39612,
+          "snippet": "Getting Started with Docker and AI - Second Edition"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-5",
+          "title": "### Create busybox pod with two containers, each one will have the image busybox and will run the 's",
+          "similarity": 0.389401,
+          "snippet": "### Create busybox pod with two containers, each one will have the image busybox and will run the 'sleep 3600' command. Make both containers mount an emptyDir at '/etc/foo'. Connec"
+        }
+      ]
+    },
+    {
+      "question": "terraform aws s3 backend remote state locking",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.391073,
+      "avg_score": 0.372424,
+      "top_source_file": "relatorio_final.docx",
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "relatorio_final.docx",
+          "chunk_id": "chunk::doc::relatorio_final.docx::cdf7ca01213c::0001::b16d9880",
+          "title": "relatorio final",
+          "similarity": 0.391073,
+          "snippet": "DOCX Local\n\nbackend java e aws"
+        },
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0002::520f14ec",
+          "title": "Title Page",
+          "similarity": 0.381783,
+          "snippet": "Practical solutions for managing security policies, monitoring, auditing, and compliance with AWS Heartin Kanikathottu BIRMINGHAM - MUMBAI"
+        },
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+          "title": "AWS Security Cookbook",
+          "similarity": 0.372212,
+          "snippet": "AWS Security Cookbook"
+        },
+        {
+          "source_file": "__api_contract_smoke__.md",
+          "chunk_id": "semantic-api-029d6c37-1",
+          "title": "1. Security Group controla regras de entrada e saída na instância EC2 na VPC AWS.",
+          "similarity": 0.358527,
+          "snippet": "1. Security Group controla regras de entrada e saída na instância EC2 na VPC AWS."
+        },
+        {
+          "source_file": "__api_context_smoke__.md",
+          "chunk_id": "semantic-api-51838d66-1",
+          "title": "1. Security Group controla regras de entrada e saída na instância EC2 na VPC AWS.",
+          "similarity": 0.358527,
+          "snippet": "1. Security Group controla regras de entrada e saída na instância EC2 na VPC AWS."
+        }
+      ]
+    },
+    {
+      "question": "aws iam least privilege policy",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.520263,
+      "avg_score": 0.514229,
+      "top_source_file": "aws/Permissions boundaries for IAM entities.pdf",
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "title": "Permissions boundaries for IAM entities",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.520263,
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf"
+        },
+        {
+          "title": "Policy evaluation logic",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.520202,
+          "source_file": "aws/Policy evaluation logic.pdf"
+        },
+        {
+          "title": "Security best practices in IAM",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.52018,
+          "source_file": "aws/Security best practices in IAM.pdf"
+        },
+        {
+          "title": "IAM policy testing with the IAM policy simulator",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.52018,
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf"
+        },
+        {
+          "title": "Security best practices in IAM",
+          "snippet": "Policies and IAM groups ...................................................................................................................... 27\nFederated user sessions and roles ",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0005::8dbb5d9b",
+          "similarity": 0.490322,
+          "source_file": "aws/Security best practices in IAM.pdf"
+        }
+      ]
+    },
+    {
+      "question": "aws vpc security group vs nacl",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.535948,
+      "avg_score": 0.498715,
+      "top_source_file": "__api_context_smoke__.md",
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "__api_context_smoke__.md",
+          "chunk_id": "semantic-api-51838d66-2",
+          "title": "2. NACL atua na subnet da VPC.",
+          "similarity": 0.535948,
+          "snippet": "2. NACL atua na subnet da VPC."
+        },
+        {
+          "source_file": "__api_contract_smoke__.md",
+          "chunk_id": "semantic-api-029d6c37-2",
+          "title": "2. NACL atua na subnet da VPC.",
+          "similarity": 0.535948,
+          "snippet": "2. NACL atua na subnet da VPC."
+        },
+        {
+          "source_file": "__api_smoke__.md",
+          "chunk_id": "semantic-api-9f4692b4-2",
+          "title": "2. NACL atua no nível de subnet na VPC.",
+          "similarity": 0.516628,
+          "snippet": "2. NACL atua no nível de subnet na VPC."
+        },
+        {
+          "source_file": "__api_error_smoke__.md",
+          "chunk_id": "semantic-api-9a6f0eda-2",
+          "title": "2. NACL atua na subnet.",
+          "similarity": 0.456561,
+          "snippet": "2. NACL atua na subnet."
+        },
+        {
+          "source_file": "__api_context_smoke__.md",
+          "chunk_id": "semantic-api-51838d66-1",
+          "title": "1. Security Group controla regras de entrada e saída na instância EC2 na VPC AWS.",
+          "similarity": 0.448488,
+          "snippet": "1. Security Group controla regras de entrada e saída na instância EC2 na VPC AWS."
+        }
+      ]
+    },
+    {
+      "question": "fastapi dependency injection com exemplos",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.433792,
+      "avg_score": 0.391322,
+      "top_source_file": "__inline_semantic_min__.txt",
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "__inline_semantic_min__.txt",
+          "chunk_id": "semantic-api-07124843-1",
+          "title": "1. API semantica com env canonico.",
+          "similarity": 0.433792,
+          "snippet": "1. API semantica com env canonico."
+        },
+        {
+          "source_file": "livros/fastapi/Bill Lubanovic/FastAPI by Bill Lubanovic.epub",
+          "chunk_id": "chunk::doc::livros/fastapi/Bill-Lubanovic/FastAPI-by-Bill-Lubanovic.epub::3e51304f335a::0002::fe2c2a8c",
+          "title": "FastAPI",
+          "similarity": 0.408546,
+          "snippet": "FastAPI\n\nby Bill Lubanovic Copyright © 2023 Bill Lubanovic. All rights reserved. Printed in the United States of America. Published by O’Reilly Media, Inc. , 1005 Gravenstein Highw"
+        },
+        {
+          "source_file": "livros/fastapi/Bill Lubanovic/FastAPI by Bill Lubanovic.epub",
+          "chunk_id": "chunk::doc::livros/fastapi/Bill-Lubanovic/FastAPI-by-Bill-Lubanovic.epub::3e51304f335a::0001::ecdffc52",
+          "title": "FastAPI",
+          "similarity": 0.391201,
+          "snippet": "FastAPI\n\nModern Python Web Development With Early Release ebooks, you get books in their earliest form—the author’s raw and unedited content as they write—so you can take advantage"
+        },
+        {
+          "source_file": "duplicado_do_conteudo.md",
+          "chunk_id": "chunk::doc::duplicado_do_conteudo.md::8f5d3f8e9c89::0001::00d41910",
+          "title": "duplicado do conteudo",
+          "similarity": 0.367883,
+          "snippet": "Conteudo local para importacao automatizada."
+        },
+        {
+          "source_file": "livros/fastapi/Giunio De Luca/FastAPI Cookbook_ Develop high-performance APIs and web applications with Python by Giunio De Luca.epub",
+          "chunk_id": "chunk::doc::livros/fastapi/Giunio-De-Luca/FastAPI-Cookbook_-Develop-high-performance-APIs-and-web-applications-with-Python-by-Giunio-De-Luca.epub::608b73844cb2::0001::eed112d1",
+          "title": "FastAPI Cookbook",
+          "similarity": 0.355186,
+          "snippet": "FastAPI Cookbook Develop high-performance APIs and web applications with Python Giunio De Luca\n\nFastAPI Cookbook\n\nCopyright © 2024 Packt Publishing All rights reserved . No part of"
+        }
+      ]
+    },
+    {
+      "question": "python async await e event loop",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.291245,
+      "avg_score": 0.255144,
+      "top_source_file": "livros/fastapi/Bill Lubanovic/FastAPI by Bill Lubanovic.epub",
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "livros/fastapi/Bill Lubanovic/FastAPI by Bill Lubanovic.epub",
+          "chunk_id": "chunk::doc::livros/fastapi/Bill-Lubanovic/FastAPI-by-Bill-Lubanovic.epub::3e51304f335a::0007::9374b251",
+          "title": "Services and APIs",
+          "similarity": 0.291245,
+          "snippet": "- Latency : The upfront wait time.\n\n- Throughput : The number of bytes per second between the service and its callers.\n\nIn the old web days 3 , people dreamed of supporting hundred"
+        },
+        {
+          "source_file": "livros/fastapi/Bill Lubanovic/FastAPI by Bill Lubanovic.epub",
+          "chunk_id": "chunk::doc::livros/fastapi/Bill-Lubanovic/FastAPI-by-Bill-Lubanovic.epub::3e51304f335a::0001::ecdffc52",
+          "title": "FastAPI",
+          "similarity": 0.281746,
+          "snippet": "FastAPI\n\nModern Python Web Development With Early Release ebooks, you get books in their earliest form—the author’s raw and unedited content as they write—so you can take advantage"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_get_events_pod.md",
+          "chunk_id": "semantic-api-48fca2be-1",
+          "title": "# kubectl get events pod",
+          "similarity": 0.242457,
+          "snippet": "# kubectl get events pod"
+        },
+        {
+          "source_file": "livros/fastapi/Giunio De Luca/FastAPI Cookbook_ Develop high-performance APIs and web applications with Python by Giunio De Luca.epub",
+          "chunk_id": "chunk::doc::livros/fastapi/Giunio-De-Luca/FastAPI-Cookbook_-Develop-high-performance-APIs-and-web-applications-with-Python-by-Giunio-De-Luca.epub::608b73844cb2::0001::eed112d1",
+          "title": "FastAPI Cookbook",
+          "similarity": 0.232253,
+          "snippet": "FastAPI Cookbook Develop high-performance APIs and web applications with Python Giunio De Luca\n\nFastAPI Cookbook\n\nCopyright © 2024 Packt Publishing All rights reserved . No part of"
+        },
+        {
+          "source_file": "__smoke_openai__.md",
+          "chunk_id": "smoke-openai-1",
+          "title": "Smoke Chunk 1",
+          "similarity": 0.228021,
+          "snippet": "liveness probe nginx example"
+        }
+      ]
+    },
+    {
+      "question": "postgres index btree vs gin",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.338386,
+      "avg_score": 0.268278,
+      "top_source_file": "knowledge-gap::gap_20260310t234013_4528790000_1706c7323efb_postgres_auth.md",
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "knowledge-gap::gap_20260310t234013_4528790000_1706c7323efb_postgres_auth.md",
+          "chunk_id": "semantic-api-ec2e82a9-1",
+          "title": "Query",
+          "similarity": 0.338386,
+          "snippet": "## Query\n\npostgres auth"
+        },
+        {
+          "source_file": "knowledge-gap::gap_20260310t234013_4528790000_1706c7323efb_postgres_auth.md",
+          "chunk_id": "semantic-api-ec2e82a9-2",
+          "title": "Context",
+          "similarity": 0.293914,
+          "snippet": "## Context\n\n```json\n{\n  \"reason\": \"empty_result\",\n  \"details\": {\n    \"query\": \"postgres auth\",\n    \"mode\": \"structured\",\n    \"semantic_warning\": null,\n    \"related_facts_count\": 0,"
+        },
+        {
+          "source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+          "chunk_id": "semantic-api-50b318f4-1",
+          "title": "Query",
+          "similarity": 0.242886,
+          "snippet": "## Query\n\nvalidation gap ingestion flow kubernetes network policy baseline"
+        },
+        {
+          "source_file": "knowledge-gap::gap_20260310t234507_3291540000_4e3b1d6abc47_gap_flow_validation_ingress_nginx_timeout_504.md",
+          "chunk_id": "semantic-api-08ed3122-1",
+          "title": "Query",
+          "similarity": 0.240602,
+          "snippet": "## Query\n\ngap flow validation: ingress nginx timeout 504"
+        },
+        {
+          "source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+          "chunk_id": "semantic-api-50b318f4-2",
+          "title": "Context",
+          "similarity": 0.225604,
+          "snippet": "## Context\n\n```json\n{\n  \"reason\": \"low_average_score\",\n  \"details\": {\n    \"trigger\": \"validation\",\n    \"round\": \"knowledge_gaps_ingestion\"\n  }\n}\n```"
+        }
+      ]
+    },
+    {
+      "question": "observabilidade prometheus grafana alertmanager",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.407597,
+      "avg_score": 0.370445,
+      "top_source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/observability&empty)",
+          "similarity": 0.407597,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/observability&empty)\n# Observability (18%)"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/observability&empty)",
+          "similarity": 0.407584,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/observability&empty)\n# Observability (18%)"
+        },
+        {
+          "source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+          "chunk_id": "semantic-api-50b318f4-1",
+          "title": "Query",
+          "similarity": 0.367513,
+          "snippet": "## Query\n\nvalidation gap ingestion flow kubernetes network policy baseline"
+        },
+        {
+          "source_file": "teste_exportado.html",
+          "chunk_id": "chunk::doc::teste_exportado.html::8f0139c76af9::0001::5ce6b763",
+          "title": "teste exportado",
+          "similarity": 0.345469,
+          "snippet": "Teste HTML\n\nanalytics e product owner"
+        },
+        {
+          "source_file": "__inline_semantic_min__.txt",
+          "chunk_id": "semantic-api-2a6705e8-1",
+          "title": "1. Liveness probe verifica saude de container.",
+          "similarity": 0.324062,
+          "snippet": "1. Liveness probe verifica saude de container."
+        }
+      ]
+    },
+    {
+      "question": "jenkins pipeline declarativa stages",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.337581,
+      "avg_score": 0.296158,
+      "top_source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+          "chunk_id": "semantic-api-50b318f4-1",
+          "title": "Query",
+          "similarity": 0.337581,
+          "snippet": "## Query\n\nvalidation gap ingestion flow kubernetes network policy baseline"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_create_namespace_staging.md",
+          "chunk_id": "semantic-api-475d2fc9-1",
+          "title": "# kubectl create namespace staging",
+          "similarity": 0.2938,
+          "snippet": "# kubectl create namespace staging"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-3",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readine",
+          "similarity": 0.283667,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-3",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readine",
+          "similarity": 0.283667,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+          "chunk_id": "semantic-api-3ff9ac8c-1",
+          "title": "# kubectl rollout restart deployment",
+          "similarity": 0.282074,
+          "snippet": "# kubectl rollout restart deployment"
+        }
+      ]
+    },
+    {
+      "question": "ansible playbook idempotencia handlers",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.309878,
+      "avg_score": 0.299749,
+      "top_source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+          "title": "AWS Security Cookbook",
+          "similarity": 0.309878,
+          "snippet": "AWS Security Cookbook"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "chunk_id": "semantic-api-b34a20f9-4",
+          "title": "## Validate policy behavior",
+          "similarity": 0.306647,
+          "snippet": "## Validate policy behavior\n- Denied pod: `kubectl run busybox --image=busybox --rm -it --restart=Never -- wget -O- http://nginx:80 --timeout 2`\n- Allowed pod: `kubectl run busybox"
+        },
+        {
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0008::d1b40d35",
+          "title": "Permissions boundaries for IAM entities",
+          "similarity": 0.294095,
+          "snippet": "v\nAWS Identity and Access Management User Guide\n\nStep 3: Create roles .............................................................................................................."
+        },
+        {
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0008::d1b40d35",
+          "title": "IAM policy testing with the IAM policy simulator",
+          "similarity": 0.294062,
+          "snippet": "v\nAWS Identity and Access Management User Guide\n\nStep 3: Create roles .............................................................................................................."
+        },
+        {
+          "source_file": "aws/Security best practices in IAM.pdf",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0008::d1b40d35",
+          "title": "Security best practices in IAM",
+          "similarity": 0.294062,
+          "snippet": "v\nAWS Identity and Access Management User Guide\n\nStep 3: Create roles .............................................................................................................."
+        }
+      ]
+    }
+  ]
+}

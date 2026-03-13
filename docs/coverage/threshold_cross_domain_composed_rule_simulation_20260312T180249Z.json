@@ -1,0 +1,46 @@
+{
+  "generated_at": "20260312T180249Z",
+  "rule": "well if avg>=0.45 and (max>=0.60 OR (max>=0.57 and top1_expected_official))",
+  "domain_metrics": [
+    {
+      "domain": "aws_iam",
+      "query_count": 8,
+      "well_baseline": 7,
+      "well_composed": 7,
+      "partial_to_well": 0,
+      "well_to_partial_regressions": 0
+    },
+    {
+      "domain": "docker",
+      "query_count": 8,
+      "well_baseline": 6,
+      "well_composed": 6,
+      "partial_to_well": 0,
+      "well_to_partial_regressions": 0
+    },
+    {
+      "domain": "terraform",
+      "query_count": 8,
+      "well_baseline": 4,
+      "well_composed": 4,
+      "partial_to_well": 0,
+      "well_to_partial_regressions": 0
+    },
+    {
+      "domain": "observability",
+      "query_count": 8,
+      "well_baseline": 5,
+      "well_composed": 6,
+      "partial_to_well": 1,
+      "well_to_partial_regressions": 0
+    },
+    {
+      "domain": "kubernetes",
+      "query_count": 12,
+      "well_baseline": 9,
+      "well_composed": 9,
+      "partial_to_well": 0,
+      "well_to_partial_regressions": 0
+    }
+  ]
+}

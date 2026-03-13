@@ -1,0 +1,834 @@
+{
+  "generated_at": "2026-03-12T01:33:30.259033+00:00",
+  "scope": "docker_focused_compare_before_after_docker_docs_selected_persist",
+  "before_file": "docs/coverage/semantic_coverage_audit_docker_before_20260312.json",
+  "after_file": "docs/coverage/semantic_coverage_audit_docker_after_20260312.json",
+  "questions_compared": 8,
+  "before_aggregate": {
+    "well_covered_count": 0,
+    "partial_count": 2,
+    "gap_count": 6,
+    "global_avg_of_max_score": 0.436232,
+    "global_avg_of_avg_score": 0.400084
+  },
+  "after_aggregate": {
+    "well_covered_count": 6,
+    "partial_count": 2,
+    "gap_count": 0,
+    "global_avg_of_max_score": 0.606646,
+    "global_avg_of_avg_score": 0.539499
+  },
+  "aggregate_delta": {
+    "well_covered_count": 6,
+    "partial_count": 0,
+    "gap_count": -6,
+    "global_avg_of_max_score": 0.170414,
+    "global_avg_of_avg_score": 0.139415
+  },
+  "questions_improved": [
+    "docker multi stage build best practices",
+    "docker build cache",
+    "docker buildkit",
+    "docker networking bridge host overlay",
+    "docker volumes vs bind mounts",
+    "docker storage drivers",
+    "docker security best practices",
+    "docker image hardening"
+  ],
+  "questions_class_changed": [
+    {
+      "question": "docker multi stage build best practices",
+      "before_class": "lacuna",
+      "after_class": "bem_coberta"
+    },
+    {
+      "question": "docker build cache",
+      "before_class": "lacuna",
+      "after_class": "bem_coberta"
+    },
+    {
+      "question": "docker buildkit",
+      "before_class": "lacuna",
+      "after_class": "bem_coberta"
+    },
+    {
+      "question": "docker networking bridge host overlay",
+      "before_class": "lacuna",
+      "after_class": "bem_coberta"
+    },
+    {
+      "question": "docker volumes vs bind mounts",
+      "before_class": "lacuna",
+      "after_class": "bem_coberta"
+    },
+    {
+      "question": "docker storage drivers",
+      "before_class": "lacuna",
+      "after_class": "bem_coberta"
+    }
+  ],
+  "questions_top1_shifted_to_docker_docs_selected": [
+    "docker multi stage build best practices",
+    "docker build cache",
+    "docker buildkit",
+    "docker networking bridge host overlay",
+    "docker volumes vs bind mounts",
+    "docker storage drivers",
+    "docker security best practices"
+  ],
+  "top1_from_docker_docs_selected_after_count": 7,
+  "rows": [
+    {
+      "question": "docker multi stage build best practices",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.44863,
+        "avg_score": 0.416506,
+        "top_source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+        "top_k_results": [
+          {
+            "title": "Title Page",
+            "snippet": "Docker Deep Dive - Third Edition",
+            "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0001::5959e8cd",
+            "similarity": 0.44863,
+            "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub"
+          },
+          {
+            "title": "Smoke Chunk 2",
+            "snippet": "docker container healthcheck example",
+            "chunk_id": "smoke-openai-2",
+            "similarity": 0.435276,
+            "source_file": "__smoke_openai__.md"
+          },
+          {
+            "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)",
+            "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)\n# Multi-container Pods (10%)",
+            "chunk_id": "semantic-api-4a878265-1",
+            "similarity": 0.413101,
+            "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md"
+          },
+          {
+            "title": "Title Page",
+            "snippet": "Getting Started with Docker and AI - Second Edition",
+            "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Getting-Started-with-Docker-for-Raymond-Rhine-by-Nigel-Poulton.epub::1dadb2302b11::0001::0a5919d0",
+            "similarity": 0.39612,
+            "source_file": "livros/docker/Nigel_Poulton/Getting Started with Docker (for Raymond Rhine) by Nigel Poulton.epub"
+          },
+          {
+            "title": "### Create busybox pod with two containers, each one will have the image busybox and will run the 's",
+            "snippet": "### Create busybox pod with two containers, each one will have the image busybox and will run the 'sleep 3600' command. Make both containers mount an emptyDir at '/etc/foo'. Connec",
+            "chunk_id": "semantic-api-73c2e379-5",
+            "similarity": 0.389401,
+            "source_file": "data/question_bank_raw/ckad_exercises/g.state.md"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "bem_coberta",
+        "max_score": 0.657887,
+        "avg_score": 0.57767,
+        "top_source_file": "docker_docs_selected/content/manuals/build/building/multi-stage.md",
+        "top_k_results": [
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/building/multi-stage.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/multi-stage.md::0b36c21cda1b::0001::2347a91e",
+            "title": "multi stage",
+            "similarity": 0.657887,
+            "snippet": "---\ntitle: Multi-stage builds\nlinkTitle: Multi-stage\nweight: 10\ndescription: |\nLearn about multi-stage builds and how you can use\nthem to improve your builds and get smaller images"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/best-practices.md::0aad9a6cecbb::0002::11841eb8",
+            "title": "best practices",
+            "similarity": 0.625223,
+            "snippet": "See [Multi-stage builds](/manuals/build/building/multi-stage.md) for more\ninformation.\n\n### Create reusable stages\n\nIf you have multiple images with a lot in common, consider creat"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/best-practices.md::0aad9a6cecbb::0001::cbf94334",
+            "title": "best practices",
+            "similarity": 0.623404,
+            "snippet": "---\ntitle: Building best practices\nlinkTitle: Best practices\nweight: 70\ndescription: Hints, tips and guidelines for writing clean, reliable Dockerfiles\nkeywords: base images, docke"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/cache/optimize.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/optimize.md::2fbc0606377e::0001::3ea1d26c",
+            "title": "optimize",
+            "similarity": 0.491905,
+            "snippet": "---\ntitle: Optimize cache usage in builds\ndescription: An overview on how to optimize cache utilization in Docker builds.\nkeywords: build, buildkit, buildx, guide, tutorial, mounts"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/building/multi-platform.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/multi-platform.md::dc2ddf177f5b::0001::e5463690",
+            "title": "multi platform",
+            "similarity": 0.489929,
+            "snippet": "---\ntitle: Multi-platform builds\nlinkTitle: Multi-platform\nweight: 40\ndescription: Introduction to what multi-platform builds are and how to execute them using Docker Buildx.\nkeywo"
+          }
+        ],
+        "top1_is_docker_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.209257,
+        "avg_score": 0.161164
+      }
+    },
+    {
+      "question": "docker build cache",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.348131,
+        "avg_score": 0.334399,
+        "top_source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+        "top_k_results": [
+          {
+            "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+            "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0001::5959e8cd",
+            "title": "Title Page",
+            "similarity": 0.348131,
+            "snippet": "Docker Deep Dive - Third Edition"
+          },
+          {
+            "source_file": "__smoke_openai__.md",
+            "chunk_id": "smoke-openai-2",
+            "title": "Smoke Chunk 2",
+            "similarity": 0.347252,
+            "snippet": "docker container healthcheck example"
+          },
+          {
+            "source_file": "inline://invalidate-smoke",
+            "chunk_id": "semantic-api-94fbd8c4-2",
+            "title": "2. nova ingestao para limpar cache",
+            "similarity": 0.342406,
+            "snippet": "2. nova ingestao para limpar cache"
+          },
+          {
+            "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+            "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0003::76aaa2e4",
+            "title": "About this edition",
+            "similarity": 0.327908,
+            "snippet": "About this edition\n\nThis edition was published in May 2024. In writing this edition, I've gone over every word in every chapter ensuring everything is up-to-date with the latest ed"
+          },
+          {
+            "source_file": "tmp/kubectl_ops_round/kubectl_logs_previous_container.md",
+            "chunk_id": "semantic-api-6e9a49bc-1",
+            "title": "# kubectl logs previous container",
+            "similarity": 0.306298,
+            "snippet": "# kubectl logs previous container"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "bem_coberta",
+        "max_score": 0.618624,
+        "avg_score": 0.582821,
+        "top_source_file": "docker_docs_selected/content/manuals/build/cache/_index.md",
+        "top_k_results": [
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/cache/_index.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/_index.md::11ca5f093360::0001::4c437cbe",
+            "title": "index",
+            "similarity": 0.618624,
+            "snippet": "---\ntitle: Docker build cache\nlinkTitle: Cache\nweight: 60\ndescription: Improve your build speed with effective use of the build cache\nkeywords: build, buildx, buildkit, dockerfile,"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/cache/optimize.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/optimize.md::2fbc0606377e::0001::3ea1d26c",
+            "title": "optimize",
+            "similarity": 0.598713,
+            "snippet": "---\ntitle: Optimize cache usage in builds\ndescription: An overview on how to optimize cache utilization in Docker builds.\nkeywords: build, buildkit, buildx, guide, tutorial, mounts"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/cache/backends/_index.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/backends/_index.md::0611afc9160c::0001::1174b177",
+            "title": "index",
+            "similarity": 0.576079,
+            "snippet": "---\ntitle: Cache storage backends\ndescription: |\nCache backends let you manage your build cache externally.\nExternal cache is useful to create a shared cache that can help\nspeed up"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/cache/backends/gha.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/backends/gha.md::b5d9d36ee2d5::0001::b6881f2c",
+            "title": "gha",
+            "similarity": 0.570306,
+            "snippet": "---\ntitle: GitHub Actions cache\ndescription: Use the GitHub Actions cache to manage your build cache in CI\nkeywords: build, buildx, cache, backend, gha, github, actions\naliases:\n- "
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/cache/invalidation.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/invalidation.md::737fdc7bfb24::0001::77ac3d41",
+            "title": "invalidation",
+            "similarity": 0.550381,
+            "snippet": "---\ntitle: Build cache invalidation\ndescription: Dig into the details about how cache invalidation works for Docker's build cache\nkeywords: build, buildx, buildkit, cache, invalida"
+          }
+        ],
+        "top1_is_docker_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.270493,
+        "avg_score": 0.248422
+      }
+    },
+    {
+      "question": "docker buildkit",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.355724,
+        "avg_score": 0.334753,
+        "top_source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+        "top_k_results": [
+          {
+            "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+            "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0003::76aaa2e4",
+            "title": "About this edition",
+            "similarity": 0.355724,
+            "snippet": "About this edition\n\nThis edition was published in May 2024. In writing this edition, I've gone over every word in every chapter ensuring everything is up-to-date with the latest ed"
+          },
+          {
+            "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+            "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0001::5959e8cd",
+            "title": "Title Page",
+            "similarity": 0.337793,
+            "snippet": "Docker Deep Dive - Third Edition"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+            "chunk_id": "semantic-api-4a878265-5",
+            "title": "```bash",
+            "similarity": 0.331213,
+            "snippet": "```bash\nkubectl run busybox --image=busybox --restart=Never -o yaml --dry-run=client -- /bin/sh -c 'echo hello;sleep 3600' > pod.yaml\nvi pod.yaml\n```"
+          },
+          {
+            "source_file": "__smoke_openai__.md",
+            "chunk_id": "smoke-openai-2",
+            "title": "Smoke Chunk 2",
+            "similarity": 0.328739,
+            "snippet": "docker container healthcheck example"
+          },
+          {
+            "source_file": "tmp/kubectl_ops_round/kubectl_create_namespace_staging.md",
+            "chunk_id": "semantic-api-475d2fc9-1",
+            "title": "# kubectl create namespace staging",
+            "similarity": 0.320294,
+            "snippet": "# kubectl create namespace staging"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "bem_coberta",
+        "max_score": 0.639186,
+        "avg_score": 0.529851,
+        "top_source_file": "docker_docs_selected/content/manuals/build/buildkit/_index.md",
+        "top_k_results": [
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/buildkit/_index.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/buildkit/_index.md::fd6a61970d84::0001::463699a6",
+            "title": "index",
+            "similarity": 0.639186,
+            "snippet": "---\ntitle: BuildKit\nweight: 100\ndescription: Introduction and overview of BuildKit\nkeywords: build, buildkit\n---\n\n## Overview\n\n[BuildKit](https://github.com/moby/buildkit)\nis an im"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/buildkit/configure.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/buildkit/configure.md::29841432876e::0001::a1185e71",
+            "title": "configure",
+            "similarity": 0.567734,
+            "snippet": "---\ntitle: Configure BuildKit\ndescription: Learn how to configure BuildKit for your builder.\nkeywords: build, buildkit, configuration, buildx, network, cni, registry\n---\n\nIf you cr"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/building/_index.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/_index.md::d517aef2dd84::0001::c3c1cef2",
+            "title": "index",
+            "similarity": 0.485141,
+            "snippet": "---\nbuild:\nrender: never\ntitle: Building\nweight: 20\n---"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/cache/optimize.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/optimize.md::2fbc0606377e::0001::3ea1d26c",
+            "title": "optimize",
+            "similarity": 0.479689,
+            "snippet": "---\ntitle: Optimize cache usage in builds\ndescription: An overview on how to optimize cache utilization in Docker builds.\nkeywords: build, buildkit, buildx, guide, tutorial, mounts"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/cache/garbage-collection.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/garbage-collection.md::edcb56521a6e::0001::542fb636",
+            "title": "garbage collection",
+            "similarity": 0.477506,
+            "snippet": "---\ntitle: Build garbage collection\ndescription: Learn about garbage collection in the BuildKit daemon\nkeywords: build, buildx, buildkit, garbage collection, prune, gc\naliases:\n- /"
+          }
+        ],
+        "top1_is_docker_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.283462,
+        "avg_score": 0.195098
+      }
+    },
+    {
+      "question": "docker networking bridge host overlay",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.424705,
+        "avg_score": 0.381185,
+        "top_source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+        "top_k_results": [
+          {
+            "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+            "chunk_id": "semantic-api-b34a20f9-1",
+            "title": "# Kubernetes NetworkPolicy Example",
+            "similarity": 0.424705,
+            "snippet": "# Kubernetes NetworkPolicy Example"
+          },
+          {
+            "source_file": "__smoke_openai__.md",
+            "chunk_id": "smoke-openai-2",
+            "title": "Smoke Chunk 2",
+            "similarity": 0.417607,
+            "snippet": "docker container healthcheck example"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/h.helm.md",
+            "chunk_id": "semantic-api-c6ee6356-3",
+            "title": "## Helm in K8s",
+            "similarity": 0.359706,
+            "snippet": "## Helm in K8s"
+          },
+          {
+            "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+            "chunk_id": "semantic-api-b34a20f9-5",
+            "title": "Keywords: networkpolicy kubernetes example ingress policy.",
+            "similarity": 0.353024,
+            "snippet": "Keywords: networkpolicy kubernetes example ingress policy."
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+            "chunk_id": "semantic-api-4a878265-2",
+            "title": "### Create a Pod with two containers, both with image busybox and command \"echo hello; sleep 3600\". ",
+            "similarity": 0.350882,
+            "snippet": "### Create a Pod with two containers, both with image busybox and command \"echo hello; sleep 3600\". Connect to the second container and run 'ls'"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "bem_coberta",
+        "max_score": 0.620741,
+        "avg_score": 0.569134,
+        "top_source_file": "docker_docs_selected/content/manuals/engine/network/drivers/overlay.md",
+        "top_k_results": [
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/overlay.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/overlay.md::3e27ed031293::0001::e022cd7e",
+            "title": "overlay",
+            "similarity": 0.620741,
+            "snippet": "---\ntitle: Overlay network driver\ndescription: All about using overlay networks\nkeywords: network, overlay, user-defined, swarm, service\naliases:\n- /config/containers/overlay/\n- /e"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/bridge.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/bridge.md::b5e01f6afe26::0001::aaec60e5",
+            "title": "bridge",
+            "similarity": 0.583545,
+            "snippet": "---\ntitle: Bridge network driver\ndescription: All about using user-defined bridge networks and the default bridge\nkeywords: network, bridge, user-defined, standalone\naliases:\n- /co"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/_index.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/_index.md::abac47b03d7e::0001::057a07ee",
+            "title": "index",
+            "similarity": 0.578799,
+            "snippet": "---\ntitle: Network drivers\nweight: 20\ndescription: Learn the basics of Docker network drivers\nkeywords: networking, drivers, bridge, routing, routing mesh, overlay, ports\n---\n\nDock"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/host.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/host.md::235bfb98fe3a::0001::c4eb3278",
+            "title": "host",
+            "similarity": 0.557979,
+            "snippet": "---\ntitle: Host network driver\ndescription: All about exposing containers on the Docker host's network\nkeywords: network, host, standalone, host mode networking\naliases:\n- /network"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/ipvlan.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/ipvlan.md::0ceb3417bb3e::0001::897c42dc",
+            "title": "ipvlan",
+            "similarity": 0.504607,
+            "snippet": "---\ntitle: IPvlan network driver\ndescription:\nAll about using IPvlan to make your containers appear like physical machines\non the network\nkeywords: network, ipvlan, l2, l3, standal"
+          }
+        ],
+        "top1_is_docker_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.196036,
+        "avg_score": 0.187949
+      }
+    },
+    {
+      "question": "docker volumes vs bind mounts",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.429383,
+        "avg_score": 0.419199,
+        "top_source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+        "top_k_results": [
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+            "chunk_id": "semantic-api-73c2e379-4",
+            "title": "## Define volumes",
+            "similarity": 0.429383,
+            "snippet": "## Define volumes"
+          },
+          {
+            "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+            "chunk_id": "semantic-api-73c2e379-4",
+            "title": "## Define volumes",
+            "similarity": 0.429383,
+            "snippet": "## Define volumes"
+          },
+          {
+            "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+            "chunk_id": "semantic-api-73c2e379-2",
+            "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Vo",
+            "similarity": 0.422376,
+            "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Volume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/confi"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+            "chunk_id": "semantic-api-73c2e379-2",
+            "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Vo",
+            "similarity": 0.422376,
+            "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Volume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/confi"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+            "chunk_id": "semantic-api-73c2e379-5",
+            "title": "### Create busybox pod with two containers, each one will have the image busybox and will run the 's",
+            "similarity": 0.392479,
+            "snippet": "### Create busybox pod with two containers, each one will have the image busybox and will run the 'sleep 3600' command. Make both containers mount an emptyDir at '/etc/foo'. Connec"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "bem_coberta",
+        "max_score": 0.66314,
+        "avg_score": 0.511398,
+        "top_source_file": "docker_docs_selected/content/manuals/engine/storage/bind-mounts.md",
+        "top_k_results": [
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/storage/bind-mounts.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/bind-mounts.md::c4baa79b1411::0001::66229216",
+            "title": "bind mounts",
+            "similarity": 0.66314,
+            "snippet": "---\ndescription: Using bind mounts\ntitle: Bind mounts\nweight: 20\nkeywords: storage, persistence, data persistence, mounts, bind mounts\naliases:\n- /engine/admin/volumes/bind-mounts/"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/storage/volumes.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/volumes.md::632b8768a78f::0001::b43ca522",
+            "title": "volumes",
+            "similarity": 0.566893,
+            "snippet": "---\ndescription:\nLearn how to create, manage, and use volumes instead of bind mounts for\npersisting data generated and used by Docker.\ntitle: Volumes\nweight: 10\nkeywords:\ndocker co"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/storage/tmpfs.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/tmpfs.md::6b71df93ac43::0001::0bc847f9",
+            "title": "tmpfs",
+            "similarity": 0.468338,
+            "snippet": "---\ndescription: Using tmpfs mounts\ntitle: tmpfs mounts\nweight: 30\nkeywords: storage, persistence, data persistence, tmpfs\naliases:\n- /engine/admin/volumes/tmpfs/\n- /storage/tmpfs/"
+          },
+          {
+            "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+            "chunk_id": "semantic-api-73c2e379-4",
+            "title": "## Define volumes",
+            "similarity": 0.42931,
+            "snippet": "## Define volumes"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+            "chunk_id": "semantic-api-73c2e379-4",
+            "title": "## Define volumes",
+            "similarity": 0.42931,
+            "snippet": "## Define volumes"
+          }
+        ],
+        "top1_is_docker_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.233757,
+        "avg_score": 0.092199
+      }
+    },
+    {
+      "question": "docker storage drivers",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.448315,
+        "avg_score": 0.422624,
+        "top_source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+        "top_k_results": [
+          {
+            "title": "Title Page",
+            "snippet": "Docker Deep Dive - Third Edition",
+            "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0001::5959e8cd",
+            "similarity": 0.448315,
+            "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub"
+          },
+          {
+            "title": "Smoke Chunk 2",
+            "snippet": "docker container healthcheck example",
+            "chunk_id": "smoke-openai-2",
+            "similarity": 0.430451,
+            "source_file": "__smoke_openai__.md"
+          },
+          {
+            "title": "Part 1: The big picture stuff",
+            "snippet": "Hello Containers!\n\nFor a long time, the big web-scale players, like Google, have been using container technologies to address the shortcomings of the VM model. In the container mod",
+            "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive---Second-Edition-by-Nigel-Poulton.epub::2a3d94571542::0003::d3e85c83",
+            "similarity": 0.424287,
+            "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive - Second Edition by Nigel Poulton.epub"
+          },
+          {
+            "title": "## CRD in K8s",
+            "snippet": "## CRD in K8s",
+            "chunk_id": "semantic-api-9d1041f3-3",
+            "similarity": 0.415957,
+            "source_file": "data/raw_review/ckad_exercises_modules/i.crd.md"
+          },
+          {
+            "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Vo",
+            "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Volume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/confi",
+            "chunk_id": "semantic-api-73c2e379-2",
+            "similarity": 0.394112,
+            "source_file": "data/question_bank_raw/ckad_exercises/g.state.md"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "bem_coberta",
+        "max_score": 0.615767,
+        "avg_score": 0.559854,
+        "top_source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/_index.md",
+        "top_k_results": [
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/_index.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/_index.md::45472398de42::0001::577f67a9",
+            "title": "index",
+            "similarity": 0.615767,
+            "snippet": "---\ndescription: Learn the technologies that support storage drivers.\nkeywords: container, storage, driver, btrfs, overlayfs, vfs, zfs, containerd\ntitle: Storage drivers\nweight: 40"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/select-storage-driver.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/select-storage-driver.md::f8b8175cb214::0001::6b4076ff",
+            "title": "select storage driver",
+            "similarity": 0.585236,
+            "snippet": "---\ntitle: Select a storage driver\nweight: 10\ndescription: Learn how to select the proper storage driver for your container.\nkeywords: container, storage, driver, btrfs, zfs, overl"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/vfs-driver.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/vfs-driver.md::65cde9116182::0001::9c538db7",
+            "title": "vfs driver",
+            "similarity": 0.538663,
+            "snippet": "---\ndescription: Learn how to optimize your use of VFS driver.\nkeywords: container, storage, driver, vfs\ntitle: VFS storage driver\naliases:\n- /storage/storagedriver/vfs-driver/\n---"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/btrfs-driver.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/btrfs-driver.md::cb80fa634ab6::0001::af7e2b15",
+            "title": "btrfs driver",
+            "similarity": 0.530578,
+            "snippet": "---\ndescription: Learn how to optimize your use of Btrfs driver.\nkeywords: container, storage, driver, Btrfs\ntitle: BTRFS storage driver\naliases:\n- /storage/storagedriver/btrfs-dri"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/overlayfs-driver.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/overlayfs-driver.md::494aeb9cb28d::0001::0b05811c",
+            "title": "overlayfs driver",
+            "similarity": 0.529026,
+            "snippet": "---\ndescription: Learn how to optimize your use of OverlayFS driver.\nkeywords: container, storage, driver, OverlayFS, overlay2, overlay\ntitle: OverlayFS storage driver\naliases:\n- /"
+          }
+        ],
+        "top1_is_docker_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.167452,
+        "avg_score": 0.13723
+      }
+    },
+    {
+      "question": "docker security best practices",
+      "before": {
+        "coverage_class": "parcial",
+        "max_score": 0.512932,
+        "avg_score": 0.45663,
+        "top_source_file": "__smoke_openai__.md",
+        "top_k_results": [
+          {
+            "title": "Smoke Chunk 2",
+            "snippet": "docker container healthcheck example",
+            "chunk_id": "smoke-openai-2",
+            "similarity": 0.512932,
+            "source_file": "__smoke_openai__.md"
+          },
+          {
+            "title": "AWS Security Cookbook",
+            "snippet": "AWS Security Cookbook",
+            "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+            "similarity": 0.504891,
+            "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub"
+          },
+          {
+            "title": "Title Page",
+            "snippet": "Docker Deep Dive - Third Edition",
+            "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0001::5959e8cd",
+            "similarity": 0.446266,
+            "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub"
+          },
+          {
+            "title": "AWS Security Cookbook",
+            "snippet": "AWS Security Cookbook\n\nCopyright © 2020 Packt Publishing All rights reserved. No part of this book may be reproduced, stored in a retrieval system, or transmitted in any form or by",
+            "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0004::9c9eea3b",
+            "similarity": 0.421312,
+            "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub"
+          },
+          {
+            "title": "Title Page",
+            "snippet": "Practical solutions for managing security policies, monitoring, auditing, and compliance with AWS Heartin Kanikathottu BIRMINGHAM - MUMBAI",
+            "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0002::520f14ec",
+            "similarity": 0.39775,
+            "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "parcial",
+        "max_score": 0.515767,
+        "avg_score": 0.493849,
+        "top_source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+        "top_k_results": [
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/best-practices.md::0aad9a6cecbb::0001::cbf94334",
+            "title": "best practices",
+            "similarity": 0.515767,
+            "snippet": "---\ntitle: Building best practices\nlinkTitle: Best practices\nweight: 70\ndescription: Hints, tips and guidelines for writing clean, reliable Dockerfiles\nkeywords: base images, docke"
+          },
+          {
+            "source_file": "__smoke_openai__.md",
+            "chunk_id": "smoke-openai-2",
+            "title": "Smoke Chunk 2",
+            "similarity": 0.512932,
+            "snippet": "docker container healthcheck example"
+          },
+          {
+            "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+            "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+            "title": "AWS Security Cookbook",
+            "similarity": 0.504891,
+            "snippet": "AWS Security Cookbook"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/security/antivirus.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/antivirus.md::46aaa416276d::0001::afe59d04",
+            "title": "antivirus",
+            "similarity": 0.473073,
+            "snippet": "---\ntitle: Antivirus software and Docker\ndescription: General guidelines for using antivirus software with Docker\nkeywords: antivirus, security\n---\n\nWhen antivirus software scans f"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/security/_index.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/_index.md::bf9c126d4fc7::0001::9725dbdd",
+            "title": "index",
+            "similarity": 0.462581,
+            "snippet": "---\ndescription: Review of the Docker Daemon attack surface\nkeywords: Docker, Docker documentation, security\ntitle: Docker Engine security\nlinkTitle: Security\nweight: 80\naliases:\n-"
+          }
+        ],
+        "top1_is_docker_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.002835,
+        "avg_score": 0.037219
+      }
+    },
+    {
+      "question": "docker image hardening",
+      "before": {
+        "coverage_class": "parcial",
+        "max_score": 0.522039,
+        "avg_score": 0.435376,
+        "top_source_file": "__smoke_openai__.md",
+        "top_k_results": [
+          {
+            "title": "Smoke Chunk 2",
+            "snippet": "docker container healthcheck example",
+            "chunk_id": "smoke-openai-2",
+            "similarity": 0.522039,
+            "source_file": "__smoke_openai__.md"
+          },
+          {
+            "title": "Title Page",
+            "snippet": "Docker Deep Dive - Third Edition",
+            "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0001::5959e8cd",
+            "similarity": 0.45219,
+            "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub"
+          },
+          {
+            "title": "AWS Security Cookbook",
+            "snippet": "AWS Security Cookbook",
+            "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+            "similarity": 0.413512,
+            "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub"
+          },
+          {
+            "title": "Title Page",
+            "snippet": "Getting Started with Docker and AI - Second Edition",
+            "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Getting-Started-with-Docker-for-Raymond-Rhine-by-Nigel-Poulton.epub::1dadb2302b11::0001::0a5919d0",
+            "similarity": 0.399798,
+            "source_file": "livros/docker/Nigel_Poulton/Getting Started with Docker (for Raymond Rhine) by Nigel Poulton.epub"
+          },
+          {
+            "title": "## Restrict ingress to selected pods",
+            "snippet": "## Restrict ingress to selected pods\n- Create deployment and service:\n  - `kubectl create deployment nginx --image=nginx --replicas=2`\n  - `kubectl expose deployment nginx --port=8",
+            "chunk_id": "semantic-api-b34a20f9-2",
+            "similarity": 0.389343,
+            "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "parcial",
+        "max_score": 0.522056,
+        "avg_score": 0.491413,
+        "top_source_file": "__smoke_openai__.md",
+        "top_k_results": [
+          {
+            "source_file": "__smoke_openai__.md",
+            "chunk_id": "smoke-openai-2",
+            "title": "Smoke Chunk 2",
+            "similarity": 0.522056,
+            "snippet": "docker container healthcheck example"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/security/_index.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/_index.md::bf9c126d4fc7::0001::9725dbdd",
+            "title": "index",
+            "similarity": 0.505464,
+            "snippet": "---\ndescription: Review of the Docker Daemon attack surface\nkeywords: Docker, Docker documentation, security\ntitle: Docker Engine security\nlinkTitle: Security\nweight: 80\naliases:\n-"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/security/seccomp.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/seccomp.md::b369f0326eef::0001::a88b8b7e",
+            "title": "seccomp",
+            "similarity": 0.479425,
+            "snippet": "---\ndescription: Enabling seccomp in Docker\nkeywords: seccomp, security, docker, documentation\ntitle: Seccomp security profiles for Docker\n---\n\nSecure computing mode (`seccomp`) is"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/security/protect-access.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/protect-access.md::01f06e91ca3c::0001::a246de2e",
+            "title": "protect access",
+            "similarity": 0.476811,
+            "snippet": "---\ndescription: How to setup and run Docker with SSH or HTTPS\nkeywords: docker, docs, article, example, ssh, https, daemon, tls, ca, certificate\ntitle: Protect the Docker daemon s"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/security/_index.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/security/_index.md::ce5fc0aa0e5b::0001::0645be3e",
+            "title": "index",
+            "similarity": 0.47331,
+            "snippet": "---\ntitle: Security for developers\nlinkTitle: Security\ndescription: Learn about developer-level security features like 2FA and access tokens\nkeywords: docker, docker hub, docker de"
+          }
+        ],
+        "top1_is_docker_docs_selected": false
+      },
+      "delta": {
+        "max_score": 1.7e-05,
+        "avg_score": 0.056037
+      }
+    }
+  ]
+}

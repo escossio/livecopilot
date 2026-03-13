@@ -1,0 +1,277 @@
+{
+  "generated_at": "2026-03-11T19:59:52.079668Z",
+  "before_file": "docs/coverage/semantic_coverage_audit_pre_stage16_20260311.json",
+  "after_file": "docs/coverage/semantic_coverage_audit_after_8books_20260311.json",
+  "before": {
+    "well_covered_count": 5,
+    "partial_count": 5,
+    "gap_count": 10,
+    "global_avg_of_max_score": 0.503941,
+    "global_avg_of_avg_score": 0.439589
+  },
+  "after": {
+    "well_covered_count": 5,
+    "partial_count": 5,
+    "gap_count": 10,
+    "global_avg_of_max_score": 0.507058,
+    "global_avg_of_avg_score": 0.443904
+  },
+  "delta": {
+    "well_covered": 0,
+    "partial": 0,
+    "gap": 0,
+    "global_avg_of_max_score": 0.003117,
+    "global_avg_of_avg_score": 0.004315
+  },
+  "improved_questions": [
+    {
+      "question": "python async await e event loop",
+      "before_class": "lacuna",
+      "after_class": "lacuna",
+      "delta_max": 0.048788,
+      "delta_avg": 0.027395,
+      "before_top": "tmp/kubectl_ops_round/kubectl_get_events_pod.md",
+      "after_top": "livros/fastapi/Bill Lubanovic/FastAPI by Bill Lubanovic.epub"
+    }
+  ],
+  "remaining_gap_questions": [
+    {
+      "question": "kubernetes service clusterip vs nodeport vs loadbalancer",
+      "max_score": 0.41685,
+      "avg_score": 0.410473,
+      "top_source_file": "data/raw_review/ckad_exercises_modules/c.pod_design.md"
+    },
+    {
+      "question": "docker multi stage build best practices",
+      "max_score": 0.44863,
+      "avg_score": 0.416506,
+      "top_source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub"
+    },
+    {
+      "question": "terraform aws s3 backend remote state locking",
+      "max_score": 0.391146,
+      "avg_score": 0.358439,
+      "top_source_file": "relatorio_final.docx"
+    },
+    {
+      "question": "aws iam least privilege policy",
+      "max_score": 0.421702,
+      "avg_score": 0.345236,
+      "top_source_file": "data/question_bank_raw/sample_assessment.md"
+    },
+    {
+      "question": "fastapi dependency injection com exemplos",
+      "max_score": 0.433792,
+      "avg_score": 0.391322,
+      "top_source_file": "__inline_semantic_min__.txt"
+    },
+    {
+      "question": "python async await e event loop",
+      "max_score": 0.291245,
+      "avg_score": 0.255144,
+      "top_source_file": "livros/fastapi/Bill Lubanovic/FastAPI by Bill Lubanovic.epub"
+    },
+    {
+      "question": "postgres index btree vs gin",
+      "max_score": 0.338386,
+      "avg_score": 0.268278,
+      "top_source_file": "knowledge-gap::gap_20260310t234013_4528790000_1706c7323efb_postgres_auth.md"
+    },
+    {
+      "question": "observabilidade prometheus grafana alertmanager",
+      "max_score": 0.407527,
+      "avg_score": 0.370409,
+      "top_source_file": "data/raw_review/ckad_exercises_modules/e.observability.md"
+    },
+    {
+      "question": "jenkins pipeline declarativa stages",
+      "max_score": 0.337581,
+      "avg_score": 0.296158,
+      "top_source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md"
+    },
+    {
+      "question": "ansible playbook idempotencia handlers",
+      "max_score": 0.306728,
+      "avg_score": 0.284358,
+      "top_source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md"
+    }
+  ],
+  "theme_impact": {
+    "docker": {
+      "count": 2,
+      "before": {
+        "bem_coberta": 0,
+        "parcial": 1,
+        "lacuna": 1,
+        "avg_max": 0.568646,
+        "avg_avg": 0.414955
+      },
+      "after": {
+        "bem_coberta": 0,
+        "parcial": 1,
+        "lacuna": 1,
+        "avg_max": 0.575346,
+        "avg_avg": 0.424179
+      }
+    },
+    "fastapi": {
+      "count": 1,
+      "before": {
+        "bem_coberta": 0,
+        "parcial": 0,
+        "lacuna": 1,
+        "avg_max": 0.433701,
+        "avg_avg": 0.350986
+      },
+      "after": {
+        "bem_coberta": 0,
+        "parcial": 0,
+        "lacuna": 1,
+        "avg_max": 0.433792,
+        "avg_avg": 0.391322
+      }
+    },
+    "kubernetes_conceitual": {
+      "count": 6,
+      "before": {
+        "bem_coberta": 4,
+        "parcial": 1,
+        "lacuna": 1,
+        "avg_max": 0.643958,
+        "avg_avg": 0.575899
+      },
+      "after": {
+        "bem_coberta": 4,
+        "parcial": 1,
+        "lacuna": 1,
+        "avg_max": 0.643966,
+        "avg_avg": 0.575909
+      }
+    }
+  },
+  "explicit_gap_checks": {
+    "aws_iam": {
+      "question": "aws iam least privilege policy",
+      "before_class": "lacuna",
+      "after_class": "lacuna",
+      "before_max": 0.421688,
+      "after_max": 0.421702,
+      "before_avg": 0.345207,
+      "after_avg": 0.345236,
+      "after_top_source_file": "data/question_bank_raw/sample_assessment.md"
+    },
+    "observabilidade": {
+      "question": "observabilidade prometheus grafana alertmanager",
+      "before_class": "lacuna",
+      "after_class": "lacuna",
+      "before_max": 0.407527,
+      "after_max": 0.407527,
+      "before_avg": 0.370409,
+      "after_avg": 0.370409,
+      "after_top_source_file": "data/raw_review/ckad_exercises_modules/e.observability.md"
+    },
+    "terraform": {
+      "question": "terraform aws s3 backend remote state locking",
+      "before_class": "lacuna",
+      "after_class": "lacuna",
+      "before_max": 0.391073,
+      "after_max": 0.391146,
+      "before_avg": 0.358345,
+      "after_avg": 0.358439,
+      "after_top_source_file": "relatorio_final.docx"
+    }
+  },
+  "semantic_persistence_validation_8_books": {
+    "sources_total": 8,
+    "sources_ok": 8,
+    "sources_with_error": 0,
+    "errors": [],
+    "per_source": {
+      "livros/docker/Nigel_Poulton/Docker for Sysadmins_ Linux Windows VMware by Nigel Poulton.epub": {
+        "documents": 1,
+        "chunks": 8,
+        "latest_document_id": 63,
+        "latest_checksum": "d2e8b3470aeee072b6a75558b4229a1baa71b5ce400de864be128a38408b3e93",
+        "state_semantic_status": "validated",
+        "manifest_semantic_status": "validated",
+        "state_semantic_document_id": 63,
+        "manifest_semantic_document_id": 63
+      },
+      "livros/docker/Nigel_Poulton/Getting Started with Docker (for Raymond Rhine) by Nigel Poulton.epub": {
+        "documents": 1,
+        "chunks": 8,
+        "latest_document_id": 64,
+        "latest_checksum": "1dadb2302b11a3c153ba397a3290c2b5ed15802b72f6012e65c81df257ba6262",
+        "state_semantic_status": "validated",
+        "manifest_semantic_status": "validated",
+        "state_semantic_document_id": 64,
+        "manifest_semantic_document_id": 64
+      },
+      "livros/docker/Nigel_Poulton/Docker Deep Dive - Second Edition by Nigel Poulton.epub": {
+        "documents": 1,
+        "chunks": 8,
+        "latest_document_id": 62,
+        "latest_checksum": "2a3d945715428461b9a1c6150e1a606553743bab853739ae5bab7980d9168a81",
+        "state_semantic_status": "validated",
+        "manifest_semantic_status": "validated",
+        "state_semantic_document_id": 62,
+        "manifest_semantic_document_id": 62
+      },
+      "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub": {
+        "documents": 1,
+        "chunks": 8,
+        "latest_document_id": 61,
+        "latest_checksum": "b06b421cbb83e556502ad4edf389353bc4c19c980f1578b1de7794db2b71121f",
+        "state_semantic_status": "validated",
+        "manifest_semantic_status": "validated",
+        "state_semantic_document_id": 61,
+        "manifest_semantic_document_id": 61
+      },
+      "livros/docker/Nigel_Poulton/The KCNA Book by Nigel Poulton.epub": {
+        "documents": 1,
+        "chunks": 8,
+        "latest_document_id": 65,
+        "latest_checksum": "6130b912ac98653335b4cde0852a9bf3cd01813da04f76bae7548326380d4110",
+        "state_semantic_status": "validated",
+        "manifest_semantic_status": "validated",
+        "state_semantic_document_id": 65,
+        "manifest_semantic_document_id": 65
+      },
+      "livros/fastapi/Alireza Parandeh/Building Generative AI Services with FastAPI by Alireza Parandeh.epub": {
+        "documents": 1,
+        "chunks": 8,
+        "latest_document_id": 66,
+        "latest_checksum": "6470a8f038a3f2a3ab5c2d00d5678f08b1c15c5e219a2c5d11c17bcbb8c082ec",
+        "state_semantic_status": "validated",
+        "manifest_semantic_status": "validated",
+        "state_semantic_document_id": 66,
+        "manifest_semantic_document_id": 66
+      },
+      "livros/fastapi/Bill Lubanovic/FastAPI by Bill Lubanovic.epub": {
+        "documents": 1,
+        "chunks": 8,
+        "latest_document_id": 67,
+        "latest_checksum": "3e51304f335a7185cbf6c43b91cb1fa7baf4178540559e8b4cf1453a1be173f1",
+        "state_semantic_status": "validated",
+        "manifest_semantic_status": "validated",
+        "state_semantic_document_id": 67,
+        "manifest_semantic_document_id": 67
+      },
+      "livros/fastapi/Giunio De Luca/FastAPI Cookbook_ Develop high-performance APIs and web applications with Python by Giunio De Luca.epub": {
+        "documents": 1,
+        "chunks": 8,
+        "latest_document_id": 68,
+        "latest_checksum": "608b73844cb2d633c7d1b79ce10bb9365a56a2bff6223794644996080da11ffc",
+        "state_semantic_status": "validated",
+        "manifest_semantic_status": "validated",
+        "state_semantic_document_id": 68,
+        "manifest_semantic_document_id": 68
+      }
+    },
+    "duplicate_source_checksum_rows": [],
+    "manifest_flags": {
+      "embedding_status": "ready",
+      "vector_store_status": "built"
+    }
+  }
+}

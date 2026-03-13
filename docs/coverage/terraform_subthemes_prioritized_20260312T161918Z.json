@@ -1,0 +1,135 @@
+{
+  "generated_at": "20260312T161918Z",
+  "source": "docs/coverage/knowledge_gap_engine_validation_post_kubernetes_20260312T155249Z.json",
+  "terraform_priority_score": 34.411,
+  "prioritized_subthemes": [
+    {
+      "subtheme": "modules",
+      "name": "Modules",
+      "well": 0,
+      "partial": 2,
+      "gap": 0,
+      "avg_max": 0.544858,
+      "avg_avg": 0.519756,
+      "query_count": 2
+    },
+    {
+      "subtheme": "locking",
+      "name": "State locking",
+      "well": 0,
+      "partial": 1,
+      "gap": 0,
+      "avg_max": 0.557296,
+      "avg_avg": 0.512677,
+      "query_count": 1
+    },
+    {
+      "subtheme": "workflow",
+      "name": "Init/Plan/Apply workflow",
+      "well": 1,
+      "partial": 1,
+      "gap": 0,
+      "avg_max": 0.564817,
+      "avg_avg": 0.522847,
+      "query_count": 2
+    }
+  ],
+  "partial_queries_by_subtheme": {
+    "locking": [
+      {
+        "query": "terraform force unlock",
+        "max_score": 0.557261,
+        "avg_score": 0.512654,
+        "top_source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+        "top_source_is_terraform_docs_selected": true,
+        "evidence_top_terraform_files": [
+          {
+            "source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+            "chunk_count": 2,
+            "semantic_chunk_count": 2,
+            "truncation_gap": 0
+          },
+          {
+            "source_file": "terraform_docs_selected/cli/state/recover.md",
+            "chunk_count": 2,
+            "semantic_chunk_count": 2,
+            "truncation_gap": 0
+          },
+          {
+            "source_file": "terraform_docs_selected/language/state/locking.md",
+            "chunk_count": 2,
+            "semantic_chunk_count": 2,
+            "truncation_gap": 0
+          }
+        ]
+      }
+    ],
+    "modules": [
+      {
+        "query": "terraform modules best practices",
+        "max_score": 0.535128,
+        "avg_score": 0.511451,
+        "top_source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+        "top_source_is_terraform_docs_selected": true,
+        "evidence_top_terraform_files": [
+          {
+            "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+            "chunk_count": 9,
+            "semantic_chunk_count": 8,
+            "truncation_gap": 1
+          },
+          {
+            "source_file": "terraform_docs_selected/language/modules/develop/index.md",
+            "chunk_count": 5,
+            "semantic_chunk_count": 5,
+            "truncation_gap": 0
+          }
+        ]
+      },
+      {
+        "query": "terraform module sources",
+        "max_score": 0.554565,
+        "avg_score": 0.528044,
+        "top_source_file": "terraform_docs_selected/language/modules/sources.md",
+        "top_source_is_terraform_docs_selected": true,
+        "evidence_top_terraform_files": [
+          {
+            "source_file": "terraform_docs_selected/language/modules/sources.md",
+            "chunk_count": 21,
+            "semantic_chunk_count": 8,
+            "truncation_gap": 13
+          },
+          {
+            "source_file": "terraform_docs_selected/language/modules/index.md",
+            "chunk_count": 4,
+            "semantic_chunk_count": 4,
+            "truncation_gap": 0
+          }
+        ]
+      }
+    ],
+    "workflow": [
+      {
+        "query": "terraform init plan apply workflow",
+        "max_score": 0.512492,
+        "avg_score": 0.481521,
+        "top_source_file": "terraform_docs_selected/cli/commands/plan.md",
+        "top_source_is_terraform_docs_selected": true,
+        "evidence_top_terraform_files": [
+          {
+            "source_file": "terraform_docs_selected/cli/commands/plan.md",
+            "chunk_count": 26,
+            "semantic_chunk_count": 8,
+            "truncation_gap": 18
+          },
+          {
+            "source_file": "terraform_docs_selected/cli/state/index.md",
+            "chunk_count": 2,
+            "semantic_chunk_count": 2,
+            "truncation_gap": 0
+          }
+        ]
+      }
+    ]
+  }
+}

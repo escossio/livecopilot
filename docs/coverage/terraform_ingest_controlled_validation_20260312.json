@@ -1,0 +1,385 @@
+{
+  "generated_at": "2026-03-12T02:08:28.013249+00:00",
+  "scope": "terraform_controlled_canonical_ingestion_validation",
+  "ingestion_log": "/tmp/terraform_ingest_controlled_20260312.log",
+  "summary_from_run": {
+    "total_found": 177,
+    "processed": 43,
+    "skipped": 134,
+    "errors": 0,
+    "unsupported": 0
+  },
+  "artifacts": {
+    "parsed_prefix_count": 43,
+    "chunks_prefix_count": 43,
+    "parsed_prefix_sample": [
+      "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__apply.md.json",
+      "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__force-unlock.md.json",
+      "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__init.md.json",
+      "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__plan.md.json",
+      "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__state__index.md.json"
+    ],
+    "chunks_prefix_sample": [
+      "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__apply.md.chunks.json",
+      "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__force-unlock.md.chunks.json",
+      "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__init.md.chunks.json",
+      "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__plan.md.chunks.json",
+      "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__state__index.md.chunks.json"
+    ]
+  },
+  "manifest": {
+    "document_count": 177,
+    "chunk_document_count": 177,
+    "chunk_count": 52722
+  },
+  "state": {
+    "terraform_source_files_count": 43,
+    "terraform_source_files": [
+      {
+        "source_file": "terraform_docs_selected/cli/commands/apply.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 9,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__apply.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__apply.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 2,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__force-unlock.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__force-unlock.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/init.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 13,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__init.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__init.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/plan.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 26,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__plan.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__plan.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/state/index.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 3,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__state__index.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__state__index.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/state/list.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 2,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__state__list.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__state__list.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 10,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__state__mv.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__state__mv.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/state/pull.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 2,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__state__pull.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__state__pull.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/state/push.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 3,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__state__push.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__state__push.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/state/rm.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 5,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__state__rm.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__state__rm.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/state/show.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 3,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__state__show.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__state__show.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/workspace/index.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 1,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__workspace__index.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__workspace__index.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/workspace/list.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 1,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__workspace__list.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__workspace__list.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/workspace/new.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 2,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__workspace__new.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__workspace__new.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/workspace/select.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 1,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__workspace__select.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__workspace__select.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/workspace/show.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 1,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__commands__workspace__show.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__commands__workspace__show.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/state/index.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 2,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__state__index.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__state__index.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/state/move.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 3,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__state__move.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__state__move.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/state/recover.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 2,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__cli__state__recover.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__cli__state__recover.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/intro/phases/collaborate.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 8,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__intro__phases__collaborate.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__intro__phases__collaborate.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/intro/phases/govern.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 3,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__intro__phases__govern.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__intro__phases__govern.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/backend/index.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 13,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__backend__index.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__backend__index.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/backend/remote.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 13,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__backend__remote.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__backend__remote.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/backend/s3.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 36,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__backend__s3.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__backend__s3.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/configuration.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 13,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__modules__configuration.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__modules__configuration.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/develop/composition.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 16,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__modules__develop__composition.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__modules__develop__composition.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/develop/index.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 5,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__modules__develop__index.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__modules__develop__index.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/develop/providers.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 16,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__modules__develop__providers.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__modules__develop__providers.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/develop/publish.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 3,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__modules__develop__publish.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__modules__develop__publish.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/develop/refactoring.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 16,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__modules__develop__refactoring.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__modules__develop__refactoring.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 9,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__modules__develop__structure.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__modules__develop__structure.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/index.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 4,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__modules__index.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__modules__index.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/sources.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 21,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__modules__sources.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__modules__sources.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/backends.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 4,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__state__backends.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__state__backends.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/import.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 1,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__state__import.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__state__import.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/index.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 6,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__state__index.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__state__index.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/locking.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 2,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__state__locking.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__state__locking.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/purpose.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 8,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__state__purpose.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__state__purpose.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/refactor.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 19,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__state__refactor.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__state__refactor.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/remote-state-data.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 13,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__state__remote-state-data.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__state__remote-state-data.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/remote.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 4,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__state__remote.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__state__remote.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/remove.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 3,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__state__remove.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__state__remove.md.chunks.json"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/workspaces.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 5,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/terraform_docs_selected__language__state__workspaces.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/terraform_docs_selected__language__state__workspaces.md.chunks.json"
+      }
+    ],
+    "total_chunk_count_for_terraform_sources": 332
+  }
+}

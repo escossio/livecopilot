@@ -1,0 +1,366 @@
+{
+  "generated_at": "2026-03-13T03:31:35.316192+00:00",
+  "pipeline": "knowledge_pipeline_v2_semantic_validate",
+  "mode": "semantic-validate",
+  "round_id": "20260313T030500Z-knowledge-pipeline-v1",
+  "source_prefixes": [
+    "continuity_docs_selected"
+  ],
+  "search_scope": "round_scope_only",
+  "query_derivation_mode": "source_file_stem",
+  "queryset_file": "",
+  "embedding_mode_used_for_search": "mock",
+  "artifacts": {
+    "run_artifact": "docs/coverage/knowledge_pipeline_run_20260313T030500Z-knowledge-pipeline-v1.json",
+    "semantic_validate_artifact": "docs/coverage/knowledge_pipeline_semantic_validate_20260313T030500Z-knowledge-pipeline-v1.json"
+  },
+  "scope": {
+    "source_files_total": 12,
+    "source_files_by_prefix": {
+      "continuity_docs_selected": 12
+    },
+    "source_files_sample": [
+      "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+      "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+      "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+      "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+      "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+      "continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+      "continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+      "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+      "continuity_docs_selected/docs/UTF8_HYGIENE_SCANNER.md"
+    ]
+  },
+  "queries": [
+    {
+      "query": "semantic closeout checklist",
+      "expected_source_file": "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+      "derivation": "source_file_stem"
+    },
+    {
+      "query": "utf8 hygiene scanner",
+      "expected_source_file": "continuity_docs_selected/docs/UTF8_HYGIENE_SCANNER.md",
+      "derivation": "source_file_stem"
+    },
+    {
+      "query": "composed rule simulation",
+      "expected_source_file": "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+      "derivation": "source_file_stem"
+    },
+    {
+      "query": "knowledge gap engine 20260312",
+      "expected_source_file": "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+      "derivation": "source_file_stem"
+    },
+    {
+      "query": "kubernetes reassessment priority",
+      "expected_source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+      "derivation": "source_file_stem"
+    }
+  ],
+  "results": [
+    {
+      "query": "semantic closeout checklist",
+      "expected_source_file": "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+      "query_derivation": "source_file_stem",
+      "result_count": 5,
+      "top1_source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md",
+      "top1_similarity": 0.055567,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": false,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": false,
+      "expected_source_file_hit_position": null,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 499,
+      "topk": [
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md::85d3518ad33e::0002::62145b31",
+          "title": "HANDOFF TERRAFORM INCREMENTAL ROUND2 OPERATIONAL 20260312T165211Z",
+          "similarity": 0.055567,
+          "snippet": "## Resultado executivo\n- Materializacao: `12/12` docs.\n- Ingestao: `processed=12`, `parsed=12`, `chunk_files=12`, `chunk_total_from_state=177`.\n- Persistencia semantica seletiva (`"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md::4f07213c0ecb::0001::357e2e88",
+          "title": "HANDOFF KUBERNETES SEMANTIC PERSIST AUDIT 20260312T154518Z",
+          "similarity": 0.042989,
+          "snippet": "# Handoff - Kubernetes Semantic Persist + Audit (2026-03-12T15:45:18Z)\n\n## status final\n- concluido com sucesso.\n\n## comandos executados\n- precheck de estado (`knowledge_state`, pa"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md::0ef37dba24e8::0002::b1a06d7b",
+          "title": "HANDOFF TERRAFORM THRESHOLD DIAGNOSIS 20260312T174039Z",
+          "similarity": 0.032296,
+          "snippet": "## Resultado principal\n- Gargalo observado: `max_score`, nao `avg_score`.\n- Distancia media ate `well_max`:\n- `avg_distance_to_well_max=0.016099`\n- Distancia media ate `well_avg`:\n"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md::5f908e506fbe::0001::7057486a",
+          "title": "HANDOFF THRESHOLD CROSS DOMAIN DIAGNOSIS 20260312T180249Z",
+          "similarity": 0.029796,
+          "snippet": "# HANDOFF - Threshold Cross-Domain Diagnosis (20260312T180249Z)\n\n## Status final\n- Rodada de simulacao cross-domain concluida.\n- Nenhuma alteracao de threshold real foi aplicada.\n\n"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md::82edb251764c::0003::aa368f97",
+          "title": "HANDOFF RULE C PROMOTION PREP 20260312T182232Z",
+          "similarity": 0.022827,
+          "snippet": "## Decisao\n- `rule_c_ready_for_promotion_preparation`\n- Regra C pronta para fase seguinte de promocao controlada (PR/CI experimental), sem rollout em producao nesta rodada.\n\n## UTF"
+        }
+      ]
+    },
+    {
+      "query": "utf8 hygiene scanner",
+      "expected_source_file": "continuity_docs_selected/docs/UTF8_HYGIENE_SCANNER.md",
+      "query_derivation": "source_file_stem",
+      "result_count": 5,
+      "top1_source_file": "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+      "top1_similarity": 0.066409,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": false,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": false,
+      "expected_source_file_hit_position": null,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 458,
+      "topk": [
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md::62008c4e495b::0002::f93f9fcb",
+          "title": "HANDOFF COMPOSED RULE SIMULATION 20260312T180937Z",
+          "similarity": 0.066409,
+          "snippet": "## Decisao\n- `regra_composta_minima_merece_prototipo`\n- Recomendacao: prototipar em branch experimental/offline com guardrails cross-domain; nao promover direto.\n\n## UTF-8\n- `total"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md::82edb251764c::0001::5c7d375e",
+          "title": "HANDOFF RULE C PROMOTION PREP 20260312T182232Z",
+          "similarity": 0.04271,
+          "snippet": "# HANDOFF - Rule C Promotion Prep (20260312T182232Z)\n\n## Status final\n- Preparacao para promocao controlada concluida em trilha experimental.\n- Baseline de producao permanece como "
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md::1b67fc293383::0003::736f4299",
+          "title": "SEMANTIC ROUND CLOSEOUT CHECKLIST",
+          "similarity": 0.032339,
+          "snippet": "## Checklist obrigatorio\n1. Validar ingestao canonica da rodada:\n- confirmar `documents_processed`, `documents_ignored`, `parsing_errors`.\n- confirmar parsed/chunks do recorte em `"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md::cadc65f6d48e::0003::f3248b97",
+          "title": "HANDOFF KUBERNETES REASSESSMENT PRIORITY 20260312T155326Z",
+          "similarity": 0.029209,
+          "snippet": "## arquivos tocados\n- `STATUS.md`\n- `STATUS.md.bak-20260312T155326Z-kubernetes-reassessment-priority`\n- `docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md`\n- `app/s"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md::4f07213c0ecb::0004::12b810d1",
+          "title": "HANDOFF KUBERNETES SEMANTIC PERSIST AUDIT 20260312T154518Z",
+          "similarity": 0.027966,
+          "snippet": "## o que foi alterado\n- persistencia semantica do recorte Kubernetes foi executada de forma seletiva e validada:\n- `documents_selected=12`\n- `documents_processed=12`\n- `documents_v"
+        }
+      ]
+    },
+    {
+      "query": "composed rule simulation",
+      "expected_source_file": "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+      "query_derivation": "source_file_stem",
+      "result_count": 5,
+      "top1_source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+      "top1_similarity": 0.070419,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": false,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": false,
+      "expected_source_file_hit_position": null,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 472,
+      "topk": [
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md::cfbab0b9a607::0001::f285de51",
+          "title": "HANDOFF RULE C EXPERIMENTAL ROUND 20260312T181537Z",
+          "similarity": 0.070419,
+          "snippet": "# HANDOFF - Rule C Experimental Round (20260312T181537Z)\n\n## Status final\n- Prototipo experimental/offline da Regra C implementado e executado.\n- Nenhuma alteracao na regra de prod"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md::cadc65f6d48e::0001::86fef329",
+          "title": "HANDOFF KUBERNETES REASSESSMENT PRIORITY 20260312T155326Z",
+          "similarity": 0.041268,
+          "snippet": "# Handoff - Reavaliacao pos-Kubernetes (2026-03-12T15:53:26Z)\n\n## status final\n- concluido com sucesso.\n- reavaliacao feita sem nova ingestao/persistencia.\n\n## comandos executados\n"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md::1b67fc293383::0001::603d4714",
+          "title": "SEMANTIC ROUND CLOSEOUT CHECKLIST",
+          "similarity": 0.03762,
+          "snippet": "# Checklist Canonico de Fechamento de Rodada Semantica\n\n## Objetivo\nPadronizar o fechamento de rodadas semanticas sem alterar o pipeline funcional.\n\n## Escopo\n- Processo manual e a"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md::4f07213c0ecb::0003::a875fe69",
+          "title": "HANDOFF KUBERNETES SEMANTIC PERSIST AUDIT 20260312T154518Z",
+          "similarity": 0.032962,
+          "snippet": "## arquivos tocados\n- `STATUS.md`\n- `STATUS.md.bak-20260312T154518Z-kubernetes-semantic-persist-round`\n- `docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md`\n- `doc"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md::85ba4c373900::0002::95204b5f",
+          "title": "HANDOFF TERRAFORM INCREMENTAL ROUND2 DIAGNOSIS 20260312T164346Z",
+          "similarity": 0.028505,
+          "snippet": "## Queries partial remanescentes\n- `terraform force unlock`\n- `terraform modules best practices`\n- `terraform module sources`\n- `terraform init plan apply workflow`\n\n## Diagnostico"
+        }
+      ]
+    },
+    {
+      "query": "knowledge gap engine 20260312",
+      "expected_source_file": "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+      "query_derivation": "source_file_stem",
+      "result_count": 5,
+      "top1_source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+      "top1_similarity": 0.046393,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": false,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": false,
+      "expected_source_file_hit_position": null,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 449,
+      "topk": [
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md::cadc65f6d48e::0002::8712f43a",
+          "title": "HANDOFF KUBERNETES REASSESSMENT PRIORITY 20260312T155326Z",
+          "similarity": 0.046393,
+          "snippet": "## comandos executados\n- consolidado pos-Kubernetes:\n- `scripts/with-semantic-env.sh .venv/bin/python -m app.services.knowledge_coverage_consolidator --output docs/coverage/domain_"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md::0ef37dba24e8::0001::0da97290",
+          "title": "HANDOFF TERRAFORM THRESHOLD DIAGNOSIS 20260312T174039Z",
+          "similarity": 0.043852,
+          "snippet": "# HANDOFF - Terraform Threshold Diagnosis (20260312T174039Z)\n\n## Status final\n- Rodada de diagnostico de classificacao semantica concluida.\n- Objetivo atingido: validar se o `parti"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md::5f908e506fbe::0001::7057486a",
+          "title": "HANDOFF THRESHOLD CROSS DOMAIN DIAGNOSIS 20260312T180249Z",
+          "similarity": 0.032892,
+          "snippet": "# HANDOFF - Threshold Cross-Domain Diagnosis (20260312T180249Z)\n\n## Status final\n- Rodada de simulacao cross-domain concluida.\n- Nenhuma alteracao de threshold real foi aplicada.\n\n"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md::4f07213c0ecb::0002::779fe094",
+          "title": "HANDOFF KUBERNETES SEMANTIC PERSIST AUDIT 20260312T154518Z",
+          "similarity": 0.030053,
+          "snippet": "## comandos executados\n- precheck de estado (`knowledge_state`, parsed, chunks) para `kubernetes_docs_selected/*`.\n- baseline before:\n- `scripts/with-semantic-env.sh .venv/bin/pyth"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md::82edb251764c::0003::aa368f97",
+          "title": "HANDOFF RULE C PROMOTION PREP 20260312T182232Z",
+          "similarity": 0.025286,
+          "snippet": "## Decisao\n- `rule_c_ready_for_promotion_preparation`\n- Regra C pronta para fase seguinte de promocao controlada (PR/CI experimental), sem rollout em producao nesta rodada.\n\n## UTF"
+        }
+      ]
+    },
+    {
+      "query": "kubernetes reassessment priority",
+      "expected_source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+      "query_derivation": "source_file_stem",
+      "result_count": 5,
+      "top1_source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+      "top1_similarity": 0.078347,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": false,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": false,
+      "expected_source_file_hit_position": null,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 470,
+      "topk": [
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md::4f07213c0ecb::0002::779fe094",
+          "title": "HANDOFF KUBERNETES SEMANTIC PERSIST AUDIT 20260312T154518Z",
+          "similarity": 0.078347,
+          "snippet": "## comandos executados\n- precheck de estado (`knowledge_state`, parsed, chunks) para `kubernetes_docs_selected/*`.\n- baseline before:\n- `scripts/with-semantic-env.sh .venv/bin/pyth"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md::1b67fc293383::0002::dd3221af",
+          "title": "SEMANTIC ROUND CLOSEOUT CHECKLIST",
+          "similarity": 0.058087,
+          "snippet": "## Escopo\n- Processo manual e auditavel.\n- Sem hook automatico no pipeline.\n- Aplicavel a rodadas de ingestao + persistencia + auditoria por dominio.\n\n## Checklist obrigatorio\n1. V"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md::cfbab0b9a607::0001::f285de51",
+          "title": "HANDOFF RULE C EXPERIMENTAL ROUND 20260312T181537Z",
+          "similarity": 0.04951,
+          "snippet": "# HANDOFF - Rule C Experimental Round (20260312T181537Z)\n\n## Status final\n- Prototipo experimental/offline da Regra C implementado e executado.\n- Nenhuma alteracao na regra de prod"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md::0ef37dba24e8::0002::b1a06d7b",
+          "title": "HANDOFF TERRAFORM THRESHOLD DIAGNOSIS 20260312T174039Z",
+          "similarity": 0.039015,
+          "snippet": "## Resultado principal\n- Gargalo observado: `max_score`, nao `avg_score`.\n- Distancia media ate `well_max`:\n- `avg_distance_to_well_max=0.016099`\n- Distancia media ate `well_avg`:\n"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md",
+          "chunk_id": "chunk::doc::continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md::85ba4c373900::0002::95204b5f",
+          "title": "HANDOFF TERRAFORM INCREMENTAL ROUND2 DIAGNOSIS 20260312T164346Z",
+          "similarity": 0.033247,
+          "snippet": "## Queries partial remanescentes\n- `terraform force unlock`\n- `terraform modules best practices`\n- `terraform module sources`\n- `terraform init plan apply workflow`\n\n## Diagnostico"
+        }
+      ]
+    }
+  ],
+  "aggregate": {
+    "source_prefixes": [
+      "continuity_docs_selected"
+    ],
+    "top_k": 5,
+    "total_queries": 5,
+    "queries_with_results": 5,
+    "top1_expected_prefix_count": 5,
+    "topk_expected_prefix_count": 5,
+    "top1_expected_source_file_count": 0,
+    "topk_expected_source_file_count": 0,
+    "required_top1_expected_source_file_hits": 3,
+    "semantic_smoke_passed": false
+  },
+  "semantic_smoke_passed": false
+}

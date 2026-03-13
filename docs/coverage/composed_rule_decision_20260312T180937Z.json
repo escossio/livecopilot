@@ -1,0 +1,28 @@
+{
+  "generated_at": "20260312T180937Z",
+  "baseline_reference": "threshold_cross_domain_simulation_20260312T180249Z (0.60..0.54)",
+  "decision": "regra_composta_minima_merece_prototipo",
+  "rationale": "rule_C_max055_avg050_official melhora Terraform sem inflacao lateral maior que ganho no proprio dominio.",
+  "selected_rule_if_any": "rule_C_max055_avg050_official",
+  "rules_summary": [
+    {
+      "rule_id": "rule_A_max055_official",
+      "terraform_partial_to_well": 2,
+      "non_terraform_partial_to_well": 1,
+      "inflation_risk": "baixo"
+    },
+    {
+      "rule_id": "rule_B_max056_official_convergent",
+      "terraform_partial_to_well": 0,
+      "non_terraform_partial_to_well": 0,
+      "inflation_risk": "baixo"
+    },
+    {
+      "rule_id": "rule_C_max055_avg050_official",
+      "terraform_partial_to_well": 2,
+      "non_terraform_partial_to_well": 0,
+      "inflation_risk": "baixo"
+    }
+  ],
+  "recommendation": "Prototipar regra composta selecionada em branch de experimento e validar com bateria ampliada."
+}

@@ -1,0 +1,39 @@
+{
+  "description": "Queries reais de dogfooding para a rodada controlada do repo openai/codex.",
+  "repo": "https://github.com/openai/codex",
+  "source_prefixes": [
+    "codex_docs_selected/"
+  ],
+  "queries": [
+    {
+      "query": "how to install codex cli with npm or homebrew",
+      "expected_source_file": "codex_docs_selected/README.md",
+      "derivation": "codex_dogfooding_real_use"
+    },
+    {
+      "query": "codex cli authentication sign in with chatgpt or api key",
+      "expected_source_file": "codex_docs_selected/docs/authentication.md",
+      "derivation": "codex_dogfooding_real_use"
+    },
+    {
+      "query": "codex config toml basic advanced configuration reference",
+      "expected_source_file": "codex_docs_selected/docs/config.md",
+      "derivation": "codex_dogfooding_real_use"
+    },
+    {
+      "query": "codex sandbox approvals workspace write read only danger full access",
+      "expected_source_file": "codex_docs_selected/docs/sandbox.md",
+      "derivation": "codex_dogfooding_real_use"
+    },
+    {
+      "query": "codex execution policy approvals rules",
+      "expected_source_file": "codex_docs_selected/docs/execpolicy.md",
+      "derivation": "codex_dogfooding_real_use"
+    },
+    {
+      "query": "codex slash commands and skills documentation",
+      "expected_source_file": "codex_docs_selected/docs/slash_commands.md",
+      "derivation": "codex_dogfooding_real_use"
+    }
+  ]
+}

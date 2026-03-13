@@ -1,0 +1,111 @@
+{
+  "generated_at": "20260312T174039Z",
+  "source_after": "docs/coverage/semantic_coverage_audit_terraform_incremental_round2_after_20260312T165211Z.json",
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "rows": [
+    {
+      "query": "terraform aws s3 backend remote state locking",
+      "coverage_class": "bem_coberta",
+      "score_max": 0.633677,
+      "score_avg": 0.616037,
+      "threshold_well_max": 0.6,
+      "threshold_well_avg": 0.45,
+      "threshold_gap_max_below": 0.45,
+      "distance_to_well_max": -0.033677,
+      "distance_to_well_avg": -0.166037,
+      "is_within_0_03_of_well_max": true
+    },
+    {
+      "query": "terraform remote state s3",
+      "coverage_class": "bem_coberta",
+      "score_max": 0.603787,
+      "score_avg": 0.567464,
+      "threshold_well_max": 0.6,
+      "threshold_well_avg": 0.45,
+      "threshold_gap_max_below": 0.45,
+      "distance_to_well_max": -0.003787,
+      "distance_to_well_avg": -0.117464,
+      "is_within_0_03_of_well_max": true
+    },
+    {
+      "query": "terraform force unlock",
+      "coverage_class": "parcial",
+      "score_max": 0.557261,
+      "score_avg": 0.54297,
+      "threshold_well_max": 0.6,
+      "threshold_well_avg": 0.45,
+      "threshold_gap_max_below": 0.45,
+      "distance_to_well_max": 0.042739,
+      "distance_to_well_avg": -0.09297,
+      "is_within_0_03_of_well_max": false
+    },
+    {
+      "query": "terraform state mv",
+      "coverage_class": "bem_coberta",
+      "score_max": 0.624383,
+      "score_avg": 0.563934,
+      "threshold_well_max": 0.6,
+      "threshold_well_avg": 0.45,
+      "threshold_gap_max_below": 0.45,
+      "distance_to_well_max": -0.024383,
+      "distance_to_well_avg": -0.113934,
+      "is_within_0_03_of_well_max": true
+    },
+    {
+      "query": "terraform modules best practices",
+      "coverage_class": "parcial",
+      "score_max": 0.535169,
+      "score_avg": 0.528387,
+      "threshold_well_max": 0.6,
+      "threshold_well_avg": 0.45,
+      "threshold_gap_max_below": 0.45,
+      "distance_to_well_max": 0.064831,
+      "distance_to_well_avg": -0.078387,
+      "is_within_0_03_of_well_max": false
+    },
+    {
+      "query": "terraform module sources",
+      "coverage_class": "parcial",
+      "score_max": 0.554565,
+      "score_avg": 0.545604,
+      "threshold_well_max": 0.6,
+      "threshold_well_avg": 0.45,
+      "threshold_gap_max_below": 0.45,
+      "distance_to_well_max": 0.045435,
+      "distance_to_well_avg": -0.095604,
+      "is_within_0_03_of_well_max": false
+    },
+    {
+      "query": "terraform init plan apply workflow",
+      "coverage_class": "parcial",
+      "score_max": 0.545219,
+      "score_avg": 0.528467,
+      "threshold_well_max": 0.6,
+      "threshold_well_avg": 0.45,
+      "threshold_gap_max_below": 0.45,
+      "distance_to_well_max": 0.054781,
+      "distance_to_well_avg": -0.078467,
+      "is_within_0_03_of_well_max": false
+    },
+    {
+      "query": "terraform workspace vs backend",
+      "coverage_class": "bem_coberta",
+      "score_max": 0.61715,
+      "score_avg": 0.56418,
+      "threshold_well_max": 0.6,
+      "threshold_well_avg": 0.45,
+      "threshold_gap_max_below": 0.45,
+      "distance_to_well_max": -0.01715,
+      "distance_to_well_avg": -0.11418,
+      "is_within_0_03_of_well_max": true
+    }
+  ],
+  "distance_stats": {
+    "avg_distance_to_well_max": 0.016099,
+    "avg_distance_to_well_avg": -0.10713
+  }
+}

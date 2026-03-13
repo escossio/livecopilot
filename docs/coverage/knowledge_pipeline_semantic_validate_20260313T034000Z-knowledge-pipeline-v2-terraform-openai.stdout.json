@@ -1,0 +1,370 @@
+{
+  "generated_at": "2026-03-13T03:44:40.739435+00:00",
+  "pipeline": "knowledge_pipeline_v2_semantic_validate",
+  "mode": "semantic-validate",
+  "round_id": "20260313T034000Z-knowledge-pipeline-v2-terraform-openai",
+  "source_prefixes": [
+    "terraform_docs_selected_incremental"
+  ],
+  "search_scope": "round_scope_only",
+  "query_derivation_mode": "source_file_stem",
+  "queryset_file": "",
+  "embedding_mode_used_for_search": "openai",
+  "artifacts": {
+    "run_artifact": "docs/coverage/knowledge_pipeline_run_20260313T034000Z-knowledge-pipeline-v2-terraform-openai.json",
+    "semantic_validate_artifact": "docs/coverage/knowledge_pipeline_semantic_validate_20260313T034000Z-knowledge-pipeline-v2-terraform-openai.json"
+  },
+  "scope": {
+    "source_files_total": 11,
+    "source_files_by_prefix": {
+      "terraform_docs_selected_incremental": 11
+    },
+    "source_files_sample": [
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md"
+    ]
+  },
+  "queries": [
+    {
+      "query": "apply",
+      "expected_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+      "derivation": "source_file_stem"
+    },
+    {
+      "query": "force unlock",
+      "expected_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+      "derivation": "source_file_stem"
+    },
+    {
+      "query": "init",
+      "expected_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+      "derivation": "source_file_stem"
+    },
+    {
+      "query": "modules",
+      "expected_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md",
+      "derivation": "source_file_stem"
+    },
+    {
+      "query": "plan",
+      "expected_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+      "derivation": "source_file_stem"
+    }
+  ],
+  "results": [
+    {
+      "query": "apply",
+      "expected_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+      "query_derivation": "source_file_stem",
+      "result_count": 5,
+      "top1_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+      "top1_similarity": 0.316001,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": true,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": true,
+      "expected_source_file_hit_position": 1,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache",
+        "openai_fresh"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 1194,
+      "topk": [
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md::4fa476a0fd3e::0002::3fa863f3",
+          "title": "apply",
+          "similarity": 0.316001,
+          "snippet": "## Usage\n\nUsage: `terraform apply [options] [plan file]`\n\n### Automatic Plan Mode\n\nWhen you run `terraform apply` without passing a saved plan file, Terraform automatically creates"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md::ef9e9012f797::0003::bc50aa4e",
+          "title": "plan",
+          "similarity": 0.262769,
+          "snippet": "If Terraform detects that no changes are needed to resource instances or to\nroot module output values, `terraform plan` will report that no actions need\nto be taken.\n\nIf you are us"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md::5ec78d599afa::0008::3825cf11",
+          "title": "composition",
+          "similarity": 0.219975,
+          "snippet": "By following this pattern, we can be explicit about in which situations we\nexpect the AMI to already be present and which we don't. A future reader\nof the configuration can then di"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md::3ee565f42baf::0002::3e813595",
+          "title": "force unlock",
+          "similarity": 0.207393,
+          "snippet": "Options:\n\n- `-force` - Don't ask for input for unlock confirmation."
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md::56a35f316c7d::0001::01c94e7c",
+          "title": "providers",
+          "similarity": 0.172935,
+          "snippet": "---\npage_title: Providers Within Modules - Configuration Language\ndescription: >-\nUse providers within Terraform modules. Learn about version constraints, aliases, implicit inherit"
+        }
+      ]
+    },
+    {
+      "query": "force unlock",
+      "expected_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+      "query_derivation": "source_file_stem",
+      "result_count": 5,
+      "top1_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+      "top1_similarity": 0.489994,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": true,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": true,
+      "expected_source_file_hit_position": 1,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache",
+        "openai_fresh"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 712,
+      "topk": [
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md::3ee565f42baf::0002::3e813595",
+          "title": "force unlock",
+          "similarity": 0.489994,
+          "snippet": "Options:\n\n- `-force` - Don't ask for input for unlock confirmation."
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md::ad82490017da::0002::0bd0dde7",
+          "title": "locking",
+          "similarity": 0.473945,
+          "snippet": "Not all backends support locking. The\n[documentation for each backend](/terraform/language/backend)\nincludes details on whether it supports locking or not.\n\n## Force Unlock\n\nTerraf"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md::4fa476a0fd3e::0006::d48f6617",
+          "title": "apply",
+          "similarity": 0.28058,
+          "snippet": "- `-invoke=action.<TYPE>.<LABEL>`: Specifies a provider action in the configuration file to invoke. Refer to [Invoke an action](/terraform/language/invoke-actions) for more informa"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md::ef9e9012f797::0008::94692240",
+          "title": "plan",
+          "similarity": 0.232027,
+          "snippet": "Activate destroy mode using the `-destroy` command line option.\n\n* **Refresh-only mode:** creates a plan whose goal is only to update the\nTerraform state and any root module output"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md::2d37ed59893a::0002::4a8a2508",
+          "title": "init",
+          "similarity": 0.18255,
+          "snippet": "## Usage\n\nUsage: `terraform init [options]`\n\nThis command performs several different initialization steps in order to\nprepare the current working directory for use with Terraform. "
+        }
+      ]
+    },
+    {
+      "query": "init",
+      "expected_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+      "query_derivation": "source_file_stem",
+      "result_count": 5,
+      "top1_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+      "top1_similarity": 0.283562,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": true,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": true,
+      "expected_source_file_hit_position": 1,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache",
+        "openai_fresh"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 694,
+      "topk": [
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md::2d37ed59893a::0002::4a8a2508",
+          "title": "init",
+          "similarity": 0.283562,
+          "snippet": "## Usage\n\nUsage: `terraform init [options]`\n\nThis command performs several different initialization steps in order to\nprepare the current working directory for use with Terraform. "
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md::5ec78d599afa::0008::3825cf11",
+          "title": "composition",
+          "similarity": 0.239528,
+          "snippet": "By following this pattern, we can be explicit about in which situations we\nexpect the AMI to already be present and which we don't. A future reader\nof the configuration can then di"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md::4fa476a0fd3e::0005::08aef263",
+          "title": "apply",
+          "similarity": 0.238339,
+          "snippet": "- `-auto-approve` - Skips interactive approval of the plan before applying. Terraform ignores this\noption when you pass a previously-saved plan file. This is because\nTerraform inte"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md::3ee565f42baf::0002::3e813595",
+          "title": "force unlock",
+          "similarity": 0.235644,
+          "snippet": "Options:\n\n- `-force` - Don't ask for input for unlock confirmation."
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md::ad82490017da::0001::c1a1740d",
+          "title": "locking",
+          "similarity": 0.202137,
+          "snippet": "---\npage_title: 'State: Locking'\ndescription: >-\nTerraform stores state which caches the known state of the world the last time\nTerraform ran.\n# START AUTO GENERATED METADATA, DO N"
+        }
+      ]
+    },
+    {
+      "query": "modules",
+      "expected_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md",
+      "query_derivation": "source_file_stem",
+      "result_count": 5,
+      "top1_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+      "top1_similarity": 0.384822,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": false,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": true,
+      "expected_source_file_hit_position": 5,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache",
+        "openai_fresh"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 816,
+      "topk": [
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md::5ec78d599afa::0008::3825cf11",
+          "title": "composition",
+          "similarity": 0.384822,
+          "snippet": "By following this pattern, we can be explicit about in which situations we\nexpect the AMI to already be present and which we don't. A future reader\nof the configuration can then di"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md::e6417b0a2436::0001::f5ee58bc",
+          "title": "structure",
+          "similarity": 0.371496,
+          "snippet": "---\npage_title: Standard Module Structure\ndescription: >-\nLearn about the recommended file and directory structure for developing reusable modules distributed as separate repositor"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md::56a35f316c7d::0001::01c94e7c",
+          "title": "providers",
+          "similarity": 0.339142,
+          "snippet": "---\npage_title: Providers Within Modules - Configuration Language\ndescription: >-\nUse providers within Terraform modules. Learn about version constraints, aliases, implicit inherit"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md::5162fded697b::0002::d10dd568",
+          "title": "sources",
+          "similarity": 0.333249,
+          "snippet": "- [Local paths](#local-paths)\n\n- [Terraform Registry](#terraform-registry)\n\n- [GitHub](#github)\n\n- [Bitbucket](#bitbucket)\n\n- Generic [Git](#generic-git-repository), [Mercurial](#g"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md::c43cef08606e::0001::b1db98fe",
+          "title": "modules",
+          "similarity": 0.296318,
+          "snippet": "---\npage_title: terraform modules command reference\ndescription: >-\nThe `terraform modules` command prints source and version data about all declared\nmodules in Terraform configura"
+        }
+      ]
+    },
+    {
+      "query": "plan",
+      "expected_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+      "query_derivation": "source_file_stem",
+      "result_count": 5,
+      "top1_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+      "top1_similarity": 0.346192,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": true,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": true,
+      "expected_source_file_hit_position": 1,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache",
+        "openai_fresh"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 662,
+      "topk": [
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md::ef9e9012f797::0001::11a68e36",
+          "title": "plan",
+          "similarity": 0.346192,
+          "snippet": "---\npage_title: terraform plan command reference\ndescription: >-\nThe `terraform plan` command creates an execution plan with a preview of the\nchanges that Terraform will make to yo"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md::4fa476a0fd3e::0004::6de33135",
+          "title": "apply",
+          "similarity": 0.288214,
+          "snippet": "### Plan Options\n\nWithout a saved plan file, `terraform apply` supports all planning modes and planning options available for `terraform plan`.\n\n- **[Planning Modes](/terraform/cli"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.md::dc4e8f305497::0001::ee060d00",
+          "title": "refactoring",
+          "similarity": 0.229852,
+          "snippet": "---\npage_title: Refactor modules\ndescription: How to make backward-compatible changes to modules already in use.\n# START AUTO GENERATED METADATA, DO NOT EDIT\ncreated_at: 2025-11-19"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md::e6417b0a2436::0002::0064560a",
+          "title": "structure",
+          "similarity": 0.221332,
+          "snippet": "The standard module structure expects the layout documented below. The list may\nappear long, but everything is optional except for the root module. Most modules\ndon't need to do an"
+        },
+        {
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md::5ec78d599afa::0001::f5596518",
+          "title": "composition",
+          "similarity": 0.192336,
+          "snippet": "---\npage_title: Module Composition\ndescription: |-\nModule composition allows infrastructure to be described from modular\nbuilding blocks.\n# START AUTO GENERATED METADATA, DO NOT ED"
+        }
+      ]
+    }
+  ],
+  "aggregate": {
+    "source_prefixes": [
+      "terraform_docs_selected_incremental"
+    ],
+    "top_k": 5,
+    "total_queries": 5,
+    "queries_with_results": 5,
+    "top1_expected_prefix_count": 5,
+    "topk_expected_prefix_count": 5,
+    "top1_expected_source_file_count": 4,
+    "topk_expected_source_file_count": 5,
+    "required_top1_expected_source_file_hits": 3,
+    "semantic_smoke_passed": true
+  },
+  "semantic_smoke_passed": true
+}

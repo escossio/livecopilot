@@ -1,0 +1,94 @@
+{
+  "generated_at_utc": "20260312T222717Z",
+  "project_root": "/lab/projects/livecopilot",
+  "objective": "Auditoria de versionamento antes de qualquer preparo para GitHub remoto",
+  "classification": {
+    "should_version": [
+      "app/",
+      "scripts/",
+      "tests/",
+      "config/",
+      "docs/ (exceto artefatos operacionais e logs de cobertura)",
+      "README.md",
+      "ARCHITECTURE.md",
+      "INGESTION_POLICY.md",
+      "CHANGELOG.md",
+      "STATUS.md",
+      "AGENTS.md",
+      "REALTIME_MVP.md",
+      "requirements.txt",
+      ".env.example",
+      ".gitignore"
+    ],
+    "should_not_version": [
+      ".venv/",
+      "__pycache__/",
+      "*.pyc",
+      "logs/",
+      "results/",
+      "state/",
+      "tmp/",
+      "var/",
+      "queue/",
+      "_history/",
+      "_archive/",
+      "_quarantine/",
+      ".supervisor/",
+      "data/",
+      "codex-supervisor/state/",
+      "codex-supervisor/logs/",
+      "codex-supervisor/.venv/",
+      "*.db",
+      "*.sqlite",
+      "*.sqlite3",
+      "*.zip",
+      "*.tar",
+      "*.tar.gz",
+      "*.tgz",
+      "*.dump",
+      "*.bak",
+      "*.bak*"
+    ],
+    "ambiguous_needs_decision": [
+      {
+        "path": "docs/coverage/",
+        "decision": "versionar somente evidencias leves (.json/.md/.txt) e ignorar .log",
+        "reason": "util para auditoria; logs volumosos adicionam ruido"
+      },
+      {
+        "path": "STATUS.md",
+        "decision": "manter versionado",
+        "reason": "arquivo estrutural do fluxo do projeto"
+      },
+      {
+        "path": "codex-supervisor/",
+        "decision": "versionar codigo/docs; ignorar runtime state/logs",
+        "reason": "subprojeto inclui codigo util e tambem artefatos operacionais"
+      }
+    ]
+  },
+  "evidence": {
+    "sizes": {
+      "data": "4.1G",
+      "_archive": "166M",
+      "_history": "48M",
+      ".venv": "81M",
+      "docs/coverage": "4.0M",
+      "queue": "368K",
+      "results": "416K",
+      "state": "148K",
+      "tmp": "1.1M",
+      "var": "356K",
+      "codex-supervisor/state": "1.6M"
+    },
+    "counts": {
+      "tracked_files_current_repo": 257,
+      "candidate_files_without_new_rules": 815,
+      "db_zip_dump_bak_matches": 484
+    },
+    "notes": [
+      "Repositorio local ja existe e possui historico (HEAD count=1).",
+      "Ha muitos artefatos operacionais e backups que nao devem entrar em rodada de preparo para remoto."
+    ]
+  }
+}

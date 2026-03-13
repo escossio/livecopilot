@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.env
+
+logs/*.log
+logs/*.jsonl
+
+state/checkpoints/*.json
+state/checkpoints/*.md
+!.gitkeep

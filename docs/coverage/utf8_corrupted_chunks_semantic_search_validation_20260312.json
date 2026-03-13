@@ -1,0 +1,25 @@
+{
+  "probes": [
+    {
+      "query": "alertmanager high availability mesh gossip settlement utf8 hygiene recheck A 20260312T0431",
+      "count": 5,
+      "snippet_fallback_due_encoding": false,
+      "snippet_fallback_error": "",
+      "top1_source_file": "observability_docs_selected/alertmanager/docs/high_availability.md"
+    },
+    {
+      "query": "alertmanager high availability peer state replication utf8 hygiene recheck B 20260312T0431",
+      "count": 5,
+      "snippet_fallback_due_encoding": false,
+      "snippet_fallback_error": "",
+      "top1_source_file": "observability_docs_selected/alertmanager/docs/high_availability.md"
+    },
+    {
+      "query": "[scoped] alertmanager high availability mesh gossip",
+      "count": 5,
+      "snippet_fallback_due_encoding": false,
+      "snippet_fallback_error": "",
+      "top1_source_file": "observability_docs_selected/alertmanager/docs/high_availability.md"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "generated_at": "20260312T161918Z",
+  "inputs": {
+    "gap_engine": "docs/coverage/knowledge_gap_engine_validation_post_kubernetes_20260312T155249Z.json",
+    "terraform_after": "docs/coverage/semantic_coverage_audit_terraform_after_20260312.json",
+    "terraform_compare": "docs/coverage/semantic_coverage_audit_terraform_compare_before_after_20260312.json",
+    "knowledge_state": "data/knowledge_index/knowledge_state.json"
+  },
+  "terraform_priority_diagnosis": {
+    "priority_score": 34.411,
+    "rank_in_comparable_set": 1,
+    "well": 4,
+    "partial": 4,
+    "gap": 0,
+    "avg_max": 0.579812,
+    "avg_avg": 0.543165,
+    "formula_decomposition": {
+      "weight": 1.15,
+      "total_queries": 8,
+      "gap_ratio": 0.0,
+      "partial_ratio": 0.5,
+      "quality_penalty_max_0_6_minus_avg_max": 0.020188,
+      "raw_component": 0.299226,
+      "priority_score_recomputed": 34.411
+    },
+    "driver_summary": [
+      "score elevado por partial residual (4/8 queries) com peso 1.15",
+      "nao ha gap residual (gap=0); lideranca nao e por lacuna bruta",
+      "sinais de recall/densidade: docs longos com semantic_chunk_count limitado a 8"
+    ]
+  },
+  "partial_query_evidence": [
+    {
+      "query": "terraform force unlock",
+      "max_score": 0.557261,
+      "avg_score": 0.512654,
+      "top_source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+      "top_source_is_terraform_docs_selected": true,
+      "evidence_top_terraform_files": [
+        {
+          "source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+          "chunk_count": 2,
+          "semantic_chunk_count": 2,
+          "truncation_gap": 0
+        },
+        {
+          "source_file": "terraform_docs_selected/cli/state/recover.md",
+          "chunk_count": 2,
+          "semantic_chunk_count": 2,
+          "truncation_gap": 0
+        },
+        {
+          "source_file": "terraform_docs_selected/language/state/locking.md",
+          "chunk_count": 2,
+          "semantic_chunk_count": 2,
+          "truncation_gap": 0
+        }
+      ]
+    },
+    {
+      "query": "terraform modules best practices",
+      "max_score": 0.535128,
+      "avg_score": 0.511451,
+      "top_source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+      "top_source_is_terraform_docs_selected": true,
+      "evidence_top_terraform_files": [
+        {
+          "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+          "chunk_count": 9,
+          "semantic_chunk_count": 8,
+          "truncation_gap": 1
+        },
+        {
+          "source_file": "terraform_docs_selected/language/modules/develop/index.md",
+          "chunk_count": 5,
+          "semantic_chunk_count": 5,
+          "truncation_gap": 0
+        }
+      ]
+    },
+    {
+      "query": "terraform module sources",
+      "max_score": 0.554565,
+      "avg_score": 0.528044,
+      "top_source_file": "terraform_docs_selected/language/modules/sources.md",
+      "top_source_is_terraform_docs_selected": true,
+      "evidence_top_terraform_files": [
+        {
+          "source_file": "terraform_docs_selected/language/modules/sources.md",
+          "chunk_count": 21,
+          "semantic_chunk_count": 8,
+          "truncation_gap": 13
+        },
+        {
+          "source_file": "terraform_docs_selected/language/modules/index.md",
+          "chunk_count": 4,
+          "semantic_chunk_count": 4,
+          "truncation_gap": 0
+        }
+      ]
+    },
+    {
+      "query": "terraform init plan apply workflow",
+      "max_score": 0.512492,
+      "avg_score": 0.481521,
+      "top_source_file": "terraform_docs_selected/cli/commands/plan.md",
+      "top_source_is_terraform_docs_selected": true,
+      "evidence_top_terraform_files": [
+        {
+          "source_file": "terraform_docs_selected/cli/commands/plan.md",
+          "chunk_count": 26,
+          "semantic_chunk_count": 8,
+          "truncation_gap": 18
+        },
+        {
+          "source_file": "terraform_docs_selected/cli/state/index.md",
+          "chunk_count": 2,
+          "semantic_chunk_count": 2,
+          "truncation_gap": 0
+        }
+      ]
+    }
+  ],
+  "problem_type_classification": {
+    "gap_residual": false,
+    "partial_residual": true,
+    "source_governance_issue": false,
+    "recall_density_likely": true
+  }
+}

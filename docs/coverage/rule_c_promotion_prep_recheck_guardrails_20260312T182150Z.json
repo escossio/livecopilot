@@ -1,0 +1,36 @@
+{
+  "generated_at": "20260312T182150Z",
+  "rule_under_test": "Rule C experimental",
+  "target_domain": "terraform",
+  "non_target_well_gain": 0,
+  "target_domain_well_gain": 2,
+  "total_regressions": 0,
+  "suspicious_non_official_promotions": 0,
+  "checks": [
+    {
+      "id": "no_well_to_partial_regressions",
+      "expected": "0",
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "id": "no_non_official_promotions",
+      "expected": "0",
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "id": "non_target_well_gain_cap",
+      "expected": "<=1",
+      "actual": 0,
+      "pass": true
+    },
+    {
+      "id": "target_domain_gain_min",
+      "expected": ">=1",
+      "actual": 2,
+      "pass": true
+    }
+  ],
+  "all_pass": true
+}

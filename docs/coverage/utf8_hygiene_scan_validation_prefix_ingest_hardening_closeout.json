@@ -1,0 +1,13 @@
+{
+  "generated_at": "2026-03-12T19:31:21.528863+00:00",
+  "scanner": "utf8_hygiene_scan_v1",
+  "read_only": true,
+  "snippet_probe_sql": "LEFT(content, 180)",
+  "total_chunks_scanned": 1282,
+  "bad_chunks_count": 0,
+  "affected_source_files_count": 0,
+  "affected_rows": [],
+  "affected_rows_returned": 0,
+  "affected_rows_truncated": false,
+  "grouped_by_source_file": []
+}

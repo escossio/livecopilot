@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-03-12T18:32:26.932112+00:00",
+  "materialized_count": 12,
+  "files": [
+    {
+      "source_file": "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+      "size_bytes": 1269,
+      "sha256": "62008c4e495bd142e28dbcd1c9a84a91870ac255ef928d5eb25fe33aa85c801a"
+    },
+    {
+      "source_file": "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+      "size_bytes": 2057,
+      "sha256": "d9c29bd69e6d0a17371a5fad5906323e66738a89f27bdeca2bf4a2c3935083a8"
+    },
+    {
+      "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+      "size_bytes": 2854,
+      "sha256": "cadc65f6d48ef23d4ef1016c202ef232cc51df29864133ee8bc5727bbfd37da3"
+    },
+    {
+      "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+      "size_bytes": 3178,
+      "sha256": "4f07213c0ecb868a640c5b730a848bfce0fb053a8045400a961dd891a2089d19"
+    },
+    {
+      "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+      "size_bytes": 1478,
+      "sha256": "cfbab0b9a60764ed64000b7b1d62fb0fdc294e72df4c4cd4dba6707231868090"
+    },
+    {
+      "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+      "size_bytes": 2216,
+      "sha256": "82edb251764cf28a1efb785bbd50c2155c28e60e37df31f99225bbcc81be7dd9"
+    },
+    {
+      "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md",
+      "size_bytes": 3367,
+      "sha256": "85ba4c373900a0b28ca7792afa0a2c7d1b51041fc92d38efa2e9a8b3b9cfddcf"
+    },
+    {
+      "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md",
+      "size_bytes": 3227,
+      "sha256": "85d3518ad33e7189a4f5c68cd8ca4377a99b4694ac6c593b78757c5430486d09"
+    },
+    {
+      "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+      "size_bytes": 2042,
+      "sha256": "0ef37dba24e8ad6d7d7397693b4e36dbe5612b322c203c755d787ed338d931aa"
+    },
+    {
+      "source_file": "continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+      "size_bytes": 1646,
+      "sha256": "5f908e506fbeed8398c4d61a871830becb06590b5f9afcdc844fd10ce6d44cf1"
+    },
+    {
+      "source_file": "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+      "size_bytes": 2360,
+      "sha256": "1b67fc2933833f61771f9fbb5d5b6011bbda0d1a18757bbbd5ebb783f452e161"
+    },
+    {
+      "source_file": "continuity_docs_selected/docs/UTF8_HYGIENE_SCANNER.md",
+      "size_bytes": 782,
+      "sha256": "21b22ff5cf2a7ca968fa76a66b14222518d2669815e14f3390b8e588581a6839"
+    }
+  ]
+}

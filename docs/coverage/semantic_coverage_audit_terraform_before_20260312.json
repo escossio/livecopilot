@@ -1,0 +1,402 @@
+{
+  "generated_at": "2026-03-12T02:16:32.546657+00:00",
+  "scope": "terraform_focused_before_terraform43_semantic_persist",
+  "top_k": 5,
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "total_questions": 8,
+  "well_covered_count": 0,
+  "partial_count": 0,
+  "gap_count": 8,
+  "global_avg_of_max_score": 0.379537,
+  "global_avg_of_avg_score": 0.349114,
+  "rows": [
+    {
+      "question": "terraform aws s3 backend remote state locking",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.391073,
+      "avg_score": 0.374822,
+      "top_source_file": "relatorio_final.docx",
+      "top_title": "relatorio final",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "relatorio_final.docx",
+          "chunk_id": "chunk::doc::relatorio_final.docx::cdf7ca01213c::0001::b16d9880",
+          "title": "relatorio final",
+          "similarity": 0.391073,
+          "snippet": "DOCX Local\n\nbackend java e aws"
+        },
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0002::520f14ec",
+          "title": "Title Page",
+          "similarity": 0.381783,
+          "snippet": "Practical solutions for managing security policies, monitoring, auditing, and compliance with AWS Heartin Kanikathottu BIRMINGHAM - MUMBAI"
+        },
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+          "title": "AWS Security Cookbook",
+          "similarity": 0.372212,
+          "snippet": "AWS Security Cookbook"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/cache/backends/s3.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/backends/s3.md::d28cbe92a92a::0001::99291219",
+          "title": "s3",
+          "similarity": 0.370514,
+          "snippet": "---\ntitle: Amazon S3 cache\ndescription: Manage build cache with Amazon S3 buckets\nkeywords: build, buildx, cache, backend, s3, buckets, aws\naliases:\n- /build/building/cache/backend"
+        },
+        {
+          "source_file": "__api_contract_smoke__.md",
+          "chunk_id": "semantic-api-029d6c37-1",
+          "title": "1. Security Group controla regras de entrada e saída na instância EC2 na VPC AWS.",
+          "similarity": 0.358527,
+          "snippet": "1. Security Group controla regras de entrada e saída na instância EC2 na VPC AWS."
+        }
+      ]
+    },
+    {
+      "question": "terraform remote state s3",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.396176,
+      "avg_score": 0.367808,
+      "top_source_file": "relatorio_final.docx",
+      "top_title": "relatorio final",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "relatorio_final.docx",
+          "chunk_id": "chunk::doc::relatorio_final.docx::cdf7ca01213c::0001::b16d9880",
+          "title": "relatorio final",
+          "similarity": 0.396176,
+          "snippet": "DOCX Local\n\nbackend java e aws"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)",
+          "similarity": 0.37667,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)\n# State Persistence (8%)"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)",
+          "similarity": 0.37667,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)\n# State Persistence (8%)"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/cache/backends/s3.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/backends/s3.md::d28cbe92a92a::0001::99291219",
+          "title": "s3",
+          "similarity": 0.346168,
+          "snippet": "---\ntitle: Amazon S3 cache\ndescription: Manage build cache with Amazon S3 buckets\nkeywords: build, buildx, cache, backend, s3, buckets, aws\naliases:\n- /build/building/cache/backend"
+        },
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0002::520f14ec",
+          "title": "Title Page",
+          "similarity": 0.343356,
+          "snippet": "Practical solutions for managing security policies, monitoring, auditing, and compliance with AWS Heartin Kanikathottu BIRMINGHAM - MUMBAI"
+        }
+      ]
+    },
+    {
+      "question": "terraform force unlock",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.327205,
+      "avg_score": 0.308855,
+      "top_source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+      "top_title": "# kubectl rollout restart deployment",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+          "chunk_id": "semantic-api-3ff9ac8c-1",
+          "title": "# kubectl rollout restart deployment",
+          "similarity": 0.327205,
+          "snippet": "# kubectl rollout restart deployment"
+        },
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+          "title": "AWS Security Cookbook",
+          "similarity": 0.315671,
+          "snippet": "AWS Security Cookbook"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/security/2fa/_index.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/security/2fa/_index.md::d08cd02207cf::0001::66232757",
+          "title": "index",
+          "similarity": 0.314809,
+          "snippet": "---\ntitle: Enable two-factor authentication for your Docker account\nlinkTitle: Two-factor authentication\ndescription: Enable or disable two-factor authentication on your Docker acc"
+        },
+        {
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0008::d1b40d35",
+          "title": "IAM policy testing with the IAM policy simulator",
+          "similarity": 0.293295,
+          "snippet": "v\nAWS Identity and Access Management User Guide\n\nStep 3: Create roles .............................................................................................................."
+        },
+        {
+          "source_file": "aws/Security best practices in IAM.pdf",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0008::d1b40d35",
+          "title": "Security best practices in IAM",
+          "similarity": 0.293295,
+          "snippet": "v\nAWS Identity and Access Management User Guide\n\nStep 3: Create roles .............................................................................................................."
+        }
+      ]
+    },
+    {
+      "question": "terraform state mv",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.413175,
+      "avg_score": 0.360743,
+      "top_source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+      "top_title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)",
+          "similarity": 0.413175,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)\n# State Persistence (8%)"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)",
+          "similarity": 0.413175,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)\n# State Persistence (8%)"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_create_namespace_staging.md",
+          "chunk_id": "semantic-api-475d2fc9-4",
+          "title": "## Cleanup",
+          "similarity": 0.339109,
+          "snippet": "## Cleanup\n- `kubectl delete namespace staging`"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+          "chunk_id": "semantic-api-4a878265-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)",
+          "similarity": 0.322277,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)\n# Multi-container Pods (10%)"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_create_namespace_staging.md",
+          "chunk_id": "semantic-api-475d2fc9-1",
+          "title": "# kubectl create namespace staging",
+          "similarity": 0.31598,
+          "snippet": "# kubectl create namespace staging"
+        }
+      ]
+    },
+    {
+      "question": "terraform modules best practices",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.398755,
+      "avg_score": 0.356644,
+      "top_source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+      "top_title": "best practices",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/best-practices.md::0aad9a6cecbb::0001::cbf94334",
+          "title": "best practices",
+          "similarity": 0.398755,
+          "snippet": "---\ntitle: Building best practices\nlinkTitle: Best practices\nweight: 70\ndescription: Hints, tips and guidelines for writing clean, reliable Dockerfiles\nkeywords: base images, docke"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+          "chunk_id": "semantic-api-4a878265-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)",
+          "similarity": 0.369856,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)\n# Multi-container Pods (10%)"
+        },
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+          "title": "AWS Security Cookbook",
+          "similarity": 0.364771,
+          "snippet": "AWS Security Cookbook"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/security/https/README.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/https/README.md::9f5c2250abc8::0001::aa292ede",
+          "title": "README",
+          "similarity": 0.325889,
+          "snippet": "---\nbuild:\nlist: never\npublishResources: false\nrender: never\n---\n\nThis is an initial attempt to make it easier to test the TLS (HTTPS) examples in the protect-access.md\ndoc.\n\nAt th"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/d.configuration.md",
+          "chunk_id": "semantic-api-e15b97e7-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/configuration&empty)",
+          "similarity": 0.323949,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/configuration&empty)\n# Configuration (18%)"
+        }
+      ]
+    },
+    {
+      "question": "terraform module sources",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.352493,
+      "avg_score": 0.33699,
+      "top_source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+      "top_title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+          "chunk_id": "semantic-api-4a878265-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)",
+          "similarity": 0.352493,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)\n# Multi-container Pods (10%)"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/security/https/README.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/https/README.md::9f5c2250abc8::0001::aa292ede",
+          "title": "README",
+          "similarity": 0.335339,
+          "snippet": "---\nbuild:\nlist: never\npublishResources: false\nrender: never\n---\n\nThis is an initial attempt to make it easier to test the TLS (HTTPS) examples in the protect-access.md\ndoc.\n\nAt th"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/f.services.md",
+          "chunk_id": "semantic-api-647333a6-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/services&empty)",
+          "similarity": 0.333406,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/services&empty)\n# Services and Networking (13%)"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/f.services.md",
+          "chunk_id": "semantic-api-647333a6-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/services&empty)",
+          "similarity": 0.333406,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/services&empty)\n# Services and Networking (13%)"
+        },
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+          "title": "AWS Security Cookbook",
+          "similarity": 0.330308,
+          "snippet": "AWS Security Cookbook"
+        }
+      ]
+    },
+    {
+      "question": "terraform init plan apply workflow",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.379884,
+      "avg_score": 0.35376,
+      "top_source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+      "top_title": "# kubectl rollout restart deployment",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+          "chunk_id": "semantic-api-3ff9ac8c-1",
+          "title": "# kubectl rollout restart deployment",
+          "similarity": 0.379884,
+          "snippet": "# kubectl rollout restart deployment"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+          "chunk_id": "semantic-api-3ff9ac8c-3",
+          "title": "## Namespace-scoped restart",
+          "similarity": 0.358577,
+          "snippet": "## Namespace-scoped restart\n- `kubectl -n staging rollout restart deployment web`"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+          "chunk_id": "semantic-api-4a878265-5",
+          "title": "```bash",
+          "similarity": 0.350383,
+          "snippet": "```bash\nkubectl run busybox --image=busybox --restart=Never -o yaml --dry-run=client -- /bin/sh -c 'echo hello;sleep 3600' > pod.yaml\nvi pod.yaml\n```"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+          "chunk_id": "semantic-api-3ff9ac8c-5",
+          "title": "Keywords: kubectl rollout restart deployment.",
+          "similarity": 0.349666,
+          "snippet": "Keywords: kubectl rollout restart deployment."
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/building/_index.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/_index.md::d517aef2dd84::0001::c3c1cef2",
+          "title": "index",
+          "similarity": 0.330289,
+          "snippet": "---\nbuild:\nrender: never\ntitle: Building\nweight: 20\n---"
+        }
+      ]
+    },
+    {
+      "question": "terraform workspace vs backend",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.377536,
+      "avg_score": 0.333289,
+      "top_source_file": "relatorio_final.docx",
+      "top_title": "relatorio final",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "relatorio_final.docx",
+          "chunk_id": "chunk::doc::relatorio_final.docx::cdf7ca01213c::0001::b16d9880",
+          "title": "relatorio final",
+          "similarity": 0.377536,
+          "snippet": "DOCX Local\n\nbackend java e aws"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/cache/backends/_index.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/backends/_index.md::0611afc9160c::0001::1174b177",
+          "title": "index",
+          "similarity": 0.340349,
+          "snippet": "---\ntitle: Cache storage backends\ndescription: |\nCache backends let you manage your build cache externally.\nExternal cache is useful to create a shared cache that can help\nspeed up"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/security/trust/trust_sandbox.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/trust/trust_sandbox.md::d51b3a02f03b::0001::33c35076",
+          "title": "trust sandbox",
+          "similarity": 0.32696,
+          "snippet": "---\ndescription: Play in a trust sandbox\nkeywords: trust, security, root, keys, repository, sandbox\ntitle: Play in a content trust sandbox\naliases:\n- /security/trust/trust_sandbox/"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+          "chunk_id": "semantic-api-4a878265-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)",
+          "similarity": 0.314981,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)\n# Multi-container Pods (10%)"
+        },
+        {
+          "source_file": "livros/fastapi/Giunio De Luca/FastAPI Cookbook_ Develop high-performance APIs and web applications with Python by Giunio De Luca.epub",
+          "chunk_id": "chunk::doc::livros/fastapi/Giunio-De-Luca/FastAPI-Cookbook_-Develop-high-performance-APIs-and-web-applications-with-Python-by-Giunio-De-Luca.epub::608b73844cb2::0006::6a562414",
+          "title": "Chapter 1: First Steps with FastAPI",
+          "similarity": 0.306619,
+          "snippet": "VS Code\n\nVS Code is a free, open source, lightweight IDE with powerful features. It offers excellent Python support and is highly customizable. You can download and install VS Code"
+        }
+      ]
+    }
+  ]
+}

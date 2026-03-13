@@ -1,0 +1,23 @@
+{
+  "scope": "kubernetes_focused_semantic_audit",
+  "top_k": 5,
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "questions": [
+    "kubernetes pod lifecycle phases pending running failed",
+    "kubernetes deployment rolling update strategy max unavailable max surge",
+    "kubernetes service clusterip nodeport loadbalancer differences",
+    "kubernetes ingress path based routing host rules",
+    "kubernetes liveness readiness startup probes configuration",
+    "kubernetes rbac role rolebinding clusterrole clusterrolebinding",
+    "kubernetes serviceaccount token automount settings",
+    "kubernetes persistent volume claim access modes storageclass",
+    "kubernetes storageclass reclaim policy volume binding mode",
+    "kubernetes debug running pod kubectl describe logs events",
+    "kubernetes namespaces purpose resource isolation",
+    "kubernetes configmap env from file and volume mount"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-03-12T04:07:27.216116+00:00",
+  "count": 10,
+  "items": [
+    {
+      "file": "aws_iam_docs_selected/iam_condition_element.md",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html",
+      "title": "IAM JSON policy elements: Condition - AWS Identity and Access Management",
+      "bytes": 10843
+    },
+    {
+      "file": "aws_iam_docs_selected/iam_notaction.md",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html",
+      "title": "IAM JSON policy elements: NotAction - AWS Identity and Access Management",
+      "bytes": 3793
+    },
+    {
+      "file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html",
+      "title": "Permissions boundaries for IAM entities - AWS Identity and Access Management",
+      "bytes": 24650
+    },
+    {
+      "file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic_policy-eval-denyallow.html",
+      "title": "How AWS enforcement code logic evaluates requests to allow or deny access - AWS Identity and Access Management",
+      "bytes": 20682
+    },
+    {
+      "file": "aws_iam_docs_selected/iam_policy_evaluation_logic.md",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html",
+      "title": "Policy evaluation logic - AWS Identity and Access Management",
+      "bytes": 4279
+    },
+    {
+      "file": "aws_iam_docs_selected/iam_policy_simulator.md",
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html",
+      "title": "IAM policy testing with the IAM policy simulator - AWS Identity and Access Management",
+      "bytes": 38675
+    },
+    {
+      "file": "aws_iam_docs_selected/org_scps_evaluation.md",
+      "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_evaluation.html",
+      "title": "SCP evaluation - AWS Organizations",
+      "bytes": 9181
+    },
+    {
+      "file": "aws_iam_docs_selected/org_scps_examples.md",
+      "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples.html",
+      "title": "Service control policy examples - AWS Organizations",
+      "bytes": 4536
+    },
+    {
+      "file": "aws_iam_docs_selected/org_scps_overview.md",
+      "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html",
+      "title": "Service control policies (SCPs) - AWS Organizations",
+      "bytes": 13011
+    },
+    {
+      "file": "aws_iam_docs_selected/org_scps_syntax.md",
+      "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html",
+      "title": "SCP syntax - AWS Organizations",
+      "bytes": 12627
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-03-12T01:59:53.973656+00:00",
+  "scope": "terraform_controlled_acquisition_cycle1",
+  "sources_prepared": {
+    "terraform_core_repo": {
+      "path": "data/knowledge_raw/_official_repo_clones/terraform",
+      "official_repo": "https://github.com/hashicorp/terraform",
+      "status": "cloned_depth_1",
+      "adherence_to_gaps": "low_for_user_docs_in_current_snapshot",
+      "notes": "repositorio core atual nao contem a arvore completa de docs de usuario para os gaps alvo"
+    },
+    "terraform_docs_repo": {
+      "path": "data/knowledge_raw/_official_repo_clones/web-unified-docs",
+      "official_repo": "https://github.com/hashicorp/web-unified-docs",
+      "status": "cloned_depth_1",
+      "adherence_to_gaps": "high",
+      "docs_root": "content/terraform/v1.14.x/docs",
+      "cleanliness": "medium",
+      "cleanliness_notes": "conteudo em MDX com frontmatter/componentes; recorte foi normalizado para .md sem alterar pipeline"
+    },
+    "terraform_provider_aws_repo": {
+      "path": "data/knowledge_raw/_official_repo_clones/terraform-provider-aws",
+      "official_repo": "https://github.com/hashicorp/terraform-provider-aws",
+      "status": "cloned_depth_1",
+      "adherence_to_gaps": "low_for_this_cycle",
+      "notes": "repo fortemente focado em docs de recursos do provider; nao necessario para fechar gaps centrais de state/backend/locking/modulos/workflow nesta rodada"
+    }
+  },
+  "official_docs_pages_checked": [
+    "https://developer.hashicorp.com/terraform/language/backend/s3",
+    "https://developer.hashicorp.com/terraform/language/state/locking",
+    "https://developer.hashicorp.com/terraform/language/state/remote",
+    "https://developer.hashicorp.com/terraform/language/state/remote-state-data",
+    "https://developer.hashicorp.com/terraform/language/modules",
+    "https://developer.hashicorp.com/terraform/language/modules/configuration",
+    "https://developer.hashicorp.com/terraform/cli/commands/plan",
+    "https://developer.hashicorp.com/terraform/cli/commands/apply",
+    "https://developer.hashicorp.com/terraform/cli/commands/state"
+  ],
+  "recommended_selected_cut": {
+    "path": "data/knowledge_raw/terraform_docs_selected",
+    "selected_files_count": 43,
+    "selected_breakdown": {
+      "language/backend": 3,
+      "language/state": 10,
+      "language/modules": 9,
+      "cli/commands": 16,
+      "cli/state": 3,
+      "intro/phases": 2
+    },
+    "selection_focus": [
+      "remote state s3",
+      "locking",
+      "state governance",
+      "modules",
+      "workflow plan apply state"
+    ]
+  }
+}

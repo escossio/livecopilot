@@ -1,0 +1,175 @@
+{
+  "generated_at": "2026-03-12T15:52:50.081678+00:00",
+  "scope": "consolidated_domain_comparison",
+  "domains": [
+    {
+      "domain": "aws_iam",
+      "domain_name": "AWS IAM",
+      "documents_selected": 5,
+      "chunks_persisted": 40,
+      "before": {
+        "well": 0,
+        "partial": 0,
+        "gap": 1,
+        "avg_max": 0.421688,
+        "avg_avg": 0.345207
+      },
+      "after": {
+        "well": 0,
+        "partial": 1,
+        "gap": 0,
+        "avg_max": 0.520263,
+        "avg_avg": 0.514229
+      },
+      "delta": {
+        "well": 0,
+        "partial": 1,
+        "gap": -1,
+        "avg_max": 0.098575,
+        "avg_avg": 0.169022
+      },
+      "gain_classification": "inconclusivo_com_sinal_positivo",
+      "notes": {
+        "subset_mode": true,
+        "comparable_questions": 1,
+        "total_questions_after": 8
+      },
+      "artifact_refs": {
+        "compare": "docs/coverage/semantic_coverage_audit_iam_compare_after_aws5_20260311.json",
+        "persist": "docs/coverage/semantic_persist_aws5_validation_20260311.json"
+      }
+    },
+    {
+      "domain": "docker",
+      "domain_name": "Docker",
+      "documents_selected": 79,
+      "chunks_persisted": 84,
+      "before": {
+        "well": 0,
+        "partial": 2,
+        "gap": 6,
+        "avg_max": 0.436232,
+        "avg_avg": 0.400084
+      },
+      "after": {
+        "well": 6,
+        "partial": 2,
+        "gap": 0,
+        "avg_max": 0.606646,
+        "avg_avg": 0.539499
+      },
+      "delta": {
+        "well": 6,
+        "partial": 0,
+        "gap": -6,
+        "avg_max": 0.170414,
+        "avg_avg": 0.139415
+      },
+      "gain_classification": "estrutural_forte",
+      "notes": {},
+      "artifact_refs": {
+        "compare": "docs/coverage/semantic_coverage_audit_docker_compare_before_after_20260312.json",
+        "persist": "docs/coverage/semantic_persist_docker79_validation_20260312.json"
+      }
+    },
+    {
+      "domain": "terraform",
+      "domain_name": "Terraform",
+      "documents_selected": 43,
+      "chunks_persisted": 209,
+      "before": {
+        "well": 0,
+        "partial": 0,
+        "gap": 8,
+        "avg_max": 0.379537,
+        "avg_avg": 0.349114
+      },
+      "after": {
+        "well": 4,
+        "partial": 4,
+        "gap": 0,
+        "avg_max": 0.579805,
+        "avg_avg": 0.543157
+      },
+      "delta": {
+        "well": 4,
+        "partial": 4,
+        "gap": -8,
+        "avg_max": 0.200268,
+        "avg_avg": 0.194043
+      },
+      "gain_classification": "estrutural_forte",
+      "notes": {},
+      "artifact_refs": {
+        "compare": "docs/coverage/semantic_coverage_audit_terraform_compare_before_after_20260312.json",
+        "persist": "docs/coverage/semantic_persist_terraform43_validation_20260312.json"
+      }
+    },
+    {
+      "domain": "observability",
+      "domain_name": "Observability",
+      "documents_selected": 35,
+      "chunks_persisted": 234,
+      "before": {
+        "well": 0,
+        "partial": 0,
+        "gap": 8,
+        "avg_max": 0.342409,
+        "avg_avg": 0.32384
+      },
+      "after": {
+        "well": 5,
+        "partial": 3,
+        "gap": 0,
+        "avg_max": 0.617553,
+        "avg_avg": 0.570856
+      },
+      "delta": {
+        "well": 5,
+        "partial": 3,
+        "gap": -8,
+        "avg_max": 0.275144,
+        "avg_avg": 0.247016
+      },
+      "gain_classification": "estrutural_forte",
+      "notes": {},
+      "artifact_refs": {
+        "compare": "docs/coverage/semantic_coverage_audit_observability_compare_before_after_20260312.json",
+        "persist": "docs/coverage/semantic_persist_observability35_validation_20260312.json"
+      }
+    },
+    {
+      "domain": "kubernetes",
+      "domain_name": "Kubernetes",
+      "documents_selected": 12,
+      "chunks_persisted": 95,
+      "before": {
+        "well": 6,
+        "partial": 5,
+        "gap": 1,
+        "avg_max": 0.617786,
+        "avg_avg": 0.552623
+      },
+      "after": {
+        "well": 9,
+        "partial": 3,
+        "gap": 0,
+        "avg_max": 0.648533,
+        "avg_avg": 0.605661
+      },
+      "delta": {
+        "well": 3,
+        "partial": -2,
+        "gap": -1,
+        "avg_max": 0.030747,
+        "avg_avg": 0.053038
+      },
+      "gain_classification": "marginal_positivo",
+      "notes": {},
+      "artifact_refs": {
+        "compare": "docs/coverage/semantic_coverage_audit_kubernetes_compare_before_after_20260312T154518Z.json",
+        "persist": "docs/coverage/kubernetes_semantic_persist_validation_20260312T154518Z.json"
+      }
+    }
+  ]
+}

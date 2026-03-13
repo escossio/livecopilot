@@ -1,0 +1,402 @@
+{
+  "generated_at": "2026-03-12T02:44:20.221093+00:00",
+  "scope": "observability_focused_after_observability35_semantic_persist",
+  "top_k": 5,
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "total_questions": 8,
+  "well_covered_count": 5,
+  "partial_count": 3,
+  "gap_count": 0,
+  "global_avg_of_max_score": 0.617553,
+  "global_avg_of_avg_score": 0.570856,
+  "rows": [
+    {
+      "question": "prometheus scrape_configs relabel_configs example",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.465269,
+      "avg_score": 0.445503,
+      "top_source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+      "top_title": "",
+      "relevant_result_present": true,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0001::9662028e",
+          "title": "",
+          "similarity": 0.465269,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/configuration/configuration.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/configuration.md::2028dc2481b5::0006::db1056b8",
+          "title": "",
+          "similarity": 0.45331,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md::017167823c03::0001::baecc33c",
+          "title": "",
+          "similarity": 0.439104,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/configuration/configuration.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/configuration.md::2028dc2481b5::0007::ad934c49",
+          "title": "",
+          "similarity": 0.436186,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0003::ea34ca81",
+          "title": "",
+          "similarity": 0.433648,
+          "snippet": ""
+        }
+      ]
+    },
+    {
+      "question": "prometheus recording rules and alerting rules",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.676008,
+      "avg_score": 0.6496,
+      "top_source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+      "top_title": "",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/alerting_rules.md::92085dedf36a::0001::3e75e016",
+          "title": "",
+          "similarity": 0.676008,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/recording_rules.md::7d9a9264340a::0001::30684486",
+          "title": "",
+          "similarity": 0.668962,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/recording_rules.md::7d9a9264340a::0004::01396e82",
+          "title": "",
+          "similarity": 0.649974,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/alerting_rules.md::92085dedf36a::0007::20a04585",
+          "title": "",
+          "similarity": 0.6419,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/alerting_rules.md::92085dedf36a::0003::1991fac4",
+          "title": "",
+          "similarity": 0.611156,
+          "snippet": ""
+        }
+      ]
+    },
+    {
+      "question": "prometheus service discovery http_sd kubernetes",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.675074,
+      "avg_score": 0.527472,
+      "top_source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+      "top_title": "",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0001::f8f16dda",
+          "title": "",
+          "similarity": 0.675074,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0003::ea34ca81",
+          "title": "",
+          "similarity": 0.554968,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0002::03f99af4",
+          "title": "",
+          "similarity": 0.496943,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0004::7678fa20",
+          "title": "",
+          "similarity": 0.482293,
+          "snippet": ""
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/i.crd.md",
+          "chunk_id": "semantic-api-9d1041f3-3",
+          "title": "",
+          "similarity": 0.428084,
+          "snippet": ""
+        }
+      ]
+    },
+    {
+      "question": "promql rate sum by instance",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.573074,
+      "avg_score": 0.486905,
+      "top_source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+      "top_title": "",
+      "relevant_result_present": true,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/examples.md::620dc4a03e29::0003::1782019f",
+          "title": "",
+          "similarity": 0.573074,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/template-variables/_index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/template-variables/_index.md::09acd9e19b4e::0007::f4732863",
+          "title": "",
+          "similarity": 0.530563,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/examples.md::620dc4a03e29::0004::994bea49",
+          "title": "",
+          "similarity": 0.46781,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/querying/basics.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/basics.md::de1194d5db88::0001::2e4949b0",
+          "title": "",
+          "similarity": 0.434878,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/examples.md::620dc4a03e29::0002::7c86a48a",
+          "title": "",
+          "similarity": 0.428199,
+          "snippet": ""
+        }
+      ]
+    },
+    {
+      "question": "grafana prometheus datasource configuration",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.661753,
+      "avg_score": 0.635502,
+      "top_source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+      "top_title": "",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md::017167823c03::0002::b6928443",
+          "title": "",
+          "similarity": 0.661753,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0001::9662028e",
+          "title": "",
+          "similarity": 0.655732,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md::017167823c03::0001::baecc33c",
+          "title": "",
+          "similarity": 0.636548,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0005::449f9148",
+          "title": "",
+          "similarity": 0.61618,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0004::06b7d8d3",
+          "title": "",
+          "similarity": 0.607296,
+          "snippet": ""
+        }
+      ]
+    },
+    {
+      "question": "grafana dashboard variables template variables",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.688293,
+      "avg_score": 0.667698,
+      "top_source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+      "top_title": "",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md::5956212bc191::0006::abb5246c",
+          "title": "",
+          "similarity": 0.688293,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md::f0c5364e797e::0004::0958760d",
+          "title": "",
+          "similarity": 0.666351,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md::f0c5364e797e::0003::38ddfa8a",
+          "title": "",
+          "similarity": 0.662836,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md::5956212bc191::0005::55801886",
+          "title": "",
+          "similarity": 0.661635,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md::5956212bc191::0003::2855d83a",
+          "title": "",
+          "similarity": 0.659376,
+          "snippet": ""
+        }
+      ]
+    },
+    {
+      "question": "grafana alerting provisioning contact points",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.653155,
+      "avg_score": 0.622207,
+      "top_source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md",
+      "top_title": "",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md::84c3b2939eab::0001::b338cf98",
+          "title": "",
+          "similarity": 0.653155,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md::84c3b2939eab::0002::13c29e9e",
+          "title": "",
+          "similarity": 0.640937,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md::1e0cd8a6bedc::0002::45833e47",
+          "title": "",
+          "similarity": 0.617477,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-notification-policy.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-notification-policy.md::4db335b2817d::0002::34083f99",
+          "title": "",
+          "similarity": 0.605056,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md::1e0cd8a6bedc::0007::7d6088cb",
+          "title": "",
+          "similarity": 0.594411,
+          "snippet": ""
+        }
+      ]
+    },
+    {
+      "question": "alertmanager route receivers grouping inhibition silences templates",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.547796,
+      "avg_score": 0.531958,
+      "top_source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-silence.md",
+      "top_title": "",
+      "relevant_result_present": true,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-silence.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-silence.md::4e3dbeb4ffd4::0002::906766c8",
+          "title": "",
+          "similarity": 0.547796,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/alertmanager/docs/notification_examples.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/notification_examples.md::fe1d7d47dfe0::0002::22e9b3ee",
+          "title": "",
+          "similarity": 0.53757,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/inhibition-rules.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/inhibition-rules.md::3787a4ab38d9::0002::ddfb40d1",
+          "title": "",
+          "similarity": 0.531849,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/alertmanager/docs/alertmanager.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/alertmanager.md::6fda2c11cd14::0002::264b1197",
+          "title": "",
+          "similarity": 0.525934,
+          "snippet": ""
+        },
+        {
+          "source_file": "observability_docs_selected/alertmanager/docs/alertmanager.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/alertmanager.md::6fda2c11cd14::0003::0792e0f4",
+          "title": "",
+          "similarity": 0.516641,
+          "snippet": ""
+        }
+      ]
+    }
+  ]
+}

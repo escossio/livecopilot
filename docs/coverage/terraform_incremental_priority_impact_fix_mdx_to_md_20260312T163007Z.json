@@ -1,0 +1,58 @@
+{
+  "generated_at": "20260312T163007Z",
+  "previous_gap_engine": "docs/coverage/knowledge_gap_engine_validation_post_kubernetes_20260312T155249Z.json",
+  "current_gap_engine": "docs/coverage/knowledge_gap_engine_validation_post_terraform_incremental_fix_mdx_to_md_20260312T163007Z.json",
+  "terraform_before": {
+    "priority_score": 34.411,
+    "well": 4,
+    "partial": 4,
+    "gap": 0,
+    "avg_max": 0.579812,
+    "avg_avg": 0.543165
+  },
+  "terraform_after": {
+    "priority_score": 34.41,
+    "well": 4,
+    "partial": 4,
+    "gap": 0,
+    "avg_max": 0.57982,
+    "avg_avg": 0.550237
+  },
+  "delta": {
+    "priority_score": -0.001,
+    "partial": 0,
+    "well": 0,
+    "gap": 0,
+    "avg_max": 8e-06,
+    "avg_avg": 0.007072
+  },
+  "terraform_rank_after": 1,
+  "impact_classification": "melhora_marginal",
+  "ranking_after": [
+    {
+      "rank": 1,
+      "domain": "terraform",
+      "priority_score": 34.41
+    },
+    {
+      "rank": 2,
+      "domain": "observability",
+      "priority_score": 22.688
+    },
+    {
+      "rank": 3,
+      "domain": "docker",
+      "priority_score": 14.438
+    },
+    {
+      "rank": 4,
+      "domain": "kubernetes",
+      "priority_score": 11.0
+    },
+    {
+      "rank": 5,
+      "domain": "aws_iam",
+      "priority_score": 6.875
+    }
+  ]
+}

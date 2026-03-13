@@ -1,0 +1,473 @@
+{
+  "generated_at_utc": "2026-03-12T22:00:21Z",
+  "source_plan": "/lab/projects/livecopilot/docs/coverage/projects_root_reorganization_plan_20260312T215756Z.json",
+  "execution": [
+    {
+      "source": "/lab/projects/AGENTS.md",
+      "destination": "/lab/projects/livecopilot/AGENTS.md",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:16Z",
+      "ended_at": "2026-03-12T22:00:16Z"
+    },
+    {
+      "source": "/lab/projects/AGENTS.md.bak-orchestrator-v2-20260302",
+      "destination": "/lab/projects/livecopilot/AGENTS.md.bak-orchestrator-v2-20260302",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:16Z",
+      "ended_at": "2026-03-12T22:00:16Z"
+    },
+    {
+      "source": "/lab/projects/README.md",
+      "destination": "/lab/projects/livecopilot/_root_recovered_20260312T215756Z/README.md",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:16Z",
+      "ended_at": "2026-03-12T22:00:16Z"
+    },
+    {
+      "source": "/lab/projects/README.md.bak-20260303T000007",
+      "destination": "/lab/projects/livecopilot/README.md.bak-20260303T000007",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:16Z",
+      "ended_at": "2026-03-12T22:00:16Z"
+    },
+    {
+      "source": "/lab/projects/README.md.bak-20260304-inspect",
+      "destination": "/lab/projects/livecopilot/README.md.bak-20260304-inspect",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:16Z",
+      "ended_at": "2026-03-12T22:00:16Z"
+    },
+    {
+      "source": "/lab/projects/README.md.bak-20260304-loop-wrapper",
+      "destination": "/lab/projects/livecopilot/README.md.bak-20260304-loop-wrapper",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:16Z",
+      "ended_at": "2026-03-12T22:00:16Z"
+    },
+    {
+      "source": "/lab/projects/README.md.bak-20260304-stdin",
+      "destination": "/lab/projects/livecopilot/README.md.bak-20260304-stdin",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:16Z",
+      "ended_at": "2026-03-12T22:00:16Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md",
+      "destination": "/lab/projects/livecopilot/_root_recovered_20260312T215756Z/STATUS.md",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:16Z",
+      "ended_at": "2026-03-12T22:00:16Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260302T221500",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260302T221500",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:16Z",
+      "ended_at": "2026-03-12T22:00:16Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-close-track-mismatch-front",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-close-track-mismatch-front",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:16Z",
+      "ended_at": "2026-03-12T22:00:16Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-confidence-threshold",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-confidence-threshold",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:17Z",
+      "ended_at": "2026-03-12T22:00:17Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-dod-phase-close",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-dod-phase-close",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:17Z",
+      "ended_at": "2026-03-12T22:00:17Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-inspect",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-inspect",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:17Z",
+      "ended_at": "2026-03-12T22:00:17Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-knowledge-practicality-task3",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-knowledge-practicality-task3",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:17Z",
+      "ended_at": "2026-03-12T22:00:17Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-loop-shortcuts",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-loop-shortcuts",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:17Z",
+      "ended_at": "2026-03-12T22:00:17Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-loop-wrapper",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-loop-wrapper",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:17Z",
+      "ended_at": "2026-03-12T22:00:17Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-mismatch-baseline-rebuild",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-mismatch-baseline-rebuild",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:17Z",
+      "ended_at": "2026-03-12T22:00:17Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-mismatch-current",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-mismatch-current",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:17Z",
+      "ended_at": "2026-03-12T22:00:17Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-practicality-audit",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-practicality-audit",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:17Z",
+      "ended_at": "2026-03-12T22:00:17Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-practicality-fine-tuning",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-practicality-fine-tuning",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:17Z",
+      "ended_at": "2026-03-12T22:00:17Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-question-bank-practicality",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-question-bank-practicality",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:17Z",
+      "ended_at": "2026-03-12T22:00:17Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-ranking-regression-suite",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-ranking-regression-suite",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:17Z",
+      "ended_at": "2026-03-12T22:00:17Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-remove-current-track-shortcut",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-remove-current-track-shortcut",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:17Z",
+      "ended_at": "2026-03-12T22:00:17Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-search-metrics",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-search-metrics",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:18Z",
+      "ended_at": "2026-03-12T22:00:18Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-stdin",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-stdin",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:18Z",
+      "ended_at": "2026-03-12T22:00:18Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-terminal-summary",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-terminal-summary",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:18Z",
+      "ended_at": "2026-03-12T22:00:18Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-track-mismatch-queue",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-track-mismatch-queue",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:18Z",
+      "ended_at": "2026-03-12T22:00:18Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260310T232233Z-power-recovery",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260310T232233Z-power-recovery",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:18Z",
+      "ended_at": "2026-03-12T22:00:18Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak31",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak31",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:18Z",
+      "ended_at": "2026-03-12T22:00:18Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak32",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak32",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:18Z",
+      "ended_at": "2026-03-12T22:00:18Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak33",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak33",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:18Z",
+      "ended_at": "2026-03-12T22:00:18Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak34",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak34",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:18Z",
+      "ended_at": "2026-03-12T22:00:18Z"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak35",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak35",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:18Z",
+      "ended_at": "2026-03-12T22:00:18Z"
+    },
+    {
+      "source": "/lab/projects/TREE.md",
+      "destination": "/lab/projects/livecopilot/TREE.md",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:18Z",
+      "ended_at": "2026-03-12T22:00:18Z"
+    },
+    {
+      "source": "/lab/projects/chat_livecopilot.txt",
+      "destination": "/lab/projects/livecopilot/chat_livecopilot.txt",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:18Z",
+      "ended_at": "2026-03-12T22:00:18Z"
+    },
+    {
+      "source": "/lab/projects/codex-supervisor",
+      "destination": "/lab/projects/livecopilot/codex-supervisor",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:18Z",
+      "ended_at": "2026-03-12T22:00:18Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:18Z",
+      "ended_at": "2026-03-12T22:00:18Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260302T000000Z",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260302T000000Z",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:18Z",
+      "ended_at": "2026-03-12T22:00:18Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260302T221500",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260302T221500",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:19Z",
+      "ended_at": "2026-03-12T22:00:19Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260303T000001",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260303T000001",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:19Z",
+      "ended_at": "2026-03-12T22:00:19Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260303T000003",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260303T000003",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:19Z",
+      "ended_at": "2026-03-12T22:00:19Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260303T000005",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260303T000005",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:19Z",
+      "ended_at": "2026-03-12T22:00:19Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260303T000007",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260303T000007",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:19Z",
+      "ended_at": "2026-03-12T22:00:19Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260303T020400Z",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260303T020400Z",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:19Z",
+      "ended_at": "2026-03-12T22:00:19Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260304-terminal-summary",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260304-terminal-summary",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:19Z",
+      "ended_at": "2026-03-12T22:00:19Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-clear-current-task-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-clear-current-task-20260302",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:19Z",
+      "ended_at": "2026-03-12T22:00:19Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-drain-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-drain-20260302",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:19Z",
+      "ended_at": "2026-03-12T22:00:19Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-enqueue-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-enqueue-20260302",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:19Z",
+      "ended_at": "2026-03-12T22:00:19Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-harden-loop-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-harden-loop-20260302",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:19Z",
+      "ended_at": "2026-03-12T22:00:19Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-incremental-context-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-incremental-context-20260302",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:19Z",
+      "ended_at": "2026-03-12T22:00:19Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-last-summary-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-last-summary-20260302",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:19Z",
+      "ended_at": "2026-03-12T22:00:19Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-peek-queue-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-peek-queue-20260302",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:19Z",
+      "ended_at": "2026-03-12T22:00:20Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-smoke-final-bugfix-20260303T020300Z",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-smoke-final-bugfix-20260303T020300Z",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:20Z",
+      "ended_at": "2026-03-12T22:00:20Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-stale-lock-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-stale-lock-20260302",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:20Z",
+      "ended_at": "2026-03-12T22:00:20Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-structured-previous-result-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-structured-previous-result-20260302",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:20Z",
+      "ended_at": "2026-03-12T22:00:20Z"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-ux-commands-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-ux-commands-20260302",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:20Z",
+      "ended_at": "2026-03-12T22:00:20Z"
+    },
+    {
+      "source": "/lab/projects/hardware-report.txt",
+      "destination": "/lab/projects/livecopilot/hardware-report.txt",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:20Z",
+      "ended_at": "2026-03-12T22:00:20Z"
+    },
+    {
+      "source": "/lab/projects/lab",
+      "destination": "/lab/projects/livecopilot/lab",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:20Z",
+      "ended_at": "2026-03-12T22:00:20Z"
+    },
+    {
+      "source": "/lab/projects/logs",
+      "destination": "/lab/projects/livecopilot/_root_recovered_20260312T215756Z/logs",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:20Z",
+      "ended_at": "2026-03-12T22:00:20Z"
+    },
+    {
+      "source": "/lab/projects/loop",
+      "destination": "/lab/projects/livecopilot/loop",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:20Z",
+      "ended_at": "2026-03-12T22:00:20Z"
+    },
+    {
+      "source": "/lab/projects/loop.bak-20260304-inspect",
+      "destination": "/lab/projects/livecopilot/loop.bak-20260304-inspect",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:20Z",
+      "ended_at": "2026-03-12T22:00:20Z"
+    },
+    {
+      "source": "/lab/projects/loop.bak-20260304-stdin",
+      "destination": "/lab/projects/livecopilot/loop.bak-20260304-stdin",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:20Z",
+      "ended_at": "2026-03-12T22:00:20Z"
+    },
+    {
+      "source": "/lab/projects/project_state.md",
+      "destination": "/lab/projects/livecopilot/project_state.md",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:20Z",
+      "ended_at": "2026-03-12T22:00:20Z"
+    },
+    {
+      "source": "/lab/projects/queue",
+      "destination": "/lab/projects/livecopilot/queue",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:20Z",
+      "ended_at": "2026-03-12T22:00:20Z"
+    },
+    {
+      "source": "/lab/projects/results",
+      "destination": "/lab/projects/livecopilot/results",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:20Z",
+      "ended_at": "2026-03-12T22:00:20Z"
+    },
+    {
+      "source": "/lab/projects/state",
+      "destination": "/lab/projects/livecopilot/state",
+      "status": "moved",
+      "started_at": "2026-03-12T22:00:21Z",
+      "ended_at": "2026-03-12T22:00:21Z"
+    }
+  ],
+  "summary": {
+    "moved": 66,
+    "skipped_missing_source": 0,
+    "errors": 0
+  }
+}

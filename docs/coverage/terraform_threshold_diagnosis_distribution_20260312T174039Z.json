@@ -1,0 +1,30 @@
+{
+  "generated_at": "20260312T174039Z",
+  "source_after": "docs/coverage/semantic_coverage_audit_terraform_incremental_round2_after_20260312T165211Z.json",
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "max_score_distribution": {
+    "min": 0.535169,
+    "max": 0.633677,
+    "mean": 0.583901,
+    "p50": 0.580524,
+    "p75": 0.618958,
+    "p90": 0.627171
+  },
+  "avg_score_distribution": {
+    "min": 0.528387,
+    "max": 0.616037,
+    "mean": 0.55713,
+    "p50": 0.554769,
+    "p75": 0.565001,
+    "p90": 0.582036
+  },
+  "observations": {
+    "mean_max_minus_well_threshold": -0.016099,
+    "p75_max_minus_well_threshold": 0.018958,
+    "p90_max_minus_well_threshold": 0.027171
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-03-12T21:09:32.246608Z",
+  "scenarios": {
+    "ingest_dryrun_single": {
+      "exit": 0,
+      "ok": true
+    },
+    "ingest_dryrun_multi": {
+      "exit": 0,
+      "ok": true
+    },
+    "semantic_list_targets_single": {
+      "exit": 0,
+      "ok": true
+    },
+    "semantic_list_targets_multi": {
+      "exit": 0,
+      "ok": true
+    },
+    "legacy_without_new_flags": {
+      "exit": 143,
+      "ok": false
+    },
+    "missing_prefix_strict_list_targets": {
+      "exit": 2,
+      "ok": true
+    }
+  },
+  "artifacts": {
+    "log_ingest_dryrun_single": "docs/coverage/prefix_dryrun_single_20260312T210020Z.log",
+    "log_ingest_dryrun_multi": "docs/coverage/prefix_dryrun_multi_20260312T210020Z.log",
+    "log_semantic_list_targets_single": "docs/coverage/prefix_list_targets_single_20260312T210020Z.log",
+    "log_semantic_list_targets_multi": "docs/coverage/prefix_list_targets_multi_20260312T210020Z.log",
+    "log_legacy_without_new_flags": "docs/coverage/prefix_legacy_no_new_flags_20260312T210020Z.log",
+    "log_missing_prefix_strict_list_targets": "docs/coverage/prefix_dryrun_listtargets_missing_strict_20260312T210020Z.log"
+  },
+  "all_pass": false
+}

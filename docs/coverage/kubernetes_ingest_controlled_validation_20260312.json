@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-03-12T02:07:18-03:00",
+  "domain": "kubernetes",
+  "selected_scope_prefix": "kubernetes_docs_selected/",
+  "ingest_log": "/tmp/kubernetes_ingest_controlled_20260312.log",
+  "ingest_summary": {
+    "files_found": 234,
+    "files_processed": 12,
+    "files_ignored": 222,
+    "parsing_errors": 0,
+    "unsupported_files": 0
+  },
+  "manifest_before": {
+    "document_count": 222,
+    "chunk_document_count": 222,
+    "chunk_count": 53710
+  },
+  "manifest_after": {
+    "document_count": 234,
+    "chunk_document_count": 234,
+    "chunk_count": 54141
+  },
+  "manifest_delta": {
+    "document_count": 12,
+    "chunk_document_count": 12,
+    "chunk_count": 431
+  },
+  "selected_scope_validation": {
+    "state_entries": 12,
+    "parsed_files": 12,
+    "chunk_files": 12,
+    "selected_source_chunk_total": 431,
+    "source_files_list": "docs/coverage/kubernetes_source_files_ingested_20260312.txt"
+  }
+}

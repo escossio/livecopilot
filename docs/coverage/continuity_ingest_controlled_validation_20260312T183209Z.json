@@ -1,0 +1,116 @@
+{
+  "generated_at": "2026-03-12T18:37:09.810820+00:00",
+  "round_id": "20260312T183209Z",
+  "ingest_summary": {
+    "total_found": 269,
+    "processed": 12,
+    "skipped": 257,
+    "errors": 0,
+    "unsupported": 0,
+    "chunk_total_global": 54491,
+    "manifest_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_manifest.json"
+  },
+  "continuity_scope": {
+    "source_prefix": "continuity_docs_selected/",
+    "documents_in_state": 12,
+    "chunks_in_state": 39,
+    "rows": [
+      {
+        "source_file": "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 2,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/continuity_docs_selected__docs__HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/continuity_docs_selected__docs__HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md.chunks.json"
+      },
+      {
+        "source_file": "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 3,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/continuity_docs_selected__docs__HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/continuity_docs_selected__docs__HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md.chunks.json"
+      },
+      {
+        "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 4,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/continuity_docs_selected__docs__HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/continuity_docs_selected__docs__HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md.chunks.json"
+      },
+      {
+        "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 5,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/continuity_docs_selected__docs__HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/continuity_docs_selected__docs__HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md.chunks.json"
+      },
+      {
+        "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 2,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/continuity_docs_selected__docs__HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/continuity_docs_selected__docs__HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md.chunks.json"
+      },
+      {
+        "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 3,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/continuity_docs_selected__docs__HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/continuity_docs_selected__docs__HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md.chunks.json"
+      },
+      {
+        "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 5,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/continuity_docs_selected__docs__HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/continuity_docs_selected__docs__HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md.chunks.json"
+      },
+      {
+        "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 5,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/continuity_docs_selected__docs__HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/continuity_docs_selected__docs__HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md.chunks.json"
+      },
+      {
+        "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 3,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/continuity_docs_selected__docs__HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/continuity_docs_selected__docs__HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md.chunks.json"
+      },
+      {
+        "source_file": "continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 2,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/continuity_docs_selected__docs__HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/continuity_docs_selected__docs__HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md.chunks.json"
+      },
+      {
+        "source_file": "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 4,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/continuity_docs_selected__docs__SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/continuity_docs_selected__docs__SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md.chunks.json"
+      },
+      {
+        "source_file": "continuity_docs_selected/docs/UTF8_HYGIENE_SCANNER.md",
+        "status": "parsed",
+        "file_type": "md",
+        "chunk_count": 1,
+        "parsed_path": "/lab/projects/livecopilot/data/knowledge_parsed/continuity_docs_selected__docs__UTF8_HYGIENE_SCANNER.md.json",
+        "chunk_path": "/lab/projects/livecopilot/data/knowledge_chunks/continuity_docs_selected__docs__UTF8_HYGIENE_SCANNER.md.chunks.json"
+      }
+    ]
+  }
+}

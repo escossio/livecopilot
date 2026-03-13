@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-03-12T15:42:01Z",
+  "persist_command_log": "/tmp/kubernetes_semantic_persist_retry_20260312T154046Z.log",
+  "documents_processed": 0,
+  "documents_selected": 0,
+  "documents_validated": 0,
+  "documents_failed": 0,
+  "chunks_persisted": 0,
+  "embedding_mode_used": "openai",
+  "sources_with_error": [],
+  "sources_with_error_count": 0,
+  "duplicate_source_checksum_rows": [],
+  "duplicate_source_checksum_rows_count": 0,
+  "cache_invalidation": {
+    "semantic_search_cache_entries_cleared": 12,
+    "query_embedding_cache_entries_cleared": 12
+  },
+  "results": []
+}

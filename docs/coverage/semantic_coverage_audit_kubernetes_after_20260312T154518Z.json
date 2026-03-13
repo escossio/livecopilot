@@ -1,0 +1,607 @@
+{
+  "generated_at": "2026-03-12T15:47:14.793722+00:00",
+  "scope": "kubernetes_focused_after_semantic_persist",
+  "top_k": 5,
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "total_questions": 12,
+  "well_covered_count": 9,
+  "partial_count": 3,
+  "gap_count": 0,
+  "global_avg_of_max_score": 0.648533,
+  "global_avg_of_avg_score": 0.605661,
+  "top1_from_kubernetes_docs_selected_count": 5,
+  "rows": [
+    {
+      "question": "kubernetes pod lifecycle phases pending running failed",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.613971,
+      "avg_score": 0.557367,
+      "top_source_file": "tmp/semantic_gap_round2/pod_events_troubleshooting.md",
+      "top_title": "# Kubernetes Pod Events Troubleshooting",
+      "top1_is_kubernetes_docs_selected": false,
+      "kubernetes_in_top_k_count": 3,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "tmp/semantic_gap_round2/pod_events_troubleshooting.md",
+          "chunk_id": "semantic-api-28455024-1",
+          "title": "# Kubernetes Pod Events Troubleshooting",
+          "similarity": 0.613971,
+          "snippet": "# Kubernetes Pod Events Troubleshooting"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/tasks/debug/debug-application/debug-running-pod.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/tasks/debug/debug-application/debug-running-pod.md::185c622b26e9::0007::0a6cee25",
+          "title": "debug running pod",
+          "similarity": 0.558122,
+          "snippet": "```shell\nkubectl get pods\n```\n\n```none\nNAME READY STATUS RESTARTS AGE\nnginx-deployment-1006230814-6winp 1/1 Running 0 7m\nnginx-deployment-1006230814-fmgu3 1/1 Running 0 7m\nnginx-de"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+          "chunk_id": "semantic-api-4a878265-5",
+          "title": "```bash",
+          "similarity": 0.546206,
+          "snippet": "```bash\nkubectl run busybox --image=busybox --restart=Never -o yaml --dry-run=client -- /bin/sh -c 'echo hello;sleep 3600' > pod.yaml\nvi pod.yaml\n```"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md::79b575626c7f::0006::2a9cdf83",
+          "title": "configure liveness readiness startup probes",
+          "similarity": 0.537081,
+          "snippet": "After 35 seconds, view the Pod events again:\n\n```shell\nkubectl describe pod liveness-exec\n```\n\nAt the bottom of the output, there are messages indicating that the liveness\nprobes h"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/tasks/debug/debug-application/debug-running-pod.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/tasks/debug/debug-application/debug-running-pod.md::185c622b26e9::0008::8c1ffca3",
+          "title": "debug running pod",
+          "similarity": 0.531455,
+          "snippet": "```shell\nkubectl describe pod nginx-deployment-1370807587-fz9sd\n```\n\n```none\nName: nginx-deployment-1370807587-fz9sd\nNamespace: default\nNode: /\nLabels: app=nginx,pod-template-hash="
+        }
+      ]
+    },
+    {
+      "question": "kubernetes deployment rolling update strategy max unavailable max surge",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.568753,
+      "avg_score": 0.51922,
+      "top_source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+      "top_title": "# kubectl rollout restart deployment",
+      "top1_is_kubernetes_docs_selected": false,
+      "kubernetes_in_top_k_count": 2,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+          "chunk_id": "semantic-api-3ff9ac8c-1",
+          "title": "# kubectl rollout restart deployment",
+          "similarity": 0.568753,
+          "snippet": "# kubectl rollout restart deployment"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+          "chunk_id": "semantic-api-3ff9ac8c-5",
+          "title": "Keywords: kubectl rollout restart deployment.",
+          "similarity": 0.545494,
+          "snippet": "Keywords: kubectl rollout restart deployment."
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/c.pod_design.md",
+          "chunk_id": "semantic-api-51df61f1-3",
+          "title": "Deployments",
+          "similarity": 0.508921,
+          "snippet": "## Deployments\n\nkubernetes.io > Documentation > Concepts > Workloads > Workload Resources > [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment)\n\n###"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/workloads/controllers/deployment.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/workloads/controllers/deployment.md::d37668472566::0001::aef956e8",
+          "title": "deployment",
+          "similarity": 0.48932,
+          "snippet": "---\nreviewers:\n- janetkuo\ntitle: Deployments\napi_metadata:\n- apiVersion: \"apps/v1\"\nkind: \"Deployment\"\nfeature:\ntitle: Automated rollouts and rollbacks\ndescription: >\nKubernetes pro"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/tasks/debug/debug-application/debug-running-pod.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/tasks/debug/debug-application/debug-running-pod.md::185c622b26e9::0008::8c1ffca3",
+          "title": "debug running pod",
+          "similarity": 0.483613,
+          "snippet": "```shell\nkubectl describe pod nginx-deployment-1370807587-fz9sd\n```\n\n```none\nName: nginx-deployment-1370807587-fz9sd\nNamespace: default\nNode: /\nLabels: app=nginx,pod-template-hash="
+        }
+      ]
+    },
+    {
+      "question": "kubernetes service clusterip nodeport loadbalancer differences",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.490243,
+      "avg_score": 0.462418,
+      "top_source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md",
+      "top_title": "ingress",
+      "top1_is_kubernetes_docs_selected": true,
+      "kubernetes_in_top_k_count": 4,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md::b93613d1621f::0003::19a36087",
+          "title": "ingress",
+          "similarity": 0.490243,
+          "snippet": "<!-- body -->\n\n## Terminology\n\nFor clarity, this guide defines the following terms:\n\n* Node: A worker machine in Kubernetes, part of a cluster.\n* Cluster: A set of Nodes that run c"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0003::5d98d632",
+          "title": "service",
+          "similarity": 0.460955,
+          "snippet": "Each Pod gets its own IP address (Kubernetes expects network plugins to ensure this).\nFor a given Deployment in your cluster, the set of Pods running in one moment in\ntime could be"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0005::957a16ad",
+          "title": "service",
+          "similarity": 0.459236,
+          "snippet": "The set of Pods targeted by a Service is usually determined\nby a {{< glossary_tooltip text=\"selector\" term_id=\"selector\" >}} that you\ndefine.\nTo learn about other ways to define Se"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0002::81b91316",
+          "title": "service",
+          "similarity": 0.456964,
+          "snippet": "A key aim of Services in Kubernetes is that you don't need to modify your existing\napplication to use an unfamiliar service discovery mechanism.\nYou can run code in Pods, whether t"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "chunk_id": "semantic-api-b34a20f9-1",
+          "title": "# Kubernetes NetworkPolicy Example",
+          "similarity": 0.444692,
+          "snippet": "# Kubernetes NetworkPolicy Example"
+        }
+      ]
+    },
+    {
+      "question": "kubernetes ingress path based routing host rules",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.585174,
+      "avg_score": 0.526214,
+      "top_source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+      "top_title": "Keywords: networkpolicy kubernetes example ingress policy.",
+      "top1_is_kubernetes_docs_selected": false,
+      "kubernetes_in_top_k_count": 3,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "chunk_id": "semantic-api-b34a20f9-5",
+          "title": "Keywords: networkpolicy kubernetes example ingress policy.",
+          "similarity": 0.585174,
+          "snippet": "Keywords: networkpolicy kubernetes example ingress policy."
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md::b93613d1621f::0004::77a0d4e2",
+          "title": "ingress",
+          "similarity": 0.535003,
+          "snippet": "## What is Ingress?\n\n[Ingress](/docs/reference/generated/kubernetes-api/{{< param \"version\" >}}/#ingress-v1-networking-k8s-io)\nexposes HTTP and HTTPS routes from outside the cluste"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md::b93613d1621f::0005::9b6aad74",
+          "title": "ingress",
+          "similarity": 0.512386,
+          "snippet": "{{< figure src=\"/docs/images/ingress.svg\" alt=\"ingress-diagram\" class=\"diagram-large\" caption=\"Figure. Ingress\" link=\"https://mermaid.live/edit#pako:eNqNkstuwyAQRX8F4U0r2VHqPlSRKqt"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md::b93613d1621f::0008::7683bbfc",
+          "title": "ingress",
+          "similarity": 0.510904,
+          "snippet": "An Ingress needs `apiVersion`, `kind`, `metadata` and `spec` fields.\nThe name of an Ingress object must be a valid\n[DNS subdomain name](/docs/concepts/overview/working-with-objects"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "chunk_id": "semantic-api-b34a20f9-1",
+          "title": "# Kubernetes NetworkPolicy Example",
+          "similarity": 0.487602,
+          "snippet": "# Kubernetes NetworkPolicy Example"
+        }
+      ]
+    },
+    {
+      "question": "kubernetes liveness readiness startup probes configuration",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.818781,
+      "avg_score": 0.807886,
+      "top_source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+      "top_title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readine",
+      "top1_is_kubernetes_docs_selected": false,
+      "kubernetes_in_top_k_count": 1,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-3",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readine",
+          "similarity": 0.818781,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-3",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readine",
+          "similarity": 0.818781,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-2",
+          "title": "## Liveness, readiness and startup probes",
+          "similarity": 0.805662,
+          "snippet": "## Liveness, readiness and startup probes"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-2",
+          "title": "## Liveness, readiness and startup probes",
+          "similarity": 0.80558,
+          "snippet": "## Liveness, readiness and startup probes"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md::79b575626c7f::0001::c4d94f78",
+          "title": "configure liveness readiness startup probes",
+          "similarity": 0.790627,
+          "snippet": "---\ntitle: Configure Liveness, Readiness and Startup Probes\ncontent_type: task\nweight: 140\n---\n\n<!-- overview -->\n\nThis page shows how to configure liveness, readiness and startup "
+        }
+      ]
+    },
+    {
+      "question": "kubernetes rbac role rolebinding clusterrole clusterrolebinding",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.6784,
+      "avg_score": 0.64947,
+      "top_source_file": "kubernetes_docs_selected/content/en/docs/reference/access-authn-authz/rbac.md",
+      "top_title": "rbac",
+      "top1_is_kubernetes_docs_selected": true,
+      "kubernetes_in_top_k_count": 4,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/reference/access-authn-authz/rbac.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/reference/access-authn-authz/rbac.md::15018b3f3085::0005::12eefd3c",
+          "title": "rbac",
+          "similarity": 0.6784,
+          "snippet": "### RoleBinding and ClusterRoleBinding\n\nA role binding grants the permissions defined in a role to a user or set of users.\nIt holds a list of *subjects* (users, groups, or service "
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/reference/access-authn-authz/rbac.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/reference/access-authn-authz/rbac.md::15018b3f3085::0002::c0adfc0c",
+          "title": "rbac",
+          "similarity": 0.66537,
+          "snippet": "## API objects {#api-overview}\n\nThe RBAC API declares four kinds of Kubernetes object: _Role_, _ClusterRole_,\n_RoleBinding_ and _ClusterRoleBinding_. You can describe or amend the "
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/rbac_quick_basics.md",
+          "chunk_id": "semantic-api-851de524-3",
+          "title": "3. Bind Role to service account with RoleBinding.",
+          "similarity": 0.645421,
+          "snippet": "3. Bind Role to service account with RoleBinding.\n## Verify access\n- `kubectl auth can-i get pods --as=system:serviceaccount:default:app-sa -n default`\nKeywords: rbac role rolebind"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/reference/access-authn-authz/rbac.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/reference/access-authn-authz/rbac.md::15018b3f3085::0006::8c003f92",
+          "title": "rbac",
+          "similarity": 0.643216,
+          "snippet": "{{% code_sample file=\"access/simple-rolebinding-with-role.yaml\" %}}\n\nA RoleBinding can also reference a ClusterRole to grant the permissions defined in that\nClusterRole to resource"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/reference/access-authn-authz/rbac.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/reference/access-authn-authz/rbac.md::15018b3f3085::0004::f9c36aca",
+          "title": "rbac",
+          "similarity": 0.614944,
+          "snippet": "{{% code_sample file=\"access/simple-role.yaml\" %}}\n\n#### ClusterRole example\n\nA ClusterRole can be used to grant the same permissions as a Role.\nBecause ClusterRoles are cluster-sc"
+        }
+      ]
+    },
+    {
+      "question": "kubernetes serviceaccount token automount settings",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.754481,
+      "avg_score": 0.642037,
+      "top_source_file": "tmp/semantic_gap_round2/sa_tokens_projection.md",
+      "top_title": "# Kubernetes ServiceAccount Tokens",
+      "top1_is_kubernetes_docs_selected": false,
+      "kubernetes_in_top_k_count": 2,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "tmp/semantic_gap_round2/sa_tokens_projection.md",
+          "chunk_id": "semantic-api-a109268b-1",
+          "title": "# Kubernetes ServiceAccount Tokens",
+          "similarity": 0.754481,
+          "snippet": "# Kubernetes ServiceAccount Tokens"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/sa_tokens_projection.md",
+          "chunk_id": "semantic-api-a109268b-5",
+          "title": "Keywords: serviceaccount token projected kubernetes token projection.",
+          "similarity": 0.723175,
+          "snippet": "Keywords: serviceaccount token projected kubernetes token projection."
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_create_token_serviceaccount.md",
+          "chunk_id": "semantic-api-a6efa75a-2",
+          "title": "2. `kubectl create token myuser`",
+          "similarity": 0.59923,
+          "snippet": "2. `kubectl create token myuser`\nKeywords: kubectl create token serviceaccount."
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/security/service-accounts.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/security/service-accounts.md::f7e035661d19::0007::4f5ee4b5",
+          "title": "service accounts",
+          "similarity": 0.577933,
+          "snippet": "## How to use service accounts {#how-to-use}\n\nTo use a Kubernetes service account, you do the following:\n\n1. Create a ServiceAccount object using a Kubernetes\nclient like `kubectl`"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/security/service-accounts.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/security/service-accounts.md::f7e035661d19::0005::f52a0fb3",
+          "title": "service accounts",
+          "similarity": 0.555364,
+          "snippet": "## Use cases for Kubernetes service accounts {#use-cases}\n\nAs a general guideline, you can use service accounts to provide identities in\nthe following scenarios:\n\n* Your Pods need "
+        }
+      ]
+    },
+    {
+      "question": "kubernetes persistent volume claim access modes storageclass",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.666979,
+      "avg_score": 0.638338,
+      "top_source_file": "kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md",
+      "top_title": "persistent volumes",
+      "top1_is_kubernetes_docs_selected": true,
+      "kubernetes_in_top_k_count": 5,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md::e6bf95671749::0006::43c45511",
+          "title": "persistent volumes",
+          "similarity": 0.666979,
+          "snippet": "When none of the static PVs the administrator created match a user's PersistentVolumeClaim,\nthe cluster may try to dynamically provision a volume specially for the PVC.\nThis provis"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md::e6bf95671749::0004::e8af5591",
+          "title": "persistent volumes",
+          "similarity": 0.651261,
+          "snippet": "A _PersistentVolumeClaim_ (PVC) is a request for storage by a user. It is similar\nto a Pod. Pods consume node resources and PVCs consume PV resources. Pods can\nrequest specific lev"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md::e6bf95671749::0002::937517db",
+          "title": "persistent volumes",
+          "similarity": 0.634458,
+          "snippet": "Managing storage is a distinct problem from managing compute instances.\nThe PersistentVolume subsystem provides an API for users and administrators\nthat abstracts details of how st"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md::e6bf95671749::0003::407b5934",
+          "title": "persistent volumes",
+          "similarity": 0.625078,
+          "snippet": "A _PersistentVolume_ (PV) is a piece of storage in the cluster that has been\nprovisioned by an administrator or dynamically provisioned using\n[Storage Classes](/docs/concepts/stora"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md::e6bf95671749::0001::936c9e0a",
+          "title": "persistent volumes",
+          "similarity": 0.613914,
+          "snippet": "---\nreviewers:\n- jsafrane\n- saad-ali\n- thockin\n- msau42\n- xing-yang\ntitle: Persistent Volumes\napi_metadata:\n- apiVersion: \"v1\"\nkind: \"PersistentVolume\"\n- apiVersion: \"v1\"\nkind: \"Pe"
+        }
+      ]
+    },
+    {
+      "question": "kubernetes storageclass reclaim policy volume binding mode",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.612116,
+      "avg_score": 0.568388,
+      "top_source_file": "kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md",
+      "top_title": "persistent volumes",
+      "top1_is_kubernetes_docs_selected": true,
+      "kubernetes_in_top_k_count": 4,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md::e6bf95671749::0006::43c45511",
+          "title": "persistent volumes",
+          "similarity": 0.612116,
+          "snippet": "When none of the static PVs the administrator created match a user's PersistentVolumeClaim,\nthe cluster may try to dynamically provision a volume specially for the PVC.\nThis provis"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/storage/storage-classes.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/storage/storage-classes.md::b668cb47027b::0001::81bab4e7",
+          "title": "storage classes",
+          "similarity": 0.568804,
+          "snippet": "---\nreviewers:\n- jsafrane\n- saad-ali\n- thockin\n- msau42\ntitle: Storage Classes\napi_metadata:\n- apiVersion: \"storage.k8s.io/v1\"\nkind: \"StorageClass\"\ncontent_type: concept\nweight: 40"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md::e6bf95671749::0007::842fbc0e",
+          "title": "persistent volumes",
+          "similarity": 0.561016,
+          "snippet": "### Binding\n\nA user creates, or in the case of dynamic provisioning, has already created,\na PersistentVolumeClaim with a specific amount of storage requested and with\ncertain acces"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md::e6bf95671749::0001::936c9e0a",
+          "title": "persistent volumes",
+          "similarity": 0.550953,
+          "snippet": "---\nreviewers:\n- jsafrane\n- saad-ali\n- thockin\n- msau42\n- xing-yang\ntitle: Persistent Volumes\napi_metadata:\n- apiVersion: \"v1\"\nkind: \"PersistentVolume\"\n- apiVersion: \"v1\"\nkind: \"Pe"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-2",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Vo",
+          "similarity": 0.549053,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Volume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/confi"
+        }
+      ]
+    },
+    {
+      "question": "kubernetes debug running pod kubectl describe logs events",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.772032,
+      "avg_score": 0.734328,
+      "top_source_file": "tmp/semantic_gap_round2/pod_events_troubleshooting.md",
+      "top_title": "Keywords: kubectl describe pod events kubernetes pod events troubleshooting.",
+      "top1_is_kubernetes_docs_selected": false,
+      "kubernetes_in_top_k_count": 0,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "tmp/semantic_gap_round2/pod_events_troubleshooting.md",
+          "chunk_id": "semantic-api-28455024-5",
+          "title": "Keywords: kubectl describe pod events kubernetes pod events troubleshooting.",
+          "similarity": 0.772032,
+          "snippet": "Keywords: kubectl describe pod events kubernetes pod events troubleshooting."
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_get_events_pod.md",
+          "chunk_id": "semantic-api-48fca2be-1",
+          "title": "# kubectl get events pod",
+          "similarity": 0.760252,
+          "snippet": "# kubectl get events pod"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_get_events_pod.md",
+          "chunk_id": "semantic-api-48fca2be-5",
+          "title": "Keywords: kubectl get events pod kubernetes.",
+          "similarity": 0.737347,
+          "snippet": "Keywords: kubectl get events pod kubernetes."
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/pod_events_troubleshooting.md",
+          "chunk_id": "semantic-api-28455024-1",
+          "title": "# Kubernetes Pod Events Troubleshooting",
+          "similarity": 0.724996,
+          "snippet": "# Kubernetes Pod Events Troubleshooting"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_get_events_pod.md",
+          "chunk_id": "semantic-api-48fca2be-3",
+          "title": "## Pod-focused events",
+          "similarity": 0.677012,
+          "snippet": "## Pod-focused events\n- `kubectl describe pod <pod>`\n- `kubectl get events -o json`"
+        }
+      ]
+    },
+    {
+      "question": "kubernetes namespaces purpose resource isolation",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.609934,
+      "avg_score": 0.584867,
+      "top_source_file": "docker_docs_selected/content/manuals/engine/security/userns-remap.md",
+      "top_title": "userns remap",
+      "top1_is_kubernetes_docs_selected": false,
+      "kubernetes_in_top_k_count": 2,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/security/userns-remap.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/userns-remap.md::e13f9dcb6f63::0001::9e2a6d66",
+          "title": "userns remap",
+          "similarity": 0.609934,
+          "snippet": "---\ndescription: Isolate containers within a user namespace\nkeywords: security, namespaces\ntitle: Isolate containers with a user namespace\n---\n\nLinux namespaces provide isolation f"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/overview/working-with-objects/namespaces.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/overview/working-with-objects/namespaces.md::d508008559fa::0002::814c4bd7",
+          "title": "namespaces",
+          "similarity": 0.600047,
+          "snippet": "Namespaces provide a scope for names. Names of resources need to be unique within a namespace,\nbut not across namespaces. Namespaces cannot be nested inside one another and each Ku"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/overview/working-with-objects/namespaces.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/overview/working-with-objects/namespaces.md::d508008559fa::0001::9316c1fa",
+          "title": "namespaces",
+          "similarity": 0.598047,
+          "snippet": "---\nreviewers:\n- derekwaynecarr\n- mikedanese\n- thockin\ntitle: Namespaces\napi_metadata:\n- apiVersion: \"v1\"\nkind: \"Namespace\"\ncontent_type: concept\nweight: 45\n---\n\n<!-- overview -->\n"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_create_namespace_staging.md",
+          "chunk_id": "semantic-api-475d2fc9-1",
+          "title": "# kubectl create namespace staging",
+          "similarity": 0.563607,
+          "snippet": "# kubectl create namespace staging"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_create_namespace_staging.md",
+          "chunk_id": "semantic-api-475d2fc9-5",
+          "title": "Keywords: kubectl create namespace staging.",
+          "similarity": 0.552699,
+          "snippet": "Keywords: kubectl create namespace staging."
+        }
+      ]
+    },
+    {
+      "question": "kubernetes configmap env from file and volume mount",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.61153,
+      "avg_score": 0.577399,
+      "top_source_file": "kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md",
+      "top_title": "configmap",
+      "top1_is_kubernetes_docs_selected": true,
+      "kubernetes_in_top_k_count": 5,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md::2e3860f6aeb7::0008::6ed7e35e",
+          "title": "configmap",
+          "similarity": 0.61153,
+          "snippet": "1. Create a ConfigMap or use an existing one. Multiple Pods can reference the\nsame ConfigMap.\n1. Modify your Pod definition to add a volume under `.spec.volumes[]`. Name\nthe volume"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md::2e3860f6aeb7::0007::4e39ac1b",
+          "title": "configmap",
+          "similarity": 0.607689,
+          "snippet": "The most common way to use ConfigMaps is to configure settings for\ncontainers running in a Pod in the same namespace. You can also use a\nConfigMap separately.\n\nFor example, you\nmig"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md::2e3860f6aeb7::0005::5c4a989f",
+          "title": "configmap",
+          "similarity": 0.606687,
+          "snippet": "There are four different ways that you can use a ConfigMap to configure\na container inside a Pod:\n\n1. Inside a container command and args\n1. Environment variables for a container\n1"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md::2e3860f6aeb7::0002::26528281",
+          "title": "configmap",
+          "similarity": 0.532504,
+          "snippet": "For example, imagine that you are developing an application that you can run on your\nown computer (for development) and in the cloud (to handle real traffic).\nYou write the code to"
+        },
+        {
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md::2e3860f6aeb7::0006::cc43a70e",
+          "title": "configmap",
+          "similarity": 0.528584,
+          "snippet": "Here's an example Pod that uses values from `game-demo` to configure a Pod:\n\n{{% code_sample file=\"configmap/configure-pod.yaml\" %}}\n\nA ConfigMap doesn't differentiate between sing"
+        }
+      ]
+    }
+  ]
+}

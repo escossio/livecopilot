@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-03-13T03:13:54.852964+00:00",
+  "pipeline": "knowledge_pipeline_v1",
+  "mode": "validate",
+  "round_id": "20260313T030500Z-knowledge-pipeline-v1",
+  "side_effects_expected": false,
+  "artifacts": {
+    "run_artifact": "docs/coverage/knowledge_pipeline_run_20260313T030500Z-knowledge-pipeline-v1.json",
+    "validate_artifact": "docs/coverage/knowledge_pipeline_validate_20260313T030500Z-knowledge-pipeline-v1.json",
+    "utf8_artifact": "docs/coverage/knowledge_pipeline_validate_utf8_20260313T030500Z-knowledge-pipeline-v1.json",
+    "state_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_state.json"
+  },
+  "scope": {
+    "source_prefixes": [
+      "continuity_docs_selected"
+    ],
+    "resolved_sources_total": 12,
+    "resolved_sources_by_prefix": {
+      "continuity_docs_selected": 12
+    },
+    "resolved_sources_sample": [
+      "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+      "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+      "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+      "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+      "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+      "continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+      "continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+      "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+      "continuity_docs_selected/docs/UTF8_HYGIENE_SCANNER.md"
+    ]
+  },
+  "run_summary": {
+    "ingest_total_found": 12,
+    "ingest_processed": 0,
+    "documents_selected": 12,
+    "documents_processed": 12,
+    "chunks_persisted": 39
+  },
+  "checks": {
+    "run_artifact_present": true,
+    "run_prefixes_match_validate_prefixes": true,
+    "plan_vs_run_ingest_total_match": true,
+    "plan_vs_run_semantic_total_match": true,
+    "state_resolved_total_match_run": true,
+    "parsed_artifacts_present_for_scope": true,
+    "chunk_artifacts_present_for_scope": true,
+    "utf8_scan_clean": true
+  },
+  "missing": {
+    "parsed_source_files": [],
+    "chunk_source_files": []
+  },
+  "utf8_summary": {
+    "total_chunks_scanned": 1222,
+    "bad_chunks_count": 0,
+    "affected_source_files_count": 0
+  },
+  "validation_passed": true
+}

@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-03-12T15:21:48Z",
+  "proposed_file": "docs/coverage/kubernetes_docs_selected_proposed_20260312.json",
+  "target_raw_dir": "data/knowledge_raw/kubernetes_docs_selected",
+  "proposed_count": 12,
+  "materialized_count": 12,
+  "markdown_count": 12,
+  "non_markdown_count": 0,
+  "missing_from_materialized": [],
+  "extra_in_materialized": []
+}

@@ -1,0 +1,20 @@
+{
+  "generated_at": "20260312T162513Z",
+  "persist_log": "/tmp/terraform_incremental_persist_20260312T162513Z.log",
+  "semantic_max_chunks_per_doc": 24,
+  "documents_selected": 0,
+  "documents_processed": 0,
+  "documents_validated": 0,
+  "documents_failed": 0,
+  "chunks_persisted": 0,
+  "embedding_mode_used": "openai",
+  "sources_with_error": [],
+  "sources_with_error_count": 0,
+  "duplicate_source_checksum_rows": [],
+  "duplicate_source_checksum_rows_count": 0,
+  "cache_invalidation": {
+    "semantic_search_cache_entries_cleared": 50,
+    "query_embedding_cache_entries_cleared": 50
+  },
+  "results": []
+}

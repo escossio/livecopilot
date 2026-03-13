@@ -1,0 +1,16 @@
+{
+  "generated_at": "20260312T174039Z",
+  "scores_file": "docs/coverage/terraform_threshold_diagnosis_scores_20260312T174039Z.json",
+  "distribution_file": "docs/coverage/terraform_threshold_diagnosis_distribution_20260312T174039Z.json",
+  "simulation_file": "docs/coverage/terraform_threshold_diagnosis_simulation_20260312T174039Z.json",
+  "current_thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "distance_avg_to_well_max": 0.016099,
+  "distance_avg_to_well_avg": -0.10713,
+  "decision": "threshold_correto_partial_legitimo",
+  "rationale": "Conversao so aparece com well_max=0.55 ou menor, indicando afrouxamento agressivo do criterio.",
+  "recommended_action": "Manter thresholds atuais para classificacao geral; tratar residual via recall/queryset e, se calibrar, validar multi-dominio antes."
+}

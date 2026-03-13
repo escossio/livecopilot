@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-03-12T04:13:16.788647+00:00",
+  "scope": "aws_iam_docs_selected_semantic_persist_validation",
+  "documents_selected": 10,
+  "documents_processed": 10,
+  "documents_validated": 10,
+  "documents_failed": 0,
+  "chunks_persisted": 73,
+  "sources_with_error": [],
+  "duplicate_source_checksum_rows": [],
+  "embedding_mode_used": "openai",
+  "cache_invalidation": {
+    "semantic_search_cache_entries_cleared": 0,
+    "query_embedding_cache_entries_cleared": 0
+  },
+  "persisted_source_files": [
+    "aws_iam_docs_selected/iam_condition_element.md",
+    "aws_iam_docs_selected/iam_notaction.md",
+    "aws_iam_docs_selected/iam_permissions_boundaries.md",
+    "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+    "aws_iam_docs_selected/iam_policy_evaluation_logic.md",
+    "aws_iam_docs_selected/iam_policy_simulator.md",
+    "aws_iam_docs_selected/org_scps_evaluation.md",
+    "aws_iam_docs_selected/org_scps_examples.md",
+    "aws_iam_docs_selected/org_scps_overview.md",
+    "aws_iam_docs_selected/org_scps_syntax.md"
+  ],
+  "chunks_by_source_file": {
+    "aws_iam_docs_selected/iam_condition_element.md": 8,
+    "aws_iam_docs_selected/iam_notaction.md": 4,
+    "aws_iam_docs_selected/iam_permissions_boundaries.md": 8,
+    "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md": 8,
+    "aws_iam_docs_selected/iam_policy_evaluation_logic.md": 5,
+    "aws_iam_docs_selected/iam_policy_simulator.md": 8,
+    "aws_iam_docs_selected/org_scps_evaluation.md": 8,
+    "aws_iam_docs_selected/org_scps_examples.md": 8,
+    "aws_iam_docs_selected/org_scps_overview.md": 8,
+    "aws_iam_docs_selected/org_scps_syntax.md": 8
+  },
+  "persist_log": "/tmp/aws_iam_semantic_persist_20260312.log"
+}

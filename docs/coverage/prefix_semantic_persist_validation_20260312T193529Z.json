@@ -1,0 +1,740 @@
+{
+  "generated_at": "2026-03-12T19:41:47.106921+00:00",
+  "round_id": "20260312T193529Z",
+  "tests": [
+    {
+      "test": "valid_single",
+      "exit_code": 0,
+      "log_file": "docs/coverage/prefix_semantic_persist_valid_single_20260312T193529Z.log",
+      "found": 12,
+      "processed": 0,
+      "prefixes": "continuity_docs_selected",
+      "error_message": "",
+      "semantic": {
+        "started_at": "2026-03-12T19:36:48.419808+00:00",
+        "finished_at": "2026-03-12T19:36:48.578731+00:00",
+        "documents_selected": 12,
+        "documents_processed": 12,
+        "documents_validated": 12,
+        "documents_failed": 0,
+        "chunks_persisted": 39,
+        "states_final": [
+          "validated"
+        ],
+        "results": [
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 321,
+            "chunks_persisted": 2,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 322,
+            "chunks_persisted": 3,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 323,
+            "chunks_persisted": 4,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 324,
+            "chunks_persisted": 5,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 325,
+            "chunks_persisted": 2,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 326,
+            "chunks_persisted": 3,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 327,
+            "chunks_persisted": 5,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 328,
+            "chunks_persisted": 5,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 329,
+            "chunks_persisted": 3,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 330,
+            "chunks_persisted": 2,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 331,
+            "chunks_persisted": 4,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/UTF8_HYGIENE_SCANNER.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 332,
+            "chunks_persisted": 1,
+            "embedding_mode_used": "mock"
+          }
+        ],
+        "embedding_mode_used": "mock",
+        "manifest_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_manifest.json",
+        "state_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_state.json",
+        "cache_invalidation": {
+          "semantic_search_cache_entries_cleared": 4,
+          "query_embedding_cache_entries_cleared": 4
+        },
+        "selection_mode": "resolved_from_source_prefix",
+        "source_prefixes": [
+          "continuity_docs_selected"
+        ],
+        "source_files_resolved_total": 12,
+        "source_files_resolved_by_prefix": {
+          "continuity_docs_selected": 12
+        }
+      }
+    },
+    {
+      "test": "valid_multi",
+      "exit_code": 0,
+      "log_file": "docs/coverage/prefix_semantic_persist_valid_multi_20260312T193529Z.log",
+      "found": 23,
+      "processed": 0,
+      "prefixes": "continuity_docs_selected, terraform_docs_selected_incremental",
+      "error_message": "",
+      "semantic": {
+        "started_at": "2026-03-12T19:38:20.150762+00:00",
+        "finished_at": "2026-03-12T19:38:20.512444+00:00",
+        "documents_selected": 23,
+        "documents_processed": 23,
+        "documents_validated": 23,
+        "documents_failed": 0,
+        "chunks_persisted": 111,
+        "states_final": [
+          "validated"
+        ],
+        "results": [
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 333,
+            "chunks_persisted": 2,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 334,
+            "chunks_persisted": 3,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 335,
+            "chunks_persisted": 4,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 336,
+            "chunks_persisted": 5,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 337,
+            "chunks_persisted": 2,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 338,
+            "chunks_persisted": 3,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 339,
+            "chunks_persisted": 5,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 340,
+            "chunks_persisted": 5,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 341,
+            "chunks_persisted": 3,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 342,
+            "chunks_persisted": 2,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 343,
+            "chunks_persisted": 4,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "continuity_docs_selected/docs/UTF8_HYGIENE_SCANNER.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 344,
+            "chunks_persisted": 1,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 345,
+            "chunks_persisted": 8,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 346,
+            "chunks_persisted": 2,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 347,
+            "chunks_persisted": 8,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 348,
+            "chunks_persisted": 4,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 349,
+            "chunks_persisted": 8,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 350,
+            "chunks_persisted": 8,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 351,
+            "chunks_persisted": 8,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 352,
+            "chunks_persisted": 8,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 353,
+            "chunks_persisted": 8,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 354,
+            "chunks_persisted": 8,
+            "embedding_mode_used": "mock"
+          },
+          {
+            "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 355,
+            "chunks_persisted": 2,
+            "embedding_mode_used": "mock"
+          }
+        ],
+        "embedding_mode_used": "mock",
+        "manifest_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_manifest.json",
+        "state_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_state.json",
+        "cache_invalidation": {
+          "semantic_search_cache_entries_cleared": 0,
+          "query_embedding_cache_entries_cleared": 0
+        },
+        "selection_mode": "resolved_from_source_prefix",
+        "source_prefixes": [
+          "continuity_docs_selected",
+          "terraform_docs_selected_incremental"
+        ],
+        "source_files_resolved_total": 23,
+        "source_files_resolved_by_prefix": {
+          "continuity_docs_selected": 12,
+          "terraform_docs_selected_incremental": 11
+        }
+      }
+    },
+    {
+      "test": "missing_non_strict",
+      "exit_code": 0,
+      "log_file": "docs/coverage/prefix_semantic_persist_missing_non_strict_20260312T193529Z.log",
+      "found": 0,
+      "processed": 0,
+      "prefixes": "__prefixo_que_nao_existe__",
+      "error_message": "",
+      "semantic": {
+        "started_at": "2026-03-12T19:39:40.819350+00:00",
+        "finished_at": "2026-03-12T19:39:40.819371+00:00",
+        "documents_selected": 0,
+        "documents_processed": 0,
+        "documents_validated": 0,
+        "documents_failed": 0,
+        "chunks_persisted": 0,
+        "sources_with_error": [],
+        "duplicate_source_checksum_rows": [],
+        "selection_mode": "resolved_from_source_prefix",
+        "source_prefixes": [
+          "__prefixo_que_nao_existe__"
+        ],
+        "source_files_resolved_total": 0,
+        "source_files_resolved_by_prefix": {
+          "__prefixo_que_nao_existe__": 0
+        },
+        "note": "Nenhum source_file resolvido pelos prefixos; persistência semântica não executada."
+      }
+    },
+    {
+      "test": "missing_strict",
+      "exit_code": 2,
+      "log_file": "docs/coverage/prefix_semantic_persist_missing_strict_20260312T193529Z.log",
+      "found": null,
+      "processed": null,
+      "prefixes": "",
+      "error_message": "strict-source-prefix habilitado e nenhum arquivo encontrado para: __prefixo_que_nao_existe__",
+      "semantic": null
+    },
+    {
+      "test": "explicit_sourcefile_compat",
+      "exit_code": 0,
+      "log_file": "docs/coverage/prefix_semantic_persist_explicit_sourcefile_compat_20260312T193529Z.log",
+      "found": 0,
+      "processed": 0,
+      "prefixes": "__prefixo_que_nao_existe__",
+      "error_message": "",
+      "semantic": {
+        "started_at": "2026-03-12T19:41:26.516262+00:00",
+        "finished_at": "2026-03-12T19:41:26.566093+00:00",
+        "documents_selected": 1,
+        "documents_processed": 1,
+        "documents_validated": 1,
+        "documents_failed": 0,
+        "chunks_persisted": 4,
+        "states_final": [
+          "validated"
+        ],
+        "results": [
+          {
+            "source_file": "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+            "states": [
+              "discovered",
+              "extracted",
+              "chunked",
+              "embedded",
+              "persisted",
+              "validated"
+            ],
+            "status": "validated",
+            "error": "",
+            "document_id": 356,
+            "chunks_persisted": 4,
+            "embedding_mode_used": "mock"
+          }
+        ],
+        "embedding_mode_used": "mock",
+        "manifest_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_manifest.json",
+        "state_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_state.json",
+        "cache_invalidation": {
+          "semantic_search_cache_entries_cleared": 0,
+          "query_embedding_cache_entries_cleared": 0
+        },
+        "selection_mode": "explicit_source_file",
+        "source_prefixes": [],
+        "source_files_resolved_total": 1,
+        "source_files_resolved_by_prefix": {}
+      }
+    }
+  ],
+  "assertions": {
+    "valid_single_semantic_prefix_mode": true,
+    "valid_multi_semantic_prefix_mode": true,
+    "missing_non_strict_noop": true,
+    "missing_strict_fails": true,
+    "explicit_sourcefile_kept": true
+  }
+}

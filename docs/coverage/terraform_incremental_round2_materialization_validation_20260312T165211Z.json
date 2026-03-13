@@ -1,0 +1,61 @@
+{
+  "generated_at": "20260312T165211Z",
+  "mode": "mdx_to_md_materialization_for_pipeline_compatibility_round2",
+  "proposal_file": "docs/coverage/terraform_incremental_round2_docs_selected_proposed_20260312T164346Z.json",
+  "target_raw_dir": "data/knowledge_raw/terraform_docs_selected_incremental_round2",
+  "proposed_count": 12,
+  "materialized_count": 12,
+  "missing_from_clone": [],
+  "missing_count": 0,
+  "mapped_paths": [
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/cli/commands/apply.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/cli/commands/apply.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/cli/commands/force-unlock.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/cli/commands/force-unlock.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/cli/commands/index.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/cli/commands/index.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/cli/commands/init.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/cli/commands/init.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/cli/commands/plan.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/cli/commands/plan.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/cli/run/index.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/cli/run/index.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/intro/core-workflow.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/intro/core-workflow.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/language/block/module.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/language/block/module.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/language/modules/develop/structure.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/language/modules/develop/structure.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/language/modules/sources.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/language/modules/sources.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/language/state/locking.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/language/state/locking.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/language/style.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/language/style.md"
+    }
+  ],
+  "markdown_count": 12
+}

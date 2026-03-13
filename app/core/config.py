@@ -1,9 +1,13 @@
 import os
 from dataclasses import dataclass
+from pathlib import Path
 
 try:
     from dotenv import load_dotenv
 
+    CANONICAL_ENV_FILE = Path("/etc/livecopilot-semantic.env")
+    if CANONICAL_ENV_FILE.is_file():
+        load_dotenv(CANONICAL_ENV_FILE)
     load_dotenv()
 except Exception:
     pass
@@ -39,6 +43,16 @@ class Settings:
     voice_output_enabled: bool = _get_env_bool("VOICE_OUTPUT_ENABLED", False)
     voice_output_provider: str = _get_env("VOICE_OUTPUT_PROVIDER", "external")
     voice_output_model: str = _get_env("VOICE_OUTPUT_MODEL", "gpt-4o-mini-tts")
+    realtime_api_enabled: bool = _get_env_bool("REALTIME_API_ENABLED", True)
+    realtime_api_model: str = _get_env("REALTIME_API_MODEL", "gpt-realtime-mini")
+    realtime_api_voice: str = _get_env("REALTIME_API_VOICE", "alloy")
+    realtime_api_language: str = _get_env("REALTIME_API_LANGUAGE", "pt")
+    realtime_api_transcription_model: str = _get_env("REALTIME_API_TRANSCRIPTION_MODEL", "gpt-4o-mini-transcribe")
+    realtime_api_prompt: str = _get_env(
+        "REALTIME_API_PROMPT",
+        "Voce e o Livecopilot. Responda em portugues do Brasil, de forma objetiva, tecnica e auditavel. "
+        "Quando a pergunta estiver incompleta, reconheca que o contexto ainda esta parcial em vez de inventar detalhes.",
+    )
     ws_enabled: bool = _get_env_bool("WS_ENABLED", True)
     downloads_watch_dir: str = _get_env("DOWNLOADS_WATCH_DIR", "~/Downloads")
     downloads_import_mode: str = _get_env("DOWNLOADS_IMPORT_MODE", "copy")

@@ -1,0 +1,192 @@
+{
+  "generated_at": "2026-03-11T21:24:33.109691+00:00",
+  "before_file": "docs/coverage/semantic_coverage_audit_pre_stage16_20260311.json",
+  "after_file": "docs/coverage/semantic_coverage_audit_post_aws5_20260311.json",
+  "before": {
+    "well_covered_count": 5,
+    "partial_count": 5,
+    "gap_count": 10,
+    "global_avg_of_max_score": 0.503941,
+    "global_avg_of_avg_score": 0.439589
+  },
+  "after": {
+    "well_covered_count": 5,
+    "partial_count": 6,
+    "gap_count": 9,
+    "global_avg_of_max_score": 0.512144,
+    "global_avg_of_avg_score": 0.453825
+  },
+  "delta": {
+    "well_covered": 0,
+    "partial": 1,
+    "gap": -1,
+    "global_avg_of_max_score": 0.008203,
+    "global_avg_of_avg_score": 0.014236
+  },
+  "improved_questions": [
+    {
+      "question": "networkpolicy default deny all kubernetes",
+      "before_class": "bem_coberta",
+      "after_class": "bem_coberta",
+      "delta_max": 8.6e-05,
+      "delta_avg": 3.5e-05,
+      "before_top": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+      "after_top": "tmp/semantic_gap_round2/networkpolicy_access_control.md"
+    },
+    {
+      "question": "rbac role rolebinding serviceaccount kubernetes",
+      "before_class": "bem_coberta",
+      "after_class": "bem_coberta",
+      "delta_max": 0.0,
+      "delta_avg": 4.1e-05,
+      "before_top": "tmp/semantic_gap_round2/rbac_quick_basics.md",
+      "after_top": "tmp/semantic_gap_round2/rbac_quick_basics.md"
+    },
+    {
+      "question": "docker compose healthcheck redis",
+      "before_class": "parcial",
+      "after_class": "parcial",
+      "delta_max": 0.0,
+      "delta_avg": 0.004284,
+      "before_top": "__smoke_openai__.md",
+      "after_top": "__smoke_openai__.md"
+    },
+    {
+      "question": "docker multi stage build best practices",
+      "before_class": "lacuna",
+      "after_class": "lacuna",
+      "delta_max": 0.0134,
+      "delta_avg": 0.014165,
+      "before_top": "__smoke_openai__.md",
+      "after_top": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub"
+    },
+    {
+      "question": "terraform aws s3 backend remote state locking",
+      "before_class": "lacuna",
+      "after_class": "lacuna",
+      "delta_max": 0.0,
+      "delta_avg": 0.014079,
+      "before_top": "relatorio_final.docx",
+      "after_top": "relatorio_final.docx"
+    },
+    {
+      "question": "aws iam least privilege policy",
+      "before_class": "lacuna",
+      "after_class": "parcial",
+      "delta_max": 0.098575,
+      "delta_avg": 0.169022,
+      "before_top": "data/question_bank_raw/sample_assessment.md",
+      "after_top": "aws/Permissions boundaries for IAM entities.pdf"
+    },
+    {
+      "question": "aws vpc security group vs nacl",
+      "before_class": "parcial",
+      "after_class": "parcial",
+      "delta_max": -2.1e-05,
+      "delta_avg": 1.5e-05,
+      "before_top": "__api_context_smoke__.md",
+      "after_top": "__api_context_smoke__.md"
+    },
+    {
+      "question": "fastapi dependency injection com exemplos",
+      "before_class": "lacuna",
+      "after_class": "lacuna",
+      "delta_max": 9.1e-05,
+      "delta_avg": 0.040336,
+      "before_top": "__inline_semantic_min__.txt",
+      "after_top": "__inline_semantic_min__.txt"
+    },
+    {
+      "question": "python async await e event loop",
+      "before_class": "lacuna",
+      "after_class": "lacuna",
+      "delta_max": 0.048788,
+      "delta_avg": 0.027395,
+      "before_top": "tmp/kubectl_ops_round/kubectl_get_events_pod.md",
+      "after_top": "livros/fastapi/Bill Lubanovic/FastAPI by Bill Lubanovic.epub"
+    },
+    {
+      "question": "postgres index btree vs gin",
+      "before_class": "lacuna",
+      "after_class": "lacuna",
+      "delta_max": 1.4e-05,
+      "delta_avg": 8e-06,
+      "before_top": "knowledge-gap::gap_20260310t234013_4528790000_1706c7323efb_postgres_auth.md",
+      "after_top": "knowledge-gap::gap_20260310t234013_4528790000_1706c7323efb_postgres_auth.md"
+    },
+    {
+      "question": "observabilidade prometheus grafana alertmanager",
+      "before_class": "lacuna",
+      "after_class": "lacuna",
+      "delta_max": 7e-05,
+      "delta_avg": 3.6e-05,
+      "before_top": "data/raw_review/ckad_exercises_modules/e.observability.md",
+      "after_top": "data/raw_review/ckad_exercises_modules/e.observability.md"
+    },
+    {
+      "question": "ansible playbook idempotencia handlers",
+      "before_class": "lacuna",
+      "after_class": "lacuna",
+      "delta_max": 0.003066,
+      "delta_avg": 0.015317,
+      "before_top": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+      "after_top": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub"
+    }
+  ],
+  "remaining_gap_questions": [
+    {
+      "question": "kubernetes service clusterip vs nodeport vs loadbalancer",
+      "max_score": 0.416779,
+      "avg_score": 0.4104,
+      "top_source_file": "data/raw_review/ckad_exercises_modules/c.pod_design.md"
+    },
+    {
+      "question": "docker multi stage build best practices",
+      "max_score": 0.44863,
+      "avg_score": 0.416506,
+      "top_source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub"
+    },
+    {
+      "question": "terraform aws s3 backend remote state locking",
+      "max_score": 0.391073,
+      "avg_score": 0.372424,
+      "top_source_file": "relatorio_final.docx"
+    },
+    {
+      "question": "fastapi dependency injection com exemplos",
+      "max_score": 0.433792,
+      "avg_score": 0.391322,
+      "top_source_file": "__inline_semantic_min__.txt"
+    },
+    {
+      "question": "python async await e event loop",
+      "max_score": 0.291245,
+      "avg_score": 0.255144,
+      "top_source_file": "livros/fastapi/Bill Lubanovic/FastAPI by Bill Lubanovic.epub"
+    },
+    {
+      "question": "postgres index btree vs gin",
+      "max_score": 0.338386,
+      "avg_score": 0.268278,
+      "top_source_file": "knowledge-gap::gap_20260310t234013_4528790000_1706c7323efb_postgres_auth.md"
+    },
+    {
+      "question": "observabilidade prometheus grafana alertmanager",
+      "max_score": 0.407597,
+      "avg_score": 0.370445,
+      "top_source_file": "data/raw_review/ckad_exercises_modules/e.observability.md"
+    },
+    {
+      "question": "jenkins pipeline declarativa stages",
+      "max_score": 0.337581,
+      "avg_score": 0.296158,
+      "top_source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md"
+    },
+    {
+      "question": "ansible playbook idempotencia handlers",
+      "max_score": 0.309878,
+      "avg_score": 0.299749,
+      "top_source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub"
+    }
+  ]
+}

@@ -1,0 +1,1776 @@
+{
+  "generated_at": "2026-03-12T04:21:27.615461+00:00",
+  "config_path": "/lab/projects/livecopilot/config/auditable_domains.json",
+  "top_k": 5,
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "domains": [
+    {
+      "domain": "terraform",
+      "domain_name": "Terraform",
+      "weight": 1.15,
+      "subthemes": [
+        {
+          "subtheme": "modules",
+          "name": "Modules",
+          "well": 0,
+          "partial": 2,
+          "gap": 0,
+          "avg_max": 0.544847,
+          "avg_avg": 0.519748,
+          "query_count": 2
+        },
+        {
+          "subtheme": "locking",
+          "name": "State locking",
+          "well": 0,
+          "partial": 1,
+          "gap": 0,
+          "avg_max": 0.557261,
+          "avg_avg": 0.512654,
+          "query_count": 1
+        },
+        {
+          "subtheme": "workflow",
+          "name": "Init/Plan/Apply workflow",
+          "well": 1,
+          "partial": 1,
+          "gap": 0,
+          "avg_max": 0.564817,
+          "avg_avg": 0.522847,
+          "query_count": 2
+        },
+        {
+          "subtheme": "remote_state_s3",
+          "name": "Remote state with S3",
+          "well": 2,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.618806,
+          "avg_avg": 0.591787,
+          "query_count": 2
+        },
+        {
+          "subtheme": "state_ops",
+          "name": "State operations",
+          "well": 1,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.624355,
+          "avg_avg": 0.563898,
+          "query_count": 1
+        }
+      ],
+      "total_queries": 8,
+      "well": 4,
+      "partial": 4,
+      "gap": 0,
+      "avg_max": 0.579819,
+      "avg_avg": 0.543164,
+      "priority_score": 34.41,
+      "weak_subthemes": [
+        "locking",
+        "modules"
+      ],
+      "recommended_next_action": "expandir recorte direcionado + persistencia semantica incremental",
+      "rows": [
+        {
+          "query": "terraform aws s3 backend remote state locking",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.633791,
+          "avg_score": 0.616106,
+          "top_source_file": "terraform_docs_selected/language/backend/s3.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/language/backend/s3.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0001::8324d61f",
+              "title": "s3",
+              "similarity": 0.633791,
+              "snippet": "s3"
+            },
+            {
+              "source_file": "terraform_docs_selected/intro/phases/collaborate.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/intro/phases/collaborate.md::c56f46f7fffe::0004::07cde05a",
+              "title": "collaborate",
+              "similarity": 0.62947,
+              "snippet": "collaborate"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/backend/s3.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0003::34b8675b",
+              "title": "s3",
+              "similarity": 0.610155,
+              "snippet": "s3"
+            },
+            {
+              "source_file": "terraform_docs_selected/intro/phases/collaborate.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/intro/phases/collaborate.md::c56f46f7fffe::0005::ba15a153",
+              "title": "collaborate",
+              "similarity": 0.606081,
+              "snippet": "collaborate"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/backend/s3.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0002::7cc6a70a",
+              "title": "s3",
+              "similarity": 0.601035,
+              "snippet": "s3"
+            }
+          ],
+          "subtheme": "remote_state_s3"
+        },
+        {
+          "query": "terraform remote state s3",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.603821,
+          "avg_score": 0.567468,
+          "top_source_file": "terraform_docs_selected/language/state/remote.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/language/state/remote.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/remote.md::9a49809ee062::0001::a2f97fe8",
+              "title": "remote",
+              "similarity": 0.603821,
+              "snippet": "remote"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/backend/s3.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0001::8324d61f",
+              "title": "s3",
+              "similarity": 0.567097,
+              "snippet": "s3"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/backend/s3.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0008::c003c8cd",
+              "title": "s3",
+              "similarity": 0.56192,
+              "snippet": "s3"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/state/remote.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/remote.md::9a49809ee062::0002::f237b030",
+              "title": "remote",
+              "similarity": 0.553114,
+              "snippet": "remote"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/state/purpose.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/purpose.md::edee54fda47d::0008::a0554489",
+              "title": "purpose",
+              "similarity": 0.551387,
+              "snippet": "purpose"
+            }
+          ],
+          "subtheme": "remote_state_s3"
+        },
+        {
+          "query": "terraform force unlock",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.557261,
+          "avg_score": 0.512654,
+          "top_source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/force-unlock.md::3ee565f42baf::0001::9b567c89",
+              "title": "force unlock",
+              "similarity": 0.557261,
+              "snippet": "force unlock"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/state/recover.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/state/recover.md::ee8de2c1c043::0002::4d5f2c83",
+              "title": "recover",
+              "similarity": 0.534742,
+              "snippet": "recover"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/state/locking.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/locking.md::ad82490017da::0002::0bd0dde7",
+              "title": "locking",
+              "similarity": 0.508583,
+              "snippet": "locking"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/state/locking.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/locking.md::ad82490017da::0001::c1a1740d",
+              "title": "locking",
+              "similarity": 0.483748,
+              "snippet": "locking"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/force-unlock.md::3ee565f42baf::0002::3e813595",
+              "title": "force unlock",
+              "similarity": 0.478936,
+              "snippet": "force unlock"
+            }
+          ],
+          "subtheme": "locking"
+        },
+        {
+          "query": "terraform state mv",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.624355,
+          "avg_score": 0.563898,
+          "top_source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0004::f59a55a4",
+              "title": "mv",
+              "similarity": 0.624355,
+              "snippet": "mv"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0001::e12f042f",
+              "title": "mv",
+              "similarity": 0.568116,
+              "snippet": "mv"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0003::645c48da",
+              "title": "mv",
+              "similarity": 0.555023,
+              "snippet": "mv"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/state/move.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/state/move.md::b45ede245798::0003::28372afd",
+              "title": "move",
+              "similarity": 0.541532,
+              "snippet": "move"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0006::095d05d8",
+              "title": "mv",
+              "similarity": 0.530465,
+              "snippet": "mv"
+            }
+          ],
+          "subtheme": "state_ops"
+        },
+        {
+          "query": "terraform modules best practices",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.535128,
+          "avg_score": 0.511451,
+          "top_source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0007::d8af2315",
+              "title": "structure",
+              "similarity": 0.535128,
+              "snippet": "structure"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/develop/index.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/index.md::ef5233aa30a1::0004::57484b6b",
+              "title": "index",
+              "similarity": 0.52286,
+              "snippet": "index"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0008::f28813d4",
+              "title": "structure",
+              "similarity": 0.513523,
+              "snippet": "structure"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0002::0064560a",
+              "title": "structure",
+              "similarity": 0.501444,
+              "snippet": "structure"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0001::f5ee58bc",
+              "title": "structure",
+              "similarity": 0.4843,
+              "snippet": "structure"
+            }
+          ],
+          "subtheme": "modules"
+        },
+        {
+          "query": "terraform module sources",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.554565,
+          "avg_score": 0.528044,
+          "top_source_file": "terraform_docs_selected/language/modules/sources.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/language/modules/sources.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/sources.md::5162fded697b::0001::ae064176",
+              "title": "sources",
+              "similarity": 0.554565,
+              "snippet": "sources"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/sources.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/sources.md::5162fded697b::0003::30530e69",
+              "title": "sources",
+              "similarity": 0.532195,
+              "snippet": "sources"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/index.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/index.md::142cfeebd75a::0003::fb310480",
+              "title": "index",
+              "similarity": 0.528067,
+              "snippet": "index"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/sources.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/sources.md::5162fded697b::0002::d10dd568",
+              "title": "sources",
+              "similarity": 0.52248,
+              "snippet": "sources"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/develop/publish.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/publish.md::c33064721898::0002::60051845",
+              "title": "publish",
+              "similarity": 0.502914,
+              "snippet": "publish"
+            }
+          ],
+          "subtheme": "modules"
+        },
+        {
+          "query": "terraform init plan apply workflow",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.512492,
+          "avg_score": 0.481521,
+          "top_source_file": "terraform_docs_selected/cli/commands/plan.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/cli/commands/plan.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/plan.md::ef9e9012f797::0003::bc50aa4e",
+              "title": "plan",
+              "similarity": 0.512492,
+              "snippet": "plan"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/state/index.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/state/index.md::4a066a3e48b8::0002::56a954f6",
+              "title": "index",
+              "similarity": 0.486324,
+              "snippet": "index"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/commands/plan.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/plan.md::ef9e9012f797::0007::76df9fce",
+              "title": "plan",
+              "similarity": 0.475892,
+              "snippet": "plan"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/commands/apply.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/apply.md::4fa476a0fd3e::0002::3fa863f3",
+              "title": "apply",
+              "similarity": 0.469051,
+              "snippet": "apply"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/backend/index.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/index.md::a0d9e5a6a9d0::0006::8a6f3f21",
+              "title": "index",
+              "similarity": 0.463845,
+              "snippet": "index"
+            }
+          ],
+          "subtheme": "workflow"
+        },
+        {
+          "query": "terraform workspace vs backend",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.617142,
+          "avg_score": 0.564173,
+          "top_source_file": "terraform_docs_selected/language/state/workspaces.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/language/state/workspaces.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/workspaces.md::a56f4877d390::0003::b407828d",
+              "title": "workspaces",
+              "similarity": 0.617142,
+              "snippet": "workspaces"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/state/workspaces.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/workspaces.md::a56f4877d390::0002::414e8f30",
+              "title": "workspaces",
+              "similarity": 0.609751,
+              "snippet": "workspaces"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/state/workspaces.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/workspaces.md::a56f4877d390::0001::0fbd76a0",
+              "title": "workspaces",
+              "similarity": 0.545744,
+              "snippet": "workspaces"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/backend/remote.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/remote.md::22662f8d36d8::0004::6ecf2056",
+              "title": "remote",
+              "similarity": 0.526038,
+              "snippet": "remote"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/backend/remote.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/remote.md::22662f8d36d8::0007::c3d70964",
+              "title": "remote",
+              "similarity": 0.522191,
+              "snippet": "remote"
+            }
+          ],
+          "subtheme": "workflow"
+        }
+      ]
+    },
+    {
+      "domain": "observability",
+      "domain_name": "Observability",
+      "weight": 1.1,
+      "subthemes": [
+        {
+          "subtheme": "alertmanager",
+          "name": "Alertmanager routing",
+          "well": 0,
+          "partial": 1,
+          "gap": 0,
+          "avg_max": 0.547834,
+          "avg_avg": 0.531979,
+          "query_count": 1
+        },
+        {
+          "subtheme": "prometheus_config",
+          "name": "Prometheus config and rules",
+          "well": 2,
+          "partial": 1,
+          "gap": 0,
+          "avg_max": 0.605429,
+          "avg_avg": 0.540844,
+          "query_count": 3
+        },
+        {
+          "subtheme": "promql",
+          "name": "PromQL",
+          "well": 0,
+          "partial": 1,
+          "gap": 0,
+          "avg_max": 0.573065,
+          "avg_avg": 0.486898,
+          "query_count": 1
+        },
+        {
+          "subtheme": "grafana_alerting",
+          "name": "Grafana alerting",
+          "well": 1,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.6532,
+          "avg_avg": 0.622236,
+          "query_count": 1
+        },
+        {
+          "subtheme": "grafana_datasource_dashboards",
+          "name": "Grafana datasource and dashboards",
+          "well": 2,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.675023,
+          "avg_avg": 0.6516,
+          "query_count": 2
+        }
+      ],
+      "total_queries": 8,
+      "well": 5,
+      "partial": 3,
+      "gap": 0,
+      "avg_max": 0.617554,
+      "avg_avg": 0.570856,
+      "priority_score": 22.688,
+      "weak_subthemes": [
+        "alertmanager",
+        "promql"
+      ],
+      "recommended_next_action": "expandir recorte direcionado + persistencia semantica incremental",
+      "rows": [
+        {
+          "query": "prometheus scrape_configs relabel_configs example",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.465269,
+          "avg_score": 0.445503,
+          "top_source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0001::9662028e",
+              "title": "index",
+              "similarity": 0.465269,
+              "snippet": "index"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/configuration/configuration.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/configuration.md::2028dc2481b5::0006::db1056b8",
+              "title": "configuration",
+              "similarity": 0.45331,
+              "snippet": "configuration"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md::017167823c03::0001::baecc33c",
+              "title": "index",
+              "similarity": 0.439104,
+              "snippet": "index"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/configuration/configuration.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/configuration.md::2028dc2481b5::0007::ad934c49",
+              "title": "configuration",
+              "similarity": 0.436186,
+              "snippet": "configuration"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0003::ea34ca81",
+              "title": "http sd",
+              "similarity": 0.433648,
+              "snippet": "http sd"
+            }
+          ],
+          "subtheme": "prometheus_config"
+        },
+        {
+          "query": "prometheus recording rules and alerting rules",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.676008,
+          "avg_score": 0.6496,
+          "top_source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/alerting_rules.md::92085dedf36a::0001::3e75e016",
+              "title": "alerting rules",
+              "similarity": 0.676008,
+              "snippet": "alerting rules"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/recording_rules.md::7d9a9264340a::0001::30684486",
+              "title": "recording rules",
+              "similarity": 0.668962,
+              "snippet": "recording rules"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/recording_rules.md::7d9a9264340a::0004::01396e82",
+              "title": "recording rules",
+              "similarity": 0.649974,
+              "snippet": "recording rules"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/alerting_rules.md::92085dedf36a::0007::20a04585",
+              "title": "alerting rules",
+              "similarity": 0.6419,
+              "snippet": "alerting rules"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/alerting_rules.md::92085dedf36a::0003::1991fac4",
+              "title": "alerting rules",
+              "similarity": 0.611156,
+              "snippet": "alerting rules"
+            }
+          ],
+          "subtheme": "prometheus_config"
+        },
+        {
+          "query": "prometheus service discovery http_sd kubernetes",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.67501,
+          "avg_score": 0.52743,
+          "top_source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0001::f8f16dda",
+              "title": "http sd",
+              "similarity": 0.67501,
+              "snippet": "http sd"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0003::ea34ca81",
+              "title": "http sd",
+              "similarity": 0.554976,
+              "snippet": "http sd"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0002::03f99af4",
+              "title": "http sd",
+              "similarity": 0.496948,
+              "snippet": "http sd"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0004::7678fa20",
+              "title": "http sd",
+              "similarity": 0.482217,
+              "snippet": "http sd"
+            },
+            {
+              "source_file": "data/raw_review/ckad_exercises_modules/i.crd.md",
+              "chunk_id": "semantic-api-9d1041f3-3",
+              "title": "## CRD in K8s",
+              "similarity": 0.428001,
+              "snippet": "## CRD in K8s"
+            }
+          ],
+          "subtheme": "prometheus_config"
+        },
+        {
+          "query": "promql rate sum by instance",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.573065,
+          "avg_score": 0.486898,
+          "top_source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/examples.md::620dc4a03e29::0003::1782019f",
+              "title": "examples",
+              "similarity": 0.573065,
+              "snippet": "examples"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/template-variables/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/template-variables/_index.md::09acd9e19b4e::0007::f4732863",
+              "title": "index",
+              "similarity": 0.530569,
+              "snippet": "index"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/examples.md::620dc4a03e29::0004::994bea49",
+              "title": "examples",
+              "similarity": 0.467706,
+              "snippet": "examples"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/querying/basics.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/basics.md::de1194d5db88::0001::2e4949b0",
+              "title": "basics",
+              "similarity": 0.434903,
+              "snippet": "basics"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/examples.md::620dc4a03e29::0002::7c86a48a",
+              "title": "examples",
+              "similarity": 0.428245,
+              "snippet": "examples"
+            }
+          ],
+          "subtheme": "promql"
+        },
+        {
+          "query": "grafana prometheus datasource configuration",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.661753,
+          "avg_score": 0.635502,
+          "top_source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md::017167823c03::0002::b6928443",
+              "title": "index",
+              "similarity": 0.661753,
+              "snippet": "index"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0001::9662028e",
+              "title": "index",
+              "similarity": 0.655732,
+              "snippet": "index"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md::017167823c03::0001::baecc33c",
+              "title": "index",
+              "similarity": 0.636548,
+              "snippet": "index"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0005::449f9148",
+              "title": "index",
+              "similarity": 0.61618,
+              "snippet": "index"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0004::06b7d8d3",
+              "title": "index",
+              "similarity": 0.607296,
+              "snippet": "index"
+            }
+          ],
+          "subtheme": "grafana_datasource_dashboards"
+        },
+        {
+          "query": "grafana dashboard variables template variables",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.688293,
+          "avg_score": 0.667698,
+          "top_source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md::5956212bc191::0006::abb5246c",
+              "title": "index",
+              "similarity": 0.688293,
+              "snippet": "index"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md::f0c5364e797e::0004::0958760d",
+              "title": "index",
+              "similarity": 0.666351,
+              "snippet": "index"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md::f0c5364e797e::0003::38ddfa8a",
+              "title": "index",
+              "similarity": 0.662836,
+              "snippet": "index"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md::5956212bc191::0005::55801886",
+              "title": "index",
+              "similarity": 0.661635,
+              "snippet": "index"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md::5956212bc191::0003::2855d83a",
+              "title": "index",
+              "similarity": 0.659376,
+              "snippet": "index"
+            }
+          ],
+          "subtheme": "grafana_datasource_dashboards"
+        },
+        {
+          "query": "grafana alerting provisioning contact points",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.6532,
+          "avg_score": 0.622236,
+          "top_source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md::84c3b2939eab::0001::b338cf98",
+              "title": "index",
+              "similarity": 0.6532,
+              "snippet": "index"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md::84c3b2939eab::0002::13c29e9e",
+              "title": "index",
+              "similarity": 0.640953,
+              "snippet": "index"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md::1e0cd8a6bedc::0002::45833e47",
+              "title": "index",
+              "similarity": 0.617485,
+              "snippet": "index"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-notification-policy.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-notification-policy.md::4db335b2817d::0002::34083f99",
+              "title": "create notification policy",
+              "similarity": 0.605061,
+              "snippet": "create notification policy"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md::1e0cd8a6bedc::0007::7d6088cb",
+              "title": "index",
+              "similarity": 0.594482,
+              "snippet": "index"
+            }
+          ],
+          "subtheme": "grafana_alerting"
+        },
+        {
+          "query": "alertmanager route receivers grouping inhibition silences templates",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.547834,
+          "avg_score": 0.531979,
+          "top_source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-silence.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-silence.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-silence.md::4e3dbeb4ffd4::0002::906766c8",
+              "title": "create silence",
+              "similarity": 0.547834,
+              "snippet": "create silence"
+            },
+            {
+              "source_file": "observability_docs_selected/alertmanager/docs/notification_examples.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/notification_examples.md::fe1d7d47dfe0::0002::22e9b3ee",
+              "title": "notification examples",
+              "similarity": 0.537582,
+              "snippet": "notification examples"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/inhibition-rules.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/inhibition-rules.md::3787a4ab38d9::0002::ddfb40d1",
+              "title": "inhibition rules",
+              "similarity": 0.531867,
+              "snippet": "inhibition rules"
+            },
+            {
+              "source_file": "observability_docs_selected/alertmanager/docs/alertmanager.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/alertmanager.md::6fda2c11cd14::0002::264b1197",
+              "title": "alertmanager",
+              "similarity": 0.525945,
+              "snippet": "alertmanager"
+            },
+            {
+              "source_file": "observability_docs_selected/alertmanager/docs/alertmanager.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/alertmanager.md::6fda2c11cd14::0003::0792e0f4",
+              "title": "alertmanager",
+              "similarity": 0.516668,
+              "snippet": "alertmanager"
+            }
+          ],
+          "subtheme": "alertmanager"
+        }
+      ]
+    },
+    {
+      "domain": "docker",
+      "domain_name": "Docker",
+      "weight": 1.05,
+      "subthemes": [
+        {
+          "subtheme": "security",
+          "name": "Security and hardening",
+          "well": 0,
+          "partial": 2,
+          "gap": 0,
+          "avg_max": 0.518903,
+          "avg_avg": 0.492638,
+          "query_count": 2
+        },
+        {
+          "subtheme": "build_cache",
+          "name": "Build cache and BuildKit",
+          "well": 2,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.62881,
+          "avg_avg": 0.556276,
+          "query_count": 2
+        },
+        {
+          "subtheme": "build_multistage",
+          "name": "Multi-stage build",
+          "well": 1,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.657887,
+          "avg_avg": 0.57767,
+          "query_count": 1
+        },
+        {
+          "subtheme": "networking",
+          "name": "Networking drivers",
+          "well": 1,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.62078,
+          "avg_avg": 0.569162,
+          "query_count": 1
+        },
+        {
+          "subtheme": "storage",
+          "name": "Volumes and storage drivers",
+          "well": 2,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.639435,
+          "avg_avg": 0.535612,
+          "query_count": 2
+        }
+      ],
+      "total_queries": 8,
+      "well": 6,
+      "partial": 2,
+      "gap": 0,
+      "avg_max": 0.60662,
+      "avg_avg": 0.539486,
+      "priority_score": 14.438,
+      "weak_subthemes": [
+        "security"
+      ],
+      "recommended_next_action": "expandir recorte direcionado + persistencia semantica incremental",
+      "rows": [
+        {
+          "query": "docker multi stage build best practices",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.657887,
+          "avg_score": 0.57767,
+          "top_source_file": "docker_docs_selected/content/manuals/build/building/multi-stage.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/building/multi-stage.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/multi-stage.md::0b36c21cda1b::0001::2347a91e",
+              "title": "multi stage",
+              "similarity": 0.657887,
+              "snippet": "multi stage"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/best-practices.md::0aad9a6cecbb::0002::11841eb8",
+              "title": "best practices",
+              "similarity": 0.625223,
+              "snippet": "best practices"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/best-practices.md::0aad9a6cecbb::0001::cbf94334",
+              "title": "best practices",
+              "similarity": 0.623404,
+              "snippet": "best practices"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/optimize.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/optimize.md::2fbc0606377e::0001::3ea1d26c",
+              "title": "optimize",
+              "similarity": 0.491905,
+              "snippet": "optimize"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/building/multi-platform.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/multi-platform.md::dc2ddf177f5b::0001::e5463690",
+              "title": "multi platform",
+              "similarity": 0.489929,
+              "snippet": "multi platform"
+            }
+          ],
+          "subtheme": "build_multistage"
+        },
+        {
+          "query": "docker build cache",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.618553,
+          "avg_score": 0.582772,
+          "top_source_file": "docker_docs_selected/content/manuals/build/cache/_index.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/_index.md::11ca5f093360::0001::4c437cbe",
+              "title": "index",
+              "similarity": 0.618553,
+              "snippet": "index"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/optimize.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/optimize.md::2fbc0606377e::0001::3ea1d26c",
+              "title": "optimize",
+              "similarity": 0.598685,
+              "snippet": "optimize"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/backends/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/backends/_index.md::0611afc9160c::0001::1174b177",
+              "title": "index",
+              "similarity": 0.576038,
+              "snippet": "index"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/backends/gha.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/backends/gha.md::b5d9d36ee2d5::0001::b6881f2c",
+              "title": "gha",
+              "similarity": 0.57027,
+              "snippet": "gha"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/invalidation.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/invalidation.md::737fdc7bfb24::0001::77ac3d41",
+              "title": "invalidation",
+              "similarity": 0.550316,
+              "snippet": "invalidation"
+            }
+          ],
+          "subtheme": "build_cache"
+        },
+        {
+          "query": "docker buildkit",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.639067,
+          "avg_score": 0.529781,
+          "top_source_file": "docker_docs_selected/content/manuals/build/buildkit/_index.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/buildkit/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/buildkit/_index.md::fd6a61970d84::0001::463699a6",
+              "title": "index",
+              "similarity": 0.639067,
+              "snippet": "index"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/buildkit/configure.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/buildkit/configure.md::29841432876e::0001::a1185e71",
+              "title": "configure",
+              "similarity": 0.567621,
+              "snippet": "configure"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/building/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/_index.md::d517aef2dd84::0001::c3c1cef2",
+              "title": "index",
+              "similarity": 0.485161,
+              "snippet": "index"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/optimize.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/optimize.md::2fbc0606377e::0001::3ea1d26c",
+              "title": "optimize",
+              "similarity": 0.47962,
+              "snippet": "optimize"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/garbage-collection.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/garbage-collection.md::edcb56521a6e::0001::542fb636",
+              "title": "garbage collection",
+              "similarity": 0.477437,
+              "snippet": "garbage collection"
+            }
+          ],
+          "subtheme": "build_cache"
+        },
+        {
+          "query": "docker networking bridge host overlay",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.62078,
+          "avg_score": 0.569162,
+          "top_source_file": "docker_docs_selected/content/manuals/engine/network/drivers/overlay.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/overlay.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/overlay.md::3e27ed031293::0001::e022cd7e",
+              "title": "overlay",
+              "similarity": 0.62078,
+              "snippet": "overlay"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/bridge.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/bridge.md::b5e01f6afe26::0001::aaec60e5",
+              "title": "bridge",
+              "similarity": 0.58357,
+              "snippet": "bridge"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/_index.md::abac47b03d7e::0001::057a07ee",
+              "title": "index",
+              "similarity": 0.578826,
+              "snippet": "index"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/host.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/host.md::235bfb98fe3a::0001::c4eb3278",
+              "title": "host",
+              "similarity": 0.557983,
+              "snippet": "host"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/ipvlan.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/ipvlan.md::0ceb3417bb3e::0001::897c42dc",
+              "title": "ipvlan",
+              "similarity": 0.504652,
+              "snippet": "ipvlan"
+            }
+          ],
+          "subtheme": "networking"
+        },
+        {
+          "query": "docker volumes vs bind mounts",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.66314,
+          "avg_score": 0.511398,
+          "top_source_file": "docker_docs_selected/content/manuals/engine/storage/bind-mounts.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/bind-mounts.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/bind-mounts.md::c4baa79b1411::0001::66229216",
+              "title": "bind mounts",
+              "similarity": 0.66314,
+              "snippet": "bind mounts"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/volumes.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/volumes.md::632b8768a78f::0001::b43ca522",
+              "title": "volumes",
+              "similarity": 0.566893,
+              "snippet": "volumes"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/tmpfs.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/tmpfs.md::6b71df93ac43::0001::0bc847f9",
+              "title": "tmpfs",
+              "similarity": 0.468338,
+              "snippet": "tmpfs"
+            },
+            {
+              "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+              "chunk_id": "semantic-api-73c2e379-4",
+              "title": "## Define volumes",
+              "similarity": 0.42931,
+              "snippet": "## Define volumes"
+            },
+            {
+              "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+              "chunk_id": "semantic-api-73c2e379-4",
+              "title": "## Define volumes",
+              "similarity": 0.42931,
+              "snippet": "## Define volumes"
+            }
+          ],
+          "subtheme": "storage"
+        },
+        {
+          "query": "docker storage drivers",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.61573,
+          "avg_score": 0.559826,
+          "top_source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/_index.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/_index.md::45472398de42::0001::577f67a9",
+              "title": "index",
+              "similarity": 0.61573,
+              "snippet": "index"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/select-storage-driver.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/select-storage-driver.md::f8b8175cb214::0001::6b4076ff",
+              "title": "select storage driver",
+              "similarity": 0.585213,
+              "snippet": "select storage driver"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/vfs-driver.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/vfs-driver.md::65cde9116182::0001::9c538db7",
+              "title": "vfs driver",
+              "similarity": 0.538614,
+              "snippet": "vfs driver"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/btrfs-driver.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/btrfs-driver.md::cb80fa634ab6::0001::af7e2b15",
+              "title": "btrfs driver",
+              "similarity": 0.530574,
+              "snippet": "btrfs driver"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/overlayfs-driver.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/overlayfs-driver.md::494aeb9cb28d::0001::0b05811c",
+              "title": "overlayfs driver",
+              "similarity": 0.528997,
+              "snippet": "overlayfs driver"
+            }
+          ],
+          "subtheme": "storage"
+        },
+        {
+          "query": "docker security best practices",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.515767,
+          "avg_score": 0.493849,
+          "top_source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/best-practices.md::0aad9a6cecbb::0001::cbf94334",
+              "title": "best practices",
+              "similarity": 0.515767,
+              "snippet": "best practices"
+            },
+            {
+              "source_file": "__smoke_openai__.md",
+              "chunk_id": "smoke-openai-2",
+              "title": "Smoke Chunk 2",
+              "similarity": 0.512932,
+              "snippet": "Smoke Chunk 2"
+            },
+            {
+              "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+              "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+              "title": "AWS Security Cookbook",
+              "similarity": 0.504891,
+              "snippet": "AWS Security Cookbook"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/security/antivirus.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/antivirus.md::46aaa416276d::0001::afe59d04",
+              "title": "antivirus",
+              "similarity": 0.473073,
+              "snippet": "antivirus"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/security/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/_index.md::bf9c126d4fc7::0001::9725dbdd",
+              "title": "index",
+              "similarity": 0.462581,
+              "snippet": "index"
+            }
+          ],
+          "subtheme": "security"
+        },
+        {
+          "query": "docker image hardening",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.522039,
+          "avg_score": 0.491427,
+          "top_source_file": "__smoke_openai__.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "__smoke_openai__.md",
+              "chunk_id": "smoke-openai-2",
+              "title": "Smoke Chunk 2",
+              "similarity": 0.522039,
+              "snippet": "Smoke Chunk 2"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/security/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/_index.md::bf9c126d4fc7::0001::9725dbdd",
+              "title": "index",
+              "similarity": 0.505503,
+              "snippet": "index"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/security/seccomp.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/seccomp.md::b369f0326eef::0001::a88b8b7e",
+              "title": "seccomp",
+              "similarity": 0.479435,
+              "snippet": "seccomp"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/security/protect-access.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/protect-access.md::01f06e91ca3c::0001::a246de2e",
+              "title": "protect access",
+              "similarity": 0.476812,
+              "snippet": "protect access"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/security/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/security/_index.md::ce5fc0aa0e5b::0001::0645be3e",
+              "title": "index",
+              "similarity": 0.473346,
+              "snippet": "index"
+            }
+          ],
+          "subtheme": "security"
+        }
+      ]
+    },
+    {
+      "domain": "aws_iam",
+      "domain_name": "AWS IAM",
+      "weight": 1.0,
+      "subthemes": [
+        {
+          "subtheme": "boundaries_scp",
+          "name": "Boundaries and SCP",
+          "well": 3,
+          "partial": 1,
+          "gap": 0,
+          "avg_max": 0.621078,
+          "avg_avg": 0.584006,
+          "query_count": 4
+        },
+        {
+          "subtheme": "policy_evaluation",
+          "name": "Policy evaluation logic",
+          "well": 2,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.642645,
+          "avg_avg": 0.616335,
+          "query_count": 2
+        },
+        {
+          "subtheme": "policy_simulator",
+          "name": "Policy simulator",
+          "well": 2,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.634656,
+          "avg_avg": 0.596098,
+          "query_count": 2
+        }
+      ],
+      "total_queries": 8,
+      "well": 7,
+      "partial": 1,
+      "gap": 0,
+      "avg_max": 0.629864,
+      "avg_avg": 0.595111,
+      "priority_score": 6.875,
+      "weak_subthemes": [],
+      "recommended_next_action": "expandir recorte direcionado + persistencia semantica incremental",
+      "rows": [
+        {
+          "query": "aws iam policy evaluation order explicit deny allow",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.643978,
+          "avg_score": 0.605203,
+          "top_source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md::afa322c1ff97::0002::5dd9c45b",
+              "title": "iam policy evaluation explicit deny allow",
+              "similarity": 0.643978,
+              "snippet": "iam policy evaluation explicit deny allow"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md::afa322c1ff97::0003::8ecd4d38",
+              "title": "iam policy evaluation explicit deny allow",
+              "similarity": 0.610961,
+              "snippet": "iam policy evaluation explicit deny allow"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md::afa322c1ff97::0004::3368f674",
+              "title": "iam policy evaluation explicit deny allow",
+              "similarity": 0.601604,
+              "snippet": "iam policy evaluation explicit deny allow"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md::afa322c1ff97::0005::27acda44",
+              "title": "iam policy evaluation explicit deny allow",
+              "similarity": 0.585271,
+              "snippet": "iam policy evaluation explicit deny allow"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md::afa322c1ff97::0001::88283fec",
+              "title": "iam policy evaluation explicit deny allow",
+              "similarity": 0.584201,
+              "snippet": "iam policy evaluation explicit deny allow"
+            }
+          ],
+          "subtheme": "policy_evaluation"
+        },
+        {
+          "query": "aws iam policy simulator simulate-principal-policy",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.631103,
+          "avg_score": 0.600686,
+          "top_source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "title": "iam policy simulator",
+              "snippet": "iam policy simulator",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0002::0acd97de",
+              "similarity": 0.631103,
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md"
+            },
+            {
+              "title": "iam policy simulator",
+              "snippet": "iam policy simulator",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0001::8f62c206",
+              "similarity": 0.625089,
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md"
+            },
+            {
+              "title": "iam policy simulator",
+              "snippet": "iam policy simulator",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0006::4a07d885",
+              "similarity": 0.589026,
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md"
+            },
+            {
+              "title": "iam policy simulator",
+              "snippet": "iam policy simulator",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0007::f87f7c6c",
+              "similarity": 0.581757,
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md"
+            },
+            {
+              "title": "iam policy simulator",
+              "snippet": "iam policy simulator",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0004::f5ef68f7",
+              "similarity": 0.576453,
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md"
+            }
+          ],
+          "subtheme": "policy_simulator"
+        },
+        {
+          "query": "aws iam permissions boundaries effective permissions",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.691305,
+          "avg_score": 0.614013,
+          "top_source_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_permissions_boundaries.md::c47d1c58023d::0005::bae20c09",
+              "title": "iam permissions boundaries",
+              "similarity": 0.691305,
+              "snippet": "iam permissions boundaries"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_permissions_boundaries.md::c47d1c58023d::0001::3ca9cd5b",
+              "title": "iam permissions boundaries",
+              "similarity": 0.652618,
+              "snippet": "iam permissions boundaries"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_permissions_boundaries.md::c47d1c58023d::0004::6bb9b9ca",
+              "title": "iam permissions boundaries",
+              "similarity": 0.577747,
+              "snippet": "iam permissions boundaries"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_logic.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_logic.md::894c2601e124::0004::4a4a0e73",
+              "title": "iam policy evaluation logic",
+              "similarity": 0.574787,
+              "snippet": "iam policy evaluation logic"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_logic.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_logic.md::894c2601e124::0003::27489a42",
+              "title": "iam policy evaluation logic",
+              "similarity": 0.573608,
+              "snippet": "iam policy evaluation logic"
+            }
+          ],
+          "subtheme": "boundaries_scp"
+        },
+        {
+          "query": "aws organizations service control policy scp evaluation logic",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.675913,
+          "avg_score": 0.669302,
+          "top_source_file": "aws_iam_docs_selected/org_scps_overview.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_overview.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_overview.md::0f09c0e06fe1::0001::ba357ef0",
+              "title": "org scps overview",
+              "similarity": 0.675913,
+              "snippet": "org scps overview"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0004::5b4cd16e",
+              "title": "org scps examples",
+              "similarity": 0.67323,
+              "snippet": "org scps examples"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0005::3ceafa2e",
+              "title": "org scps examples",
+              "similarity": 0.66855,
+              "snippet": "org scps examples"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0007::3df97d2a",
+              "title": "org scps examples",
+              "similarity": 0.668093,
+              "snippet": "org scps examples"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_evaluation.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_evaluation.md::4cfe0e84fe35::0001::61db8ad7",
+              "title": "org scps evaluation",
+              "similarity": 0.660723,
+              "snippet": "org scps evaluation"
+            }
+          ],
+          "subtheme": "boundaries_scp"
+        },
+        {
+          "query": "aws iam identity policy resource policy permissions boundary scp interaction",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.641311,
+          "avg_score": 0.627466,
+          "top_source_file": "aws_iam_docs_selected/org_scps_examples.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0002::fb56a205",
+              "title": "org scps examples",
+              "similarity": 0.641311,
+              "snippet": "org scps examples"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_logic.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_logic.md::894c2601e124::0003::27489a42",
+              "title": "iam policy evaluation logic",
+              "similarity": 0.637615,
+              "snippet": "iam policy evaluation logic"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_overview.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_overview.md::0f09c0e06fe1::0007::453e4e47",
+              "title": "org scps overview",
+              "similarity": 0.628529,
+              "snippet": "org scps overview"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_logic.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_logic.md::894c2601e124::0004::4a4a0e73",
+              "title": "iam policy evaluation logic",
+              "similarity": 0.617214,
+              "snippet": "iam policy evaluation logic"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0003::023e2637",
+              "title": "org scps examples",
+              "similarity": 0.61266,
+              "snippet": "org scps examples"
+            }
+          ],
+          "subtheme": "policy_evaluation"
+        },
+        {
+          "query": "aws iam policy simulator context keys condition testing",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.638209,
+          "avg_score": 0.59151,
+          "top_source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0006::4a07d885",
+              "title": "iam policy simulator",
+              "similarity": 0.638209,
+              "snippet": "iam policy simulator"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0001::8f62c206",
+              "title": "iam policy simulator",
+              "similarity": 0.593935,
+              "snippet": "iam policy simulator"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0002::0acd97de",
+              "title": "iam policy simulator",
+              "similarity": 0.584255,
+              "snippet": "iam policy simulator"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0005::74e12585",
+              "title": "iam policy simulator",
+              "similarity": 0.578236,
+              "snippet": "iam policy simulator"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_condition_element.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_condition_element.md::f197711e0ab1::0002::5792e661",
+              "title": "iam condition element",
+              "similarity": 0.562913,
+              "snippet": "iam condition element"
+            }
+          ],
+          "subtheme": "policy_simulator"
+        },
+        {
+          "query": "aws scp syntax deny guardrails examples",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.510453,
+          "avg_score": 0.493109,
+          "top_source_file": "aws_iam_docs_selected/org_scps_examples.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0007::3df97d2a",
+              "title": "org scps examples",
+              "similarity": 0.510453,
+              "snippet": "org scps examples"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_evaluation.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_evaluation.md::4cfe0e84fe35::0005::7ed0b978",
+              "title": "org scps evaluation",
+              "similarity": 0.507089,
+              "snippet": "org scps evaluation"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_evaluation.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_evaluation.md::4cfe0e84fe35::0002::b224531d",
+              "title": "org scps evaluation",
+              "similarity": 0.487794,
+              "snippet": "org scps evaluation"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0008::c093face",
+              "title": "org scps examples",
+              "similarity": 0.481859,
+              "snippet": "org scps examples"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_syntax.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_syntax.md::cc7beb7847c7::0007::0a103624",
+              "title": "org scps syntax",
+              "similarity": 0.478351,
+              "snippet": "org scps syntax"
+            }
+          ],
+          "subtheme": "boundaries_scp"
+        },
+        {
+          "query": "aws iam permissions boundary vs scp differences",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.60664,
+          "avg_score": 0.5596,
+          "top_source_file": "aws_iam_docs_selected/org_scps_overview.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_overview.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_overview.md::0f09c0e06fe1::0007::453e4e47",
+              "title": "org scps overview",
+              "similarity": 0.60664,
+              "snippet": "org scps overview"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_overview.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_overview.md::0f09c0e06fe1::0003::d33af021",
+              "title": "org scps overview",
+              "similarity": 0.585255,
+              "snippet": "org scps overview"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_permissions_boundaries.md::c47d1c58023d::0001::3ca9cd5b",
+              "title": "iam permissions boundaries",
+              "similarity": 0.54529,
+              "snippet": "iam permissions boundaries"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_evaluation.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_evaluation.md::4cfe0e84fe35::0005::7ed0b978",
+              "title": "org scps evaluation",
+              "similarity": 0.530758,
+              "snippet": "org scps evaluation"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0002::fb56a205",
+              "title": "org scps examples",
+              "similarity": 0.530057,
+              "snippet": "org scps examples"
+            }
+          ],
+          "subtheme": "boundaries_scp"
+        }
+      ]
+    }
+  ]
+}

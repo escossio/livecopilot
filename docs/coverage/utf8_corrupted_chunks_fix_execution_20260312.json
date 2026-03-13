@@ -1,0 +1,8 @@
+{
+  "generated_at": "2026-03-12T04:30:17.301507+00:00",
+  "scope": "utf8_corrupted_chunks_targeted_fix_execution",
+  "source_file": "observability_docs_selected/alertmanager/docs/high_availability.md",
+  "rows_targeted": 2,
+  "rows_updated": 2,
+  "plan_file": "/lab/projects/livecopilot/docs/coverage/utf8_corrupted_chunks_fix_plan_20260312.json"
+}

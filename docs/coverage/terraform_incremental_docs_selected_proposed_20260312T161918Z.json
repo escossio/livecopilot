@@ -1,0 +1,43 @@
+{
+  "generated_at": "20260312T161918Z",
+  "domain": "terraform",
+  "scope": "incremental_small_targeted",
+  "target_raw_dir": "data/knowledge_raw/terraform_docs_selected_incremental",
+  "clone_source": "data/knowledge_raw/_official_repo_clones/web-unified-docs",
+  "justification": {
+    "residual_subthemes": [
+      "modules",
+      "locking",
+      "workflow"
+    ],
+    "reason": "partial residual em 4/8 queries; cobertura oficial ja existe mas com densidade semantica limitada em docs longos",
+    "evidence_refs": [
+      "docs/coverage/terraform_priority_diagnosis_20260312T161918Z.json",
+      "docs/coverage/terraform_subthemes_prioritized_20260312T161918Z.json"
+    ]
+  },
+  "selected_repo_paths": [
+    "content/terraform/v1.14.x/docs/language/modules/sources.mdx",
+    "content/terraform/v1.14.x/docs/language/modules/develop/structure.mdx",
+    "content/terraform/v1.14.x/docs/language/modules/develop/composition.mdx",
+    "content/terraform/v1.14.x/docs/language/modules/develop/providers.mdx",
+    "content/terraform/v1.14.x/docs/language/modules/develop/refactoring.mdx",
+    "content/terraform/v1.14.x/docs/cli/commands/plan.mdx",
+    "content/terraform/v1.14.x/docs/cli/commands/init.mdx",
+    "content/terraform/v1.14.x/docs/cli/commands/apply.mdx",
+    "content/terraform/v1.14.x/docs/cli/commands/force-unlock.mdx",
+    "content/terraform/v1.14.x/docs/language/state/locking.mdx",
+    "content/terraform/v1.14.x/docs/cli/commands/modules.mdx"
+  ],
+  "selection_rules": [
+    "somente docs oficiais terraform v1.14.x",
+    "priorizar arquivos que aparecem nas queries parciais",
+    "recorte pequeno para rodada incremental controlada"
+  ],
+  "proposed_next_round_commands": [
+    "materializar somente selected_repo_paths em data/knowledge_raw/terraform_docs_selected_incremental",
+    "rodar scripts/ingest_knowledge.sh em modo controlado",
+    "persistir semanticamente apenas esse recorte com --semantic-max-chunks-per-doc maior que 8",
+    "reauditar bateria terraform e comparar before/after"
+  ]
+}

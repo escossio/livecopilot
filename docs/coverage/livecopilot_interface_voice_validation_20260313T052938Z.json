@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-03-13T05:29:38Z",
+  "validation_kind": "livecopilot_interface_voice_validation",
+  "environment": {
+    "openai_api_key_available": false,
+    "browser_binary_available": false,
+    "display": "",
+    "wayland_display": "",
+    "xdg_session_type": "tty",
+    "audio_device_paths_present": true
+  },
+  "status_endpoint": {
+    "http_status": 200,
+    "payload": {
+      "status": "ok",
+      "realtime_api_enabled": true,
+      "realtime_api_provider": "openai_realtime",
+      "realtime_api_model": "gpt-realtime-mini",
+      "realtime_api_voice": "alloy",
+      "realtime_api_language": "pt",
+      "realtime_api_key_present": false,
+      "capture_mode": "mock",
+      "capture_live": false
+    }
+  },
+  "realtime_session_endpoint": {
+    "http_status": 503,
+    "payload": {
+      "status": "error",
+      "error": "OPENAI_API_KEY ausente para Realtime API"
+    },
+    "ephemeral_session_created": false
+  },
+  "browser_validation": {
+    "attempted": false,
+    "blocked_reason": "sem OPENAI_API_KEY e sem navegador utilizavel no ambiente atual",
+    "webrtc_connection_validated": false,
+    "microphone_permission_validated": false,
+    "ui_transcription_validated": false,
+    "ui_response_validated": false
+  },
+  "conclusion": {
+    "voice_final_validation_completed": false,
+    "blocking_factors": [
+      "OPENAI_API_KEY ausente",
+      "nenhum binario de navegador disponivel",
+      "sessao tty sem DISPLAY/WAYLAND"
+    ]
+  }
+}

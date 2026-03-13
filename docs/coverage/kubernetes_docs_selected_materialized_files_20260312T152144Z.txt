@@ -1,0 +1,12 @@
+content/en/docs/concepts/configuration/configmap.md
+content/en/docs/concepts/overview/working-with-objects/namespaces.md
+content/en/docs/concepts/security/service-accounts.md
+content/en/docs/concepts/services-networking/ingress.md
+content/en/docs/concepts/services-networking/service.md
+content/en/docs/concepts/storage/persistent-volumes.md
+content/en/docs/concepts/storage/storage-classes.md
+content/en/docs/concepts/workloads/controllers/deployment.md
+content/en/docs/concepts/workloads/pods/_index.md
+content/en/docs/reference/access-authn-authz/rbac.md
+content/en/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md
+content/en/docs/tasks/debug/debug-application/debug-running-pod.md

@@ -1,0 +1,772 @@
+{
+  "generated_at": "2026-03-12T02:19:51.921980+00:00",
+  "scope": "terraform43_semantic_persist_validation",
+  "source_prefix": "terraform_docs_selected/",
+  "source_files_count_requested": 43,
+  "documents_selected": 43,
+  "documents_processed": 43,
+  "documents_validated": 43,
+  "documents_failed": 0,
+  "chunks_persisted": 209,
+  "sources_with_error": [],
+  "duplicate_source_checksum_rows": [],
+  "embedding_mode_used": "openai",
+  "cache_invalidation": {
+    "semantic_search_cache_entries_cleared": 16,
+    "query_embedding_cache_entries_cleared": 16
+  },
+  "chunks_by_source_file": {
+    "terraform_docs_selected/cli/commands/apply.md": 8,
+    "terraform_docs_selected/cli/commands/force-unlock.md": 2,
+    "terraform_docs_selected/cli/commands/init.md": 8,
+    "terraform_docs_selected/cli/commands/plan.md": 8,
+    "terraform_docs_selected/cli/commands/state/index.md": 3,
+    "terraform_docs_selected/cli/commands/state/list.md": 2,
+    "terraform_docs_selected/cli/commands/state/mv.md": 8,
+    "terraform_docs_selected/cli/commands/state/pull.md": 2,
+    "terraform_docs_selected/cli/commands/state/push.md": 3,
+    "terraform_docs_selected/cli/commands/state/rm.md": 5,
+    "terraform_docs_selected/cli/commands/state/show.md": 3,
+    "terraform_docs_selected/cli/commands/workspace/index.md": 1,
+    "terraform_docs_selected/cli/commands/workspace/list.md": 1,
+    "terraform_docs_selected/cli/commands/workspace/new.md": 2,
+    "terraform_docs_selected/cli/commands/workspace/select.md": 1,
+    "terraform_docs_selected/cli/commands/workspace/show.md": 1,
+    "terraform_docs_selected/cli/state/index.md": 2,
+    "terraform_docs_selected/cli/state/move.md": 3,
+    "terraform_docs_selected/cli/state/recover.md": 2,
+    "terraform_docs_selected/intro/phases/collaborate.md": 8,
+    "terraform_docs_selected/intro/phases/govern.md": 3,
+    "terraform_docs_selected/language/backend/index.md": 8,
+    "terraform_docs_selected/language/backend/remote.md": 8,
+    "terraform_docs_selected/language/backend/s3.md": 8,
+    "terraform_docs_selected/language/modules/configuration.md": 8,
+    "terraform_docs_selected/language/modules/develop/composition.md": 8,
+    "terraform_docs_selected/language/modules/develop/index.md": 5,
+    "terraform_docs_selected/language/modules/develop/providers.md": 8,
+    "terraform_docs_selected/language/modules/develop/publish.md": 3,
+    "terraform_docs_selected/language/modules/develop/refactoring.md": 8,
+    "terraform_docs_selected/language/modules/develop/structure.md": 8,
+    "terraform_docs_selected/language/modules/index.md": 4,
+    "terraform_docs_selected/language/modules/sources.md": 8,
+    "terraform_docs_selected/language/state/backends.md": 4,
+    "terraform_docs_selected/language/state/import.md": 1,
+    "terraform_docs_selected/language/state/index.md": 6,
+    "terraform_docs_selected/language/state/locking.md": 2,
+    "terraform_docs_selected/language/state/purpose.md": 8,
+    "terraform_docs_selected/language/state/refactor.md": 8,
+    "terraform_docs_selected/language/state/remote-state-data.md": 8,
+    "terraform_docs_selected/language/state/remote.md": 4,
+    "terraform_docs_selected/language/state/remove.md": 3,
+    "terraform_docs_selected/language/state/workspaces.md": 5
+  },
+  "raw_summary": {
+    "started_at": "2026-03-12T02:17:28.694211+00:00",
+    "finished_at": "2026-03-12T02:19:14.027871+00:00",
+    "documents_selected": 43,
+    "documents_processed": 43,
+    "documents_validated": 43,
+    "documents_failed": 0,
+    "chunks_persisted": 209,
+    "states_final": [
+      "validated"
+    ],
+    "results": [
+      {
+        "source_file": "terraform_docs_selected/cli/commands/apply.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 184,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 185,
+        "chunks_persisted": 2,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/init.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 186,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/plan.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 187,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/state/index.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 188,
+        "chunks_persisted": 3,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/state/list.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 189,
+        "chunks_persisted": 2,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 190,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/state/pull.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 191,
+        "chunks_persisted": 2,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/state/push.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 192,
+        "chunks_persisted": 3,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/state/rm.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 193,
+        "chunks_persisted": 5,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/state/show.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 194,
+        "chunks_persisted": 3,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/workspace/index.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 195,
+        "chunks_persisted": 1,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/workspace/list.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 196,
+        "chunks_persisted": 1,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/workspace/new.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 197,
+        "chunks_persisted": 2,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/workspace/select.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 198,
+        "chunks_persisted": 1,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/workspace/show.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 199,
+        "chunks_persisted": 1,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/state/index.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 200,
+        "chunks_persisted": 2,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/state/move.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 201,
+        "chunks_persisted": 3,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/state/recover.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 202,
+        "chunks_persisted": 2,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/intro/phases/collaborate.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 203,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/intro/phases/govern.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 204,
+        "chunks_persisted": 3,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/backend/index.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 205,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/backend/remote.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 206,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/backend/s3.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 207,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/configuration.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 208,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/develop/composition.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 209,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/develop/index.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 210,
+        "chunks_persisted": 5,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/develop/providers.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 211,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/develop/publish.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 212,
+        "chunks_persisted": 3,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/develop/refactoring.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 213,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 214,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/index.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 215,
+        "chunks_persisted": 4,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/modules/sources.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 216,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/backends.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 217,
+        "chunks_persisted": 4,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/import.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 218,
+        "chunks_persisted": 1,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/index.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 219,
+        "chunks_persisted": 6,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/locking.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 220,
+        "chunks_persisted": 2,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/purpose.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 221,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/refactor.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 222,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/remote-state-data.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 223,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/remote.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 224,
+        "chunks_persisted": 4,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/remove.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 225,
+        "chunks_persisted": 3,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/workspaces.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 226,
+        "chunks_persisted": 5,
+        "embedding_mode_used": "openai"
+      }
+    ],
+    "embedding_mode_used": "openai",
+    "manifest_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_manifest.json",
+    "state_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_state.json",
+    "cache_invalidation": {
+      "semantic_search_cache_entries_cleared": 16,
+      "query_embedding_cache_entries_cleared": 16
+    }
+  }
+}

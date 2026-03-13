@@ -1,0 +1,74 @@
+{
+  "generated_at": "2026-03-13T03:33:22.751090+00:00",
+  "pipeline": "knowledge_pipeline_v1",
+  "mode": "plan",
+  "round_id": "20260313T033200Z-knowledge-pipeline-v2-terraform",
+  "side_effects_expected": false,
+  "artifacts": {
+    "plan_artifact": "docs/coverage/knowledge_pipeline_plan_20260313T033200Z-knowledge-pipeline-v2-terraform.json"
+  },
+  "plan": {
+    "generated_at": "2026-03-13T03:33:22.705697+00:00",
+    "plan_mode": "prefix_round_preview",
+    "source_prefixes": [
+      "terraform_docs_selected_incremental"
+    ],
+    "ingest_dry_run": {
+      "selection_mode": "resolved_from_source_prefix",
+      "files_found_by_prefix": {
+        "terraform_docs_selected_incremental": 11
+      },
+      "total_found": 11,
+      "targets_sample": [
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md"
+      ],
+      "targets_sample_size": 11,
+      "targets_sample_truncated": false
+    },
+    "semantic_list_targets": {
+      "payload_kind": "list_targets",
+      "selection_mode": "resolved_from_source_prefix",
+      "source_files_resolved_by_prefix": {
+        "terraform_docs_selected_incremental": 11
+      },
+      "source_files_resolved_total": 11,
+      "source_files_sample": [
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md"
+      ],
+      "source_files_sample_size": 11,
+      "source_files_sample_truncated": false,
+      "note": ""
+    },
+    "totals": {
+      "ingest_total_found": 11,
+      "semantic_total_source_files": 11
+    },
+    "divergence": {
+      "ingest_only_count": 0,
+      "semantic_only_count": 0,
+      "ingest_only_sample": [],
+      "semantic_only_sample": [],
+      "has_divergence": false
+    }
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "generated_at": "20260312T174039Z",
+  "baseline": {
+    "well": 4,
+    "partial": 4,
+    "gap": 0
+  },
+  "simulations": [
+    {
+      "scenario": {
+        "id": "baseline",
+        "well_max": 0.6,
+        "well_avg": 0.45,
+        "gap_max": 0.45
+      },
+      "well": 4,
+      "partial": 4,
+      "gap": 0,
+      "partial_to_well": 0,
+      "well_to_partial_regressions": 0,
+      "changes": []
+    },
+    {
+      "scenario": {
+        "id": "well_max_0_59",
+        "well_max": 0.59,
+        "well_avg": 0.45,
+        "gap_max": 0.45
+      },
+      "well": 4,
+      "partial": 4,
+      "gap": 0,
+      "partial_to_well": 0,
+      "well_to_partial_regressions": 0,
+      "changes": []
+    },
+    {
+      "scenario": {
+        "id": "well_max_0_58",
+        "well_max": 0.58,
+        "well_avg": 0.45,
+        "gap_max": 0.45
+      },
+      "well": 4,
+      "partial": 4,
+      "gap": 0,
+      "partial_to_well": 0,
+      "well_to_partial_regressions": 0,
+      "changes": []
+    },
+    {
+      "scenario": {
+        "id": "well_max_0_57",
+        "well_max": 0.57,
+        "well_avg": 0.45,
+        "gap_max": 0.45
+      },
+      "well": 4,
+      "partial": 4,
+      "gap": 0,
+      "partial_to_well": 0,
+      "well_to_partial_regressions": 0,
+      "changes": []
+    },
+    {
+      "scenario": {
+        "id": "well_max_0_56",
+        "well_max": 0.56,
+        "well_avg": 0.45,
+        "gap_max": 0.45
+      },
+      "well": 4,
+      "partial": 4,
+      "gap": 0,
+      "partial_to_well": 0,
+      "well_to_partial_regressions": 0,
+      "changes": []
+    },
+    {
+      "scenario": {
+        "id": "well_max_0_55",
+        "well_max": 0.55,
+        "well_avg": 0.45,
+        "gap_max": 0.45
+      },
+      "well": 6,
+      "partial": 2,
+      "gap": 0,
+      "partial_to_well": 2,
+      "well_to_partial_regressions": 0,
+      "changes": [
+        {
+          "query": "terraform force unlock",
+          "from": "parcial",
+          "to": "bem_coberta",
+          "score_max": 0.557261,
+          "score_avg": 0.54297
+        },
+        {
+          "query": "terraform module sources",
+          "from": "parcial",
+          "to": "bem_coberta",
+          "score_max": 0.554565,
+          "score_avg": 0.545604
+        }
+      ]
+    },
+    {
+      "scenario": {
+        "id": "well_max_0_54",
+        "well_max": 0.54,
+        "well_avg": 0.45,
+        "gap_max": 0.45
+      },
+      "well": 7,
+      "partial": 1,
+      "gap": 0,
+      "partial_to_well": 3,
+      "well_to_partial_regressions": 0,
+      "changes": [
+        {
+          "query": "terraform force unlock",
+          "from": "parcial",
+          "to": "bem_coberta",
+          "score_max": 0.557261,
+          "score_avg": 0.54297
+        },
+        {
+          "query": "terraform module sources",
+          "from": "parcial",
+          "to": "bem_coberta",
+          "score_max": 0.554565,
+          "score_avg": 0.545604
+        },
+        {
+          "query": "terraform init plan apply workflow",
+          "from": "parcial",
+          "to": "bem_coberta",
+          "score_max": 0.545219,
+          "score_avg": 0.528467
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,402 @@
+{
+  "generated_at": "2026-03-12T00:40:52.356156+00:00",
+  "scope": "docker_focused_before_docker_docs_selected_semantic_persist",
+  "top_k": 5,
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "total_questions": 8,
+  "well_covered_count": 0,
+  "partial_count": 2,
+  "gap_count": 6,
+  "global_avg_of_max_score": 0.436232,
+  "global_avg_of_avg_score": 0.400084,
+  "rows": [
+    {
+      "question": "docker multi stage build best practices",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.44863,
+      "avg_score": 0.416506,
+      "top_source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+      "top_title": "Title Page",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "title": "Title Page",
+          "snippet": "Docker Deep Dive - Third Edition",
+          "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0001::5959e8cd",
+          "similarity": 0.44863,
+          "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub"
+        },
+        {
+          "title": "Smoke Chunk 2",
+          "snippet": "docker container healthcheck example",
+          "chunk_id": "smoke-openai-2",
+          "similarity": 0.435276,
+          "source_file": "__smoke_openai__.md"
+        },
+        {
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)",
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)\n# Multi-container Pods (10%)",
+          "chunk_id": "semantic-api-4a878265-1",
+          "similarity": 0.413101,
+          "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md"
+        },
+        {
+          "title": "Title Page",
+          "snippet": "Getting Started with Docker and AI - Second Edition",
+          "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Getting-Started-with-Docker-for-Raymond-Rhine-by-Nigel-Poulton.epub::1dadb2302b11::0001::0a5919d0",
+          "similarity": 0.39612,
+          "source_file": "livros/docker/Nigel_Poulton/Getting Started with Docker (for Raymond Rhine) by Nigel Poulton.epub"
+        },
+        {
+          "title": "### Create busybox pod with two containers, each one will have the image busybox and will run the 's",
+          "snippet": "### Create busybox pod with two containers, each one will have the image busybox and will run the 'sleep 3600' command. Make both containers mount an emptyDir at '/etc/foo'. Connec",
+          "chunk_id": "semantic-api-73c2e379-5",
+          "similarity": 0.389401,
+          "source_file": "data/question_bank_raw/ckad_exercises/g.state.md"
+        }
+      ]
+    },
+    {
+      "question": "docker build cache",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.348131,
+      "avg_score": 0.334399,
+      "top_source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+      "top_title": "Title Page",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+          "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0001::5959e8cd",
+          "title": "Title Page",
+          "similarity": 0.348131,
+          "snippet": "Docker Deep Dive - Third Edition"
+        },
+        {
+          "source_file": "__smoke_openai__.md",
+          "chunk_id": "smoke-openai-2",
+          "title": "Smoke Chunk 2",
+          "similarity": 0.347252,
+          "snippet": "docker container healthcheck example"
+        },
+        {
+          "source_file": "inline://invalidate-smoke",
+          "chunk_id": "semantic-api-94fbd8c4-2",
+          "title": "2. nova ingestao para limpar cache",
+          "similarity": 0.342406,
+          "snippet": "2. nova ingestao para limpar cache"
+        },
+        {
+          "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+          "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0003::76aaa2e4",
+          "title": "About this edition",
+          "similarity": 0.327908,
+          "snippet": "About this edition\n\nThis edition was published in May 2024. In writing this edition, I've gone over every word in every chapter ensuring everything is up-to-date with the latest ed"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_logs_previous_container.md",
+          "chunk_id": "semantic-api-6e9a49bc-1",
+          "title": "# kubectl logs previous container",
+          "similarity": 0.306298,
+          "snippet": "# kubectl logs previous container"
+        }
+      ]
+    },
+    {
+      "question": "docker buildkit",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.355724,
+      "avg_score": 0.334753,
+      "top_source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+      "top_title": "About this edition",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+          "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0003::76aaa2e4",
+          "title": "About this edition",
+          "similarity": 0.355724,
+          "snippet": "About this edition\n\nThis edition was published in May 2024. In writing this edition, I've gone over every word in every chapter ensuring everything is up-to-date with the latest ed"
+        },
+        {
+          "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+          "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0001::5959e8cd",
+          "title": "Title Page",
+          "similarity": 0.337793,
+          "snippet": "Docker Deep Dive - Third Edition"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+          "chunk_id": "semantic-api-4a878265-5",
+          "title": "```bash",
+          "similarity": 0.331213,
+          "snippet": "```bash\nkubectl run busybox --image=busybox --restart=Never -o yaml --dry-run=client -- /bin/sh -c 'echo hello;sleep 3600' > pod.yaml\nvi pod.yaml\n```"
+        },
+        {
+          "source_file": "__smoke_openai__.md",
+          "chunk_id": "smoke-openai-2",
+          "title": "Smoke Chunk 2",
+          "similarity": 0.328739,
+          "snippet": "docker container healthcheck example"
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_create_namespace_staging.md",
+          "chunk_id": "semantic-api-475d2fc9-1",
+          "title": "# kubectl create namespace staging",
+          "similarity": 0.320294,
+          "snippet": "# kubectl create namespace staging"
+        }
+      ]
+    },
+    {
+      "question": "docker networking bridge host overlay",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.424705,
+      "avg_score": 0.381185,
+      "top_source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+      "top_title": "# Kubernetes NetworkPolicy Example",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "chunk_id": "semantic-api-b34a20f9-1",
+          "title": "# Kubernetes NetworkPolicy Example",
+          "similarity": 0.424705,
+          "snippet": "# Kubernetes NetworkPolicy Example"
+        },
+        {
+          "source_file": "__smoke_openai__.md",
+          "chunk_id": "smoke-openai-2",
+          "title": "Smoke Chunk 2",
+          "similarity": 0.417607,
+          "snippet": "docker container healthcheck example"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/h.helm.md",
+          "chunk_id": "semantic-api-c6ee6356-3",
+          "title": "## Helm in K8s",
+          "similarity": 0.359706,
+          "snippet": "## Helm in K8s"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "chunk_id": "semantic-api-b34a20f9-5",
+          "title": "Keywords: networkpolicy kubernetes example ingress policy.",
+          "similarity": 0.353024,
+          "snippet": "Keywords: networkpolicy kubernetes example ingress policy."
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+          "chunk_id": "semantic-api-4a878265-2",
+          "title": "### Create a Pod with two containers, both with image busybox and command \"echo hello; sleep 3600\". ",
+          "similarity": 0.350882,
+          "snippet": "### Create a Pod with two containers, both with image busybox and command \"echo hello; sleep 3600\". Connect to the second container and run 'ls'"
+        }
+      ]
+    },
+    {
+      "question": "docker volumes vs bind mounts",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.429383,
+      "avg_score": 0.419199,
+      "top_source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+      "top_title": "## Define volumes",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-4",
+          "title": "## Define volumes",
+          "similarity": 0.429383,
+          "snippet": "## Define volumes"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-4",
+          "title": "## Define volumes",
+          "similarity": 0.429383,
+          "snippet": "## Define volumes"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-2",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Vo",
+          "similarity": 0.422376,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Volume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/confi"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-2",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Vo",
+          "similarity": 0.422376,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Volume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/confi"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-5",
+          "title": "### Create busybox pod with two containers, each one will have the image busybox and will run the 's",
+          "similarity": 0.392479,
+          "snippet": "### Create busybox pod with two containers, each one will have the image busybox and will run the 'sleep 3600' command. Make both containers mount an emptyDir at '/etc/foo'. Connec"
+        }
+      ]
+    },
+    {
+      "question": "docker storage drivers",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.448315,
+      "avg_score": 0.422624,
+      "top_source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+      "top_title": "Title Page",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "title": "Title Page",
+          "snippet": "Docker Deep Dive - Third Edition",
+          "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0001::5959e8cd",
+          "similarity": 0.448315,
+          "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub"
+        },
+        {
+          "title": "Smoke Chunk 2",
+          "snippet": "docker container healthcheck example",
+          "chunk_id": "smoke-openai-2",
+          "similarity": 0.430451,
+          "source_file": "__smoke_openai__.md"
+        },
+        {
+          "title": "Part 1: The big picture stuff",
+          "snippet": "Hello Containers!\n\nFor a long time, the big web-scale players, like Google, have been using container technologies to address the shortcomings of the VM model. In the container mod",
+          "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive---Second-Edition-by-Nigel-Poulton.epub::2a3d94571542::0003::d3e85c83",
+          "similarity": 0.424287,
+          "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive - Second Edition by Nigel Poulton.epub"
+        },
+        {
+          "title": "## CRD in K8s",
+          "snippet": "## CRD in K8s",
+          "chunk_id": "semantic-api-9d1041f3-3",
+          "similarity": 0.415957,
+          "source_file": "data/raw_review/ckad_exercises_modules/i.crd.md"
+        },
+        {
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Vo",
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Volume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/confi",
+          "chunk_id": "semantic-api-73c2e379-2",
+          "similarity": 0.394112,
+          "source_file": "data/question_bank_raw/ckad_exercises/g.state.md"
+        }
+      ]
+    },
+    {
+      "question": "docker security best practices",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.512932,
+      "avg_score": 0.45663,
+      "top_source_file": "__smoke_openai__.md",
+      "top_title": "Smoke Chunk 2",
+      "relevant_result_present": true,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "title": "Smoke Chunk 2",
+          "snippet": "docker container healthcheck example",
+          "chunk_id": "smoke-openai-2",
+          "similarity": 0.512932,
+          "source_file": "__smoke_openai__.md"
+        },
+        {
+          "title": "AWS Security Cookbook",
+          "snippet": "AWS Security Cookbook",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+          "similarity": 0.504891,
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub"
+        },
+        {
+          "title": "Title Page",
+          "snippet": "Docker Deep Dive - Third Edition",
+          "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0001::5959e8cd",
+          "similarity": 0.446266,
+          "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub"
+        },
+        {
+          "title": "AWS Security Cookbook",
+          "snippet": "AWS Security Cookbook\n\nCopyright © 2020 Packt Publishing All rights reserved. No part of this book may be reproduced, stored in a retrieval system, or transmitted in any form or by",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0004::9c9eea3b",
+          "similarity": 0.421312,
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub"
+        },
+        {
+          "title": "Title Page",
+          "snippet": "Practical solutions for managing security policies, monitoring, auditing, and compliance with AWS Heartin Kanikathottu BIRMINGHAM - MUMBAI",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0002::520f14ec",
+          "similarity": 0.39775,
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub"
+        }
+      ]
+    },
+    {
+      "question": "docker image hardening",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.522039,
+      "avg_score": 0.435376,
+      "top_source_file": "__smoke_openai__.md",
+      "top_title": "Smoke Chunk 2",
+      "relevant_result_present": true,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "title": "Smoke Chunk 2",
+          "snippet": "docker container healthcheck example",
+          "chunk_id": "smoke-openai-2",
+          "similarity": 0.522039,
+          "source_file": "__smoke_openai__.md"
+        },
+        {
+          "title": "Title Page",
+          "snippet": "Docker Deep Dive - Third Edition",
+          "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0001::5959e8cd",
+          "similarity": 0.45219,
+          "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub"
+        },
+        {
+          "title": "AWS Security Cookbook",
+          "snippet": "AWS Security Cookbook",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+          "similarity": 0.413512,
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub"
+        },
+        {
+          "title": "Title Page",
+          "snippet": "Getting Started with Docker and AI - Second Edition",
+          "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Getting-Started-with-Docker-for-Raymond-Rhine-by-Nigel-Poulton.epub::1dadb2302b11::0001::0a5919d0",
+          "similarity": 0.399798,
+          "source_file": "livros/docker/Nigel_Poulton/Getting Started with Docker (for Raymond Rhine) by Nigel Poulton.epub"
+        },
+        {
+          "title": "## Restrict ingress to selected pods",
+          "snippet": "## Restrict ingress to selected pods\n- Create deployment and service:\n  - `kubectl create deployment nginx --image=nginx --replicas=2`\n  - `kubectl expose deployment nginx --port=8",
+          "chunk_id": "semantic-api-b34a20f9-2",
+          "similarity": 0.389343,
+          "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "version": 1,
+  "domains": {
+    "aws_iam": {
+      "name": "AWS IAM",
+      "default_recorte_hint": "Focar em policy evaluation logic, boundaries, simulator e best practices.",
+      "sources": [
+        {
+          "title": "AWS IAM User Guide",
+          "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html",
+          "type": "official_docs",
+          "scope": "identity and access management fundamentals"
+        },
+        {
+          "title": "AWS IAM Policy Evaluation Logic",
+          "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html",
+          "type": "official_docs",
+          "scope": "policy decision flow"
+        }
+      ],
+      "subthemes": {
+        "policy_evaluation": {
+          "recorte_hint": "Priorizar evaluation logic + deny/allow order e interacao com resource policy e SCP.",
+          "sources": [
+            {
+              "title": "Policy evaluation logic",
+              "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html",
+              "type": "official_docs",
+              "scope": "policy evaluation flow"
+            },
+            {
+              "title": "Allow and deny evaluation details",
+              "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic_policy-eval-denyallow.html",
+              "type": "official_docs",
+              "scope": "explicit deny and policy interaction"
+            }
+          ]
+        },
+        "boundaries_scp": {
+          "recorte_hint": "Cobrir permissions boundaries + SCP evaluation/syntax/examples de AWS Organizations.",
+          "sources": [
+            {
+              "title": "Permissions boundaries",
+              "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html",
+              "type": "official_docs",
+              "scope": "effective permissions boundaries"
+            },
+            {
+              "title": "Service control policies",
+              "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html",
+              "type": "official_docs",
+              "scope": "scp fundamentals"
+            },
+            {
+              "title": "SCP evaluation",
+              "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_evaluation.html",
+              "type": "official_docs",
+              "scope": "scp evaluation behavior"
+            }
+          ]
+        },
+        "least_privilege": {
+          "recorte_hint": "Selecionar paginas de least privilege, condition keys e permission boundaries.",
+          "sources": [
+            {
+              "title": "IAM best practices",
+              "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html",
+              "type": "official_docs",
+              "scope": "least privilege"
+            }
+          ]
+        },
+        "policy_simulator": {
+          "recorte_hint": "Priorizar simulador + exemplos de avaliacao de policy.",
+          "sources": [
+            {
+              "title": "IAM policy simulator",
+              "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html",
+              "type": "official_docs",
+              "scope": "policy simulator"
+            }
+          ]
+        }
+      }
+    },
+    "docker": {
+      "name": "Docker",
+      "default_recorte_hint": "Cobrir build/buildkit/cache, networking, storage e engine security.",
+      "sources": [
+        {
+          "title": "Docker Docs",
+          "url": "https://docs.docker.com/",
+          "type": "official_docs",
+          "scope": "engine, build, security"
+        },
+        {
+          "title": "Docker Build docs",
+          "url": "https://docs.docker.com/build/",
+          "type": "official_docs",
+          "scope": "buildx, buildkit, cache"
+        }
+      ],
+      "subthemes": {
+        "build_cache": {
+          "recorte_hint": "Recortar build cache backends, invalidation e optimize.",
+          "sources": [
+            {
+              "title": "Docker build cache",
+              "url": "https://docs.docker.com/build/cache/",
+              "type": "official_docs",
+              "scope": "cache, backends, invalidation"
+            }
+          ]
+        },
+        "security": {
+          "recorte_hint": "Recortar hardening de images, rootless e seccomp/apparmor.",
+          "sources": [
+            {
+              "title": "Docker Engine security",
+              "url": "https://docs.docker.com/engine/security/",
+              "type": "official_docs",
+              "scope": "engine security"
+            }
+          ]
+        }
+      }
+    },
+    "terraform": {
+      "name": "Terraform",
+      "default_recorte_hint": "Focar em language/backend, language/state, modules e cli/state.",
+      "sources": [
+        {
+          "title": "Terraform docs",
+          "url": "https://developer.hashicorp.com/terraform/docs",
+          "type": "official_docs",
+          "scope": "core workflows"
+        },
+        {
+          "title": "Terraform language docs",
+          "url": "https://developer.hashicorp.com/terraform/language",
+          "type": "official_docs",
+          "scope": "backend, state, modules"
+        }
+      ],
+      "subthemes": {
+        "remote_state_s3": {
+          "recorte_hint": "Selecionar backend/s3 + remote state + locking e exemplos de permissao.",
+          "sources": [
+            {
+              "title": "Terraform backend s3",
+              "url": "https://developer.hashicorp.com/terraform/language/backend/s3",
+              "type": "official_docs",
+              "scope": "state storage and locking"
+            }
+          ]
+        },
+        "modules": {
+          "recorte_hint": "Priorizar modules sources/configuration/develop structure/refactoring.",
+          "sources": [
+            {
+              "title": "Terraform modules",
+              "url": "https://developer.hashicorp.com/terraform/language/modules",
+              "type": "official_docs",
+              "scope": "module authoring and usage"
+            }
+          ]
+        }
+      }
+    },
+    "observability": {
+      "name": "Observability",
+      "default_recorte_hint": "Equilibrar Prometheus config/promql, Grafana dashboards/alerting e Alertmanager routing.",
+      "sources": [
+        {
+          "title": "Prometheus docs",
+          "url": "https://prometheus.io/docs/introduction/overview/",
+          "type": "official_docs",
+          "scope": "prometheus config and querying"
+        },
+        {
+          "title": "Grafana docs",
+          "url": "https://grafana.com/docs/",
+          "type": "official_docs",
+          "scope": "dashboards, datasource, alerting"
+        },
+        {
+          "title": "Alertmanager docs",
+          "url": "https://prometheus.io/docs/alerting/latest/alertmanager/",
+          "type": "official_docs",
+          "scope": "routing and notifications"
+        }
+      ],
+      "subthemes": {
+        "promql": {
+          "recorte_hint": "Recortar querying basics/functions/operators/examples do Prometheus.",
+          "sources": [
+            {
+              "title": "PromQL querying",
+              "url": "https://prometheus.io/docs/prometheus/latest/querying/basics/",
+              "type": "official_docs",
+              "scope": "promql"
+            }
+          ]
+        }
+      }
+    },
+    "kubernetes": {
+      "name": "Kubernetes",
+      "default_recorte_hint": "Comecar por workload lifecycle, network policy, rbac e storage fundamentals.",
+      "sources": [
+        {
+          "title": "Kubernetes docs",
+          "url": "https://kubernetes.io/docs/home/",
+          "type": "official_docs",
+          "scope": "concepts, tasks, references"
+        }
+      ],
+      "subthemes": {
+        "networking": {
+          "recorte_hint": "Selecionar Services, Ingress e NetworkPolicy com exemplos completos.",
+          "sources": [
+            {
+              "title": "Kubernetes networking concepts",
+              "url": "https://kubernetes.io/docs/concepts/services-networking/",
+              "type": "official_docs",
+              "scope": "service/ingress/networkpolicy"
+            }
+          ]
+        },
+        "security": {
+          "recorte_hint": "Selecionar RBAC, service accounts, security context e admission policy.",
+          "sources": [
+            {
+              "title": "Kubernetes security",
+              "url": "https://kubernetes.io/docs/concepts/security/",
+              "type": "official_docs",
+              "scope": "rbac/serviceaccount/security context"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

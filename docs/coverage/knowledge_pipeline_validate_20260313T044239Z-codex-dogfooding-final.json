@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-03-13T04:48:30.892496+00:00",
+  "pipeline": "knowledge_pipeline_v1",
+  "mode": "validate",
+  "round_id": "20260313T044239Z-codex-dogfooding-final",
+  "side_effects_expected": false,
+  "artifacts": {
+    "run_artifact": "docs/coverage/knowledge_pipeline_run_20260313T044239Z-codex-dogfooding-final.json",
+    "validate_artifact": "docs/coverage/knowledge_pipeline_validate_20260313T044239Z-codex-dogfooding-final.json",
+    "utf8_artifact": "docs/coverage/knowledge_pipeline_validate_utf8_20260313T044239Z-codex-dogfooding-final.json",
+    "state_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_state.json"
+  },
+  "scope": {
+    "source_prefixes": [
+      "codex_docs_selected"
+    ],
+    "resolved_sources_total": 13,
+    "resolved_sources_by_prefix": {
+      "codex_docs_selected": 13
+    },
+    "resolved_sources_sample": [
+      "codex_docs_selected/README.md",
+      "codex_docs_selected/docs/agents_md.md",
+      "codex_docs_selected/docs/authentication.md",
+      "codex_docs_selected/docs/config.md",
+      "codex_docs_selected/docs/example-config.md",
+      "codex_docs_selected/docs/exec.md",
+      "codex_docs_selected/docs/execpolicy.md",
+      "codex_docs_selected/docs/getting-started.md",
+      "codex_docs_selected/docs/install.md",
+      "codex_docs_selected/docs/sandbox.md",
+      "codex_docs_selected/docs/skills.md",
+      "codex_docs_selected/docs/slash_commands.md",
+      "codex_docs_selected/shell-tool-mcp/README.md"
+    ]
+  },
+  "run_summary": {
+    "ingest_total_found": 13,
+    "ingest_processed": 0,
+    "documents_selected": 13,
+    "documents_processed": 13,
+    "chunks_persisted": 26
+  },
+  "checks": {
+    "run_artifact_present": true,
+    "run_prefixes_match_validate_prefixes": true,
+    "plan_vs_run_ingest_total_match": true,
+    "plan_vs_run_semantic_total_match": true,
+    "state_resolved_total_match_run": true,
+    "parsed_artifacts_present_for_scope": true,
+    "chunk_artifacts_present_for_scope": true,
+    "utf8_scan_clean": true
+  },
+  "missing": {
+    "parsed_source_files": [],
+    "chunk_source_files": []
+  },
+  "utf8_summary": {
+    "total_chunks_scanned": 1248,
+    "bad_chunks_count": 0,
+    "affected_source_files_count": 0
+  },
+  "validation_passed": true
+}

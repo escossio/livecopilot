@@ -1,0 +1,34 @@
+{
+  "ingest_log": "/tmp/observability_ingest_controlled_20260312.log",
+  "ingest_summary": {
+    "total_found": 212,
+    "processed": 35,
+    "skipped": 177,
+    "errors": 0,
+    "unsupported": 0,
+    "chunk_total": 53529
+  },
+  "manifest_before": {
+    "document_count": 177,
+    "chunk_document_count": 177,
+    "chunk_count": 52722
+  },
+  "manifest_after": {
+    "document_count": 212,
+    "chunk_document_count": 212,
+    "chunk_count": 53529
+  },
+  "delta": {
+    "document_count": 35,
+    "chunk_document_count": 35,
+    "chunk_count": 807
+  },
+  "observability_selected": {
+    "source_files_in_state": 35,
+    "parsed_artifacts": 35,
+    "chunk_artifacts": 35,
+    "chunk_count_total_in_state": 807,
+    "status_breakdown": "35 parsed"
+  },
+  "log_error_lines": 0
+}

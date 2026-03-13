@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-03-12T15:23:10Z",
+  "ingest_log": "/tmp/kubernetes_ingest_controlled_20260312T152144Z.log",
+  "state_path": "data/knowledge_index/knowledge_state.json",
+  "manifest_path": "data/knowledge_index/knowledge_manifest.json",
+  "kubernetes_prefix": "kubernetes_docs_selected/",
+  "kubernetes_state_entries": 12,
+  "kubernetes_chunk_total": 431,
+  "parsed_files_count": 12,
+  "chunks_files_count": 12,
+  "manifest_document_count": 234,
+  "manifest_chunk_document_count": 234,
+  "manifest_chunk_count": 54141,
+  "ingest_summary": {
+    "total_found": 234,
+    "processed": 0,
+    "skipped": 234,
+    "errors": 0,
+    "unsupported": 0
+  },
+  "kubernetes_source_files": [
+    "kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/overview/working-with-objects/namespaces.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/security/service-accounts.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/storage/storage-classes.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/workloads/controllers/deployment.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/workloads/pods/_index.md",
+    "kubernetes_docs_selected/content/en/docs/reference/access-authn-authz/rbac.md",
+    "kubernetes_docs_selected/content/en/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md",
+    "kubernetes_docs_selected/content/en/docs/tasks/debug/debug-application/debug-running-pod.md"
+  ]
+}

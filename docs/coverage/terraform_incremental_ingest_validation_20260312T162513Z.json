@@ -1,0 +1,47 @@
+{
+  "generated_at": "20260312T162513Z",
+  "ingest_log": "/tmp/terraform_incremental_ingest_20260312T162513Z.log",
+  "prefix": "terraform_docs_selected_incremental/",
+  "state_entries": 11,
+  "parsed_files_count": 11,
+  "chunk_files_count": 0,
+  "chunk_total_from_state": 0,
+  "manifest_document_count": 245,
+  "manifest_chunk_document_count": 234,
+  "manifest_chunk_count": 54141,
+  "ingest_summary": {
+    "total_found": 245,
+    "processed": 11,
+    "skipped": 234,
+    "errors": 0,
+    "unsupported": 11
+  },
+  "source_files": [
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.mdx",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.mdx",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.mdx",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.mdx",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.mdx",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.mdx",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.mdx",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.mdx",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.mdx",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.mdx",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.mdx"
+  ],
+  "manifest_before": {
+    "document_count": 234,
+    "chunk_document_count": 234,
+    "chunk_count": 54141
+  },
+  "manifest_after": {
+    "document_count": 245,
+    "chunk_document_count": 234,
+    "chunk_count": 54141
+  },
+  "manifest_delta": {
+    "document_count": 11,
+    "chunk_document_count": 0,
+    "chunk_count": 0
+  }
+}

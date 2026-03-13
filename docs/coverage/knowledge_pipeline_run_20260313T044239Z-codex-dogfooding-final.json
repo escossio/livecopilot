@@ -1,0 +1,354 @@
+{
+  "generated_at": "2026-03-13T04:47:33.167309+00:00",
+  "pipeline": "knowledge_pipeline_v1",
+  "mode": "run",
+  "round_id": "20260313T044239Z-codex-dogfooding-final",
+  "side_effects_expected": true,
+  "artifacts": {
+    "run_artifact": "docs/coverage/knowledge_pipeline_run_20260313T044239Z-codex-dogfooding-final.json"
+  },
+  "config": {
+    "source_prefixes": [
+      "codex_docs_selected"
+    ],
+    "strict_source_prefix": false,
+    "semantic_embedding_mode": "openai",
+    "semantic_limit_docs": 13,
+    "semantic_max_chunks_per_doc": 8
+  },
+  "pre_run_plan": {
+    "generated_at": "2026-03-13T04:44:29.599956+00:00",
+    "plan_mode": "prefix_round_preview",
+    "source_prefixes": [
+      "codex_docs_selected"
+    ],
+    "ingest_dry_run": {
+      "selection_mode": "resolved_from_source_prefix",
+      "files_found_by_prefix": {
+        "codex_docs_selected": 13
+      },
+      "total_found": 13,
+      "targets_sample": [
+        "codex_docs_selected/README.md",
+        "codex_docs_selected/docs/agents_md.md",
+        "codex_docs_selected/docs/authentication.md",
+        "codex_docs_selected/docs/config.md",
+        "codex_docs_selected/docs/example-config.md",
+        "codex_docs_selected/docs/exec.md",
+        "codex_docs_selected/docs/execpolicy.md",
+        "codex_docs_selected/docs/getting-started.md",
+        "codex_docs_selected/docs/install.md",
+        "codex_docs_selected/docs/sandbox.md",
+        "codex_docs_selected/docs/skills.md",
+        "codex_docs_selected/docs/slash_commands.md",
+        "codex_docs_selected/shell-tool-mcp/README.md"
+      ],
+      "targets_sample_size": 13,
+      "targets_sample_truncated": false
+    },
+    "semantic_list_targets": {
+      "payload_kind": "list_targets",
+      "selection_mode": "resolved_from_source_prefix",
+      "source_files_resolved_by_prefix": {
+        "codex_docs_selected": 13
+      },
+      "source_files_resolved_total": 13,
+      "source_files_sample": [
+        "codex_docs_selected/README.md",
+        "codex_docs_selected/docs/agents_md.md",
+        "codex_docs_selected/docs/authentication.md",
+        "codex_docs_selected/docs/config.md",
+        "codex_docs_selected/docs/example-config.md",
+        "codex_docs_selected/docs/exec.md",
+        "codex_docs_selected/docs/execpolicy.md",
+        "codex_docs_selected/docs/getting-started.md",
+        "codex_docs_selected/docs/install.md",
+        "codex_docs_selected/docs/sandbox.md",
+        "codex_docs_selected/docs/skills.md",
+        "codex_docs_selected/docs/slash_commands.md",
+        "codex_docs_selected/shell-tool-mcp/README.md"
+      ],
+      "source_files_sample_size": 13,
+      "source_files_sample_truncated": false,
+      "note": ""
+    },
+    "totals": {
+      "ingest_total_found": 13,
+      "semantic_total_source_files": 13
+    },
+    "divergence": {
+      "ingest_only_count": 0,
+      "semantic_only_count": 0,
+      "ingest_only_sample": [],
+      "semantic_only_sample": [],
+      "has_divergence": false
+    }
+  },
+  "ingest": {
+    "selection_mode": "resolved_from_source_prefix",
+    "source_prefixes": [
+      "codex_docs_selected"
+    ],
+    "files_found_by_prefix": {
+      "codex_docs_selected": 13
+    },
+    "selected_targets_sample": [
+      "codex_docs_selected/README.md",
+      "codex_docs_selected/docs/agents_md.md",
+      "codex_docs_selected/docs/authentication.md",
+      "codex_docs_selected/docs/config.md",
+      "codex_docs_selected/docs/example-config.md",
+      "codex_docs_selected/docs/exec.md",
+      "codex_docs_selected/docs/execpolicy.md",
+      "codex_docs_selected/docs/getting-started.md",
+      "codex_docs_selected/docs/install.md",
+      "codex_docs_selected/docs/sandbox.md",
+      "codex_docs_selected/docs/skills.md",
+      "codex_docs_selected/docs/slash_commands.md",
+      "codex_docs_selected/shell-tool-mcp/README.md"
+    ],
+    "total_found": 13,
+    "processed": 0,
+    "skipped": 13,
+    "errors": 0,
+    "unsupported": 0,
+    "chunk_total": 26
+  },
+  "semantic": {
+    "started_at": "2026-03-13T04:47:25.609333+00:00",
+    "finished_at": "2026-03-13T04:47:32.838411+00:00",
+    "documents_selected": 13,
+    "documents_processed": 13,
+    "documents_validated": 13,
+    "documents_failed": 0,
+    "chunks_persisted": 26,
+    "states_final": [
+      "validated"
+    ],
+    "results": [
+      {
+        "source_file": "codex_docs_selected/README.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 428,
+        "chunks_persisted": 3,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "codex_docs_selected/docs/agents_md.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 429,
+        "chunks_persisted": 1,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "codex_docs_selected/docs/authentication.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 430,
+        "chunks_persisted": 1,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "codex_docs_selected/docs/config.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 431,
+        "chunks_persisted": 4,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "codex_docs_selected/docs/example-config.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 432,
+        "chunks_persisted": 1,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "codex_docs_selected/docs/exec.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 433,
+        "chunks_persisted": 1,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "codex_docs_selected/docs/execpolicy.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 434,
+        "chunks_persisted": 1,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "codex_docs_selected/docs/getting-started.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 435,
+        "chunks_persisted": 1,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "codex_docs_selected/docs/install.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 436,
+        "chunks_persisted": 4,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "codex_docs_selected/docs/sandbox.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 437,
+        "chunks_persisted": 1,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "codex_docs_selected/docs/skills.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 438,
+        "chunks_persisted": 1,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "codex_docs_selected/docs/slash_commands.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 439,
+        "chunks_persisted": 1,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "codex_docs_selected/shell-tool-mcp/README.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 440,
+        "chunks_persisted": 6,
+        "embedding_mode_used": "openai"
+      }
+    ],
+    "embedding_mode_used": "openai",
+    "manifest_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_manifest.json",
+    "state_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_state.json",
+    "cache_invalidation": {
+      "semantic_search_cache_entries_cleared": 0,
+      "query_embedding_cache_entries_cleared": 0
+    },
+    "selection_mode": "resolved_from_source_prefix",
+    "source_prefixes": [
+      "codex_docs_selected"
+    ],
+    "source_files_resolved_total": 13,
+    "source_files_resolved_by_prefix": {
+      "codex_docs_selected": 13
+    }
+  }
+}

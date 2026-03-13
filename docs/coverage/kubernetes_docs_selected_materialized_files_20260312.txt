@@ -1,0 +1,12 @@
+data/knowledge_raw/kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md
+data/knowledge_raw/kubernetes_docs_selected/content/en/docs/concepts/overview/working-with-objects/namespaces.md
+data/knowledge_raw/kubernetes_docs_selected/content/en/docs/concepts/security/service-accounts.md
+data/knowledge_raw/kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md
+data/knowledge_raw/kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md
+data/knowledge_raw/kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md
+data/knowledge_raw/kubernetes_docs_selected/content/en/docs/concepts/storage/storage-classes.md
+data/knowledge_raw/kubernetes_docs_selected/content/en/docs/concepts/workloads/controllers/deployment.md
+data/knowledge_raw/kubernetes_docs_selected/content/en/docs/concepts/workloads/pods/_index.md
+data/knowledge_raw/kubernetes_docs_selected/content/en/docs/reference/access-authn-authz/rbac.md
+data/knowledge_raw/kubernetes_docs_selected/content/en/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md
+data/knowledge_raw/kubernetes_docs_selected/content/en/docs/tasks/debug/debug-application/debug-running-pod.md

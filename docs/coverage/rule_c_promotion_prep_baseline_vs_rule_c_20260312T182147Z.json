@@ -1,0 +1,146 @@
+{
+  "generated_at": "20260312T182147Z",
+  "signals_file": "docs/coverage/composed_rule_signals_consolidated_20260312T180937Z.json",
+  "mode": "compare",
+  "domains": [
+    "aws_iam",
+    "docker",
+    "kubernetes",
+    "observability",
+    "terraform"
+  ],
+  "baseline_rule": "well if max>=0.60 and avg>=0.45; gap if max<0.45",
+  "experimental_rule_c": "baseline OR (max>=0.55 and avg>=0.50 and top1_expected_official)",
+  "baseline_global": {
+    "query_count": 44,
+    "well": 31,
+    "partial": 13,
+    "gap": 0
+  },
+  "experimental_global": {
+    "query_count": 44,
+    "well": 33,
+    "partial": 11,
+    "gap": 0
+  },
+  "global_delta": {
+    "well": 2,
+    "partial": -2,
+    "gap": 0
+  },
+  "domain_metrics": [
+    {
+      "domain": "aws_iam",
+      "baseline": {
+        "query_count": 8,
+        "well": 7,
+        "partial": 1,
+        "gap": 0
+      },
+      "experimental_rule_c": {
+        "query_count": 8,
+        "well": 7,
+        "partial": 1,
+        "gap": 0
+      },
+      "delta_well": 0,
+      "partial_to_well": 0,
+      "well_to_partial_regressions": 0,
+      "suspicious_promotions_non_official_top1": 0,
+      "promoted_queries": []
+    },
+    {
+      "domain": "docker",
+      "baseline": {
+        "query_count": 8,
+        "well": 6,
+        "partial": 2,
+        "gap": 0
+      },
+      "experimental_rule_c": {
+        "query_count": 8,
+        "well": 6,
+        "partial": 2,
+        "gap": 0
+      },
+      "delta_well": 0,
+      "partial_to_well": 0,
+      "well_to_partial_regressions": 0,
+      "suspicious_promotions_non_official_top1": 0,
+      "promoted_queries": []
+    },
+    {
+      "domain": "kubernetes",
+      "baseline": {
+        "query_count": 12,
+        "well": 9,
+        "partial": 3,
+        "gap": 0
+      },
+      "experimental_rule_c": {
+        "query_count": 12,
+        "well": 9,
+        "partial": 3,
+        "gap": 0
+      },
+      "delta_well": 0,
+      "partial_to_well": 0,
+      "well_to_partial_regressions": 0,
+      "suspicious_promotions_non_official_top1": 0,
+      "promoted_queries": []
+    },
+    {
+      "domain": "observability",
+      "baseline": {
+        "query_count": 8,
+        "well": 5,
+        "partial": 3,
+        "gap": 0
+      },
+      "experimental_rule_c": {
+        "query_count": 8,
+        "well": 5,
+        "partial": 3,
+        "gap": 0
+      },
+      "delta_well": 0,
+      "partial_to_well": 0,
+      "well_to_partial_regressions": 0,
+      "suspicious_promotions_non_official_top1": 0,
+      "promoted_queries": []
+    },
+    {
+      "domain": "terraform",
+      "baseline": {
+        "query_count": 8,
+        "well": 4,
+        "partial": 4,
+        "gap": 0
+      },
+      "experimental_rule_c": {
+        "query_count": 8,
+        "well": 6,
+        "partial": 2,
+        "gap": 0
+      },
+      "delta_well": 2,
+      "partial_to_well": 2,
+      "well_to_partial_regressions": 0,
+      "suspicious_promotions_non_official_top1": 0,
+      "promoted_queries": [
+        {
+          "query": "terraform force unlock",
+          "max_score": 0.557261,
+          "avg_score": 0.54297,
+          "top1_source_file": "terraform_docs_selected/cli/commands/force-unlock.md"
+        },
+        {
+          "query": "terraform module sources",
+          "max_score": 0.554565,
+          "avg_score": 0.545604,
+          "top1_source_file": "terraform_docs_selected/language/modules/sources.md"
+        }
+      ]
+    }
+  ]
+}

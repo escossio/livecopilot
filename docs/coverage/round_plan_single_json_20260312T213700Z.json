@@ -1,0 +1,66 @@
+{
+  "generated_at": "2026-03-12T21:32:52.771534+00:00",
+  "plan_mode": "prefix_round_preview",
+  "source_prefixes": [
+    "continuity_docs_selected"
+  ],
+  "ingest_dry_run": {
+    "selection_mode": "resolved_from_source_prefix",
+    "files_found_by_prefix": {
+      "continuity_docs_selected": 12
+    },
+    "total_found": 12,
+    "targets_sample": [
+      "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+      "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+      "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+      "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+      "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+      "continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+      "continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+      "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+      "continuity_docs_selected/docs/UTF8_HYGIENE_SCANNER.md"
+    ],
+    "targets_sample_size": 12,
+    "targets_sample_truncated": false
+  },
+  "semantic_list_targets": {
+    "payload_kind": "list_targets",
+    "selection_mode": "resolved_from_source_prefix",
+    "source_files_resolved_by_prefix": {
+      "continuity_docs_selected": 12
+    },
+    "source_files_resolved_total": 12,
+    "source_files_sample": [
+      "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+      "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+      "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+      "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+      "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+      "continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+      "continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+      "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+      "continuity_docs_selected/docs/UTF8_HYGIENE_SCANNER.md"
+    ],
+    "source_files_sample_size": 12,
+    "source_files_sample_truncated": false,
+    "note": ""
+  },
+  "totals": {
+    "ingest_total_found": 12,
+    "semantic_total_source_files": 12
+  },
+  "divergence": {
+    "ingest_only_count": 0,
+    "semantic_only_count": 0,
+    "ingest_only_sample": [],
+    "semantic_only_sample": [],
+    "has_divergence": false
+  }
+}

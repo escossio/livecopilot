@@ -1,0 +1,402 @@
+{
+  "generated_at": "2026-03-12T04:07:58.195626+00:00",
+  "scope": "aws_iam_focused_before_new_official_slice",
+  "top_k": 5,
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "total_questions": 8,
+  "well_covered_count": 0,
+  "partial_count": 3,
+  "gap_count": 5,
+  "global_avg_of_max_score": 0.456336,
+  "global_avg_of_avg_score": 0.442417,
+  "rows": [
+    {
+      "question": "aws iam policy evaluation order explicit deny allow",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.445001,
+      "avg_score": 0.443192,
+      "top_source_file": "aws/Permissions boundaries for IAM entities.pdf",
+      "top_title": "Permissions boundaries for IAM entities",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0004::2e738f80",
+          "title": "Permissions boundaries for IAM entities",
+          "similarity": 0.445001,
+          "snippet": "Permissions boundaries for IAM entities"
+        },
+        {
+          "source_file": "aws/Security best practices in IAM.pdf",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0004::2e738f80",
+          "title": "Security best practices in IAM",
+          "similarity": 0.444984,
+          "snippet": "Security best practices in IAM"
+        },
+        {
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0004::2e738f80",
+          "title": "IAM policy testing with the IAM policy simulator",
+          "similarity": 0.444984,
+          "snippet": "IAM policy testing with the IAM policy simulator"
+        },
+        {
+          "source_file": "aws/Policy evaluation logic.pdf",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0004::2e738f80",
+          "title": "Policy evaluation logic",
+          "similarity": 0.444965,
+          "snippet": "Policy evaluation logic"
+        },
+        {
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "IAM policy testing with the IAM policy simulator",
+          "similarity": 0.436026,
+          "snippet": "IAM policy testing with the IAM policy simulator"
+        }
+      ]
+    },
+    {
+      "question": "aws iam policy simulator simulate-principal-policy",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.43232,
+      "avg_score": 0.432048,
+      "top_source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+      "top_title": "IAM policy testing with the IAM policy simulator",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "IAM policy testing with the IAM policy simulator",
+          "similarity": 0.43232,
+          "snippet": "IAM policy testing with the IAM policy simulator"
+        },
+        {
+          "source_file": "aws/Policy evaluation logic.pdf",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "Policy evaluation logic",
+          "similarity": 0.43232,
+          "snippet": "Policy evaluation logic"
+        },
+        {
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "Permissions boundaries for IAM entities",
+          "similarity": 0.432254,
+          "snippet": "Permissions boundaries for IAM entities"
+        },
+        {
+          "source_file": "aws/Security best practices in IAM.pdf",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "Security best practices in IAM",
+          "similarity": 0.432254,
+          "snippet": "Security best practices in IAM"
+        },
+        {
+          "source_file": "aws/Policy evaluation logic.pdf",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0004::2e738f80",
+          "title": "Policy evaluation logic",
+          "similarity": 0.431092,
+          "snippet": "Policy evaluation logic"
+        }
+      ]
+    },
+    {
+      "question": "aws iam permissions boundaries effective permissions",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.515058,
+      "avg_score": 0.510218,
+      "top_source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+      "top_title": "IAM policy testing with the IAM policy simulator",
+      "relevant_result_present": true,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "IAM policy testing with the IAM policy simulator",
+          "similarity": 0.515058,
+          "snippet": "IAM policy testing with the IAM policy simulator"
+        },
+        {
+          "source_file": "aws/Policy evaluation logic.pdf",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "Policy evaluation logic",
+          "similarity": 0.515058,
+          "snippet": "Policy evaluation logic"
+        },
+        {
+          "source_file": "aws/Security best practices in IAM.pdf",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "Security best practices in IAM",
+          "similarity": 0.514956,
+          "snippet": "Security best practices in IAM"
+        },
+        {
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "Permissions boundaries for IAM entities",
+          "similarity": 0.514956,
+          "snippet": "Permissions boundaries for IAM entities"
+        },
+        {
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0003::0e5b70a8",
+          "title": "IAM policy testing with the IAM policy simulator",
+          "similarity": 0.49106,
+          "snippet": "IAM policy testing with the IAM policy simulator"
+        }
+      ]
+    },
+    {
+      "question": "aws organizations service control policy scp evaluation logic",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.4265,
+      "avg_score": 0.403795,
+      "top_source_file": "terraform_docs_selected/intro/phases/govern.md",
+      "top_title": "govern",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "terraform_docs_selected/intro/phases/govern.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected/intro/phases/govern.md::c5f1ffaf89c1::0002::474c7a5e",
+          "title": "govern",
+          "similarity": 0.4265,
+          "snippet": "govern"
+        },
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0002::520f14ec",
+          "title": "Title Page",
+          "similarity": 0.408843,
+          "snippet": "Title Page"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/f.services.md",
+          "chunk_id": "semantic-api-647333a6-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/services&empty)",
+          "similarity": 0.395477,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/services&empty)"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/f.services.md",
+          "chunk_id": "semantic-api-647333a6-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/services&empty)",
+          "similarity": 0.395477,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/services&empty)"
+        },
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+          "title": "AWS Security Cookbook",
+          "similarity": 0.392678,
+          "snippet": "AWS Security Cookbook"
+        }
+      ]
+    },
+    {
+      "question": "aws iam identity policy resource policy permissions boundary scp interaction",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.523892,
+      "avg_score": 0.523576,
+      "top_source_file": "aws/Policy evaluation logic.pdf",
+      "top_title": "Policy evaluation logic",
+      "relevant_result_present": true,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "aws/Policy evaluation logic.pdf",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "Policy evaluation logic",
+          "similarity": 0.523892,
+          "snippet": "Policy evaluation logic"
+        },
+        {
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "IAM policy testing with the IAM policy simulator",
+          "similarity": 0.523892,
+          "snippet": "IAM policy testing with the IAM policy simulator"
+        },
+        {
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "Permissions boundaries for IAM entities",
+          "similarity": 0.523826,
+          "snippet": "Permissions boundaries for IAM entities"
+        },
+        {
+          "source_file": "aws/Security best practices in IAM.pdf",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "Security best practices in IAM",
+          "similarity": 0.523826,
+          "snippet": "Security best practices in IAM"
+        },
+        {
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0004::2e738f80",
+          "title": "Permissions boundaries for IAM entities",
+          "similarity": 0.522443,
+          "snippet": "Permissions boundaries for IAM entities"
+        }
+      ]
+    },
+    {
+      "question": "aws iam policy simulator context keys condition testing",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.416883,
+      "avg_score": 0.413779,
+      "top_source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+      "top_title": "Title Page",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0002::520f14ec",
+          "title": "Title Page",
+          "similarity": 0.416883,
+          "snippet": "Title Page"
+        },
+        {
+          "source_file": "aws/Policy evaluation logic.pdf",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "Policy evaluation logic",
+          "similarity": 0.413019,
+          "snippet": "Policy evaluation logic"
+        },
+        {
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "IAM policy testing with the IAM policy simulator",
+          "similarity": 0.413019,
+          "snippet": "IAM policy testing with the IAM policy simulator"
+        },
+        {
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "Permissions boundaries for IAM entities",
+          "similarity": 0.412987,
+          "snippet": "Permissions boundaries for IAM entities"
+        },
+        {
+          "source_file": "aws/Security best practices in IAM.pdf",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0006::db439fa1",
+          "title": "Security best practices in IAM",
+          "similarity": 0.412987,
+          "snippet": "Security best practices in IAM"
+        }
+      ]
+    },
+    {
+      "question": "aws scp syntax deny guardrails examples",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.44026,
+      "avg_score": 0.361975,
+      "top_source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+      "top_title": "AWS Security Cookbook",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+          "title": "AWS Security Cookbook",
+          "similarity": 0.44026,
+          "snippet": "AWS Security Cookbook"
+        },
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0004::9c9eea3b",
+          "title": "AWS Security Cookbook",
+          "similarity": 0.352459,
+          "snippet": "AWS Security Cookbook"
+        },
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0002::520f14ec",
+          "title": "Title Page",
+          "similarity": 0.342205,
+          "snippet": "Title Page"
+        },
+        {
+          "source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-silence.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-silence.md::4e3dbeb4ffd4::0003::8649c305",
+          "title": "create silence",
+          "similarity": 0.338347,
+          "snippet": "create silence"
+        },
+        {
+          "source_file": "observability_docs_selected/alertmanager/docs/https.md",
+          "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/https.md::35267c1267c5::0005::32cc85ab",
+          "title": "https",
+          "similarity": 0.336603,
+          "snippet": "https"
+        }
+      ]
+    },
+    {
+      "question": "aws iam permissions boundary vs scp differences",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.450772,
+      "avg_score": 0.450753,
+      "top_source_file": "aws/Permissions boundaries for IAM entities.pdf",
+      "top_title": "Permissions boundaries for IAM entities",
+      "relevant_result_present": true,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0003::0e5b70a8",
+          "title": "Permissions boundaries for IAM entities",
+          "similarity": 0.450772,
+          "snippet": "Permissions boundaries for IAM entities"
+        },
+        {
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0003::0e5b70a8",
+          "title": "IAM policy testing with the IAM policy simulator",
+          "similarity": 0.450772,
+          "snippet": "IAM policy testing with the IAM policy simulator"
+        },
+        {
+          "source_file": "aws/Security best practices in IAM.pdf",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0003::0e5b70a8",
+          "title": "Security best practices in IAM",
+          "similarity": 0.450764,
+          "snippet": "Security best practices in IAM"
+        },
+        {
+          "source_file": "aws/Policy evaluation logic.pdf",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0003::0e5b70a8",
+          "title": "Policy evaluation logic",
+          "similarity": 0.450745,
+          "snippet": "Policy evaluation logic"
+        },
+        {
+          "source_file": "terraform_docs_selected/language/backend/s3.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0004::47ef760b",
+          "title": "s3",
+          "similarity": 0.450712,
+          "snippet": "s3"
+        }
+      ]
+    }
+  ]
+}

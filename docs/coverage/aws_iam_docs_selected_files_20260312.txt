@@ -1,0 +1,10 @@
+aws_iam_docs_selected/iam_condition_element.md
+aws_iam_docs_selected/iam_notaction.md
+aws_iam_docs_selected/iam_permissions_boundaries.md
+aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md
+aws_iam_docs_selected/iam_policy_evaluation_logic.md
+aws_iam_docs_selected/iam_policy_simulator.md
+aws_iam_docs_selected/org_scps_evaluation.md
+aws_iam_docs_selected/org_scps_examples.md
+aws_iam_docs_selected/org_scps_overview.md
+aws_iam_docs_selected/org_scps_syntax.md

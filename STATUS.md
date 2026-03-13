@@ -1,3 +1,764 @@
+## Checkpoint 2026-03-13: habilitacao do backend WebSocket no runtime web 8000
+- Objetivo desta rodada:
+  - corrigir o runtime do servico web para que `uvicorn` aceite upgrade WebSocket real em `/ws`
+- Causa raiz confirmada:
+  - o endpoint `/ws` existia e estava registrado no app
+  - o processo ativo em `8000` era o correto
+  - o `.venv` nao tinha nenhum backend WebSocket suportado pelo `uvicorn`
+  - evidencia anterior no runtime:
+    - `websockets = MISSING`
+    - `wsproto = MISSING`
+    - logs com:
+      - `Unsupported upgrade request`
+      - `No supported WebSocket library detected`
+- Correcao aplicada:
+  - instalado no `.venv` do projeto:
+    - `websockets==16.0`
+  - dependencia registrada em:
+    - `requirements.txt`
+  - servico reiniciado:
+    - `livecopilot-web8000.service`
+- Validacao objetiva apos o restart:
+  - `systemctl is-active livecopilot-web8000.service`
+    - `active`
+  - `GET http://127.0.0.1:8000/status`
+    - `200 OK`
+  - cliente WebSocket real com `websockets.connect('ws://127.0.0.1:8000/ws')`
+    - conexao estabelecida com sucesso
+    - snapshot inicial recebido do backend:
+      - `{\"transcript\":[],\"suggestions\":[],\"quick_replies\":[],\"fillers\":[],\"term_hints\":[],\"knowledge_context\":{}}`
+  - logs do servico apos restart:
+    - `("10.45.0.224", ...) - "WebSocket /ws" [accepted]`
+    - `connection open`
+  - os avisos anteriores deixaram de aparecer nesta janela validada:
+    - `Unsupported upgrade request`
+    - `No supported WebSocket library detected`
+- Impacto na UI:
+  - a causa do erro recorrente `WebSocket connection to ... /ws failed` por falta de backend WebSocket foi removida
+  - sem sessao grafica interativa nesta rodada, a comprovacao visual no navegador ficou indireta via handshake real aceito e logs do servico
+- Novo gargalo observado apos a correcao:
+  - quando um cliente envia mensagem textual no `/ws`, a rota falha em log por usar `extra={\"message\": ...}` em `app/main.py`
+  - evidencia no log:
+    - `KeyError: "Attempt to overwrite 'message' in LogRecord"`
+  - isso nao impede o aceite da conexao WebSocket inicial, mas pode encerrar a conexao ao receber mensagem
+- Arquivos alterados:
+  - `requirements.txt`
+- Limitacoes remanescentes:
+  - falta validacao visual direta no navegador desta sessao
+  - o erro de logging em mensagens recebidas no `/ws` segue pendente para uma rodada separada
+
+## Checkpoint 2026-03-13: fallback defensivo para getUserMedia na trilha de voz
+- Objetivo desta rodada:
+  - impedir crash do frontend ao clicar em `Iniciar voz` quando o ambiente nao expoe `navigator.mediaDevices` ou `getUserMedia`
+- Causa exata do erro:
+  - `startVoiceSession()` em `app/static/app.js` chamava `navigator.mediaDevices.getUserMedia({ audio: true })`
+  - em navegadores moveis, WebViews ou contexto nao seguro, `navigator.mediaDevices` pode vir `undefined`
+  - isso fazia a UI cair no erro bruto:
+    - `Cannot read properties of undefined (reading 'getUserMedia')`
+- Fallback aplicado:
+  - adicionada coleta de diagnostico de compatibilidade antes da sessao de voz:
+    - `secure_context`
+    - `media_devices`
+    - `get_user_media`
+    - `RTCPeerConnection`
+  - se o ambiente nao suportar captura:
+    - o fluxo de voz para antes de abrir a sessao
+    - a UI entra em estado controlado de erro
+    - a mensagem exibida deixa de ser o erro cru do JS
+    - o console registra `voice_unsupported_environment` com diagnostico simples
+  - erros comuns de permissao/dispositivo tambem passam por mensagem amigavel:
+    - permissao negada
+    - microfone ausente
+    - dispositivo ocupado
+    - contexto inseguro
+- Comportamento novo da UI:
+  - clicar em `Iniciar voz` em ambiente incompatível nao derruba mais o frontend
+  - o painel de voz mostra estado `error`
+  - a UI exibe mensagem legivel orientando:
+    - usar navegador compativel com `getUserMedia/WebRTC`
+    - abrir em `HTTPS` ou `localhost` quando aplicavel
+    - liberar permissao de microfone
+  - `voice-meta` agora mostra diagnostico basico do contexto atual
+- Arquivos alterados:
+  - `app/static/app.js`
+- Validacao executada:
+  - `node --check app/static/app.js`
+    - `OK`
+  - `./.venv/bin/python -m unittest -v tests/test_livecopilot_interface_api.py`
+    - `Ran 2 tests` -> `OK`
+  - `./scripts/unit_test_gate.sh`
+    - `Ran 197 tests in 105.290s` -> `OK`
+- Limitacoes remanescentes:
+  - a validacao visual real do clique no navegador nao foi executada nesta sessao por ausencia de browser grafico interativo
+  - a trilha de voz continua dependente de navegador com WebRTC, microfone e permissao concedida
+
+## Checkpoint 2026-03-13: guarda de compatibilidade para getUserMedia no frontend
+- Objetivo desta rodada:
+  - evitar crash no frontend ao iniciar voz em navegadores onde `navigator.mediaDevices` nao existe
+- Causa observada:
+  - a UI chamava `navigator.mediaDevices.getUserMedia(...)` sem verificar suporte antes
+  - em alguns navegadores moveis isso pode gerar `Cannot read properties of undefined (reading 'getUserMedia')`
+- Correcao aplicada:
+  - ajuste minimo em `app/static/app.js`
+  - adicionada guarda:
+    - verifica `navigator.mediaDevices` e `navigator.mediaDevices.getUserMedia`
+    - registra erro no console
+    - mostra `alert` de navegador sem suporte
+    - interrompe o fluxo antes da chamada insegura
+- Validacao local executada:
+  - checagem de sintaxe do arquivo JS
+- Limitacao de validacao:
+  - nao houve validacao visual real do clique em navegador nesta sessao por ausencia de ambiente grafico interativo
+
+## Checkpoint 2026-03-13: restauracao da trilha de voz com OPENAI_API_KEY carregada
+- Objetivo desta rodada:
+  - remover o bloqueio `OPENAI_API_KEY ausente para Realtime API`
+  - validar que a trilha de voz volta a criar sessao efemera no backend publicado
+- Diagnostico objetivo:
+  - o codigo ja chamava `load_dotenv()` em `app/core/config.py`
+  - porem nao existiam `.env` nem `.env.local` no projeto
+  - o servico `livecopilot-web8000.service` nao tinha `Environment=` nem `EnvironmentFile=`
+  - o ambiente real do processo em `8000` nao continha `OPENAI_API_KEY`
+  - o projeto ja possuia um ambiente canonico reutilizado por scripts:
+    - `/etc/livecopilot-semantic.env`
+  - evidencia sanitizada:
+    - `./scripts/with-semantic-env.sh` mostrou `OPENAI_API_KEY=<redacted>`
+    - `GET /status` antes da correcao:
+      - `realtime_api_key_present=false`
+    - `POST /api/realtime/session` antes da correcao:
+      - `503`
+      - erro: `OPENAI_API_KEY ausente para Realtime API`
+- Causa raiz:
+  - a chave existia no ambiente canonico externo ao projeto, mas o backend web nao carregava esse arquivo na inicializacao
+  - portanto a UI de voz recebia erro de configuracao mesmo com segredo disponivel no host
+- Correcao aplicada:
+  - ajuste minimo em `app/core/config.py` para carregar tambem `/etc/livecopilot-semantic.env` quando presente, antes do `.env` local
+  - reinicio do servico `livecopilot-web8000.service`
+- Como a chave passou a ser carregada:
+  - ordem efetiva apos a correcao:
+    - `/etc/livecopilot-semantic.env` como ambiente canonico do host
+    - `.env` local como override opcional, se existir
+  - validacao local apos o ajuste:
+    - `get_realtime_runtime().api_key_present=true`
+- Validacao do backend apos a correcao:
+  - `GET http://127.0.0.1:8000/status`:
+    - `200 OK`
+    - `realtime_api_key_present=true`
+    - `transcription_external_available=true`
+  - `POST http://127.0.0.1:8000/api/realtime/session`:
+    - `200 OK`
+    - passou a retornar sessao efemera compativel com Realtime API
+    - resposta sanitizada confirmou:
+      - `status=ok`
+      - `channel=voice`
+      - `provider=openai_realtime`
+      - `webrtc_url=https://api.openai.com/v1/realtime/calls`
+      - `model=gpt-realtime-mini`
+  - `journalctl` apos restart:
+    - `POST /api/realtime/session HTTP/1.1" 200 OK` em `127.0.0.1`
+    - `POST /api/realtime/session HTTP/1.1" 200 OK` em `10.45.0.3`
+- Validacao da interface:
+  - `GET http://10.45.0.3:8000/status`:
+    - `200 OK`
+    - `realtime_api_key_present=true`
+  - `POST http://10.45.0.3:8000/api/realtime/session`:
+    - `200 OK`
+  - estado visual esperado da UI:
+    - a mensagem `OPENAI_API_KEY ausente para Realtime API` deixa de aparecer, porque o frontend so exibia esse texto quando o backend devolvia esse erro literal
+    - com o backend agora retornando `200`, a trilha visual de voz passa para criacao de sessao/conexao
+  - limitacao de validacao visual real:
+    - o ambiente segue sem navegador grafico utilizavel nesta sessao, entao a comprovacao do DOM foi indireta via contrato real do endpoint e codigo do frontend
+- Testes executados:
+  - `./.venv/bin/python -m unittest -v tests/test_livecopilot_interface_api.py`
+    - `Ran 2 tests` -> `OK`
+  - `./scripts/unit_test_gate.sh`
+    - `Ran 197 tests in 105.355s` -> `OK`
+- Impacto:
+  - o backend publicado passou a reconhecer `OPENAI_API_KEY`
+  - a criacao de sessao efemera da voz deixou de falhar por erro de configuracao
+- Limitacoes remanescentes:
+  - a negociacao WebRTC ponta a ponta ainda depende de navegador com suporte grafico e microfone
+  - `/ws` continua fora do escopo desta rodada
+
+## Checkpoint 2026-03-13: restauracao do endpoint /api/chat na interface web
+- Objetivo desta rodada:
+  - diagnosticar a falha exibida na UI como `Erro: falha no /api/chat`
+  - confirmar a causa real antes de editar qualquer codigo
+- Como o app estava rodando:
+  - processo ativo na porta `8000`:
+    - `root 7280 ... /lab/projects/livecopilot/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000`
+  - listener confirmado:
+    - `0.0.0.0:8000 users:(("uvicorn",pid=7280,fd=6))`
+  - origem do processo:
+    - `systemd` transient unit `livecopilot-web8000.service`
+- Evidencia objetiva da falha:
+  - `POST http://127.0.0.1:8000/api/chat` com payload do frontend retornava:
+    - `HTTP/1.1 404 Not Found`
+    - body: `{"detail":"Not Found"}`
+  - `journalctl -u livecopilot-web8000.service` registrava:
+    - `POST /api/chat HTTP/1.1" 404 Not Found`
+  - `openapi.json` exposto em `8000` nao continha `/api/chat`
+- Contrato inspecionado no codigo atual:
+  - frontend `app/static/app.js` envia:
+    - `text`
+    - `mode`
+    - `conversation_id`
+    - para `fetch('/api/chat')`
+  - backend `app/api/routes.py` espera:
+    - `ChatRequest(text, mode, conversation_id)`
+  - rota existente no codigo atual:
+    - `@router.post("/api/chat")`
+- Causa raiz encontrada:
+  - o servico publicado em `8000` estava rodando uma instancia antiga do app, iniciada em `2026-03-10`, sem reload das rotas mais recentes
+  - por isso a interface carregava normalmente, mas o backend exposto nao tinha `/api/chat` registrado
+- Correcao aplicada:
+  - reinicio do servico `livecopilot-web8000.service`
+  - nenhuma alteracao de codigo foi necessaria para restaurar `/api/chat`
+- Validacao apos a correcao:
+  - `openapi.json` passou a expor `/api/chat`
+  - `GET http://127.0.0.1:8000/`:
+    - `200 OK`
+  - `POST http://127.0.0.1:8000/api/chat` com payload do frontend:
+    - `200 OK`
+    - resposta com contrato esperado (`status=ok`, `channel=text`, `conversation_id`, `answer`, `knowledge_context`, `snapshot`)
+  - smoke no host publicado `http://10.45.0.3:8000/`:
+    - `GET /` -> `200 OK`
+    - `static/app.js` continua apontando para `fetch('/api/chat')`
+    - `POST /api/chat` -> `200 OK`
+- Testes executados:
+  - `./.venv/bin/python -m unittest -v tests/test_livecopilot_interface_api.py`
+    - `Ran 2 tests` -> `OK`
+  - `./scripts/unit_test_gate.sh`
+    - `Ran 197 tests in 105.155s` -> `OK`
+- Impacto:
+  - envio de texto da interface volta a funcionar no endpoint publicado em `8000`
+  - nenhuma mudanca funcional adicional foi introduzida
+- Limitacoes remanescentes:
+  - a trilha `/ws` continua retornando `404` por ausencia de suporte websocket no runtime do `uvicorn`, mas isso nao bloqueou a recuperacao do `/api/chat`
+  - a correcao desta rodada foi operacional; se o deploy continuar sem restart/reload, o sintoma pode reaparecer em futuras publicacoes
+
+## Checkpoint 2026-03-13: alinhamento arquitetural da Interface Livecopilot V1
+- Correcao de entendimento consolidada:
+  - a pagina HTML e uma janela de acesso ao proprio sistema Livecopilot
+  - texto e voz sao canais de entrada
+  - ambos devem convergir para o mesmo motor logico de consulta/resposta do backend
+- O que foi reaproveitado:
+  - `app/templates/index.html`
+  - `app/static/app.js`
+  - `app/static/style.css`
+  - `app/api/routes.py`
+  - helper de sessao efemera:
+    - `app/services/realtime_openai.py`
+- O que foi ajustado nesta rodada:
+  - textos e estados da UI para explicitar:
+    - texto como fluxo principal de consulta
+    - voz como "falar em vez de digitar"
+    - convergencia para o mesmo motor do Livecopilot
+  - documentacao principal da interface atualizada com o contrato correto
+- Estado atual da interface:
+  - texto:
+    - continua funcional via `POST /api/chat`
+    - usa a mesma logica central compartilhada com `/realtime/respond`
+  - voz:
+    - continua baseada em `POST /api/realtime/session` + OpenAI Realtime API
+    - tratada arquiteturalmente como entrada alternativa para a mesma janela de consulta
+- O que ja funciona:
+  - pagina HTML abre e representa a interface como janela do sistema
+  - fluxo de texto continua sendo a referencia principal
+  - UI de voz existe de forma coerente com a arquitetura desejada
+- O que segue pendente:
+  - validacao ponta a ponta da voz em ambiente com `OPENAI_API_KEY`, navegador com WebRTC e microfone
+- Documentacao e handoff desta rodada:
+  - `docs/LIVECOPILOT_INTERFACE_V1.md`
+  - `docs/HANDOFF_LIVECOPILOT_INTERFACE_ARCHITECTURE_ALIGNMENT_20260313T054615Z.md`
+- Proximo passo recomendado:
+  - validar em ambiente real se a trilha de voz entrega transcricao/resposta com UX coerente de "falar em vez de digitar", sem abrir arquitetura paralela.
+
+## Checkpoint 2026-03-13: tentativa de validacao final da voz da Interface V1
+- Objetivo desta rodada:
+  - confirmar ponta a ponta a trilha de voz com OpenAI Realtime API:
+    - sessao efemera
+    - WebRTC
+    - microfone
+    - transcricao/resposta na UI
+- Estado inicial do ambiente:
+  - `OPENAI_API_KEY`:
+    - ausente
+  - navegador utilizavel:
+    - nao encontrado
+  - sessao grafica:
+    - `DISPLAY=`
+    - `WAYLAND_DISPLAY=`
+    - `XDG_SESSION_TYPE=tty`
+  - dispositivos de audio:
+    - ha paths em `/dev/snd`, mas isso nao resolve a ausencia de navegador grafico
+- Validacao executada:
+  - `GET /status` -> `200`
+    - `realtime_api_enabled=true`
+    - `realtime_api_key_present=false`
+  - `POST /api/realtime/session` -> `503`
+    - erro:
+      - `OPENAI_API_KEY ausente para Realtime API`
+  - artefato gerado:
+    - `docs/coverage/livecopilot_interface_voice_validation_20260313T052938Z.json`
+- Conclusao objetiva:
+  - a validacao real da voz nao pode ser concluida neste ambiente
+  - o bloqueio atual e de ambiente, nao de arquitetura:
+    - falta `OPENAI_API_KEY`
+    - falta navegador grafico para WebRTC + microfone
+- O que fica confirmado:
+  - o backend esta de pe
+  - a trilha de erro do endpoint de sessao continua legivel
+  - a implementacao nao regrediu o fluxo de texto
+- O que segue pendente:
+  - confirmar em ambiente pronto:
+    - `POST /api/realtime/session` com `200`
+    - negociacao WebRTC
+    - permissao de microfone
+    - transcricao/resposta na UI
+- Documentacao e handoff desta tentativa:
+  - `docs/LIVECOPILOT_INTERFACE_V1.md`
+  - `docs/HANDOFF_LIVECOPILOT_INTERFACE_VOICE_VALIDATION_20260313T052938Z.md`
+- Proximo passo recomendado:
+  - repetir esta validacao em maquina/sessao com `OPENAI_API_KEY`, navegador com WebRTC e microfone disponiveis.
+
+## Checkpoint 2026-03-13: interface Livecopilot V1 com texto e voz Realtime
+- Hipotese da frente:
+  - transformar a pagina HTML inicial do projeto em uma interface V1 funcional, mantendo o frontend simples e usando:
+    - texto via backend do Livecopilot
+    - voz via OpenAI Realtime API
+- Estado atual levantado:
+  - pagina HTML reaproveitada:
+    - `app/templates/index.html`
+  - frontend JS reaproveitado/adaptado:
+    - `app/static/app.js`
+  - backend util ja existente:
+    - `app/main.py`
+    - `app/api/routes.py`
+  - superfícies ja existentes reaproveitadas:
+    - `/status`
+    - `/ingest`
+    - `/realtime/respond`
+    - `/ws`
+- Implementacao desta rodada:
+  - texto:
+    - nova rota `POST /api/chat`
+    - reutiliza a mesma logica de resposta do fluxo `/realtime/respond`
+  - voz:
+    - nova rota `POST /api/realtime/session`
+    - helper novo:
+      - `app/services/realtime_openai.py`
+    - browser negocia WebRTC direto com:
+      - `https://api.openai.com/v1/realtime/calls`
+  - configuracao minima adicionada:
+    - `REALTIME_API_ENABLED`
+    - `REALTIME_API_MODEL`
+    - `REALTIME_API_VOICE`
+    - `REALTIME_API_LANGUAGE`
+    - `REALTIME_API_TRANSCRIPTION_MODEL`
+    - `REALTIME_API_PROMPT`
+- Validacao executada:
+  - `node --check app/static/app.js`
+    - `OK`
+  - `./.venv/bin/python -m unittest -v tests/test_livecopilot_interface_api.py`
+    - `Ran 2 tests` -> `OK`
+  - `./scripts/unit_test_gate.sh`
+    - `Ran 197 tests in 105.823s` -> `OK`
+  - smoke local backend:
+    - `GET /status` -> `200`
+    - `POST /api/chat` -> `200`
+    - evidencia:
+      - resposta real retornada com `backend=semantic_api`
+  - checagem de erro/control flow minimo da voz:
+    - `POST /api/realtime/session` -> `503`
+    - evidencia concreta:
+      - `OPENAI_API_KEY ausente para Realtime API`
+- O que esta funcionando:
+  - interface unica reaproveitada para texto e voz
+  - texto ponta a ponta via backend do projeto
+  - endpoint minimo para sessao efemera Realtime
+  - renderizacao de resposta, bullets, log da interacao, status e contexto resumido
+- Limitacoes atuais:
+  - validacao de voz ponta a ponta ficou bloqueada neste ambiente pela ausencia de `OPENAI_API_KEY`
+  - a interface de voz depende de navegador com WebRTC e permissao de microfone
+  - sem redesign amplo de frontend
+  - sem autenticacao e sem memoria sofisticada
+- Documentacao e handoff:
+  - `docs/LIVECOPILOT_INTERFACE_V1.md`
+  - `docs/HANDOFF_LIVECOPILOT_INTERFACE_V1_20260313T052204Z.md`
+- Proximo passo recomendado:
+  - validar a trilha WebRTC ponta a ponta em ambiente com `OPENAI_API_KEY` e navegador com microfone, antes de pensar em V2.
+
+## Checkpoint 2026-03-13: fechamento formal da frente Knowledge Pipeline
+- Decisao:
+  - frente encerrada formalmente como concluida nesta etapa
+- Estado consolidado:
+  - V1 operacional entregue:
+    - `scripts/knowledge_pipeline.sh` com `plan`, `run`, `validate`
+    - `docs/KNOWLEDGE_PIPELINE_V1.md`
+  - V2 minima entregue:
+    - `scripts/knowledge_pipeline.sh` com `semantic-validate`
+    - `docs/KNOWLEDGE_PIPELINE_V2_SEMANTIC_VALIDATE.md`
+    - `scripts/knowledge_pipeline_semantic_validate.py`
+  - artefatos de rodada padronizados em `docs/coverage/`
+  - testes de contrato ativos:
+    - `tests/test_knowledge_pipeline_cli_contract.py`
+    - `tests/test_knowledge_pipeline_semantic_validate.py`
+  - gate local cobrindo a trilha:
+    - `./scripts/unit_test_gate.sh`
+- Validacao final desta rodada:
+  - `./.venv/bin/python -m unittest -v tests/test_knowledge_pipeline_cli_contract.py`
+    - `Ran 2 tests in 104.477s` -> `OK`
+  - `./.venv/bin/python -m unittest -v tests/test_knowledge_pipeline_semantic_validate.py`
+    - `Ran 2 tests in 0.004s` -> `OK`
+  - `./scripts/unit_test_gate.sh`
+    - `Ran 195 tests in 105.802s` -> `OK`
+- Caso real ja validado como evidencia de maturidade:
+  - `20260313T034000Z-knowledge-pipeline-v2-terraform-openai`
+  - `semantic_smoke_passed=true`
+- Fora do escopo explicitado para este fechamento:
+  - nao abrir V3
+  - nao adicionar nova funcionalidade
+  - nao reabrir a logica do pipeline alem de checkpoint/documentacao
+- Artefatos de fechamento:
+  - `docs/KNOWLEDGE_PIPELINE_STAGE_CLOSURE.md`
+  - `docs/HANDOFF_KNOWLEDGE_PIPELINE_STAGE_CLOSURE_20260313T045713Z.md`
+- Proxima evolucao natural quando a frente voltar:
+  - V3 curta focada em qualidade de validacao:
+    - queryset explicito versionado por dominio/prefixo
+    - endurecimento do auto-limit para prefixos novos
+    - auditoria global curta complementar ao `round_scope_only`
+- Frente recomendada para receber foco depois disso:
+  - consolidacao de coverage/gap analysis por dominio
+  - ou curadoria operacional da camada de aquisicao/selecao de fontes
+
+## Checkpoint 2026-03-13: dogfooding controlado com docs oficiais do ecossistema Codex
+- Hipotese da rodada:
+  - validar o pipeline de conhecimento em um caso real pequeno e util usando documentacao operacional do repositorio oficial `openai/codex`, em vez de depender so de recortes sinteticos internos.
+- Repositorio escolhido:
+  - principal alvo:
+    - `https://github.com/openai/codex`
+  - justificativa:
+    - e o repositorio oficial do Codex CLI
+    - concentra documentacao de instalacao, autenticacao, configuracao, sandbox, execution policy, skills e slash commands
+    - e um alvo pequeno o bastante para uma rodada controlada e relevante para dogfooding do proprio sistema
+- Clone e recorte documental:
+  - clone local:
+    - `_official_repo_clones/codex`
+  - recorte materializado:
+    - `data/knowledge_raw/codex_docs_selected/`
+  - artefato de selecao:
+    - `docs/coverage/codex_dogfooding_selection_20260313T034900Z.json`
+  - arquivos selecionados:
+    - `README.md`
+    - `docs/getting-started.md`
+    - `docs/install.md`
+    - `docs/authentication.md`
+    - `docs/config.md`
+    - `docs/example-config.md`
+    - `docs/sandbox.md`
+    - `docs/execpolicy.md`
+    - `docs/exec.md`
+    - `docs/skills.md`
+    - `docs/agents_md.md`
+    - `docs/slash_commands.md`
+    - `shell-tool-mcp/README.md`
+- Pipeline executado:
+  - queryset real de uso:
+    - `docs/coverage/codex_dogfooding_queryset_20260313T043813Z.json`
+  - rodada final:
+    - `20260313T044239Z-codex-dogfooding-final`
+  - comandos:
+    - `./scripts/knowledge_pipeline.sh --mode plan --round-id 20260313T044239Z-codex-dogfooding-final --source-prefix codex_docs_selected/`
+    - `./scripts/knowledge_pipeline.sh --mode run --round-id 20260313T044239Z-codex-dogfooding-final --source-prefix codex_docs_selected/ --semantic-embedding-mode openai`
+    - `./scripts/knowledge_pipeline.sh --mode validate --round-id 20260313T044239Z-codex-dogfooding-final --source-prefix codex_docs_selected/`
+    - `./scripts/knowledge_pipeline.sh --mode semantic-validate --round-id 20260313T044239Z-codex-dogfooding-final --source-prefix codex_docs_selected/ --semantic-queryset-file docs/coverage/codex_dogfooding_queryset_20260313T043813Z.json`
+- Artefatos da rodada final:
+  - `docs/coverage/knowledge_pipeline_plan_20260313T044239Z-codex-dogfooding-final.json`
+  - `docs/coverage/knowledge_pipeline_run_20260313T044239Z-codex-dogfooding-final.json`
+  - `docs/coverage/knowledge_pipeline_validate_20260313T044239Z-codex-dogfooding-final.json`
+  - `docs/coverage/knowledge_pipeline_validate_utf8_20260313T044239Z-codex-dogfooding-final.json`
+  - `docs/coverage/knowledge_pipeline_semantic_validate_20260313T044239Z-codex-dogfooding-final.json`
+- Resultado operacional:
+  - `plan`:
+    - `ingest_total_found=13`
+    - `semantic_total_source_files=13`
+    - sem divergencia entre ingestao prevista e persistencia prevista
+  - `run`:
+    - `files_found=13`
+    - `processed=0`
+    - `skipped=13`
+    - `documents_selected=13`
+    - `documents_processed=13`
+    - `chunks_persisted=26`
+    - `embedding_mode_used=openai`
+  - `validate`:
+    - `validation_passed=true`
+    - `resolved_sources_total=13`
+    - `parsed_artifacts_present_for_scope=true`
+    - `chunk_artifacts_present_for_scope=true`
+    - `utf8_scan_clean=true`
+    - `bad_chunks_count=0`
+- Queries reais testadas:
+  - instalacao:
+    - `how to install codex cli with npm or homebrew`
+  - autenticacao:
+    - `codex cli authentication sign in with chatgpt or api key`
+  - configuracao:
+    - `codex config toml basic advanced configuration reference`
+  - sandbox:
+    - `codex sandbox approvals workspace write read only danger full access`
+  - execution policy:
+    - `codex execution policy approvals rules`
+  - comandos/modos de operacao:
+    - `codex slash commands and skills documentation`
+- Resultado semantico observado:
+  - `semantic_smoke_passed=true`
+  - `total_queries=6`
+  - `top1_expected_prefix_count=6`
+  - `topk_expected_prefix_count=6`
+  - `top1_expected_source_file_count=5`
+  - `topk_expected_source_file_count=6`
+  - destaque:
+    - instalacao caiu em `top1` no `README.md`
+    - autenticacao caiu em `top1` em `docs/authentication.md`
+    - configuracao caiu em `top1` em `docs/config.md`
+    - sandbox caiu em `top1` em `docs/sandbox.md`
+    - slash commands caiu em `top1` em `docs/slash_commands.md`
+    - execution policy apareceu em `top2`, com `docs/sandbox.md` acima de `docs/execpolicy.md`
+- Utilidade observada:
+  - o recorte foi util para perguntas operacionais reais sobre uso do Codex CLI
+  - a recuperabilidade semantica minima ficou boa dentro do escopo da rodada
+  - a rodada serve como dogfooding concreto do pipeline com documentacao externa controlada
+- Limitacoes observadas:
+  - na primeira tentativa com prefixo novo (`20260313T043813Z-codex-dogfooding`), o auto-limit do `run` caiu para `1` porque o preview ainda nao tinha `source_file` resolvido no estado
+  - o smoke semantico mede `round_scope_only`, nao competicao global contra todo o corpus
+  - parte da documentacao selecionada e gateway para docs remotos, entao profundidade operacional completa continua dependendo das paginas externas oficiais
+- Handoff da rodada:
+  - `docs/HANDOFF_CODEX_DOGFOODING_INGESTION_20260313T044930Z.md`
+- Proximo passo recomendado:
+  - adicionar um queryset explicito versionado por dominio externo importante e endurecer o auto-limit do `run` para prefixos novos, evitando `semantic_limit_docs=1` na primeira execucao de um recorte recem-materializado.
+
+## Checkpoint 2026-03-13: knowledge pipeline V2 semantic validate
+- Hipotese da rodada:
+  - adicionar uma camada minima de validacao cognitiva por rodada/prefixo para medir recuperabilidade semantica do conteudo persistido, sem transformar o pipeline em um avaliador opaco ou complexo.
+- Desenho adotado:
+  - interface escolhida:
+    - novo modo explicito no pipeline: `--mode semantic-validate`
+  - motivo:
+    - preserva o `validate` operacional da V1
+    - separa claramente validacao estrutural de smoke semantico
+  - vinculo com rodada:
+    - `semantic-validate` exige `--round-id`
+    - reusa o artefato `knowledge_pipeline_run_<round_id>.json`
+    - reusa os `source_prefixes` da rodada
+  - estrategia de queries:
+    - derivacao automatica por `source_file` do escopo
+    - prioridade para arquivos fora de `HANDOFF_*`
+    - query derivada do nome do arquivo com limpeza de timestamps/tokens genericos
+    - suporte opcional a queryset explicito via `--semantic-queryset-file`
+  - escopo de busca:
+    - `round_scope_only`
+    - ranking apenas dentro dos `source_files` da rodada
+    - objetivo: medir recuperabilidade do recorte ingerido, nao competicao global do corpus
+  - criterio minimo de sucesso:
+    - todas as queries precisam ter `expected_source_file` em `topk`
+    - pelo menos metade das queries precisa ter `top1 == expected_source_file`
+- Implementacao realizada:
+  - `scripts/knowledge_pipeline.sh`
+    - novo modo `semantic-validate`
+    - novo parametro opcional `--semantic-queryset-file`
+  - novo helper:
+    - `scripts/knowledge_pipeline_semantic_validate.py`
+  - infraestrutura reaproveitada:
+    - `app.services.semantic_min_api.semantic_search_with_mode(...)`
+    - `knowledge_pipeline` V1
+    - artefato de `run`
+    - `source_prefix_resolution`
+  - extensao minima na busca semantica:
+    - `app/services/semantic_min_api.py`
+    - novo caminho de busca com `embedding_mode=mock|openai|auto`
+    - compatibilidade preservada para `semantic_search(...)`
+- Artefatos V2:
+  - `docs/coverage/knowledge_pipeline_semantic_validate_<round_id>.json`
+  - conteudo minimo:
+    - `round_id`
+    - `source_prefixes`
+    - `search_scope`
+    - `queries`
+    - `results`
+    - `aggregate`
+    - `semantic_smoke_passed`
+- Documentacao:
+  - novo doc:
+    - `docs/KNOWLEDGE_PIPELINE_V2_SEMANTIC_VALIDATE.md`
+  - referencia cruzada mantida em:
+    - `docs/KNOWLEDGE_PIPELINE_V1.md`
+- Teste automatizado adicionado:
+  - `tests/test_knowledge_pipeline_semantic_validate.py`
+  - cobertura:
+    - derivacao de queries com prioridade para nao-handoff
+    - contrato minimo do helper/CLI com busca mockada e artefato persistido
+  - gate atualizado:
+    - `scripts/unit_test_gate.sh`
+- Evidencia intermediaria importante:
+  - caso tecnico com `mock`:
+    - round id: `20260313T033200Z-knowledge-pipeline-v2-terraform`
+    - prefixo: `terraform_docs_selected_incremental/`
+    - resultado:
+      - `validation_passed=true`
+      - `semantic_smoke_passed=false`
+      - `topk_expected_source_file_count=2/5`
+    - conclusao:
+      - `mock` permanece util para trilha tecnica/auditavel, mas nao e prova cognitiva forte da V2
+- Caso real final testado:
+  - prefixo controlado:
+    - `terraform_docs_selected_incremental/`
+  - round id:
+    - `20260313T034000Z-knowledge-pipeline-v2-terraform-openai`
+  - comandos:
+    - `./scripts/knowledge_pipeline.sh --mode plan --round-id 20260313T034000Z-knowledge-pipeline-v2-terraform-openai --source-prefix terraform_docs_selected_incremental/`
+    - `./scripts/knowledge_pipeline.sh --mode run --round-id 20260313T034000Z-knowledge-pipeline-v2-terraform-openai --source-prefix terraform_docs_selected_incremental/ --semantic-embedding-mode openai`
+    - `./scripts/knowledge_pipeline.sh --mode validate --round-id 20260313T034000Z-knowledge-pipeline-v2-terraform-openai --source-prefix terraform_docs_selected_incremental/`
+    - `./scripts/knowledge_pipeline.sh --mode semantic-validate --round-id 20260313T034000Z-knowledge-pipeline-v2-terraform-openai --source-prefix terraform_docs_selected_incremental/`
+- Resultados do caso real final:
+  - `run`:
+    - `documents_selected=11`
+    - `documents_processed=11`
+    - `chunks_persisted=72`
+    - `embedding_mode_used=openai`
+  - `validate`:
+    - `validation_passed=true`
+  - `semantic-validate`:
+    - `search_scope=round_scope_only`
+    - `total_queries=5`
+    - `top1_expected_prefix_count=5`
+    - `topk_expected_prefix_count=5`
+    - `top1_expected_source_file_count=4`
+    - `topk_expected_source_file_count=5`
+    - `semantic_smoke_passed=true`
+- Testes executados:
+  - `./.venv/bin/python -m unittest -v tests/test_knowledge_pipeline_semantic_validate.py`
+    - `Ran 2 tests` -> `OK`
+  - `./scripts/unit_test_gate.sh`
+    - `Ran 195 tests in 105.929s` -> `OK`
+- Limitacoes atuais da V2:
+  - mede recuperabilidade semantica apenas dentro do escopo da rodada (`round_scope_only`)
+  - nao avalia competicao/ranking global entre prefixos
+  - queryset derivado por nome de arquivo e propositalmente simples
+  - `mock` continua suportado, mas nao deve ser lido como validacao cognitiva forte
+- Handoff da rodada:
+  - `docs/HANDOFF_KNOWLEDGE_PIPELINE_V2_SEMANTIC_VALIDATE_20260313T034545Z.md`
+- Proximo passo recomendado:
+  - opcional: acrescentar queryset explicito por dominio/prefixo para rodadas importantes e, numa V3, comparar `round_scope_only` com uma auditoria global curta sem perder a auditabilidade.
+
+## Checkpoint 2026-03-13: knowledge pipeline V1 operacional
+- Hipotese da rodada:
+  - subir do preview isolado para uma rodada operacional simples e auditavel (`plan -> run -> validate`) reaproveitando `round_plan.sh`, ingestao seletiva por prefixo, persistencia semantica seletiva e validacoes locais.
+- Desenho da V1:
+  - entrada obrigatoria:
+    - `--mode plan|run|validate`
+    - `--source-prefix` (repetivel)
+    - `--round-id` opcional para ligar artefatos da mesma rodada
+    - `--strict-source-prefix` opcional
+  - modos:
+    - `plan`: usa `scripts/round_plan.sh --json` sem side-effects
+    - `run`: executa `scripts/ingest_knowledge.sh` + `app.services.knowledge_ingest --semantic-persist`
+    - `validate`: executa `scripts/round_plan.sh --json` + `scripts/utf8_hygiene_scan.sh` + checagem do estado canonico
+  - artefatos padronizados:
+    - `docs/coverage/knowledge_pipeline_plan_<round_id>.json`
+    - `docs/coverage/knowledge_pipeline_run_<round_id>.json`
+    - `docs/coverage/knowledge_pipeline_validate_<round_id>.json`
+    - suporte adicional:
+      - `docs/coverage/knowledge_pipeline_validate_utf8_<round_id>.json`
+- Interface criada:
+  - novo entrypoint: `scripts/knowledge_pipeline.sh`
+  - contrato documentado em `docs/KNOWLEDGE_PIPELINE_V1.md`
+  - referencia cruzada adicionada em `docs/INGESTION_SELECTIVE_PREFIX_MODE.md`
+- Reuso da infraestrutura existente:
+  - `scripts/round_plan.sh`
+  - `scripts/ingest_knowledge.sh`
+  - `scripts/with-semantic-env.sh`
+  - `app.services.knowledge_ingest`
+  - `scripts/utf8_hygiene_scan.sh`
+- Validacao automatizada adicionada:
+  - novo teste de contrato:
+    - `tests/test_knowledge_pipeline_cli_contract.py`
+  - gate atualizado:
+    - `scripts/unit_test_gate.sh`
+- Caso real testado:
+  - prefixo controlado: `continuity_docs_selected/`
+  - round id:
+    - `20260313T030500Z-knowledge-pipeline-v1`
+  - comandos:
+    - `./scripts/knowledge_pipeline.sh --mode plan --round-id 20260313T030500Z-knowledge-pipeline-v1 --source-prefix continuity_docs_selected/`
+    - `./scripts/knowledge_pipeline.sh --mode run --round-id 20260313T030500Z-knowledge-pipeline-v1 --source-prefix continuity_docs_selected/ --semantic-embedding-mode mock`
+    - `./scripts/knowledge_pipeline.sh --mode validate --round-id 20260313T030500Z-knowledge-pipeline-v1 --source-prefix continuity_docs_selected/`
+- Resultados do caso real:
+  - `plan`:
+    - `ingest_total_found=12`
+    - `semantic_total_source_files=12`
+    - sem divergencia entre ingestao e persistencia prevista
+  - `run`:
+    - `Arquivos encontrados=12`
+    - `Arquivos processados=0`
+    - `Arquivos ignorados=12`
+    - `documents_selected=12`
+    - `documents_processed=12`
+    - `chunks_persisted=39`
+    - `semantic_limit_docs` resolvido automaticamente para `12`
+  - `validate`:
+    - `validation_passed=true`
+    - `resolved_sources_total=12`
+    - parsed/chunks presentes para todo o escopo
+    - UTF-8 scan limpo:
+      - `total_chunks_scanned=1222`
+      - `bad_chunks_count=0`
+- Testes executados:
+  - `./.venv/bin/python -m unittest -v tests/test_knowledge_pipeline_cli_contract.py`
+    - `Ran 2 tests in 105.069s` -> `OK`
+  - `./scripts/unit_test_gate.sh`
+    - `Ran 193 tests in 105.072s` -> `OK`
+- Limitacoes atuais da V1:
+  - exige prefixo explicito; nao cobre rodada ampla por default
+  - `validate` depende de `run` previo com mesmo `round_id`
+  - `validate` comprova consistencia interna e artefatos locais, mas nao faz auditoria semantica profunda de relevancia/qualidade
+  - aquisicao externa/remota permanece fora do escopo
+- Handoff da rodada:
+  - `docs/HANDOFF_KNOWLEDGE_PIPELINE_V1_20260313T031559Z.md`
+- Proximo passo recomendado:
+  - opcional: adicionar um artefato/log de closeout consolidado por rodada e, numa V2, suportar validacoes adicionais de cobertura semantica por prefixo sem perder a previsibilidade da V1.
+
+## Checkpoint 2026-03-13: rodada 1 de profissionalizacao do repositorio para GitHub
+- Objetivo da rodada:
+  - preparar documentacao e arquivos de comunidade/CI basicos para apresentacao, colaboracao e automacao minima, sem alterar logica principal e sem tocar remoto.
+- Entregas realizadas:
+  - `README.md` reescrito com posicionamento tecnico real, capacidades atuais, estrutura do projeto, run local, estado atual e links internos.
+  - `ROADMAP.md` criado com estado atual, frentes recentes, proximos passos e visao de evolucao.
+  - `LICENSE` adicionada (MIT).
+  - `CONTRIBUTING.md` e `SECURITY.md` criados.
+  - community files criados:
+    - `.github/pull_request_template.md`
+    - `.github/ISSUE_TEMPLATE/bug_report.md`
+    - `.github/ISSUE_TEMPLATE/feature_request.md`
+    - `.github/ISSUE_TEMPLATE/task.md`
+  - workflow CI criado:
+    - `.github/workflows/tests.yml`
+    - gatilho: `push` + `pull_request`
+    - etapas: checkout -> setup python 3.11 -> install deps -> `./scripts/unit_test_gate.sh`
+- Validacao executada:
+  - gate local:
+    - `./scripts/unit_test_gate.sh`
+    - resultado: `Ran 191 tests` -> `OK`
+  - verificacao estrutural basica dos novos arquivos: nao vazios e workflow/template renderizaveis em texto.
+- Decisoes desta rodada:
+  - licenca escolhida: `MIT` (permissiva, comum e sem decisao previa registrada no repositorio).
+  - escopo mantido estritamente em documentacao/comunidade/CI local; sem alteracao de logica principal.
+- Limitacoes e pendencias:
+  - pendencias de curadoria geral antes de remoto continuam valendo (vide precheck): escopo de `codex-supervisor/`, arquivo residual `.md`, limpeza final do worktree.
+- Handoff da rodada:
+  - `docs/HANDOFF_GITHUB_REPO_PROFESSIONALIZATION_20260313T025308Z.md`
+
 ## Checkpoint 2026-03-12: closeout UTF-8 dos testes de contrato do round_plan
 - Scanner UTF-8 executado:
   - `scripts/utf8_hygiene_scan.sh --output docs/coverage/utf8_hygiene_scan_validation_round_plan_contract_tests_closeout.json --pretty`
@@ -9486,3 +10247,86 @@ Arquivo de status operacional do projeto, atualizado pelo codex-supervisor.
 - Riscos remanescentes antes do GitHub:
   - arvore de trabalho ainda possui muitas mudancas nao comitadas fora do escopo desta curadoria.
   - antes de publicar no GitHub, manter estrategia de commit curado por lote tematico para evitar mistura de frentes.
+
+## Checkpoint 2026-03-12: pre-validacao final local antes de GitHub
+- Escopo desta rodada:
+  - auditoria objetiva do estado Git local para decidir prontidao de configuracao de remoto/push (sem configurar remoto e sem push).
+- Evidencias coletadas:
+  - branch atual: `main`
+  - remoto configurado: nenhum (`git remote -v` sem entradas)
+  - commits recentes:
+    - `96a6613` (`2026-03-12 19:51:27 -0300`) `chore(git): finalize curated local versioning baseline`
+    - `0527dcb` (`2026-03-12 19:51:07 -0300`) `chore(git): finalize curated local versioning baseline`
+    - `b172c8f` (`2026-03-11 02:33:50 -0300`) `baseline: close stage 14 and prepare stage 15`
+  - status local:
+    - 8 arquivos rastreados modificados (nao staged)
+    - 297 entradas untracked no `git status` (317 arquivos untracked reais em `git ls-files -o --exclude-standard`)
+    - 0 arquivos staged
+  - arquivos rastreados:
+    - total: `259`
+  - untracked por macro-area:
+    - `docs/`: `276` entradas
+    - `codex-supervisor/`: `21`
+    - `scripts/`: `5`
+    - `app/`: `5`
+    - `tests/`: `3`
+    - `config/`: `2`
+    - residuais: `.md`, `AGENTS.md`, `codex_loop.sh`, `loop`, `project_state.md`
+- Sanity check de publicacao:
+  - arquivos grandes rastreados (top): `STATUS.md` (~565 KB), `scripts/livecopilot-k8s` (~238 KB), `tests/test_curated_sources_validation.py` (~192 KB); sem blob rastreado anomalo.
+  - varredura de padroes sensiveis comuns em conteudo rastreado: sem match de chave real (`AKIA`, `ghp_`, `PRIVATE KEY`, etc.).
+  - sensiveis por nome rastreado: sem `.env`, `.pem`, `.key`, `.db`, `.log`, `.zip/.tar/.gz` rastreados.
+  - ruido operacional residual relevante:
+    - volume alto de untracked de evidencias/handoff em `docs/` e `docs/coverage/`
+    - diretorio inteiro `codex-supervisor/` untracked (21 arquivos) sem decisao final de versionamento
+    - arquivo isolado `.md` untracked (suspeita de artefato acidental)
+- Resultado objetivo da pre-validacao:
+  - `NAO pronto` para seguir imediatamente para etapa GitHub.
+- Riscos remanescentes:
+  - alto risco de push com lote misto (features + docs/evidencias + possivel subprojeto `codex-supervisor`) por arvore local nao consolidada.
+- Recomendacao para GitHub:
+  - fazer uma rodada curta final de curadoria local antes de configurar remoto:
+    - decidir explicitamente se `codex-supervisor/` entra no repositorio principal
+    - tratar arquivo residual `.md`
+    - consolidar commits por tema (codigo, docs/handoffs, cobertura/evidencias) ate reduzir drift local
+    - reexecutar este precheck e seguir para remoto somente com estado limpo/curado.
+## Publicacao Livecopilot HTTPS
+
+hostname:
+livecopilot.escossio.dev.br
+
+infraestrutura:
+Apache reverse proxy + TLS Let's Encrypt
+
+backend:
+10.45.0.3:8000
+
+websocket:
+proxy funcionando (/ws -> 101 Switching Protocols)
+
+interface:
+voz + texto funcionando via HTTPS
+
+data:
+20260313T191538Z
+
+estado:
+producao funcional
+
+## Checkpoint 2026-03-13: preservacao do estado apos publicacao HTTPS
+- objetivo desta rodada:
+  - registrar e versionar o estado atual do projeto apos a publicacao em `https://livecopilot.escossio.dev.br`
+- snapshot gerado:
+  - `/codex/diagnostics/livecopilot_state_snapshot_20260313T191538Z.txt`
+- handoff gerado:
+  - `docs/HANDOFF_LIVECOPILOT_PUBLIC_DEPLOYMENT_20260313T191538Z.md`
+- evidencia operacional consolidada nesta rodada:
+  - hostname publico definido: `livecopilot.escossio.dev.br`
+  - proxy Apache com TLS Let's Encrypt
+  - backend interno publicado via proxy em `10.45.0.3:8000`
+  - WebSocket operacional via `/ws` com upgrade `101 Switching Protocols`
+  - interface de voz e texto funcional via HTTPS
+- git desta preservacao:
+  - branch: `main`
+  - remoto principal: `origin`
+  - escopo da rodada: somente registro/versionamento do estado atual, sem alteracao de arquitetura

@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-03-12T21:34:13.282362+00:00",
+  "plan_mode": "prefix_round_preview",
+  "source_prefixes": [
+    "continuity_docs_selected",
+    "terraform_docs_selected_incremental"
+  ],
+  "ingest_dry_run": {
+    "selection_mode": "resolved_from_source_prefix",
+    "files_found_by_prefix": {
+      "continuity_docs_selected": 12,
+      "terraform_docs_selected_incremental": 11
+    },
+    "total_found": 23,
+    "targets_sample": [
+      "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+      "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+      "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+      "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+      "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+      "continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+      "continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+      "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+      "continuity_docs_selected/docs/UTF8_HYGIENE_SCANNER.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md"
+    ],
+    "targets_sample_size": 23,
+    "targets_sample_truncated": false
+  },
+  "semantic_list_targets": {
+    "payload_kind": "list_targets",
+    "selection_mode": "resolved_from_source_prefix",
+    "source_files_resolved_by_prefix": {
+      "continuity_docs_selected": 12,
+      "terraform_docs_selected_incremental": 11
+    },
+    "source_files_resolved_total": 23,
+    "source_files_sample": [
+      "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+      "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+      "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+      "continuity_docs_selected/docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+      "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+      "continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md",
+      "continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+      "continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+      "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+      "continuity_docs_selected/docs/UTF8_HYGIENE_SCANNER.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md"
+    ],
+    "source_files_sample_size": 23,
+    "source_files_sample_truncated": false,
+    "note": ""
+  },
+  "totals": {
+    "ingest_total_found": 23,
+    "semantic_total_source_files": 23
+  },
+  "divergence": {
+    "ingest_only_count": 0,
+    "semantic_only_count": 0,
+    "ingest_only_sample": [],
+    "semantic_only_sample": [],
+    "has_divergence": false
+  }
+}

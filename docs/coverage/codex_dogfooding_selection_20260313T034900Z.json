@@ -1,0 +1,61 @@
+{
+  "repo": "https://github.com/openai/codex",
+  "repo_local_path": "/lab/projects/livecopilot/_official_repo_clones/codex",
+  "target_prefix": "codex_docs_selected/",
+  "selection_reason": "dogfooding controlado do ecossistema Codex CLI com foco em instalacao, autenticacao, configuracao, sandbox, execucao e skills",
+  "files_selected_count": 13,
+  "files": [
+    {
+      "relative_path": "README.md",
+      "bytes": 2623
+    },
+    {
+      "relative_path": "docs/getting-started.md",
+      "bytes": 177
+    },
+    {
+      "relative_path": "docs/install.md",
+      "bytes": 2872
+    },
+    {
+      "relative_path": "docs/authentication.md",
+      "bytes": 134
+    },
+    {
+      "relative_path": "docs/config.md",
+      "bytes": 3764
+    },
+    {
+      "relative_path": "docs/example-config.md",
+      "bytes": 134
+    },
+    {
+      "relative_path": "docs/sandbox.md",
+      "bytes": 150
+    },
+    {
+      "relative_path": "docs/execpolicy.md",
+      "bytes": 138
+    },
+    {
+      "relative_path": "docs/exec.md",
+      "bytes": 146
+    },
+    {
+      "relative_path": "docs/skills.md",
+      "bytes": 115
+    },
+    {
+      "relative_path": "docs/agents_md.md",
+      "bytes": 409
+    },
+    {
+      "relative_path": "docs/slash_commands.md",
+      "bytes": 145
+    },
+    {
+      "relative_path": "shell-tool-mcp/README.md",
+      "bytes": 4928
+    }
+  ]
+}

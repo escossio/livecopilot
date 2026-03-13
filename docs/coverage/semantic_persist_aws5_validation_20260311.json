@@ -1,0 +1,75 @@
+{
+  "generated_at": "2026-03-11T21:23:08.039263+00:00",
+  "persist_summary": {
+    "documents_selected": 5,
+    "documents_processed": 5,
+    "documents_validated": 5,
+    "documents_failed": 0,
+    "chunks_persisted": 40,
+    "states_final": [
+      "validated"
+    ]
+  },
+  "sources_total": 5,
+  "sources_with_error": 0,
+  "source_statuses": [
+    {
+      "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+      "status": "validated",
+      "error": ""
+    },
+    {
+      "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+      "status": "validated",
+      "error": ""
+    },
+    {
+      "source_file": "aws/Permissions boundaries for IAM entities.pdf",
+      "status": "validated",
+      "error": ""
+    },
+    {
+      "source_file": "aws/Policy evaluation logic.pdf",
+      "status": "validated",
+      "error": ""
+    },
+    {
+      "source_file": "aws/Security best practices in IAM.pdf",
+      "status": "validated",
+      "error": ""
+    }
+  ],
+  "duplicate_source_checksum_rows": [],
+  "db_snapshot": [
+    {
+      "source_file": "aws/Security best practices in IAM.pdf",
+      "documents": 1,
+      "latest_document_id": 74,
+      "latest_chunks": 8
+    },
+    {
+      "source_file": "aws/Policy evaluation logic.pdf",
+      "documents": 1,
+      "latest_document_id": 73,
+      "latest_chunks": 8
+    },
+    {
+      "source_file": "aws/Permissions boundaries for IAM entities.pdf",
+      "documents": 1,
+      "latest_document_id": 72,
+      "latest_chunks": 8
+    },
+    {
+      "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+      "documents": 1,
+      "latest_document_id": 71,
+      "latest_chunks": 8
+    },
+    {
+      "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+      "documents": 1,
+      "latest_document_id": 70,
+      "latest_chunks": 8
+    }
+  ]
+}

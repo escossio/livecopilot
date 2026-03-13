@@ -1,0 +1,37 @@
+{
+  "generated_at": "20260312T164346Z",
+  "scope": "terraform_incremental_round2_docs_selected_proposed",
+  "strategy": "query_residual_guided_minimal",
+  "diagnosis_input": "docs/coverage/terraform_incremental_round2_query_diagnosis_20260312T164346Z.json",
+  "recommended_semantic_max_chunks_per_doc": 32,
+  "materialization_note": "Manter compatibilidade do pipeline materializando .mdx como .md no diretorio incremental round2.",
+  "keep_existing_docs_for_round2_semantic_refresh": [
+    "content/terraform/v1.14.x/docs/cli/commands/force-unlock.mdx",
+    "content/terraform/v1.14.x/docs/language/state/locking.mdx",
+    "content/terraform/v1.14.x/docs/cli/commands/plan.mdx",
+    "content/terraform/v1.14.x/docs/cli/commands/init.mdx",
+    "content/terraform/v1.14.x/docs/cli/commands/apply.mdx",
+    "content/terraform/v1.14.x/docs/language/modules/sources.mdx",
+    "content/terraform/v1.14.x/docs/language/modules/develop/structure.mdx"
+  ],
+  "add_missing_official_docs": [
+    "content/terraform/v1.14.x/docs/language/style.mdx",
+    "content/terraform/v1.14.x/docs/language/block/module.mdx",
+    "content/terraform/v1.14.x/docs/cli/run/index.mdx",
+    "content/terraform/v1.14.x/docs/intro/core-workflow.mdx",
+    "content/terraform/v1.14.x/docs/cli/commands/index.mdx"
+  ],
+  "round2_minimal_materialization_set": [
+    "content/terraform/v1.14.x/docs/language/style.mdx",
+    "content/terraform/v1.14.x/docs/language/block/module.mdx",
+    "content/terraform/v1.14.x/docs/cli/run/index.mdx",
+    "content/terraform/v1.14.x/docs/intro/core-workflow.mdx",
+    "content/terraform/v1.14.x/docs/cli/commands/index.mdx"
+  ],
+  "counts": {
+    "keep_existing_docs_for_refresh": 7,
+    "add_missing_official_docs": 5,
+    "new_materialization_docs": 5,
+    "round2_target_docs_for_semantic_refresh": 12
+  }
+}

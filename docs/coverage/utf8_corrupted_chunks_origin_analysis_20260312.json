@@ -1,0 +1,8 @@
+{
+  "generated_at": "2026-03-12T04:31:08.434504+00:00",
+  "source_file": "observability_docs_selected/alertmanager/docs/high_availability.md",
+  "chunk_payload_path": "/lab/projects/livecopilot/data/knowledge_chunks/observability_docs_selected__alertmanager__docs__high_availability.md.chunks.json",
+  "chunk_payload_count": 18,
+  "chunk_payload_utf8_encode_errors": [],
+  "hypothesis": "conteudo canonico local esta UTF-8 valido; corrupcao observada e consistente com legado no armazenamento semantico (rows antigas especificas), nao com corpus bruto atual"
+}

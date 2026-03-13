@@ -1,0 +1,411 @@
+{
+  "generated_at": "2026-03-12T16:26:31.552010+00:00",
+  "scope": "terraform_incremental_before_semantic_persist",
+  "top_k": 5,
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "total_questions": 8,
+  "well_covered_count": 4,
+  "partial_count": 4,
+  "gap_count": 0,
+  "global_avg_of_max_score": 0.579812,
+  "global_avg_of_avg_score": 0.543165,
+  "top1_from_incremental_count": 0,
+  "rows": [
+    {
+      "question": "terraform aws s3 backend remote state locking",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.633677,
+      "avg_score": 0.616037,
+      "top_source_file": "terraform_docs_selected/language/backend/s3.md",
+      "top_title": "s3",
+      "top1_is_incremental": false,
+      "incremental_in_top_k_count": 0,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "title": "s3",
+          "snippet": "---\npage_title: 'Backend Type: s3'\ndescription: Terraform can store and lock state remotely in Amazon S3.\n# START AUTO GENERATED METADATA, DO NOT EDIT\ncreated_at: 2025-11-19T13:27:",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0001::8324d61f",
+          "similarity": 0.633677,
+          "source_file": "terraform_docs_selected/language/backend/s3.md"
+        },
+        {
+          "title": "collaborate",
+          "snippet": "Since state files may contain sensitive data, refer to your backend documentation and, if supported, use [state encryption](/well-architected-framework/security/security-sensitive-",
+          "chunk_id": "chunk::doc::terraform_docs_selected/intro/phases/collaborate.md::c56f46f7fffe::0004::07cde05a",
+          "similarity": 0.629413,
+          "source_file": "terraform_docs_selected/intro/phases/collaborate.md"
+        },
+        {
+          "title": "s3",
+          "snippet": "### State Locking\n\nState locking is an opt-in feature of the S3 backend.\n\nLocking can be enabled via S3 or DynamoDB. However, **DynamoDB-based locking is deprecated** and will be r",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0003::34b8675b",
+          "similarity": 0.610083,
+          "source_file": "terraform_docs_selected/language/backend/s3.md"
+        },
+        {
+          "title": "collaborate",
+          "snippet": "As your team grows, you may run into the risk of concurrent operations on state files. If supported by your remote storage solution, use [state locking](/terraform/language/state/l",
+          "chunk_id": "chunk::doc::terraform_docs_selected/intro/phases/collaborate.md::c56f46f7fffe::0005::ba15a153",
+          "similarity": 0.606031,
+          "source_file": "terraform_docs_selected/intro/phases/collaborate.md"
+        },
+        {
+          "title": "s3",
+          "snippet": "Note that for the access credentials we recommend using a [partial configuration](/terraform/language/backend#partial-configuration).\n\n## State Storage\n\nThe S3 backend stores state",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0002::7cc6a70a",
+          "similarity": 0.600979,
+          "source_file": "terraform_docs_selected/language/backend/s3.md"
+        }
+      ]
+    },
+    {
+      "question": "terraform remote state s3",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.603787,
+      "avg_score": 0.567464,
+      "top_source_file": "terraform_docs_selected/language/state/remote.md",
+      "top_title": "remote",
+      "top1_is_incremental": false,
+      "incremental_in_top_k_count": 0,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "title": "remote",
+          "snippet": "---\npage_title: 'State: Remote Storage'\ndescription: >-\nTerraform can store the state remotely, making it easier to version and work\nwith in a team.\n# START AUTO GENERATED METADATA",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/remote.md::9a49809ee062::0001::a2f97fe8",
+          "similarity": 0.603787,
+          "source_file": "terraform_docs_selected/language/state/remote.md"
+        },
+        {
+          "title": "s3",
+          "snippet": "---\npage_title: 'Backend Type: s3'\ndescription: Terraform can store and lock state remotely in Amazon S3.\n# START AUTO GENERATED METADATA, DO NOT EDIT\ncreated_at: 2025-11-19T13:27:",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0001::8324d61f",
+          "similarity": 0.567124,
+          "source_file": "terraform_docs_selected/language/backend/s3.md"
+        },
+        {
+          "title": "s3",
+          "snippet": "* `dynamodb:DescribeTable`\n* `dynamodb:GetItem`\n* `dynamodb:PutItem`\n* `dynamodb:DeleteItem`\n\nThis is seen in the following AWS IAM Statement:\n\n```json\n{\n\"Version\": \"2012-10-17\",\n\"",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0008::c003c8cd",
+          "similarity": 0.561954,
+          "source_file": "terraform_docs_selected/language/backend/s3.md"
+        },
+        {
+          "title": "remote",
+          "snippet": "## Delegation and Teamwork\n\nRemote state allows you to share\n[output values](/terraform/language/block/output) with other configurations.\nThis allows your infrastructure to be deco",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/remote.md::9a49809ee062::0002::f237b030",
+          "similarity": 0.553094,
+          "source_file": "terraform_docs_selected/language/state/remote.md"
+        },
+        {
+          "title": "purpose",
+          "snippet": "In the default configuration, Terraform stores the state in a file in the\ncurrent working directory where Terraform was run. This is okay for getting\nstarted, but when using Terraf",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/purpose.md::edee54fda47d::0008::a0554489",
+          "similarity": 0.551359,
+          "source_file": "terraform_docs_selected/language/state/purpose.md"
+        }
+      ]
+    },
+    {
+      "question": "terraform force unlock",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.557296,
+      "avg_score": 0.512677,
+      "top_source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+      "top_title": "force unlock",
+      "top1_is_incremental": false,
+      "incremental_in_top_k_count": 0,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "title": "force unlock",
+          "snippet": "---\npage_title: terraform force-unlock command reference\ndescription: >-\nThe `terraform force-unlock` command unlocks the state for a configuration. It\ndoes not modify your infrast",
+          "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/force-unlock.md::3ee565f42baf::0001::9b567c89",
+          "similarity": 0.557296,
+          "source_file": "terraform_docs_selected/cli/commands/force-unlock.md"
+        },
+        {
+          "title": "recover",
+          "snippet": "Refer to the [`terraform force-unlock` command](/terraform/cli/commands/force-unlock) documentation for additional information.\n\n1. **Read state data**: Run the [`terraform state p",
+          "chunk_id": "chunk::doc::terraform_docs_selected/cli/state/recover.md::ee8de2c1c043::0002::4d5f2c83",
+          "similarity": 0.534793,
+          "source_file": "terraform_docs_selected/cli/state/recover.md"
+        },
+        {
+          "title": "locking",
+          "snippet": "Not all backends support locking. The\n[documentation for each backend](/terraform/language/backend)\nincludes details on whether it supports locking or not.\n\n## Force Unlock\n\nTerraf",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/locking.md::ad82490017da::0002::0bd0dde7",
+          "similarity": 0.508595,
+          "source_file": "terraform_docs_selected/language/state/locking.md"
+        },
+        {
+          "title": "locking",
+          "snippet": "---\npage_title: 'State: Locking'\ndescription: >-\nTerraform stores state which caches the known state of the world the last time\nTerraform ran.\n# START AUTO GENERATED METADATA, DO N",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/locking.md::ad82490017da::0001::c1a1740d",
+          "similarity": 0.48377,
+          "source_file": "terraform_docs_selected/language/state/locking.md"
+        },
+        {
+          "title": "force unlock",
+          "snippet": "Options:\n\n- `-force` - Don't ask for input for unlock confirmation.",
+          "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/force-unlock.md::3ee565f42baf::0002::3e813595",
+          "similarity": 0.478932,
+          "source_file": "terraform_docs_selected/cli/commands/force-unlock.md"
+        }
+      ]
+    },
+    {
+      "question": "terraform state mv",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.624383,
+      "avg_score": 0.563934,
+      "top_source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+      "top_title": "mv",
+      "top1_is_incremental": false,
+      "incremental_in_top_k_count": 0,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "title": "mv",
+          "snippet": "The most common uses for `terraform state mv` are when you have renamed a\nresource block in your configuration or you've moved a resource block into\na child module, in both cases w",
+          "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0004::f59a55a4",
+          "similarity": 0.624383,
+          "source_file": "terraform_docs_selected/cli/commands/state/mv.md"
+        },
+        {
+          "title": "mv",
+          "snippet": "---\npage_title: terraform state mv command reference\ndescription: >-\nThe `terraform state mv` command changes bindings in Terraform state so that existing remote objects bind to ne",
+          "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0001::e12f042f",
+          "similarity": 0.568141,
+          "source_file": "terraform_docs_selected/cli/commands/state/mv.md"
+        },
+        {
+          "title": "mv",
+          "snippet": "Both the source and destination addresses must use\n[resource address syntax](/terraform/cli/state/resource-addressing), and\nthey must both refer to the same kind of object: you can",
+          "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0003::645c48da",
+          "similarity": 0.555062,
+          "source_file": "terraform_docs_selected/cli/commands/state/mv.md"
+        },
+        {
+          "title": "move",
+          "snippet": "- [The `terraform state mv` command](/terraform/cli/commands/state/mv) changes\nwhich resource address in your configuration is associated with a particular\nreal-world object. Use t",
+          "chunk_id": "chunk::doc::terraform_docs_selected/cli/state/move.md::b45ede245798::0003::28372afd",
+          "similarity": 0.541588,
+          "source_file": "terraform_docs_selected/cli/state/move.md"
+        },
+        {
+          "title": "mv",
+          "snippet": "For configurations using the [HCP Terraform CLI integration](/terraform/cli/cloud) or the [`remote` backend](/terraform/language/backend/remote)\nonly, `terraform state mv`\nalso acc",
+          "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0006::095d05d8",
+          "similarity": 0.530498,
+          "source_file": "terraform_docs_selected/cli/commands/state/mv.md"
+        }
+      ]
+    },
+    {
+      "question": "terraform modules best practices",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.535151,
+      "avg_score": 0.511468,
+      "top_source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+      "top_title": "structure",
+      "top1_is_incremental": false,
+      "incremental_in_top_k_count": 0,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "title": "structure",
+          "snippet": "* **Nested modules**. Nested modules should exist under the `modules/`\nsubdirectory. Any nested module with a `README.md` is considered usable\nby an external user. If a README does",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0007::d8af2315",
+          "similarity": 0.535151,
+          "source_file": "terraform_docs_selected/language/modules/develop/structure.md"
+        },
+        {
+          "title": "index",
+          "snippet": "## When to write a module\n\nIn principle any combination of resources and other constructs can be factored\nout into a module, but over-using modules can make your overall Terraform\n",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/index.md::ef5233aa30a1::0004::57484b6b",
+          "similarity": 0.522907,
+          "source_file": "terraform_docs_selected/language/modules/develop/index.md"
+        },
+        {
+          "title": "structure",
+          "snippet": "If the root module includes calls to nested modules, they should use relative\npaths like `./modules/consul-cluster` so that Terraform will consider them\nto be part of the same repo",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0008::f28813d4",
+          "similarity": 0.513523,
+          "source_file": "terraform_docs_selected/language/modules/develop/structure.md"
+        },
+        {
+          "title": "structure",
+          "snippet": "The standard module structure expects the layout documented below. The list may\nappear long, but everything is optional except for the root module. Most modules\ndon't need to do an",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0002::0064560a",
+          "similarity": 0.501459,
+          "source_file": "terraform_docs_selected/language/modules/develop/structure.md"
+        },
+        {
+          "title": "structure",
+          "snippet": "---\npage_title: Standard Module Structure\ndescription: >-\nLearn about the recommended file and directory structure for developing reusable modules distributed as separate repositor",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0001::f5ee58bc",
+          "similarity": 0.484299,
+          "source_file": "terraform_docs_selected/language/modules/develop/structure.md"
+        }
+      ]
+    },
+    {
+      "question": "terraform module sources",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.554565,
+      "avg_score": 0.528044,
+      "top_source_file": "terraform_docs_selected/language/modules/sources.md",
+      "top_title": "sources",
+      "top1_is_incremental": false,
+      "incremental_in_top_k_count": 0,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "title": "sources",
+          "snippet": "---\npage_title: Module Sources\ndescription: >-\nThe source argument tells Terraform where to find child modules's\nconfigurations in locations like GitHub, the Terraform Registry, Bi",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/sources.md::5162fded697b::0001::ae064176",
+          "similarity": 0.554565,
+          "source_file": "terraform_docs_selected/language/modules/sources.md"
+        },
+        {
+          "title": "sources",
+          "snippet": "Many of the source types will make use of \"ambient\" credentials available\nwhen Terraform is run, such as from environment variables or credentials files\nin your home directory. Thi",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/sources.md::5162fded697b::0003::30530e69",
+          "similarity": 0.532195,
+          "source_file": "terraform_docs_selected/language/modules/sources.md"
+        },
+        {
+          "title": "index",
+          "snippet": "### Sources\n\nTerraform can load modules from multiple sources, including the local file system, a Terraform registry, and VCS repositories.\n\nThe public [Terraform registry](https:/",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/index.md::142cfeebd75a::0003::fb310480",
+          "similarity": 0.528067,
+          "source_file": "terraform_docs_selected/language/modules/index.md"
+        },
+        {
+          "title": "sources",
+          "snippet": "- [Local paths](#local-paths)\n\n- [Terraform Registry](#terraform-registry)\n\n- [GitHub](#github)\n\n- [Bitbucket](#bitbucket)\n\n- Generic [Git](#generic-git-repository), [Mercurial](#g",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/sources.md::5162fded697b::0002::d10dd568",
+          "similarity": 0.52248,
+          "source_file": "terraform_docs_selected/language/modules/sources.md"
+        },
+        {
+          "title": "publish",
+          "snippet": "If you do not wish to publish your modules in the public registry, you can\ninstead use a [private registry](/terraform/registry/private) to get\nthe same benefits.\n\nWe welcome contr",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/publish.md::c33064721898::0002::60051845",
+          "similarity": 0.502914,
+          "source_file": "terraform_docs_selected/language/modules/develop/publish.md"
+        }
+      ]
+    },
+    {
+      "question": "terraform init plan apply workflow",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.512492,
+      "avg_score": 0.481521,
+      "top_source_file": "terraform_docs_selected/cli/commands/plan.md",
+      "top_title": "plan",
+      "top1_is_incremental": false,
+      "incremental_in_top_k_count": 0,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "title": "plan",
+          "snippet": "If Terraform detects that no changes are needed to resource instances or to\nroot module output values, `terraform plan` will report that no actions need\nto be taken.\n\nIf you are us",
+          "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/plan.md::ef9e9012f797::0003::bc50aa4e",
+          "similarity": 0.512492,
+          "source_file": "terraform_docs_selected/cli/commands/plan.md"
+        },
+        {
+          "title": "index",
+          "snippet": "## Workflow\n\nModifying state data outside of normal `terraform plan` or `terraform apply` operations can cause Terraform to lose track of managed resources, leading to increased co",
+          "chunk_id": "chunk::doc::terraform_docs_selected/cli/state/index.md::4a066a3e48b8::0002::56a954f6",
+          "similarity": 0.486324,
+          "source_file": "terraform_docs_selected/cli/state/index.md"
+        },
+        {
+          "title": "plan",
+          "snippet": "The previous section describes Terraform's default planning behavior, which\nchanges the remote system to match the changes you make to\nyour configuration. Terraform has two alterna",
+          "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/plan.md::ef9e9012f797::0007::76df9fce",
+          "similarity": 0.475892,
+          "source_file": "terraform_docs_selected/cli/commands/plan.md"
+        },
+        {
+          "title": "apply",
+          "snippet": "## Usage\n\nUsage: `terraform apply [options] [plan file]`\n\n### Automatic Plan Mode\n\nWhen you run `terraform apply` without passing a saved plan file, Terraform automatically creates",
+          "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/apply.md::4fa476a0fd3e::0002::3fa863f3",
+          "similarity": 0.469051,
+          "source_file": "terraform_docs_selected/cli/commands/apply.md"
+        },
+        {
+          "title": "index",
+          "snippet": "Terraform writes the backend configuration in plain text in two separate files.\n- The `.terraform/terraform.tfstate` file contains the backend configuration for the current working",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/index.md::a0d9e5a6a9d0::0006::8a6f3f21",
+          "similarity": 0.463845,
+          "source_file": "terraform_docs_selected/language/backend/index.md"
+        }
+      ]
+    },
+    {
+      "question": "terraform workspace vs backend",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.617142,
+      "avg_score": 0.564173,
+      "top_source_file": "terraform_docs_selected/language/state/workspaces.md",
+      "top_title": "workspaces",
+      "top1_is_incremental": false,
+      "incremental_in_top_k_count": 0,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "title": "workspaces",
+          "snippet": "## Backends Supporting Multiple Workspaces\n\nYou can use multiple workspaces with the following backends:\n\n- [AzureRM](/terraform/language/backend/azurerm)\n- [Consul](/terraform/lan",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/workspaces.md::a56f4877d390::0003::b407828d",
+          "similarity": 0.617142,
+          "source_file": "terraform_docs_selected/language/state/workspaces.md"
+        },
+        {
+          "title": "workspaces",
+          "snippet": "The persistent data stored in the backend belongs to a workspace. The backend initially has only one workspace containing one Terraform state associated with that configuration. So",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/workspaces.md::a56f4877d390::0002::414e8f30",
+          "similarity": 0.609751,
+          "source_file": "terraform_docs_selected/language/state/workspaces.md"
+        },
+        {
+          "title": "workspaces",
+          "snippet": "---\npage_title: 'State: Workspaces'\ndescription: >-\nWorkspaces allow the use of multiple states with a single configuration\ndirectory.\n# START AUTO GENERATED METADATA, DO NOT EDIT\n",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/workspaces.md::a56f4877d390::0001::0fbd76a0",
+          "similarity": 0.545744,
+          "source_file": "terraform_docs_selected/language/state/workspaces.md"
+        },
+        {
+          "title": "remote",
+          "snippet": "The backend configuration requires either `name` or `prefix`. Omitting both or\nsetting both results in a configuration error.\n\nIf previous state is present when you run `terraform ",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/remote.md::22662f8d36d8::0004::6ecf2056",
+          "similarity": 0.526038,
+          "source_file": "terraform_docs_selected/language/backend/remote.md"
+        },
+        {
+          "title": "remote",
+          "snippet": "```hcl\noutput \"current_workspace_name\" {\nvalue = terraform.workspace\n}\n\nvariable \"HCP_TERRAFORM_RUN_ID\" {\ntype = string\ndefault = \"\"\n}\n\noutput \"remote_execution_determine\" {\nvalue ",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/remote.md::22662f8d36d8::0007::c3d70964",
+          "similarity": 0.522191,
+          "source_file": "terraform_docs_selected/language/backend/remote.md"
+        }
+      ]
+    }
+  ]
+}

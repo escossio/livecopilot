@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-03-12T05:02:00Z",
+  "domain": "kubernetes",
+  "scope": "proposta_recorte_controlado_sem_aquisicao_nesta_rodada",
+  "target_raw_dir": "data/knowledge_raw/kubernetes_docs_selected",
+  "clone_source": "data/knowledge_raw/_official_repo_clones/kubernetes-website",
+  "expected_topics": [
+    "pods",
+    "deployments",
+    "services",
+    "probes",
+    "configmaps",
+    "ingress"
+  ],
+  "selected_repo_paths": [
+    "content/en/docs/concepts/workloads/pods/_index.md",
+    "content/en/docs/concepts/workloads/controllers/deployment.md",
+    "content/en/docs/concepts/services-networking/service.md",
+    "content/en/docs/concepts/services-networking/ingress.md",
+    "content/en/docs/concepts/configuration/configmap.md",
+    "content/en/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md",
+    "content/en/docs/concepts/security/service-accounts.md",
+    "content/en/docs/reference/access-authn-authz/rbac.md",
+    "content/en/docs/concepts/storage/persistent-volumes.md",
+    "content/en/docs/concepts/storage/storage-classes.md",
+    "content/en/docs/tasks/debug/debug-application/debug-running-pod.md",
+    "content/en/docs/concepts/overview/working-with-objects/namespaces.md"
+  ],
+  "selection_rules": [
+    "somente .md",
+    "excluir release notes, blog e paginas institucionais",
+    "priorizar conceitos + tarefas operacionais com exemplos"
+  ],
+  "estimated_operational_value": {
+    "workloads_rollout": "alto",
+    "networking_and_ingress": "alto",
+    "day2_troubleshooting": "medio_alto",
+    "security_basics_rbac_serviceaccount": "medio_alto"
+  },
+  "recommended_next_commands": [
+    "git clone --depth 1 https://github.com/kubernetes/website data/knowledge_raw/_official_repo_clones/kubernetes-website",
+    "mkdir -p data/knowledge_raw/kubernetes_docs_selected",
+    "rsync -a --prune-empty-dirs --include '*/' --include '*.md' --exclude '*' data/knowledge_raw/_official_repo_clones/kubernetes-website/content/en/docs/{concepts/workloads/pods,concepts/workloads/controllers,concepts/services-networking,concepts/configuration,tasks/configure-pod-container,concepts/security,reference/access-authn-authz,concepts/storage,tasks/debug/debug-application,concepts/overview/working-with-objects}/ data/knowledge_raw/kubernetes_docs_selected/"
+  ]
+}

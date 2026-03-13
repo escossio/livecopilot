@@ -1,0 +1,11 @@
+{
+  "generated_at": "20260312T162513Z",
+  "proposed_file": "docs/coverage/terraform_incremental_docs_selected_proposed_20260312T161918Z.json",
+  "target_raw_dir": "data/knowledge_raw/terraform_docs_selected_incremental",
+  "proposed_count": 11,
+  "materialized_count": 11,
+  "missing_from_clone": [],
+  "missing_count": 0,
+  "markdown_or_mdx_count": 11,
+  "extra_in_materialized": []
+}

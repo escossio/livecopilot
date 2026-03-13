@@ -10,6 +10,7 @@ from typing import Any, Dict, List
 
 from app.core.config import settings
 from app.services.knowledge_search import build_context_from_results, search_knowledge_chunks_with_debug
+from app.services.semantic_min_api import semantic_search
 from app.services.state import ConversationState
 from app.services.topics import detect_topic
 from app.services.job_market import match_terms
@@ -352,6 +353,34 @@ def _search_semantic_api_with_context(query: str, limit: int = CONTEXT_LIMIT) ->
     }
 
 
+def _search_semantic_local_with_context(query: str, limit: int = CONTEXT_LIMIT) -> Dict[str, Any]:
+    data = semantic_search(query=query, limit=limit)
+    results = data.get("results", [])
+    matches: List[Dict[str, Any]] = []
+    for item in results:
+        matches.append(
+            {
+                "source_file": item.get("source_file", ""),
+                "title": item.get("title", ""),
+                "chunk_id": item.get("chunk_id", ""),
+                "sequence": 0,
+                "score": item.get("similarity", 0),
+                "matched_tags": [],
+                "trecho_relevante": item.get("snippet", ""),
+            }
+        )
+    return {
+        "matches": matches,
+        "context": build_context_from_results(query=query, results=matches, top_k=limit) if matches else "",
+        "model": data.get("model", ""),
+        "count": int(data.get("count", len(matches))),
+        "search_cache_hit": bool(data.get("search_cache_hit", False)),
+        "embedding_cache_hit": bool(data.get("embedding_cache_hit", False)),
+        "openai_called": bool(data.get("openai_called", False)),
+        "semantic_path": str(data.get("semantic_path", "") or ""),
+    }
+
+
 def _append_semantic_telemetry(
     *,
     query: str,
@@ -501,7 +530,7 @@ def generate_suggestions(state: ConversationState) -> List[str]:
         search_query, context_used = _compose_search_query_with_context(state, last)
         semantic_started_at = time.monotonic()
         try:
-            semantic_payload = _search_semantic_api_with_context(search_query, limit=CONTEXT_LIMIT)
+            semantic_payload = _search_semantic_local_with_context(search_query, limit=CONTEXT_LIMIT)
             semantic_duration_ms = int((time.monotonic() - semantic_started_at) * 1000)
             semantic_api_ok = True
             semantic_matches = semantic_payload.get("matches", [])
@@ -512,7 +541,7 @@ def generate_suggestions(state: ConversationState) -> List[str]:
                 matches = []
                 search_context = ""
                 domain_gating_blocked = True
-            search_backend = "semantic_api"
+            search_backend = "semantic_local"
             search_debug_payload = {
                 "semantic_model": semantic_payload.get("model", ""),
                 "semantic_result_count": semantic_payload.get("count", len(semantic_matches)),
@@ -526,19 +555,49 @@ def generate_suggestions(state: ConversationState) -> List[str]:
             embedding_cache_hit = bool(semantic_payload.get("embedding_cache_hit", False))
             openai_called = bool(semantic_payload.get("openai_called", False))
             semantic_path = str(semantic_payload.get("semantic_path", "") or "")
-        except Exception as exc:
-            semantic_duration_ms = int((time.monotonic() - semantic_started_at) * 1000)
-            semantic_error = str(exc)
-            fallback_used = True
+        except Exception as local_exc:
             try:
-                search_payload = search_knowledge_chunks_with_debug(search_query, limit=CONTEXT_LIMIT)
-                matches = search_payload.get("results", [])
-                search_debug_payload = search_payload.get("debug", {})
-                search_backend = "local_knowledge_search"
-            except Exception as local_exc:
-                matches = []
-                search_error = str(local_exc)
-                search_debug_payload = {}
+                semantic_payload = _search_semantic_api_with_context(search_query, limit=CONTEXT_LIMIT)
+                semantic_duration_ms = int((time.monotonic() - semantic_started_at) * 1000)
+                semantic_api_ok = True
+                semantic_matches = semantic_payload.get("matches", [])
+                matches = _apply_relevance_floor(semantic_matches)
+                search_context = (
+                    build_context_from_results(query=search_query, results=matches, top_k=CONTEXT_LIMIT) if matches else ""
+                )
+                domain_gating_blocked = False
+                if matches and not _passes_domain_gating(search_query, classification, matches, search_context):
+                    matches = []
+                    search_context = ""
+                    domain_gating_blocked = True
+                search_backend = "semantic_api"
+                search_debug_payload = {
+                    "semantic_model": semantic_payload.get("model", ""),
+                    "semantic_result_count": semantic_payload.get("count", len(semantic_matches)),
+                    "search_cache_hit": bool(semantic_payload.get("search_cache_hit", False)),
+                    "embedding_cache_hit": bool(semantic_payload.get("embedding_cache_hit", False)),
+                    "openai_called": bool(semantic_payload.get("openai_called", False)),
+                    "semantic_path": str(semantic_payload.get("semantic_path", "") or ""),
+                    "domain_gating_blocked": domain_gating_blocked,
+                    "local_semantic_error": str(local_exc),
+                }
+                search_cache_hit = bool(semantic_payload.get("search_cache_hit", False))
+                embedding_cache_hit = bool(semantic_payload.get("embedding_cache_hit", False))
+                openai_called = bool(semantic_payload.get("openai_called", False))
+                semantic_path = str(semantic_payload.get("semantic_path", "") or "")
+            except Exception as exc:
+                semantic_duration_ms = int((time.monotonic() - semantic_started_at) * 1000)
+                semantic_error = f"local: {local_exc} | api: {exc}"
+                fallback_used = True
+                try:
+                    search_payload = search_knowledge_chunks_with_debug(search_query, limit=CONTEXT_LIMIT)
+                    matches = search_payload.get("results", [])
+                    search_debug_payload = search_payload.get("debug", {})
+                    search_backend = "local_knowledge_search"
+                except Exception as lexical_exc:
+                    matches = []
+                    search_error = str(lexical_exc)
+                    search_debug_payload = {}
         if matches:
             sources = _build_knowledge_sources(matches)
             knowledge_summary = search_context or _build_knowledge_summary(matches)

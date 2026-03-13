@@ -1,0 +1,212 @@
+{
+  "generated_at": "2026-03-12T15:47:05Z",
+  "persist_command_log": "/tmp/kubernetes_semantic_persist_final_20260312T154518Z.log",
+  "documents_processed": 12,
+  "documents_selected": 12,
+  "documents_validated": 12,
+  "documents_failed": 0,
+  "chunks_persisted": 95,
+  "embedding_mode_used": "openai",
+  "sources_with_error": [],
+  "sources_with_error_count": 0,
+  "duplicate_source_checksum_rows": [],
+  "duplicate_source_checksum_rows_count": 0,
+  "cache_invalidation": {
+    "semantic_search_cache_entries_cleared": 0,
+    "query_embedding_cache_entries_cleared": 0
+  },
+  "results": [
+    {
+      "source_file": "kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md",
+      "states": [
+        "discovered",
+        "extracted",
+        "chunked",
+        "embedded",
+        "persisted",
+        "validated"
+      ],
+      "status": "validated",
+      "error": "",
+      "document_id": 274,
+      "chunks_persisted": 8,
+      "embedding_mode_used": "openai"
+    },
+    {
+      "source_file": "kubernetes_docs_selected/content/en/docs/concepts/overview/working-with-objects/namespaces.md",
+      "states": [
+        "discovered",
+        "extracted",
+        "chunked",
+        "embedded",
+        "persisted",
+        "validated"
+      ],
+      "status": "validated",
+      "error": "",
+      "document_id": 275,
+      "chunks_persisted": 7,
+      "embedding_mode_used": "openai"
+    },
+    {
+      "source_file": "kubernetes_docs_selected/content/en/docs/concepts/security/service-accounts.md",
+      "states": [
+        "discovered",
+        "extracted",
+        "chunked",
+        "embedded",
+        "persisted",
+        "validated"
+      ],
+      "status": "validated",
+      "error": "",
+      "document_id": 276,
+      "chunks_persisted": 8,
+      "embedding_mode_used": "openai"
+    },
+    {
+      "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md",
+      "states": [
+        "discovered",
+        "extracted",
+        "chunked",
+        "embedded",
+        "persisted",
+        "validated"
+      ],
+      "status": "validated",
+      "error": "",
+      "document_id": 277,
+      "chunks_persisted": 8,
+      "embedding_mode_used": "openai"
+    },
+    {
+      "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+      "states": [
+        "discovered",
+        "extracted",
+        "chunked",
+        "embedded",
+        "persisted",
+        "validated"
+      ],
+      "status": "validated",
+      "error": "",
+      "document_id": 278,
+      "chunks_persisted": 8,
+      "embedding_mode_used": "openai"
+    },
+    {
+      "source_file": "kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md",
+      "states": [
+        "discovered",
+        "extracted",
+        "chunked",
+        "embedded",
+        "persisted",
+        "validated"
+      ],
+      "status": "validated",
+      "error": "",
+      "document_id": 279,
+      "chunks_persisted": 8,
+      "embedding_mode_used": "openai"
+    },
+    {
+      "source_file": "kubernetes_docs_selected/content/en/docs/concepts/storage/storage-classes.md",
+      "states": [
+        "discovered",
+        "extracted",
+        "chunked",
+        "embedded",
+        "persisted",
+        "validated"
+      ],
+      "status": "validated",
+      "error": "",
+      "document_id": 280,
+      "chunks_persisted": 8,
+      "embedding_mode_used": "openai"
+    },
+    {
+      "source_file": "kubernetes_docs_selected/content/en/docs/concepts/workloads/controllers/deployment.md",
+      "states": [
+        "discovered",
+        "extracted",
+        "chunked",
+        "embedded",
+        "persisted",
+        "validated"
+      ],
+      "status": "validated",
+      "error": "",
+      "document_id": 281,
+      "chunks_persisted": 8,
+      "embedding_mode_used": "openai"
+    },
+    {
+      "source_file": "kubernetes_docs_selected/content/en/docs/concepts/workloads/pods/_index.md",
+      "states": [
+        "discovered",
+        "extracted",
+        "chunked",
+        "embedded",
+        "persisted",
+        "validated"
+      ],
+      "status": "validated",
+      "error": "",
+      "document_id": 282,
+      "chunks_persisted": 8,
+      "embedding_mode_used": "openai"
+    },
+    {
+      "source_file": "kubernetes_docs_selected/content/en/docs/reference/access-authn-authz/rbac.md",
+      "states": [
+        "discovered",
+        "extracted",
+        "chunked",
+        "embedded",
+        "persisted",
+        "validated"
+      ],
+      "status": "validated",
+      "error": "",
+      "document_id": 283,
+      "chunks_persisted": 8,
+      "embedding_mode_used": "openai"
+    },
+    {
+      "source_file": "kubernetes_docs_selected/content/en/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md",
+      "states": [
+        "discovered",
+        "extracted",
+        "chunked",
+        "embedded",
+        "persisted",
+        "validated"
+      ],
+      "status": "validated",
+      "error": "",
+      "document_id": 284,
+      "chunks_persisted": 8,
+      "embedding_mode_used": "openai"
+    },
+    {
+      "source_file": "kubernetes_docs_selected/content/en/docs/tasks/debug/debug-application/debug-running-pod.md",
+      "states": [
+        "discovered",
+        "extracted",
+        "chunked",
+        "embedded",
+        "persisted",
+        "validated"
+      ],
+      "status": "validated",
+      "error": "",
+      "document_id": 285,
+      "chunks_persisted": 8,
+      "embedding_mode_used": "openai"
+    }
+  ]
+}

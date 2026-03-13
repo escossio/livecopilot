@@ -1,0 +1,845 @@
+{
+  "generated_at": "2026-03-12T02:44:20.223039+00:00",
+  "scope": "observability_focused_compare_before_after_observability35_persist",
+  "before_file": "docs/coverage/semantic_coverage_audit_observability_before_20260312.json",
+  "after_file": "docs/coverage/semantic_coverage_audit_observability_after_20260312.json",
+  "questions_compared": 8,
+  "before_aggregate": {
+    "well_covered_count": 0,
+    "partial_count": 0,
+    "gap_count": 8,
+    "global_avg_of_max_score": 0.342409,
+    "global_avg_of_avg_score": 0.32384
+  },
+  "after_aggregate": {
+    "well_covered_count": 5,
+    "partial_count": 3,
+    "gap_count": 0,
+    "global_avg_of_max_score": 0.617553,
+    "global_avg_of_avg_score": 0.570856
+  },
+  "aggregate_delta": {
+    "well_covered_count": 5,
+    "partial_count": 3,
+    "gap_count": -8,
+    "global_avg_of_max_score": 0.275144,
+    "global_avg_of_avg_score": 0.247016
+  },
+  "questions_improved": [
+    "prometheus scrape_configs relabel_configs example",
+    "prometheus recording rules and alerting rules",
+    "prometheus service discovery http_sd kubernetes",
+    "promql rate sum by instance",
+    "grafana prometheus datasource configuration",
+    "grafana dashboard variables template variables",
+    "grafana alerting provisioning contact points",
+    "alertmanager route receivers grouping inhibition silences templates"
+  ],
+  "questions_class_changed": [
+    {
+      "question": "prometheus scrape_configs relabel_configs example",
+      "before_class": "lacuna",
+      "after_class": "parcial"
+    },
+    {
+      "question": "prometheus recording rules and alerting rules",
+      "before_class": "lacuna",
+      "after_class": "bem_coberta"
+    },
+    {
+      "question": "prometheus service discovery http_sd kubernetes",
+      "before_class": "lacuna",
+      "after_class": "bem_coberta"
+    },
+    {
+      "question": "promql rate sum by instance",
+      "before_class": "lacuna",
+      "after_class": "parcial"
+    },
+    {
+      "question": "grafana prometheus datasource configuration",
+      "before_class": "lacuna",
+      "after_class": "bem_coberta"
+    },
+    {
+      "question": "grafana dashboard variables template variables",
+      "before_class": "lacuna",
+      "after_class": "bem_coberta"
+    },
+    {
+      "question": "grafana alerting provisioning contact points",
+      "before_class": "lacuna",
+      "after_class": "bem_coberta"
+    },
+    {
+      "question": "alertmanager route receivers grouping inhibition silences templates",
+      "before_class": "lacuna",
+      "after_class": "parcial"
+    }
+  ],
+  "questions_top1_shifted_to_observability_docs_selected": [
+    "prometheus scrape_configs relabel_configs example",
+    "prometheus recording rules and alerting rules",
+    "prometheus service discovery http_sd kubernetes",
+    "promql rate sum by instance",
+    "grafana prometheus datasource configuration",
+    "grafana dashboard variables template variables",
+    "grafana alerting provisioning contact points",
+    "alertmanager route receivers grouping inhibition silences templates"
+  ],
+  "top1_from_observability_docs_selected_after_count": 8,
+  "rows": [
+    {
+      "question": "prometheus scrape_configs relabel_configs example",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.340469,
+        "avg_score": 0.308989,
+        "top_source_file": "data/raw_review/ckad_exercises_modules/c.pod_design.md",
+        "top_k_results": [
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/c.pod_design.md",
+            "chunk_id": "semantic-api-51df61f1-1",
+            "title": "Labels and Annotations",
+            "similarity": 0.340469,
+            "snippet": "## Labels and Annotations\nkubernetes.io > Documentation > Concepts > Overview > Working with Kubernetes Objects > [Labels and Selectors](https://kubernetes.io/docs/concepts/overvie"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/c.pod_design.md",
+            "chunk_id": "semantic-api-51df61f1-5",
+            "title": "Cron jobs",
+            "similarity": 0.32633,
+            "snippet": "## Cron jobs\n\nkubernetes.io > Documentation > Tasks > Run Jobs > [Running Automated Tasks with a CronJob](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/)\n\n###"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/c.pod_design.md",
+            "chunk_id": "semantic-api-51df61f1-3",
+            "title": "Deployments",
+            "similarity": 0.29551,
+            "snippet": "## Deployments\n\nkubernetes.io > Documentation > Concepts > Workloads > Workload Resources > [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment)\n\n###"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+            "chunk_id": "semantic-api-d1bf1ef6-3",
+            "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readine",
+            "similarity": 0.291319,
+            "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/"
+          },
+          {
+            "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+            "chunk_id": "semantic-api-d1bf1ef6-3",
+            "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readine",
+            "similarity": 0.291319,
+            "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "parcial",
+        "max_score": 0.465269,
+        "avg_score": 0.445503,
+        "top_source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+        "top_k_results": [
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0001::9662028e",
+            "title": "",
+            "similarity": 0.465269,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/configuration.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/configuration.md::2028dc2481b5::0006::db1056b8",
+            "title": "",
+            "similarity": 0.45331,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md::017167823c03::0001::baecc33c",
+            "title": "",
+            "similarity": 0.439104,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/configuration.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/configuration.md::2028dc2481b5::0007::ad934c49",
+            "title": "",
+            "similarity": 0.436186,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0003::ea34ca81",
+            "title": "",
+            "similarity": 0.433648,
+            "snippet": ""
+          }
+        ],
+        "top1_is_observability_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.1248,
+        "avg_score": 0.136514
+      }
+    },
+    {
+      "question": "prometheus recording rules and alerting rules",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.357372,
+        "avg_score": 0.345498,
+        "top_source_file": "terraform_docs_selected/intro/phases/govern.md",
+        "top_k_results": [
+          {
+            "source_file": "terraform_docs_selected/intro/phases/govern.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/intro/phases/govern.md::c5f1ffaf89c1::0001::79351547",
+            "title": "govern",
+            "similarity": 0.357372,
+            "snippet": "---\npage_title: Govern Terraform\ndescription: Use codified, automated policy enforcement to govern your organization's standards and best practices.\n# START AUTO GENERATED METADATA"
+          },
+          {
+            "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+            "chunk_id": "semantic-api-d1bf1ef6-2",
+            "title": "## Liveness, readiness and startup probes",
+            "similarity": 0.351684,
+            "snippet": "## Liveness, readiness and startup probes"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+            "chunk_id": "semantic-api-d1bf1ef6-2",
+            "title": "## Liveness, readiness and startup probes",
+            "similarity": 0.351634,
+            "snippet": "## Liveness, readiness and startup probes"
+          },
+          {
+            "source_file": "terraform_docs_selected/intro/phases/govern.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/intro/phases/govern.md::c5f1ffaf89c1::0002::474c7a5e",
+            "title": "govern",
+            "similarity": 0.341283,
+            "snippet": "You can use policy as code to ensure your infrastructure meets your organization's security, governance, and cost requirements. You can configure your workflows to automatically ru"
+          },
+          {
+            "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+            "chunk_id": "semantic-api-d1bf1ef6-3",
+            "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readine",
+            "similarity": 0.325519,
+            "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "bem_coberta",
+        "max_score": 0.676008,
+        "avg_score": 0.6496,
+        "top_source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+        "top_k_results": [
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/alerting_rules.md::92085dedf36a::0001::3e75e016",
+            "title": "",
+            "similarity": 0.676008,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/recording_rules.md::7d9a9264340a::0001::30684486",
+            "title": "",
+            "similarity": 0.668962,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/recording_rules.md::7d9a9264340a::0004::01396e82",
+            "title": "",
+            "similarity": 0.649974,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/alerting_rules.md::92085dedf36a::0007::20a04585",
+            "title": "",
+            "similarity": 0.6419,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/alerting_rules.md::92085dedf36a::0003::1991fac4",
+            "title": "",
+            "similarity": 0.611156,
+            "snippet": ""
+          }
+        ],
+        "top1_is_observability_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.318636,
+        "avg_score": 0.304102
+      }
+    },
+    {
+      "question": "prometheus service discovery http_sd kubernetes",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.428001,
+        "avg_score": 0.409344,
+        "top_source_file": "data/raw_review/ckad_exercises_modules/i.crd.md",
+        "top_k_results": [
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/i.crd.md",
+            "chunk_id": "semantic-api-9d1041f3-3",
+            "title": "## CRD in K8s",
+            "similarity": 0.428001,
+            "snippet": "## CRD in K8s"
+          },
+          {
+            "source_file": "tmp/semantic_gap_round2/sa_tokens_projection.md",
+            "chunk_id": "semantic-api-a109268b-5",
+            "title": "Keywords: serviceaccount token projected kubernetes token projection.",
+            "similarity": 0.417328,
+            "snippet": "Keywords: serviceaccount token projected kubernetes token projection."
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/f.services.md",
+            "chunk_id": "semantic-api-647333a6-4",
+            "title": "```bash",
+            "similarity": 0.400557,
+            "snippet": "```bash\nkubectl run nginx --image=nginx --restart=Never --port=80 --expose\n# observe that a pod as well as a service are created\n```"
+          },
+          {
+            "source_file": "data/question_bank_raw/ckad_exercises/f.services.md",
+            "chunk_id": "semantic-api-647333a6-4",
+            "title": "```bash",
+            "similarity": 0.400557,
+            "snippet": "```bash\nkubectl run nginx --image=nginx --restart=Never --port=80 --expose\n# observe that a pod as well as a service are created\n```"
+          },
+          {
+            "source_file": "tmp/semantic_gap_round2/pod_events_troubleshooting.md",
+            "chunk_id": "semantic-api-28455024-1",
+            "title": "# Kubernetes Pod Events Troubleshooting",
+            "similarity": 0.400276,
+            "snippet": "# Kubernetes Pod Events Troubleshooting"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "bem_coberta",
+        "max_score": 0.675074,
+        "avg_score": 0.527472,
+        "top_source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+        "top_k_results": [
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0001::f8f16dda",
+            "title": "",
+            "similarity": 0.675074,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0003::ea34ca81",
+            "title": "",
+            "similarity": 0.554968,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0002::03f99af4",
+            "title": "",
+            "similarity": 0.496943,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0004::7678fa20",
+            "title": "",
+            "similarity": 0.482293,
+            "snippet": ""
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/i.crd.md",
+            "chunk_id": "semantic-api-9d1041f3-3",
+            "title": "",
+            "similarity": 0.428084,
+            "snippet": ""
+          }
+        ],
+        "top1_is_observability_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.247073,
+        "avg_score": 0.118128
+      }
+    },
+    {
+      "question": "promql rate sum by instance",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.336763,
+        "avg_score": 0.319158,
+        "top_source_file": "knowledge-gap::gap_20260310t234013_4528790000_1706c7323efb_postgres_auth.md",
+        "top_k_results": [
+          {
+            "source_file": "knowledge-gap::gap_20260310t234013_4528790000_1706c7323efb_postgres_auth.md",
+            "chunk_id": "semantic-api-ec2e82a9-1",
+            "title": "Query",
+            "similarity": 0.336763,
+            "snippet": "## Query\n\npostgres auth"
+          },
+          {
+            "source_file": "knowledge-gap::gap_20260310t234013_4528790000_1706c7323efb_postgres_auth.md",
+            "chunk_id": "semantic-api-ec2e82a9-2",
+            "title": "Context",
+            "similarity": 0.334965,
+            "snippet": "## Context\n\n```json\n{\n  \"reason\": \"empty_result\",\n  \"details\": {\n    \"query\": \"postgres auth\",\n    \"mode\": \"structured\",\n    \"semantic_warning\": null,\n    \"related_facts_count\": 0,"
+          },
+          {
+            "source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+            "chunk_id": "semantic-api-50b318f4-2",
+            "title": "Context",
+            "similarity": 0.318511,
+            "snippet": "## Context\n\n```json\n{\n  \"reason\": \"low_average_score\",\n  \"details\": {\n    \"trigger\": \"validation\",\n    \"round\": \"knowledge_gaps_ingestion\"\n  }\n}\n```"
+          },
+          {
+            "source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+            "chunk_id": "semantic-api-50b318f4-1",
+            "title": "Query",
+            "similarity": 0.314466,
+            "snippet": "## Query\n\nvalidation gap ingestion flow kubernetes network policy baseline"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+            "chunk_id": "semantic-api-d1bf1ef6-5",
+            "title": "<details><summary>show</summary>",
+            "similarity": 0.291085,
+            "snippet": "<details><summary>show</summary>\n<p>"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "parcial",
+        "max_score": 0.573074,
+        "avg_score": 0.486905,
+        "top_source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+        "top_k_results": [
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/examples.md::620dc4a03e29::0003::1782019f",
+            "title": "",
+            "similarity": 0.573074,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/template-variables/_index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/template-variables/_index.md::09acd9e19b4e::0007::f4732863",
+            "title": "",
+            "similarity": 0.530563,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/examples.md::620dc4a03e29::0004::994bea49",
+            "title": "",
+            "similarity": 0.46781,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/querying/basics.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/basics.md::de1194d5db88::0001::2e4949b0",
+            "title": "",
+            "similarity": 0.434878,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/examples.md::620dc4a03e29::0002::7c86a48a",
+            "title": "",
+            "similarity": 0.428199,
+            "snippet": ""
+          }
+        ],
+        "top1_is_observability_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.236311,
+        "avg_score": 0.167747
+      }
+    },
+    {
+      "question": "grafana prometheus datasource configuration",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.354948,
+        "avg_score": 0.333091,
+        "top_source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+        "top_k_results": [
+          {
+            "source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+            "chunk_id": "semantic-api-50b318f4-1",
+            "title": "Query",
+            "similarity": 0.354948,
+            "snippet": "## Query\n\nvalidation gap ingestion flow kubernetes network policy baseline"
+          },
+          {
+            "source_file": "knowledge-gap::gap_20260310t234507_3291540000_4e3b1d6abc47_gap_flow_validation_ingress_nginx_timeout_504.md",
+            "chunk_id": "semantic-api-08ed3122-1",
+            "title": "Query",
+            "similarity": 0.345634,
+            "snippet": "## Query\n\ngap flow validation: ingress nginx timeout 504"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/state/remote-state-data.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/remote-state-data.md::f4eb0c188156::0004::527a4123",
+            "title": "remote state data",
+            "similarity": 0.327527,
+            "snippet": "To share data explicitly between configurations, you can use pairs of managed\nresource types and data sources in various providers, including (but not\nlimited to) the following:\n\n|"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/state/remote-state-data.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/remote-state-data.md::f4eb0c188156::0005::c39c54bf",
+            "title": "remote state data",
+            "similarity": 0.319515,
+            "snippet": "| System | Publish with... | Read with... |\n| ---------------------------------------------------------------------- | -------------------------------------------------------------"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/state/remote-state-data.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/remote-state-data.md::f4eb0c188156::0006::d28b9e32",
+            "title": "remote state data",
+            "similarity": 0.317833,
+            "snippet": "-> These are some common options from the Official Terraform providers, but\nthere are too many configuration storage options for us to list them all\nhere, including some in partner"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "bem_coberta",
+        "max_score": 0.661753,
+        "avg_score": 0.635502,
+        "top_source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+        "top_k_results": [
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md::017167823c03::0002::b6928443",
+            "title": "",
+            "similarity": 0.661753,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0001::9662028e",
+            "title": "",
+            "similarity": 0.655732,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md::017167823c03::0001::baecc33c",
+            "title": "",
+            "similarity": 0.636548,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0005::449f9148",
+            "title": "",
+            "similarity": 0.61618,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0004::06b7d8d3",
+            "title": "",
+            "similarity": 0.607296,
+            "snippet": ""
+          }
+        ],
+        "top1_is_observability_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.306805,
+        "avg_score": 0.302411
+      }
+    },
+    {
+      "question": "grafana dashboard variables template variables",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.324207,
+        "avg_score": 0.305594,
+        "top_source_file": "data/raw_review/ckad_exercises_modules/h.helm.md",
+        "top_k_results": [
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/h.helm.md",
+            "chunk_id": "semantic-api-c6ee6356-4",
+            "title": "### Creating a basic Helm chart",
+            "similarity": 0.324207,
+            "snippet": "### Creating a basic Helm chart"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/building/variables.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/variables.md::68c9f81bad73::0001::75640c51",
+            "title": "variables",
+            "similarity": 0.319433,
+            "snippet": "---\ntitle: Build variables\nlinkTitle: Variables\nweight: 20\ndescription: Using build arguments and environment variables to configure builds\nkeywords: build, args, variables, parame"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/security/_index.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/security/_index.md::ce5fc0aa0e5b::0001::0645be3e",
+            "title": "index",
+            "similarity": 0.312675,
+            "snippet": "---\ntitle: Security for developers\nlinkTitle: Security\ndescription: Learn about developer-level security features like 2FA and access tokens\nkeywords: docker, docker hub, docker de"
+          },
+          {
+            "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+            "chunk_id": "semantic-api-d1bf1ef6-1",
+            "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/observability&empty)",
+            "similarity": 0.285838,
+            "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/observability&empty)\n# Observability (18%)"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+            "chunk_id": "semantic-api-d1bf1ef6-1",
+            "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/observability&empty)",
+            "similarity": 0.285816,
+            "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/observability&empty)\n# Observability (18%)"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "bem_coberta",
+        "max_score": 0.688293,
+        "avg_score": 0.667698,
+        "top_source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+        "top_k_results": [
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md::5956212bc191::0006::abb5246c",
+            "title": "",
+            "similarity": 0.688293,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md::f0c5364e797e::0004::0958760d",
+            "title": "",
+            "similarity": 0.666351,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md::f0c5364e797e::0003::38ddfa8a",
+            "title": "",
+            "similarity": 0.662836,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md::5956212bc191::0005::55801886",
+            "title": "",
+            "similarity": 0.661635,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md::5956212bc191::0003::2855d83a",
+            "title": "",
+            "similarity": 0.659376,
+            "snippet": ""
+          }
+        ],
+        "top1_is_observability_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.364086,
+        "avg_score": 0.362104
+      }
+    },
+    {
+      "question": "grafana alerting provisioning contact points",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.352923,
+        "avg_score": 0.330073,
+        "top_source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+        "top_k_results": [
+          {
+            "source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+            "chunk_id": "semantic-api-50b318f4-1",
+            "title": "Query",
+            "similarity": 0.352923,
+            "snippet": "## Query\n\nvalidation gap ingestion flow kubernetes network policy baseline"
+          },
+          {
+            "source_file": "knowledge-gap::gap_20260310t234507_3291540000_4e3b1d6abc47_gap_flow_validation_ingress_nginx_timeout_504.md",
+            "chunk_id": "semantic-api-08ed3122-1",
+            "title": "Query",
+            "similarity": 0.33174,
+            "snippet": "## Query\n\ngap flow validation: ingress nginx timeout 504"
+          },
+          {
+            "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+            "chunk_id": "semantic-api-d1bf1ef6-2",
+            "title": "## Liveness, readiness and startup probes",
+            "similarity": 0.322717,
+            "snippet": "## Liveness, readiness and startup probes"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+            "chunk_id": "semantic-api-d1bf1ef6-2",
+            "title": "## Liveness, readiness and startup probes",
+            "similarity": 0.322624,
+            "snippet": "## Liveness, readiness and startup probes"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/modules/develop/index.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/index.md::ef5233aa30a1::0005::453e5863",
+            "title": "index",
+            "similarity": 0.320362,
+            "snippet": "### No-Code Provisioning in HCP Terraform\n\nYou can also create no-code ready modules to enable the no-code provisioning workflow in HCP Terraform. No-code provisioning lets users d"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "bem_coberta",
+        "max_score": 0.653155,
+        "avg_score": 0.622207,
+        "top_source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md",
+        "top_k_results": [
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md::84c3b2939eab::0001::b338cf98",
+            "title": "",
+            "similarity": 0.653155,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md::84c3b2939eab::0002::13c29e9e",
+            "title": "",
+            "similarity": 0.640937,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md::1e0cd8a6bedc::0002::45833e47",
+            "title": "",
+            "similarity": 0.617477,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-notification-policy.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-notification-policy.md::4db335b2817d::0002::34083f99",
+            "title": "",
+            "similarity": 0.605056,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md::1e0cd8a6bedc::0007::7d6088cb",
+            "title": "",
+            "similarity": 0.594411,
+            "snippet": ""
+          }
+        ],
+        "top1_is_observability_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.300232,
+        "avg_score": 0.292134
+      }
+    },
+    {
+      "question": "alertmanager route receivers grouping inhibition silences templates",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.244592,
+        "avg_score": 0.238971,
+        "top_source_file": "knowledge-gap::gap_20260310t234507_3291540000_4e3b1d6abc47_gap_flow_validation_ingress_nginx_timeout_504.md",
+        "top_k_results": [
+          {
+            "source_file": "knowledge-gap::gap_20260310t234507_3291540000_4e3b1d6abc47_gap_flow_validation_ingress_nginx_timeout_504.md",
+            "chunk_id": "semantic-api-08ed3122-1",
+            "title": "Query",
+            "similarity": 0.244592,
+            "snippet": "## Query\n\ngap flow validation: ingress nginx timeout 504"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/d.configuration.md",
+            "chunk_id": "semantic-api-e15b97e7-5",
+            "title": "[Limit Ranges](#limit-ranges)",
+            "similarity": 0.238644,
+            "snippet": "[Limit Ranges](#limit-ranges)"
+          },
+          {
+            "source_file": "data/question_bank_raw/ckad_exercises/d.configuration.md",
+            "chunk_id": "semantic-api-e15b97e7-5",
+            "title": "[Limit Ranges](#limit-ranges)",
+            "similarity": 0.238644,
+            "snippet": "[Limit Ranges](#limit-ranges)"
+          },
+          {
+            "source_file": "__inline_semantic_min__.txt",
+            "chunk_id": "semantic-api-2a6705e8-2",
+            "title": "2. Readiness probe controla recebimento de trafego.",
+            "similarity": 0.236967,
+            "snippet": "2. Readiness probe controla recebimento de trafego."
+          },
+          {
+            "source_file": "tmp/kubectl_ops_round/kubectl_get_events_pod.md",
+            "chunk_id": "semantic-api-48fca2be-4",
+            "title": "## Liveness and failure triage",
+            "similarity": 0.23601,
+            "snippet": "## Liveness and failure triage\n- Inspect `Warning` and `Unhealthy` events for pods."
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "parcial",
+        "max_score": 0.547796,
+        "avg_score": 0.531958,
+        "top_source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-silence.md",
+        "top_k_results": [
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-silence.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-silence.md::4e3dbeb4ffd4::0002::906766c8",
+            "title": "",
+            "similarity": 0.547796,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/alertmanager/docs/notification_examples.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/notification_examples.md::fe1d7d47dfe0::0002::22e9b3ee",
+            "title": "",
+            "similarity": 0.53757,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/inhibition-rules.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/inhibition-rules.md::3787a4ab38d9::0002::ddfb40d1",
+            "title": "",
+            "similarity": 0.531849,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/alertmanager/docs/alertmanager.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/alertmanager.md::6fda2c11cd14::0002::264b1197",
+            "title": "",
+            "similarity": 0.525934,
+            "snippet": ""
+          },
+          {
+            "source_file": "observability_docs_selected/alertmanager/docs/alertmanager.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/alertmanager.md::6fda2c11cd14::0003::0792e0f4",
+            "title": "",
+            "similarity": 0.516641,
+            "snippet": ""
+          }
+        ],
+        "top1_is_observability_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.303204,
+        "avg_score": 0.292987
+      }
+    }
+  ]
+}

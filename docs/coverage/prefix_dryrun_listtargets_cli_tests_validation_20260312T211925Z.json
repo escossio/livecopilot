@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-03-12T21:19:26.532983+00:00",
+  "unit_suite": {
+    "command": "python3 -m unittest -v tests/test_knowledge_ingest_cli_modes.py",
+    "exit": 0,
+    "tests_ran": 9,
+    "ok": true
+  },
+  "gate": {
+    "command": "./scripts/unit_test_gate.sh",
+    "exit": 0,
+    "tests_ran": 191,
+    "ok": true
+  },
+  "includes_new_suite_in_gate": true,
+  "artifacts": {
+    "unit_suite_log": "docs/coverage/prefix_dryrun_listtargets_cli_tests_20260312T211925Z.log",
+    "gate_log": "docs/coverage/prefix_dryrun_listtargets_cli_tests_gate_20260312T211925Z.log"
+  },
+  "all_pass": true
+}

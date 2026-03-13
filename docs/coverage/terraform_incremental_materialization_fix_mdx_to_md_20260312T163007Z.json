@@ -1,0 +1,57 @@
+{
+  "generated_at": "20260312T163007Z",
+  "mode": "mdx_to_md_materialization_for_pipeline_compatibility",
+  "proposed_file": "docs/coverage/terraform_incremental_docs_selected_proposed_20260312T161918Z.json",
+  "target_raw_dir": "data/knowledge_raw/terraform_docs_selected_incremental",
+  "proposed_count": 11,
+  "materialized_count": 11,
+  "missing_from_clone": [],
+  "missing_count": 0,
+  "mapped_paths": [
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/language/modules/sources.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/language/modules/sources.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/language/modules/develop/structure.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/language/modules/develop/structure.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/language/modules/develop/composition.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/language/modules/develop/composition.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/language/modules/develop/providers.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/language/modules/develop/providers.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/language/modules/develop/refactoring.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/language/modules/develop/refactoring.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/cli/commands/plan.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/cli/commands/plan.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/cli/commands/init.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/cli/commands/init.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/cli/commands/apply.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/cli/commands/apply.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/cli/commands/force-unlock.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/cli/commands/force-unlock.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/language/state/locking.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/language/state/locking.md"
+    },
+    {
+      "source_repo_path": "content/terraform/v1.14.x/docs/cli/commands/modules.mdx",
+      "materialized_path": "content/terraform/v1.14.x/docs/cli/commands/modules.md"
+    }
+  ],
+  "markdown_count": 11
+}

@@ -1,0 +1,14 @@
+# Configuração local mínima do Codex para este repositório.
+#
+# Objetivo nesta fase:
+# - manter arquivo de configuração local versionado;
+# - reservar espaço para futura integração MCP;
+# - reservar espaço para perfis por projeto-alvo.
+#
+# Preencha somente com chaves oficiais da documentação quando ativar a integração real.
+
+# --- Espaço para MCP server(s) ---
+# Exemplo: definir servidor MCP do Codex CLI conforme documentação oficial.
+
+# --- Espaço para perfis por projeto ---
+# Exemplo: perfil por tipo de projeto-alvo (backend, frontend, etc.).

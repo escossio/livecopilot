@@ -1,0 +1,45 @@
+{
+  "generated_at": "2026-03-12T19:02:16.250431+00:00",
+  "round_id": "20260312T184818Z",
+  "feature": "source_prefix_selective_ingest",
+  "tests": {
+    "default_controlled": {
+      "log_file": "docs/coverage/prefix_ingest_test_default_controlled_20260312T184818Z.log",
+      "exists": true,
+      "found": 269,
+      "processed": 0,
+      "skipped": 269,
+      "errors": 0,
+      "unsupported": 0,
+      "chunks": 54491,
+      "prefixes": ""
+    },
+    "selective_single": {
+      "log_file": "docs/coverage/prefix_ingest_test_selective_20260312T184818Z.log",
+      "exists": true,
+      "found": 12,
+      "processed": 0,
+      "skipped": 12,
+      "errors": 0,
+      "unsupported": 0,
+      "chunks": 39,
+      "prefixes": "continuity_docs_selected"
+    },
+    "selective_multi": {
+      "log_file": "docs/coverage/prefix_ingest_test_selective_multi_20260312T184818Z.log",
+      "exists": true,
+      "found": 23,
+      "processed": 0,
+      "skipped": 23,
+      "errors": 0,
+      "unsupported": 0,
+      "chunks": 173,
+      "prefixes": "continuity_docs_selected, terraform_docs_selected_incremental"
+    }
+  },
+  "assertions": {
+    "default_mode_kept": true,
+    "single_prefix_scoped": true,
+    "multi_prefix_scoped": true
+  }
+}

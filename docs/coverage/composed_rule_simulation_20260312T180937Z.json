@@ -1,0 +1,271 @@
+{
+  "generated_at": "20260312T180937Z",
+  "baseline": {
+    "rule": "max>=0.60 & avg>=0.45; gap if max<0.45",
+    "global": {
+      "query_count": 44,
+      "well": 31,
+      "well_rate": 0.704545
+    }
+  },
+  "rules": [
+    {
+      "rule_id": "rule_A_max055_official",
+      "rule_description": "well se baseline OU (max>=0.55 e avg>=0.45 e top1_expected_official)",
+      "global": {
+        "query_count": 44,
+        "well": 34,
+        "well_rate": 0.772727,
+        "partial_to_well": 3,
+        "terraform_partial_to_well": 2,
+        "non_terraform_partial_to_well": 1,
+        "inflation_risk": "baixo"
+      },
+      "domain_metrics": [
+        {
+          "domain": "aws_iam",
+          "query_count": 8,
+          "well": 7,
+          "partial": 1,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_to_partial_regressions": 0,
+          "delta_well_vs_baseline": 0,
+          "changes": []
+        },
+        {
+          "domain": "docker",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_to_partial_regressions": 0,
+          "delta_well_vs_baseline": 0,
+          "changes": []
+        },
+        {
+          "domain": "terraform",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 2,
+          "well_to_partial_regressions": 0,
+          "delta_well_vs_baseline": 2,
+          "changes": [
+            {
+              "query": "terraform force unlock",
+              "from": "parcial",
+              "to": "bem_coberta",
+              "max_score": 0.557261,
+              "avg_score": 0.54297,
+              "top1_expected_official": true,
+              "topk_convergent_approx": true
+            },
+            {
+              "query": "terraform module sources",
+              "from": "parcial",
+              "to": "bem_coberta",
+              "max_score": 0.554565,
+              "avg_score": 0.545604,
+              "top1_expected_official": true,
+              "topk_convergent_approx": true
+            }
+          ]
+        },
+        {
+          "domain": "observability",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 1,
+          "well_to_partial_regressions": 0,
+          "delta_well_vs_baseline": 1,
+          "changes": [
+            {
+              "query": "promql rate sum by instance",
+              "from": "parcial",
+              "to": "bem_coberta",
+              "max_score": 0.573074,
+              "avg_score": 0.486905,
+              "top1_expected_official": true,
+              "topk_convergent_approx": false
+            }
+          ]
+        },
+        {
+          "domain": "kubernetes",
+          "query_count": 12,
+          "well": 9,
+          "partial": 3,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_to_partial_regressions": 0,
+          "delta_well_vs_baseline": 0,
+          "changes": []
+        }
+      ]
+    },
+    {
+      "rule_id": "rule_B_max056_official_convergent",
+      "rule_description": "well se baseline OU (max>=0.56 e avg>=0.45 e top1_expected_official e topk_convergent_approx)",
+      "global": {
+        "query_count": 44,
+        "well": 31,
+        "well_rate": 0.704545,
+        "partial_to_well": 0,
+        "terraform_partial_to_well": 0,
+        "non_terraform_partial_to_well": 0,
+        "inflation_risk": "baixo"
+      },
+      "domain_metrics": [
+        {
+          "domain": "aws_iam",
+          "query_count": 8,
+          "well": 7,
+          "partial": 1,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_to_partial_regressions": 0,
+          "delta_well_vs_baseline": 0,
+          "changes": []
+        },
+        {
+          "domain": "docker",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_to_partial_regressions": 0,
+          "delta_well_vs_baseline": 0,
+          "changes": []
+        },
+        {
+          "domain": "terraform",
+          "query_count": 8,
+          "well": 4,
+          "partial": 4,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_to_partial_regressions": 0,
+          "delta_well_vs_baseline": 0,
+          "changes": []
+        },
+        {
+          "domain": "observability",
+          "query_count": 8,
+          "well": 5,
+          "partial": 3,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_to_partial_regressions": 0,
+          "delta_well_vs_baseline": 0,
+          "changes": []
+        },
+        {
+          "domain": "kubernetes",
+          "query_count": 12,
+          "well": 9,
+          "partial": 3,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_to_partial_regressions": 0,
+          "delta_well_vs_baseline": 0,
+          "changes": []
+        }
+      ]
+    },
+    {
+      "rule_id": "rule_C_max055_avg050_official",
+      "rule_description": "well se baseline OU (max>=0.55 e avg>=0.50 e top1_expected_official)",
+      "global": {
+        "query_count": 44,
+        "well": 33,
+        "well_rate": 0.75,
+        "partial_to_well": 2,
+        "terraform_partial_to_well": 2,
+        "non_terraform_partial_to_well": 0,
+        "inflation_risk": "baixo"
+      },
+      "domain_metrics": [
+        {
+          "domain": "aws_iam",
+          "query_count": 8,
+          "well": 7,
+          "partial": 1,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_to_partial_regressions": 0,
+          "delta_well_vs_baseline": 0,
+          "changes": []
+        },
+        {
+          "domain": "docker",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_to_partial_regressions": 0,
+          "delta_well_vs_baseline": 0,
+          "changes": []
+        },
+        {
+          "domain": "terraform",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 2,
+          "well_to_partial_regressions": 0,
+          "delta_well_vs_baseline": 2,
+          "changes": [
+            {
+              "query": "terraform force unlock",
+              "from": "parcial",
+              "to": "bem_coberta",
+              "max_score": 0.557261,
+              "avg_score": 0.54297,
+              "top1_expected_official": true,
+              "topk_convergent_approx": true
+            },
+            {
+              "query": "terraform module sources",
+              "from": "parcial",
+              "to": "bem_coberta",
+              "max_score": 0.554565,
+              "avg_score": 0.545604,
+              "top1_expected_official": true,
+              "topk_convergent_approx": true
+            }
+          ]
+        },
+        {
+          "domain": "observability",
+          "query_count": 8,
+          "well": 5,
+          "partial": 3,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_to_partial_regressions": 0,
+          "delta_well_vs_baseline": 0,
+          "changes": []
+        },
+        {
+          "domain": "kubernetes",
+          "query_count": 12,
+          "well": 9,
+          "partial": 3,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_to_partial_regressions": 0,
+          "delta_well_vs_baseline": 0,
+          "changes": []
+        }
+      ]
+    }
+  ]
+}

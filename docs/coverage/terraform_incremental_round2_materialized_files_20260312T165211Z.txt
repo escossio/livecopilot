@@ -1,0 +1,12 @@
+content/terraform/v1.14.x/docs/cli/commands/apply.md
+content/terraform/v1.14.x/docs/cli/commands/force-unlock.md
+content/terraform/v1.14.x/docs/cli/commands/index.md
+content/terraform/v1.14.x/docs/cli/commands/init.md
+content/terraform/v1.14.x/docs/cli/commands/plan.md
+content/terraform/v1.14.x/docs/cli/run/index.md
+content/terraform/v1.14.x/docs/intro/core-workflow.md
+content/terraform/v1.14.x/docs/language/block/module.md
+content/terraform/v1.14.x/docs/language/modules/develop/structure.md
+content/terraform/v1.14.x/docs/language/modules/sources.md
+content/terraform/v1.14.x/docs/language/state/locking.md
+content/terraform/v1.14.x/docs/language/style.md

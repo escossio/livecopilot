@@ -1,0 +1,62 @@
+{
+  "generated_at": "2026-03-13T03:37:48.161860+00:00",
+  "pipeline": "knowledge_pipeline_v1",
+  "mode": "validate",
+  "round_id": "20260313T033200Z-knowledge-pipeline-v2-terraform",
+  "side_effects_expected": false,
+  "artifacts": {
+    "run_artifact": "docs/coverage/knowledge_pipeline_run_20260313T033200Z-knowledge-pipeline-v2-terraform.json",
+    "validate_artifact": "docs/coverage/knowledge_pipeline_validate_20260313T033200Z-knowledge-pipeline-v2-terraform.json",
+    "utf8_artifact": "docs/coverage/knowledge_pipeline_validate_utf8_20260313T033200Z-knowledge-pipeline-v2-terraform.json",
+    "state_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_state.json"
+  },
+  "scope": {
+    "source_prefixes": [
+      "terraform_docs_selected_incremental"
+    ],
+    "resolved_sources_total": 11,
+    "resolved_sources_by_prefix": {
+      "terraform_docs_selected_incremental": 11
+    },
+    "resolved_sources_sample": [
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md"
+    ]
+  },
+  "run_summary": {
+    "ingest_total_found": 11,
+    "ingest_processed": 0,
+    "documents_selected": 11,
+    "documents_processed": 11,
+    "chunks_persisted": 72
+  },
+  "checks": {
+    "run_artifact_present": true,
+    "run_prefixes_match_validate_prefixes": true,
+    "plan_vs_run_ingest_total_match": true,
+    "plan_vs_run_semantic_total_match": true,
+    "state_resolved_total_match_run": true,
+    "parsed_artifacts_present_for_scope": true,
+    "chunk_artifacts_present_for_scope": true,
+    "utf8_scan_clean": true
+  },
+  "missing": {
+    "parsed_source_files": [],
+    "chunk_source_files": []
+  },
+  "utf8_summary": {
+    "total_chunks_scanned": 1222,
+    "bad_chunks_count": 0,
+    "affected_source_files_count": 0
+  },
+  "validation_passed": true
+}

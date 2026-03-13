@@ -2,25 +2,31 @@
   "project_name": "Livecopilot",
   "mission_subtitle": "Copiloto silencioso de conversacao tecnica em tempo real",
   "status_badge": {
-    "label": "ATIVO (POS-ETAPA 14)",
+    "label": "ATIVO (ETAPA 16.1)",
     "kind": "info"
   },
   "last_updated": "2026-03-11",
   "mission_current": "Ajudar o usuario durante conversas tecnicas reais com suporte visual em tela, sem interromper a fala e sem fingir completude quando o contexto local for insuficiente.",
-  "round_focus": "Correcao de prioridade do roadmap: etapa 15 oficializada para ingestao das literaturas no banco semantico; expansao externa movida para etapa posterior.",
+  "round_focus": "Etapa 16.1 concluida com contrato operacional da busca externa governada, preservando precedencia local-first e sem implementacao de adaptador.",
   "now": {
-    "current_stage_number": 15,
-    "current_stage": "Etapa 15 aberta (nao iniciada): ingestao das literaturas no banco semantico.",
-    "current_blocker": "Lacuna arquitetural: literaturas ainda nao estao consolidadas no banco semantico local-first.",
-    "next_step": "Executar 15.1 para formalizar contrato operacional de ingestao antes de implementacao funcional.",
-    "avoid_now": "Abrir expansao ampla de busca externa antes de consolidar a base interna."
+    "current_stage_number": 16,
+    "current_stage": "Etapa 16 em andamento: busca externa governada (16.1 contrato concluido).",
+    "current_blocker": "Adaptador de busca externa ainda nao implementado (fora da 16.1).",
+    "next_step": "Executar 16.2 com adaptador minimo governado sem crawler, sem scraping massivo e sem ingestao automatica.",
+    "avoid_now": "Quebrar precedencia local-first ou abrir ingestao automatica da web."
   },
   "drift_risks": [
     "Promover modo satelite como missao principal.",
     "Reabrir tuning continuo sem evidencia comparavel.",
     "Misturar frentes encerradas com backlog futuro.",
     "Transformar painel em dashboard complexo e perder legibilidade de longe.",
-    "Tratar base local como conhecimento completo."
+    "Tratar base local como conhecimento completo.",
+    "Dependencia de credencial OpenAI em parte da camada semantica.",
+    "Fallback lexical e degradacao segura, com menor qualidade semantica.",
+    "Dependencia de credencial OpenAI para parte da camada semantica.",
+    "Fallback lexical deve permanecer como degradacao segura quando semantico indisponivel.",
+    "Busca externa sem governanca pode quebrar o principio local-first.",
+    "Etapa 16 sem adaptador implementado; evitar salto para crawler/scraping antes de 16.2."
   ],
   "recommended_sequence": [
     "Reconhecer formalmente etapas 9 e 10 como concluidas apos a 8.",
@@ -173,7 +179,7 @@
       "number": 15,
       "name": "Ingestao das literaturas no banco semantico",
       "description": "Consolidar base interna local-first com chunking, embeddings, persistencia e validacao de recuperacao.",
-      "status": "nao iniciada",
+      "status": "concluida",
       "dependencies": [
         3,
         5,
@@ -184,7 +190,7 @@
       "number": 16,
       "name": "Busca externa com governanca ampliada",
       "description": "Expansao externa posterior e controlada, complementar ao core local consolidado.",
-      "status": "fora do escopo atual",
+      "status": "parcial",
       "dependencies": [
         11,
         15
@@ -222,14 +228,13 @@
       13,
       14
     ],
-    "next_open_stage_number": 15,
-    "next_open_stage_name": "Ingestao das literaturas no banco semantico",
-    "next_open_stage_status": "nao iniciada",
-    "reason": "Com a etapa 14 concluida, a prioridade correta e consolidar a base interna de conhecimento (etapa 15) antes da expansao externa.",
+    "next_open_stage_number": 16,
+    "next_open_stage_name": "Busca externa com governanca ampliada",
+    "next_open_stage_status": "parcial",
+    "reason": "Etapa 15 encerrada; Etapa 16 aberta com 16.1 concluida no escopo documental e sem implementacao funcional nesta rodada.",
     "dependencies_satisfied": [
-      3,
-      5,
-      6
+      11,
+      15
     ],
     "dependencies_pending": []
   },
@@ -302,12 +307,48 @@
     "contract_doc": "docs/STAGE_14_1_ASR_LOCAL_CONTRACT.md",
     "adapter_service": "app/services/transcription_local.py"
   },
+  "stage_15_focus": {
+    "definition": "ingestao das literaturas no banco semantico",
+    "current_substage": "15.macro",
+    "current_substage_status": "concluida",
+    "substage_name": "Fechamento macro e baseline oficial da etapa",
+    "completed_substages": [
+      "15.1",
+      "15.2",
+      "15.3",
+      "15.4"
+    ],
+    "open_substages": [],
+    "stage_status": "concluida",
+    "is_active_focus": false,
+    "contract_doc": "docs/STAGE_15_1_INGESTION_OPERATIONAL_CONTRACT.md",
+    "handoff_doc": "docs/HANDOFF_STAGE_15_MACRO_CLOSURE.md"
+  },
   "next_stage_proposal": {
-    "number": 15,
-    "name": "Ingestao das literaturas no banco semantico",
-    "status": "oficializada (nao iniciada)",
+    "number": 16,
+    "name": "Busca externa com governanca ampliada",
+    "status": "em andamento (16.1 concluida, sem adaptador)",
     "proposal_doc": "docs/ROUND_SUMMARY_NEXT_STAGE_PROPOSAL_AFTER_14.md",
-    "recommended_first_substage": "15.1",
-    "recommended_first_substage_name": "Contrato operacional de ingestao"
+    "recommended_first_substage": "16.2",
+    "recommended_first_substage_name": "Adaptador minimo governado de busca externa"
+  },
+  "stage_16_focus": {
+    "definition": "busca externa com governanca ampliada",
+    "current_substage": "16.1",
+    "current_substage_status": "concluida",
+    "substage_name": "Contrato operacional da busca externa com governanca",
+    "completed_substages": [
+      "16.1"
+    ],
+    "open_substages": [
+      "16.2"
+    ],
+    "stage_status": "parcial",
+    "is_active_focus": true,
+    "contract_doc": "docs/STAGE_16_1_EXTERNAL_SEARCH_CONTRACT.md",
+    "handoff_doc": "docs/HANDOFF_STAGE_16_1_COMPLETION.md",
+    "local_first_mandatory": true,
+    "external_adapter_implemented": false,
+    "automatic_web_ingestion_allowed": false
   }
 }

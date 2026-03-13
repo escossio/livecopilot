@@ -1,0 +1,110 @@
+{
+  "generated_at": "2026-03-11T21:23:39.764628+00:00",
+  "before_reference": "docs/coverage/semantic_coverage_audit_pre_stage16_20260311.json",
+  "after_reference": "docs/coverage/semantic_coverage_audit_iam_after_aws5_20260311.json",
+  "coverage_note": "Baseline historico disponivel apenas para perguntas presentes no pre_stage16 (20 perguntas).",
+  "aggregate_after": {
+    "total_questions": 8,
+    "well_covered_count": 0,
+    "partial_count": 6,
+    "gap_count": 2,
+    "global_avg_of_max_score": 0.470363,
+    "global_avg_of_avg_score": 0.468348
+  },
+  "aggregate_comparable_subset": {
+    "questions_with_before": 1,
+    "questions_without_before": 7,
+    "improved_count": 1,
+    "class_changed_count": 1
+  },
+  "rows": [
+    {
+      "question": "aws iam least privilege policy",
+      "after_classification": "parcial",
+      "after_max_score": 0.520263,
+      "after_avg_score": 0.514229,
+      "after_top_source_file": "aws/Permissions boundaries for IAM entities.pdf",
+      "before_available": true,
+      "before_classification": "lacuna",
+      "before_max_score": 0.421688,
+      "before_avg_score": 0.345207,
+      "before_top_source_file": "data/question_bank_raw/sample_assessment.md",
+      "delta_max_score": 0.098575,
+      "delta_avg_score": 0.169022,
+      "class_changed": true,
+      "top1_changed": true
+    },
+    {
+      "question": "policy evaluation logic aws",
+      "after_classification": "lacuna",
+      "after_max_score": 0.432417,
+      "after_avg_score": 0.432144,
+      "after_top_source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+      "before_available": false
+    },
+    {
+      "question": "permissions boundaries iam",
+      "after_classification": "parcial",
+      "after_max_score": 0.485331,
+      "after_avg_score": 0.482697,
+      "after_top_source_file": "aws/Policy evaluation logic.pdf",
+      "before_available": false
+    },
+    {
+      "question": "iam policy simulator",
+      "after_classification": "lacuna",
+      "after_max_score": 0.338807,
+      "after_avg_score": 0.337094,
+      "after_top_source_file": "aws/Permissions boundaries for IAM entities.pdf",
+      "before_available": false
+    },
+    {
+      "question": "explicit deny allow iam",
+      "after_classification": "parcial",
+      "after_max_score": 0.453959,
+      "after_avg_score": 0.452335,
+      "after_top_source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+      "before_available": false
+    },
+    {
+      "question": "identity policy resource policy boundary scp aws",
+      "after_classification": "parcial",
+      "after_max_score": 0.524229,
+      "after_avg_score": 0.522408,
+      "after_top_source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+      "before_available": false
+    },
+    {
+      "question": "iam best practices aws",
+      "after_classification": "parcial",
+      "after_max_score": 0.557567,
+      "after_avg_score": 0.556061,
+      "after_top_source_file": "aws/Security best practices in IAM.pdf",
+      "before_available": false
+    },
+    {
+      "question": "policy boundary vs scp aws",
+      "after_classification": "parcial",
+      "after_max_score": 0.450327,
+      "after_avg_score": 0.449818,
+      "after_top_source_file": "__api_context_smoke__.md",
+      "before_available": false
+    }
+  ],
+  "improved_questions": [
+    "aws iam least privilege policy"
+  ],
+  "class_changed_questions": [
+    "aws iam least privilege policy"
+  ],
+  "after_top1_from_new_aws_docs_count": 7,
+  "after_top1_from_new_aws_docs_questions": [
+    "aws iam least privilege policy",
+    "policy evaluation logic aws",
+    "permissions boundaries iam",
+    "iam policy simulator",
+    "explicit deny allow iam",
+    "identity policy resource policy boundary scp aws",
+    "iam best practices aws"
+  ]
+}

@@ -1,0 +1,546 @@
+{
+  "generated_at_utc": "2026-03-12T21:59:56Z",
+  "source_classification": "/lab/projects/livecopilot/docs/coverage/projects_root_classification_20260312T215756Z.json",
+  "policy": {
+    "move_only_high_confidence": true,
+    "no_deletions": true,
+    "no_backup_deletion": true,
+    "main_destination": "/lab/projects/livecopilot/",
+    "quarantine_candidate": "/lab/projects/_quarantine_20260312T215756Z",
+    "recovered_conflict_base": "/lab/projects/livecopilot/_root_recovered_20260312T215756Z"
+  },
+  "planned_moves": [
+    {
+      "source": "/lab/projects/AGENTS.md",
+      "destination": "/lab/projects/livecopilot/AGENTS.md",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/AGENTS.md.bak-orchestrator-v2-20260302",
+      "destination": "/lab/projects/livecopilot/AGENTS.md.bak-orchestrator-v2-20260302",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/README.md",
+      "destination": "/lab/projects/livecopilot/_root_recovered_20260312T215756Z/README.md",
+      "conflict_on_main_destination": true,
+      "confidence": "high",
+      "risk": "medium",
+      "justification": "Conflito de nome no destino principal; desvio conservador para area recuperada sem sobrescrever"
+    },
+    {
+      "source": "/lab/projects/README.md.bak-20260303T000007",
+      "destination": "/lab/projects/livecopilot/README.md.bak-20260303T000007",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/README.md.bak-20260304-inspect",
+      "destination": "/lab/projects/livecopilot/README.md.bak-20260304-inspect",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/README.md.bak-20260304-loop-wrapper",
+      "destination": "/lab/projects/livecopilot/README.md.bak-20260304-loop-wrapper",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/README.md.bak-20260304-stdin",
+      "destination": "/lab/projects/livecopilot/README.md.bak-20260304-stdin",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md",
+      "destination": "/lab/projects/livecopilot/_root_recovered_20260312T215756Z/STATUS.md",
+      "conflict_on_main_destination": true,
+      "confidence": "high",
+      "risk": "medium",
+      "justification": "Conflito de nome no destino principal; desvio conservador para area recuperada sem sobrescrever"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260302T221500",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260302T221500",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-close-track-mismatch-front",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-close-track-mismatch-front",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-confidence-threshold",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-confidence-threshold",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-dod-phase-close",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-dod-phase-close",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-inspect",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-inspect",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-knowledge-practicality-task3",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-knowledge-practicality-task3",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-loop-shortcuts",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-loop-shortcuts",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-loop-wrapper",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-loop-wrapper",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-mismatch-baseline-rebuild",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-mismatch-baseline-rebuild",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-mismatch-current",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-mismatch-current",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-practicality-audit",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-practicality-audit",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-practicality-fine-tuning",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-practicality-fine-tuning",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-question-bank-practicality",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-question-bank-practicality",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-ranking-regression-suite",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-ranking-regression-suite",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-remove-current-track-shortcut",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-remove-current-track-shortcut",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-search-metrics",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-search-metrics",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-stdin",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-stdin",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-terminal-summary",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-terminal-summary",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260304-track-mismatch-queue",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260304-track-mismatch-queue",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak-20260310T232233Z-power-recovery",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak-20260310T232233Z-power-recovery",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak31",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak31",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak32",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak32",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak33",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak33",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak34",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak34",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/STATUS.md.bak35",
+      "destination": "/lab/projects/livecopilot/STATUS.md.bak35",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/TREE.md",
+      "destination": "/lab/projects/livecopilot/TREE.md",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/chat_livecopilot.txt",
+      "destination": "/lab/projects/livecopilot/chat_livecopilot.txt",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex-supervisor",
+      "destination": "/lab/projects/livecopilot/codex-supervisor",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260302T000000Z",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260302T000000Z",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260302T221500",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260302T221500",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260303T000001",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260303T000001",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260303T000003",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260303T000003",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260303T000005",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260303T000005",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260303T000007",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260303T000007",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260303T020400Z",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260303T020400Z",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-20260304-terminal-summary",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-20260304-terminal-summary",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-clear-current-task-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-clear-current-task-20260302",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-drain-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-drain-20260302",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-enqueue-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-enqueue-20260302",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-harden-loop-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-harden-loop-20260302",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-incremental-context-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-incremental-context-20260302",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-last-summary-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-last-summary-20260302",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-peek-queue-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-peek-queue-20260302",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-smoke-final-bugfix-20260303T020300Z",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-smoke-final-bugfix-20260303T020300Z",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-stale-lock-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-stale-lock-20260302",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-structured-previous-result-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-structured-previous-result-20260302",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/codex_loop.sh.bak-ux-commands-20260302",
+      "destination": "/lab/projects/livecopilot/codex_loop.sh.bak-ux-commands-20260302",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/hardware-report.txt",
+      "destination": "/lab/projects/livecopilot/hardware-report.txt",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/lab",
+      "destination": "/lab/projects/livecopilot/lab",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/logs",
+      "destination": "/lab/projects/livecopilot/_root_recovered_20260312T215756Z/logs",
+      "conflict_on_main_destination": true,
+      "confidence": "high",
+      "risk": "medium",
+      "justification": "Conflito de nome no destino principal; desvio conservador para area recuperada sem sobrescrever"
+    },
+    {
+      "source": "/lab/projects/loop",
+      "destination": "/lab/projects/livecopilot/loop",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/loop.bak-20260304-inspect",
+      "destination": "/lab/projects/livecopilot/loop.bak-20260304-inspect",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/loop.bak-20260304-stdin",
+      "destination": "/lab/projects/livecopilot/loop.bak-20260304-stdin",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/project_state.md",
+      "destination": "/lab/projects/livecopilot/project_state.md",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/queue",
+      "destination": "/lab/projects/livecopilot/queue",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/results",
+      "destination": "/lab/projects/livecopilot/results",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    },
+    {
+      "source": "/lab/projects/state",
+      "destination": "/lab/projects/livecopilot/state",
+      "conflict_on_main_destination": false,
+      "confidence": "high",
+      "risk": "low",
+      "justification": "Item do livecopilot no root errado; mover para raiz correta do projeto"
+    }
+  ],
+  "summary": {
+    "planned_move_count": 66,
+    "planned_conflicts": 3
+  }
+}

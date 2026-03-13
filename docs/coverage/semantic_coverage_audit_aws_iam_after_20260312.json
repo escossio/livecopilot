@@ -1,0 +1,402 @@
+{
+  "generated_at": "2026-03-12T04:11:44.210346+00:00",
+  "scope": "aws_iam_focused_after_official_slice_persist",
+  "top_k": 5,
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "total_questions": 8,
+  "well_covered_count": 7,
+  "partial_count": 1,
+  "gap_count": 0,
+  "global_avg_of_max_score": 0.629874,
+  "global_avg_of_avg_score": 0.595118,
+  "rows": [
+    {
+      "question": "aws iam policy evaluation order explicit deny allow",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.643978,
+      "avg_score": 0.605203,
+      "top_source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+      "top_title": "iam policy evaluation explicit deny allow",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md::afa322c1ff97::0002::5dd9c45b",
+          "title": "iam policy evaluation explicit deny allow",
+          "similarity": 0.643978,
+          "snippet": "iam policy evaluation explicit deny allow"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md::afa322c1ff97::0003::8ecd4d38",
+          "title": "iam policy evaluation explicit deny allow",
+          "similarity": 0.610961,
+          "snippet": "iam policy evaluation explicit deny allow"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md::afa322c1ff97::0004::3368f674",
+          "title": "iam policy evaluation explicit deny allow",
+          "similarity": 0.601604,
+          "snippet": "iam policy evaluation explicit deny allow"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md::afa322c1ff97::0005::27acda44",
+          "title": "iam policy evaluation explicit deny allow",
+          "similarity": 0.585271,
+          "snippet": "iam policy evaluation explicit deny allow"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md::afa322c1ff97::0001::88283fec",
+          "title": "iam policy evaluation explicit deny allow",
+          "similarity": 0.584201,
+          "snippet": "iam policy evaluation explicit deny allow"
+        }
+      ]
+    },
+    {
+      "question": "aws iam policy simulator simulate-principal-policy",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.631137,
+      "avg_score": 0.60073,
+      "top_source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+      "top_title": "iam policy simulator",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0002::0acd97de",
+          "title": "iam policy simulator",
+          "similarity": 0.631137,
+          "snippet": "iam policy simulator"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0001::8f62c206",
+          "title": "iam policy simulator",
+          "similarity": 0.625132,
+          "snippet": "iam policy simulator"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0006::4a07d885",
+          "title": "iam policy simulator",
+          "similarity": 0.589061,
+          "snippet": "iam policy simulator"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0007::f87f7c6c",
+          "title": "iam policy simulator",
+          "similarity": 0.581816,
+          "snippet": "iam policy simulator"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0004::f5ef68f7",
+          "title": "iam policy simulator",
+          "similarity": 0.576506,
+          "snippet": "iam policy simulator"
+        }
+      ]
+    },
+    {
+      "question": "aws iam permissions boundaries effective permissions",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.691334,
+      "avg_score": 0.614045,
+      "top_source_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+      "top_title": "iam permissions boundaries",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_permissions_boundaries.md::c47d1c58023d::0005::bae20c09",
+          "title": "iam permissions boundaries",
+          "similarity": 0.691334,
+          "snippet": "iam permissions boundaries"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_permissions_boundaries.md::c47d1c58023d::0001::3ca9cd5b",
+          "title": "iam permissions boundaries",
+          "similarity": 0.652659,
+          "snippet": "iam permissions boundaries"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_permissions_boundaries.md::c47d1c58023d::0004::6bb9b9ca",
+          "title": "iam permissions boundaries",
+          "similarity": 0.577769,
+          "snippet": "iam permissions boundaries"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_evaluation_logic.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_logic.md::894c2601e124::0004::4a4a0e73",
+          "title": "iam policy evaluation logic",
+          "similarity": 0.574837,
+          "snippet": "iam policy evaluation logic"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_evaluation_logic.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_logic.md::894c2601e124::0003::27489a42",
+          "title": "iam policy evaluation logic",
+          "similarity": 0.573628,
+          "snippet": "iam policy evaluation logic"
+        }
+      ]
+    },
+    {
+      "question": "aws organizations service control policy scp evaluation logic",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.675947,
+      "avg_score": 0.669327,
+      "top_source_file": "aws_iam_docs_selected/org_scps_overview.md",
+      "top_title": "org scps overview",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_overview.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_overview.md::0f09c0e06fe1::0001::ba357ef0",
+          "title": "org scps overview",
+          "similarity": 0.675947,
+          "snippet": "org scps overview"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0004::5b4cd16e",
+          "title": "org scps examples",
+          "similarity": 0.673225,
+          "snippet": "org scps examples"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0005::3ceafa2e",
+          "title": "org scps examples",
+          "similarity": 0.668556,
+          "snippet": "org scps examples"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0007::3df97d2a",
+          "title": "org scps examples",
+          "similarity": 0.66811,
+          "snippet": "org scps examples"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_evaluation.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_evaluation.md::4cfe0e84fe35::0001::61db8ad7",
+          "title": "org scps evaluation",
+          "similarity": 0.660799,
+          "snippet": "org scps evaluation"
+        }
+      ]
+    },
+    {
+      "question": "aws iam identity policy resource policy permissions boundary scp interaction",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.641324,
+      "avg_score": 0.627458,
+      "top_source_file": "aws_iam_docs_selected/org_scps_examples.md",
+      "top_title": "org scps examples",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0002::fb56a205",
+          "title": "org scps examples",
+          "similarity": 0.641324,
+          "snippet": "org scps examples"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_evaluation_logic.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_logic.md::894c2601e124::0003::27489a42",
+          "title": "iam policy evaluation logic",
+          "similarity": 0.637588,
+          "snippet": "iam policy evaluation logic"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_overview.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_overview.md::0f09c0e06fe1::0007::453e4e47",
+          "title": "org scps overview",
+          "similarity": 0.628523,
+          "snippet": "org scps overview"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_evaluation_logic.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_logic.md::894c2601e124::0004::4a4a0e73",
+          "title": "iam policy evaluation logic",
+          "similarity": 0.617177,
+          "snippet": "iam policy evaluation logic"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0003::023e2637",
+          "title": "org scps examples",
+          "similarity": 0.612677,
+          "snippet": "org scps examples"
+        }
+      ]
+    },
+    {
+      "question": "aws iam policy simulator context keys condition testing",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.638248,
+      "avg_score": 0.59153,
+      "top_source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+      "top_title": "iam policy simulator",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0006::4a07d885",
+          "title": "iam policy simulator",
+          "similarity": 0.638248,
+          "snippet": "iam policy simulator"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0001::8f62c206",
+          "title": "iam policy simulator",
+          "similarity": 0.593981,
+          "snippet": "iam policy simulator"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0002::0acd97de",
+          "title": "iam policy simulator",
+          "similarity": 0.584276,
+          "snippet": "iam policy simulator"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0005::74e12585",
+          "title": "iam policy simulator",
+          "similarity": 0.578296,
+          "snippet": "iam policy simulator"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_condition_element.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_condition_element.md::f197711e0ab1::0002::5792e661",
+          "title": "iam condition element",
+          "similarity": 0.562847,
+          "snippet": "iam condition element"
+        }
+      ]
+    },
+    {
+      "question": "aws scp syntax deny guardrails examples",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.510453,
+      "avg_score": 0.493109,
+      "top_source_file": "aws_iam_docs_selected/org_scps_examples.md",
+      "top_title": "org scps examples",
+      "relevant_result_present": true,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0007::3df97d2a",
+          "title": "org scps examples",
+          "similarity": 0.510453,
+          "snippet": "org scps examples"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_evaluation.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_evaluation.md::4cfe0e84fe35::0005::7ed0b978",
+          "title": "org scps evaluation",
+          "similarity": 0.507089,
+          "snippet": "org scps evaluation"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_evaluation.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_evaluation.md::4cfe0e84fe35::0002::b224531d",
+          "title": "org scps evaluation",
+          "similarity": 0.487794,
+          "snippet": "org scps evaluation"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0008::c093face",
+          "title": "org scps examples",
+          "similarity": 0.481859,
+          "snippet": "org scps examples"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_syntax.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_syntax.md::cc7beb7847c7::0007::0a103624",
+          "title": "org scps syntax",
+          "similarity": 0.478351,
+          "snippet": "org scps syntax"
+        }
+      ]
+    },
+    {
+      "question": "aws iam permissions boundary vs scp differences",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.606568,
+      "avg_score": 0.559541,
+      "top_source_file": "aws_iam_docs_selected/org_scps_overview.md",
+      "top_title": "org scps overview",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_overview.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_overview.md::0f09c0e06fe1::0007::453e4e47",
+          "title": "org scps overview",
+          "similarity": 0.606568,
+          "snippet": "org scps overview"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_overview.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_overview.md::0f09c0e06fe1::0003::d33af021",
+          "title": "org scps overview",
+          "similarity": 0.58518,
+          "snippet": "org scps overview"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_permissions_boundaries.md::c47d1c58023d::0001::3ca9cd5b",
+          "title": "iam permissions boundaries",
+          "similarity": 0.545296,
+          "snippet": "iam permissions boundaries"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_evaluation.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_evaluation.md::4cfe0e84fe35::0005::7ed0b978",
+          "title": "org scps evaluation",
+          "similarity": 0.530688,
+          "snippet": "org scps evaluation"
+        },
+        {
+          "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+          "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0002::fb56a205",
+          "title": "org scps examples",
+          "similarity": 0.529973,
+          "snippet": "org scps examples"
+        }
+      ]
+    }
+  ]
+}

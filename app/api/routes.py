@@ -21,6 +21,7 @@ from app.services.question_bank_search import search_question_bank_items_with_de
 from app.services.knowledge_search import build_context_from_results
 from app.services.semantic_min_api import ingest_min_document, semantic_search
 from app.services.state import ConversationState
+from app.services.realtime_openai import create_realtime_client_secret, get_realtime_runtime
 from app.services.transcription import get_transcription_runtime
 from app.services.voice_output import get_voice_output_runtime, synthesize_voice_output_realtime_controlled
 
@@ -109,6 +110,16 @@ class RealtimeIngestRequest(BaseModel):
     conversation_id: str = Field(..., min_length=1, max_length=128)
     chunk_text: str = Field(..., min_length=1)
     is_final: bool = False
+    mode: Optional[str] = Field(default=None, pattern="^(interview|study|generic)$")
+
+
+class ChatRequest(BaseModel):
+    text: str = Field(..., min_length=1)
+    mode: Optional[str] = Field(default=None, pattern="^(interview|study|generic)$")
+    conversation_id: Optional[str] = Field(default=None, max_length=128)
+
+
+class RealtimeSessionRequest(BaseModel):
     mode: Optional[str] = Field(default=None, pattern="^(interview|study|generic)$")
 
 
@@ -306,6 +317,28 @@ def _cleanup_expired_realtime_sessions(req: Request) -> dict:
         "removed_memory_sessions": removed_mem,
         "removed_persisted_sessions": removed_persisted,
     }
+
+
+def _handle_realtime_api_error(exc: Exception) -> JSONResponse:
+    if isinstance(exc, ValueError):
+        message = str(exc)
+        if "OPENAI_API_KEY ausente" in message:
+            return _error_response(503, "OPENAI_API_KEY ausente para Realtime API")
+        return _error_response(400, message)
+
+    try:
+        from openai import APIConnectionError, APIError, APITimeoutError, AuthenticationError, RateLimitError
+
+        if isinstance(exc, AuthenticationError):
+            return _error_response(401, "falha de autenticacao na OpenAI Realtime API")
+        if isinstance(exc, RateLimitError):
+            return _error_response(429, "limite de requisicoes da OpenAI Realtime API excedido")
+        if isinstance(exc, (APIConnectionError, APITimeoutError, APIError)):
+            return _error_response(502, "falha na OpenAI Realtime API")
+    except Exception:
+        pass
+
+    return _error_response(500, "falha ao criar sessao da OpenAI Realtime API")
 
 
 def _compress_answer(answer: str, mode: str) -> str:
@@ -606,6 +639,153 @@ def _find_realtime_session(req: Request, conversation_id: str) -> Optional[dict]
     return None
 
 
+def _build_livecopilot_reply(
+    *,
+    req: Request,
+    text_input: str,
+    mode: Optional[str],
+    conversation_id: Optional[str],
+    voice_output_enabled: Optional[bool],
+) -> dict:
+    _cleanup_expired_realtime_sessions(req)
+    text_input = str(text_input or "").strip()
+    conversation_id = str(conversation_id or "").strip()
+    started = time.monotonic()
+
+    session = None
+    if conversation_id:
+        session = _resolve_realtime_session(req, conversation_id)
+        if mode:
+            session["mode"] = _normalize_mode(mode, fallback=session.get("mode", "generic"))
+        resolved_mode = _normalize_mode(mode, fallback=session.get("mode", "generic"))
+        state = session["state"]
+        buffer_chunks_list = list(session.get("chunks", []))
+    else:
+        resolved_mode = _normalize_mode(mode, fallback="generic")
+        state = ConversationState()
+        buffer_chunks_list = []
+
+    context_preview = ""
+    from_incremental_buffer = False
+    if text_input:
+        effective_input_text = _clean_text(text_input, limit=320)
+    else:
+        from_incremental_buffer = True
+        assembled = _build_incremental_context(buffer_chunks_list)
+        effective_input_text = assembled.get("merged_text", "")
+        context_preview = assembled.get("context_window_preview", "")
+        if not effective_input_text:
+            raise ValueError("informe text ou conversation_id com buffer incremental")
+        effective_input_text = _clean_text(effective_input_text, limit=320)
+
+    previous_turns = len(state.transcript)
+    snapshot = process_ingest(state, effective_input_text)
+    if len(state.transcript) > REALTIME_MAX_SESSION_TURNS:
+        state.transcript = state.transcript[-REALTIME_MAX_SESSION_TURNS:]
+        snapshot = state.snapshot()
+
+    suggestions = snapshot.get("suggestions", []) or []
+    answer = str(suggestions[0]).strip() if suggestions else _default_short_answer(resolved_mode)
+    bullets = [str(item).strip() for item in suggestions[1:4] if str(item).strip()]
+
+    knowledge_context = _summarize_knowledge_context(snapshot.get("knowledge_context", {}) or {})
+    backend = knowledge_context.get("search_backend", "") or "no_search"
+    if knowledge_context.get("fallback_used", False):
+        backend = "fallback"
+    if int(knowledge_context.get("result_count", 0) or 0) == 0 and not _looks_technical_text(effective_input_text):
+        answer = "Não tenho base suficiente para afirmar isso com segurança agora."
+        bullets = [
+            "Posso responder de forma geral, sem inventar detalhes.",
+            "Se você quiser, eu mudo para modo técnico e foco no seu contexto de entrevista.",
+            "Também posso reformular em uma resposta curta e neutra.",
+        ]
+    else:
+        answer, bullets = _style_answer_and_bullets(answer, bullets, mode=resolved_mode)
+
+    last_is_final = bool(session.get("last_is_final", True)) if isinstance(session, dict) else True
+    readiness_payload = _evaluate_readiness(
+        effective_input_text,
+        last_is_final=last_is_final,
+        from_buffer=from_incremental_buffer,
+    )
+    response_stage = str(readiness_payload.get("response_stage", "final"))
+    readiness = str(readiness_payload.get("readiness", "medium"))
+    should_wait_more = bool(readiness_payload.get("should_wait_more", False))
+
+    if response_stage == "partial":
+        if int(knowledge_context.get("result_count", 0) or 0) == 0 and not _looks_technical_text(effective_input_text):
+            answer = "Ainda está cedo para responder isso com segurança."
+            bullets = [
+                "Posso esperar mais contexto antes de fechar uma resposta.",
+            ]
+        else:
+            answer = "Contexto ainda parcial; posso te adiantar um caminho inicial enquanto chega mais transcrição."
+            bullets = [
+                "Leitura provisória: ainda pode faltar detalhe importante.",
+                "Se você finalizar a frase/pergunta, eu consolido uma resposta final.",
+            ]
+
+    voice_output = synthesize_voice_output_realtime_controlled(
+        text=answer,
+        response_stage=response_stage,
+        should_wait_more=should_wait_more,
+        enabled_override=voice_output_enabled,
+    )
+
+    context_used = bool(knowledge_context.get("context_used", False))
+    if not context_used and conversation_id and previous_turns > 0:
+        context_used = True
+
+    buffer_chunks = len(buffer_chunks_list)
+    buffer_chars = len(_buffer_to_text(buffer_chunks_list, max_chunks=REALTIME_MAX_BUFFER_CHUNKS))
+    latency_ms = int((time.monotonic() - started) * 1000)
+    if isinstance(session, dict) and conversation_id:
+        session["last_seen"] = time.monotonic()
+        session["last_seen_iso"] = _now_iso()
+        _persist_realtime_session(conversation_id, session)
+    _append_realtime_metric(
+        "respond",
+        {
+            "conversation_id": conversation_id,
+            "mode": resolved_mode,
+            "response_stage": response_stage,
+            "readiness": readiness,
+            "backend": backend,
+            "latency_ms": latency_ms,
+            "context_turns": len(snapshot.get("transcript", []) or []),
+            "buffer_chunks": buffer_chunks,
+            "buffer_chars": buffer_chars,
+        },
+    )
+    return {
+        "status": "ok",
+        "mode": resolved_mode,
+        "answer_style": resolved_mode,
+        "response_stage": response_stage,
+        "readiness": readiness,
+        "should_wait_more": should_wait_more,
+        "conversation_id": conversation_id,
+        "input_text": effective_input_text,
+        "answer": answer,
+        "bullets": bullets,
+        "voice_output": voice_output,
+        "knowledge_context": {
+            **knowledge_context,
+            "context_used": context_used,
+            "buffer_chunks": buffer_chunks,
+            "buffer_chars": buffer_chars,
+            "context_window_preview": _clean_text(context_preview, limit=180),
+        },
+        "latency_ms": latency_ms,
+        "backend": backend,
+        "context_turns": len(snapshot.get("transcript", []) or []),
+        "context_used": context_used,
+        "buffer_chunks": buffer_chunks,
+        "buffer_chars": buffer_chars,
+        "snapshot": snapshot,
+    }
+
+
 @router.get("/health")
 async def health():
     return {"status": "ok"}
@@ -675,6 +855,7 @@ async def status(req: Request):
     audio_capture = req.app.state.audio_capture
     transcription_runtime = get_transcription_runtime()
     voice_runtime = get_voice_output_runtime()
+    realtime_runtime = get_realtime_runtime()
     return {
         "status": "ok",
         "ws_enabled": settings.ws_enabled,
@@ -695,6 +876,12 @@ async def status(req: Request):
         "voice_output_opt_in": bool(voice_runtime.get("voice_output_opt_in", True)),
         "voice_output_control_policy": "final_stage_only",
         "silent_mode_default": bool(voice_runtime.get("silent_mode_default", True)),
+        "realtime_api_enabled": bool(realtime_runtime.get("enabled", False)),
+        "realtime_api_provider": realtime_runtime.get("provider"),
+        "realtime_api_model": realtime_runtime.get("model"),
+        "realtime_api_voice": realtime_runtime.get("voice"),
+        "realtime_api_language": realtime_runtime.get("language"),
+        "realtime_api_key_present": bool(realtime_runtime.get("api_key_present", False)),
         "knowledge_debug_enabled": settings.knowledge_debug,
     }
 
@@ -714,6 +901,47 @@ async def ingest(req: Request, payload: IngestRequest):
     snapshot = process_ingest(state, payload.text)
     await hub.broadcast(snapshot)
     return {"status": "accepted", "snapshot": snapshot}
+
+
+@router.post("/api/chat")
+async def api_chat(req: Request, payload: ChatRequest):
+    try:
+        response = _build_livecopilot_reply(
+            req=req,
+            text_input=payload.text,
+            mode=payload.mode,
+            conversation_id=payload.conversation_id,
+            voice_output_enabled=False,
+        )
+    except ValueError as exc:
+        return _error_response(400, str(exc))
+    return {
+        "status": "ok",
+        "channel": "text",
+        **response,
+    }
+
+
+@router.post("/api/realtime/session")
+async def api_realtime_session(payload: RealtimeSessionRequest):
+    try:
+        runtime = get_realtime_runtime()
+        created = create_realtime_client_secret(mode=_normalize_mode(payload.mode, fallback="generic"))
+    except Exception as exc:
+        return _handle_realtime_api_error(exc)
+    return {
+        "status": "ok",
+        "channel": "voice",
+        "provider": created.get("provider", runtime.get("provider", "openai_realtime")),
+        "client_secret": created.get("client_secret", ""),
+        "expires_at": created.get("expires_at"),
+        "webrtc_url": created.get("webrtc_url", runtime.get("webrtc_url", "")),
+        "model": created.get("model", runtime.get("model", "")),
+        "voice": created.get("voice", runtime.get("voice", "")),
+        "language": created.get("language", runtime.get("language", "")),
+        "transcription_model": created.get("transcription_model", runtime.get("transcription_model", "")),
+        "session": created.get("session", {}),
+    }
 
 
 @router.post("/realtime/ingest")
@@ -880,142 +1108,16 @@ async def realtime_metrics():
 
 @router.post("/realtime/respond")
 async def realtime_respond(req: Request, payload: RealtimeRespondRequest):
-    _cleanup_expired_realtime_sessions(req)
-    text_input = str(payload.text or "").strip()
-    conversation_id = (payload.conversation_id or "").strip()
-    started = time.monotonic()
-
-    session = None
-    if conversation_id:
-        session = _resolve_realtime_session(req, conversation_id)
-        if payload.mode:
-            session["mode"] = _normalize_mode(payload.mode, fallback=session.get("mode", "generic"))
-        mode = _normalize_mode(payload.mode, fallback=session.get("mode", "generic"))
-        state = session["state"]
-        buffer_chunks_list = list(session.get("chunks", []))
-    else:
-        mode = _normalize_mode(payload.mode, fallback="generic")
-        state = ConversationState()
-        buffer_chunks_list = []
-
-    context_preview = ""
-    from_incremental_buffer = False
-    if text_input:
-        effective_input_text = _clean_text(text_input, limit=320)
-    else:
-        from_incremental_buffer = True
-        assembled = _build_incremental_context(buffer_chunks_list)
-        effective_input_text = assembled.get("merged_text", "")
-        context_preview = assembled.get("context_window_preview", "")
-        if not effective_input_text:
-            return _error_response(400, "informe text ou conversation_id com buffer incremental")
-        effective_input_text = _clean_text(effective_input_text, limit=320)
-
-    previous_turns = len(state.transcript)
-    snapshot = process_ingest(state, effective_input_text)
-    if len(state.transcript) > REALTIME_MAX_SESSION_TURNS:
-        state.transcript = state.transcript[-REALTIME_MAX_SESSION_TURNS:]
-        snapshot = state.snapshot()
-
-    suggestions = snapshot.get("suggestions", []) or []
-    answer = str(suggestions[0]).strip() if suggestions else _default_short_answer(mode)
-    bullets = [str(item).strip() for item in suggestions[1:4] if str(item).strip()]
-
-    knowledge_context = _summarize_knowledge_context(snapshot.get("knowledge_context", {}) or {})
-    backend = knowledge_context.get("search_backend", "") or "no_search"
-    if knowledge_context.get("fallback_used", False):
-        backend = "fallback"
-    if int(knowledge_context.get("result_count", 0) or 0) == 0 and not _looks_technical_text(effective_input_text):
-        answer = "Não tenho base suficiente para afirmar isso com segurança agora."
-        bullets = [
-            "Posso responder de forma geral, sem inventar detalhes.",
-            "Se você quiser, eu mudo para modo técnico e foco no seu contexto de entrevista.",
-            "Também posso reformular em uma resposta curta e neutra.",
-        ]
-    else:
-        answer, bullets = _style_answer_and_bullets(answer, bullets, mode=mode)
-
-    last_is_final = bool(session.get("last_is_final", True)) if isinstance(session, dict) else True
-    readiness_payload = _evaluate_readiness(
-        effective_input_text,
-        last_is_final=last_is_final,
-        from_buffer=from_incremental_buffer,
-    )
-    response_stage = str(readiness_payload.get("response_stage", "final"))
-    readiness = str(readiness_payload.get("readiness", "medium"))
-    should_wait_more = bool(readiness_payload.get("should_wait_more", False))
-
-    if response_stage == "partial":
-        if int(knowledge_context.get("result_count", 0) or 0) == 0 and not _looks_technical_text(effective_input_text):
-            answer = "Ainda está cedo para responder isso com segurança."
-            bullets = [
-                "Posso esperar mais contexto antes de fechar uma resposta.",
-            ]
-        else:
-            answer = "Contexto ainda parcial; posso te adiantar um caminho inicial enquanto chega mais transcrição."
-            bullets = [
-                "Leitura provisória: ainda pode faltar detalhe importante.",
-                "Se você finalizar a frase/pergunta, eu consolido uma resposta final.",
-            ]
-
-    voice_output = synthesize_voice_output_realtime_controlled(
-        text=answer,
-        response_stage=response_stage,
-        should_wait_more=should_wait_more,
-        enabled_override=payload.voice_output_enabled,
-    )
-
-    context_used = bool(knowledge_context.get("context_used", False))
-    if not context_used and conversation_id and previous_turns > 0:
-        context_used = True
-
-    buffer_chunks = len(buffer_chunks_list)
-    buffer_chars = len(_buffer_to_text(buffer_chunks_list, max_chunks=REALTIME_MAX_BUFFER_CHUNKS))
-    latency_ms = int((time.monotonic() - started) * 1000)
-    if isinstance(session, dict) and conversation_id:
-        session["last_seen"] = time.monotonic()
-        session["last_seen_iso"] = _now_iso()
-        _persist_realtime_session(conversation_id, session)
-    _append_realtime_metric(
-        "respond",
-        {
-            "conversation_id": conversation_id,
-            "mode": mode,
-            "response_stage": response_stage,
-            "readiness": readiness,
-            "backend": backend,
-            "latency_ms": latency_ms,
-            "context_turns": len(snapshot.get("transcript", []) or []),
-            "buffer_chunks": buffer_chunks,
-            "buffer_chars": buffer_chars,
-        },
-    )
-    return {
-        "status": "ok",
-        "mode": mode,
-        "answer_style": mode,
-        "response_stage": response_stage,
-        "readiness": readiness,
-        "should_wait_more": should_wait_more,
-        "conversation_id": conversation_id,
-        "input_text": effective_input_text,
-        "answer": answer,
-        "bullets": bullets,
-        "voice_output": voice_output,
-        "knowledge_context": {
-            **knowledge_context,
-            "context_used": context_used,
-            "buffer_chunks": buffer_chunks,
-            "buffer_chars": buffer_chars,
-            "context_window_preview": _clean_text(context_preview, limit=180),
-        },
-        "latency_ms": latency_ms,
-        "backend": backend,
-        "context_turns": len(snapshot.get("transcript", []) or []),
-        "context_used": context_used,
-        "buffer_chunks": buffer_chunks,
-        "buffer_chars": buffer_chars,
-    }
+    try:
+        return _build_livecopilot_reply(
+            req=req,
+            text_input=payload.text or "",
+            mode=payload.mode,
+            conversation_id=payload.conversation_id,
+            voice_output_enabled=payload.voice_output_enabled,
+        )
+    except ValueError as exc:
+        return _error_response(400, str(exc))
 
 
 @router.get("/api/knowledge/search")

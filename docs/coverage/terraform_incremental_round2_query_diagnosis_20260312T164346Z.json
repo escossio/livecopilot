@@ -1,0 +1,117 @@
+{
+  "generated_at": "20260312T164346Z",
+  "scope": "terraform_incremental_round2_query_diagnosis",
+  "source_artifacts": {
+    "after": "docs/coverage/semantic_coverage_audit_terraform_incremental_after_fix_mdx_to_md_20260312T163007Z.json",
+    "compare": "docs/coverage/semantic_coverage_audit_terraform_incremental_compare_before_after_fix_mdx_to_md_20260312T163007Z.json",
+    "partial_summary": "docs/coverage/terraform_incremental_partial_queries_after_20260312T164346Z.json"
+  },
+  "residual_partial_queries": [
+    {
+      "query": "terraform force unlock",
+      "after": {
+        "class": "parcial",
+        "max_score": 0.557261,
+        "avg_score": 0.533286,
+        "top1_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+        "top1_is_incremental": true,
+        "incremental_in_top_k_count": 2
+      },
+      "delta_vs_before": {
+        "max_score": -0.000035,
+        "avg_score": 0.020609,
+        "class_changed": false
+      },
+      "diagnosis_category": "query_ja_melhorou_mas_ainda_nao_cruza_threshold",
+      "evidence": [
+        "Top-1 ja e doc oficial incremental de force-unlock, com ganho de avg (+0.020609) sem mudanca de classe.",
+        "Top-k mostra duplicacao de conteudo entre terraform_docs_selected e terraform_docs_selected_incremental (mesmo tema e score), indicando baixo ganho adicional por ampliar os mesmos docs."
+      ],
+      "candidate_missing_official_docs": []
+    },
+    {
+      "query": "terraform modules best practices",
+      "after": {
+        "class": "parcial",
+        "max_score": 0.535169,
+        "avg_score": 0.524064,
+        "top1_source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+        "top1_is_incremental": false,
+        "incremental_in_top_k_count": 2
+      },
+      "delta_vs_before": {
+        "max_score": 0.000018,
+        "avg_score": 0.012596,
+        "class_changed": false
+      },
+      "diagnosis_category": "falta_documento_oficial_especifico",
+      "evidence": [
+        "Top-k concentrado em structure/index de modules, sem documento dedicado a best practices.",
+        "Documento oficial com foco explicito em best practices existe no clone e esta ausente no corpus chunked: content/terraform/v1.14.x/docs/language/style.mdx."
+      ],
+      "candidate_missing_official_docs": [
+        "content/terraform/v1.14.x/docs/language/style.mdx"
+      ]
+    },
+    {
+      "query": "terraform module sources",
+      "after": {
+        "class": "parcial",
+        "max_score": 0.554565,
+        "avg_score": 0.540309,
+        "top1_source_file": "terraform_docs_selected/language/modules/sources.md",
+        "top1_is_incremental": false,
+        "incremental_in_top_k_count": 2
+      },
+      "delta_vs_before": {
+        "max_score": 0.0,
+        "avg_score": 0.012265,
+        "class_changed": false
+      },
+      "diagnosis_category": "falta_documento_oficial_especifico",
+      "evidence": [
+        "Top-k permanece quase todo em modules/sources e variantes duplicadas, sem ampliar cobertura de semantics do argumento source no bloco module.",
+        "Documento oficial detalhado de source em module block existe no clone e esta ausente no corpus chunked: content/terraform/v1.14.x/docs/language/block/module.mdx."
+      ],
+      "candidate_missing_official_docs": [
+        "content/terraform/v1.14.x/docs/language/block/module.mdx"
+      ]
+    },
+    {
+      "query": "terraform init plan apply workflow",
+      "after": {
+        "class": "parcial",
+        "max_score": 0.512563,
+        "avg_score": 0.492652,
+        "top1_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+        "top1_is_incremental": true,
+        "incremental_in_top_k_count": 2
+      },
+      "delta_vs_before": {
+        "max_score": 0.000071,
+        "avg_score": 0.011131,
+        "class_changed": false
+      },
+      "diagnosis_category": "falta_documento_oficial_especifico",
+      "evidence": [
+        "Top-k puxa quase so plan/apply, faltando docs de visao de workflow (init/plan/apply como fluxo).",
+        "Docs oficiais de workflow existem no clone e estao ausentes no corpus chunked: cli/run/index, intro/core-workflow e cli/commands/index."
+      ],
+      "candidate_missing_official_docs": [
+        "content/terraform/v1.14.x/docs/cli/run/index.mdx",
+        "content/terraform/v1.14.x/docs/intro/core-workflow.mdx",
+        "content/terraform/v1.14.x/docs/cli/commands/index.mdx"
+      ]
+    }
+  ],
+  "global_diagnosis": {
+    "primary_driver": "falta_documento_oficial_especifico_em_3_de_4_queries",
+    "secondary_driver": "query_ja_melhorou_mas_ainda_nao_cruza_threshold_em_1_de_4_queries",
+    "round1_behavior": "ganho_de_avg_e_top1_sem_mudanca_de_classe",
+    "objective_read": "retorno_marginal_com_recorte_duplicado; oportunidade_clara_com_docs_oficiais_faltantes_diretos"
+  },
+  "decision": {
+    "should_execute_round2": true,
+    "reason": "Ha evidencia objetiva e diretamente acionavel de documentos oficiais ausentes alinhados as queries residuais partial."
+  }
+}

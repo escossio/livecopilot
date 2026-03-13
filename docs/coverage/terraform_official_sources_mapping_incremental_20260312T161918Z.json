@@ -1,0 +1,22 @@
+{
+  "generated_at": "20260312T161918Z",
+  "domain": "terraform",
+  "focused_subthemes": [
+    "modules",
+    "locking",
+    "workflow"
+  ],
+  "official_sources": [
+    {
+      "source": "hashicorp/web-unified-docs",
+      "local_clone": "data/knowledge_raw/_official_repo_clones/web-unified-docs",
+      "doc_root": "content/terraform/v1.14.x/docs",
+      "rationale": "fonte canonica que alimenta developer.hashicorp.com/terraform para docs de CLI/language"
+    },
+    {
+      "source": "developer.hashicorp.com/terraform",
+      "rationale": "endpoint publico oficial correspondente ao conteudo versionado do web-unified-docs"
+    }
+  ],
+  "note": "nao ha necessidade de aquisicao nova nesta rodada; clones oficiais ja disponiveis localmente."
+}

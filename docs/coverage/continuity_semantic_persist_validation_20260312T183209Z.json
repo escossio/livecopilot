@@ -1,0 +1,156 @@
+{
+  "generated_at": "2026-03-12T18:40:26.929358+00:00",
+  "round_id": "20260312T183209Z",
+  "semantic_persist_summary": {
+    "documents_selected": 12,
+    "documents_processed": 12,
+    "documents_validated": 12,
+    "documents_failed": 0,
+    "chunks_persisted": 39,
+    "sources_with_error": [],
+    "duplicate_source_checksum_rows": [],
+    "semantic_max_chunks_per_doc": 10
+  },
+  "db_validation": {
+    "continuity_documents_in_db": 12,
+    "continuity_chunks_in_db": 39
+  },
+  "semantic_query_validation": [
+    {
+      "query": "checklist de fechamento semantico utf8 hygiene scan",
+      "count": 5,
+      "top1_source_file": "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+      "top1_similarity": 0.617418,
+      "topk_continuity_count": 5,
+      "top5": [
+        {
+          "source_file": "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+          "similarity": 0.617418,
+          "title": "SEMANTIC ROUND CLOSEOUT CHECKLIST"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+          "similarity": 0.614379,
+          "title": "SEMANTIC ROUND CLOSEOUT CHECKLIST"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/UTF8_HYGIENE_SCANNER.md",
+          "similarity": 0.593032,
+          "title": "UTF8 HYGIENE SCANNER"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+          "similarity": 0.562659,
+          "title": "SEMANTIC ROUND CLOSEOUT CHECKLIST"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+          "similarity": 0.543889,
+          "title": "HANDOFF COMPOSED RULE SIMULATION 20260312T180937Z"
+        }
+      ]
+    },
+    {
+      "query": "regra c feature flag enable rule c",
+      "count": 5,
+      "top1_source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+      "top1_similarity": 0.450243,
+      "topk_continuity_count": 5,
+      "top5": [
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+          "similarity": 0.450243,
+          "title": "HANDOFF RULE C EXPERIMENTAL ROUND 20260312T181537Z"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+          "similarity": 0.448185,
+          "title": "HANDOFF RULE C EXPERIMENTAL ROUND 20260312T181537Z"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+          "similarity": 0.44762,
+          "title": "HANDOFF RULE C PROMOTION PREP 20260312T182232Z"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+          "similarity": 0.414272,
+          "title": "HANDOFF RULE C PROMOTION PREP 20260312T182232Z"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+          "similarity": 0.389892,
+          "title": "HANDOFF COMPOSED RULE SIMULATION 20260312T180937Z"
+        }
+      ]
+    },
+    {
+      "query": "threshold global well max 0.60 terraform",
+      "count": 5,
+      "top1_source_file": "continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+      "top1_similarity": 0.494869,
+      "topk_continuity_count": 4,
+      "top5": [
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+          "similarity": 0.494869,
+          "title": "HANDOFF THRESHOLD CROSS DOMAIN DIAGNOSIS 20260312T180249Z"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+          "similarity": 0.491879,
+          "title": "HANDOFF THRESHOLD CROSS DOMAIN DIAGNOSIS 20260312T180249Z"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+          "similarity": 0.482457,
+          "title": "HANDOFF TERRAFORM THRESHOLD DIAGNOSIS 20260312T174039Z"
+        },
+        {
+          "source_file": "terraform_docs_selected/intro/phases/collaborate.md",
+          "similarity": 0.425652,
+          "title": "collaborate"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+          "similarity": 0.417868,
+          "title": "HANDOFF TERRAFORM THRESHOLD DIAGNOSIS 20260312T174039Z"
+        }
+      ]
+    },
+    {
+      "query": "knowledge gap engine priorizacao por dominio",
+      "count": 5,
+      "top1_source_file": "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+      "top1_similarity": 0.538174,
+      "topk_continuity_count": 5,
+      "top5": [
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+          "similarity": 0.538174,
+          "title": "HANDOFF KNOWLEDGE GAP ENGINE V1 20260312"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+          "similarity": 0.487112,
+          "title": "HANDOFF KUBERNETES REASSESSMENT PRIORITY 20260312T155326Z"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+          "similarity": 0.466194,
+          "title": "HANDOFF KNOWLEDGE GAP ENGINE V1 20260312"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+          "similarity": 0.456002,
+          "title": "HANDOFF KNOWLEDGE GAP ENGINE V1 20260312"
+        },
+        {
+          "source_file": "continuity_docs_selected/docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+          "similarity": 0.446917,
+          "title": "HANDOFF KUBERNETES REASSESSMENT PRIORITY 20260312T155326Z"
+        }
+      ]
+    }
+  ]
+}

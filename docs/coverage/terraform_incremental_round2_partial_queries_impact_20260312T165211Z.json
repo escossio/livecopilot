@@ -1,0 +1,66 @@
+{
+  "generated_at": "20260312T165211Z",
+  "compare_file": "docs/coverage/semantic_coverage_audit_terraform_incremental_round2_compare_before_after_20260312T165211Z.json",
+  "partial_queries_focus": [
+    {
+      "question": "terraform force unlock",
+      "before_class": "parcial",
+      "after_class": "parcial",
+      "before_max": 0.557261,
+      "after_max": 0.557261,
+      "delta_max": 0.0,
+      "before_avg": 0.533286,
+      "after_avg": 0.54297,
+      "delta_avg": 0.009684,
+      "before_top1": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+      "after_top1": "terraform_docs_selected/cli/commands/force-unlock.md",
+      "after_top1_is_incremental": false,
+      "after_incremental_in_top_k_count": 1
+    },
+    {
+      "question": "terraform modules best practices",
+      "before_class": "parcial",
+      "after_class": "parcial",
+      "before_max": 0.535169,
+      "after_max": 0.535169,
+      "delta_max": 0.0,
+      "before_avg": 0.524064,
+      "after_avg": 0.528387,
+      "delta_avg": 0.004323,
+      "before_top1": "terraform_docs_selected/language/modules/develop/structure.md",
+      "after_top1": "terraform_docs_selected/language/modules/develop/structure.md",
+      "after_top1_is_incremental": false,
+      "after_incremental_in_top_k_count": 1
+    },
+    {
+      "question": "terraform module sources",
+      "before_class": "parcial",
+      "after_class": "parcial",
+      "before_max": 0.554565,
+      "after_max": 0.554565,
+      "delta_max": 0.0,
+      "before_avg": 0.540309,
+      "after_avg": 0.545604,
+      "delta_avg": 0.005295,
+      "before_top1": "terraform_docs_selected/language/modules/sources.md",
+      "after_top1": "terraform_docs_selected/language/modules/sources.md",
+      "after_top1_is_incremental": false,
+      "after_incremental_in_top_k_count": 1
+    },
+    {
+      "question": "terraform init plan apply workflow",
+      "before_class": "parcial",
+      "after_class": "parcial",
+      "before_max": 0.512563,
+      "after_max": 0.545219,
+      "delta_max": 0.032656,
+      "before_avg": 0.492652,
+      "after_avg": 0.528467,
+      "delta_avg": 0.035815,
+      "before_top1": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+      "after_top1": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/intro/core-workflow.md",
+      "after_top1_is_incremental": true,
+      "after_incremental_in_top_k_count": 5
+    }
+  ]
+}

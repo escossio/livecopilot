@@ -1,0 +1,1184 @@
+{
+  "generated_at_utc": "2026-03-12T21:59:38Z",
+  "source_inventory": "/lab/projects/livecopilot/docs/coverage/projects_root_inventory_20260312T215756Z.json",
+  "items": [
+    {
+      "name": ".codex",
+      "path": "/lab/projects/.codex",
+      "parent": "/lab/projects",
+      "type": "dir",
+      "size_bytes": 4096,
+      "size_approx": "4.0KiB",
+      "mtime": "2026-02-27T17:27:05Z",
+      "outside_livecopilot": true,
+      "classification": 2,
+      "classification_label": "pertence claramente a outro projeto/shared",
+      "confidence": "high",
+      "evidence": [
+        "Diretorio de configuracao do Codex no workspace",
+        "Nao faz parte da estrutura do livecopilot"
+      ]
+    },
+    {
+      "name": ".supervisor",
+      "path": "/lab/projects/.supervisor",
+      "parent": "/lab/projects",
+      "type": "dir",
+      "size_bytes": 4096,
+      "size_approx": "4.0KiB",
+      "mtime": "2026-03-06T17:57:04Z",
+      "outside_livecopilot": true,
+      "classification": 3,
+      "classification_label": "ambiguo/temporario/quarentena",
+      "confidence": "medium",
+      "evidence": [
+        "Diretorio oculto generico de supervisor",
+        "Pode ser estado de ferramenta local e nao do repositorio livecopilot"
+      ]
+    },
+    {
+      "name": ".venv",
+      "path": "/lab/projects/.venv",
+      "parent": "/lab/projects",
+      "type": "dir",
+      "size_bytes": 4096,
+      "size_approx": "4.0KiB",
+      "mtime": "2026-02-26T03:48:05Z",
+      "outside_livecopilot": true,
+      "classification": 2,
+      "classification_label": "pertence claramente a outro projeto/shared",
+      "confidence": "medium",
+      "evidence": [
+        "Ambiente virtual no root fora do projeto",
+        "livecopilot ja possui .venv proprio"
+      ]
+    },
+    {
+      "name": "AGENTS.md",
+      "path": "/lab/projects/AGENTS.md",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 1313,
+      "size_approx": "1.3KiB",
+      "mtime": "2026-03-02T19:20:29Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "AGENTS.md.bak-orchestrator-v2-20260302",
+      "path": "/lab/projects/AGENTS.md.bak-orchestrator-v2-20260302",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 562,
+      "size_approx": "562B",
+      "mtime": "2026-03-02T19:19:19Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "README.md",
+      "path": "/lab/projects/README.md",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 3886,
+      "size_approx": "3.8KiB",
+      "mtime": "2026-03-04T18:01:07Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "README.md.bak-20260303T000007",
+      "path": "/lab/projects/README.md.bak-20260303T000007",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 2740,
+      "size_approx": "2.7KiB",
+      "mtime": "2026-03-03T01:06:06Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "README.md.bak-20260304-inspect",
+      "path": "/lab/projects/README.md.bak-20260304-inspect",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 3770,
+      "size_approx": "3.7KiB",
+      "mtime": "2026-03-04T17:46:10Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "README.md.bak-20260304-loop-wrapper",
+      "path": "/lab/projects/README.md.bak-20260304-loop-wrapper",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 3572,
+      "size_approx": "3.5KiB",
+      "mtime": "2026-03-04T17:22:43Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "README.md.bak-20260304-stdin",
+      "path": "/lab/projects/README.md.bak-20260304-stdin",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 3787,
+      "size_approx": "3.7KiB",
+      "mtime": "2026-03-04T18:00:49Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md",
+      "path": "/lab/projects/STATUS.md",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 64812,
+      "size_approx": "64KiB",
+      "mtime": "2026-03-10T23:22:44Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260302T221500",
+      "path": "/lab/projects/STATUS.md.bak-20260302T221500",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 37533,
+      "size_approx": "37KiB",
+      "mtime": "2026-03-02T22:14:30Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-close-track-mismatch-front",
+      "path": "/lab/projects/STATUS.md.bak-20260304-close-track-mismatch-front",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 46174,
+      "size_approx": "46KiB",
+      "mtime": "2026-03-04T17:11:45Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-confidence-threshold",
+      "path": "/lab/projects/STATUS.md.bak-20260304-confidence-threshold",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 44729,
+      "size_approx": "44KiB",
+      "mtime": "2026-03-04T17:02:59Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-dod-phase-close",
+      "path": "/lab/projects/STATUS.md.bak-20260304-dod-phase-close",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 57480,
+      "size_approx": "57KiB",
+      "mtime": "2026-03-04T22:05:50Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-inspect",
+      "path": "/lab/projects/STATUS.md.bak-20260304-inspect",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 48954,
+      "size_approx": "48KiB",
+      "mtime": "2026-03-04T17:46:10Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-knowledge-practicality-task3",
+      "path": "/lab/projects/STATUS.md.bak-20260304-knowledge-practicality-task3",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 52125,
+      "size_approx": "51KiB",
+      "mtime": "2026-03-04T18:57:50Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-loop-shortcuts",
+      "path": "/lab/projects/STATUS.md.bak-20260304-loop-shortcuts",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 48499,
+      "size_approx": "48KiB",
+      "mtime": "2026-03-04T17:32:15Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-loop-wrapper",
+      "path": "/lab/projects/STATUS.md.bak-20260304-loop-wrapper",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 47974,
+      "size_approx": "47KiB",
+      "mtime": "2026-03-04T17:22:43Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-mismatch-baseline-rebuild",
+      "path": "/lab/projects/STATUS.md.bak-20260304-mismatch-baseline-rebuild",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 54378,
+      "size_approx": "54KiB",
+      "mtime": "2026-03-04T21:26:40Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-mismatch-current",
+      "path": "/lab/projects/STATUS.md.bak-20260304-mismatch-current",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 49833,
+      "size_approx": "49KiB",
+      "mtime": "2026-03-04T18:12:06Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-practicality-audit",
+      "path": "/lab/projects/STATUS.md.bak-20260304-practicality-audit",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 46688,
+      "size_approx": "46KiB",
+      "mtime": "2026-03-04T17:15:20Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-practicality-fine-tuning",
+      "path": "/lab/projects/STATUS.md.bak-20260304-practicality-fine-tuning",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 56778,
+      "size_approx": "56KiB",
+      "mtime": "2026-03-04T21:56:43Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-question-bank-practicality",
+      "path": "/lab/projects/STATUS.md.bak-20260304-question-bank-practicality",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 47287,
+      "size_approx": "47KiB",
+      "mtime": "2026-03-04T17:18:53Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-ranking-regression-suite",
+      "path": "/lab/projects/STATUS.md.bak-20260304-ranking-regression-suite",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 55184,
+      "size_approx": "54KiB",
+      "mtime": "2026-03-04T21:33:27Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-remove-current-track-shortcut",
+      "path": "/lab/projects/STATUS.md.bak-20260304-remove-current-track-shortcut",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 45448,
+      "size_approx": "45KiB",
+      "mtime": "2026-03-04T17:08:00Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-search-metrics",
+      "path": "/lab/projects/STATUS.md.bak-20260304-search-metrics",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 55926,
+      "size_approx": "55KiB",
+      "mtime": "2026-03-04T21:49:31Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-stdin",
+      "path": "/lab/projects/STATUS.md.bak-20260304-stdin",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 49362,
+      "size_approx": "49KiB",
+      "mtime": "2026-03-04T18:00:49Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-terminal-summary",
+      "path": "/lab/projects/STATUS.md.bak-20260304-terminal-summary",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 50607,
+      "size_approx": "50KiB",
+      "mtime": "2026-03-04T18:30:07Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260304-track-mismatch-queue",
+      "path": "/lab/projects/STATUS.md.bak-20260304-track-mismatch-queue",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 44005,
+      "size_approx": "43KiB",
+      "mtime": "2026-03-04T16:54:54Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak-20260310T232233Z-power-recovery",
+      "path": "/lab/projects/STATUS.md.bak-20260310T232233Z-power-recovery",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 64199,
+      "size_approx": "63KiB",
+      "mtime": "2026-03-10T23:22:33Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak31",
+      "path": "/lab/projects/STATUS.md.bak31",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 10871,
+      "size_approx": "11KiB",
+      "mtime": "2026-03-01T05:07:55Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak32",
+      "path": "/lab/projects/STATUS.md.bak32",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 11137,
+      "size_approx": "11KiB",
+      "mtime": "2026-03-01T05:11:46Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak33",
+      "path": "/lab/projects/STATUS.md.bak33",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 11411,
+      "size_approx": "12KiB",
+      "mtime": "2026-03-01T05:13:48Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak34",
+      "path": "/lab/projects/STATUS.md.bak34",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 11746,
+      "size_approx": "12KiB",
+      "mtime": "2026-03-01T05:16:51Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "STATUS.md.bak35",
+      "path": "/lab/projects/STATUS.md.bak35",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 11746,
+      "size_approx": "12KiB",
+      "mtime": "2026-03-01T05:18:23Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "TREE.md",
+      "path": "/lab/projects/TREE.md",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 1086894,
+      "size_approx": "1.1MiB",
+      "mtime": "2026-03-12T18:57:23Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "chat_livecopilot.txt",
+      "path": "/lab/projects/chat_livecopilot.txt",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 436695,
+      "size_approx": "427KiB",
+      "mtime": "2026-03-09T17:14:39Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex-supervisor",
+      "path": "/lab/projects/codex-supervisor",
+      "parent": "/lab/projects",
+      "type": "dir",
+      "size_bytes": 4096,
+      "size_approx": "4.0KiB",
+      "mtime": "2026-03-07T00:00:12Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh",
+      "path": "/lab/projects/codex_loop.sh",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 46422,
+      "size_approx": "46KiB",
+      "mtime": "2026-03-09T22:26:32Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-20260302T000000Z",
+      "path": "/lab/projects/codex_loop.sh.bak-20260302T000000Z",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 26524,
+      "size_approx": "26KiB",
+      "mtime": "2026-03-02T22:09:42Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-20260302T221500",
+      "path": "/lab/projects/codex_loop.sh.bak-20260302T221500",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 26681,
+      "size_approx": "27KiB",
+      "mtime": "2026-03-02T22:14:30Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-20260303T000001",
+      "path": "/lab/projects/codex_loop.sh.bak-20260303T000001",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 28019,
+      "size_approx": "28KiB",
+      "mtime": "2026-03-03T00:07:15Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-20260303T000003",
+      "path": "/lab/projects/codex_loop.sh.bak-20260303T000003",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 30025,
+      "size_approx": "30KiB",
+      "mtime": "2026-03-03T00:12:02Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-20260303T000005",
+      "path": "/lab/projects/codex_loop.sh.bak-20260303T000005",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 31847,
+      "size_approx": "32KiB",
+      "mtime": "2026-03-03T00:25:47Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-20260303T000007",
+      "path": "/lab/projects/codex_loop.sh.bak-20260303T000007",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 33831,
+      "size_approx": "34KiB",
+      "mtime": "2026-03-03T01:06:06Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-20260303T020400Z",
+      "path": "/lab/projects/codex_loop.sh.bak-20260303T020400Z",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 40229,
+      "size_approx": "40KiB",
+      "mtime": "2026-03-03T02:08:34Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-20260304-terminal-summary",
+      "path": "/lab/projects/codex_loop.sh.bak-20260304-terminal-summary",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 42664,
+      "size_approx": "42KiB",
+      "mtime": "2026-03-04T18:30:07Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-clear-current-task-20260302",
+      "path": "/lab/projects/codex_loop.sh.bak-clear-current-task-20260302",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 10516,
+      "size_approx": "11KiB",
+      "mtime": "2026-03-02T19:36:31Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-drain-20260302",
+      "path": "/lab/projects/codex_loop.sh.bak-drain-20260302",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 14843,
+      "size_approx": "15KiB",
+      "mtime": "2026-03-02T19:57:13Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-enqueue-20260302",
+      "path": "/lab/projects/codex_loop.sh.bak-enqueue-20260302",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 21741,
+      "size_approx": "22KiB",
+      "mtime": "2026-03-02T20:11:19Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-harden-loop-20260302",
+      "path": "/lab/projects/codex_loop.sh.bak-harden-loop-20260302",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 10506,
+      "size_approx": "11KiB",
+      "mtime": "2026-03-02T19:49:30Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-incremental-context-20260302",
+      "path": "/lab/projects/codex_loop.sh.bak-incremental-context-20260302",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 25308,
+      "size_approx": "25KiB",
+      "mtime": "2026-03-02T20:43:57Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-last-summary-20260302",
+      "path": "/lab/projects/codex_loop.sh.bak-last-summary-20260302",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 19931,
+      "size_approx": "20KiB",
+      "mtime": "2026-03-02T20:05:18Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-peek-queue-20260302",
+      "path": "/lab/projects/codex_loop.sh.bak-peek-queue-20260302",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 18525,
+      "size_approx": "19KiB",
+      "mtime": "2026-03-02T20:01:23Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-smoke-final-bugfix-20260303T020300Z",
+      "path": "/lab/projects/codex_loop.sh.bak-smoke-final-bugfix-20260303T020300Z",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 40316,
+      "size_approx": "40KiB",
+      "mtime": "2026-03-03T02:03:09Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-stale-lock-20260302",
+      "path": "/lab/projects/codex_loop.sh.bak-stale-lock-20260302",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 24711,
+      "size_approx": "25KiB",
+      "mtime": "2026-03-02T20:41:22Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-structured-previous-result-20260302",
+      "path": "/lab/projects/codex_loop.sh.bak-structured-previous-result-20260302",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 26013,
+      "size_approx": "26KiB",
+      "mtime": "2026-03-02T21:03:52Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "codex_loop.sh.bak-ux-commands-20260302",
+      "path": "/lab/projects/codex_loop.sh.bak-ux-commands-20260302",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 13375,
+      "size_approx": "14KiB",
+      "mtime": "2026-03-02T19:54:03Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "hardware-report.txt",
+      "path": "/lab/projects/hardware-report.txt",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 44160,
+      "size_approx": "44KiB",
+      "mtime": "2026-02-25T18:40:37Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "lab",
+      "path": "/lab/projects/lab",
+      "parent": "/lab/projects",
+      "type": "dir",
+      "size_bytes": 4096,
+      "size_approx": "4.0KiB",
+      "mtime": "2026-03-04T22:41:19Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "logs",
+      "path": "/lab/projects/logs",
+      "parent": "/lab/projects",
+      "type": "dir",
+      "size_bytes": 4096,
+      "size_approx": "4.0KiB",
+      "mtime": "2026-03-04T20:05:44Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "loop",
+      "path": "/lab/projects/loop",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 1770,
+      "size_approx": "1.8KiB",
+      "mtime": "2026-03-04T18:01:13Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "loop.bak-20260304-inspect",
+      "path": "/lab/projects/loop.bak-20260304-inspect",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 1135,
+      "size_approx": "1.2KiB",
+      "mtime": "2026-03-04T17:46:10Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "loop.bak-20260304-stdin",
+      "path": "/lab/projects/loop.bak-20260304-stdin",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 1308,
+      "size_approx": "1.3KiB",
+      "mtime": "2026-03-04T18:00:49Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "project_state.md",
+      "path": "/lab/projects/project_state.md",
+      "parent": "/lab/projects",
+      "type": "file",
+      "size_bytes": 1098,
+      "size_approx": "1.1KiB",
+      "mtime": "2026-03-02T19:21:16Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "queue",
+      "path": "/lab/projects/queue",
+      "parent": "/lab/projects",
+      "type": "dir",
+      "size_bytes": 4096,
+      "size_approx": "4.0KiB",
+      "mtime": "2026-03-04T20:06:41Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "results",
+      "path": "/lab/projects/results",
+      "parent": "/lab/projects",
+      "type": "dir",
+      "size_bytes": 4096,
+      "size_approx": "4.0KiB",
+      "mtime": "2026-03-04T20:06:41Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    },
+    {
+      "name": "state",
+      "path": "/lab/projects/state",
+      "parent": "/lab/projects",
+      "type": "dir",
+      "size_bytes": 4096,
+      "size_approx": "4.0KiB",
+      "mtime": "2026-03-04T20:06:41Z",
+      "outside_livecopilot": true,
+      "classification": 1,
+      "classification_label": "pertence claramente ao livecopilot",
+      "confidence": "high",
+      "evidence": [
+        "Nomes e estrutura coincidem com orquestrador/artefatos do livecopilot",
+        "README/STATUS do root descrevem fluxo do loop ligado ao livecopilot"
+      ]
+    }
+  ],
+  "summary": {
+    "livecopilot_clear": 66,
+    "other_project_clear": 2,
+    "ambiguous_quarantine": 1
+  }
+}

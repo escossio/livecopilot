@@ -1,0 +1,46 @@
+{
+  "domain": "observability",
+  "date": "2026-03-12",
+  "principle": "mesclar, nao substituir",
+  "sources": [
+    {
+      "topic": "prometheus",
+      "official_repo": "https://github.com/prometheus/prometheus",
+      "official_docs_repo": "https://github.com/prometheus/docs",
+      "selected_primary_for_ingest": "prometheus/prometheus",
+      "type": "repo principal com docs tecnicas + docs-site complementar",
+      "why_adequate": "prometheus/prometheus contem docs praticas de configuracao, regras, service discovery e PromQL no caminho docs/*",
+      "noise_risk": "medio (inclui docs nao focadas), mitigado por recorte seletivo",
+      "expected_practical_value": "alto"
+    },
+    {
+      "topic": "grafana",
+      "official_repo": "https://github.com/grafana/grafana",
+      "selected_primary_for_ingest": "grafana/grafana (sparse em docs/sources)",
+      "type": "repo principal com docs embutida",
+      "why_adequate": "grafana.com/docs referencia edicao em grafana/grafana/docs/sources e cobre dashboards, datasources, alerting e provisioning",
+      "noise_risk": "alto sem recorte (docs/sources grande), mitigado por sparse checkout + lista seletiva",
+      "expected_practical_value": "alto"
+    },
+    {
+      "topic": "alertmanager",
+      "official_repo": "https://github.com/prometheus/alertmanager",
+      "selected_primary_for_ingest": "prometheus/alertmanager",
+      "type": "repo principal com docs diretas",
+      "why_adequate": "docs oficiais concentradas em docs/configuration.md e docs/alertmanager.md com foco em routing, receivers, inhibition, silences e templates",
+      "noise_risk": "baixo",
+      "expected_practical_value": "alto"
+    }
+  ],
+  "remote_head_validation": {
+    "prometheus/docs": "14e26f4293420f1e1f156dbb66806af69c7ce021",
+    "prometheus/prometheus": "a732020",
+    "grafana/grafana": "e220fb6a065576b975462cc08e1c232c9786006d",
+    "prometheus/alertmanager": "eac945c246f559af30df6edcd58346607b972735"
+  },
+  "docs_link_evidence": {
+    "prometheus_overview_to_docs_repo": "https://github.com/prometheus/docs/blob/main/docs/introduction/overview.md",
+    "grafana_docs_to_repo": "https://github.com/grafana/grafana/edit/main/docs/sources/_index.md",
+    "prometheus_alertmanager_docs_link": "https://github.com/prometheus/alertmanager/blob/main/docs/alertmanager.md"
+  }
+}

@@ -1,0 +1,523 @@
+{
+  "generated_at": "20260312T180249Z",
+  "assumptions": {
+    "gap_if_max_below": 0.45,
+    "well_covered_requires_avg_at_least": 0.45,
+    "baseline_well_max": 0.6
+  },
+  "thresholds_tested": [
+    0.6,
+    0.59,
+    0.58,
+    0.57,
+    0.56,
+    0.55,
+    0.54
+  ],
+  "results": [
+    {
+      "well_max": 0.6,
+      "domain_metrics": [
+        {
+          "domain": "aws_iam",
+          "query_count": 8,
+          "well": 7,
+          "partial": 1,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 7,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.875,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "docker",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 6,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.75,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "terraform",
+          "query_count": 8,
+          "well": 4,
+          "partial": 4,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 4,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.5,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "observability",
+          "query_count": 8,
+          "well": 5,
+          "partial": 3,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 5,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.625,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "kubernetes",
+          "query_count": 12,
+          "well": 9,
+          "partial": 3,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 9,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.75,
+          "delta_well_vs_0_60": 0
+        }
+      ],
+      "global": {
+        "query_count": 44,
+        "well": 31,
+        "well_rate": 0.704545,
+        "partial_to_well": 0,
+        "well_inflation_vs_0_60": 0
+      }
+    },
+    {
+      "well_max": 0.59,
+      "domain_metrics": [
+        {
+          "domain": "aws_iam",
+          "query_count": 8,
+          "well": 7,
+          "partial": 1,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 7,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.875,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "docker",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 6,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.75,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "terraform",
+          "query_count": 8,
+          "well": 4,
+          "partial": 4,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 4,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.5,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "observability",
+          "query_count": 8,
+          "well": 5,
+          "partial": 3,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 5,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.625,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "kubernetes",
+          "query_count": 12,
+          "well": 9,
+          "partial": 3,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 9,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.75,
+          "delta_well_vs_0_60": 0
+        }
+      ],
+      "global": {
+        "query_count": 44,
+        "well": 31,
+        "well_rate": 0.704545,
+        "partial_to_well": 0,
+        "well_inflation_vs_0_60": 0
+      }
+    },
+    {
+      "well_max": 0.58,
+      "domain_metrics": [
+        {
+          "domain": "aws_iam",
+          "query_count": 8,
+          "well": 7,
+          "partial": 1,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 7,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.875,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "docker",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 6,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.75,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "terraform",
+          "query_count": 8,
+          "well": 4,
+          "partial": 4,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 4,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.5,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "observability",
+          "query_count": 8,
+          "well": 5,
+          "partial": 3,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 5,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.625,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "kubernetes",
+          "query_count": 12,
+          "well": 10,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 1,
+          "well_still_well": 9,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.833333,
+          "delta_well_vs_0_60": 1
+        }
+      ],
+      "global": {
+        "query_count": 44,
+        "well": 32,
+        "well_rate": 0.727273,
+        "partial_to_well": 1,
+        "well_inflation_vs_0_60": 1
+      }
+    },
+    {
+      "well_max": 0.57,
+      "domain_metrics": [
+        {
+          "domain": "aws_iam",
+          "query_count": 8,
+          "well": 7,
+          "partial": 1,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 7,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.875,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "docker",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 6,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.75,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "terraform",
+          "query_count": 8,
+          "well": 4,
+          "partial": 4,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 4,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.5,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "observability",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 1,
+          "well_still_well": 5,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.75,
+          "delta_well_vs_0_60": 1
+        },
+        {
+          "domain": "kubernetes",
+          "query_count": 12,
+          "well": 10,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 1,
+          "well_still_well": 9,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.833333,
+          "delta_well_vs_0_60": 1
+        }
+      ],
+      "global": {
+        "query_count": 44,
+        "well": 33,
+        "well_rate": 0.75,
+        "partial_to_well": 2,
+        "well_inflation_vs_0_60": 2
+      }
+    },
+    {
+      "well_max": 0.56,
+      "domain_metrics": [
+        {
+          "domain": "aws_iam",
+          "query_count": 8,
+          "well": 7,
+          "partial": 1,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 7,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.875,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "docker",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 6,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.75,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "terraform",
+          "query_count": 8,
+          "well": 4,
+          "partial": 4,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 4,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.5,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "observability",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 1,
+          "well_still_well": 5,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.75,
+          "delta_well_vs_0_60": 1
+        },
+        {
+          "domain": "kubernetes",
+          "query_count": 12,
+          "well": 11,
+          "partial": 1,
+          "gap": 0,
+          "partial_to_well": 2,
+          "well_still_well": 9,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.916667,
+          "delta_well_vs_0_60": 2
+        }
+      ],
+      "global": {
+        "query_count": 44,
+        "well": 34,
+        "well_rate": 0.772727,
+        "partial_to_well": 3,
+        "well_inflation_vs_0_60": 3
+      }
+    },
+    {
+      "well_max": 0.55,
+      "domain_metrics": [
+        {
+          "domain": "aws_iam",
+          "query_count": 8,
+          "well": 7,
+          "partial": 1,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 7,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.875,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "docker",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 6,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.75,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "terraform",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 2,
+          "well_still_well": 4,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.75,
+          "delta_well_vs_0_60": 2
+        },
+        {
+          "domain": "observability",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 1,
+          "well_still_well": 5,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.75,
+          "delta_well_vs_0_60": 1
+        },
+        {
+          "domain": "kubernetes",
+          "query_count": 12,
+          "well": 11,
+          "partial": 1,
+          "gap": 0,
+          "partial_to_well": 2,
+          "well_still_well": 9,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.916667,
+          "delta_well_vs_0_60": 2
+        }
+      ],
+      "global": {
+        "query_count": 44,
+        "well": 36,
+        "well_rate": 0.818182,
+        "partial_to_well": 5,
+        "well_inflation_vs_0_60": 5
+      }
+    },
+    {
+      "well_max": 0.54,
+      "domain_metrics": [
+        {
+          "domain": "aws_iam",
+          "query_count": 8,
+          "well": 7,
+          "partial": 1,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 7,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.875,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "docker",
+          "query_count": 8,
+          "well": 6,
+          "partial": 2,
+          "gap": 0,
+          "partial_to_well": 0,
+          "well_still_well": 6,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.75,
+          "delta_well_vs_0_60": 0
+        },
+        {
+          "domain": "terraform",
+          "query_count": 8,
+          "well": 7,
+          "partial": 1,
+          "gap": 0,
+          "partial_to_well": 3,
+          "well_still_well": 4,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.875,
+          "delta_well_vs_0_60": 3
+        },
+        {
+          "domain": "observability",
+          "query_count": 8,
+          "well": 7,
+          "partial": 1,
+          "gap": 0,
+          "partial_to_well": 2,
+          "well_still_well": 5,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.875,
+          "delta_well_vs_0_60": 2
+        },
+        {
+          "domain": "kubernetes",
+          "query_count": 12,
+          "well": 11,
+          "partial": 1,
+          "gap": 0,
+          "partial_to_well": 2,
+          "well_still_well": 9,
+          "well_to_partial_regressions": 0,
+          "well_rate": 0.916667,
+          "delta_well_vs_0_60": 2
+        }
+      ],
+      "global": {
+        "query_count": 44,
+        "well": 38,
+        "well_rate": 0.863636,
+        "partial_to_well": 7,
+        "well_inflation_vs_0_60": 7
+      }
+    }
+  ]
+}

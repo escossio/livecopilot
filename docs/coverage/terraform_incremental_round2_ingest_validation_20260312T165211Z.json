@@ -1,0 +1,46 @@
+{
+  "generated_at": "20260312T165211Z",
+  "ingest_log": "docs/coverage/terraform_incremental_round2_ingest_20260312T165211Z.log",
+  "prefix": "terraform_docs_selected_incremental_round2/",
+  "state_entries": 12,
+  "parsed_files_count": 12,
+  "chunk_files_count": 12,
+  "chunk_total_from_state": 177,
+  "ingest_summary": {
+    "total_found": 257,
+    "processed": 12,
+    "skipped": 245,
+    "errors": 0,
+    "unsupported": 0,
+    "chunk_total": 54452
+  },
+  "source_files": [
+    "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+    "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+    "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/index.md",
+    "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/init.md",
+    "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+    "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md",
+    "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/intro/core-workflow.md",
+    "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/language/block/module.md",
+    "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+    "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/language/modules/sources.md",
+    "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/language/state/locking.md",
+    "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/language/style.md"
+  ],
+  "manifest_before": {
+    "document_count": 245,
+    "chunk_document_count": 245,
+    "chunk_count": 54275
+  },
+  "manifest_after": {
+    "document_count": 257,
+    "chunk_document_count": 257,
+    "chunk_count": 54452
+  },
+  "manifest_delta": {
+    "document_count": 12,
+    "chunk_document_count": 12,
+    "chunk_count": 177
+  }
+}

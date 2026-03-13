@@ -1,0 +1,9 @@
+{
+  "server_encoding": "UTF8",
+  "client_encoding": "UTF8",
+  "raw_content_snippet_probe": {
+    "status": "error",
+    "type": "CharacterNotInRepertoire",
+    "error": "sequência de bytes é inválida para codificação \"UTF8\": 0xe2 0x94"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-03-12T05:02:00Z",
+  "domain": "kubernetes",
+  "strategy": "hybrid_merge_not_replace",
+  "sources": [
+    {
+      "name": "kubernetes/website",
+      "url": "https://github.com/kubernetes/website",
+      "type": "docs_puro",
+      "adequacy": "fonte oficial primaria de kubernetes.io/docs com estrutura markdown versionada",
+      "noise_risk": "baixo",
+      "recommended_use": "clone + recorte seletivo"
+    },
+    {
+      "name": "kubernetes.io/docs",
+      "url": "https://kubernetes.io/docs/",
+      "type": "html_oficial",
+      "adequacy": "referencia canonica publicada para validacao de fidelidade",
+      "noise_risk": "medio",
+      "recommended_use": "html espelhado complementar"
+    },
+    {
+      "name": "kubernetes/kubernetes",
+      "url": "https://github.com/kubernetes/kubernetes",
+      "type": "repo_principal_complementar",
+      "adequacy": "util para casos de referencia tecnica especifica quando nao coberto no website",
+      "noise_risk": "alto",
+      "recommended_use": "nao usar neste ciclo inicial; apenas complemento pontual"
+    }
+  ],
+  "remote_validation": {
+    "website_head": "refs/heads/main",
+    "kubernetes_repo_head": "refs/heads/master"
+  },
+  "selection_rationale": [
+    "priorizar fonte docs_puro para reduzir ruído operacional",
+    "manter coexistencia com html oficial conforme estrategia hibrida",
+    "evitar repo principal neste ciclo por volume e baixa relacao sinal/ruido"
+  ]
+}

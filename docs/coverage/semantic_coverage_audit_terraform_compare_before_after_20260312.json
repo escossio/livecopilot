@@ -1,0 +1,845 @@
+{
+  "generated_at": "2026-03-12T02:20:39.692084+00:00",
+  "scope": "terraform_focused_compare_before_after_terraform43_persist",
+  "before_file": "docs/coverage/semantic_coverage_audit_terraform_before_20260312.json",
+  "after_file": "docs/coverage/semantic_coverage_audit_terraform_after_20260312.json",
+  "questions_compared": 8,
+  "before_aggregate": {
+    "well_covered_count": 0,
+    "partial_count": 0,
+    "gap_count": 8,
+    "global_avg_of_max_score": 0.379537,
+    "global_avg_of_avg_score": 0.349114
+  },
+  "after_aggregate": {
+    "well_covered_count": 4,
+    "partial_count": 4,
+    "gap_count": 0,
+    "global_avg_of_max_score": 0.579805,
+    "global_avg_of_avg_score": 0.543157
+  },
+  "aggregate_delta": {
+    "well_covered_count": 4,
+    "partial_count": 4,
+    "gap_count": -8,
+    "global_avg_of_max_score": 0.200268,
+    "global_avg_of_avg_score": 0.194043
+  },
+  "questions_improved": [
+    "terraform aws s3 backend remote state locking",
+    "terraform remote state s3",
+    "terraform force unlock",
+    "terraform state mv",
+    "terraform modules best practices",
+    "terraform module sources",
+    "terraform init plan apply workflow",
+    "terraform workspace vs backend"
+  ],
+  "questions_class_changed": [
+    {
+      "question": "terraform aws s3 backend remote state locking",
+      "before_class": "lacuna",
+      "after_class": "bem_coberta"
+    },
+    {
+      "question": "terraform remote state s3",
+      "before_class": "lacuna",
+      "after_class": "bem_coberta"
+    },
+    {
+      "question": "terraform force unlock",
+      "before_class": "lacuna",
+      "after_class": "parcial"
+    },
+    {
+      "question": "terraform state mv",
+      "before_class": "lacuna",
+      "after_class": "bem_coberta"
+    },
+    {
+      "question": "terraform modules best practices",
+      "before_class": "lacuna",
+      "after_class": "parcial"
+    },
+    {
+      "question": "terraform module sources",
+      "before_class": "lacuna",
+      "after_class": "parcial"
+    },
+    {
+      "question": "terraform init plan apply workflow",
+      "before_class": "lacuna",
+      "after_class": "parcial"
+    },
+    {
+      "question": "terraform workspace vs backend",
+      "before_class": "lacuna",
+      "after_class": "bem_coberta"
+    }
+  ],
+  "questions_top1_shifted_to_terraform_docs_selected": [
+    "terraform aws s3 backend remote state locking",
+    "terraform remote state s3",
+    "terraform force unlock",
+    "terraform state mv",
+    "terraform modules best practices",
+    "terraform module sources",
+    "terraform init plan apply workflow",
+    "terraform workspace vs backend"
+  ],
+  "top1_from_terraform_docs_selected_after_count": 8,
+  "rows": [
+    {
+      "question": "terraform aws s3 backend remote state locking",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.391073,
+        "avg_score": 0.374822,
+        "top_source_file": "relatorio_final.docx",
+        "top_k_results": [
+          {
+            "source_file": "relatorio_final.docx",
+            "chunk_id": "chunk::doc::relatorio_final.docx::cdf7ca01213c::0001::b16d9880",
+            "title": "relatorio final",
+            "similarity": 0.391073,
+            "snippet": "DOCX Local\n\nbackend java e aws"
+          },
+          {
+            "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+            "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0002::520f14ec",
+            "title": "Title Page",
+            "similarity": 0.381783,
+            "snippet": "Practical solutions for managing security policies, monitoring, auditing, and compliance with AWS Heartin Kanikathottu BIRMINGHAM - MUMBAI"
+          },
+          {
+            "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+            "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+            "title": "AWS Security Cookbook",
+            "similarity": 0.372212,
+            "snippet": "AWS Security Cookbook"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/cache/backends/s3.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/backends/s3.md::d28cbe92a92a::0001::99291219",
+            "title": "s3",
+            "similarity": 0.370514,
+            "snippet": "---\ntitle: Amazon S3 cache\ndescription: Manage build cache with Amazon S3 buckets\nkeywords: build, buildx, cache, backend, s3, buckets, aws\naliases:\n- /build/building/cache/backend"
+          },
+          {
+            "source_file": "__api_contract_smoke__.md",
+            "chunk_id": "semantic-api-029d6c37-1",
+            "title": "1. Security Group controla regras de entrada e saída na instância EC2 na VPC AWS.",
+            "similarity": 0.358527,
+            "snippet": "1. Security Group controla regras de entrada e saída na instância EC2 na VPC AWS."
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "bem_coberta",
+        "max_score": 0.633711,
+        "avg_score": 0.616052,
+        "top_source_file": "terraform_docs_selected/language/backend/s3.md",
+        "top_k_results": [
+          {
+            "source_file": "terraform_docs_selected/language/backend/s3.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0001::8324d61f",
+            "title": "s3",
+            "similarity": 0.633711,
+            "snippet": "---\npage_title: 'Backend Type: s3'\ndescription: Terraform can store and lock state remotely in Amazon S3.\n# START AUTO GENERATED METADATA, DO NOT EDIT\ncreated_at: 2025-11-19T13:27:"
+          },
+          {
+            "source_file": "terraform_docs_selected/intro/phases/collaborate.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/intro/phases/collaborate.md::c56f46f7fffe::0004::07cde05a",
+            "title": "collaborate",
+            "similarity": 0.629413,
+            "snippet": "Since state files may contain sensitive data, refer to your backend documentation and, if supported, use [state encryption](/well-architected-framework/security/security-sensitive-"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/backend/s3.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0003::34b8675b",
+            "title": "s3",
+            "similarity": 0.61012,
+            "snippet": "### State Locking\n\nState locking is an opt-in feature of the S3 backend.\n\nLocking can be enabled via S3 or DynamoDB. However, **DynamoDB-based locking is deprecated** and will be r"
+          },
+          {
+            "source_file": "terraform_docs_selected/intro/phases/collaborate.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/intro/phases/collaborate.md::c56f46f7fffe::0005::ba15a153",
+            "title": "collaborate",
+            "similarity": 0.60602,
+            "snippet": "As your team grows, you may run into the risk of concurrent operations on state files. If supported by your remote storage solution, use [state locking](/terraform/language/state/l"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/backend/s3.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0002::7cc6a70a",
+            "title": "s3",
+            "similarity": 0.600998,
+            "snippet": "Note that for the access credentials we recommend using a [partial configuration](/terraform/language/backend#partial-configuration).\n\n## State Storage\n\nThe S3 backend stores state"
+          }
+        ],
+        "top1_is_terraform_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.242638,
+        "avg_score": 0.24123
+      }
+    },
+    {
+      "question": "terraform remote state s3",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.396176,
+        "avg_score": 0.367808,
+        "top_source_file": "relatorio_final.docx",
+        "top_k_results": [
+          {
+            "source_file": "relatorio_final.docx",
+            "chunk_id": "chunk::doc::relatorio_final.docx::cdf7ca01213c::0001::b16d9880",
+            "title": "relatorio final",
+            "similarity": 0.396176,
+            "snippet": "DOCX Local\n\nbackend java e aws"
+          },
+          {
+            "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+            "chunk_id": "semantic-api-73c2e379-1",
+            "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)",
+            "similarity": 0.37667,
+            "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)\n# State Persistence (8%)"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+            "chunk_id": "semantic-api-73c2e379-1",
+            "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)",
+            "similarity": 0.37667,
+            "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)\n# State Persistence (8%)"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/cache/backends/s3.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/backends/s3.md::d28cbe92a92a::0001::99291219",
+            "title": "s3",
+            "similarity": 0.346168,
+            "snippet": "---\ntitle: Amazon S3 cache\ndescription: Manage build cache with Amazon S3 buckets\nkeywords: build, buildx, cache, backend, s3, buckets, aws\naliases:\n- /build/building/cache/backend"
+          },
+          {
+            "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+            "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0002::520f14ec",
+            "title": "Title Page",
+            "similarity": 0.343356,
+            "snippet": "Practical solutions for managing security policies, monitoring, auditing, and compliance with AWS Heartin Kanikathottu BIRMINGHAM - MUMBAI"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "bem_coberta",
+        "max_score": 0.603787,
+        "avg_score": 0.567464,
+        "top_source_file": "terraform_docs_selected/language/state/remote.md",
+        "top_k_results": [
+          {
+            "source_file": "terraform_docs_selected/language/state/remote.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/remote.md::9a49809ee062::0001::a2f97fe8",
+            "title": "remote",
+            "similarity": 0.603787,
+            "snippet": "---\npage_title: 'State: Remote Storage'\ndescription: >-\nTerraform can store the state remotely, making it easier to version and work\nwith in a team.\n# START AUTO GENERATED METADATA"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/backend/s3.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0001::8324d61f",
+            "title": "s3",
+            "similarity": 0.567124,
+            "snippet": "---\npage_title: 'Backend Type: s3'\ndescription: Terraform can store and lock state remotely in Amazon S3.\n# START AUTO GENERATED METADATA, DO NOT EDIT\ncreated_at: 2025-11-19T13:27:"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/backend/s3.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0008::c003c8cd",
+            "title": "s3",
+            "similarity": 0.561954,
+            "snippet": "* `dynamodb:DescribeTable`\n* `dynamodb:GetItem`\n* `dynamodb:PutItem`\n* `dynamodb:DeleteItem`\n\nThis is seen in the following AWS IAM Statement:\n\n```json\n{\n\"Version\": \"2012-10-17\",\n\""
+          },
+          {
+            "source_file": "terraform_docs_selected/language/state/remote.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/remote.md::9a49809ee062::0002::f237b030",
+            "title": "remote",
+            "similarity": 0.553094,
+            "snippet": "## Delegation and Teamwork\n\nRemote state allows you to share\n[output values](/terraform/language/block/output) with other configurations.\nThis allows your infrastructure to be deco"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/state/purpose.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/purpose.md::edee54fda47d::0008::a0554489",
+            "title": "purpose",
+            "similarity": 0.551359,
+            "snippet": "In the default configuration, Terraform stores the state in a file in the\ncurrent working directory where Terraform was run. This is okay for getting\nstarted, but when using Terraf"
+          }
+        ],
+        "top1_is_terraform_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.207611,
+        "avg_score": 0.199656
+      }
+    },
+    {
+      "question": "terraform force unlock",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.327205,
+        "avg_score": 0.308855,
+        "top_source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+        "top_k_results": [
+          {
+            "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+            "chunk_id": "semantic-api-3ff9ac8c-1",
+            "title": "# kubectl rollout restart deployment",
+            "similarity": 0.327205,
+            "snippet": "# kubectl rollout restart deployment"
+          },
+          {
+            "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+            "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+            "title": "AWS Security Cookbook",
+            "similarity": 0.315671,
+            "snippet": "AWS Security Cookbook"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/security/2fa/_index.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/security/2fa/_index.md::d08cd02207cf::0001::66232757",
+            "title": "index",
+            "similarity": 0.314809,
+            "snippet": "---\ntitle: Enable two-factor authentication for your Docker account\nlinkTitle: Two-factor authentication\ndescription: Enable or disable two-factor authentication on your Docker acc"
+          },
+          {
+            "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+            "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0008::d1b40d35",
+            "title": "IAM policy testing with the IAM policy simulator",
+            "similarity": 0.293295,
+            "snippet": "v\nAWS Identity and Access Management User Guide\n\nStep 3: Create roles .............................................................................................................."
+          },
+          {
+            "source_file": "aws/Security best practices in IAM.pdf",
+            "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0008::d1b40d35",
+            "title": "Security best practices in IAM",
+            "similarity": 0.293295,
+            "snippet": "v\nAWS Identity and Access Management User Guide\n\nStep 3: Create roles .............................................................................................................."
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "parcial",
+        "max_score": 0.557261,
+        "avg_score": 0.512654,
+        "top_source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+        "top_k_results": [
+          {
+            "source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/force-unlock.md::3ee565f42baf::0001::9b567c89",
+            "title": "force unlock",
+            "similarity": 0.557261,
+            "snippet": "---\npage_title: terraform force-unlock command reference\ndescription: >-\nThe `terraform force-unlock` command unlocks the state for a configuration. It\ndoes not modify your infrast"
+          },
+          {
+            "source_file": "terraform_docs_selected/cli/state/recover.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/cli/state/recover.md::ee8de2c1c043::0002::4d5f2c83",
+            "title": "recover",
+            "similarity": 0.534742,
+            "snippet": "Refer to the [`terraform force-unlock` command](/terraform/cli/commands/force-unlock) documentation for additional information.\n\n1. **Read state data**: Run the [`terraform state p"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/state/locking.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/locking.md::ad82490017da::0002::0bd0dde7",
+            "title": "locking",
+            "similarity": 0.508583,
+            "snippet": "Not all backends support locking. The\n[documentation for each backend](/terraform/language/backend)\nincludes details on whether it supports locking or not.\n\n## Force Unlock\n\nTerraf"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/state/locking.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/locking.md::ad82490017da::0001::c1a1740d",
+            "title": "locking",
+            "similarity": 0.483748,
+            "snippet": "---\npage_title: 'State: Locking'\ndescription: >-\nTerraform stores state which caches the known state of the world the last time\nTerraform ran.\n# START AUTO GENERATED METADATA, DO N"
+          },
+          {
+            "source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/force-unlock.md::3ee565f42baf::0002::3e813595",
+            "title": "force unlock",
+            "similarity": 0.478936,
+            "snippet": "Options:\n\n- `-force` - Don't ask for input for unlock confirmation."
+          }
+        ],
+        "top1_is_terraform_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.230056,
+        "avg_score": 0.203799
+      }
+    },
+    {
+      "question": "terraform state mv",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.413175,
+        "avg_score": 0.360743,
+        "top_source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+        "top_k_results": [
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+            "chunk_id": "semantic-api-73c2e379-1",
+            "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)",
+            "similarity": 0.413175,
+            "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)\n# State Persistence (8%)"
+          },
+          {
+            "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+            "chunk_id": "semantic-api-73c2e379-1",
+            "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)",
+            "similarity": 0.413175,
+            "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/state&empty)\n# State Persistence (8%)"
+          },
+          {
+            "source_file": "tmp/kubectl_ops_round/kubectl_create_namespace_staging.md",
+            "chunk_id": "semantic-api-475d2fc9-4",
+            "title": "## Cleanup",
+            "similarity": 0.339109,
+            "snippet": "## Cleanup\n- `kubectl delete namespace staging`"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+            "chunk_id": "semantic-api-4a878265-1",
+            "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)",
+            "similarity": 0.322277,
+            "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)\n# Multi-container Pods (10%)"
+          },
+          {
+            "source_file": "tmp/kubectl_ops_round/kubectl_create_namespace_staging.md",
+            "chunk_id": "semantic-api-475d2fc9-1",
+            "title": "# kubectl create namespace staging",
+            "similarity": 0.31598,
+            "snippet": "# kubectl create namespace staging"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "bem_coberta",
+        "max_score": 0.624355,
+        "avg_score": 0.563898,
+        "top_source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+        "top_k_results": [
+          {
+            "source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0004::f59a55a4",
+            "title": "mv",
+            "similarity": 0.624355,
+            "snippet": "The most common uses for `terraform state mv` are when you have renamed a\nresource block in your configuration or you've moved a resource block into\na child module, in both cases w"
+          },
+          {
+            "source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0001::e12f042f",
+            "title": "mv",
+            "similarity": 0.568116,
+            "snippet": "---\npage_title: terraform state mv command reference\ndescription: >-\nThe `terraform state mv` command changes bindings in Terraform state so that existing remote objects bind to ne"
+          },
+          {
+            "source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0003::645c48da",
+            "title": "mv",
+            "similarity": 0.555023,
+            "snippet": "Both the source and destination addresses must use\n[resource address syntax](/terraform/cli/state/resource-addressing), and\nthey must both refer to the same kind of object: you can"
+          },
+          {
+            "source_file": "terraform_docs_selected/cli/state/move.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/cli/state/move.md::b45ede245798::0003::28372afd",
+            "title": "move",
+            "similarity": 0.541532,
+            "snippet": "- [The `terraform state mv` command](/terraform/cli/commands/state/mv) changes\nwhich resource address in your configuration is associated with a particular\nreal-world object. Use t"
+          },
+          {
+            "source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0006::095d05d8",
+            "title": "mv",
+            "similarity": 0.530465,
+            "snippet": "For configurations using the [HCP Terraform CLI integration](/terraform/cli/cloud) or the [`remote` backend](/terraform/language/backend/remote)\nonly, `terraform state mv`\nalso acc"
+          }
+        ],
+        "top1_is_terraform_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.21118,
+        "avg_score": 0.203155
+      }
+    },
+    {
+      "question": "terraform modules best practices",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.398755,
+        "avg_score": 0.356644,
+        "top_source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+        "top_k_results": [
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/best-practices.md::0aad9a6cecbb::0001::cbf94334",
+            "title": "best practices",
+            "similarity": 0.398755,
+            "snippet": "---\ntitle: Building best practices\nlinkTitle: Best practices\nweight: 70\ndescription: Hints, tips and guidelines for writing clean, reliable Dockerfiles\nkeywords: base images, docke"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+            "chunk_id": "semantic-api-4a878265-1",
+            "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)",
+            "similarity": 0.369856,
+            "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)\n# Multi-container Pods (10%)"
+          },
+          {
+            "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+            "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+            "title": "AWS Security Cookbook",
+            "similarity": 0.364771,
+            "snippet": "AWS Security Cookbook"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/security/https/README.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/https/README.md::9f5c2250abc8::0001::aa292ede",
+            "title": "README",
+            "similarity": 0.325889,
+            "snippet": "---\nbuild:\nlist: never\npublishResources: false\nrender: never\n---\n\nThis is an initial attempt to make it easier to test the TLS (HTTPS) examples in the protect-access.md\ndoc.\n\nAt th"
+          },
+          {
+            "source_file": "data/question_bank_raw/ckad_exercises/d.configuration.md",
+            "chunk_id": "semantic-api-e15b97e7-1",
+            "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/configuration&empty)",
+            "similarity": 0.323949,
+            "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/configuration&empty)\n# Configuration (18%)"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "parcial",
+        "max_score": 0.535128,
+        "avg_score": 0.511451,
+        "top_source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+        "top_k_results": [
+          {
+            "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0007::d8af2315",
+            "title": "structure",
+            "similarity": 0.535128,
+            "snippet": "* **Nested modules**. Nested modules should exist under the `modules/`\nsubdirectory. Any nested module with a `README.md` is considered usable\nby an external user. If a README does"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/modules/develop/index.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/index.md::ef5233aa30a1::0004::57484b6b",
+            "title": "index",
+            "similarity": 0.52286,
+            "snippet": "## When to write a module\n\nIn principle any combination of resources and other constructs can be factored\nout into a module, but over-using modules can make your overall Terraform\n"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0008::f28813d4",
+            "title": "structure",
+            "similarity": 0.513523,
+            "snippet": "If the root module includes calls to nested modules, they should use relative\npaths like `./modules/consul-cluster` so that Terraform will consider them\nto be part of the same repo"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0002::0064560a",
+            "title": "structure",
+            "similarity": 0.501444,
+            "snippet": "The standard module structure expects the layout documented below. The list may\nappear long, but everything is optional except for the root module. Most modules\ndon't need to do an"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0001::f5ee58bc",
+            "title": "structure",
+            "similarity": 0.4843,
+            "snippet": "---\npage_title: Standard Module Structure\ndescription: >-\nLearn about the recommended file and directory structure for developing reusable modules distributed as separate repositor"
+          }
+        ],
+        "top1_is_terraform_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.136373,
+        "avg_score": 0.154807
+      }
+    },
+    {
+      "question": "terraform module sources",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.352493,
+        "avg_score": 0.33699,
+        "top_source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+        "top_k_results": [
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+            "chunk_id": "semantic-api-4a878265-1",
+            "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)",
+            "similarity": 0.352493,
+            "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)\n# Multi-container Pods (10%)"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/security/https/README.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/https/README.md::9f5c2250abc8::0001::aa292ede",
+            "title": "README",
+            "similarity": 0.335339,
+            "snippet": "---\nbuild:\nlist: never\npublishResources: false\nrender: never\n---\n\nThis is an initial attempt to make it easier to test the TLS (HTTPS) examples in the protect-access.md\ndoc.\n\nAt th"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/f.services.md",
+            "chunk_id": "semantic-api-647333a6-1",
+            "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/services&empty)",
+            "similarity": 0.333406,
+            "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/services&empty)\n# Services and Networking (13%)"
+          },
+          {
+            "source_file": "data/question_bank_raw/ckad_exercises/f.services.md",
+            "chunk_id": "semantic-api-647333a6-1",
+            "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/services&empty)",
+            "similarity": 0.333406,
+            "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/services&empty)\n# Services and Networking (13%)"
+          },
+          {
+            "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+            "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+            "title": "AWS Security Cookbook",
+            "similarity": 0.330308,
+            "snippet": "AWS Security Cookbook"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "parcial",
+        "max_score": 0.554565,
+        "avg_score": 0.528044,
+        "top_source_file": "terraform_docs_selected/language/modules/sources.md",
+        "top_k_results": [
+          {
+            "source_file": "terraform_docs_selected/language/modules/sources.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/sources.md::5162fded697b::0001::ae064176",
+            "title": "sources",
+            "similarity": 0.554565,
+            "snippet": "---\npage_title: Module Sources\ndescription: >-\nThe source argument tells Terraform where to find child modules's\nconfigurations in locations like GitHub, the Terraform Registry, Bi"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/modules/sources.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/sources.md::5162fded697b::0003::30530e69",
+            "title": "sources",
+            "similarity": 0.532195,
+            "snippet": "Many of the source types will make use of \"ambient\" credentials available\nwhen Terraform is run, such as from environment variables or credentials files\nin your home directory. Thi"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/modules/index.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/index.md::142cfeebd75a::0003::fb310480",
+            "title": "index",
+            "similarity": 0.528067,
+            "snippet": "### Sources\n\nTerraform can load modules from multiple sources, including the local file system, a Terraform registry, and VCS repositories.\n\nThe public [Terraform registry](https:/"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/modules/sources.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/sources.md::5162fded697b::0002::d10dd568",
+            "title": "sources",
+            "similarity": 0.52248,
+            "snippet": "- [Local paths](#local-paths)\n\n- [Terraform Registry](#terraform-registry)\n\n- [GitHub](#github)\n\n- [Bitbucket](#bitbucket)\n\n- Generic [Git](#generic-git-repository), [Mercurial](#g"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/modules/develop/publish.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/publish.md::c33064721898::0002::60051845",
+            "title": "publish",
+            "similarity": 0.502914,
+            "snippet": "If you do not wish to publish your modules in the public registry, you can\ninstead use a [private registry](/terraform/registry/private) to get\nthe same benefits.\n\nWe welcome contr"
+          }
+        ],
+        "top1_is_terraform_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.202072,
+        "avg_score": 0.191054
+      }
+    },
+    {
+      "question": "terraform init plan apply workflow",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.379884,
+        "avg_score": 0.35376,
+        "top_source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+        "top_k_results": [
+          {
+            "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+            "chunk_id": "semantic-api-3ff9ac8c-1",
+            "title": "# kubectl rollout restart deployment",
+            "similarity": 0.379884,
+            "snippet": "# kubectl rollout restart deployment"
+          },
+          {
+            "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+            "chunk_id": "semantic-api-3ff9ac8c-3",
+            "title": "## Namespace-scoped restart",
+            "similarity": 0.358577,
+            "snippet": "## Namespace-scoped restart\n- `kubectl -n staging rollout restart deployment web`"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+            "chunk_id": "semantic-api-4a878265-5",
+            "title": "```bash",
+            "similarity": 0.350383,
+            "snippet": "```bash\nkubectl run busybox --image=busybox --restart=Never -o yaml --dry-run=client -- /bin/sh -c 'echo hello;sleep 3600' > pod.yaml\nvi pod.yaml\n```"
+          },
+          {
+            "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+            "chunk_id": "semantic-api-3ff9ac8c-5",
+            "title": "Keywords: kubectl rollout restart deployment.",
+            "similarity": 0.349666,
+            "snippet": "Keywords: kubectl rollout restart deployment."
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/building/_index.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/_index.md::d517aef2dd84::0001::c3c1cef2",
+            "title": "index",
+            "similarity": 0.330289,
+            "snippet": "---\nbuild:\nrender: never\ntitle: Building\nweight: 20\n---"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "parcial",
+        "max_score": 0.512492,
+        "avg_score": 0.481521,
+        "top_source_file": "terraform_docs_selected/cli/commands/plan.md",
+        "top_k_results": [
+          {
+            "source_file": "terraform_docs_selected/cli/commands/plan.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/plan.md::ef9e9012f797::0003::bc50aa4e",
+            "title": "plan",
+            "similarity": 0.512492,
+            "snippet": "If Terraform detects that no changes are needed to resource instances or to\nroot module output values, `terraform plan` will report that no actions need\nto be taken.\n\nIf you are us"
+          },
+          {
+            "source_file": "terraform_docs_selected/cli/state/index.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/cli/state/index.md::4a066a3e48b8::0002::56a954f6",
+            "title": "index",
+            "similarity": 0.486324,
+            "snippet": "## Workflow\n\nModifying state data outside of normal `terraform plan` or `terraform apply` operations can cause Terraform to lose track of managed resources, leading to increased co"
+          },
+          {
+            "source_file": "terraform_docs_selected/cli/commands/plan.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/plan.md::ef9e9012f797::0007::76df9fce",
+            "title": "plan",
+            "similarity": 0.475892,
+            "snippet": "The previous section describes Terraform's default planning behavior, which\nchanges the remote system to match the changes you make to\nyour configuration. Terraform has two alterna"
+          },
+          {
+            "source_file": "terraform_docs_selected/cli/commands/apply.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/apply.md::4fa476a0fd3e::0002::3fa863f3",
+            "title": "apply",
+            "similarity": 0.469051,
+            "snippet": "## Usage\n\nUsage: `terraform apply [options] [plan file]`\n\n### Automatic Plan Mode\n\nWhen you run `terraform apply` without passing a saved plan file, Terraform automatically creates"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/backend/index.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/index.md::a0d9e5a6a9d0::0006::8a6f3f21",
+            "title": "index",
+            "similarity": 0.463845,
+            "snippet": "Terraform writes the backend configuration in plain text in two separate files.\n- The `.terraform/terraform.tfstate` file contains the backend configuration for the current working"
+          }
+        ],
+        "top1_is_terraform_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.132608,
+        "avg_score": 0.127761
+      }
+    },
+    {
+      "question": "terraform workspace vs backend",
+      "before": {
+        "coverage_class": "lacuna",
+        "max_score": 0.377536,
+        "avg_score": 0.333289,
+        "top_source_file": "relatorio_final.docx",
+        "top_k_results": [
+          {
+            "source_file": "relatorio_final.docx",
+            "chunk_id": "chunk::doc::relatorio_final.docx::cdf7ca01213c::0001::b16d9880",
+            "title": "relatorio final",
+            "similarity": 0.377536,
+            "snippet": "DOCX Local\n\nbackend java e aws"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/build/cache/backends/_index.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/backends/_index.md::0611afc9160c::0001::1174b177",
+            "title": "index",
+            "similarity": 0.340349,
+            "snippet": "---\ntitle: Cache storage backends\ndescription: |\nCache backends let you manage your build cache externally.\nExternal cache is useful to create a shared cache that can help\nspeed up"
+          },
+          {
+            "source_file": "docker_docs_selected/content/manuals/engine/security/trust/trust_sandbox.md",
+            "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/trust/trust_sandbox.md::d51b3a02f03b::0001::33c35076",
+            "title": "trust sandbox",
+            "similarity": 0.32696,
+            "snippet": "---\ndescription: Play in a trust sandbox\nkeywords: trust, security, root, keys, repository, sandbox\ntitle: Play in a content trust sandbox\naliases:\n- /security/trust/trust_sandbox/"
+          },
+          {
+            "source_file": "data/raw_review/ckad_exercises_modules/b.multi_container_pods.md",
+            "chunk_id": "semantic-api-4a878265-1",
+            "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)",
+            "similarity": 0.314981,
+            "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/multi_container&empty)\n# Multi-container Pods (10%)"
+          },
+          {
+            "source_file": "livros/fastapi/Giunio De Luca/FastAPI Cookbook_ Develop high-performance APIs and web applications with Python by Giunio De Luca.epub",
+            "chunk_id": "chunk::doc::livros/fastapi/Giunio-De-Luca/FastAPI-Cookbook_-Develop-high-performance-APIs-and-web-applications-with-Python-by-Giunio-De-Luca.epub::608b73844cb2::0006::6a562414",
+            "title": "Chapter 1: First Steps with FastAPI",
+            "similarity": 0.306619,
+            "snippet": "VS Code\n\nVS Code is a free, open source, lightweight IDE with powerful features. It offers excellent Python support and is highly customizable. You can download and install VS Code"
+          }
+        ]
+      },
+      "after": {
+        "coverage_class": "bem_coberta",
+        "max_score": 0.617142,
+        "avg_score": 0.564173,
+        "top_source_file": "terraform_docs_selected/language/state/workspaces.md",
+        "top_k_results": [
+          {
+            "source_file": "terraform_docs_selected/language/state/workspaces.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/workspaces.md::a56f4877d390::0003::b407828d",
+            "title": "workspaces",
+            "similarity": 0.617142,
+            "snippet": "## Backends Supporting Multiple Workspaces\n\nYou can use multiple workspaces with the following backends:\n\n- [AzureRM](/terraform/language/backend/azurerm)\n- [Consul](/terraform/lan"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/state/workspaces.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/workspaces.md::a56f4877d390::0002::414e8f30",
+            "title": "workspaces",
+            "similarity": 0.609751,
+            "snippet": "The persistent data stored in the backend belongs to a workspace. The backend initially has only one workspace containing one Terraform state associated with that configuration. So"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/state/workspaces.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/workspaces.md::a56f4877d390::0001::0fbd76a0",
+            "title": "workspaces",
+            "similarity": 0.545744,
+            "snippet": "---\npage_title: 'State: Workspaces'\ndescription: >-\nWorkspaces allow the use of multiple states with a single configuration\ndirectory.\n# START AUTO GENERATED METADATA, DO NOT EDIT\n"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/backend/remote.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/remote.md::22662f8d36d8::0004::6ecf2056",
+            "title": "remote",
+            "similarity": 0.526038,
+            "snippet": "The backend configuration requires either `name` or `prefix`. Omitting both or\nsetting both results in a configuration error.\n\nIf previous state is present when you run `terraform "
+          },
+          {
+            "source_file": "terraform_docs_selected/language/backend/remote.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/remote.md::22662f8d36d8::0007::c3d70964",
+            "title": "remote",
+            "similarity": 0.522191,
+            "snippet": "```hcl\noutput \"current_workspace_name\" {\nvalue = terraform.workspace\n}\n\nvariable \"HCP_TERRAFORM_RUN_ID\" {\ntype = string\ndefault = \"\"\n}\n\noutput \"remote_execution_determine\" {\nvalue "
+          }
+        ],
+        "top1_is_terraform_docs_selected": true
+      },
+      "delta": {
+        "max_score": 0.239606,
+        "avg_score": 0.230884
+      }
+    }
+  ]
+}

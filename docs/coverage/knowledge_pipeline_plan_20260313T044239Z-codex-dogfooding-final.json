@@ -1,0 +1,78 @@
+{
+  "generated_at": "2026-03-13T04:43:33.745389+00:00",
+  "pipeline": "knowledge_pipeline_v1",
+  "mode": "plan",
+  "round_id": "20260313T044239Z-codex-dogfooding-final",
+  "side_effects_expected": false,
+  "artifacts": {
+    "plan_artifact": "docs/coverage/knowledge_pipeline_plan_20260313T044239Z-codex-dogfooding-final.json"
+  },
+  "plan": {
+    "generated_at": "2026-03-13T04:43:33.681688+00:00",
+    "plan_mode": "prefix_round_preview",
+    "source_prefixes": [
+      "codex_docs_selected"
+    ],
+    "ingest_dry_run": {
+      "selection_mode": "resolved_from_source_prefix",
+      "files_found_by_prefix": {
+        "codex_docs_selected": 13
+      },
+      "total_found": 13,
+      "targets_sample": [
+        "codex_docs_selected/README.md",
+        "codex_docs_selected/docs/agents_md.md",
+        "codex_docs_selected/docs/authentication.md",
+        "codex_docs_selected/docs/config.md",
+        "codex_docs_selected/docs/example-config.md",
+        "codex_docs_selected/docs/exec.md",
+        "codex_docs_selected/docs/execpolicy.md",
+        "codex_docs_selected/docs/getting-started.md",
+        "codex_docs_selected/docs/install.md",
+        "codex_docs_selected/docs/sandbox.md",
+        "codex_docs_selected/docs/skills.md",
+        "codex_docs_selected/docs/slash_commands.md",
+        "codex_docs_selected/shell-tool-mcp/README.md"
+      ],
+      "targets_sample_size": 13,
+      "targets_sample_truncated": false
+    },
+    "semantic_list_targets": {
+      "payload_kind": "list_targets",
+      "selection_mode": "resolved_from_source_prefix",
+      "source_files_resolved_by_prefix": {
+        "codex_docs_selected": 13
+      },
+      "source_files_resolved_total": 13,
+      "source_files_sample": [
+        "codex_docs_selected/README.md",
+        "codex_docs_selected/docs/agents_md.md",
+        "codex_docs_selected/docs/authentication.md",
+        "codex_docs_selected/docs/config.md",
+        "codex_docs_selected/docs/example-config.md",
+        "codex_docs_selected/docs/exec.md",
+        "codex_docs_selected/docs/execpolicy.md",
+        "codex_docs_selected/docs/getting-started.md",
+        "codex_docs_selected/docs/install.md",
+        "codex_docs_selected/docs/sandbox.md",
+        "codex_docs_selected/docs/skills.md",
+        "codex_docs_selected/docs/slash_commands.md",
+        "codex_docs_selected/shell-tool-mcp/README.md"
+      ],
+      "source_files_sample_size": 13,
+      "source_files_sample_truncated": false,
+      "note": ""
+    },
+    "totals": {
+      "ingest_total_found": 13,
+      "semantic_total_source_files": 13
+    },
+    "divergence": {
+      "ingest_only_count": 0,
+      "semantic_only_count": 0,
+      "ingest_only_sample": [],
+      "semantic_only_sample": [],
+      "has_divergence": false
+    }
+  }
+}

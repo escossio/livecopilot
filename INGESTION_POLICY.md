@@ -46,6 +46,29 @@ Indices curados e listas de links servem para descoberta. Eles nunca entram como
 - Fonte final promovivel precisa ser mais que descoberta: precisa ter conteudo proprio e utilidade clara para `knowledge`, `question_bank` ou `coverage_inputs`.
 - Em caso de duvida entre destino final e revisao, usar `raw_review`.
 
+## Estrategia combinada para documentacao oficial (multi-dominio)
+
+- O caminho via HTML oficial espelhado continua valido e suportado.
+- O caminho via repositorio oficial clonado passa a ser opcao complementar valida.
+- A escolha da origem deve priorizar qualidade estrutural do conteudo-fonte e fidelidade ao material publicado.
+- As duas abordagens podem coexistir, com controle de redundancia e deduplicacao por conteudo/origem antes de promocao final.
+
+Dominios formalmente incluidos nesta estrategia:
+
+- Terraform
+- Kubernetes
+- Prometheus
+- Grafana
+- Docker
+- Ansible
+- PostgreSQL
+
+Regra curta por dominio incluido:
+
+- HTML espelhado e caminho valido.
+- Repo oficial clonado e caminho complementar quando a fonte estiver mais limpa/estruturada.
+- Escolha da origem deve considerar qualidade estrutural, fidelidade e deduplicacao por conteudo/origem.
+
 ## Checklist manual de revisao
 
 - Confirmar autoria e origem da fonte.

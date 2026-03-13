@@ -1,0 +1,211 @@
+{
+  "generated_at": "20260312T183209Z",
+  "objective": "continuity_round_curated_selection",
+  "total_candidates": 21,
+  "selected_count": 12,
+  "selected_files": [
+    "docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+    "docs/UTF8_HYGIENE_SCANNER.md",
+    "docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+    "docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+    "docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+    "docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md",
+    "docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md",
+    "docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+    "docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+    "docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+    "docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+    "docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md"
+  ],
+  "inventory": [
+    {
+      "path": "STATUS.md",
+      "exists": true,
+      "size_bytes": 526192,
+      "ext": ".md",
+      "category": "util_mas_derivado",
+      "ingest": false,
+      "reason": "log evolutivo muito volumoso e redundante com handoffs; alto risco de ruido semantico"
+    },
+    {
+      "path": "docs/SEMANTIC_ROUND_CLOSEOUT_CHECKLIST.md",
+      "exists": true,
+      "size_bytes": 2360,
+      "ext": ".md",
+      "category": "canonico_ingerivel",
+      "ingest": true,
+      "reason": "documentacao operacional duravel e reutilizavel"
+    },
+    {
+      "path": "docs/UTF8_HYGIENE_SCANNER.md",
+      "exists": true,
+      "size_bytes": 782,
+      "ext": ".md",
+      "category": "canonico_ingerivel",
+      "ingest": true,
+      "reason": "documentacao operacional duravel e reutilizavel"
+    },
+    {
+      "path": "docs/HANDOFF_KNOWLEDGE_GAP_ENGINE_V1_20260312.md",
+      "exists": true,
+      "size_bytes": 2057,
+      "ext": ".md",
+      "category": "canonico_ingerivel",
+      "ingest": true,
+      "reason": "documentacao operacional duravel e reutilizavel"
+    },
+    {
+      "path": "docs/HANDOFF_KUBERNETES_REASSESSMENT_PRIORITY_20260312T155326Z.md",
+      "exists": true,
+      "size_bytes": 2854,
+      "ext": ".md",
+      "category": "canonico_ingerivel",
+      "ingest": true,
+      "reason": "documentacao operacional duravel e reutilizavel"
+    },
+    {
+      "path": "docs/HANDOFF_KUBERNETES_SEMANTIC_PERSIST_AUDIT_20260312T154518Z.md",
+      "exists": true,
+      "size_bytes": 3178,
+      "ext": ".md",
+      "category": "canonico_ingerivel",
+      "ingest": true,
+      "reason": "documentacao operacional duravel e reutilizavel"
+    },
+    {
+      "path": "docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_DIAGNOSIS_20260312T164346Z.md",
+      "exists": true,
+      "size_bytes": 3367,
+      "ext": ".md",
+      "category": "canonico_ingerivel",
+      "ingest": true,
+      "reason": "documentacao operacional duravel e reutilizavel"
+    },
+    {
+      "path": "docs/HANDOFF_TERRAFORM_INCREMENTAL_ROUND2_OPERATIONAL_20260312T165211Z.md",
+      "exists": true,
+      "size_bytes": 3227,
+      "ext": ".md",
+      "category": "canonico_ingerivel",
+      "ingest": true,
+      "reason": "documentacao operacional duravel e reutilizavel"
+    },
+    {
+      "path": "docs/HANDOFF_TERRAFORM_THRESHOLD_DIAGNOSIS_20260312T174039Z.md",
+      "exists": true,
+      "size_bytes": 2042,
+      "ext": ".md",
+      "category": "canonico_ingerivel",
+      "ingest": true,
+      "reason": "documentacao operacional duravel e reutilizavel"
+    },
+    {
+      "path": "docs/HANDOFF_THRESHOLD_CROSS_DOMAIN_DIAGNOSIS_20260312T180249Z.md",
+      "exists": true,
+      "size_bytes": 1646,
+      "ext": ".md",
+      "category": "canonico_ingerivel",
+      "ingest": true,
+      "reason": "documentacao operacional duravel e reutilizavel"
+    },
+    {
+      "path": "docs/HANDOFF_COMPOSED_RULE_SIMULATION_20260312T180937Z.md",
+      "exists": true,
+      "size_bytes": 1269,
+      "ext": ".md",
+      "category": "canonico_ingerivel",
+      "ingest": true,
+      "reason": "documentacao operacional duravel e reutilizavel"
+    },
+    {
+      "path": "docs/HANDOFF_RULE_C_EXPERIMENTAL_ROUND_20260312T181537Z.md",
+      "exists": true,
+      "size_bytes": 1478,
+      "ext": ".md",
+      "category": "canonico_ingerivel",
+      "ingest": true,
+      "reason": "documentacao operacional duravel e reutilizavel"
+    },
+    {
+      "path": "docs/HANDOFF_RULE_C_PROMOTION_PREP_20260312T182232Z.md",
+      "exists": true,
+      "size_bytes": 2216,
+      "ext": ".md",
+      "category": "canonico_ingerivel",
+      "ingest": true,
+      "reason": "documentacao operacional duravel e reutilizavel"
+    },
+    {
+      "path": "docs/coverage/domain_coverage_consolidated_20260312.json",
+      "exists": true,
+      "size_bytes": 4551,
+      "ext": ".json",
+      "category": "util_mas_derivado",
+      "ingest": false,
+      "reason": "artefato analitico estruturado/efemero; manter para auditoria fora da base semantica textual"
+    },
+    {
+      "path": "docs/coverage/knowledge_gap_engine_validation_post_kubernetes_20260312T155249Z.json",
+      "exists": true,
+      "size_bytes": 124557,
+      "ext": ".json",
+      "category": "util_mas_derivado",
+      "ingest": false,
+      "reason": "artefato analitico estruturado/efemero; manter para auditoria fora da base semantica textual"
+    },
+    {
+      "path": "docs/coverage/threshold_cross_domain_query_consolidated_20260312T180249Z.json",
+      "exists": true,
+      "size_bytes": 24934,
+      "ext": ".json",
+      "category": "util_mas_derivado",
+      "ingest": false,
+      "reason": "artefato analitico estruturado/efemero; manter para auditoria fora da base semantica textual"
+    },
+    {
+      "path": "docs/coverage/threshold_cross_domain_simulation_20260312T180249Z.json",
+      "exists": true,
+      "size_bytes": 13139,
+      "ext": ".json",
+      "category": "util_mas_derivado",
+      "ingest": false,
+      "reason": "artefato analitico estruturado/efemero; manter para auditoria fora da base semantica textual"
+    },
+    {
+      "path": "docs/coverage/threshold_cross_domain_decision_20260312T180249Z.json",
+      "exists": true,
+      "size_bytes": 1059,
+      "ext": ".json",
+      "category": "util_mas_derivado",
+      "ingest": false,
+      "reason": "artefato analitico estruturado/efemero; manter para auditoria fora da base semantica textual"
+    },
+    {
+      "path": "docs/coverage/composed_rule_simulation_20260312T180937Z.json",
+      "exists": true,
+      "size_bytes": 7470,
+      "ext": ".json",
+      "category": "util_mas_derivado",
+      "ingest": false,
+      "reason": "artefato analitico estruturado/efemero; manter para auditoria fora da base semantica textual"
+    },
+    {
+      "path": "docs/coverage/composed_rule_decision_20260312T180937Z.json",
+      "exists": true,
+      "size_bytes": 1034,
+      "ext": ".json",
+      "category": "util_mas_derivado",
+      "ingest": false,
+      "reason": "artefato analitico estruturado/efemero; manter para auditoria fora da base semantica textual"
+    },
+    {
+      "path": "docs/coverage/rule_c_promotion_prep_decision_20260312T182232Z.json",
+      "exists": true,
+      "size_bytes": 400,
+      "ext": ".json",
+      "category": "util_mas_derivado",
+      "ingest": false,
+      "reason": "artefato analitico estruturado/efemero; manter para auditoria fora da base semantica textual"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "timestamp_utc": "2026-03-12T21:44:39.403571+00:00",
+  "objective": "round_plan_contract_tests",
+  "test_suite": {
+    "command": "./.venv/bin/python -m unittest tests/test_round_plan_cli_contract.py",
+    "result": "ok",
+    "tests_run": 5,
+    "duration_seconds": 253.982
+  },
+  "gate": {
+    "command": "./scripts/unit_test_gate.sh",
+    "result": "ok",
+    "tests_run": 191
+  },
+  "coverage": {
+    "single_prefix_json": true,
+    "multi_prefix_json": true,
+    "required_contract_fields": [
+      "plan_mode",
+      "source_prefixes",
+      "ingest_dry_run",
+      "semantic_list_targets",
+      "totals",
+      "divergence"
+    ],
+    "human_output_structure": [
+      "ROUND PLAN (prefix preview)",
+      "- Prefixos:",
+      "embedded_json_payload"
+    ],
+    "strict_missing_prefix_failure": {
+      "expected_exit": 2,
+      "expected_message_contains": "strict-source-prefix habilitado e nenhum arquivo encontrado"
+    },
+    "zero_side_effects_basic": "hash/size snapshot before/after for existing state files"
+  },
+  "artifacts": {
+    "test_file": "tests/test_round_plan_cli_contract.py"
+  }
+}

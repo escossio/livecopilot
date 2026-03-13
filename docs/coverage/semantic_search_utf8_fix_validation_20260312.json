@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-03-12T04:22:48.686436+00:00",
+  "scope": "semantic_search_utf8_fix_validation",
+  "legacy_probe": {
+    "server_encoding": "UTF8",
+    "client_encoding": "UTF8",
+    "raw_content_snippet_probe": {
+      "status": "error",
+      "type": "CharacterNotInRepertoire",
+      "error": "sequência de bytes é inválida para codificação \"UTF8\": 0xe2 0x94"
+    }
+  },
+  "post_fix": {
+    "semantic_search_no_exception": true,
+    "knowledge_gap_engine_validation_file": "docs/coverage/knowledge_gap_engine_validation_post_utf8_fix_20260312.json",
+    "domains": [
+      {
+        "domain": "terraform",
+        "well": 4,
+        "partial": 4,
+        "gap": 0,
+        "avg_max": 0.579819,
+        "priority_score": 34.41,
+        "historical_fallback_rows": 0
+      },
+      {
+        "domain": "observability",
+        "well": 5,
+        "partial": 3,
+        "gap": 0,
+        "avg_max": 0.617554,
+        "priority_score": 22.688,
+        "historical_fallback_rows": 0
+      },
+      {
+        "domain": "docker",
+        "well": 6,
+        "partial": 2,
+        "gap": 0,
+        "avg_max": 0.60662,
+        "priority_score": 14.438,
+        "historical_fallback_rows": 0
+      },
+      {
+        "domain": "aws_iam",
+        "well": 7,
+        "partial": 1,
+        "gap": 0,
+        "avg_max": 0.629864,
+        "priority_score": 6.875,
+        "historical_fallback_rows": 0
+      }
+    ]
+  }
+}

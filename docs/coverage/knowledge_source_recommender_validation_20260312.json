@@ -1,0 +1,150 @@
+{
+  "generated_at": "2026-03-12T04:00:02.179559+00:00",
+  "cases": [
+    {
+      "status": "ok",
+      "generated_at": "2026-03-12T04:00:02.178944+00:00",
+      "catalog_path": "/lab/projects/livecopilot/config/knowledge_source_catalog.json",
+      "domain": "aws_iam",
+      "domain_name": "AWS IAM",
+      "subtheme": "policy_simulator",
+      "recommended_sources": [
+        {
+          "title": "IAM policy simulator",
+          "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html",
+          "type": "official_docs",
+          "scope": "policy simulator"
+        },
+        {
+          "title": "AWS IAM User Guide",
+          "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html",
+          "type": "official_docs",
+          "scope": "identity and access management fundamentals"
+        },
+        {
+          "title": "AWS IAM Policy Evaluation Logic",
+          "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html",
+          "type": "official_docs",
+          "scope": "policy decision flow"
+        }
+      ],
+      "recommended_next_slice": "Proximo recorte sugerido para AWS IAM (policy_simulator): Priorizar simulador + exemplos de avaliacao de policy."
+    },
+    {
+      "status": "ok",
+      "generated_at": "2026-03-12T04:00:02.179123+00:00",
+      "catalog_path": "/lab/projects/livecopilot/config/knowledge_source_catalog.json",
+      "domain": "docker",
+      "domain_name": "Docker",
+      "subtheme": "build_cache",
+      "recommended_sources": [
+        {
+          "title": "Docker build cache",
+          "url": "https://docs.docker.com/build/cache/",
+          "type": "official_docs",
+          "scope": "cache, backends, invalidation"
+        },
+        {
+          "title": "Docker Docs",
+          "url": "https://docs.docker.com/",
+          "type": "official_docs",
+          "scope": "engine, build, security"
+        },
+        {
+          "title": "Docker Build docs",
+          "url": "https://docs.docker.com/build/",
+          "type": "official_docs",
+          "scope": "buildx, buildkit, cache"
+        }
+      ],
+      "recommended_next_slice": "Proximo recorte sugerido para Docker (build_cache): Recortar build cache backends, invalidation e optimize."
+    },
+    {
+      "status": "ok",
+      "generated_at": "2026-03-12T04:00:02.179285+00:00",
+      "catalog_path": "/lab/projects/livecopilot/config/knowledge_source_catalog.json",
+      "domain": "terraform",
+      "domain_name": "Terraform",
+      "subtheme": "remote_state_s3",
+      "recommended_sources": [
+        {
+          "title": "Terraform backend s3",
+          "url": "https://developer.hashicorp.com/terraform/language/backend/s3",
+          "type": "official_docs",
+          "scope": "state storage and locking"
+        },
+        {
+          "title": "Terraform docs",
+          "url": "https://developer.hashicorp.com/terraform/docs",
+          "type": "official_docs",
+          "scope": "core workflows"
+        },
+        {
+          "title": "Terraform language docs",
+          "url": "https://developer.hashicorp.com/terraform/language",
+          "type": "official_docs",
+          "scope": "backend, state, modules"
+        }
+      ],
+      "recommended_next_slice": "Proximo recorte sugerido para Terraform (remote_state_s3): Selecionar backend/s3 + remote state + locking e exemplos de permissao."
+    },
+    {
+      "status": "ok",
+      "generated_at": "2026-03-12T04:00:02.179415+00:00",
+      "catalog_path": "/lab/projects/livecopilot/config/knowledge_source_catalog.json",
+      "domain": "observability",
+      "domain_name": "Observability",
+      "subtheme": "promql",
+      "recommended_sources": [
+        {
+          "title": "PromQL querying",
+          "url": "https://prometheus.io/docs/prometheus/latest/querying/basics/",
+          "type": "official_docs",
+          "scope": "promql"
+        },
+        {
+          "title": "Prometheus docs",
+          "url": "https://prometheus.io/docs/introduction/overview/",
+          "type": "official_docs",
+          "scope": "prometheus config and querying"
+        },
+        {
+          "title": "Grafana docs",
+          "url": "https://grafana.com/docs/",
+          "type": "official_docs",
+          "scope": "dashboards, datasource, alerting"
+        },
+        {
+          "title": "Alertmanager docs",
+          "url": "https://prometheus.io/docs/alerting/latest/alertmanager/",
+          "type": "official_docs",
+          "scope": "routing and notifications"
+        }
+      ],
+      "recommended_next_slice": "Proximo recorte sugerido para Observability (promql): Recortar querying basics/functions/operators/examples do Prometheus."
+    },
+    {
+      "status": "ok",
+      "generated_at": "2026-03-12T04:00:02.179542+00:00",
+      "catalog_path": "/lab/projects/livecopilot/config/knowledge_source_catalog.json",
+      "domain": "kubernetes",
+      "domain_name": "Kubernetes",
+      "subtheme": "networking",
+      "recommended_sources": [
+        {
+          "title": "Kubernetes networking concepts",
+          "url": "https://kubernetes.io/docs/concepts/services-networking/",
+          "type": "official_docs",
+          "scope": "service/ingress/networkpolicy"
+        },
+        {
+          "title": "Kubernetes docs",
+          "url": "https://kubernetes.io/docs/home/",
+          "type": "official_docs",
+          "scope": "concepts, tasks, references"
+        }
+      ],
+      "recommended_next_slice": "Proximo recorte sugerido para Kubernetes (networking): Selecionar Services, Ingress e NetworkPolicy com exemplos completos."
+    }
+  ]
+}

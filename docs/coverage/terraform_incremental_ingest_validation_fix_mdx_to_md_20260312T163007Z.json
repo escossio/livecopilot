@@ -1,0 +1,47 @@
+{
+  "generated_at": "20260312T163007Z",
+  "ingest_log": "docs/coverage/terraform_incremental_ingest_fix_mdx_to_md_20260312T163007Z.log",
+  "prefix": "terraform_docs_selected_incremental/",
+  "state_entries": 11,
+  "parsed_files_count": 11,
+  "chunk_files_count": 11,
+  "chunk_total_from_state": 134,
+  "ingest_summary": {
+    "total_found": 245,
+    "processed": 11,
+    "skipped": 234,
+    "errors": 0,
+    "unsupported": 0
+  },
+  "source_files": [
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.md",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md",
+    "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md"
+  ],
+  "manifest_document_count": 245,
+  "manifest_chunk_document_count": 245,
+  "manifest_chunk_count": 54275,
+  "manifest_before": {
+    "document_count": 245,
+    "chunk_document_count": 234,
+    "chunk_count": 54141
+  },
+  "manifest_after": {
+    "document_count": 245,
+    "chunk_document_count": 245,
+    "chunk_count": 54275
+  },
+  "manifest_delta": {
+    "document_count": 0,
+    "chunk_document_count": 11,
+    "chunk_count": 134
+  }
+}

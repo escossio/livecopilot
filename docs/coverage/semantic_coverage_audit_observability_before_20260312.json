@@ -1,0 +1,402 @@
+{
+  "generated_at": "2026-03-12T02:37:36.732467+00:00",
+  "scope": "observability_focused_before_observability35_semantic_persist",
+  "top_k": 5,
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "total_questions": 8,
+  "well_covered_count": 0,
+  "partial_count": 0,
+  "gap_count": 8,
+  "global_avg_of_max_score": 0.342409,
+  "global_avg_of_avg_score": 0.32384,
+  "rows": [
+    {
+      "question": "prometheus scrape_configs relabel_configs example",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.340469,
+      "avg_score": 0.308989,
+      "top_source_file": "data/raw_review/ckad_exercises_modules/c.pod_design.md",
+      "top_title": "Labels and Annotations",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/c.pod_design.md",
+          "chunk_id": "semantic-api-51df61f1-1",
+          "title": "Labels and Annotations",
+          "similarity": 0.340469,
+          "snippet": "## Labels and Annotations\nkubernetes.io > Documentation > Concepts > Overview > Working with Kubernetes Objects > [Labels and Selectors](https://kubernetes.io/docs/concepts/overvie"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/c.pod_design.md",
+          "chunk_id": "semantic-api-51df61f1-5",
+          "title": "Cron jobs",
+          "similarity": 0.32633,
+          "snippet": "## Cron jobs\n\nkubernetes.io > Documentation > Tasks > Run Jobs > [Running Automated Tasks with a CronJob](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/)\n\n###"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/c.pod_design.md",
+          "chunk_id": "semantic-api-51df61f1-3",
+          "title": "Deployments",
+          "similarity": 0.29551,
+          "snippet": "## Deployments\n\nkubernetes.io > Documentation > Concepts > Workloads > Workload Resources > [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment)\n\n###"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-3",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readine",
+          "similarity": 0.291319,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-3",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readine",
+          "similarity": 0.291319,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/"
+        }
+      ]
+    },
+    {
+      "question": "prometheus recording rules and alerting rules",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.357372,
+      "avg_score": 0.345498,
+      "top_source_file": "terraform_docs_selected/intro/phases/govern.md",
+      "top_title": "govern",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "terraform_docs_selected/intro/phases/govern.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected/intro/phases/govern.md::c5f1ffaf89c1::0001::79351547",
+          "title": "govern",
+          "similarity": 0.357372,
+          "snippet": "---\npage_title: Govern Terraform\ndescription: Use codified, automated policy enforcement to govern your organization's standards and best practices.\n# START AUTO GENERATED METADATA"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-2",
+          "title": "## Liveness, readiness and startup probes",
+          "similarity": 0.351684,
+          "snippet": "## Liveness, readiness and startup probes"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-2",
+          "title": "## Liveness, readiness and startup probes",
+          "similarity": 0.351634,
+          "snippet": "## Liveness, readiness and startup probes"
+        },
+        {
+          "source_file": "terraform_docs_selected/intro/phases/govern.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected/intro/phases/govern.md::c5f1ffaf89c1::0002::474c7a5e",
+          "title": "govern",
+          "similarity": 0.341283,
+          "snippet": "You can use policy as code to ensure your infrastructure meets your organization's security, governance, and cost requirements. You can configure your workflows to automatically ru"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-3",
+          "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readine",
+          "similarity": 0.325519,
+          "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure Liveness, Readiness and Startup Probes](https://kubernetes.io/docs/tasks/configure-pod-container/"
+        }
+      ]
+    },
+    {
+      "question": "prometheus service discovery http_sd kubernetes",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.428001,
+      "avg_score": 0.409344,
+      "top_source_file": "data/raw_review/ckad_exercises_modules/i.crd.md",
+      "top_title": "## CRD in K8s",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/i.crd.md",
+          "chunk_id": "semantic-api-9d1041f3-3",
+          "title": "## CRD in K8s",
+          "similarity": 0.428001,
+          "snippet": "## CRD in K8s"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/sa_tokens_projection.md",
+          "chunk_id": "semantic-api-a109268b-5",
+          "title": "Keywords: serviceaccount token projected kubernetes token projection.",
+          "similarity": 0.417328,
+          "snippet": "Keywords: serviceaccount token projected kubernetes token projection."
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/f.services.md",
+          "chunk_id": "semantic-api-647333a6-4",
+          "title": "```bash",
+          "similarity": 0.400557,
+          "snippet": "```bash\nkubectl run nginx --image=nginx --restart=Never --port=80 --expose\n# observe that a pod as well as a service are created\n```"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/f.services.md",
+          "chunk_id": "semantic-api-647333a6-4",
+          "title": "```bash",
+          "similarity": 0.400557,
+          "snippet": "```bash\nkubectl run nginx --image=nginx --restart=Never --port=80 --expose\n# observe that a pod as well as a service are created\n```"
+        },
+        {
+          "source_file": "tmp/semantic_gap_round2/pod_events_troubleshooting.md",
+          "chunk_id": "semantic-api-28455024-1",
+          "title": "# Kubernetes Pod Events Troubleshooting",
+          "similarity": 0.400276,
+          "snippet": "# Kubernetes Pod Events Troubleshooting"
+        }
+      ]
+    },
+    {
+      "question": "promql rate sum by instance",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.336763,
+      "avg_score": 0.319158,
+      "top_source_file": "knowledge-gap::gap_20260310t234013_4528790000_1706c7323efb_postgres_auth.md",
+      "top_title": "Query",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "knowledge-gap::gap_20260310t234013_4528790000_1706c7323efb_postgres_auth.md",
+          "chunk_id": "semantic-api-ec2e82a9-1",
+          "title": "Query",
+          "similarity": 0.336763,
+          "snippet": "## Query\n\npostgres auth"
+        },
+        {
+          "source_file": "knowledge-gap::gap_20260310t234013_4528790000_1706c7323efb_postgres_auth.md",
+          "chunk_id": "semantic-api-ec2e82a9-2",
+          "title": "Context",
+          "similarity": 0.334965,
+          "snippet": "## Context\n\n```json\n{\n  \"reason\": \"empty_result\",\n  \"details\": {\n    \"query\": \"postgres auth\",\n    \"mode\": \"structured\",\n    \"semantic_warning\": null,\n    \"related_facts_count\": 0,"
+        },
+        {
+          "source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+          "chunk_id": "semantic-api-50b318f4-2",
+          "title": "Context",
+          "similarity": 0.318511,
+          "snippet": "## Context\n\n```json\n{\n  \"reason\": \"low_average_score\",\n  \"details\": {\n    \"trigger\": \"validation\",\n    \"round\": \"knowledge_gaps_ingestion\"\n  }\n}\n```"
+        },
+        {
+          "source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+          "chunk_id": "semantic-api-50b318f4-1",
+          "title": "Query",
+          "similarity": 0.314466,
+          "snippet": "## Query\n\nvalidation gap ingestion flow kubernetes network policy baseline"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-5",
+          "title": "<details><summary>show</summary>",
+          "similarity": 0.291085,
+          "snippet": "<details><summary>show</summary>\n<p>"
+        }
+      ]
+    },
+    {
+      "question": "grafana prometheus datasource configuration",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.354948,
+      "avg_score": 0.333091,
+      "top_source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+      "top_title": "Query",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+          "chunk_id": "semantic-api-50b318f4-1",
+          "title": "Query",
+          "similarity": 0.354948,
+          "snippet": "## Query\n\nvalidation gap ingestion flow kubernetes network policy baseline"
+        },
+        {
+          "source_file": "knowledge-gap::gap_20260310t234507_3291540000_4e3b1d6abc47_gap_flow_validation_ingress_nginx_timeout_504.md",
+          "chunk_id": "semantic-api-08ed3122-1",
+          "title": "Query",
+          "similarity": 0.345634,
+          "snippet": "## Query\n\ngap flow validation: ingress nginx timeout 504"
+        },
+        {
+          "source_file": "terraform_docs_selected/language/state/remote-state-data.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/remote-state-data.md::f4eb0c188156::0004::527a4123",
+          "title": "remote state data",
+          "similarity": 0.327527,
+          "snippet": "To share data explicitly between configurations, you can use pairs of managed\nresource types and data sources in various providers, including (but not\nlimited to) the following:\n\n|"
+        },
+        {
+          "source_file": "terraform_docs_selected/language/state/remote-state-data.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/remote-state-data.md::f4eb0c188156::0005::c39c54bf",
+          "title": "remote state data",
+          "similarity": 0.319515,
+          "snippet": "| System | Publish with... | Read with... |\n| ---------------------------------------------------------------------- | -------------------------------------------------------------"
+        },
+        {
+          "source_file": "terraform_docs_selected/language/state/remote-state-data.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/remote-state-data.md::f4eb0c188156::0006::d28b9e32",
+          "title": "remote state data",
+          "similarity": 0.317833,
+          "snippet": "-> These are some common options from the Official Terraform providers, but\nthere are too many configuration storage options for us to list them all\nhere, including some in partner"
+        }
+      ]
+    },
+    {
+      "question": "grafana dashboard variables template variables",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.324207,
+      "avg_score": 0.305594,
+      "top_source_file": "data/raw_review/ckad_exercises_modules/h.helm.md",
+      "top_title": "### Creating a basic Helm chart",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/h.helm.md",
+          "chunk_id": "semantic-api-c6ee6356-4",
+          "title": "### Creating a basic Helm chart",
+          "similarity": 0.324207,
+          "snippet": "### Creating a basic Helm chart"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/building/variables.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/variables.md::68c9f81bad73::0001::75640c51",
+          "title": "variables",
+          "similarity": 0.319433,
+          "snippet": "---\ntitle: Build variables\nlinkTitle: Variables\nweight: 20\ndescription: Using build arguments and environment variables to configure builds\nkeywords: build, args, variables, parame"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/security/_index.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/security/_index.md::ce5fc0aa0e5b::0001::0645be3e",
+          "title": "index",
+          "similarity": 0.312675,
+          "snippet": "---\ntitle: Security for developers\nlinkTitle: Security\ndescription: Learn about developer-level security features like 2FA and access tokens\nkeywords: docker, docker hub, docker de"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/observability&empty)",
+          "similarity": 0.285838,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/observability&empty)\n# Observability (18%)"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-1",
+          "title": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/observability&empty)",
+          "similarity": 0.285816,
+          "snippet": "![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/observability&empty)\n# Observability (18%)"
+        }
+      ]
+    },
+    {
+      "question": "grafana alerting provisioning contact points",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.352923,
+      "avg_score": 0.330073,
+      "top_source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+      "top_title": "Query",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+          "chunk_id": "semantic-api-50b318f4-1",
+          "title": "Query",
+          "similarity": 0.352923,
+          "snippet": "## Query\n\nvalidation gap ingestion flow kubernetes network policy baseline"
+        },
+        {
+          "source_file": "knowledge-gap::gap_20260310t234507_3291540000_4e3b1d6abc47_gap_flow_validation_ingress_nginx_timeout_504.md",
+          "chunk_id": "semantic-api-08ed3122-1",
+          "title": "Query",
+          "similarity": 0.33174,
+          "snippet": "## Query\n\ngap flow validation: ingress nginx timeout 504"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-2",
+          "title": "## Liveness, readiness and startup probes",
+          "similarity": 0.322717,
+          "snippet": "## Liveness, readiness and startup probes"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/e.observability.md",
+          "chunk_id": "semantic-api-d1bf1ef6-2",
+          "title": "## Liveness, readiness and startup probes",
+          "similarity": 0.322624,
+          "snippet": "## Liveness, readiness and startup probes"
+        },
+        {
+          "source_file": "terraform_docs_selected/language/modules/develop/index.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/index.md::ef5233aa30a1::0005::453e5863",
+          "title": "index",
+          "similarity": 0.320362,
+          "snippet": "### No-Code Provisioning in HCP Terraform\n\nYou can also create no-code ready modules to enable the no-code provisioning workflow in HCP Terraform. No-code provisioning lets users d"
+        }
+      ]
+    },
+    {
+      "question": "alertmanager route receivers grouping inhibition silences templates",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.244592,
+      "avg_score": 0.238971,
+      "top_source_file": "knowledge-gap::gap_20260310t234507_3291540000_4e3b1d6abc47_gap_flow_validation_ingress_nginx_timeout_504.md",
+      "top_title": "Query",
+      "relevant_result_present": true,
+      "coverage_class": "lacuna",
+      "results": [
+        {
+          "source_file": "knowledge-gap::gap_20260310t234507_3291540000_4e3b1d6abc47_gap_flow_validation_ingress_nginx_timeout_504.md",
+          "chunk_id": "semantic-api-08ed3122-1",
+          "title": "Query",
+          "similarity": 0.244592,
+          "snippet": "## Query\n\ngap flow validation: ingress nginx timeout 504"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/d.configuration.md",
+          "chunk_id": "semantic-api-e15b97e7-5",
+          "title": "[Limit Ranges](#limit-ranges)",
+          "similarity": 0.238644,
+          "snippet": "[Limit Ranges](#limit-ranges)"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/d.configuration.md",
+          "chunk_id": "semantic-api-e15b97e7-5",
+          "title": "[Limit Ranges](#limit-ranges)",
+          "similarity": 0.238644,
+          "snippet": "[Limit Ranges](#limit-ranges)"
+        },
+        {
+          "source_file": "__inline_semantic_min__.txt",
+          "chunk_id": "semantic-api-2a6705e8-2",
+          "title": "2. Readiness probe controla recebimento de trafego.",
+          "similarity": 0.236967,
+          "snippet": "2. Readiness probe controla recebimento de trafego."
+        },
+        {
+          "source_file": "tmp/kubectl_ops_round/kubectl_get_events_pod.md",
+          "chunk_id": "semantic-api-48fca2be-4",
+          "title": "## Liveness and failure triage",
+          "similarity": 0.23601,
+          "snippet": "## Liveness and failure triage\n- Inspect `Warning` and `Unhealthy` events for pods."
+        }
+      ]
+    }
+  ]
+}

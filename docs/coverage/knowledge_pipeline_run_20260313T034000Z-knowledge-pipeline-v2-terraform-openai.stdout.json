@@ -1,0 +1,316 @@
+{
+  "generated_at": "2026-03-13T03:43:41.963909+00:00",
+  "pipeline": "knowledge_pipeline_v1",
+  "mode": "run",
+  "round_id": "20260313T034000Z-knowledge-pipeline-v2-terraform-openai",
+  "side_effects_expected": true,
+  "artifacts": {
+    "run_artifact": "docs/coverage/knowledge_pipeline_run_20260313T034000Z-knowledge-pipeline-v2-terraform-openai.json"
+  },
+  "config": {
+    "source_prefixes": [
+      "terraform_docs_selected_incremental"
+    ],
+    "strict_source_prefix": false,
+    "semantic_embedding_mode": "openai",
+    "semantic_limit_docs": 11,
+    "semantic_max_chunks_per_doc": 8
+  },
+  "pre_run_plan": {
+    "generated_at": "2026-03-13T03:40:33.543611+00:00",
+    "plan_mode": "prefix_round_preview",
+    "source_prefixes": [
+      "terraform_docs_selected_incremental"
+    ],
+    "ingest_dry_run": {
+      "selection_mode": "resolved_from_source_prefix",
+      "files_found_by_prefix": {
+        "terraform_docs_selected_incremental": 11
+      },
+      "total_found": 11,
+      "targets_sample": [
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md"
+      ],
+      "targets_sample_size": 11,
+      "targets_sample_truncated": false
+    },
+    "semantic_list_targets": {
+      "payload_kind": "list_targets",
+      "selection_mode": "resolved_from_source_prefix",
+      "source_files_resolved_by_prefix": {
+        "terraform_docs_selected_incremental": 11
+      },
+      "source_files_resolved_total": 11,
+      "source_files_sample": [
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md",
+        "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md"
+      ],
+      "source_files_sample_size": 11,
+      "source_files_sample_truncated": false,
+      "note": ""
+    },
+    "totals": {
+      "ingest_total_found": 11,
+      "semantic_total_source_files": 11
+    },
+    "divergence": {
+      "ingest_only_count": 0,
+      "semantic_only_count": 0,
+      "ingest_only_sample": [],
+      "semantic_only_sample": [],
+      "has_divergence": false
+    }
+  },
+  "ingest": {
+    "selection_mode": "resolved_from_source_prefix",
+    "source_prefixes": [
+      "terraform_docs_selected_incremental"
+    ],
+    "files_found_by_prefix": {
+      "terraform_docs_selected_incremental": 11
+    },
+    "selected_targets_sample": [
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md",
+      "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md"
+    ],
+    "total_found": 11,
+    "processed": 0,
+    "skipped": 11,
+    "errors": 0,
+    "unsupported": 0,
+    "chunk_total": 134
+  },
+  "semantic": {
+    "started_at": "2026-03-13T03:43:17.444242+00:00",
+    "finished_at": "2026-03-13T03:43:41.640487+00:00",
+    "documents_selected": 11,
+    "documents_processed": 11,
+    "documents_validated": 11,
+    "documents_failed": 0,
+    "chunks_persisted": 72,
+    "states_final": [
+      "validated"
+    ],
+    "results": [
+      {
+        "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 416,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 417,
+        "chunks_persisted": 2,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 418,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 419,
+        "chunks_persisted": 4,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 420,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 421,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 422,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 423,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 424,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 425,
+        "chunks_persisted": 8,
+        "embedding_mode_used": "openai"
+      },
+      {
+        "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md",
+        "states": [
+          "discovered",
+          "extracted",
+          "chunked",
+          "embedded",
+          "persisted",
+          "validated"
+        ],
+        "status": "validated",
+        "error": "",
+        "document_id": 426,
+        "chunks_persisted": 2,
+        "embedding_mode_used": "openai"
+      }
+    ],
+    "embedding_mode_used": "openai",
+    "manifest_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_manifest.json",
+    "state_path": "/lab/projects/livecopilot/data/knowledge_index/knowledge_state.json",
+    "cache_invalidation": {
+      "semantic_search_cache_entries_cleared": 1,
+      "query_embedding_cache_entries_cleared": 6
+    },
+    "selection_mode": "resolved_from_source_prefix",
+    "source_prefixes": [
+      "terraform_docs_selected_incremental"
+    ],
+    "source_files_resolved_total": 11,
+    "source_files_resolved_by_prefix": {
+      "terraform_docs_selected_incremental": 11
+    }
+  }
+}

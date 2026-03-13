@@ -1,0 +1,402 @@
+{
+  "generated_at": "2026-03-12T01:32:58.335772+00:00",
+  "scope": "docker_focused_after_docker_docs_selected_semantic_persist",
+  "top_k": 5,
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "total_questions": 8,
+  "well_covered_count": 6,
+  "partial_count": 2,
+  "gap_count": 0,
+  "global_avg_of_max_score": 0.606646,
+  "global_avg_of_avg_score": 0.539499,
+  "rows": [
+    {
+      "question": "docker multi stage build best practices",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.657887,
+      "avg_score": 0.57767,
+      "top_source_file": "docker_docs_selected/content/manuals/build/building/multi-stage.md",
+      "top_title": "multi stage",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/building/multi-stage.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/multi-stage.md::0b36c21cda1b::0001::2347a91e",
+          "title": "multi stage",
+          "similarity": 0.657887,
+          "snippet": "---\ntitle: Multi-stage builds\nlinkTitle: Multi-stage\nweight: 10\ndescription: |\nLearn about multi-stage builds and how you can use\nthem to improve your builds and get smaller images"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/best-practices.md::0aad9a6cecbb::0002::11841eb8",
+          "title": "best practices",
+          "similarity": 0.625223,
+          "snippet": "See [Multi-stage builds](/manuals/build/building/multi-stage.md) for more\ninformation.\n\n### Create reusable stages\n\nIf you have multiple images with a lot in common, consider creat"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/best-practices.md::0aad9a6cecbb::0001::cbf94334",
+          "title": "best practices",
+          "similarity": 0.623404,
+          "snippet": "---\ntitle: Building best practices\nlinkTitle: Best practices\nweight: 70\ndescription: Hints, tips and guidelines for writing clean, reliable Dockerfiles\nkeywords: base images, docke"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/cache/optimize.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/optimize.md::2fbc0606377e::0001::3ea1d26c",
+          "title": "optimize",
+          "similarity": 0.491905,
+          "snippet": "---\ntitle: Optimize cache usage in builds\ndescription: An overview on how to optimize cache utilization in Docker builds.\nkeywords: build, buildkit, buildx, guide, tutorial, mounts"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/building/multi-platform.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/multi-platform.md::dc2ddf177f5b::0001::e5463690",
+          "title": "multi platform",
+          "similarity": 0.489929,
+          "snippet": "---\ntitle: Multi-platform builds\nlinkTitle: Multi-platform\nweight: 40\ndescription: Introduction to what multi-platform builds are and how to execute them using Docker Buildx.\nkeywo"
+        }
+      ]
+    },
+    {
+      "question": "docker build cache",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.618624,
+      "avg_score": 0.582821,
+      "top_source_file": "docker_docs_selected/content/manuals/build/cache/_index.md",
+      "top_title": "index",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/cache/_index.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/_index.md::11ca5f093360::0001::4c437cbe",
+          "title": "index",
+          "similarity": 0.618624,
+          "snippet": "---\ntitle: Docker build cache\nlinkTitle: Cache\nweight: 60\ndescription: Improve your build speed with effective use of the build cache\nkeywords: build, buildx, buildkit, dockerfile,"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/cache/optimize.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/optimize.md::2fbc0606377e::0001::3ea1d26c",
+          "title": "optimize",
+          "similarity": 0.598713,
+          "snippet": "---\ntitle: Optimize cache usage in builds\ndescription: An overview on how to optimize cache utilization in Docker builds.\nkeywords: build, buildkit, buildx, guide, tutorial, mounts"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/cache/backends/_index.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/backends/_index.md::0611afc9160c::0001::1174b177",
+          "title": "index",
+          "similarity": 0.576079,
+          "snippet": "---\ntitle: Cache storage backends\ndescription: |\nCache backends let you manage your build cache externally.\nExternal cache is useful to create a shared cache that can help\nspeed up"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/cache/backends/gha.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/backends/gha.md::b5d9d36ee2d5::0001::b6881f2c",
+          "title": "gha",
+          "similarity": 0.570306,
+          "snippet": "---\ntitle: GitHub Actions cache\ndescription: Use the GitHub Actions cache to manage your build cache in CI\nkeywords: build, buildx, cache, backend, gha, github, actions\naliases:\n- "
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/cache/invalidation.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/invalidation.md::737fdc7bfb24::0001::77ac3d41",
+          "title": "invalidation",
+          "similarity": 0.550381,
+          "snippet": "---\ntitle: Build cache invalidation\ndescription: Dig into the details about how cache invalidation works for Docker's build cache\nkeywords: build, buildx, buildkit, cache, invalida"
+        }
+      ]
+    },
+    {
+      "question": "docker buildkit",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.639186,
+      "avg_score": 0.529851,
+      "top_source_file": "docker_docs_selected/content/manuals/build/buildkit/_index.md",
+      "top_title": "index",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/buildkit/_index.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/buildkit/_index.md::fd6a61970d84::0001::463699a6",
+          "title": "index",
+          "similarity": 0.639186,
+          "snippet": "---\ntitle: BuildKit\nweight: 100\ndescription: Introduction and overview of BuildKit\nkeywords: build, buildkit\n---\n\n## Overview\n\n[BuildKit](https://github.com/moby/buildkit)\nis an im"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/buildkit/configure.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/buildkit/configure.md::29841432876e::0001::a1185e71",
+          "title": "configure",
+          "similarity": 0.567734,
+          "snippet": "---\ntitle: Configure BuildKit\ndescription: Learn how to configure BuildKit for your builder.\nkeywords: build, buildkit, configuration, buildx, network, cni, registry\n---\n\nIf you cr"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/building/_index.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/_index.md::d517aef2dd84::0001::c3c1cef2",
+          "title": "index",
+          "similarity": 0.485141,
+          "snippet": "---\nbuild:\nrender: never\ntitle: Building\nweight: 20\n---"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/cache/optimize.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/optimize.md::2fbc0606377e::0001::3ea1d26c",
+          "title": "optimize",
+          "similarity": 0.479689,
+          "snippet": "---\ntitle: Optimize cache usage in builds\ndescription: An overview on how to optimize cache utilization in Docker builds.\nkeywords: build, buildkit, buildx, guide, tutorial, mounts"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/cache/garbage-collection.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/garbage-collection.md::edcb56521a6e::0001::542fb636",
+          "title": "garbage collection",
+          "similarity": 0.477506,
+          "snippet": "---\ntitle: Build garbage collection\ndescription: Learn about garbage collection in the BuildKit daemon\nkeywords: build, buildx, buildkit, garbage collection, prune, gc\naliases:\n- /"
+        }
+      ]
+    },
+    {
+      "question": "docker networking bridge host overlay",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.620741,
+      "avg_score": 0.569134,
+      "top_source_file": "docker_docs_selected/content/manuals/engine/network/drivers/overlay.md",
+      "top_title": "overlay",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/overlay.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/overlay.md::3e27ed031293::0001::e022cd7e",
+          "title": "overlay",
+          "similarity": 0.620741,
+          "snippet": "---\ntitle: Overlay network driver\ndescription: All about using overlay networks\nkeywords: network, overlay, user-defined, swarm, service\naliases:\n- /config/containers/overlay/\n- /e"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/bridge.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/bridge.md::b5e01f6afe26::0001::aaec60e5",
+          "title": "bridge",
+          "similarity": 0.583545,
+          "snippet": "---\ntitle: Bridge network driver\ndescription: All about using user-defined bridge networks and the default bridge\nkeywords: network, bridge, user-defined, standalone\naliases:\n- /co"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/_index.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/_index.md::abac47b03d7e::0001::057a07ee",
+          "title": "index",
+          "similarity": 0.578799,
+          "snippet": "---\ntitle: Network drivers\nweight: 20\ndescription: Learn the basics of Docker network drivers\nkeywords: networking, drivers, bridge, routing, routing mesh, overlay, ports\n---\n\nDock"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/host.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/host.md::235bfb98fe3a::0001::c4eb3278",
+          "title": "host",
+          "similarity": 0.557979,
+          "snippet": "---\ntitle: Host network driver\ndescription: All about exposing containers on the Docker host's network\nkeywords: network, host, standalone, host mode networking\naliases:\n- /network"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/ipvlan.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/ipvlan.md::0ceb3417bb3e::0001::897c42dc",
+          "title": "ipvlan",
+          "similarity": 0.504607,
+          "snippet": "---\ntitle: IPvlan network driver\ndescription:\nAll about using IPvlan to make your containers appear like physical machines\non the network\nkeywords: network, ipvlan, l2, l3, standal"
+        }
+      ]
+    },
+    {
+      "question": "docker volumes vs bind mounts",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.66314,
+      "avg_score": 0.511398,
+      "top_source_file": "docker_docs_selected/content/manuals/engine/storage/bind-mounts.md",
+      "top_title": "bind mounts",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/storage/bind-mounts.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/bind-mounts.md::c4baa79b1411::0001::66229216",
+          "title": "bind mounts",
+          "similarity": 0.66314,
+          "snippet": "---\ndescription: Using bind mounts\ntitle: Bind mounts\nweight: 20\nkeywords: storage, persistence, data persistence, mounts, bind mounts\naliases:\n- /engine/admin/volumes/bind-mounts/"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/storage/volumes.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/volumes.md::632b8768a78f::0001::b43ca522",
+          "title": "volumes",
+          "similarity": 0.566893,
+          "snippet": "---\ndescription:\nLearn how to create, manage, and use volumes instead of bind mounts for\npersisting data generated and used by Docker.\ntitle: Volumes\nweight: 10\nkeywords:\ndocker co"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/storage/tmpfs.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/tmpfs.md::6b71df93ac43::0001::0bc847f9",
+          "title": "tmpfs",
+          "similarity": 0.468338,
+          "snippet": "---\ndescription: Using tmpfs mounts\ntitle: tmpfs mounts\nweight: 30\nkeywords: storage, persistence, data persistence, tmpfs\naliases:\n- /engine/admin/volumes/tmpfs/\n- /storage/tmpfs/"
+        },
+        {
+          "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-4",
+          "title": "## Define volumes",
+          "similarity": 0.42931,
+          "snippet": "## Define volumes"
+        },
+        {
+          "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+          "chunk_id": "semantic-api-73c2e379-4",
+          "title": "## Define volumes",
+          "similarity": 0.42931,
+          "snippet": "## Define volumes"
+        }
+      ]
+    },
+    {
+      "question": "docker storage drivers",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.615767,
+      "avg_score": 0.559854,
+      "top_source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/_index.md",
+      "top_title": "index",
+      "relevant_result_present": true,
+      "coverage_class": "bem_coberta",
+      "results": [
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/_index.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/_index.md::45472398de42::0001::577f67a9",
+          "title": "index",
+          "similarity": 0.615767,
+          "snippet": "---\ndescription: Learn the technologies that support storage drivers.\nkeywords: container, storage, driver, btrfs, overlayfs, vfs, zfs, containerd\ntitle: Storage drivers\nweight: 40"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/select-storage-driver.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/select-storage-driver.md::f8b8175cb214::0001::6b4076ff",
+          "title": "select storage driver",
+          "similarity": 0.585236,
+          "snippet": "---\ntitle: Select a storage driver\nweight: 10\ndescription: Learn how to select the proper storage driver for your container.\nkeywords: container, storage, driver, btrfs, zfs, overl"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/vfs-driver.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/vfs-driver.md::65cde9116182::0001::9c538db7",
+          "title": "vfs driver",
+          "similarity": 0.538663,
+          "snippet": "---\ndescription: Learn how to optimize your use of VFS driver.\nkeywords: container, storage, driver, vfs\ntitle: VFS storage driver\naliases:\n- /storage/storagedriver/vfs-driver/\n---"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/btrfs-driver.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/btrfs-driver.md::cb80fa634ab6::0001::af7e2b15",
+          "title": "btrfs driver",
+          "similarity": 0.530578,
+          "snippet": "---\ndescription: Learn how to optimize your use of Btrfs driver.\nkeywords: container, storage, driver, Btrfs\ntitle: BTRFS storage driver\naliases:\n- /storage/storagedriver/btrfs-dri"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/overlayfs-driver.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/overlayfs-driver.md::494aeb9cb28d::0001::0b05811c",
+          "title": "overlayfs driver",
+          "similarity": 0.529026,
+          "snippet": "---\ndescription: Learn how to optimize your use of OverlayFS driver.\nkeywords: container, storage, driver, OverlayFS, overlay2, overlay\ntitle: OverlayFS storage driver\naliases:\n- /"
+        }
+      ]
+    },
+    {
+      "question": "docker security best practices",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.515767,
+      "avg_score": 0.493849,
+      "top_source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+      "top_title": "best practices",
+      "relevant_result_present": true,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/best-practices.md::0aad9a6cecbb::0001::cbf94334",
+          "title": "best practices",
+          "similarity": 0.515767,
+          "snippet": "---\ntitle: Building best practices\nlinkTitle: Best practices\nweight: 70\ndescription: Hints, tips and guidelines for writing clean, reliable Dockerfiles\nkeywords: base images, docke"
+        },
+        {
+          "source_file": "__smoke_openai__.md",
+          "chunk_id": "smoke-openai-2",
+          "title": "Smoke Chunk 2",
+          "similarity": 0.512932,
+          "snippet": "docker container healthcheck example"
+        },
+        {
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+          "title": "AWS Security Cookbook",
+          "similarity": 0.504891,
+          "snippet": "AWS Security Cookbook"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/security/antivirus.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/antivirus.md::46aaa416276d::0001::afe59d04",
+          "title": "antivirus",
+          "similarity": 0.473073,
+          "snippet": "---\ntitle: Antivirus software and Docker\ndescription: General guidelines for using antivirus software with Docker\nkeywords: antivirus, security\n---\n\nWhen antivirus software scans f"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/security/_index.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/_index.md::bf9c126d4fc7::0001::9725dbdd",
+          "title": "index",
+          "similarity": 0.462581,
+          "snippet": "---\ndescription: Review of the Docker Daemon attack surface\nkeywords: Docker, Docker documentation, security\ntitle: Docker Engine security\nlinkTitle: Security\nweight: 80\naliases:\n-"
+        }
+      ]
+    },
+    {
+      "question": "docker image hardening",
+      "top_k": 5,
+      "count": 5,
+      "max_score": 0.522056,
+      "avg_score": 0.491413,
+      "top_source_file": "__smoke_openai__.md",
+      "top_title": "Smoke Chunk 2",
+      "relevant_result_present": true,
+      "coverage_class": "parcial",
+      "results": [
+        {
+          "source_file": "__smoke_openai__.md",
+          "chunk_id": "smoke-openai-2",
+          "title": "Smoke Chunk 2",
+          "similarity": 0.522056,
+          "snippet": "docker container healthcheck example"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/security/_index.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/_index.md::bf9c126d4fc7::0001::9725dbdd",
+          "title": "index",
+          "similarity": 0.505464,
+          "snippet": "---\ndescription: Review of the Docker Daemon attack surface\nkeywords: Docker, Docker documentation, security\ntitle: Docker Engine security\nlinkTitle: Security\nweight: 80\naliases:\n-"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/security/seccomp.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/seccomp.md::b369f0326eef::0001::a88b8b7e",
+          "title": "seccomp",
+          "similarity": 0.479425,
+          "snippet": "---\ndescription: Enabling seccomp in Docker\nkeywords: seccomp, security, docker, documentation\ntitle: Seccomp security profiles for Docker\n---\n\nSecure computing mode (`seccomp`) is"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/engine/security/protect-access.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/protect-access.md::01f06e91ca3c::0001::a246de2e",
+          "title": "protect access",
+          "similarity": 0.476811,
+          "snippet": "---\ndescription: How to setup and run Docker with SSH or HTTPS\nkeywords: docker, docs, article, example, ssh, https, daemon, tls, ca, certificate\ntitle: Protect the Docker daemon s"
+        },
+        {
+          "source_file": "docker_docs_selected/content/manuals/security/_index.md",
+          "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/security/_index.md::ce5fc0aa0e5b::0001::0645be3e",
+          "title": "index",
+          "similarity": 0.47331,
+          "snippet": "---\ntitle: Security for developers\nlinkTitle: Security\ndescription: Learn about developer-level security features like 2FA and access tokens\nkeywords: docker, docker hub, docker de"
+        }
+      ]
+    }
+  ]
+}

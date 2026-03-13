@@ -1,0 +1,175 @@
+{
+  "generated_at": "20260312T164346Z",
+  "source_after": "docs/coverage/semantic_coverage_audit_terraform_incremental_after_fix_mdx_to_md_20260312T163007Z.json",
+  "partial_count": 4,
+  "partial_queries": [
+    {
+      "query": "terraform force unlock",
+      "class": "parcial",
+      "max_score": 0.557261,
+      "avg_score": 0.533286,
+      "top1_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+      "top1_is_incremental": true,
+      "top_k": 5,
+      "incremental_in_top_k_count": 2,
+      "top_k_results": [
+        {
+          "rank": 1,
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.md",
+          "title": "force unlock",
+          "similarity": 0.557261
+        },
+        {
+          "rank": 2,
+          "source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+          "title": "force unlock",
+          "similarity": 0.557261
+        },
+        {
+          "rank": 3,
+          "source_file": "terraform_docs_selected/cli/state/recover.md",
+          "title": "recover",
+          "similarity": 0.534742
+        },
+        {
+          "rank": 4,
+          "source_file": "terraform_docs_selected/language/state/locking.md",
+          "title": "locking",
+          "similarity": 0.508583
+        },
+        {
+          "rank": 5,
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.md",
+          "title": "locking",
+          "similarity": 0.508583
+        }
+      ]
+    },
+    {
+      "query": "terraform modules best practices",
+      "class": "parcial",
+      "max_score": 0.535169,
+      "avg_score": 0.524064,
+      "top1_source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+      "top1_is_incremental": false,
+      "top_k": 5,
+      "incremental_in_top_k_count": 2,
+      "top_k_results": [
+        {
+          "rank": 1,
+          "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+          "title": "structure",
+          "similarity": 0.535169
+        },
+        {
+          "rank": 2,
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+          "title": "structure",
+          "similarity": 0.535169
+        },
+        {
+          "rank": 3,
+          "source_file": "terraform_docs_selected/language/modules/develop/index.md",
+          "title": "index",
+          "similarity": 0.5229
+        },
+        {
+          "rank": 4,
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.md",
+          "title": "structure",
+          "similarity": 0.513545
+        },
+        {
+          "rank": 5,
+          "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+          "title": "structure",
+          "similarity": 0.513535
+        }
+      ]
+    },
+    {
+      "query": "terraform module sources",
+      "class": "parcial",
+      "max_score": 0.554565,
+      "avg_score": 0.540309,
+      "top1_source_file": "terraform_docs_selected/language/modules/sources.md",
+      "top1_is_incremental": false,
+      "top_k": 5,
+      "incremental_in_top_k_count": 2,
+      "top_k_results": [
+        {
+          "rank": 1,
+          "source_file": "terraform_docs_selected/language/modules/sources.md",
+          "title": "sources",
+          "similarity": 0.554565
+        },
+        {
+          "rank": 2,
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md",
+          "title": "sources",
+          "similarity": 0.554541
+        },
+        {
+          "rank": 3,
+          "source_file": "terraform_docs_selected/language/modules/sources.md",
+          "title": "sources",
+          "similarity": 0.532195
+        },
+        {
+          "rank": 4,
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.md",
+          "title": "sources",
+          "similarity": 0.532179
+        },
+        {
+          "rank": 5,
+          "source_file": "terraform_docs_selected/language/modules/index.md",
+          "title": "index",
+          "similarity": 0.528067
+        }
+      ]
+    },
+    {
+      "query": "terraform init plan apply workflow",
+      "class": "parcial",
+      "max_score": 0.512563,
+      "avg_score": 0.492652,
+      "top1_source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+      "top1_is_incremental": true,
+      "top_k": 5,
+      "incremental_in_top_k_count": 2,
+      "top_k_results": [
+        {
+          "rank": 1,
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+          "title": "plan",
+          "similarity": 0.512563
+        },
+        {
+          "rank": 2,
+          "source_file": "terraform_docs_selected/cli/commands/plan.md",
+          "title": "plan",
+          "similarity": 0.512523
+        },
+        {
+          "rank": 3,
+          "source_file": "terraform_docs_selected/cli/state/index.md",
+          "title": "index",
+          "similarity": 0.486359
+        },
+        {
+          "rank": 4,
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+          "title": "plan",
+          "similarity": 0.475921
+        },
+        {
+          "rank": 5,
+          "source_file": "terraform_docs_selected/cli/commands/plan.md",
+          "title": "plan",
+          "similarity": 0.475893
+        }
+      ]
+    }
+  ]
+}

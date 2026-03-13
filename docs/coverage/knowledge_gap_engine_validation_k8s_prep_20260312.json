@@ -1,0 +1,2126 @@
+{
+  "generated_at": "2026-03-12T04:57:57.127942+00:00",
+  "config_path": "/lab/projects/livecopilot/config/auditable_domains.json",
+  "top_k": 5,
+  "thresholds": {
+    "gap_if_max_below": 0.45,
+    "well_covered_if_max_at_least": 0.6,
+    "well_covered_requires_avg_at_least": 0.45
+  },
+  "domains": [
+    {
+      "domain": "terraform",
+      "domain_name": "Terraform",
+      "weight": 1.15,
+      "subthemes": [
+        {
+          "subtheme": "modules",
+          "name": "Modules",
+          "well": 0,
+          "partial": 2,
+          "gap": 0,
+          "avg_max": 0.544805,
+          "avg_avg": 0.519718,
+          "query_count": 2
+        },
+        {
+          "subtheme": "locking",
+          "name": "State locking",
+          "well": 0,
+          "partial": 1,
+          "gap": 0,
+          "avg_max": 0.557261,
+          "avg_avg": 0.512654,
+          "query_count": 1
+        },
+        {
+          "subtheme": "workflow",
+          "name": "Init/Plan/Apply workflow",
+          "well": 1,
+          "partial": 1,
+          "gap": 0,
+          "avg_max": 0.564836,
+          "avg_avg": 0.522861,
+          "query_count": 2
+        },
+        {
+          "subtheme": "remote_state_s3",
+          "name": "Remote state with S3",
+          "well": 2,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.618769,
+          "avg_avg": 0.591781,
+          "query_count": 2
+        },
+        {
+          "subtheme": "state_ops",
+          "name": "State operations",
+          "well": 1,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.624355,
+          "avg_avg": 0.563898,
+          "query_count": 1
+        }
+      ],
+      "total_queries": 8,
+      "well": 4,
+      "partial": 4,
+      "gap": 0,
+      "avg_max": 0.579805,
+      "avg_avg": 0.543159,
+      "priority_score": 34.412,
+      "weak_subthemes": [
+        "locking",
+        "modules"
+      ],
+      "recommended_next_action": "expandir recorte direcionado + persistencia semantica incremental",
+      "rows": [
+        {
+          "query": "terraform aws s3 backend remote state locking",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.633752,
+          "avg_score": 0.616099,
+          "top_source_file": "terraform_docs_selected/language/backend/s3.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/language/backend/s3.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0001::8324d61f",
+              "title": "s3",
+              "similarity": 0.633752,
+              "snippet": "---\npage_title: 'Backend Type: s3'\ndescription: Terraform can store and lock state remotely in Amazon S3.\n# START AUTO GENERATED METADATA, DO NOT EDIT\ncreated_at: 2025-11-19T13:27:"
+            },
+            {
+              "source_file": "terraform_docs_selected/intro/phases/collaborate.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/intro/phases/collaborate.md::c56f46f7fffe::0004::07cde05a",
+              "title": "collaborate",
+              "similarity": 0.629484,
+              "snippet": "Since state files may contain sensitive data, refer to your backend documentation and, if supported, use [state encryption](/well-architected-framework/security/security-sensitive-"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/backend/s3.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0003::34b8675b",
+              "title": "s3",
+              "similarity": 0.610157,
+              "snippet": "### State Locking\n\nState locking is an opt-in feature of the S3 backend.\n\nLocking can be enabled via S3 or DynamoDB. However, **DynamoDB-based locking is deprecated** and will be r"
+            },
+            {
+              "source_file": "terraform_docs_selected/intro/phases/collaborate.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/intro/phases/collaborate.md::c56f46f7fffe::0005::ba15a153",
+              "title": "collaborate",
+              "similarity": 0.606092,
+              "snippet": "As your team grows, you may run into the risk of concurrent operations on state files. If supported by your remote storage solution, use [state locking](/terraform/language/state/l"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/backend/s3.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0002::7cc6a70a",
+              "title": "s3",
+              "similarity": 0.601012,
+              "snippet": "Note that for the access credentials we recommend using a [partial configuration](/terraform/language/backend#partial-configuration).\n\n## State Storage\n\nThe S3 backend stores state"
+            }
+          ],
+          "subtheme": "remote_state_s3"
+        },
+        {
+          "query": "terraform remote state s3",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.603787,
+          "avg_score": 0.567464,
+          "top_source_file": "terraform_docs_selected/language/state/remote.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/language/state/remote.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/remote.md::9a49809ee062::0001::a2f97fe8",
+              "title": "remote",
+              "similarity": 0.603787,
+              "snippet": "---\npage_title: 'State: Remote Storage'\ndescription: >-\nTerraform can store the state remotely, making it easier to version and work\nwith in a team.\n# START AUTO GENERATED METADATA"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/backend/s3.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0001::8324d61f",
+              "title": "s3",
+              "similarity": 0.567124,
+              "snippet": "---\npage_title: 'Backend Type: s3'\ndescription: Terraform can store and lock state remotely in Amazon S3.\n# START AUTO GENERATED METADATA, DO NOT EDIT\ncreated_at: 2025-11-19T13:27:"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/backend/s3.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/s3.md::cdb24811f6e2::0008::c003c8cd",
+              "title": "s3",
+              "similarity": 0.561954,
+              "snippet": "* `dynamodb:DescribeTable`\n* `dynamodb:GetItem`\n* `dynamodb:PutItem`\n* `dynamodb:DeleteItem`\n\nThis is seen in the following AWS IAM Statement:\n\n```json\n{\n\"Version\": \"2012-10-17\",\n\""
+            },
+            {
+              "source_file": "terraform_docs_selected/language/state/remote.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/remote.md::9a49809ee062::0002::f237b030",
+              "title": "remote",
+              "similarity": 0.553094,
+              "snippet": "## Delegation and Teamwork\n\nRemote state allows you to share\n[output values](/terraform/language/block/output) with other configurations.\nThis allows your infrastructure to be deco"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/state/purpose.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/purpose.md::edee54fda47d::0008::a0554489",
+              "title": "purpose",
+              "similarity": 0.551359,
+              "snippet": "In the default configuration, Terraform stores the state in a file in the\ncurrent working directory where Terraform was run. This is okay for getting\nstarted, but when using Terraf"
+            }
+          ],
+          "subtheme": "remote_state_s3"
+        },
+        {
+          "query": "terraform force unlock",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.557261,
+          "avg_score": 0.512654,
+          "top_source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/force-unlock.md::3ee565f42baf::0001::9b567c89",
+              "title": "force unlock",
+              "similarity": 0.557261,
+              "snippet": "---\npage_title: terraform force-unlock command reference\ndescription: >-\nThe `terraform force-unlock` command unlocks the state for a configuration. It\ndoes not modify your infrast"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/state/recover.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/state/recover.md::ee8de2c1c043::0002::4d5f2c83",
+              "title": "recover",
+              "similarity": 0.534742,
+              "snippet": "Refer to the [`terraform force-unlock` command](/terraform/cli/commands/force-unlock) documentation for additional information.\n\n1. **Read state data**: Run the [`terraform state p"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/state/locking.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/locking.md::ad82490017da::0002::0bd0dde7",
+              "title": "locking",
+              "similarity": 0.508583,
+              "snippet": "Not all backends support locking. The\n[documentation for each backend](/terraform/language/backend)\nincludes details on whether it supports locking or not.\n\n## Force Unlock\n\nTerraf"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/state/locking.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/locking.md::ad82490017da::0001::c1a1740d",
+              "title": "locking",
+              "similarity": 0.483748,
+              "snippet": "---\npage_title: 'State: Locking'\ndescription: >-\nTerraform stores state which caches the known state of the world the last time\nTerraform ran.\n# START AUTO GENERATED METADATA, DO N"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/commands/force-unlock.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/force-unlock.md::3ee565f42baf::0002::3e813595",
+              "title": "force unlock",
+              "similarity": 0.478936,
+              "snippet": "Options:\n\n- `-force` - Don't ask for input for unlock confirmation."
+            }
+          ],
+          "subtheme": "locking"
+        },
+        {
+          "query": "terraform state mv",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.624355,
+          "avg_score": 0.563898,
+          "top_source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0004::f59a55a4",
+              "title": "mv",
+              "similarity": 0.624355,
+              "snippet": "The most common uses for `terraform state mv` are when you have renamed a\nresource block in your configuration or you've moved a resource block into\na child module, in both cases w"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0001::e12f042f",
+              "title": "mv",
+              "similarity": 0.568116,
+              "snippet": "---\npage_title: terraform state mv command reference\ndescription: >-\nThe `terraform state mv` command changes bindings in Terraform state so that existing remote objects bind to ne"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0003::645c48da",
+              "title": "mv",
+              "similarity": 0.555023,
+              "snippet": "Both the source and destination addresses must use\n[resource address syntax](/terraform/cli/state/resource-addressing), and\nthey must both refer to the same kind of object: you can"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/state/move.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/state/move.md::b45ede245798::0003::28372afd",
+              "title": "move",
+              "similarity": 0.541532,
+              "snippet": "- [The `terraform state mv` command](/terraform/cli/commands/state/mv) changes\nwhich resource address in your configuration is associated with a particular\nreal-world object. Use t"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/commands/state/mv.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/state/mv.md::cd7cb504869a::0006::095d05d8",
+              "title": "mv",
+              "similarity": 0.530465,
+              "snippet": "For configurations using the [HCP Terraform CLI integration](/terraform/cli/cloud) or the [`remote` backend](/terraform/language/backend/remote)\nonly, `terraform state mv`\nalso acc"
+            }
+          ],
+          "subtheme": "state_ops"
+        },
+        {
+          "query": "terraform modules best practices",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.535128,
+          "avg_score": 0.511451,
+          "top_source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0007::d8af2315",
+              "title": "structure",
+              "similarity": 0.535128,
+              "snippet": "* **Nested modules**. Nested modules should exist under the `modules/`\nsubdirectory. Any nested module with a `README.md` is considered usable\nby an external user. If a README does"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/develop/index.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/index.md::ef5233aa30a1::0004::57484b6b",
+              "title": "index",
+              "similarity": 0.52286,
+              "snippet": "## When to write a module\n\nIn principle any combination of resources and other constructs can be factored\nout into a module, but over-using modules can make your overall Terraform\n"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0008::f28813d4",
+              "title": "structure",
+              "similarity": 0.513523,
+              "snippet": "If the root module includes calls to nested modules, they should use relative\npaths like `./modules/consul-cluster` so that Terraform will consider them\nto be part of the same repo"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0002::0064560a",
+              "title": "structure",
+              "similarity": 0.501444,
+              "snippet": "The standard module structure expects the layout documented below. The list may\nappear long, but everything is optional except for the root module. Most modules\ndon't need to do an"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/develop/structure.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/structure.md::e6417b0a2436::0001::f5ee58bc",
+              "title": "structure",
+              "similarity": 0.4843,
+              "snippet": "---\npage_title: Standard Module Structure\ndescription: >-\nLearn about the recommended file and directory structure for developing reusable modules distributed as separate repositor"
+            }
+          ],
+          "subtheme": "modules"
+        },
+        {
+          "query": "terraform module sources",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.554481,
+          "avg_score": 0.527985,
+          "top_source_file": "terraform_docs_selected/language/modules/sources.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/language/modules/sources.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/sources.md::5162fded697b::0001::ae064176",
+              "title": "sources",
+              "similarity": 0.554481,
+              "snippet": "---\npage_title: Module Sources\ndescription: >-\nThe source argument tells Terraform where to find child modules's\nconfigurations in locations like GitHub, the Terraform Registry, Bi"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/sources.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/sources.md::5162fded697b::0003::30530e69",
+              "title": "sources",
+              "similarity": 0.53215,
+              "snippet": "Many of the source types will make use of \"ambient\" credentials available\nwhen Terraform is run, such as from environment variables or credentials files\nin your home directory. Thi"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/index.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/index.md::142cfeebd75a::0003::fb310480",
+              "title": "index",
+              "similarity": 0.52802,
+              "snippet": "### Sources\n\nTerraform can load modules from multiple sources, including the local file system, a Terraform registry, and VCS repositories.\n\nThe public [Terraform registry](https:/"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/sources.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/sources.md::5162fded697b::0002::d10dd568",
+              "title": "sources",
+              "similarity": 0.522421,
+              "snippet": "- [Local paths](#local-paths)\n\n- [Terraform Registry](#terraform-registry)\n\n- [GitHub](#github)\n\n- [Bitbucket](#bitbucket)\n\n- Generic [Git](#generic-git-repository), [Mercurial](#g"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/modules/develop/publish.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/publish.md::c33064721898::0002::60051845",
+              "title": "publish",
+              "similarity": 0.502853,
+              "snippet": "If you do not wish to publish your modules in the public registry, you can\ninstead use a [private registry](/terraform/registry/private) to get\nthe same benefits.\n\nWe welcome contr"
+            }
+          ],
+          "subtheme": "modules"
+        },
+        {
+          "query": "terraform init plan apply workflow",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.512523,
+          "avg_score": 0.481542,
+          "top_source_file": "terraform_docs_selected/cli/commands/plan.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/cli/commands/plan.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/plan.md::ef9e9012f797::0003::bc50aa4e",
+              "title": "plan",
+              "similarity": 0.512523,
+              "snippet": "If Terraform detects that no changes are needed to resource instances or to\nroot module output values, `terraform plan` will report that no actions need\nto be taken.\n\nIf you are us"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/state/index.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/state/index.md::4a066a3e48b8::0002::56a954f6",
+              "title": "index",
+              "similarity": 0.486359,
+              "snippet": "## Workflow\n\nModifying state data outside of normal `terraform plan` or `terraform apply` operations can cause Terraform to lose track of managed resources, leading to increased co"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/commands/plan.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/plan.md::ef9e9012f797::0007::76df9fce",
+              "title": "plan",
+              "similarity": 0.475893,
+              "snippet": "The previous section describes Terraform's default planning behavior, which\nchanges the remote system to match the changes you make to\nyour configuration. Terraform has two alterna"
+            },
+            {
+              "source_file": "terraform_docs_selected/cli/commands/apply.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/apply.md::4fa476a0fd3e::0002::3fa863f3",
+              "title": "apply",
+              "similarity": 0.469085,
+              "snippet": "## Usage\n\nUsage: `terraform apply [options] [plan file]`\n\n### Automatic Plan Mode\n\nWhen you run `terraform apply` without passing a saved plan file, Terraform automatically creates"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/backend/index.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/index.md::a0d9e5a6a9d0::0006::8a6f3f21",
+              "title": "index",
+              "similarity": 0.463848,
+              "snippet": "Terraform writes the backend configuration in plain text in two separate files.\n- The `.terraform/terraform.tfstate` file contains the backend configuration for the current working"
+            }
+          ],
+          "subtheme": "workflow"
+        },
+        {
+          "query": "terraform workspace vs backend",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.61715,
+          "avg_score": 0.56418,
+          "top_source_file": "terraform_docs_selected/language/state/workspaces.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "terraform_docs_selected/language/state/workspaces.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/workspaces.md::a56f4877d390::0003::b407828d",
+              "title": "workspaces",
+              "similarity": 0.61715,
+              "snippet": "## Backends Supporting Multiple Workspaces\n\nYou can use multiple workspaces with the following backends:\n\n- [AzureRM](/terraform/language/backend/azurerm)\n- [Consul](/terraform/lan"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/state/workspaces.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/workspaces.md::a56f4877d390::0002::414e8f30",
+              "title": "workspaces",
+              "similarity": 0.609786,
+              "snippet": "The persistent data stored in the backend belongs to a workspace. The backend initially has only one workspace containing one Terraform state associated with that configuration. So"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/state/workspaces.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/state/workspaces.md::a56f4877d390::0001::0fbd76a0",
+              "title": "workspaces",
+              "similarity": 0.545749,
+              "snippet": "---\npage_title: 'State: Workspaces'\ndescription: >-\nWorkspaces allow the use of multiple states with a single configuration\ndirectory.\n# START AUTO GENERATED METADATA, DO NOT EDIT\n"
+            },
+            {
+              "source_file": "terraform_docs_selected/language/backend/remote.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/remote.md::22662f8d36d8::0004::6ecf2056",
+              "title": "remote",
+              "similarity": 0.526018,
+              "snippet": "The backend configuration requires either `name` or `prefix`. Omitting both or\nsetting both results in a configuration error.\n\nIf previous state is present when you run `terraform "
+            },
+            {
+              "source_file": "terraform_docs_selected/language/backend/remote.md",
+              "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/remote.md::22662f8d36d8::0007::c3d70964",
+              "title": "remote",
+              "similarity": 0.522199,
+              "snippet": "```hcl\noutput \"current_workspace_name\" {\nvalue = terraform.workspace\n}\n\nvariable \"HCP_TERRAFORM_RUN_ID\" {\ntype = string\ndefault = \"\"\n}\n\noutput \"remote_execution_determine\" {\nvalue "
+            }
+          ],
+          "subtheme": "workflow"
+        }
+      ]
+    },
+    {
+      "domain": "observability",
+      "domain_name": "Observability",
+      "weight": 1.1,
+      "subthemes": [
+        {
+          "subtheme": "alertmanager",
+          "name": "Alertmanager routing",
+          "well": 0,
+          "partial": 1,
+          "gap": 0,
+          "avg_max": 0.547796,
+          "avg_avg": 0.531958,
+          "query_count": 1
+        },
+        {
+          "subtheme": "prometheus_config",
+          "name": "Prometheus config and rules",
+          "well": 2,
+          "partial": 1,
+          "gap": 0,
+          "avg_max": 0.60538,
+          "avg_avg": 0.540871,
+          "query_count": 3
+        },
+        {
+          "subtheme": "promql",
+          "name": "PromQL",
+          "well": 0,
+          "partial": 1,
+          "gap": 0,
+          "avg_max": 0.573074,
+          "avg_avg": 0.486905,
+          "query_count": 1
+        },
+        {
+          "subtheme": "grafana_alerting",
+          "name": "Grafana alerting",
+          "well": 1,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.653155,
+          "avg_avg": 0.622207,
+          "query_count": 1
+        },
+        {
+          "subtheme": "grafana_datasource_dashboards",
+          "name": "Grafana datasource and dashboards",
+          "well": 2,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.675023,
+          "avg_avg": 0.6516,
+          "query_count": 2
+        }
+      ],
+      "total_queries": 8,
+      "well": 5,
+      "partial": 3,
+      "gap": 0,
+      "avg_max": 0.617526,
+      "avg_avg": 0.57086,
+      "priority_score": 22.688,
+      "weak_subthemes": [
+        "alertmanager",
+        "promql"
+      ],
+      "recommended_next_action": "expandir recorte direcionado + persistencia semantica incremental",
+      "rows": [
+        {
+          "query": "prometheus scrape_configs relabel_configs example",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.465269,
+          "avg_score": 0.445503,
+          "top_source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0001::9662028e",
+              "title": "index",
+              "similarity": 0.465269,
+              "snippet": "---\naliases:\n- ../data-sources/prometheus/\n- ../features/datasources/prometheus/\ndescription: Guide for using Prometheus in Grafana\nkeywords:\n- grafana\n- prometheus\n- guide\nlabels:"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/configuration/configuration.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/configuration.md::2028dc2481b5::0006::db1056b8",
+              "title": "configuration",
+              "similarity": 0.45331,
+              "snippet": "# How long until a scrape request times out.\n# It cannot be greater than the scrape interval.\n[ scrape_timeout: <duration> | default = 10s ]\n\n# The protocols to negotiate during a "
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md::017167823c03::0001::baecc33c",
+              "title": "index",
+              "similarity": 0.439104,
+              "snippet": "---\naliases:\n- ../data-sources/prometheus/\n- ../features/datasources/prometheus/\ndescription: Guide for configuring Prometheus in Grafana\nkeywords:\n- grafana\n- prometheus\n- guide\nl"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/configuration/configuration.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/configuration.md::2028dc2481b5::0007::ad934c49",
+              "title": "configuration",
+              "similarity": 0.436186,
+              "snippet": "# How frequently to evaluate rules.\n[ evaluation_interval: <duration> | default = 1m ]\n\n# Offset the rule evaluation timestamp of this particular group by the\n# specified duration "
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0003::ea34ca81",
+              "title": "http sd",
+              "similarity": 0.433648,
+              "snippet": "Prometheus caches target lists. If an error occurs while fetching an updated\ntargets list, Prometheus keeps using the current targets list. The targets list\nis not saved across res"
+            }
+          ],
+          "subtheme": "prometheus_config"
+        },
+        {
+          "query": "prometheus recording rules and alerting rules",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.675797,
+          "avg_score": 0.649637,
+          "top_source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/alerting_rules.md::92085dedf36a::0001::3e75e016",
+              "title": "alerting rules",
+              "similarity": 0.675797,
+              "snippet": "---\ntitle: Alerting rules\nsort_rank: 3\n---\n\nAlerting rules allow you to define alert conditions based on Prometheus\nexpression language expressions and to send notifications about "
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/recording_rules.md::7d9a9264340a::0001::30684486",
+              "title": "recording rules",
+              "similarity": 0.668362,
+              "snippet": "---\ntitle: Defining recording rules\nnav_title: Recording rules\nsort_rank: 2\n---\n\n## Configuring rules\n\nPrometheus supports two types of rules which may be configured and then\nevalu"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/recording_rules.md::7d9a9264340a::0004::01396e82",
+              "title": "recording rules",
+              "similarity": 0.649884,
+              "snippet": "rules:\n[ - <rule> ... ]\n```\n\n### `<rule>`\n\nThe syntax for recording rules is:\n\n```yaml\n# The name of the time series to output to. Must be a valid metric name.\nrecord: <string>\n\n# "
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/alerting_rules.md::92085dedf36a::0007::20a04585",
+              "title": "alerting rules",
+              "similarity": 0.642884,
+              "snippet": "## Sending alert notifications\n\nPrometheus's alerting rules are good at figuring what is broken *right now*, but\nthey are not a fully-fledged notification solution. Another layer i"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/alerting_rules.md::92085dedf36a::0003::1991fac4",
+              "title": "alerting rules",
+              "similarity": 0.611258,
+              "snippet": "The optional `for` clause causes Prometheus to wait for a certain duration\nbetween first encountering a new expression output vector element and counting\nan alert as firing for thi"
+            }
+          ],
+          "subtheme": "prometheus_config"
+        },
+        {
+          "query": "prometheus service discovery http_sd kubernetes",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.675074,
+          "avg_score": 0.527472,
+          "top_source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0001::f8f16dda",
+              "title": "http sd",
+              "similarity": 0.675074,
+              "snippet": "---\ntitle: Writing HTTP service discovery\nnav_title: HTTP SD\nsort_rank: 7\n---\n\nPrometheus provides a generic [HTTP Service Discovery](https://prometheus.io/docs/prometheus/latest/c"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0003::ea34ca81",
+              "title": "http sd",
+              "similarity": 0.554968,
+              "snippet": "Prometheus caches target lists. If an error occurs while fetching an updated\ntargets list, Prometheus keeps using the current targets list. The targets list\nis not saved across res"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0002::03f99af4",
+              "title": "http sd",
+              "similarity": 0.496943,
+              "snippet": "## Requirements of HTTP SD endpoints\n\nIf you implement an HTTP SD endpoint, here are a few requirements you should be\naware of.\n\nThe response is consumed as is, unmodified. On each"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/http_sd.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/http_sd.md::cdb9e649b65d::0004::7678fa20",
+              "title": "http sd",
+              "similarity": 0.482293,
+              "snippet": "## HTTP_SD format\n\n```json\n[\n{\n\"targets\": [ \"<host>\", ... ],\n\"labels\": {\n\"<labelname>\": \"<labelvalue>\", ...\n}\n},\n...\n]\n```\n\nExamples:\n\n```json\n[\n{\n\"targets\": [\"10.0.10.2:9100\", \"10"
+            },
+            {
+              "source_file": "data/raw_review/ckad_exercises_modules/i.crd.md",
+              "chunk_id": "semantic-api-9d1041f3-3",
+              "title": "## CRD in K8s",
+              "similarity": 0.428084,
+              "snippet": "## CRD in K8s"
+            }
+          ],
+          "subtheme": "prometheus_config"
+        },
+        {
+          "query": "promql rate sum by instance",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.573074,
+          "avg_score": 0.486905,
+          "top_source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/examples.md::620dc4a03e29::0003::1782019f",
+              "title": "examples",
+              "similarity": 0.573074,
+              "snippet": "sum by (job) (\nrate(http_requests_total[5m])\n)\n\nIf we have two different metrics with the same dimensional labels, we can apply\nbinary operators to them and elements on both sides "
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/template-variables/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/template-variables/_index.md::09acd9e19b4e::0007::f4732863",
+              "title": "index",
+              "similarity": 0.530563,
+              "snippet": "```\nquery_result(topk(5, sum(rate(http_requests_total[$__range])) by (instance)))\nRegex: /\"([^\"]+)\"/\n```\n\nPopulate a variable with the instances having a certain state over the tim"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/examples.md::620dc4a03e29::0004::994bea49",
+              "title": "examples",
+              "similarity": 0.46781,
+              "snippet": "instance_cpu_time_ns{app=\"lion\", proc=\"web\", rev=\"34d0f99\", env=\"prod\", job=\"cluster-manager\"}\ninstance_cpu_time_ns{app=\"elephant\", proc=\"worker\", rev=\"34d0f99\", env=\"prod\", job=\"c"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/querying/basics.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/basics.md::de1194d5db88::0001::2e4949b0",
+              "title": "basics",
+              "similarity": 0.434878,
+              "snippet": "---\ntitle: Querying basics\nnav_title: Basics\nsort_rank: 1\n---\n\nPrometheus provides a functional query language called PromQL (Prometheus Query\nLanguage) that lets the user select a"
+            },
+            {
+              "source_file": "observability_docs_selected/prometheus/docs/querying/examples.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/querying/examples.md::620dc4a03e29::0002::7c86a48a",
+              "title": "examples",
+              "similarity": 0.428199,
+              "snippet": "http_requests_total{job=~\".*server\"}\n\nTo select all HTTP status codes except 4xx ones, you could run:\n\nhttp_requests_total{status!~\"4..\"}\n\n## Subquery\n\nReturn the 5-minute [rate](."
+            }
+          ],
+          "subtheme": "promql"
+        },
+        {
+          "query": "grafana prometheus datasource configuration",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.661753,
+          "avg_score": 0.635502,
+          "top_source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md::017167823c03::0002::b6928443",
+              "title": "index",
+              "similarity": 0.661753,
+              "snippet": "- Know which type of Prometheus-compatible database you're connecting to (Prometheus, Mimir, Cortex, or Thanos), as the configuration options vary by type.\n\n- Have your Prometheus "
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0001::9662028e",
+              "title": "index",
+              "similarity": 0.655732,
+              "snippet": "---\naliases:\n- ../data-sources/prometheus/\n- ../features/datasources/prometheus/\ndescription: Guide for using Prometheus in Grafana\nkeywords:\n- grafana\n- prometheus\n- guide\nlabels:"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/configure/_index.md::017167823c03::0001::baecc33c",
+              "title": "index",
+              "similarity": 0.636548,
+              "snippet": "---\naliases:\n- ../data-sources/prometheus/\n- ../features/datasources/prometheus/\ndescription: Guide for configuring Prometheus in Grafana\nkeywords:\n- grafana\n- prometheus\n- guide\nl"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0005::449f9148",
+              "title": "index",
+              "similarity": 0.61618,
+              "snippet": "## Get the most out of the Prometheus data source\n\nAfter you install and configure Prometheus you can:\n\n- Create a wide variety of [visualizations](https://grafana.com/docs/grafana"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/datasources/prometheus/_index.md::ba1c2f85cf9d::0004::06b7d8d3",
+              "title": "index",
+              "similarity": 0.607296,
+              "snippet": "1. Navigate to the Prometheus [configuration page](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/datasources/prometheus/configure).\n1. Click the **Dashboards** tab.\n1. Locate "
+            }
+          ],
+          "subtheme": "grafana_datasource_dashboards"
+        },
+        {
+          "query": "grafana dashboard variables template variables",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.688293,
+          "avg_score": 0.667698,
+          "top_source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md::5956212bc191::0006::abb5246c",
+              "title": "index",
+              "similarity": 0.688293,
+              "snippet": "## Additional examples\n\nThe following dashboards in Grafana Play provide examples of template variables:\n\n- [Templating - Repeated panels](https://play.grafana.org/goto/yfZOReUNR?o"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md::f0c5364e797e::0004::0958760d",
+              "title": "index",
+              "similarity": 0.666351,
+              "snippet": "can add to dashboards and how\nweight: 100\nrefs:\nadd:\n- pattern: /docs/grafana/\ndestination: /docs/grafana/<GRAFANA_VERSION>/dashboards/variables/add-template-variables/\n- pattern: "
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/add-template-variables/index.md::f0c5364e797e::0003::38ddfa8a",
+              "title": "index",
+              "similarity": 0.662836,
+              "snippet": "a-source-variable/\n- ../../../variables/variable-types/add-interval-variable/ # /docs/grafana/next/variables/variable-types/add-interval-variable/\n- ../../../variables/variable-typ"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md::5956212bc191::0005::55801886",
+              "title": "index",
+              "similarity": 0.661635,
+              "snippet": "```text\nhttps://play.grafana.org/d/HYaGDGIMk/templating-global-variables-and-interpolation?orgId=1&from=now-6h&to=now&timezone=utc&var-Server=CCC&var-MyCustomDashboardVariable=Hell"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/visualizations/dashboards/variables/_index.md::5956212bc191::0003::2855d83a",
+              "title": "index",
+              "similarity": 0.659376,
+              "snippet": "{{< youtube id=\"mMUJ3iwIYwc\" >}}\n\nYou can use variables in:\n\n- Data source queries\n- [Panel repeating options](https://grafana.com/docs/grafana/<GRAFANA_VERSION>/panels-visualizati"
+            }
+          ],
+          "subtheme": "grafana_datasource_dashboards"
+        },
+        {
+          "query": "grafana alerting provisioning contact points",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.653155,
+          "avg_score": 0.622207,
+          "top_source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md::84c3b2939eab::0001::b338cf98",
+              "title": "index",
+              "similarity": 0.653155,
+              "snippet": "---\ncanonical: https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/\ndescription: Create and manage resources using file provision"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/provision-alerting-resources/file-provisioning/index.md::84c3b2939eab::0002::13c29e9e",
+              "title": "index",
+              "similarity": 0.640937,
+              "snippet": ": /docs/grafana-cloud/alerting-and-irm/alerting/set-up/provision-alerting-resources/export-alerting-resources/#export-alert-rules\nexport_contact_points:\n- pattern: /docs/grafana/\nd"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md::1e0cd8a6bedc::0002::45833e47",
+              "title": "index",
+              "similarity": 0.617477,
+              "snippet": "grafana/<GRAFANA_VERSION>/alerting/alerting-rules/create-grafana-managed-rule/#configure-notifications\n- pattern: /docs/grafana-cloud/\ndestination: /docs/grafana-cloud/alerting-and"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-notification-policy.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-notification-policy.md::4db335b2817d::0002::34083f99",
+              "title": "create notification policy",
+              "similarity": 0.605056,
+              "snippet": "ture\n- pattern: /docs/grafana-cloud/\ndestination: /docs/grafana-cloud/alerting-and-irm/alerting/configure-notifications/#alertmanager-architecture\nintro-notification-policies:\n- pa"
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md::1e0cd8a6bedc::0007::7d6088cb",
+              "title": "index",
+              "similarity": 0.594411,
+              "snippet": "Alertmanagers should be configured as data sources using Grafana Configuration from the main Grafana navigation menu. To add an Alertmanager, complete the following steps.\n\n{{< doc"
+            }
+          ],
+          "subtheme": "grafana_alerting"
+        },
+        {
+          "query": "alertmanager route receivers grouping inhibition silences templates",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.547796,
+          "avg_score": 0.531958,
+          "top_source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-silence.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-silence.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/create-silence.md::4e3dbeb4ffd4::0002::906766c8",
+              "title": "create silence",
+              "similarity": 0.547796,
+              "snippet": "e: Configure silences\nweight: 440\nrefs:\nconfigure-alertmanager:\n- pattern: /docs/grafana/\ndestination: /docs/grafana/<GRAFANA_VERSION>/alerting/set-up/configure-alertmanager/\n- pat"
+            },
+            {
+              "source_file": "observability_docs_selected/alertmanager/docs/notification_examples.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/notification_examples.md::fe1d7d47dfe0::0002::22e9b3ee",
+              "title": "notification examples",
+              "similarity": 0.53757,
+              "snippet": "Alert\n\n```\ngroups:\n- name: Instances\nrules:\n- alert: InstanceDown\nexpr: up == 0\nfor: 5m\nlabels:\nseverity: page\n# Prometheus templates apply here in the annotation and label fields "
+            },
+            {
+              "source_file": "observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/inhibition-rules.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/configure-notifications/inhibition-rules.md::3787a4ab38d9::0002::ddfb40d1",
+              "title": "inhibition rules",
+              "similarity": 0.531849,
+              "snippet": "te-silence/\nalertmanager-architecture:\n- pattern: /docs/grafana/\ndestination: /docs/grafana/<GRAFANA_VERSION>/alerting/configure-notifications/#alertmanager-architecture\n- pattern:"
+            },
+            {
+              "source_file": "observability_docs_selected/alertmanager/docs/alertmanager.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/alertmanager.md::6fda2c11cd14::0002::264b1197",
+              "title": "alertmanager",
+              "similarity": 0.525934,
+              "snippet": "**Example:** Dozens or hundreds of instances of a service are running in your\ncluster when a network partition occurs. Half of your service instances\ncan no longer reach the databa"
+            },
+            {
+              "source_file": "observability_docs_selected/alertmanager/docs/alertmanager.md",
+              "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/alertmanager.md::6fda2c11cd14::0003::0792e0f4",
+              "title": "alertmanager",
+              "similarity": 0.516641,
+              "snippet": "## Inhibition\n\nInhibition is a concept of suppressing notifications for certain alerts if\ncertain other alerts are already firing.\n\n**Example:** An alert is firing that informs tha"
+            }
+          ],
+          "subtheme": "alertmanager"
+        }
+      ]
+    },
+    {
+      "domain": "docker",
+      "domain_name": "Docker",
+      "weight": 1.05,
+      "subthemes": [
+        {
+          "subtheme": "security",
+          "name": "Security and hardening",
+          "well": 0,
+          "partial": 2,
+          "gap": 0,
+          "avg_max": 0.518911,
+          "avg_avg": 0.492631,
+          "query_count": 2
+        },
+        {
+          "subtheme": "build_cache",
+          "name": "Build cache and BuildKit",
+          "well": 2,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.628905,
+          "avg_avg": 0.556336,
+          "query_count": 2
+        },
+        {
+          "subtheme": "build_multistage",
+          "name": "Multi-stage build",
+          "well": 1,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.657928,
+          "avg_avg": 0.577708,
+          "query_count": 1
+        },
+        {
+          "subtheme": "networking",
+          "name": "Networking drivers",
+          "well": 1,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.62078,
+          "avg_avg": 0.569162,
+          "query_count": 1
+        },
+        {
+          "subtheme": "storage",
+          "name": "Volumes and storage drivers",
+          "well": 2,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.639453,
+          "avg_avg": 0.535626,
+          "query_count": 2
+        }
+      ],
+      "total_queries": 8,
+      "well": 6,
+      "partial": 2,
+      "gap": 0,
+      "avg_max": 0.606656,
+      "avg_avg": 0.539507,
+      "priority_score": 14.438,
+      "weak_subthemes": [
+        "security"
+      ],
+      "recommended_next_action": "expandir recorte direcionado + persistencia semantica incremental",
+      "rows": [
+        {
+          "query": "docker multi stage build best practices",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.657928,
+          "avg_score": 0.577708,
+          "top_source_file": "docker_docs_selected/content/manuals/build/building/multi-stage.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/building/multi-stage.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/multi-stage.md::0b36c21cda1b::0001::2347a91e",
+              "title": "multi stage",
+              "similarity": 0.657928,
+              "snippet": "---\ntitle: Multi-stage builds\nlinkTitle: Multi-stage\nweight: 10\ndescription: |\nLearn about multi-stage builds and how you can use\nthem to improve your builds and get smaller images"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/best-practices.md::0aad9a6cecbb::0002::11841eb8",
+              "title": "best practices",
+              "similarity": 0.625267,
+              "snippet": "See [Multi-stage builds](/manuals/build/building/multi-stage.md) for more\ninformation.\n\n### Create reusable stages\n\nIf you have multiple images with a lot in common, consider creat"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/best-practices.md::0aad9a6cecbb::0001::cbf94334",
+              "title": "best practices",
+              "similarity": 0.623408,
+              "snippet": "---\ntitle: Building best practices\nlinkTitle: Best practices\nweight: 70\ndescription: Hints, tips and guidelines for writing clean, reliable Dockerfiles\nkeywords: base images, docke"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/optimize.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/optimize.md::2fbc0606377e::0001::3ea1d26c",
+              "title": "optimize",
+              "similarity": 0.491946,
+              "snippet": "---\ntitle: Optimize cache usage in builds\ndescription: An overview on how to optimize cache utilization in Docker builds.\nkeywords: build, buildkit, buildx, guide, tutorial, mounts"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/building/multi-platform.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/multi-platform.md::dc2ddf177f5b::0001::e5463690",
+              "title": "multi platform",
+              "similarity": 0.489991,
+              "snippet": "---\ntitle: Multi-platform builds\nlinkTitle: Multi-platform\nweight: 40\ndescription: Introduction to what multi-platform builds are and how to execute them using Docker Buildx.\nkeywo"
+            }
+          ],
+          "subtheme": "build_multistage"
+        },
+        {
+          "query": "docker build cache",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.618624,
+          "avg_score": 0.582821,
+          "top_source_file": "docker_docs_selected/content/manuals/build/cache/_index.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/_index.md::11ca5f093360::0001::4c437cbe",
+              "title": "index",
+              "similarity": 0.618624,
+              "snippet": "---\ntitle: Docker build cache\nlinkTitle: Cache\nweight: 60\ndescription: Improve your build speed with effective use of the build cache\nkeywords: build, buildx, buildkit, dockerfile,"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/optimize.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/optimize.md::2fbc0606377e::0001::3ea1d26c",
+              "title": "optimize",
+              "similarity": 0.598713,
+              "snippet": "---\ntitle: Optimize cache usage in builds\ndescription: An overview on how to optimize cache utilization in Docker builds.\nkeywords: build, buildkit, buildx, guide, tutorial, mounts"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/backends/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/backends/_index.md::0611afc9160c::0001::1174b177",
+              "title": "index",
+              "similarity": 0.576079,
+              "snippet": "---\ntitle: Cache storage backends\ndescription: |\nCache backends let you manage your build cache externally.\nExternal cache is useful to create a shared cache that can help\nspeed up"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/backends/gha.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/backends/gha.md::b5d9d36ee2d5::0001::b6881f2c",
+              "title": "gha",
+              "similarity": 0.570306,
+              "snippet": "---\ntitle: GitHub Actions cache\ndescription: Use the GitHub Actions cache to manage your build cache in CI\nkeywords: build, buildx, cache, backend, gha, github, actions\naliases:\n- "
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/invalidation.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/invalidation.md::737fdc7bfb24::0001::77ac3d41",
+              "title": "invalidation",
+              "similarity": 0.550381,
+              "snippet": "---\ntitle: Build cache invalidation\ndescription: Dig into the details about how cache invalidation works for Docker's build cache\nkeywords: build, buildx, buildkit, cache, invalida"
+            }
+          ],
+          "subtheme": "build_cache"
+        },
+        {
+          "query": "docker buildkit",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.639186,
+          "avg_score": 0.529851,
+          "top_source_file": "docker_docs_selected/content/manuals/build/buildkit/_index.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/buildkit/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/buildkit/_index.md::fd6a61970d84::0001::463699a6",
+              "title": "index",
+              "similarity": 0.639186,
+              "snippet": "---\ntitle: BuildKit\nweight: 100\ndescription: Introduction and overview of BuildKit\nkeywords: build, buildkit\n---\n\n## Overview\n\n[BuildKit](https://github.com/moby/buildkit)\nis an im"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/buildkit/configure.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/buildkit/configure.md::29841432876e::0001::a1185e71",
+              "title": "configure",
+              "similarity": 0.567734,
+              "snippet": "---\ntitle: Configure BuildKit\ndescription: Learn how to configure BuildKit for your builder.\nkeywords: build, buildkit, configuration, buildx, network, cni, registry\n---\n\nIf you cr"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/building/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/_index.md::d517aef2dd84::0001::c3c1cef2",
+              "title": "index",
+              "similarity": 0.485141,
+              "snippet": "---\nbuild:\nrender: never\ntitle: Building\nweight: 20\n---"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/optimize.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/optimize.md::2fbc0606377e::0001::3ea1d26c",
+              "title": "optimize",
+              "similarity": 0.479689,
+              "snippet": "---\ntitle: Optimize cache usage in builds\ndescription: An overview on how to optimize cache utilization in Docker builds.\nkeywords: build, buildkit, buildx, guide, tutorial, mounts"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/cache/garbage-collection.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/cache/garbage-collection.md::edcb56521a6e::0001::542fb636",
+              "title": "garbage collection",
+              "similarity": 0.477506,
+              "snippet": "---\ntitle: Build garbage collection\ndescription: Learn about garbage collection in the BuildKit daemon\nkeywords: build, buildx, buildkit, garbage collection, prune, gc\naliases:\n- /"
+            }
+          ],
+          "subtheme": "build_cache"
+        },
+        {
+          "query": "docker networking bridge host overlay",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.62078,
+          "avg_score": 0.569162,
+          "top_source_file": "docker_docs_selected/content/manuals/engine/network/drivers/overlay.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/overlay.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/overlay.md::3e27ed031293::0001::e022cd7e",
+              "title": "overlay",
+              "similarity": 0.62078,
+              "snippet": "---\ntitle: Overlay network driver\ndescription: All about using overlay networks\nkeywords: network, overlay, user-defined, swarm, service\naliases:\n- /config/containers/overlay/\n- /e"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/bridge.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/bridge.md::b5e01f6afe26::0001::aaec60e5",
+              "title": "bridge",
+              "similarity": 0.58357,
+              "snippet": "---\ntitle: Bridge network driver\ndescription: All about using user-defined bridge networks and the default bridge\nkeywords: network, bridge, user-defined, standalone\naliases:\n- /co"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/_index.md::abac47b03d7e::0001::057a07ee",
+              "title": "index",
+              "similarity": 0.578826,
+              "snippet": "---\ntitle: Network drivers\nweight: 20\ndescription: Learn the basics of Docker network drivers\nkeywords: networking, drivers, bridge, routing, routing mesh, overlay, ports\n---\n\nDock"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/host.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/host.md::235bfb98fe3a::0001::c4eb3278",
+              "title": "host",
+              "similarity": 0.557983,
+              "snippet": "---\ntitle: Host network driver\ndescription: All about exposing containers on the Docker host's network\nkeywords: network, host, standalone, host mode networking\naliases:\n- /network"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/ipvlan.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/ipvlan.md::0ceb3417bb3e::0001::897c42dc",
+              "title": "ipvlan",
+              "similarity": 0.504652,
+              "snippet": "---\ntitle: IPvlan network driver\ndescription:\nAll about using IPvlan to make your containers appear like physical machines\non the network\nkeywords: network, ipvlan, l2, l3, standal"
+            }
+          ],
+          "subtheme": "networking"
+        },
+        {
+          "query": "docker volumes vs bind mounts",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.66314,
+          "avg_score": 0.511398,
+          "top_source_file": "docker_docs_selected/content/manuals/engine/storage/bind-mounts.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/bind-mounts.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/bind-mounts.md::c4baa79b1411::0001::66229216",
+              "title": "bind mounts",
+              "similarity": 0.66314,
+              "snippet": "---\ndescription: Using bind mounts\ntitle: Bind mounts\nweight: 20\nkeywords: storage, persistence, data persistence, mounts, bind mounts\naliases:\n- /engine/admin/volumes/bind-mounts/"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/volumes.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/volumes.md::632b8768a78f::0001::b43ca522",
+              "title": "volumes",
+              "similarity": 0.566893,
+              "snippet": "---\ndescription:\nLearn how to create, manage, and use volumes instead of bind mounts for\npersisting data generated and used by Docker.\ntitle: Volumes\nweight: 10\nkeywords:\ndocker co"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/tmpfs.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/tmpfs.md::6b71df93ac43::0001::0bc847f9",
+              "title": "tmpfs",
+              "similarity": 0.468338,
+              "snippet": "---\ndescription: Using tmpfs mounts\ntitle: tmpfs mounts\nweight: 30\nkeywords: storage, persistence, data persistence, tmpfs\naliases:\n- /engine/admin/volumes/tmpfs/\n- /storage/tmpfs/"
+            },
+            {
+              "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+              "chunk_id": "semantic-api-73c2e379-4",
+              "title": "## Define volumes",
+              "similarity": 0.42931,
+              "snippet": "## Define volumes"
+            },
+            {
+              "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+              "chunk_id": "semantic-api-73c2e379-4",
+              "title": "## Define volumes",
+              "similarity": 0.42931,
+              "snippet": "## Define volumes"
+            }
+          ],
+          "subtheme": "storage"
+        },
+        {
+          "query": "docker storage drivers",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.615767,
+          "avg_score": 0.559854,
+          "top_source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/_index.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/_index.md::45472398de42::0001::577f67a9",
+              "title": "index",
+              "similarity": 0.615767,
+              "snippet": "---\ndescription: Learn the technologies that support storage drivers.\nkeywords: container, storage, driver, btrfs, overlayfs, vfs, zfs, containerd\ntitle: Storage drivers\nweight: 40"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/select-storage-driver.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/select-storage-driver.md::f8b8175cb214::0001::6b4076ff",
+              "title": "select storage driver",
+              "similarity": 0.585236,
+              "snippet": "---\ntitle: Select a storage driver\nweight: 10\ndescription: Learn how to select the proper storage driver for your container.\nkeywords: container, storage, driver, btrfs, zfs, overl"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/vfs-driver.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/vfs-driver.md::65cde9116182::0001::9c538db7",
+              "title": "vfs driver",
+              "similarity": 0.538663,
+              "snippet": "---\ndescription: Learn how to optimize your use of VFS driver.\nkeywords: container, storage, driver, vfs\ntitle: VFS storage driver\naliases:\n- /storage/storagedriver/vfs-driver/\n---"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/btrfs-driver.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/btrfs-driver.md::cb80fa634ab6::0001::af7e2b15",
+              "title": "btrfs driver",
+              "similarity": 0.530578,
+              "snippet": "---\ndescription: Learn how to optimize your use of Btrfs driver.\nkeywords: container, storage, driver, Btrfs\ntitle: BTRFS storage driver\naliases:\n- /storage/storagedriver/btrfs-dri"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/drivers/overlayfs-driver.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/drivers/overlayfs-driver.md::494aeb9cb28d::0001::0b05811c",
+              "title": "overlayfs driver",
+              "similarity": 0.529026,
+              "snippet": "---\ndescription: Learn how to optimize your use of OverlayFS driver.\nkeywords: container, storage, driver, OverlayFS, overlay2, overlay\ntitle: OverlayFS storage driver\naliases:\n- /"
+            }
+          ],
+          "subtheme": "storage"
+        },
+        {
+          "query": "docker security best practices",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.515767,
+          "avg_score": 0.493849,
+          "top_source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "docker_docs_selected/content/manuals/build/building/best-practices.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/build/building/best-practices.md::0aad9a6cecbb::0001::cbf94334",
+              "title": "best practices",
+              "similarity": 0.515767,
+              "snippet": "---\ntitle: Building best practices\nlinkTitle: Best practices\nweight: 70\ndescription: Hints, tips and guidelines for writing clean, reliable Dockerfiles\nkeywords: base images, docke"
+            },
+            {
+              "source_file": "__smoke_openai__.md",
+              "chunk_id": "smoke-openai-2",
+              "title": "Smoke Chunk 2",
+              "similarity": 0.512932,
+              "snippet": "docker container healthcheck example"
+            },
+            {
+              "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub",
+              "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0001::aaa449ce",
+              "title": "AWS Security Cookbook",
+              "similarity": 0.504891,
+              "snippet": "AWS Security Cookbook"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/security/antivirus.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/antivirus.md::46aaa416276d::0001::afe59d04",
+              "title": "antivirus",
+              "similarity": 0.473073,
+              "snippet": "---\ntitle: Antivirus software and Docker\ndescription: General guidelines for using antivirus software with Docker\nkeywords: antivirus, security\n---\n\nWhen antivirus software scans f"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/security/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/_index.md::bf9c126d4fc7::0001::9725dbdd",
+              "title": "index",
+              "similarity": 0.462581,
+              "snippet": "---\ndescription: Review of the Docker Daemon attack surface\nkeywords: Docker, Docker documentation, security\ntitle: Docker Engine security\nlinkTitle: Security\nweight: 80\naliases:\n-"
+            }
+          ],
+          "subtheme": "security"
+        },
+        {
+          "query": "docker image hardening",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.522056,
+          "avg_score": 0.491413,
+          "top_source_file": "__smoke_openai__.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "__smoke_openai__.md",
+              "chunk_id": "smoke-openai-2",
+              "title": "Smoke Chunk 2",
+              "similarity": 0.522056,
+              "snippet": "docker container healthcheck example"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/security/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/_index.md::bf9c126d4fc7::0001::9725dbdd",
+              "title": "index",
+              "similarity": 0.505464,
+              "snippet": "---\ndescription: Review of the Docker Daemon attack surface\nkeywords: Docker, Docker documentation, security\ntitle: Docker Engine security\nlinkTitle: Security\nweight: 80\naliases:\n-"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/security/seccomp.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/seccomp.md::b369f0326eef::0001::a88b8b7e",
+              "title": "seccomp",
+              "similarity": 0.479425,
+              "snippet": "---\ndescription: Enabling seccomp in Docker\nkeywords: seccomp, security, docker, documentation\ntitle: Seccomp security profiles for Docker\n---\n\nSecure computing mode (`seccomp`) is"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/security/protect-access.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/protect-access.md::01f06e91ca3c::0001::a246de2e",
+              "title": "protect access",
+              "similarity": 0.476811,
+              "snippet": "---\ndescription: How to setup and run Docker with SSH or HTTPS\nkeywords: docker, docs, article, example, ssh, https, daemon, tls, ca, certificate\ntitle: Protect the Docker daemon s"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/security/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/security/_index.md::ce5fc0aa0e5b::0001::0645be3e",
+              "title": "index",
+              "similarity": 0.47331,
+              "snippet": "---\ntitle: Security for developers\nlinkTitle: Security\ndescription: Learn about developer-level security features like 2FA and access tokens\nkeywords: docker, docker hub, docker de"
+            }
+          ],
+          "subtheme": "security"
+        }
+      ]
+    },
+    {
+      "domain": "kubernetes",
+      "domain_name": "Kubernetes",
+      "weight": 1.2,
+      "subthemes": [
+        {
+          "subtheme": "networking",
+          "name": "Networking and network policy",
+          "well": 1,
+          "partial": 1,
+          "gap": 0,
+          "avg_max": 0.646935,
+          "avg_avg": 0.529844,
+          "query_count": 2
+        },
+        {
+          "subtheme": "security",
+          "name": "Security and RBAC",
+          "well": 1,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.644978,
+          "avg_avg": 0.55027,
+          "query_count": 1
+        },
+        {
+          "subtheme": "storage",
+          "name": "Storage and persistence",
+          "well": 1,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.65888,
+          "avg_avg": 0.59924,
+          "query_count": 1
+        },
+        {
+          "subtheme": "troubleshooting",
+          "name": "Operations and troubleshooting",
+          "well": 1,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.712025,
+          "avg_avg": 0.592417,
+          "query_count": 1
+        },
+        {
+          "subtheme": "workloads",
+          "name": "Workloads and rollout",
+          "well": 1,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.66975,
+          "avg_avg": 0.58457,
+          "query_count": 1
+        }
+      ],
+      "total_queries": 6,
+      "well": 5,
+      "partial": 1,
+      "gap": 0,
+      "avg_max": 0.663251,
+      "avg_avg": 0.564364,
+      "priority_score": 11.0,
+      "weak_subthemes": [],
+      "recommended_next_action": "expandir recorte direcionado + persistencia semantica incremental",
+      "rows": [
+        {
+          "query": "kubernetes deployment rollout strategy",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.66975,
+          "avg_score": 0.58457,
+          "top_source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+              "chunk_id": "semantic-api-3ff9ac8c-1",
+              "title": "# kubectl rollout restart deployment",
+              "similarity": 0.66975,
+              "snippet": "# kubectl rollout restart deployment"
+            },
+            {
+              "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+              "chunk_id": "semantic-api-3ff9ac8c-5",
+              "title": "Keywords: kubectl rollout restart deployment.",
+              "similarity": 0.634952,
+              "snippet": "Keywords: kubectl rollout restart deployment."
+            },
+            {
+              "source_file": "data/raw_review/ckad_exercises_modules/c.pod_design.md",
+              "chunk_id": "semantic-api-51df61f1-3",
+              "title": "Deployments",
+              "similarity": 0.563807,
+              "snippet": "## Deployments\n\nkubernetes.io > Documentation > Concepts > Workloads > Workload Resources > [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment)\n\n###"
+            },
+            {
+              "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+              "chunk_id": "semantic-api-3ff9ac8c-2",
+              "title": "## Restart deployment",
+              "similarity": 0.537884,
+              "snippet": "## Restart deployment\n- `kubectl rollout restart deployment nginx`"
+            },
+            {
+              "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+              "chunk_id": "semantic-api-3ff9ac8c-4",
+              "title": "## Verify rollout status",
+              "similarity": 0.516458,
+              "snippet": "## Verify rollout status\n- `kubectl rollout status deployment nginx`\n- `kubectl get pods -l app=nginx`"
+            }
+          ],
+          "subtheme": "workloads"
+        },
+        {
+          "query": "kubernetes ingress service clusterip nodeport loadbalancer",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.573753,
+          "avg_score": 0.472273,
+          "top_source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+              "chunk_id": "semantic-api-b34a20f9-5",
+              "title": "Keywords: networkpolicy kubernetes example ingress policy.",
+              "similarity": 0.573753,
+              "snippet": "Keywords: networkpolicy kubernetes example ingress policy."
+            },
+            {
+              "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+              "chunk_id": "semantic-api-b34a20f9-2",
+              "title": "## Restrict ingress to selected pods",
+              "similarity": 0.494263,
+              "snippet": "## Restrict ingress to selected pods\n- Create deployment and service:\n  - `kubectl create deployment nginx --image=nginx --replicas=2`\n  - `kubectl expose deployment nginx --port=8"
+            },
+            {
+              "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+              "chunk_id": "semantic-api-b34a20f9-1",
+              "title": "# Kubernetes NetworkPolicy Example",
+              "similarity": 0.446872,
+              "snippet": "# Kubernetes NetworkPolicy Example"
+            },
+            {
+              "source_file": "knowledge-gap::gap_20260310t232657_6343290000_ce3a020227ec_validation_gap_ingestion_flow_kubernetes_network_policy_baseline.md",
+              "chunk_id": "semantic-api-50b318f4-1",
+              "title": "Query",
+              "similarity": 0.425829,
+              "snippet": "## Query\n\nvalidation gap ingestion flow kubernetes network policy baseline"
+            },
+            {
+              "source_file": "data/raw_review/ckad_exercises_modules/i.crd.md",
+              "chunk_id": "semantic-api-9d1041f3-3",
+              "title": "## CRD in K8s",
+              "similarity": 0.420647,
+              "snippet": "## CRD in K8s"
+            }
+          ],
+          "subtheme": "networking"
+        },
+        {
+          "query": "kubernetes networkpolicy default deny",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.720117,
+          "avg_score": 0.587414,
+          "top_source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+              "chunk_id": "semantic-api-b34a20f9-1",
+              "title": "# Kubernetes NetworkPolicy Example",
+              "similarity": 0.720117,
+              "snippet": "# Kubernetes NetworkPolicy Example"
+            },
+            {
+              "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+              "chunk_id": "semantic-api-b34a20f9-5",
+              "title": "Keywords: networkpolicy kubernetes example ingress policy.",
+              "similarity": 0.610061,
+              "snippet": "Keywords: networkpolicy kubernetes example ingress policy."
+            },
+            {
+              "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+              "chunk_id": "semantic-api-b34a20f9-3",
+              "title": "## Example NetworkPolicy",
+              "similarity": 0.604254,
+              "snippet": "## Example NetworkPolicy\n```yaml\nkind: NetworkPolicy\napiVersion: networking.k8s.io/v1\nmetadata:\n  name: access-nginx\nspec:\n  podSelector:\n    matchLabels:\n      app: nginx\n  ingres"
+            },
+            {
+              "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+              "chunk_id": "semantic-api-b34a20f9-4",
+              "title": "## Validate policy behavior",
+              "similarity": 0.532898,
+              "snippet": "## Validate policy behavior\n- Denied pod: `kubectl run busybox --image=busybox --rm -it --restart=Never -- wget -O- http://nginx:80 --timeout 2`\n- Allowed pod: `kubectl run busybox"
+            },
+            {
+              "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+              "chunk_id": "semantic-api-b34a20f9-2",
+              "title": "## Restrict ingress to selected pods",
+              "similarity": 0.469742,
+              "snippet": "## Restrict ingress to selected pods\n- Create deployment and service:\n  - `kubectl create deployment nginx --image=nginx --replicas=2`\n  - `kubectl expose deployment nginx --port=8"
+            }
+          ],
+          "subtheme": "networking"
+        },
+        {
+          "query": "kubernetes rbac service account least privilege",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.644978,
+          "avg_score": 0.55027,
+          "top_source_file": "tmp/semantic_gap_round2/rbac_quick_basics.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "tmp/semantic_gap_round2/rbac_quick_basics.md",
+              "chunk_id": "semantic-api-851de524-3",
+              "title": "3. Bind Role to service account with RoleBinding.",
+              "similarity": 0.644978,
+              "snippet": "3. Bind Role to service account with RoleBinding.\n## Verify access\n- `kubectl auth can-i get pods --as=system:serviceaccount:default:app-sa -n default`\nKeywords: rbac role rolebind"
+            },
+            {
+              "source_file": "tmp/semantic_gap_round2/sa_tokens_projection.md",
+              "chunk_id": "semantic-api-a109268b-1",
+              "title": "# Kubernetes ServiceAccount Tokens",
+              "similarity": 0.562604,
+              "snippet": "# Kubernetes ServiceAccount Tokens"
+            },
+            {
+              "source_file": "tmp/semantic_gap_round2/sa_tokens_projection.md",
+              "chunk_id": "semantic-api-a109268b-5",
+              "title": "Keywords: serviceaccount token projected kubernetes token projection.",
+              "similarity": 0.534456,
+              "snippet": "Keywords: serviceaccount token projected kubernetes token projection."
+            },
+            {
+              "source_file": "tmp/semantic_gap_round2/rbac_quick_basics.md",
+              "chunk_id": "semantic-api-851de524-2",
+              "title": "2. Create Role with read access to pods.",
+              "similarity": 0.523229,
+              "snippet": "2. Create Role with read access to pods."
+            },
+            {
+              "source_file": "tmp/semantic_gap_round2/rbac_quick_basics.md",
+              "chunk_id": "semantic-api-851de524-1",
+              "title": "1. Create service account: `kubectl create sa app-sa -n default`",
+              "similarity": 0.486083,
+              "snippet": "1. Create service account: `kubectl create sa app-sa -n default`"
+            }
+          ],
+          "subtheme": "security"
+        },
+        {
+          "query": "kubernetes persistentvolume persistentvolumeclaim storageclass",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.65888,
+          "avg_score": 0.59924,
+          "top_source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+              "chunk_id": "semantic-api-73c2e379-3",
+              "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Pe",
+              "similarity": 0.65888,
+              "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a PersistentVolume for Storage](https://kubernetes.io/docs/tasks/configure-pod-conta"
+            },
+            {
+              "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+              "chunk_id": "semantic-api-73c2e379-3",
+              "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Pe",
+              "similarity": 0.65888,
+              "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a PersistentVolume for Storage](https://kubernetes.io/docs/tasks/configure-pod-conta"
+            },
+            {
+              "source_file": "data/question_bank_raw/ckad_exercises/g.state.md",
+              "chunk_id": "semantic-api-73c2e379-2",
+              "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Vo",
+              "similarity": 0.58921,
+              "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Volume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/confi"
+            },
+            {
+              "source_file": "data/raw_review/ckad_exercises_modules/g.state.md",
+              "chunk_id": "semantic-api-73c2e379-2",
+              "title": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Vo",
+              "similarity": 0.58921,
+              "snippet": "kubernetes.io > Documentation > Tasks > Configure Pods and Containers > [Configure a Pod to Use a Volume for Storage](https://kubernetes.io/docs/tasks/configure-pod-container/confi"
+            },
+            {
+              "source_file": "docker_docs_selected/content/manuals/engine/storage/_index.md",
+              "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/storage/_index.md::7d7becc16ff2::0001::d3dab4a6",
+              "title": "index",
+              "similarity": 0.500021,
+              "snippet": "---\ndescription: Overview of persisting data in containers\ntitle: Storage\nweight: 20\nkeywords: storage, persistence, data persistence, volumes, mounts, bind mounts, tmpfs\naliases:\n"
+            }
+          ],
+          "subtheme": "storage"
+        },
+        {
+          "query": "kubectl logs describe events troubleshooting",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.712025,
+          "avg_score": 0.592417,
+          "top_source_file": "tmp/semantic_gap_round2/pod_events_troubleshooting.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "tmp/semantic_gap_round2/pod_events_troubleshooting.md",
+              "chunk_id": "semantic-api-28455024-5",
+              "title": "Keywords: kubectl describe pod events kubernetes pod events troubleshooting.",
+              "similarity": 0.712025,
+              "snippet": "Keywords: kubectl describe pod events kubernetes pod events troubleshooting."
+            },
+            {
+              "source_file": "tmp/semantic_gap_round2/pod_events_troubleshooting.md",
+              "chunk_id": "semantic-api-28455024-1",
+              "title": "# Kubernetes Pod Events Troubleshooting",
+              "similarity": 0.647547,
+              "snippet": "# Kubernetes Pod Events Troubleshooting"
+            },
+            {
+              "source_file": "tmp/kubectl_ops_round/kubectl_get_events_pod.md",
+              "chunk_id": "semantic-api-48fca2be-1",
+              "title": "# kubectl get events pod",
+              "similarity": 0.550351,
+              "snippet": "# kubectl get events pod"
+            },
+            {
+              "source_file": "tmp/semantic_gap_round2/debug_crashloop_logs_previous.md",
+              "chunk_id": "semantic-api-a0792de0-2",
+              "title": "## CrashLoopBackOff troubleshooting",
+              "similarity": 0.52926,
+              "snippet": "## CrashLoopBackOff troubleshooting\n- Check pod status and restarts: `kubectl get pod <pod>`\n- Inspect pod events: `kubectl describe pod <pod>`"
+            },
+            {
+              "source_file": "tmp/kubectl_ops_round/kubectl_logs_previous_container.md",
+              "chunk_id": "semantic-api-6e9a49bc-5",
+              "title": "Keywords: kubectl logs previous container crashloopbackoff.",
+              "similarity": 0.5229,
+              "snippet": "Keywords: kubectl logs previous container crashloopbackoff."
+            }
+          ],
+          "subtheme": "troubleshooting"
+        }
+      ]
+    },
+    {
+      "domain": "aws_iam",
+      "domain_name": "AWS IAM",
+      "weight": 1.0,
+      "subthemes": [
+        {
+          "subtheme": "boundaries_scp",
+          "name": "Boundaries and SCP",
+          "well": 3,
+          "partial": 1,
+          "gap": 0,
+          "avg_max": 0.621064,
+          "avg_avg": 0.583997,
+          "query_count": 4
+        },
+        {
+          "subtheme": "policy_evaluation",
+          "name": "Policy evaluation logic",
+          "well": 2,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.642656,
+          "avg_avg": 0.616332,
+          "query_count": 2
+        },
+        {
+          "subtheme": "policy_simulator",
+          "name": "Policy simulator",
+          "well": 2,
+          "partial": 0,
+          "gap": 0,
+          "avg_max": 0.63469,
+          "avg_avg": 0.596127,
+          "query_count": 2
+        }
+      ],
+      "total_queries": 8,
+      "well": 7,
+      "partial": 1,
+      "gap": 0,
+      "avg_max": 0.629869,
+      "avg_avg": 0.595113,
+      "priority_score": 6.875,
+      "weak_subthemes": [],
+      "recommended_next_action": "expandir recorte direcionado + persistencia semantica incremental",
+      "rows": [
+        {
+          "query": "aws iam policy evaluation order explicit deny allow",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.643987,
+          "avg_score": 0.605205,
+          "top_source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md::afa322c1ff97::0002::5dd9c45b",
+              "title": "iam policy evaluation explicit deny allow",
+              "similarity": 0.643987,
+              "snippet": "Requests must be explicitly allowed by a policy or set of policies following the evaluation logic below to be allowed.\n\n- An explicit deny overrides an explicit allow.\n\nAn explicit"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md::afa322c1ff97::0003::8ecd4d38",
+              "title": "iam policy evaluation explicit deny allow",
+              "similarity": 0.610961,
+              "snippet": "Policy evaluation can differ depending on whether the request is within a single account or a cross-account request. For details about how a policy evaluation decision is made for "
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md::afa322c1ff97::0004::3368f674",
+              "title": "iam policy evaluation explicit deny allow",
+              "similarity": 0.601615,
+              "snippet": "- Deny evaluation – By default, all requests are denied. This is called an implicit deny . The AWS enforcement code evaluates all policies within the account that apply to the requ"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md::afa322c1ff97::0005::27acda44",
+              "title": "iam policy evaluation explicit deny allow",
+              "similarity": 0.585269,
+              "snippet": "Deny evaluation – By default, all requests are denied. This is called an implicit deny . The AWS enforcement code evaluates all policies within the account that apply to the reques"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md::afa322c1ff97::0001::88283fec",
+              "title": "iam policy evaluation explicit deny allow",
+              "similarity": 0.584195,
+              "snippet": "---\ntitle: How AWS enforcement code logic evaluates requests to allow or deny access - AWS Identity and Access Management\nsource_url: https://docs.aws.amazon.com/IAM/latest/UserGui"
+            }
+          ],
+          "subtheme": "policy_evaluation"
+        },
+        {
+          "query": "aws iam policy simulator simulate-principal-policy",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.631132,
+          "avg_score": 0.600723,
+          "top_source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0002::0acd97de",
+              "title": "iam policy simulator",
+              "similarity": 0.631132,
+              "snippet": "With the IAM policy simulator, you can test and troubleshoot identity-based policies and IAM permissions boundaries. Here are some common things you can do with the policy simulato"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0001::8f62c206",
+              "title": "iam policy simulator",
+              "similarity": 0.625115,
+              "snippet": "---\ntitle: IAM policy testing with the IAM policy simulator - AWS Identity and Access Management\nsource_url: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testin"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0006::4a07d885",
+              "title": "iam policy simulator",
+              "similarity": 0.589078,
+              "snippet": "- Simulate real-world scenarios by providing context keys, such as an IP address or date, that are included in Condition elements in the policies being tested. Note The policy simu"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0007::f87f7c6c",
+              "title": "iam policy simulator",
+              "similarity": 0.581789,
+              "snippet": "- Permissions required for using the IAM policy simulator\n\nPermissions required for using the IAM policy simulator\n\n- Using the IAM policy simulator (console)\n\nUsing the IAM policy"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0004::f5ef68f7",
+              "title": "iam policy simulator",
+              "similarity": 0.5765,
+              "snippet": "Simulation of resource-based policies isn't supported for IAM roles.\n\n- If your AWS account is a member of an organization in AWS Organizations , then you can test the impact of se"
+            }
+          ],
+          "subtheme": "policy_simulator"
+        },
+        {
+          "query": "aws iam permissions boundaries effective permissions",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.691305,
+          "avg_score": 0.614013,
+          "top_source_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_permissions_boundaries.md::c47d1c58023d::0005::bae20c09",
+              "title": "iam permissions boundaries",
+              "similarity": 0.691305,
+              "snippet": "## Evaluating effective permissions with boundaries\n\nThe permissions boundary for an IAM entity (user or role) sets the maximum permissions that the entity can have. This can chang"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_permissions_boundaries.md::c47d1c58023d::0001::3ca9cd5b",
+              "title": "iam permissions boundaries",
+              "similarity": 0.652618,
+              "snippet": "---\ntitle: Permissions boundaries for IAM entities - AWS Identity and Access Management\nsource_url: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_permissions_boundaries.md::c47d1c58023d::0004::6bb9b9ca",
+              "title": "iam permissions boundaries",
+              "similarity": 0.577747,
+              "snippet": "```\n\n{ \"Version\":\"2012-10-17\", \"Statement\": { \"Effect\": \"Allow\", \"Action\": \"iam:CreateUser\", \"Resource\": \"*\" } }\n\n```\n\nThis policy allows creating a user in IAM. If you attach this"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_logic.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_logic.md::894c2601e124::0004::4a4a0e73",
+              "title": "iam policy evaluation logic",
+              "similarity": 0.574787,
+              "snippet": "## Evaluating identity-based policies with permissions boundaries\n\nWhen AWS evaluates the identity-based policies and permissions boundary for a user, the resulting permissions are"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_logic.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_logic.md::894c2601e124::0003::27489a42",
+              "title": "iam policy evaluation logic",
+              "similarity": 0.573608,
+              "snippet": "## Evaluating identity-based policies with resource-based policies\n\nIdentity-based policies and resource-based policies grant permissions to the identities or resources to which th"
+            }
+          ],
+          "subtheme": "boundaries_scp"
+        },
+        {
+          "query": "aws organizations service control policy scp evaluation logic",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.675947,
+          "avg_score": 0.669327,
+          "top_source_file": "aws_iam_docs_selected/org_scps_overview.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_overview.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_overview.md::0f09c0e06fe1::0001::ba357ef0",
+              "title": "org scps overview",
+              "similarity": 0.675947,
+              "snippet": "---\ntitle: Service control policies (SCPs) - AWS Organizations\nsource_url: https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html\ndomain: aws_iam"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0004::5b4cd16e",
+              "title": "org scps examples",
+              "similarity": 0.673225,
+              "snippet": "- A Service control policy (SCP) , when attached to an organization, organization unit or an account offers a central control over the maximum available permissions for all account"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0005::3ceafa2e",
+              "title": "org scps examples",
+              "similarity": 0.668556,
+              "snippet": "A Service control policy (SCP) , when attached to an organization, organization unit or an account offers a central control over the maximum available permissions for all accounts "
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0007::3df97d2a",
+              "title": "org scps examples",
+              "similarity": 0.66811,
+              "snippet": "The service control policies in this repository are shown as examples. You should not attach SCPs without thoroughly testing the impact that the policy has on accounts. Once you ha"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_evaluation.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_evaluation.md::4cfe0e84fe35::0001::61db8ad7",
+              "title": "org scps evaluation",
+              "similarity": 0.660799,
+              "snippet": "---\ntitle: SCP evaluation - AWS Organizations\nsource_url: https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_evaluation.html\ndomain: aws_iam\nsubth"
+            }
+          ],
+          "subtheme": "boundaries_scp"
+        },
+        {
+          "query": "aws iam identity policy resource policy permissions boundary scp interaction",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.641324,
+          "avg_score": 0.627458,
+          "top_source_file": "aws_iam_docs_selected/org_scps_examples.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0002::fb56a205",
+              "title": "org scps examples",
+              "similarity": 0.641324,
+              "snippet": "- Service control policies (SCPs) are meant to be used as coarse-grained guardrails, and they don't directly grant access. The administrator must still attach identity-based or res"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_logic.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_logic.md::894c2601e124::0003::27489a42",
+              "title": "iam policy evaluation logic",
+              "similarity": 0.637588,
+              "snippet": "## Evaluating identity-based policies with resource-based policies\n\nIdentity-based policies and resource-based policies grant permissions to the identities or resources to which th"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_overview.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_overview.md::0f09c0e06fe1::0007::453e4e47",
+              "title": "org scps overview",
+              "similarity": 0.628523,
+              "snippet": "SCPs are similar to AWS Identity and Access Management permission policies and use almost the same syntax. However, an SCP never grants permissions. Instead, SCPs are access contro"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_evaluation_logic.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_evaluation_logic.md::894c2601e124::0004::4a4a0e73",
+              "title": "iam policy evaluation logic",
+              "similarity": 0.617177,
+              "snippet": "## Evaluating identity-based policies with permissions boundaries\n\nWhen AWS evaluates the identity-based policies and permissions boundary for a user, the resulting permissions are"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0003::023e2637",
+              "title": "org scps examples",
+              "similarity": 0.612677,
+              "snippet": "Service control policies (SCPs) are meant to be used as coarse-grained guardrails, and they don't directly grant access. The administrator must still attach identity-based or resou"
+            }
+          ],
+          "subtheme": "policy_evaluation"
+        },
+        {
+          "query": "aws iam policy simulator context keys condition testing",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.638248,
+          "avg_score": 0.59153,
+          "top_source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0006::4a07d885",
+              "title": "iam policy simulator",
+              "similarity": 0.638248,
+              "snippet": "- Simulate real-world scenarios by providing context keys, such as an IP address or date, that are included in Condition elements in the policies being tested. Note The policy simu"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0001::8f62c206",
+              "title": "iam policy simulator",
+              "similarity": 0.593981,
+              "snippet": "---\ntitle: IAM policy testing with the IAM policy simulator - AWS Identity and Access Management\nsource_url: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testin"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0002::0acd97de",
+              "title": "iam policy simulator",
+              "similarity": 0.584276,
+              "snippet": "With the IAM policy simulator, you can test and troubleshoot identity-based policies and IAM permissions boundaries. Here are some common things you can do with the policy simulato"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_policy_simulator.md::9226ecefd9b8::0005::74e12585",
+              "title": "iam policy simulator",
+              "similarity": 0.578296,
+              "snippet": "Test new identity-based policies that are not yet attached to a user, user group, or role by typing or copying them into the policy simulator. These are used only in the simulation"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_condition_element.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_condition_element.md::f197711e0ab1::0002::5792e661",
+              "title": "iam condition element",
+              "similarity": 0.562847,
+              "snippet": "```\n\n\"Condition\" : { \" { condition-operator} \" : { \" { condition-key} \" : \" { condition-value} \" }}\n\n```\n\nThe context key that you specify in a policy condition can be a global con"
+            }
+          ],
+          "subtheme": "policy_simulator"
+        },
+        {
+          "query": "aws scp syntax deny guardrails examples",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.510438,
+          "avg_score": 0.493107,
+          "top_source_file": "aws_iam_docs_selected/org_scps_examples.md",
+          "coverage_class": "parcial",
+          "results": [
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0007::3df97d2a",
+              "title": "org scps examples",
+              "similarity": 0.510438,
+              "snippet": "The service control policies in this repository are shown as examples. You should not attach SCPs without thoroughly testing the impact that the policy has on accounts. Once you ha"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_evaluation.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_evaluation.md::4cfe0e84fe35::0005::7ed0b978",
+              "title": "org scps evaluation",
+              "similarity": 0.507123,
+              "snippet": "While writing SCPs you can make use of a combination of Allow and Deny statements to allow intended actions and services in your organization. Deny statements are a powerful way to"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_evaluation.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_evaluation.md::4cfe0e84fe35::0002::b224531d",
+              "title": "org scps evaluation",
+              "similarity": 0.487803,
+              "snippet": "How SCPs work with Allow\n\n- How SCPs work with Deny\n\nHow SCPs work with Deny\n\n- Strategy for using SCPs\n\nStrategy for using SCPs\n\n## How SCPs work with Allow\n\nFor a permission to b"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0008::c093face",
+              "title": "org scps examples",
+              "similarity": 0.481848,
+              "snippet": "The SCP examples in this repository use a deny list strategy , which means that you also need a FullAWSAccess policy or other policy that allows access attached to your organizatio"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_syntax.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_syntax.md::cc7beb7847c7::0007::0a103624",
+              "title": "org scps syntax",
+              "similarity": 0.478322,
+              "snippet": "```\n\nWith this statement, affected accounts are limited to taking actions in the specified AWS Region, except when using IAM actions.\n\n## Condition element\n\nYou can specify a Condi"
+            }
+          ],
+          "subtheme": "boundaries_scp"
+        },
+        {
+          "query": "aws iam permissions boundary vs scp differences",
+          "top_k": 5,
+          "count": 5,
+          "max_score": 0.606568,
+          "avg_score": 0.559541,
+          "top_source_file": "aws_iam_docs_selected/org_scps_overview.md",
+          "coverage_class": "bem_coberta",
+          "results": [
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_overview.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_overview.md::0f09c0e06fe1::0007::453e4e47",
+              "title": "org scps overview",
+              "similarity": 0.606568,
+              "snippet": "SCPs are similar to AWS Identity and Access Management permission policies and use almost the same syntax. However, an SCP never grants permissions. Instead, SCPs are access contro"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_overview.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_overview.md::0f09c0e06fe1::0003::d33af021",
+              "title": "org scps overview",
+              "similarity": 0.58518,
+              "snippet": "SCPs do not grant permissions to the IAM users and IAM roles in your organization. No permissions are granted by an SCP. An SCP defines a permission guardrail, or sets limits, on t"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/iam_permissions_boundaries.md::c47d1c58023d::0001::3ca9cd5b",
+              "title": "iam permissions boundaries",
+              "similarity": 0.545296,
+              "snippet": "---\ntitle: Permissions boundaries for IAM entities - AWS Identity and Access Management\nsource_url: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_evaluation.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_evaluation.md::4cfe0e84fe35::0005::7ed0b978",
+              "title": "org scps evaluation",
+              "similarity": 0.530688,
+              "snippet": "While writing SCPs you can make use of a combination of Allow and Deny statements to allow intended actions and services in your organization. Deny statements are a powerful way to"
+            },
+            {
+              "source_file": "aws_iam_docs_selected/org_scps_examples.md",
+              "chunk_id": "chunk::doc::aws_iam_docs_selected/org_scps_examples.md::81117a5d6f64::0002::fb56a205",
+              "title": "org scps examples",
+              "similarity": 0.529973,
+              "snippet": "- Service control policies (SCPs) are meant to be used as coarse-grained guardrails, and they don't directly grant access. The administrator must still attach identity-based or res"
+            }
+          ],
+          "subtheme": "boundaries_scp"
+        }
+      ]
+    }
+  ]
+}

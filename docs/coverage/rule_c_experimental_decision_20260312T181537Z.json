@@ -1,0 +1,10 @@
+{
+  "generated_at": "20260312T181537Z",
+  "decision": "rule_c_ready_for_promotion_preparation",
+  "terraform_delta_well": 2,
+  "non_target_well_gain": 0,
+  "total_regressions": 0,
+  "suspicious_non_official_promotions": 0,
+  "guardrails_all_pass": true,
+  "recommendation": "Regra C passa guardrails; preparar PR experimental com bateria ampliada antes de promover."
+}

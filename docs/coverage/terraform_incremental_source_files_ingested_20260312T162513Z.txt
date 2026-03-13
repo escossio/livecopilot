@@ -1,0 +1,11 @@
+terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/apply.mdx
+terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/force-unlock.mdx
+terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/init.mdx
+terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/modules.mdx
+terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.mdx
+terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/composition.mdx
+terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/providers.mdx
+terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/refactoring.mdx
+terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/develop/structure.mdx
+terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/modules/sources.mdx
+terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/language/state/locking.mdx

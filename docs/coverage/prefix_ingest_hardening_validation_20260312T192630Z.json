@@ -1,0 +1,58 @@
+{
+  "generated_at": "2026-03-12T19:31:10.508841+00:00",
+  "round_id": "20260312T192630Z",
+  "tests": [
+    {
+      "test": "valid_single",
+      "exit_code": 0,
+      "log_file": "docs/coverage/prefix_ingest_hardening_valid_single_20260312T192630Z.log",
+      "found": 12,
+      "processed": 0,
+      "prefixes": "continuity_docs_selected",
+      "error_message": ""
+    },
+    {
+      "test": "valid_multi",
+      "exit_code": 0,
+      "log_file": "docs/coverage/prefix_ingest_hardening_valid_multi_20260312T192630Z.log",
+      "found": 23,
+      "processed": 0,
+      "prefixes": "continuity_docs_selected, terraform_docs_selected_incremental",
+      "error_message": ""
+    },
+    {
+      "test": "missing_non_strict",
+      "exit_code": 0,
+      "log_file": "docs/coverage/prefix_ingest_hardening_missing_non_strict_20260312T192630Z.log",
+      "found": 0,
+      "processed": 0,
+      "prefixes": "__prefixo_que_nao_existe__",
+      "error_message": ""
+    },
+    {
+      "test": "missing_strict",
+      "exit_code": 2,
+      "log_file": "docs/coverage/prefix_ingest_hardening_missing_strict_20260312T192630Z.log",
+      "found": null,
+      "processed": null,
+      "prefixes": "",
+      "error_message": "strict-source-prefix habilitado e nenhum arquivo encontrado para: __prefixo_que_nao_existe__"
+    },
+    {
+      "test": "invalid_dotdot",
+      "exit_code": 2,
+      "log_file": "docs/coverage/prefix_ingest_hardening_invalid_dotdot_20260312T192630Z.log",
+      "found": null,
+      "processed": null,
+      "prefixes": "",
+      "error_message": "source-prefix inválido (path traversal): '../segredo'"
+    }
+  ],
+  "assertions": {
+    "valid_single_ok": true,
+    "valid_multi_ok": true,
+    "missing_non_strict_ok": true,
+    "missing_strict_fails_cleanly": true,
+    "invalid_dotdot_fails_cleanly": true
+  }
+}

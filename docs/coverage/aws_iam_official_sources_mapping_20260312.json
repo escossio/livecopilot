@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-03-12T04:13:41.524346+00:00",
+  "domain": "aws_iam",
+  "focus": [
+    "policy_evaluation",
+    "policy_simulator",
+    "permissions_boundaries",
+    "scp"
+  ],
+  "sources": [
+    {
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html",
+      "title": "IAM JSON policy elements: Condition - AWS Identity and Access Management",
+      "selected_file": "aws_iam_docs_selected/iam_condition_element.md",
+      "status": "selected"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_notaction.html",
+      "title": "IAM JSON policy elements: NotAction - AWS Identity and Access Management",
+      "selected_file": "aws_iam_docs_selected/iam_notaction.md",
+      "status": "selected"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html",
+      "title": "Permissions boundaries for IAM entities - AWS Identity and Access Management",
+      "selected_file": "aws_iam_docs_selected/iam_permissions_boundaries.md",
+      "status": "selected"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic_policy-eval-denyallow.html",
+      "title": "How AWS enforcement code logic evaluates requests to allow or deny access - AWS Identity and Access Management",
+      "selected_file": "aws_iam_docs_selected/iam_policy_evaluation_explicit_deny_allow.md",
+      "status": "selected"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_evaluation-logic.html",
+      "title": "Policy evaluation logic - AWS Identity and Access Management",
+      "selected_file": "aws_iam_docs_selected/iam_policy_evaluation_logic.md",
+      "status": "selected"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html",
+      "title": "IAM policy testing with the IAM policy simulator - AWS Identity and Access Management",
+      "selected_file": "aws_iam_docs_selected/iam_policy_simulator.md",
+      "status": "selected"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_evaluation.html",
+      "title": "SCP evaluation - AWS Organizations",
+      "selected_file": "aws_iam_docs_selected/org_scps_evaluation.md",
+      "status": "selected"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples.html",
+      "title": "Service control policy examples - AWS Organizations",
+      "selected_file": "aws_iam_docs_selected/org_scps_examples.md",
+      "status": "selected"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html",
+      "title": "Service control policies (SCPs) - AWS Organizations",
+      "selected_file": "aws_iam_docs_selected/org_scps_overview.md",
+      "status": "selected"
+    },
+    {
+      "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_syntax.html",
+      "title": "SCP syntax - AWS Organizations",
+      "selected_file": "aws_iam_docs_selected/org_scps_syntax.md",
+      "status": "selected"
+    }
+  ]
+}

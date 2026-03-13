@@ -1,0 +1,87 @@
+{
+  "timestamp_utc": "2026-03-12T21:37:00Z",
+  "command": "scripts/round_plan.sh",
+  "scenarios": {
+    "single_prefix": {
+      "args": [
+        "--source-prefix",
+        "continuity_docs_selected/"
+      ],
+      "exit_code": 0,
+      "ingest_total_found": 12,
+      "semantic_total_source_files": 12,
+      "selection_mode_ingest": "resolved_from_source_prefix",
+      "selection_mode_semantic": "resolved_from_source_prefix",
+      "divergence": false
+    },
+    "multiple_prefixes": {
+      "args": [
+        "--source-prefix",
+        "continuity_docs_selected/",
+        "--source-prefix",
+        "terraform_docs_selected_incremental/"
+      ],
+      "exit_code": 0,
+      "ingest_total_found": 23,
+      "semantic_total_source_files": 23,
+      "selection_mode_ingest": "resolved_from_source_prefix",
+      "selection_mode_semantic": "resolved_from_source_prefix",
+      "divergence": false
+    },
+    "missing_prefix_non_strict": {
+      "args": [
+        "--source-prefix",
+        "__prefixo_que_nao_existe__/"
+      ],
+      "exit_code": 0,
+      "contains_semantic_noop_summary": true,
+      "contains_zero_totals": true
+    },
+    "missing_prefix_strict": {
+      "args": [
+        "--source-prefix",
+        "__prefixo_que_nao_existe__/",
+        "--strict-source-prefix"
+      ],
+      "exit_code": 2,
+      "error_contains_expected_message": true
+    }
+  },
+  "contract_checks": {
+    "json_contains_plan_mode": true,
+    "json_contains_source_prefixes": true,
+    "json_contains_ingest_dry_run": true,
+    "json_contains_semantic_list_targets": true,
+    "json_contains_totals": true,
+    "json_contains_truncated_flags": true
+  },
+  "internal_mode_reflection": {
+    "single_payload_kind": "list_targets",
+    "missing_non_strict_payload_kind_detected": "semantic_noop_summary"
+  },
+  "side_effects": {
+    "tracked_files_checked": [
+      {
+        "path": "source_files",
+        "pre_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "post_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "pre_size_bytes": 0,
+        "post_size_bytes": 0,
+        "changed": false
+      }
+    ],
+    "state_files_absent_during_check": [
+      "data/knowledge_state.json",
+      "var/semantic_min.db"
+    ],
+    "assert_no_state_change_detected": true
+  },
+  "artifacts": {
+    "single_log": "docs/coverage/round_plan_single_20260312T213700Z.log",
+    "multi_log": "docs/coverage/round_plan_multi_20260312T213700Z.log",
+    "missing_non_strict_log": "docs/coverage/round_plan_missing_non_strict_20260312T213700Z.log",
+    "missing_strict_log": "docs/coverage/round_plan_missing_strict_20260312T213700Z.log",
+    "single_json": "docs/coverage/round_plan_single_json_20260312T213700Z.json",
+    "multi_json": "docs/coverage/round_plan_multi_json_20260312T213700Z.json"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "generated_at": "2026-03-12T15:38:20Z",
+  "kubernetes_source_files_count": 12,
+  "kubernetes_source_files": [
+    "kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/overview/working-with-objects/namespaces.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/security/service-accounts.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/storage/persistent-volumes.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/storage/storage-classes.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/workloads/controllers/deployment.md",
+    "kubernetes_docs_selected/content/en/docs/concepts/workloads/pods/_index.md",
+    "kubernetes_docs_selected/content/en/docs/reference/access-authn-authz/rbac.md",
+    "kubernetes_docs_selected/content/en/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes.md",
+    "kubernetes_docs_selected/content/en/docs/tasks/debug/debug-application/debug-running-pod.md"
+  ],
+  "parsed_files_count": 12,
+  "chunk_files_count": 12,
+  "expected": {
+    "source_files": 12,
+    "parsed": 12,
+    "chunks": 12
+  },
+  "checks": {
+    "source_files_ok": true,
+    "parsed_ok": true,
+    "chunks_ok": true
+  }
+}

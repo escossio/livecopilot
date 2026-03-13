@@ -1,0 +1,435 @@
+{
+  "generated_at": "2026-03-13T04:47:44.431360+00:00",
+  "pipeline": "knowledge_pipeline_v2_semantic_validate",
+  "mode": "semantic-validate",
+  "round_id": "20260313T044239Z-codex-dogfooding-final",
+  "source_prefixes": [
+    "codex_docs_selected"
+  ],
+  "search_scope": "round_scope_only",
+  "query_derivation_mode": "explicit_queryset_file",
+  "queryset_file": "docs/coverage/codex_dogfooding_queryset_20260313T043813Z.json",
+  "embedding_mode_used_for_search": "openai",
+  "artifacts": {
+    "run_artifact": "docs/coverage/knowledge_pipeline_run_20260313T044239Z-codex-dogfooding-final.json",
+    "semantic_validate_artifact": "docs/coverage/knowledge_pipeline_semantic_validate_20260313T044239Z-codex-dogfooding-final.json"
+  },
+  "scope": {
+    "source_files_total": 13,
+    "source_files_by_prefix": {
+      "codex_docs_selected": 13
+    },
+    "source_files_sample": [
+      "codex_docs_selected/README.md",
+      "codex_docs_selected/docs/agents_md.md",
+      "codex_docs_selected/docs/authentication.md",
+      "codex_docs_selected/docs/config.md",
+      "codex_docs_selected/docs/example-config.md",
+      "codex_docs_selected/docs/exec.md",
+      "codex_docs_selected/docs/execpolicy.md",
+      "codex_docs_selected/docs/getting-started.md",
+      "codex_docs_selected/docs/install.md",
+      "codex_docs_selected/docs/sandbox.md",
+      "codex_docs_selected/docs/skills.md",
+      "codex_docs_selected/docs/slash_commands.md",
+      "codex_docs_selected/shell-tool-mcp/README.md"
+    ]
+  },
+  "queries": [
+    {
+      "query": "how to install codex cli with npm or homebrew",
+      "expected_source_file": "codex_docs_selected/README.md",
+      "derivation": "codex_dogfooding_real_use"
+    },
+    {
+      "query": "codex cli authentication sign in with chatgpt or api key",
+      "expected_source_file": "codex_docs_selected/docs/authentication.md",
+      "derivation": "codex_dogfooding_real_use"
+    },
+    {
+      "query": "codex config toml basic advanced configuration reference",
+      "expected_source_file": "codex_docs_selected/docs/config.md",
+      "derivation": "codex_dogfooding_real_use"
+    },
+    {
+      "query": "codex sandbox approvals workspace write read only danger full access",
+      "expected_source_file": "codex_docs_selected/docs/sandbox.md",
+      "derivation": "codex_dogfooding_real_use"
+    },
+    {
+      "query": "codex execution policy approvals rules",
+      "expected_source_file": "codex_docs_selected/docs/execpolicy.md",
+      "derivation": "codex_dogfooding_real_use"
+    },
+    {
+      "query": "codex slash commands and skills documentation",
+      "expected_source_file": "codex_docs_selected/docs/slash_commands.md",
+      "derivation": "codex_dogfooding_real_use"
+    }
+  ],
+  "results": [
+    {
+      "query": "how to install codex cli with npm or homebrew",
+      "expected_source_file": "codex_docs_selected/README.md",
+      "query_derivation": "codex_dogfooding_real_use",
+      "result_count": 5,
+      "top1_source_file": "codex_docs_selected/README.md",
+      "top1_similarity": 0.676578,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": true,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": true,
+      "expected_source_file_hit_position": 1,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache",
+        "openai_fresh"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 991,
+      "topk": [
+        {
+          "source_file": "codex_docs_selected/README.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/README.md::eb9b277b8ff6::0001::67a26d5f",
+          "title": "README",
+          "similarity": 0.676578,
+          "snippet": "<p align=\"center\"><code>npm i -g @openai/codex</code><br />or <code>brew install --cask codex</code></p>\n<p align=\"center\"><strong>Codex CLI</strong> is a coding agent from OpenAI "
+        },
+        {
+          "source_file": "codex_docs_selected/docs/getting-started.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/getting-started.md::210187b0199e::0001::a1b448cb",
+          "title": "getting started",
+          "similarity": 0.543443,
+          "snippet": "# Getting started with Codex CLI\n\nFor an overview of Codex CLI features, see [this documentation](https://developers.openai.com/codex/cli/features#running-in-interactive-mode)."
+        },
+        {
+          "source_file": "codex_docs_selected/docs/install.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/install.md::59074df84b61::0001::ce322d0a",
+          "title": "install",
+          "similarity": 0.506474,
+          "snippet": "## Installing & building\n\n### System requirements\n\n| Requirement | Details |\n| --------------------------- | --------------------------------------------------------------- |\n| Ope"
+        },
+        {
+          "source_file": "codex_docs_selected/docs/authentication.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/authentication.md::3fe4a065894a::0001::47d7e2d2",
+          "title": "authentication",
+          "similarity": 0.451864,
+          "snippet": "# Authentication\n\nFor information about Codex CLI authentication, see [this documentation](https://developers.openai.com/codex/auth)."
+        },
+        {
+          "source_file": "codex_docs_selected/shell-tool-mcp/README.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/shell-tool-mcp/README.md::bf4494ef04e1::0003::5c3160b6",
+          "title": "README",
+          "similarity": 0.430633,
+          "snippet": "- There could be another executable named `ls` that appears before `/bin/ls` on the `$PATH`.\n- `ls` could be mapped to a shell alias or function.\n\nBecause `@openai/codex-shell-tool"
+        }
+      ]
+    },
+    {
+      "query": "codex cli authentication sign in with chatgpt or api key",
+      "expected_source_file": "codex_docs_selected/docs/authentication.md",
+      "query_derivation": "codex_dogfooding_real_use",
+      "result_count": 5,
+      "top1_source_file": "codex_docs_selected/docs/authentication.md",
+      "top1_similarity": 0.616553,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": true,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": true,
+      "expected_source_file_hit_position": 1,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache",
+        "openai_fresh"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 627,
+      "topk": [
+        {
+          "source_file": "codex_docs_selected/docs/authentication.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/authentication.md::3fe4a065894a::0001::47d7e2d2",
+          "title": "authentication",
+          "similarity": 0.616553,
+          "snippet": "# Authentication\n\nFor information about Codex CLI authentication, see [this documentation](https://developers.openai.com/codex/auth)."
+        },
+        {
+          "source_file": "codex_docs_selected/README.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/README.md::eb9b277b8ff6::0003::96997dec",
+          "title": "README",
+          "similarity": 0.584788,
+          "snippet": "</details>\n\n### Using Codex with your ChatGPT plan\n\nRun `codex` and select **Sign in with ChatGPT**. We recommend signing into your ChatGPT account to use Codex as part of your Plu"
+        },
+        {
+          "source_file": "codex_docs_selected/docs/getting-started.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/getting-started.md::210187b0199e::0001::a1b448cb",
+          "title": "getting started",
+          "similarity": 0.440582,
+          "snippet": "# Getting started with Codex CLI\n\nFor an overview of Codex CLI features, see [this documentation](https://developers.openai.com/codex/cli/features#running-in-interactive-mode)."
+        },
+        {
+          "source_file": "codex_docs_selected/docs/config.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/config.md::4ab580d278f9::0002::ff4ab2f8",
+          "title": "config",
+          "similarity": 0.40769,
+          "snippet": "- https://developers.openai.com/codex/config-reference\n\nWhen Codex knows which client started the turn, the legacy notify JSON payload also includes a top-level `client` field. The"
+        },
+        {
+          "source_file": "codex_docs_selected/docs/sandbox.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/sandbox.md::61d4dd0ccda2::0001::0a3fc0d1",
+          "title": "sandbox",
+          "similarity": 0.384041,
+          "snippet": "## Sandbox & approvals\n\nFor information about Codex sandboxing and approvals, see [this documentation](https://developers.openai.com/codex/security)."
+        }
+      ]
+    },
+    {
+      "query": "codex config toml basic advanced configuration reference",
+      "expected_source_file": "codex_docs_selected/docs/config.md",
+      "query_derivation": "codex_dogfooding_real_use",
+      "result_count": 5,
+      "top1_source_file": "codex_docs_selected/docs/config.md",
+      "top1_similarity": 0.554177,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": true,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": true,
+      "expected_source_file_hit_position": 1,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache",
+        "openai_fresh"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 674,
+      "topk": [
+        {
+          "source_file": "codex_docs_selected/docs/config.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/config.md::4ab580d278f9::0002::ff4ab2f8",
+          "title": "config",
+          "similarity": 0.554177,
+          "snippet": "- https://developers.openai.com/codex/config-reference\n\nWhen Codex knows which client started the turn, the legacy notify JSON payload also includes a top-level `client` field. The"
+        },
+        {
+          "source_file": "codex_docs_selected/docs/getting-started.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/getting-started.md::210187b0199e::0001::a1b448cb",
+          "title": "getting started",
+          "similarity": 0.504083,
+          "snippet": "# Getting started with Codex CLI\n\nFor an overview of Codex CLI features, see [this documentation](https://developers.openai.com/codex/cli/features#running-in-interactive-mode)."
+        },
+        {
+          "source_file": "codex_docs_selected/docs/example-config.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/example-config.md::8c360f977c2f::0001::8ae381f6",
+          "title": "example config",
+          "similarity": 0.50072,
+          "snippet": "# Sample configuration\n\nFor a sample configuration file, see [this documentation](https://developers.openai.com/codex/config-sample)."
+        },
+        {
+          "source_file": "codex_docs_selected/docs/authentication.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/authentication.md::3fe4a065894a::0001::47d7e2d2",
+          "title": "authentication",
+          "similarity": 0.480489,
+          "snippet": "# Authentication\n\nFor information about Codex CLI authentication, see [this documentation](https://developers.openai.com/codex/auth)."
+        },
+        {
+          "source_file": "codex_docs_selected/shell-tool-mcp/README.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/shell-tool-mcp/README.md::bf4494ef04e1::0004::f228433a",
+          "title": "README",
+          "similarity": 0.457442,
+          "snippet": "```toml\n[features]\nshell_tool = false\n\n[mcp_servers.shell-tool]\ncommand = \"npx\"\nargs = [\"-y\", \"@openai/codex-shell-tool-mcp\"]\n```\n\nNote when the `@openai/codex-shell-tool-mcp` laun"
+        }
+      ]
+    },
+    {
+      "query": "codex sandbox approvals workspace write read only danger full access",
+      "expected_source_file": "codex_docs_selected/docs/sandbox.md",
+      "query_derivation": "codex_dogfooding_real_use",
+      "result_count": 5,
+      "top1_source_file": "codex_docs_selected/docs/sandbox.md",
+      "top1_similarity": 0.674903,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": true,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": true,
+      "expected_source_file_hit_position": 1,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache",
+        "openai_fresh"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 661,
+      "topk": [
+        {
+          "source_file": "codex_docs_selected/docs/sandbox.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/sandbox.md::61d4dd0ccda2::0001::0a3fc0d1",
+          "title": "sandbox",
+          "similarity": 0.674903,
+          "snippet": "## Sandbox & approvals\n\nFor information about Codex sandboxing and approvals, see [this documentation](https://developers.openai.com/codex/security)."
+        },
+        {
+          "source_file": "codex_docs_selected/shell-tool-mcp/README.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/shell-tool-mcp/README.md::bf4494ef04e1::0005::40581856",
+          "title": "README",
+          "similarity": 0.453117,
+          "snippet": "This capability means the MCP server honors requests like the following to update the sandbox policy the MCP server uses when spawning Bash:\n\n```json\n{\n\"id\": \"req-42\",\n\"method\": \"c"
+        },
+        {
+          "source_file": "codex_docs_selected/docs/config.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/config.md::4ab580d278f9::0002::ff4ab2f8",
+          "title": "config",
+          "similarity": 0.35301,
+          "snippet": "- https://developers.openai.com/codex/config-reference\n\nWhen Codex knows which client started the turn, the legacy notify JSON payload also includes a top-level `client` field. The"
+        },
+        {
+          "source_file": "codex_docs_selected/docs/getting-started.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/getting-started.md::210187b0199e::0001::a1b448cb",
+          "title": "getting started",
+          "similarity": 0.328875,
+          "snippet": "# Getting started with Codex CLI\n\nFor an overview of Codex CLI features, see [this documentation](https://developers.openai.com/codex/cli/features#running-in-interactive-mode)."
+        },
+        {
+          "source_file": "codex_docs_selected/docs/install.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/install.md::59074df84b61::0002::e13b6449",
+          "title": "install",
+          "similarity": 0.327943,
+          "snippet": "### Build from source\n\n```bash\n# Clone the repository and navigate to the root of the Cargo workspace.\ngit clone https://github.com/openai/codex.git\ncd codex/codex-rs\n\n# Install th"
+        }
+      ]
+    },
+    {
+      "query": "codex execution policy approvals rules",
+      "expected_source_file": "codex_docs_selected/docs/execpolicy.md",
+      "query_derivation": "codex_dogfooding_real_use",
+      "result_count": 5,
+      "top1_source_file": "codex_docs_selected/docs/sandbox.md",
+      "top1_similarity": 0.598403,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": false,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": true,
+      "expected_source_file_hit_position": 2,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache",
+        "openai_fresh"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 641,
+      "topk": [
+        {
+          "source_file": "codex_docs_selected/docs/sandbox.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/sandbox.md::61d4dd0ccda2::0001::0a3fc0d1",
+          "title": "sandbox",
+          "similarity": 0.598403,
+          "snippet": "## Sandbox & approvals\n\nFor information about Codex sandboxing and approvals, see [this documentation](https://developers.openai.com/codex/security)."
+        },
+        {
+          "source_file": "codex_docs_selected/docs/execpolicy.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/execpolicy.md::76b29e8cffcf::0001::1de5caef",
+          "title": "execpolicy",
+          "similarity": 0.583023,
+          "snippet": "# Execution policy\n\nFor an overview of execution policy rules, see [this documentation](https://developers.openai.com/codex/exec-policy)."
+        },
+        {
+          "source_file": "codex_docs_selected/shell-tool-mcp/README.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/shell-tool-mcp/README.md::bf4494ef04e1::0002::24e0a934",
+          "title": "README",
+          "similarity": 0.436844,
+          "snippet": "The user can use [Codex `.rules`](https://developers.openai.com/codex/local-config#rules-preview) files to define how a command should be handled. The action to take is determined "
+        },
+        {
+          "source_file": "codex_docs_selected/docs/authentication.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/authentication.md::3fe4a065894a::0001::47d7e2d2",
+          "title": "authentication",
+          "similarity": 0.436507,
+          "snippet": "# Authentication\n\nFor information about Codex CLI authentication, see [this documentation](https://developers.openai.com/codex/auth)."
+        },
+        {
+          "source_file": "codex_docs_selected/docs/config.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/config.md::4ab580d278f9::0003::689b6196",
+          "title": "config",
+          "similarity": 0.419743,
+          "snippet": "Codex can trust a custom root CA bundle for outbound HTTPS and secure websocket\nconnections when enterprise proxies or gateways intercept TLS. This applies to\nlogin flows and to Co"
+        }
+      ]
+    },
+    {
+      "query": "codex slash commands and skills documentation",
+      "expected_source_file": "codex_docs_selected/docs/slash_commands.md",
+      "query_derivation": "codex_dogfooding_real_use",
+      "result_count": 5,
+      "top1_source_file": "codex_docs_selected/docs/slash_commands.md",
+      "top1_similarity": 0.671588,
+      "top1_expected_prefix": true,
+      "top1_expected_source_file": true,
+      "topk_expected_prefix": true,
+      "expected_source_file_in_topk": true,
+      "expected_source_file_hit_position": 1,
+      "semantic_path": "round_scope_only",
+      "semantic_paths_observed": [
+        "embedding_cache",
+        "openai_fresh"
+      ],
+      "search_cache_hit": false,
+      "embedding_cache_hit": true,
+      "semantic_duration_ms": 681,
+      "topk": [
+        {
+          "source_file": "codex_docs_selected/docs/slash_commands.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/slash_commands.md::0c063e80ca81::0001::30554dbb",
+          "title": "slash commands",
+          "similarity": 0.671588,
+          "snippet": "# Slash commands\n\nFor an overview of Codex CLI slash commands, see [this documentation](https://developers.openai.com/codex/cli/slash-commands)."
+        },
+        {
+          "source_file": "codex_docs_selected/docs/skills.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/skills.md::e59789d09692::0001::54056232",
+          "title": "skills",
+          "similarity": 0.560269,
+          "snippet": "# Skills\n\nFor information about skills, refer to [this documentation](https://developers.openai.com/codex/skills)."
+        },
+        {
+          "source_file": "codex_docs_selected/docs/getting-started.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/docs/getting-started.md::210187b0199e::0001::a1b448cb",
+          "title": "getting started",
+          "similarity": 0.479202,
+          "snippet": "# Getting started with Codex CLI\n\nFor an overview of Codex CLI features, see [this documentation](https://developers.openai.com/codex/cli/features#running-in-interactive-mode)."
+        },
+        {
+          "source_file": "codex_docs_selected/README.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/README.md::eb9b277b8ff6::0001::67a26d5f",
+          "title": "README",
+          "similarity": 0.425784,
+          "snippet": "<p align=\"center\"><code>npm i -g @openai/codex</code><br />or <code>brew install --cask codex</code></p>\n<p align=\"center\"><strong>Codex CLI</strong> is a coding agent from OpenAI "
+        },
+        {
+          "source_file": "codex_docs_selected/shell-tool-mcp/README.md",
+          "chunk_id": "chunk::doc::codex_docs_selected/shell-tool-mcp/README.md::bf4494ef04e1::0001::d0d2d8e0",
+          "title": "README",
+          "similarity": 0.4252,
+          "snippet": "# @openai/codex-shell-tool-mcp\n\n**Note: This MCP server is still experimental. When using it with Codex CLI, ensure the CLI version matches the MCP server version.**\n\n`@openai/code"
+        }
+      ]
+    }
+  ],
+  "aggregate": {
+    "source_prefixes": [
+      "codex_docs_selected"
+    ],
+    "top_k": 5,
+    "total_queries": 6,
+    "queries_with_results": 6,
+    "top1_expected_prefix_count": 6,
+    "topk_expected_prefix_count": 6,
+    "top1_expected_source_file_count": 5,
+    "topk_expected_source_file_count": 6,
+    "required_top1_expected_source_file_hits": 3,
+    "semantic_smoke_passed": true
+  },
+  "semantic_smoke_passed": true
+}

@@ -11,45 +11,68 @@
     <header class="header">
       <div>
         <h1>livecopilot</h1>
-        <p>Copiloto de comunicacao em tempo real (MVP local)</p>
+        <p>Janela de consulta do Livecopilot com texto e voz convergindo para o mesmo motor logico</p>
       </div>
       <div class="status" id="status">desconectado</div>
     </header>
 
-    <section class="input-panel">
-      <form id="ingest-form">
-        <label for="mock-input">Entrada simulada de fala</label>
+    <section class="control-grid">
+      <section class="input-panel">
+        <form id="chat-form">
+          <label for="chat-input">Consultar o Livecopilot por texto</label>
+          <textarea id="chat-input" rows="3" placeholder="Digite uma pergunta sobre o projeto, memoria semantica, status atual ou contexto ja tratado"></textarea>
+          <div class="row">
+            <select id="mode-select" aria-label="Modo de resposta">
+              <option value="generic">Generico</option>
+              <option value="interview">Interview</option>
+              <option value="study">Study</option>
+            </select>
+            <button type="submit" id="chat-submit">Enviar texto</button>
+          </div>
+          <p class="hint" id="chat-feedback">Pronto para consultar o motor do Livecopilot por texto.</p>
+        </form>
+      </section>
+
+      <section class="panel voice-panel">
+        <h2>Falar em vez de digitar</h2>
+        <p class="hint">A voz usa OpenAI Realtime API com WebRTC. A transcricao entra como consulta para a mesma logica do Livecopilot.</p>
         <div class="row">
-          <input id="mock-input" type="text" placeholder="Digite uma frase para simular a fala" />
-          <button type="submit">Enviar</button>
+          <button type="button" id="voice-start">Iniciar voz</button>
+          <button type="button" id="voice-stop" class="secondary" disabled>Encerrar</button>
         </div>
-      </form>
+        <ul class="meta-list" id="voice-meta">
+          <li>estado: aguardando</li>
+          <li>sessao: nao iniciada</li>
+          <li>transporte: WebRTC direto no cliente</li>
+        </ul>
+        <audio id="remote-audio" autoplay></audio>
+      </section>
     </section>
 
     <section class="grid">
       <div class="panel">
-        <h2>Transcricao</h2>
-        <ul id="transcript"></ul>
+        <h2>Consultas e Transcricoes</h2>
+        <ul id="interaction-log"></ul>
       </div>
 
       <div class="panel">
-        <h2>Sugestoes</h2>
-        <ul id="suggestions"></ul>
+        <h2>Resposta Atual</h2>
+        <div id="latest-answer" class="answer-block">Nenhuma resposta ainda.</div>
       </div>
 
       <div class="panel">
-        <h2>Respostas Rapidas</h2>
-        <ul id="quick-replies"></ul>
+        <h2>Pontos de Apoio</h2>
+        <ul id="response-bullets"></ul>
       </div>
 
       <div class="panel">
-        <h2>Frases de Sustentacao</h2>
-        <ul id="fillers"></ul>
+        <h2>Status da Interacao</h2>
+        <ul id="interaction-status"></ul>
       </div>
 
       <div class="panel">
-        <h2>Termos Tecnicos</h2>
-        <ul id="term-hints"></ul>
+        <h2>Contexto do Backend</h2>
+        <ul id="backend-context"></ul>
       </div>
     </section>
 

@@ -1,0 +1,380 @@
+{
+  "generated_at": "2026-03-11T21:21:56.833442+00:00",
+  "scope": "iam_focused_after_aws5_semantic_persist",
+  "top_k": 5,
+  "thresholds": {
+    "lacuna_if_max_lt": 0.45,
+    "bem_coberta_if_max_gte": 0.6,
+    "bem_coberta_if_avg_gte": 0.45
+  },
+  "summary": {
+    "total_questions": 8,
+    "well_covered_count": 0,
+    "partial_count": 6,
+    "gap_count": 2,
+    "global_avg_of_max_score": 0.470363,
+    "global_avg_of_avg_score": 0.468348
+  },
+  "results": [
+    {
+      "question": "aws iam least privilege policy",
+      "top_k": [
+        {
+          "title": "Permissions boundaries for IAM entities",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.520263,
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf"
+        },
+        {
+          "title": "Policy evaluation logic",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.520202,
+          "source_file": "aws/Policy evaluation logic.pdf"
+        },
+        {
+          "title": "Security best practices in IAM",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.52018,
+          "source_file": "aws/Security best practices in IAM.pdf"
+        },
+        {
+          "title": "IAM policy testing with the IAM policy simulator",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.52018,
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf"
+        },
+        {
+          "title": "Security best practices in IAM",
+          "snippet": "Policies and IAM groups ...................................................................................................................... 27\nFederated user sessions and roles ",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0005::8dbb5d9b",
+          "similarity": 0.490322,
+          "source_file": "aws/Security best practices in IAM.pdf"
+        }
+      ],
+      "top_k_count": 5,
+      "max_score": 0.520263,
+      "avg_score": 0.514229,
+      "top_source_file": "aws/Permissions boundaries for IAM entities.pdf",
+      "classification": "parcial"
+    },
+    {
+      "question": "policy evaluation logic aws",
+      "top_k": [
+        {
+          "title": "IAM policy testing with the IAM policy simulator",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.432417,
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf"
+        },
+        {
+          "title": "Security best practices in IAM",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.432417,
+          "source_file": "aws/Security best practices in IAM.pdf"
+        },
+        {
+          "title": "Permissions boundaries for IAM entities",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.432399,
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf"
+        },
+        {
+          "title": "Policy evaluation logic",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.432383,
+          "source_file": "aws/Policy evaluation logic.pdf"
+        },
+        {
+          "title": "Title Page",
+          "snippet": "Practical solutions for managing security policies, monitoring, auditing, and compliance with AWS Heartin Kanikathottu BIRMINGHAM - MUMBAI",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0002::520f14ec",
+          "similarity": 0.431105,
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub"
+        }
+      ],
+      "top_k_count": 5,
+      "max_score": 0.432417,
+      "avg_score": 0.432144,
+      "top_source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+      "classification": "lacuna"
+    },
+    {
+      "question": "permissions boundaries iam",
+      "top_k": [
+        {
+          "title": "Policy evaluation logic",
+          "snippet": "iv\nAWS Identity and Access Management User Guide\n\nUse permissions boundaries to delegate permissions management within an account ......... 74\nRoot user best practices ............",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0006::db439fa1",
+          "similarity": 0.485331,
+          "source_file": "aws/Policy evaluation logic.pdf"
+        },
+        {
+          "title": "IAM policy testing with the IAM policy simulator",
+          "snippet": "iv\nAWS Identity and Access Management User Guide\n\nUse permissions boundaries to delegate permissions management within an account ......... 74\nRoot user best practices ............",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0006::db439fa1",
+          "similarity": 0.485331,
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf"
+        },
+        {
+          "title": "Permissions boundaries for IAM entities",
+          "snippet": "iv\nAWS Identity and Access Management User Guide\n\nUse permissions boundaries to delegate permissions management within an account ......... 74\nRoot user best practices ............",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0006::db439fa1",
+          "similarity": 0.485247,
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf"
+        },
+        {
+          "title": "Security best practices in IAM",
+          "snippet": "iv\nAWS Identity and Access Management User Guide\n\nUse permissions boundaries to delegate permissions management within an account ......... 74\nRoot user best practices ............",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0006::db439fa1",
+          "similarity": 0.485247,
+          "source_file": "aws/Security best practices in IAM.pdf"
+        },
+        {
+          "title": "Policy evaluation logic",
+          "snippet": "Table of Contents\nWhat is IAM? .................................................................................................................................... 1\nWhy should I u",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0003::0e5b70a8",
+          "similarity": 0.47233,
+          "source_file": "aws/Policy evaluation logic.pdf"
+        }
+      ],
+      "top_k_count": 5,
+      "max_score": 0.485331,
+      "avg_score": 0.482697,
+      "top_source_file": "aws/Policy evaluation logic.pdf",
+      "classification": "parcial"
+    },
+    {
+      "question": "iam policy simulator",
+      "top_k": [
+        {
+          "title": "Permissions boundaries for IAM entities",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.338807,
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf"
+        },
+        {
+          "title": "Policy evaluation logic",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.338783,
+          "source_file": "aws/Policy evaluation logic.pdf"
+        },
+        {
+          "title": "Security best practices in IAM",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.338777,
+          "source_file": "aws/Security best practices in IAM.pdf"
+        },
+        {
+          "title": "IAM policy testing with the IAM policy simulator",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.338777,
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf"
+        },
+        {
+          "title": "Title Page",
+          "snippet": "Practical solutions for managing security policies, monitoring, auditing, and compliance with AWS Heartin Kanikathottu BIRMINGHAM - MUMBAI",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0002::520f14ec",
+          "similarity": 0.330326,
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub"
+        }
+      ],
+      "top_k_count": 5,
+      "max_score": 0.338807,
+      "avg_score": 0.337094,
+      "top_source_file": "aws/Permissions boundaries for IAM entities.pdf",
+      "classification": "lacuna"
+    },
+    {
+      "question": "explicit deny allow iam",
+      "top_k": [
+        {
+          "title": "IAM policy testing with the IAM policy simulator",
+          "snippet": "Table of Contents\nWhat is IAM? .................................................................................................................................... 1\nWhy should I u",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0003::0e5b70a8",
+          "similarity": 0.453959,
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf"
+        },
+        {
+          "title": "Permissions boundaries for IAM entities",
+          "snippet": "Table of Contents\nWhat is IAM? .................................................................................................................................... 1\nWhy should I u",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0003::0e5b70a8",
+          "similarity": 0.453959,
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf"
+        },
+        {
+          "title": "Policy evaluation logic",
+          "snippet": "Table of Contents\nWhat is IAM? .................................................................................................................................... 1\nWhy should I u",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0003::0e5b70a8",
+          "similarity": 0.453947,
+          "source_file": "aws/Policy evaluation logic.pdf"
+        },
+        {
+          "title": "Security best practices in IAM",
+          "snippet": "Table of Contents\nWhat is IAM? .................................................................................................................................... 1\nWhy should I u",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0003::0e5b70a8",
+          "similarity": 0.453903,
+          "source_file": "aws/Security best practices in IAM.pdf"
+        },
+        {
+          "title": "IAM policy testing with the IAM policy simulator",
+          "snippet": "Amazon's trademarks and trade dress may not be used in connection with any product or service\nthat is not Amazon's, in any manner that is likely to cause confusion among customers,",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0002::837b6d1b",
+          "similarity": 0.445905,
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf"
+        }
+      ],
+      "top_k_count": 5,
+      "max_score": 0.453959,
+      "avg_score": 0.452335,
+      "top_source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+      "classification": "parcial"
+    },
+    {
+      "question": "identity policy resource policy boundary scp aws",
+      "top_k": [
+        {
+          "title": "IAM policy testing with the IAM policy simulator",
+          "snippet": "iv\nAWS Identity and Access Management User Guide\n\nUse permissions boundaries to delegate permissions management within an account ......... 74\nRoot user best practices ............",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0006::db439fa1",
+          "similarity": 0.524229,
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf"
+        },
+        {
+          "title": "Policy evaluation logic",
+          "snippet": "iv\nAWS Identity and Access Management User Guide\n\nUse permissions boundaries to delegate permissions management within an account ......... 74\nRoot user best practices ............",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0006::db439fa1",
+          "similarity": 0.524229,
+          "source_file": "aws/Policy evaluation logic.pdf"
+        },
+        {
+          "title": "Permissions boundaries for IAM entities",
+          "snippet": "iv\nAWS Identity and Access Management User Guide\n\nUse permissions boundaries to delegate permissions management within an account ......... 74\nRoot user best practices ............",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0006::db439fa1",
+          "similarity": 0.524209,
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf"
+        },
+        {
+          "title": "Security best practices in IAM",
+          "snippet": "iv\nAWS Identity and Access Management User Guide\n\nUse permissions boundaries to delegate permissions management within an account ......... 74\nRoot user best practices ............",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0006::db439fa1",
+          "similarity": 0.524209,
+          "source_file": "aws/Security best practices in IAM.pdf"
+        },
+        {
+          "title": "Permissions boundaries for IAM entities",
+          "snippet": "iii\nAWS Identity and Access Management User Guide\n\nPolicies and IAM groups .........................................................................................................",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0004::2e738f80",
+          "similarity": 0.515163,
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf"
+        }
+      ],
+      "top_k_count": 5,
+      "max_score": 0.524229,
+      "avg_score": 0.522408,
+      "top_source_file": "aws/IAM policy testing with the IAM policy simulator.pdf",
+      "classification": "parcial"
+    },
+    {
+      "question": "iam best practices aws",
+      "top_k": [
+        {
+          "title": "Security best practices in IAM",
+          "snippet": "User Guide\n\nAWS Identity and Access Management\n\nCopyright © 2026 Amazon Web Services, Inc. and/or its aﬃliates. All rights reserved.\nAWS Identity and Access Management User Guide\n\n",
+          "chunk_id": "chunk::doc::aws/Security-best-practices-in-IAM.pdf::961d1e6c278b::0001::43777e60",
+          "similarity": 0.557567,
+          "source_file": "aws/Security best practices in IAM.pdf"
+        },
+        {
+          "title": "IAM policy testing with the IAM policy simulator",
+          "snippet": "User Guide\n\nAWS Identity and Access Management\n\nCopyright © 2026 Amazon Web Services, Inc. and/or its aﬃliates. All rights reserved.\nAWS Identity and Access Management User Guide\n\n",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0001::43777e60",
+          "similarity": 0.557567,
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf"
+        },
+        {
+          "title": "Permissions boundaries for IAM entities",
+          "snippet": "User Guide\n\nAWS Identity and Access Management\n\nCopyright © 2026 Amazon Web Services, Inc. and/or its aﬃliates. All rights reserved.\nAWS Identity and Access Management User Guide\n\n",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0001::43777e60",
+          "similarity": 0.557567,
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf"
+        },
+        {
+          "title": "Policy evaluation logic",
+          "snippet": "User Guide\n\nAWS Identity and Access Management\n\nCopyright © 2026 Amazon Web Services, Inc. and/or its aﬃliates. All rights reserved.\nAWS Identity and Access Management User Guide\n\n",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0001::43777e60",
+          "similarity": 0.557567,
+          "source_file": "aws/Policy evaluation logic.pdf"
+        },
+        {
+          "title": "Title Page",
+          "snippet": "Practical solutions for managing security policies, monitoring, auditing, and compliance with AWS Heartin Kanikathottu BIRMINGHAM - MUMBAI",
+          "chunk_id": "chunk::doc::aws/AWS-Security-Cookbook-by-Heartin-Kanikathottu.epub::4988acb4acae::0002::520f14ec",
+          "similarity": 0.550036,
+          "source_file": "aws/AWS Security Cookbook by Heartin Kanikathottu.epub"
+        }
+      ],
+      "top_k_count": 5,
+      "max_score": 0.557567,
+      "avg_score": 0.556061,
+      "top_source_file": "aws/Security best practices in IAM.pdf",
+      "classification": "parcial"
+    },
+    {
+      "question": "policy boundary vs scp aws",
+      "top_k": [
+        {
+          "title": "1. Security Group controla regras de entrada e saída na instância EC2 na VPC AWS.",
+          "snippet": "1. Security Group controla regras de entrada e saída na instância EC2 na VPC AWS.",
+          "chunk_id": "semantic-api-51838d66-1",
+          "similarity": 0.450327,
+          "source_file": "__api_context_smoke__.md"
+        },
+        {
+          "title": "1. Security Group controla regras de entrada e saída na instância EC2 na VPC AWS.",
+          "snippet": "1. Security Group controla regras de entrada e saída na instância EC2 na VPC AWS.",
+          "chunk_id": "semantic-api-029d6c37-1",
+          "similarity": 0.450327,
+          "source_file": "__api_contract_smoke__.md"
+        },
+        {
+          "title": "Policy evaluation logic",
+          "snippet": "iv\nAWS Identity and Access Management User Guide\n\nUse permissions boundaries to delegate permissions management within an account ......... 74\nRoot user best practices ............",
+          "chunk_id": "chunk::doc::aws/Policy-evaluation-logic.pdf::961d1e6c278b::0006::db439fa1",
+          "similarity": 0.449489,
+          "source_file": "aws/Policy evaluation logic.pdf"
+        },
+        {
+          "title": "IAM policy testing with the IAM policy simulator",
+          "snippet": "iv\nAWS Identity and Access Management User Guide\n\nUse permissions boundaries to delegate permissions management within an account ......... 74\nRoot user best practices ............",
+          "chunk_id": "chunk::doc::aws/IAM-policy-testing-with-the-IAM-policy-simulator.pdf::961d1e6c278b::0006::db439fa1",
+          "similarity": 0.449489,
+          "source_file": "aws/IAM policy testing with the IAM policy simulator.pdf"
+        },
+        {
+          "title": "Permissions boundaries for IAM entities",
+          "snippet": "iv\nAWS Identity and Access Management User Guide\n\nUse permissions boundaries to delegate permissions management within an account ......... 74\nRoot user best practices ............",
+          "chunk_id": "chunk::doc::aws/Permissions-boundaries-for-IAM-entities.pdf::961d1e6c278b::0006::db439fa1",
+          "similarity": 0.449458,
+          "source_file": "aws/Permissions boundaries for IAM entities.pdf"
+        }
+      ],
+      "top_k_count": 5,
+      "max_score": 0.450327,
+      "avg_score": 0.449818,
+      "top_source_file": "__api_context_smoke__.md",
+      "classification": "parcial"
+    }
+  ]
+}

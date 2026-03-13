@@ -1,0 +1,10 @@
+{
+  "generated_at": "2026-03-12T02:04:54-03:00",
+  "clone_dir": "data/knowledge_raw/_official_repo_clones/kubernetes-website",
+  "target_dir": "data/knowledge_raw/kubernetes_docs_selected",
+  "proposed_count": 12,
+  "materialized_count": 12,
+  "markdown_count": 12,
+  "non_markdown_count": 0,
+  "missing_count": 0
+}
