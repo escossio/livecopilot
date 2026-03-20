@@ -53,6 +53,8 @@ state/
 queue/
 var/
 .supervisor/
+lab/projects/pipeline-lab/runs/*
+!lab/projects/pipeline-lab/runs/.gitkeep
 *.bak
 *.bak*
 _history/

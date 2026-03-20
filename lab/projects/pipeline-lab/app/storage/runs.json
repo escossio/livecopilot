@@ -1,0 +1,77 @@
+[
+  {
+    "id": "fd999231-3b52-42a8-96f6-2dc761cc9a71",
+    "domain": "terraform",
+    "stage": "lexical_validation",
+    "started_at": "2026-03-18T02:17:31.315175Z",
+    "metadata": {
+      "last_status": "completed",
+      "last_executed_stage": "chunking",
+      "executed_stages": [
+        {
+          "stage": "source_policy",
+          "timestamp": "2026-03-18T02:27:14.469260Z",
+          "result": "executed stage source_policy at 2026-03-18T02:27:14.469260Z"
+        },
+        {
+          "stage": "source_manifest",
+          "timestamp": "2026-03-18T02:27:14.470451Z",
+          "result": "executed stage source_manifest at 2026-03-18T02:27:14.470451Z"
+        },
+        {
+          "stage": "corpus_freeze",
+          "timestamp": "2026-03-18T02:35:34.024924Z",
+          "result": "executed stage corpus_freeze at 2026-03-18T02:35:34.024924Z",
+          "artifact": "stage_artifact_corpus_freeze.md"
+        },
+        {
+          "stage": "parsing",
+          "timestamp": "2026-03-18T02:42:12.232381Z",
+          "result": "executed stage parsing at 2026-03-18T02:42:12.232381Z",
+          "artifact": "stage_artifact_parsing.md",
+          "gate": {
+            "checked": "parsing",
+            "allowed": true,
+            "reason": "pr\u00e9-requisito corpus_freeze satisfeito"
+          }
+        },
+        {
+          "stage": "chunking",
+          "timestamp": "2026-03-18T03:49:25.414910Z",
+          "result": "executed stage chunking at 2026-03-18T03:49:25.414910Z",
+          "artifact": "stage_artifact_chunking.md",
+          "gate": {
+            "checked": "chunking",
+            "allowed": true,
+            "reason": "pr\u00e9-requisito parsing satisfeito"
+          }
+        }
+      ]
+    },
+    "status": "completed"
+  },
+  {
+    "id": "e1505998-bb3a-4f8e-8592-8e1d45f046ff",
+    "domain": "python",
+    "stage": "chunking",
+    "status": "blocked",
+    "started_at": "2026-03-18T02:41:53.809462Z",
+    "metadata": {
+      "last_status": "blocked",
+      "executed_stages": [
+        {
+          "stage": "chunking",
+          "timestamp": "2026-03-18T02:41:53.810841Z",
+          "result": "gate blocked: aguardando pr\u00e9-requisito parsing",
+          "blocked": true,
+          "gate": {
+            "checked": "chunking",
+            "allowed": false,
+            "reason": "aguardando pr\u00e9-requisito parsing"
+          }
+        }
+      ],
+      "gate_blocked_reason": "aguardando pr\u00e9-requisito parsing"
+    }
+  }
+]

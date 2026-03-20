@@ -1,0 +1,19 @@
+[project]
+name = "pipeline-lab"
+version = "0.1.0"
+description = "Esqueleto para a frente Pipeline Lab, responsável por registrar execuções do pipeline validado."
+authors = ["LiveCopilot Team <ops@livecopilot.dev>"]
+readme = "README.md"
+requires-python = ">=3.10"
+
+[project.dependencies]
+PyYAML = "^6.0"
+fastapi = "^0.110.0"
+uvicorn = {extras = ["standard"], version = "^0.22.0"}
+
+[project.optional-dependencies]
+testing = ["pytest>=7.0"]
+
+[build-system]
+requires = ["setuptools>=66.0","wheel"]
+build-backend = "setuptools.build_meta"

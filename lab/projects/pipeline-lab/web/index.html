@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <title>Pipeline Lab Cockpit</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">Pipeline Lab</p>
+      <h1>Cockpit mínimo</h1>
+    </div>
+    <p class="subtitle">Mostra runs, stages, histórico e logs das execuções já registradas.</p>
+  </header>
+  <main class="app-main">
+    <section class="panel runs-panel">
+      <h2>Runs</h2>
+      <div id="runList" class="run-list">carregando...</div>
+      <div class="create-run">
+        <label for="domainSelect">Novo domínio</label>
+        <select id="domainSelect">
+          <option value="terraform">terraform</option>
+          <option value="python">python</option>
+        </select>
+        <button id="createRunBtn" class="action-button secondary">Criar run</button>
+        <p id="createMessage" class="action-message">—</p>
+      </div>
+    </section>
+    <section class="panel details-panel">
+      <div class="detail-card">
+        <header>
+          <h3>Detalhes da run</h3>
+        </header>
+        <div class="detail-row"><span>ID</span><strong id="detailRunId">—</strong></div>
+        <div class="detail-row"><span>Domínio</span><strong id="detailDomain">—</strong></div>
+      <div class="detail-row"><span>Stage atual</span><strong id="detailStage">—</strong></div>
+        <div class="detail-row"><span>Status</span><strong id="detailStatus" class="status-pill">—</strong></div>
+        <div class="detail-row"><span>Iniciada</span><strong id="detailStart">—</strong></div>
+        <button id="nextStageBtn" class="action-button">Executar próximo stage</button>
+        <p id="actionMessage" class="action-message">—</p>
+      </div>
+      <div class="history-card">
+        <header><h3>Histórico / Stages</h3></header>
+        <ul id="runHistory" class="history-list"><li>—</li></ul>
+      </div>
+      <div class="log-card">
+        <header><h3>Summary &amp; Log</h3></header>
+        <p id="summaryText">—</p>
+        <pre id="runLog">Sem log ainda.</pre>
+      </div>
+      <div class="artifact-card">
+        <header><h3>Artifacts</h3></header>
+        <ul id="artifactList" class="artifact-list"><li>—</li></ul>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
