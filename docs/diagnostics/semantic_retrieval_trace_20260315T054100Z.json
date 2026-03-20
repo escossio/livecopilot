@@ -1,0 +1,1135 @@
+{
+  "run_id": "20260315T054100Z",
+  "queries": [
+    {
+      "query": "Para que serve o arquivo de state no Terraform?",
+      "topic": "automação de infraestrutura",
+      "classification": "pergunta técnica",
+      "semantic_search": {
+        "count": 3,
+        "search_cache_hit": true,
+        "embedding_cache_hit": false,
+        "openai_called": false,
+        "semantic_path": "response_cache",
+        "results": [
+          {
+            "title": "index",
+            "snippet": "Terraform uses state to determine which changes to make to your\ninfrastructure. Prior to any operation, Terraform does a\n[refresh](/terraform/cli/commands/refresh) to update the st",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/index.md::ab0083c64278::0002::8be866f7",
+            "similarity": 0.661331,
+            "source_file": "terraform_docs_selected/language/state/index.md"
+          },
+          {
+            "title": "purpose",
+            "snippet": "---\npage_title: State\ndescription: >-\nTerraform must store state about your managed infrastructure and\nconfiguration. This state is used by Terraform to map real world resources to",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/purpose.md::edee54fda47d::0001::d11ccd74",
+            "similarity": 0.645067,
+            "source_file": "terraform_docs_selected/language/state/purpose.md"
+          },
+          {
+            "title": "index",
+            "snippet": "---\npage_title: State\ndescription: >-\nAn introduction to state, information that Terraform uses to map resources to\na configuration, track metadata, and improve performance.\n# STAR",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/index.md::ab0083c64278::0001::e7d3620b",
+            "similarity": 0.637123,
+            "source_file": "terraform_docs_selected/language/state/index.md"
+          }
+        ]
+      },
+      "semantic_local": {
+        "count": 3,
+        "matches_before_floor": [
+          {
+            "source_file": "terraform_docs_selected/language/state/index.md",
+            "title": "index",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/index.md::ab0083c64278::0002::8be866f7",
+            "sequence": 0,
+            "score": 0.661331,
+            "matched_tags": [],
+            "trecho_relevante": "Terraform uses state to determine which changes to make to your\ninfrastructure. Prior to any operation, Terraform does a\n[refresh](/terraform/cli/commands/refresh) to update the st"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/state/purpose.md",
+            "title": "purpose",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/purpose.md::edee54fda47d::0001::d11ccd74",
+            "sequence": 0,
+            "score": 0.645067,
+            "matched_tags": [],
+            "trecho_relevante": "---\npage_title: State\ndescription: >-\nTerraform must store state about your managed infrastructure and\nconfiguration. This state is used by Terraform to map real world resources to"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/state/index.md",
+            "title": "index",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/index.md::ab0083c64278::0001::e7d3620b",
+            "sequence": 0,
+            "score": 0.637123,
+            "matched_tags": [],
+            "trecho_relevante": "---\npage_title: State\ndescription: >-\nAn introduction to state, information that Terraform uses to map resources to\na configuration, track metadata, and improve performance.\n# STAR"
+          }
+        ],
+        "matches_after_floor": [
+          {
+            "source_file": "terraform_docs_selected/language/state/index.md",
+            "title": "index",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/index.md::ab0083c64278::0002::8be866f7",
+            "sequence": 0,
+            "score": 0.661331,
+            "matched_tags": [],
+            "trecho_relevante": "Terraform uses state to determine which changes to make to your\ninfrastructure. Prior to any operation, Terraform does a\n[refresh](/terraform/cli/commands/refresh) to update the st"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/state/purpose.md",
+            "title": "purpose",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/purpose.md::edee54fda47d::0001::d11ccd74",
+            "sequence": 0,
+            "score": 0.645067,
+            "matched_tags": [],
+            "trecho_relevante": "---\npage_title: State\ndescription: >-\nTerraform must store state about your managed infrastructure and\nconfiguration. This state is used by Terraform to map real world resources to"
+          },
+          {
+            "source_file": "terraform_docs_selected/language/state/index.md",
+            "title": "index",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/state/index.md::ab0083c64278::0001::e7d3620b",
+            "sequence": 0,
+            "score": 0.637123,
+            "matched_tags": [],
+            "trecho_relevante": "---\npage_title: State\ndescription: >-\nAn introduction to state, information that Terraform uses to map resources to\na configuration, track metadata, and improve performance.\n# STAR"
+          }
+        ],
+        "context_before_domain_gating": "QUERY: Para que serve o arquivo de state no Terraform?\n\nSOURCE: terraform_docs_selected/language/state/index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: Terraform uses state to determine which changes to make to your infrastructure. Prior to any operation, Terraform does a [refresh](/terraform/cli/commands/refresh) to update the st\n\nSOURCE: terraform_docs_selected/language/state/purpose.md\nTITLE: purpose\nSIGNALS: none\nSNIPPET: --- page_title: State description: >- Terraform must store state about your managed infrastructure and configuration. This state is used by Terraform to map real world resources to\n\nSOURCE: terraform_docs_selected/language/state/index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: --- page_title: State description: >- An introduction to state, information that Terraform uses to map resources to a configuration, track metadata, and improve performance. # STAR",
+        "domain_gating_blocked": true
+      },
+      "lexical_debug": {
+        "results": [
+          {
+            "source_file": "Terraform in Depth by Robert Hafner.pdf",
+            "title": "Terraform in Depth by Robert Hafner",
+            "chunk_id": "Terraform in Depth by Robert Hafner-1403-1f42248ca8eec370",
+            "sequence": 1403,
+            "trecho_relevante": "...onment 429 splat expression, operator 119 file function 104 state, alternative interfaces 398 standardizing and bootstrapping with 213–216 State class 399 string template language...",
+            "score": 160.138,
+            "base_score": 188.61,
+            "adjusted_score": 160.138,
+            "hygiene_score": 1.0,
+            "hygiene_flags": [],
+            "structural_score": 0.0,
+            "structural_signals": [],
+            "practicality_bonus": -0.18,
+            "practicality_bonus_weight": 1.0,
+            "practicality_signals": [
+              "exam"
+            ],
+            "why_practicality": "Practicality reduced by exam.",
+            "why_matched": "Relevant text match, but without structural signals.",
+            "tags": {
+              "technology": [
+                "aws",
+                "terraform"
+              ],
+              "domain": [
+                "cloud",
+                "devops",
+                "networking"
+              ],
+              "subtheme": [],
+              "all": [
+                "aws",
+                "cloud",
+                "devops",
+                "networking",
+                "terraform"
+              ]
+            },
+            "matched_tags": [
+              "cloud",
+              "devops",
+              "terraform"
+            ]
+          },
+          {
+            "source_file": "terraform_docs_selected/cli/commands/state/index.md",
+            "title": "index",
+            "chunk_id": "index-0001-ad637808b739f8e8",
+            "sequence": 1,
+            "trecho_relevante": "--- page_title: terraform state commands reference description: The `terraform state` group of commands enable advanced Terraform state management...",
+            "score": 132.713,
+            "base_score": 156.133,
+            "adjusted_score": 132.713,
+            "hygiene_score": 1.0,
+            "hygiene_flags": [],
+            "structural_score": 0.0,
+            "structural_signals": [],
+            "practicality_bonus": 0.0,
+            "practicality_bonus_weight": 1.0,
+            "practicality_signals": [],
+            "why_practicality": "",
+            "why_matched": "Relevant text match, but without structural signals.",
+            "tags": {
+              "technology": [
+                "terraform"
+              ],
+              "domain": [
+                "cloud",
+                "devops"
+              ],
+              "subtheme": [],
+              "all": [
+                "cloud",
+                "devops",
+                "terraform"
+              ]
+            },
+            "matched_tags": [
+              "cloud",
+              "devops",
+              "terraform"
+            ]
+          },
+          {
+            "source_file": "Terraform_Up_and_Running_3rd_Ed.pdf",
+            "title": "Terraform Up and Running 3rd Ed",
+            "chunk_id": "Terraform_Up_and_Running_3rd_Ed-1010-49eea376ae1343c5",
+            "sequence": 1010,
+            "trecho_relevante": "...oes Terraform Compare to Other IaC Tools?-Provisioning plus server templating plus orchestration agent versus agentless, Agent Versus Agentless-Agent Versus Agentless combining too...",
+            "score": 125.104,
+            "base_score": 147.392,
+            "adjusted_score": 125.104,
+            "hygiene_score": 1.0,
+            "hygiene_flags": [],
+            "structural_score": 0.0,
+            "structural_signals": [],
+            "practicality_bonus": -0.18,
+            "practicality_bonus_weight": 1.0,
+            "practicality_signals": [
+              "exam"
+            ],
+            "why_practicality": "Practicality reduced by exam.",
+            "why_matched": "Relevant text match, but without structural signals.",
+            "tags": {
+              "technology": [
+                "aws",
+                "terraform"
+              ],
+              "domain": [
+                "cloud",
+                "devops",
+                "networking"
+              ],
+              "subtheme": [],
+              "all": [
+                "aws",
+                "cloud",
+                "devops",
+                "networking",
+                "terraform"
+              ]
+            },
+            "matched_tags": [
+              "cloud",
+              "devops",
+              "terraform"
+            ]
+          },
+          {
+            "source_file": "Mastering Terraform_ A Practical Guide to Building and Deploying Infrastructure on AWS, Azure, and GCP by Mark Tinderholt.epub",
+            "title": "Chapter 1: Understanding Terraform Architecture",
+            "chunk_id": "Mastering Terraform_ A Practical Guide to Building and Deploying Infrastructure on AWS, Azure, and GCP by Mark Tinderholt-0002-e49f4954665b4015",
+            "sequence": 2,
+            "trecho_relevante": "...that evaluates source code, which describes what a desired state should look like, compares it against what the actual state is, constructs a plan to transform the actual state in...",
+            "score": 107.553,
+            "base_score": 126.533,
+            "adjusted_score": 107.553,
+            "hygiene_score": 1.0,
+            "hygiene_flags": [],
+            "structural_score": 7.869,
+            "structural_signals": [
+              "chapter_title",
+              "section_hint"
+            ],
+            "practicality_bonus": 0.0,
+            "practicality_bonus_weight": 1.0,
+            "practicality_signals": [],
+            "why_practicality": "",
+            "why_matched": "Relevant text match with some support from structural context.",
+            "tags": {
+              "technology": [
+                "aws",
+                "terraform"
+              ],
+              "domain": [
+                "cloud",
+                "devops"
+              ],
+              "subtheme": [
+                "containers"
+              ],
+              "all": [
+                "aws",
+                "cloud",
+                "containers",
+                "devops",
+                "terraform"
+              ]
+            },
+            "matched_tags": [
+              "cloud",
+              "devops",
+              "terraform"
+            ],
+            "chapter_title": "Chapter 1: Understanding Terraform Architecture",
+            "section_hint": "Chapter 1: Understanding Terraform Architecture",
+            "section_path": "OEBPS/B21183_01.xhtml"
+          },
+          {
+            "source_file": "Terraform_Associate_Study_Guide.pdf",
+            "title": "Terraform Associate Study Guide",
+            "chunk_id": "Terraform_Associate_Study_Guide-0115-28c80a1826fde1b9",
+            "sequence": 115,
+            "trecho_relevante": "Infrastructure Operation 1 Terraform State Local Operation 2 State Locking AWS S3 Terraform State Google Cloud Storage HashiCorp Consul Terraform Cloud Remot...",
+            "score": 104.91,
+            "base_score": 123.659,
+            "adjusted_score": 104.91,
+            "hygiene_score": 1.0,
+            "hygiene_flags": [],
+            "structural_score": 0.0,
+            "structural_signals": [],
+            "practicality_bonus": -0.2,
+            "practicality_bonus_weight": 1.0,
+            "practicality_signals": [
+              "study-guide"
+            ],
+            "why_practicality": "Practicality reduced by study-guide.",
+            "why_matched": "Relevant text match, but without structural signals.",
+            "tags": {
+              "technology": [
+                "terraform"
+              ],
+              "domain": [
+                "cloud",
+                "devops"
+              ],
+              "subtheme": [],
+              "all": [
+                "cloud",
+                "devops",
+                "terraform"
+              ]
+            },
+            "matched_tags": [
+              "cloud",
+              "devops",
+              "terraform"
+            ]
+          }
+        ],
+        "debug": {
+          "query_tags_inferred": {
+            "technology": [
+              "terraform"
+            ],
+            "domain": [
+              "cloud",
+              "devops"
+            ],
+            "subtheme": [],
+            "all": [
+              "cloud",
+              "devops",
+              "terraform"
+            ]
+          },
+          "query_tags_used": [
+            "terraform"
+          ],
+          "used_tag_routing": true,
+          "used_global_fallback": false,
+          "practical_intent_detected": false,
+          "practicality_bonus_weight": 1.0,
+          "max_results_per_source": 3,
+          "routed_result_count": 4049,
+          "global_result_count": 4049
+        }
+      }
+    },
+    {
+      "query": "Qual a diferenca entre terraform plan e terraform apply?",
+      "topic": "automação de infraestrutura",
+      "classification": "pergunta técnica",
+      "semantic_search": {
+        "count": 3,
+        "search_cache_hit": true,
+        "embedding_cache_hit": false,
+        "openai_called": false,
+        "semantic_path": "response_cache",
+        "results": [
+          {
+            "title": "index",
+            "snippet": "### Plan\n\nThe `terraform plan` command evaluates a Terraform configuration to determine\nthe desired state of all the resources it declares, then compares that desired\nstate to the ",
+            "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md::b9e2488ddc17::0002::56251630",
+            "similarity": 0.657417,
+            "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md"
+          },
+          {
+            "title": "apply",
+            "snippet": "---\npage_title: terraform apply command reference\ndescription: The `terraform apply` command executes the actions proposed in a Terraform plan\nto create, update, or destroy infrast",
+            "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/apply.md::4fa476a0fd3e::0001::2737f37d",
+            "similarity": 0.636436,
+            "source_file": "terraform_docs_selected/cli/commands/apply.md"
+          },
+          {
+            "title": "apply",
+            "snippet": "---\npage_title: terraform apply command reference\ndescription: The `terraform apply` command executes the actions proposed in a Terraform plan\nto create, update, or destroy infrast",
+            "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/apply.md::4fa476a0fd3e::0001::2737f37d",
+            "similarity": 0.636436,
+            "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/apply.md"
+          }
+        ]
+      },
+      "semantic_local": {
+        "count": 3,
+        "matches_before_floor": [
+          {
+            "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md",
+            "title": "index",
+            "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md::b9e2488ddc17::0002::56251630",
+            "sequence": 0,
+            "score": 0.657417,
+            "matched_tags": [],
+            "trecho_relevante": "### Plan\n\nThe `terraform plan` command evaluates a Terraform configuration to determine\nthe desired state of all the resources it declares, then compares that desired\nstate to the "
+          },
+          {
+            "source_file": "terraform_docs_selected/cli/commands/apply.md",
+            "title": "apply",
+            "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/apply.md::4fa476a0fd3e::0001::2737f37d",
+            "sequence": 0,
+            "score": 0.636436,
+            "matched_tags": [],
+            "trecho_relevante": "---\npage_title: terraform apply command reference\ndescription: The `terraform apply` command executes the actions proposed in a Terraform plan\nto create, update, or destroy infrast"
+          },
+          {
+            "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+            "title": "apply",
+            "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/apply.md::4fa476a0fd3e::0001::2737f37d",
+            "sequence": 0,
+            "score": 0.636436,
+            "matched_tags": [],
+            "trecho_relevante": "---\npage_title: terraform apply command reference\ndescription: The `terraform apply` command executes the actions proposed in a Terraform plan\nto create, update, or destroy infrast"
+          }
+        ],
+        "matches_after_floor": [
+          {
+            "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md",
+            "title": "index",
+            "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md::b9e2488ddc17::0002::56251630",
+            "sequence": 0,
+            "score": 0.657417,
+            "matched_tags": [],
+            "trecho_relevante": "### Plan\n\nThe `terraform plan` command evaluates a Terraform configuration to determine\nthe desired state of all the resources it declares, then compares that desired\nstate to the "
+          },
+          {
+            "source_file": "terraform_docs_selected/cli/commands/apply.md",
+            "title": "apply",
+            "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/apply.md::4fa476a0fd3e::0001::2737f37d",
+            "sequence": 0,
+            "score": 0.636436,
+            "matched_tags": [],
+            "trecho_relevante": "---\npage_title: terraform apply command reference\ndescription: The `terraform apply` command executes the actions proposed in a Terraform plan\nto create, update, or destroy infrast"
+          },
+          {
+            "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+            "title": "apply",
+            "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/apply.md::4fa476a0fd3e::0001::2737f37d",
+            "sequence": 0,
+            "score": 0.636436,
+            "matched_tags": [],
+            "trecho_relevante": "---\npage_title: terraform apply command reference\ndescription: The `terraform apply` command executes the actions proposed in a Terraform plan\nto create, update, or destroy infrast"
+          }
+        ],
+        "context_before_domain_gating": "QUERY: Qual a diferenca entre terraform plan e terraform apply?\n\nSOURCE: terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: ### Plan The `terraform plan` command evaluates a Terraform configuration to determine the desired state of all the resources it declares, then compares that desired state to the\n\nSOURCE: terraform_docs_selected/cli/commands/apply.md\nTITLE: apply\nSIGNALS: none\nSNIPPET: --- page_title: terraform apply command reference description: The `terraform apply` command executes the actions proposed in a Terraform plan to create, update, or destroy infrast\n\nSOURCE: terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/apply.md\nTITLE: apply\nSIGNALS: none\nSNIPPET: --- page_title: terraform apply command reference description: The `terraform apply` command executes the actions proposed in a Terraform plan to create, update, or destroy infrast",
+        "domain_gating_blocked": true
+      },
+      "lexical_debug": {
+        "results": [
+          {
+            "source_file": "Terraform in Depth by Robert Hafner.pdf",
+            "title": "Terraform in Depth by Robert Hafner",
+            "chunk_id": "Terraform in Depth by Robert Hafner-1403-1f42248ca8eec370",
+            "sequence": 1403,
+            "trecho_relevante": "SOCKS5 proxy 359 T software development practices 5 TACOS (Terraform Automation and Collaboration software registries Software) 280 Artifactory 259 tags, adding 91 private 256 tem...",
+            "score": 230.784,
+            "base_score": 271.205,
+            "adjusted_score": 230.784,
+            "hygiene_score": 1.0,
+            "hygiene_flags": [],
+            "structural_score": 0.0,
+            "structural_signals": [],
+            "practicality_bonus": 0.26,
+            "practicality_bonus_weight": 1.0,
+            "practicality_signals": [
+              "terraform-apply",
+              "apply"
+            ],
+            "why_practicality": "Practicality boosted by terraform-apply, apply.",
+            "why_matched": "Relevant text match, but without structural signals.",
+            "tags": {
+              "technology": [
+                "aws",
+                "terraform"
+              ],
+              "domain": [
+                "cloud",
+                "devops",
+                "networking"
+              ],
+              "subtheme": [],
+              "all": [
+                "aws",
+                "cloud",
+                "devops",
+                "networking",
+                "terraform"
+              ]
+            },
+            "matched_tags": [
+              "cloud",
+              "devops",
+              "terraform"
+            ]
+          },
+          {
+            "source_file": "Terraform_Up_and_Running_3rd_Ed.pdf",
+            "title": "Terraform Up and Running 3rd Ed",
+            "chunk_id": "Terraform_Up_and_Running_3rd_Ed-1011-61196d7eeb8542eb",
+            "sequence": 1011,
+            "trecho_relevante": "...ersioned Modules-Versioned Modules as declarative language, Terraform Tips and Tricks: Loops, If- Statements, Deployment, and Gotchas as deployment tool, Deployment tooling documen...",
+            "score": 213.923,
+            "base_score": 251.368,
+            "adjusted_score": 213.923,
+            "hygiene_score": 1.0,
+            "hygiene_flags": [],
+            "structural_score": 0.0,
+            "structural_signals": [],
+            "practicality_bonus": 0.26,
+            "practicality_bonus_weight": 1.0,
+            "practicality_signals": [
+              "terraform-apply",
+              "apply"
+            ],
+            "why_practicality": "Practicality boosted by terraform-apply, apply.",
+            "why_matched": "Relevant text match, but without structural signals.",
+            "tags": {
+              "technology": [
+                "aws",
+                "terraform"
+              ],
+              "domain": [
+                "cloud",
+                "devops",
+                "networking"
+              ],
+              "subtheme": [],
+              "all": [
+                "aws",
+                "cloud",
+                "devops",
+                "networking",
+                "terraform"
+              ]
+            },
+            "matched_tags": [
+              "cloud",
+              "devops",
+              "terraform"
+            ]
+          },
+          {
+            "source_file": "Mastering Terraform_ A Practical Guide to Building and Deploying Infrastructure on AWS, Azure, and GCP by Mark Tinderholt.epub",
+            "title": "Chapter 1: Understanding Terraform Architecture",
+            "chunk_id": "Mastering Terraform_ A Practical Guide to Building and Deploying Infrastructure on AWS, Azure, and GCP by Mark Tinderholt-0002-e49f4954665b4015",
+            "sequence": 2,
+            "trecho_relevante": "1 Understanding Terraform Architecture At its core, Terraform is a simple command-line program that evaluates source code, which describ...",
+            "score": 176.553,
+            "base_score": 207.709,
+            "adjusted_score": 176.553,
+            "hygiene_score": 1.0,
+            "hygiene_flags": [],
+            "structural_score": 12.827,
+            "structural_signals": [
+              "chapter_title",
+              "section_hint"
+            ],
+            "practicality_bonus": 0.0,
+            "practicality_bonus_weight": 1.0,
+            "practicality_signals": [],
+            "why_practicality": "",
+            "why_matched": "Matched strongly because the query aligns with the chapter title and section heading.",
+            "tags": {
+              "technology": [
+                "aws",
+                "terraform"
+              ],
+              "domain": [
+                "cloud",
+                "devops"
+              ],
+              "subtheme": [
+                "containers"
+              ],
+              "all": [
+                "aws",
+                "cloud",
+                "containers",
+                "devops",
+                "terraform"
+              ]
+            },
+            "matched_tags": [
+              "cloud",
+              "devops",
+              "terraform"
+            ],
+            "chapter_title": "Chapter 1: Understanding Terraform Architecture",
+            "section_hint": "Chapter 1: Understanding Terraform Architecture",
+            "section_path": "OEBPS/B21183_01.xhtml"
+          },
+          {
+            "source_file": "Mastering Terraform_ A Practical Guide to Building and Deploying Infrastructure on AWS, Azure, and GCP by Mark Tinderholt.epub",
+            "title": "Chapter 1: Understanding Terraform Architecture",
+            "chunk_id": "Mastering Terraform_ A Practical Guide to Building and Deploying Infrastructure on AWS, Azure, and GCP by Mark Tinderholt-0006-332b8c61ae04b7d2",
+            "sequence": 6,
+            "trecho_relevante": "Figure 1.7 – terraform plan evaluates the current code base with a set of input variables and compares it against the workspace’s Ter...",
+            "score": 169.446,
+            "base_score": 199.043,
+            "adjusted_score": 169.446,
+            "hygiene_score": 1.0,
+            "hygiene_flags": [],
+            "structural_score": 12.827,
+            "structural_signals": [
+              "chapter_title",
+              "section_hint"
+            ],
+            "practicality_bonus": 0.26,
+            "practicality_bonus_weight": 1.0,
+            "practicality_signals": [
+              "terraform-apply",
+              "apply"
+            ],
+            "why_practicality": "Practicality boosted by terraform-apply, apply.",
+            "why_matched": "Matched strongly because the query aligns with the chapter title and section heading.",
+            "tags": {
+              "technology": [
+                "aws",
+                "terraform"
+              ],
+              "domain": [
+                "cloud",
+                "devops"
+              ],
+              "subtheme": [
+                "containers"
+              ],
+              "all": [
+                "aws",
+                "cloud",
+                "containers",
+                "devops",
+                "terraform"
+              ]
+            },
+            "matched_tags": [
+              "cloud",
+              "devops",
+              "terraform"
+            ],
+            "chapter_title": "Chapter 1: Understanding Terraform Architecture",
+            "section_hint": "Chapter 1: Understanding Terraform Architecture",
+            "section_path": "OEBPS/B21183_01.xhtml"
+          },
+          {
+            "source_file": "Mastering Terraform_ A Practical Guide to Building and Deploying Infrastructure on AWS, Azure, and GCP by Mark Tinderholt.epub",
+            "title": "Chapter 1: Understanding Terraform Architecture",
+            "chunk_id": "Mastering Terraform_ A Practical Guide to Building and Deploying Infrastructure on AWS, Azure, and GCP by Mark Tinderholt-0014-6464819f82eb4d18",
+            "sequence": 14,
+            "trecho_relevante": "Let’s say we provide an environment using Terraform and v1.0, our favorite cloud platform’s Terraform provider. The next day, our favorite cloud provider added th...",
+            "score": 159.856,
+            "base_score": 187.549,
+            "adjusted_score": 159.856,
+            "hygiene_score": 1.0,
+            "hygiene_flags": [],
+            "structural_score": 12.827,
+            "structural_signals": [
+              "chapter_title",
+              "section_hint"
+            ],
+            "practicality_bonus": 0.44,
+            "practicality_bonus_weight": 1.0,
+            "practicality_signals": [
+              "terraform-apply",
+              "apply"
+            ],
+            "why_practicality": "Practicality boosted by terraform-apply, apply.",
+            "why_matched": "Matched strongly because the query aligns with the chapter title and section heading.",
+            "tags": {
+              "technology": [
+                "aws",
+                "terraform"
+              ],
+              "domain": [
+                "cloud",
+                "devops"
+              ],
+              "subtheme": [
+                "containers"
+              ],
+              "all": [
+                "aws",
+                "cloud",
+                "containers",
+                "devops",
+                "terraform"
+              ]
+            },
+            "matched_tags": [
+              "cloud",
+              "devops",
+              "terraform"
+            ],
+            "chapter_title": "Chapter 1: Understanding Terraform Architecture",
+            "section_hint": "Chapter 1: Understanding Terraform Architecture",
+            "section_path": "OEBPS/B21183_01.xhtml"
+          }
+        ],
+        "debug": {
+          "query_tags_inferred": {
+            "technology": [
+              "terraform"
+            ],
+            "domain": [
+              "cloud",
+              "devops"
+            ],
+            "subtheme": [],
+            "all": [
+              "cloud",
+              "devops",
+              "terraform"
+            ]
+          },
+          "query_tags_used": [
+            "terraform"
+          ],
+          "used_tag_routing": true,
+          "used_global_fallback": false,
+          "practical_intent_detected": false,
+          "practicality_bonus_weight": 1.0,
+          "max_results_per_source": 3,
+          "routed_result_count": 4049,
+          "global_result_count": 4049
+        }
+      }
+    },
+    {
+      "query": "Qual a diferenca entre Pod e Service no Kubernetes?",
+      "topic": null,
+      "classification": "pergunta técnica",
+      "semantic_search": {
+        "count": 3,
+        "search_cache_hit": true,
+        "embedding_cache_hit": false,
+        "openai_called": false,
+        "semantic_path": "response_cache",
+        "results": [
+          {
+            "title": "service",
+            "snippet": "Each Pod gets its own IP address (Kubernetes expects network plugins to ensure this).\nFor a given Deployment in your cluster, the set of Pods running in one moment in\ntime could be",
+            "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0003::5d98d632",
+            "similarity": 0.667656,
+            "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md"
+          },
+          {
+            "title": "service",
+            "snippet": "The set of Pods targeted by a Service is usually determined\nby a {{< glossary_tooltip text=\"selector\" term_id=\"selector\" >}} that you\ndefine.\nTo learn about other ways to define Se",
+            "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0005::957a16ad",
+            "similarity": 0.665696,
+            "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md"
+          },
+          {
+            "title": "service",
+            "snippet": "A key aim of Services in Kubernetes is that you don't need to modify your existing\napplication to use an unfamiliar service discovery mechanism.\nYou can run code in Pods, whether t",
+            "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0002::81b91316",
+            "similarity": 0.661595,
+            "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md"
+          }
+        ]
+      },
+      "semantic_local": {
+        "count": 3,
+        "matches_before_floor": [
+          {
+            "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+            "title": "service",
+            "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0003::5d98d632",
+            "sequence": 0,
+            "score": 0.667656,
+            "matched_tags": [],
+            "trecho_relevante": "Each Pod gets its own IP address (Kubernetes expects network plugins to ensure this).\nFor a given Deployment in your cluster, the set of Pods running in one moment in\ntime could be"
+          },
+          {
+            "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+            "title": "service",
+            "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0005::957a16ad",
+            "sequence": 0,
+            "score": 0.665696,
+            "matched_tags": [],
+            "trecho_relevante": "The set of Pods targeted by a Service is usually determined\nby a {{< glossary_tooltip text=\"selector\" term_id=\"selector\" >}} that you\ndefine.\nTo learn about other ways to define Se"
+          },
+          {
+            "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+            "title": "service",
+            "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0002::81b91316",
+            "sequence": 0,
+            "score": 0.661595,
+            "matched_tags": [],
+            "trecho_relevante": "A key aim of Services in Kubernetes is that you don't need to modify your existing\napplication to use an unfamiliar service discovery mechanism.\nYou can run code in Pods, whether t"
+          }
+        ],
+        "matches_after_floor": [
+          {
+            "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+            "title": "service",
+            "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0003::5d98d632",
+            "sequence": 0,
+            "score": 0.667656,
+            "matched_tags": [],
+            "trecho_relevante": "Each Pod gets its own IP address (Kubernetes expects network plugins to ensure this).\nFor a given Deployment in your cluster, the set of Pods running in one moment in\ntime could be"
+          },
+          {
+            "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+            "title": "service",
+            "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0005::957a16ad",
+            "sequence": 0,
+            "score": 0.665696,
+            "matched_tags": [],
+            "trecho_relevante": "The set of Pods targeted by a Service is usually determined\nby a {{< glossary_tooltip text=\"selector\" term_id=\"selector\" >}} that you\ndefine.\nTo learn about other ways to define Se"
+          },
+          {
+            "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+            "title": "service",
+            "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0002::81b91316",
+            "sequence": 0,
+            "score": 0.661595,
+            "matched_tags": [],
+            "trecho_relevante": "A key aim of Services in Kubernetes is that you don't need to modify your existing\napplication to use an unfamiliar service discovery mechanism.\nYou can run code in Pods, whether t"
+          }
+        ],
+        "context_before_domain_gating": "QUERY: Qual a diferenca entre Pod e Service no Kubernetes?\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: Each Pod gets its own IP address (Kubernetes expects network plugins to ensure this). For a given Deployment in your cluster, the set of Pods running in one moment in time could be\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: The set of Pods targeted by a Service is usually determined by a {{< glossary_tooltip text=\"selector\" term_id=\"selector\" >}} that you define. To learn about other ways to define Se\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: A key aim of Services in Kubernetes is that you don't need to modify your existing application to use an unfamiliar service discovery mechanism. You can run code in Pods, whether t",
+        "domain_gating_blocked": false
+      },
+      "lexical_debug": {
+        "results": [
+          {
+            "source_file": "livros/docker/Nigel_Poulton/The KCNA Book by Nigel Poulton.epub",
+            "title": "Simple Kubernetes workflow",
+            "chunk_id": "The KCNA Book by Nigel Poulton-0077-eca93ebcee505b2d",
+            "sequence": 77,
+            "trecho_relevante": "The pod network Every Kubernetes cluster implements a network called the pod network that all pods run on. It’s a large, fla...",
+            "score": 146.535,
+            "base_score": 172.065,
+            "adjusted_score": 146.535,
+            "hygiene_score": 1.0,
+            "hygiene_flags": [],
+            "structural_score": 9.78,
+            "structural_signals": [
+              "chapter_title",
+              "section_hint"
+            ],
+            "practicality_bonus": 0.28,
+            "practicality_bonus_weight": 1.0,
+            "practicality_signals": [
+              "pod",
+              "service"
+            ],
+            "why_practicality": "Practicality boosted by pod, service.",
+            "why_matched": "Matched strongly because the query aligns with the chapter title and section heading.",
+            "tags": {
+              "technology": [
+                "docker",
+                "kubernetes"
+              ],
+              "domain": [
+                "devops",
+                "networking"
+              ],
+              "subtheme": [
+                "containers"
+              ],
+              "all": [
+                "containers",
+                "devops",
+                "docker",
+                "kubernetes",
+                "networking"
+              ]
+            },
+            "matched_tags": [
+              "containers",
+              "devops",
+              "kubernetes",
+              "networking"
+            ],
+            "chapter_title": "Simple Kubernetes workflow",
+            "section_hint": "Simple Kubernetes workflow",
+            "section_path": "OEBPS/chap04.xhtml"
+          },
+          {
+            "source_file": "Kubernetes_ Up and Running, 3rd Edition by Brendan Burns & Joe Beda & Kelsey Hightower & Lachlan Evenson.epub",
+            "title": "Pods in Kubernetes",
+            "chunk_id": "Kubernetes_ Up and Running, 3rd Edition by Brendan Burns & Joe Beda & Kelsey Hightower & Lachlan Evenson-0049-73bdcc0f93bd19d7",
+            "sequence": 49,
+            "trecho_relevante": "$ kubectl delete pods/kuard We will now move on to writing a complete Pod manifest by hand. Creating a Pod Manifest You can write a Pod m...",
+            "score": 140.325,
+            "base_score": 164.995,
+            "adjusted_score": 140.325,
+            "hygiene_score": 1.0,
+            "hygiene_flags": [],
+            "structural_score": 9.78,
+            "structural_signals": [
+              "chapter_title",
+              "section_hint"
+            ],
+            "practicality_bonus": 0.08,
+            "practicality_bonus_weight": 1.0,
+            "practicality_signals": [
+              "pod",
+              "devops-context"
+            ],
+            "why_practicality": "Practicality boosted by pod, devops-context.",
+            "why_matched": "Matched strongly because the query aligns with the chapter title and section heading.",
+            "tags": {
+              "technology": [
+                "docker",
+                "linux"
+              ],
+              "domain": [
+                "devops",
+                "networking",
+                "security"
+              ],
+              "subtheme": [
+                "containers"
+              ],
+              "all": [
+                "containers",
+                "devops",
+                "docker",
+                "linux",
+                "networking",
+                "security"
+              ]
+            },
+            "matched_tags": [
+              "containers",
+              "devops",
+              "networking"
+            ],
+            "chapter_title": "Pods in Kubernetes",
+            "section_hint": "Pods in Kubernetes",
+            "section_path": "OEBPS/ch04.xhtml"
+          },
+          {
+            "source_file": "livros/docker/Nigel_Poulton/The KCNA Book by Nigel Poulton.epub",
+            "title": "8: Sample test",
+            "chunk_id": "The KCNA Book by Nigel Poulton-0119-d0a866c09d912fab",
+            "sequence": 119,
+            "trecho_relevante": "...nage a production Kubernetes environment and need to ensure pods are deployed across user-defined failure domains. Which technology will help? - Pod topology spread constraints - P...",
+            "score": 126.831,
+            "base_score": 148.907,
+            "adjusted_score": 126.831,
+            "hygiene_score": 1.0,
+            "hygiene_flags": [],
+            "structural_score": 0.0,
+            "structural_signals": [],
+            "practicality_bonus": 0.26,
+            "practicality_bonus_weight": 1.0,
+            "practicality_signals": [
+              "pod",
+              "service",
+              "devops-context"
+            ],
+            "why_practicality": "Practicality boosted by pod, service, devops-context.",
+            "why_matched": "Relevant text match, but without structural signals.",
+            "tags": {
+              "technology": [
+                "docker",
+                "kubernetes"
+              ],
+              "domain": [
+                "devops",
+                "networking"
+              ],
+              "subtheme": [
+                "containers"
+              ],
+              "all": [
+                "containers",
+                "devops",
+                "docker",
+                "kubernetes",
+                "networking"
+              ]
+            },
+            "matched_tags": [
+              "containers",
+              "devops",
+              "kubernetes",
+              "networking"
+            ],
+            "chapter_title": "8: Sample test",
+            "section_hint": "8: Sample test",
+            "section_path": "OEBPS/chap08.xhtml"
+          },
+          {
+            "source_file": "livros/docker/Nigel_Poulton/The KCNA Book by Nigel Poulton.epub",
+            "title": "Simple Kubernetes workflow",
+            "chunk_id": "The KCNA Book by Nigel Poulton-0060-85382bd581d26515",
+            "sequence": 60,
+            "trecho_relevante": "...or a container to run on Kubernetes it must be wrapped in a pod. This is done by describing the container in a pod manifest file that you post to the Kubernetes API server where th...",
+            "score": 122.827,
+            "base_score": 144.197,
+            "adjusted_score": 122.827,
+            "hygiene_score": 1.0,
+            "hygiene_flags": [],
+            "structural_score": 9.78,
+            "structural_signals": [
+              "chapter_title",
+              "section_hint"
+            ],
+            "practicality_bonus": 0.26,
+            "practicality_bonus_weight": 1.0,
+            "practicality_signals": [
+              "pod",
+              "service",
+              "devops-context"
+            ],
+            "why_practicality": "Practicality boosted by pod, service, devops-context.",
+            "why_matched": "Matched strongly because the query aligns with the chapter title and section heading.",
+            "tags": {
+              "technology": [
+                "docker",
+                "kubernetes"
+              ],
+              "domain": [
+                "devops",
+                "networking"
+              ],
+              "subtheme": [
+                "containers"
+              ],
+              "all": [
+                "containers",
+                "devops",
+                "docker",
+                "kubernetes",
+                "networking"
+              ]
+            },
+            "matched_tags": [
+              "containers",
+              "devops",
+              "kubernetes",
+              "networking"
+            ],
+            "chapter_title": "Simple Kubernetes workflow",
+            "section_hint": "Simple Kubernetes workflow",
+            "section_path": "OEBPS/chap04.xhtml"
+          },
+          {
+            "source_file": "Kubernetes_ Up and Running, 3rd Edition by Brendan Burns & Joe Beda & Kelsey Hightower & Lachlan Evenson.epub",
+            "title": "Pods in Kubernetes",
+            "chunk_id": "Kubernetes_ Up and Running, 3rd Edition by Brendan Burns & Joe Beda & Kelsey Hightower & Lachlan Evenson-0056-0066f7c04329c75f",
+            "sequence": 56,
+            "trecho_relevante": "...ol: TCP Note Resources are requested per container, not per Pod. The total resources requested by the Pod is the sum of all resources requested by all containers in the Pod because...",
+            "score": 115.107,
+            "base_score": 135.325,
+            "adjusted_score": 115.107,
+            "hygiene_score": 1.0,
+            "hygiene_flags": [],
+            "structural_score": 9.78,
+            "structural_signals": [
+              "chapter_title",
+              "section_hint"
+            ],
+            "practicality_bonus": 0.08,
+            "practicality_bonus_weight": 1.0,
+            "practicality_signals": [
+              "pod",
+              "devops-context"
+            ],
+            "why_practicality": "Practicality boosted by pod, devops-context.",
+            "why_matched": "Matched strongly because the query aligns with the chapter title and section heading.",
+            "tags": {
+              "technology": [
+                "docker",
+                "linux"
+              ],
+              "domain": [
+                "devops",
+                "networking",
+                "security"
+              ],
+              "subtheme": [
+                "containers"
+              ],
+              "all": [
+                "containers",
+                "devops",
+                "docker",
+                "linux",
+                "networking",
+                "security"
+              ]
+            },
+            "matched_tags": [
+              "containers",
+              "devops",
+              "networking"
+            ],
+            "chapter_title": "Pods in Kubernetes",
+            "section_hint": "Pods in Kubernetes",
+            "section_path": "OEBPS/ch04.xhtml"
+          }
+        ],
+        "debug": {
+          "query_tags_inferred": {
+            "technology": [
+              "kubernetes"
+            ],
+            "domain": [
+              "devops",
+              "networking"
+            ],
+            "subtheme": [
+              "containers"
+            ],
+            "all": [
+              "containers",
+              "devops",
+              "kubernetes",
+              "networking"
+            ]
+          },
+          "query_tags_used": [
+            "containers",
+            "kubernetes"
+          ],
+          "used_tag_routing": true,
+          "used_global_fallback": false,
+          "practical_intent_detected": false,
+          "practicality_bonus_weight": 1.0,
+          "max_results_per_source": 3,
+          "routed_result_count": 34911,
+          "global_result_count": 34911
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "run_id": "20260315T060430Z",
+  "focus": "answer_selection_with_context",
+  "items": [
+    {
+      "question": "Qual a diferenca entre Pod e Service no Kubernetes?",
+      "result_count_before_fix": 3,
+      "result_count_after_fix": 3,
+      "context_before_fix": "QUERY: Qual a diferenca entre Pod e Service no Kubernetes?\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: Each Pod gets its own IP address (Kubernetes expects network plugins to ensure this). For a given Deployment in your cluster, the set of Pods running in one moment in time could be\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: The set of Pods targeted by a Service is usually determined by a {{< glossary_tooltip text=\"selector\" term_id=\"selector\" >}} that you define. To learn about other ways to define Se\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: A key aim of Services in Kubernetes is that you don't need to modify your existing application to use an unfamiliar service discovery mechanism. You can run code in Pods, whether t",
+      "context_after_fix": "QUERY: Qual a diferenca entre Pod e Service no Kubernetes?\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: Each Pod gets its own IP address (Kubernetes expects network plugins to ensure this). For a given Deployment in your cluster, the set of Pods running in one moment in time could be\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: The set of Pods targeted by a Service is usually determined by a {{< glossary_tooltip text=\"selector\" term_id=\"selector\" >}} that you define. To learn about other ways to define Se\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: A key aim of Services in Kubernetes is that you don't need to modify your existing application to use an unfamiliar service discovery mechanism. You can run code in Pods, whether t",
+      "answer_before_fix": "Pelo contexto técnico, o caminho mais seguro é começar por fundamentos e validar em ambiente controlado.",
+      "answer_after_fix": "Resumo técnico inicial: QUERY: Qual a diferenca entre Pod e Service no Kubernetes? SOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md TITLE: service SIGNALS: none SNIPPET: Each Pod gets its own IP address (Kubernetes..."
+    }
+  ]
+}

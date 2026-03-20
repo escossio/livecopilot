@@ -1,0 +1,41 @@
+{
+  "domain": "kubernetes_core",
+  "status": "semantic_baseline_completed",
+  "chunk_count": 12,
+  "embedding_model": "text-embedding-3-large",
+  "updated_at": "2026-03-18T21:06:59Z",
+  "lexical_baseline": {
+    "status": "completed",
+    "question_count": 12,
+    "respondivel": 8,
+    "parcialmente_respondivel": 3,
+    "nao_respondivel": 1
+  },
+  "lexical_refinement": {
+    "status": "completed",
+    "focus": [
+      "namespace",
+      "secret",
+      "node",
+      "service"
+    ],
+    "chunk_count_added": 2,
+    "chunk_count_expanded": 2
+  },
+  "semantic_embeddings": {
+    "status": "completed",
+    "index_path": "data/semantic_index_experiments/kubernetes_pilot",
+    "num_chunks": 12,
+    "embedding_dim": 3072,
+    "model": "text-embedding-3-large",
+    "generated_at": "2026-03-18T21:06:54.575736+00:00"
+  },
+  "semantic_baseline": {
+    "status": "completed",
+    "question_count": 12,
+    "coerente": 12,
+    "parcialmente_coerente": 0,
+    "falha": 0,
+    "results_file": "docs/KUBERNETES_SEMANTIC_BASELINE_RESULTS_20260318T210648Z.json"
+  }
+}

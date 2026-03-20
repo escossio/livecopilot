@@ -1,0 +1,125 @@
+{
+  "generated_at": "20260315T211200Z",
+  "status": "pending_reindex",
+  "note": "Chunks were regenerated but the semantic persistence step failed (ModuleNotFoundError: No module named 'psycopg'), so the runtime still surfaces the old metadata-heavy candidates.",
+  "queries": [
+    {
+      "query": "O que e um workspace no Terraform?",
+      "http_status": 200,
+      "classification": "PARCIALMENTE COERENTE",
+      "front_matter_top": true,
+      "top_chunk": {
+        "chunk_id": "chunk::doc::terraform_docs_selected/language/state/workspaces.md::a56f4877d390::0001::0fbd76a0",
+        "source_file": "terraform_docs_selected/language/state/workspaces.md",
+        "snippets": [
+          "---",
+          "page_title: 'State: Workspaces'",
+          "description: >-",
+          "Workspaces allow the use of multiple states with a single configuration",
+          "directory.",
+          "# START AUTO GENERATED METADATA, DO NOT EDIT"
+        ],
+        "similarity": 0.642986
+      },
+      "chat_answer": "um workspace no Terraform é workspaces allow the use of multiple states with a single configuration directory"
+    },
+    {
+      "query": "Quando usar modulos no Terraform?",
+      "http_status": 200,
+      "classification": "PARCIALMENTE COERENTE",
+      "front_matter_top": false,
+      "top_chunk": {
+        "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/index.md::ef5233aa30a1::0004::57484b6b",
+        "source_file": "terraform_docs_selected/language/modules/develop/index.md",
+        "snippets": [
+          "## When to write a module",
+          "",
+          "In principle any combination of resources and other constructs can be factored",
+          "out into a module, but over-using modules can make your overall Terraform"
+        ],
+        "similarity": 0.650396
+      },
+      "chat_answer": "Use modulos no Terraform quando when to write a module in principle any combination of resources and other constructs can be factored out into a module, but over-using modules can make your overall terraform"
+    },
+    {
+      "query": "O que e o host network driver no Docker?",
+      "http_status": 200,
+      "classification": "PARCIALMENTE COERENTE",
+      "front_matter_top": true,
+      "top_chunk": {
+        "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/host.md::235bfb98fe3a::0001::c4eb3278",
+        "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/host.md",
+        "snippets": [
+          "---",
+          "title: Host network driver",
+          "description: All about exposing containers on the Docker host's network",
+          "keywords: network, host, standalone, host mode networking",
+          "aliases:",
+          "- /network"
+        ],
+        "similarity": 0.655415
+      },
+      "chat_answer": "o host network driver no Docker é keywords: network, host, standalone, host mode networking - /network"
+    },
+    {
+      "query": "Para que serve o modo rootless no Docker?",
+      "http_status": 200,
+      "classification": "PARCIALMENTE COERENTE",
+      "front_matter_top": true,
+      "top_chunk": {
+        "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/rootless/_index.md::f4477a61978b::0001::96bea747",
+        "source_file": "docker_docs_selected/content/manuals/engine/security/rootless/_index.md",
+        "snippets": [
+          "---",
+          "description: Run the Docker daemon as a non-root user (Rootless mode)",
+          "keywords: security, namespaces, rootless",
+          "title: Rootless mode",
+          "weight: 10",
+          "---",
+          "",
+          "Rootless mode lets you run t"
+        ],
+        "similarity": 0.612108
+      },
+      "chat_answer": "o modo rootless no Docker serve para keywords: security, namespaces, rootless --- rootless mode lets you run t"
+    },
+    {
+      "query": "O que e content trust no Docker?",
+      "http_status": 200,
+      "classification": "PARCIALMENTE COERENTE",
+      "front_matter_top": true,
+      "top_chunk": {
+        "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/trust/_index.md::096be8f22b56::0001::dd25043c",
+        "source_file": "docker_docs_selected/content/manuals/engine/security/trust/_index.md",
+        "snippets": [
+          "---",
+          "description: Enabling content trust in Docker",
+          "keywords: content, trust, security, docker, documentation",
+          "title: Content trust in Docker",
+          "aliases:",
+          "- /engine/security/trust/content"
+        ],
+        "similarity": 0.691296
+      },
+      "chat_answer": "content trust no Docker é keywords: content, trust, security, docker, documentation - /engine/security/trust/content"
+    },
+    {
+      "query": "O que e uma notification policy no Grafana Alerting?",
+      "http_status": 200,
+      "classification": "PARCIALMENTE COERENTE",
+      "front_matter_top": true,
+      "top_chunk": {
+        "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/fundamentals/notifications/notification-policies.md::0b41f591d6f4::0001::0e0799ae",
+        "source_file": "observability_docs_selected/grafana/docs/sources/alerting/fundamentals/notifications/notification-policies.md",
+        "snippets": [
+          "---",
+          "aliases:",
+          "- ../notification-policies/notifications/ # /docs/grafana/<GRAFANA_VERSION>/alerting/fundamentals/notification-policies/notifications/",
+          "canonical: https://grafana.com/d"
+        ],
+        "similarity": 0.701117
+      },
+      "chat_answer": "uma notification policy no Grafana Alerting é /notification-policies/notifications/ /docs/grafana//alerting/fundamentals/notification-policies/notifications/"
+    }
+  ]
+}

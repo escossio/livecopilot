@@ -1,0 +1,116 @@
+{
+  "domain": "docker_core",
+  "model": "text-embedding-3-large",
+  "source_embeddings": "/lab/projects/livecopilot/data/semantic_index_experiments/docker_pilot/embeddings.jsonl",
+  "generated_at": "2026-03-19T02:05:27.085301+00:00",
+  "questions": [
+    {
+      "question": "What is a container?",
+      "lexical_top_chunk_id": "docker-container-0001",
+      "lexical_top_title": "container",
+      "semantic_top_chunk_id": "docker-container-0001",
+      "semantic_top_title": "container",
+      "semantic_score": 0.660425,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What is a Docker image?",
+      "lexical_top_chunk_id": "docker-image-layers-0002",
+      "lexical_top_title": "image layers",
+      "semantic_top_chunk_id": "docker-image-0002",
+      "semantic_top_title": "image",
+      "semantic_score": 0.620343,
+      "classification": "PARCIALMENTE_COERENTE"
+    },
+    {
+      "question": "What is a Dockerfile?",
+      "lexical_top_chunk_id": "docker-dockerfile-0003",
+      "lexical_top_title": "dockerfile",
+      "semantic_top_chunk_id": "docker-dockerfile-0003",
+      "semantic_top_title": "dockerfile",
+      "semantic_score": 0.725232,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What does docker build do?",
+      "lexical_top_chunk_id": "docker-cli-build-0002",
+      "lexical_top_title": "docker build",
+      "semantic_top_chunk_id": "docker-cli-build-0002",
+      "semantic_top_title": "docker build",
+      "semantic_score": 0.688378,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What does docker run do?",
+      "lexical_top_chunk_id": "docker-cli-run-0001",
+      "lexical_top_title": "docker run",
+      "semantic_top_chunk_id": "docker-cli-run-0001",
+      "semantic_top_title": "docker run",
+      "semantic_score": 0.612891,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What does docker ps do?",
+      "lexical_top_chunk_id": "docker-cli-ps-0003",
+      "lexical_top_title": "docker ps",
+      "semantic_top_chunk_id": "docker-cli-ps-0003",
+      "semantic_top_title": "docker ps",
+      "semantic_score": 0.671005,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What does docker logs do?",
+      "lexical_top_chunk_id": "docker-cli-logs-0004",
+      "lexical_top_title": "docker logs",
+      "semantic_top_chunk_id": "docker-cli-logs-0004",
+      "semantic_top_title": "docker logs",
+      "semantic_score": 0.72276,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What does docker exec do?",
+      "lexical_top_chunk_id": "docker-cli-exec-0005",
+      "lexical_top_title": "docker exec",
+      "semantic_top_chunk_id": "docker-cli-exec-0005",
+      "semantic_top_title": "docker exec",
+      "semantic_score": 0.712722,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What are Docker volumes?",
+      "lexical_top_chunk_id": "docker-volumes-0001",
+      "lexical_top_title": "docker volumes",
+      "semantic_top_chunk_id": "docker-volumes-0001",
+      "semantic_top_title": "docker volumes",
+      "semantic_score": 0.726924,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What are Docker networks?",
+      "lexical_top_chunk_id": "docker-networks-0001",
+      "lexical_top_title": "docker networks",
+      "semantic_top_chunk_id": "docker-networks-0001",
+      "semantic_top_title": "docker networks",
+      "semantic_score": 0.710064,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What is a Docker registry?",
+      "lexical_top_chunk_id": "docker-registry-0002",
+      "lexical_top_title": "docker registry",
+      "semantic_top_chunk_id": "docker-registry-0002",
+      "semantic_top_title": "docker registry",
+      "semantic_score": 0.739994,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What are image layers?",
+      "lexical_top_chunk_id": "docker-image-layers-0002",
+      "lexical_top_title": "image layers",
+      "semantic_top_chunk_id": "docker-image-layers-0002",
+      "semantic_top_title": "image layers",
+      "semantic_score": 0.534133,
+      "classification": "COERENTE"
+    }
+  ]
+}

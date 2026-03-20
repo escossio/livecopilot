@@ -1,0 +1,306 @@
+{
+  "generated_at": "20260315T213330Z",
+  "notes": "subset revalidated after semantic persist (mock embeddings)",
+  "queries": [
+    {
+      "query": "O que e um workspace no Terraform?",
+      "status": 200,
+      "answer": "um workspace no Terraform é core workflow",
+      "channel": "text",
+      "knowledge_context": {
+        "used_search": true,
+        "query": "O que e um workspace no Terraform?",
+        "result_count": 3,
+        "context": "QUERY: O que e um workspace no Terraform? SOURCE: terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/intro/core-workflow.md TITLE: core workflow SIGNALS: none SNIPPET: core workflow SOURCE:...",
+        "search_backend": "semantic_local",
+        "fallback_used": false,
+        "context_used": false,
+        "semantic_api_ok": true,
+        "semantic_duration_ms": 150,
+        "source_titles": [
+          "core workflow",
+          "index"
+        ],
+        "routing_layer": "",
+        "skill_id": "",
+        "skill_intent": "",
+        "skill_target": "",
+        "skill_source": "",
+        "skill_operation": "",
+        "buffer_chunks": 0,
+        "buffer_chars": 0,
+        "context_window_preview": ""
+      }
+    },
+    {
+      "query": "Quando usar modulos no Terraform?",
+      "status": 200,
+      "answer": "Use modulos no Terraform quando style",
+      "channel": "text",
+      "knowledge_context": {
+        "used_search": true,
+        "query": "Quando usar modulos no Terraform?",
+        "result_count": 3,
+        "context": "QUERY: Quando usar modulos no Terraform? SOURCE: terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/language/style.md TITLE: style SIGNALS: none SNIPPET: style SOURCE:...",
+        "search_backend": "semantic_local",
+        "fallback_used": false,
+        "context_used": false,
+        "semantic_api_ok": true,
+        "semantic_duration_ms": 175,
+        "source_titles": [
+          "style",
+          "structure"
+        ],
+        "routing_layer": "",
+        "skill_id": "",
+        "skill_intent": "",
+        "skill_target": "",
+        "skill_source": "",
+        "skill_operation": "",
+        "buffer_chunks": 0,
+        "buffer_chars": 0,
+        "context_window_preview": ""
+      }
+    },
+    {
+      "query": "O que e o host network driver no Docker?",
+      "status": 200,
+      "answer": "o host network driver no Docker é part 1: the big picture stuff",
+      "channel": "text",
+      "knowledge_context": {
+        "used_search": true,
+        "query": "O que e o host network driver no Docker?",
+        "result_count": 3,
+        "context": "QUERY: O que e o host network driver no Docker? SOURCE: livros/docker/Nigel_Poulton/Docker Deep Dive - Second Edition by Nigel Poulton.epub TITLE: Part 1: The big picture stuff SIGNALS: none SNIPPET: Part 1: The big...",
+        "search_backend": "semantic_local",
+        "fallback_used": false,
+        "context_used": false,
+        "semantic_api_ok": true,
+        "semantic_duration_ms": 148,
+        "source_titles": [
+          "Part 1: The big picture stuff",
+          "Part 1: The big picture stuff"
+        ],
+        "routing_layer": "",
+        "skill_id": "",
+        "skill_intent": "",
+        "skill_target": "",
+        "skill_source": "",
+        "skill_operation": "",
+        "buffer_chunks": 0,
+        "buffer_chars": 0,
+        "context_window_preview": ""
+      }
+    },
+    {
+      "query": "Para que serve o modo rootless no Docker?",
+      "status": 200,
+      "answer": "o modo rootless no Docker serve para 1",
+      "channel": "text",
+      "knowledge_context": {
+        "used_search": true,
+        "query": "Para que serve o modo rootless no Docker?",
+        "result_count": 3,
+        "context": "QUERY: Para que serve o modo rootless no Docker? SOURCE: inline://smoke-semantic-api TITLE: 1. Em Kubernetes, liveness probe detecta travamento do container. SIGNALS: none SNIPPET: 1. Em Kubernetes, liveness probe...",
+        "search_backend": "semantic_local",
+        "fallback_used": false,
+        "context_used": false,
+        "semantic_api_ok": true,
+        "semantic_duration_ms": 134,
+        "source_titles": [
+          "1. Em Kubernetes, liveness probe detecta travamento do container.",
+          "Part 1: The big picture stuff"
+        ],
+        "routing_layer": "",
+        "skill_id": "",
+        "skill_intent": "",
+        "skill_target": "",
+        "skill_source": "",
+        "skill_operation": "",
+        "buffer_chunks": 0,
+        "buffer_chars": 0,
+        "context_window_preview": ""
+      }
+    },
+    {
+      "query": "O que e content trust no Docker?",
+      "status": 200,
+      "answer": "content trust no Docker é title page",
+      "channel": "text",
+      "knowledge_context": {
+        "used_search": true,
+        "query": "O que e content trust no Docker?",
+        "result_count": 3,
+        "context": "QUERY: O que e content trust no Docker? SOURCE: livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub TITLE: Title Page SIGNALS: none SNIPPET: Title Page SOURCE:...",
+        "search_backend": "semantic_local",
+        "fallback_used": false,
+        "context_used": false,
+        "semantic_api_ok": true,
+        "semantic_duration_ms": 156,
+        "source_titles": [
+          "Title Page",
+          "duplicado do conteudo"
+        ],
+        "routing_layer": "",
+        "skill_id": "",
+        "skill_intent": "",
+        "skill_target": "",
+        "skill_source": "",
+        "skill_operation": "",
+        "buffer_chunks": 0,
+        "buffer_chars": 0,
+        "context_window_preview": ""
+      }
+    },
+    {
+      "query": "O que e uma notification policy no Grafana Alerting?",
+      "status": 200,
+      "answer": "uma notification policy no Grafana Alerting é example networkpolicy",
+      "channel": "text",
+      "knowledge_context": {
+        "used_search": true,
+        "query": "O que e uma notification policy no Grafana Alerting?",
+        "result_count": 3,
+        "context": "QUERY: O que e uma notification policy no Grafana Alerting? SOURCE: tmp/semantic_gap_round2/networkpolicy_access_control.md TITLE: ## Example NetworkPolicy SIGNALS: none SNIPPET: ## Example NetworkPolicy SOURCE:...",
+        "search_backend": "semantic_local",
+        "fallback_used": false,
+        "context_used": false,
+        "semantic_api_ok": true,
+        "semantic_duration_ms": 159,
+        "source_titles": [
+          "## Example NetworkPolicy",
+          "# Kubernetes NetworkPolicy Example"
+        ],
+        "routing_layer": "",
+        "skill_id": "",
+        "skill_intent": "",
+        "skill_target": "",
+        "skill_source": "",
+        "skill_operation": "",
+        "buffer_chunks": 0,
+        "buffer_chars": 0,
+        "context_window_preview": ""
+      }
+    },
+    {
+      "query": "Para que serve o promtool?",
+      "status": 200,
+      "answer": "Promtool e a CLI do Prometheus que valida arquivos de configuracao, testa regras de alertas e executa consultas para garantir que a instancia esteja ajustada antes de rodar em producao.",
+      "channel": "text",
+      "knowledge_context": {
+        "used_search": true,
+        "query": "Para que serve o promtool?",
+        "result_count": 3,
+        "context": "QUERY: Para que serve o promtool? SOURCE: inline://invalidate-smoke TITLE: 1. teste de invalidação SIGNALS: none SNIPPET: 1. teste de invalidação SOURCE: inline://smoke-semantic-api TITLE: 2. Readiness probe controla...",
+        "search_backend": "semantic_local",
+        "fallback_used": false,
+        "context_used": false,
+        "semantic_api_ok": true,
+        "semantic_duration_ms": 154,
+        "source_titles": [
+          "1. teste de invalidação",
+          "2. Readiness probe controla quando o pod pode receber trafego."
+        ],
+        "routing_layer": "",
+        "skill_id": "",
+        "skill_intent": "",
+        "skill_target": "",
+        "skill_source": "",
+        "skill_operation": "",
+        "buffer_chunks": 0,
+        "buffer_chars": 0,
+        "context_window_preview": ""
+      }
+    },
+    {
+      "query": "O que e uma alerting rule no Prometheus?",
+      "status": 200,
+      "answer": "uma alerting rule no Prometheus é readme",
+      "channel": "text",
+      "knowledge_context": {
+        "used_search": true,
+        "query": "O que e uma alerting rule no Prometheus?",
+        "result_count": 3,
+        "context": "QUERY: O que e uma alerting rule no Prometheus? SOURCE: codex_docs_selected/shell-tool-mcp/README.md TITLE: README SIGNALS: none SNIPPET: README SOURCE: inline://smoke-semantic-api TITLE: 3. Security Group e recurso de...",
+        "search_backend": "semantic_local",
+        "fallback_used": false,
+        "context_used": false,
+        "semantic_api_ok": true,
+        "semantic_duration_ms": 133,
+        "source_titles": [
+          "README",
+          "1. Security Group controla regras de entrada e saída na instância EC2."
+        ],
+        "routing_layer": "",
+        "skill_id": "",
+        "skill_intent": "",
+        "skill_target": "",
+        "skill_source": "",
+        "skill_operation": "",
+        "buffer_chunks": 0,
+        "buffer_chars": 0,
+        "context_window_preview": ""
+      }
+    },
+    {
+      "query": "Para que serve um Deployment no Kubernetes?",
+      "status": 200,
+      "answer": "um Deployment no Kubernetes serve para kubectl rollout restart deployment",
+      "channel": "text",
+      "knowledge_context": {
+        "used_search": true,
+        "query": "Para que serve um Deployment no Kubernetes?",
+        "result_count": 3,
+        "context": "QUERY: Para que serve um Deployment no Kubernetes? SOURCE: tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md TITLE: # kubectl rollout restart deployment SIGNALS: none SNIPPET: # kubectl rollout restart...",
+        "search_backend": "semantic_local",
+        "fallback_used": false,
+        "context_used": false,
+        "semantic_api_ok": true,
+        "semantic_duration_ms": 134,
+        "source_titles": [
+          "# kubectl rollout restart deployment",
+          "Keywords: kubectl rollout restart deployment."
+        ],
+        "routing_layer": "",
+        "skill_id": "",
+        "skill_intent": "",
+        "skill_target": "",
+        "skill_source": "",
+        "skill_operation": "",
+        "buffer_chunks": 0,
+        "buffer_chars": 0,
+        "context_window_preview": ""
+      }
+    },
+    {
+      "query": "Quando usar um Ingress no Kubernetes?",
+      "status": 200,
+      "answer": "Use um Ingress no Kubernetes quando keywords: networkpolicy kubernetes example ingress policy",
+      "channel": "text",
+      "knowledge_context": {
+        "used_search": true,
+        "query": "Quando usar um Ingress no Kubernetes?",
+        "result_count": 3,
+        "context": "QUERY: Quando usar um Ingress no Kubernetes? SOURCE: tmp/semantic_gap_round2/networkpolicy_access_control.md TITLE: Keywords: networkpolicy kubernetes example ingress policy. SIGNALS: none SNIPPET: Keywords:...",
+        "search_backend": "semantic_local",
+        "fallback_used": false,
+        "context_used": false,
+        "semantic_api_ok": true,
+        "semantic_duration_ms": 137,
+        "source_titles": [
+          "Keywords: networkpolicy kubernetes example ingress policy.",
+          "1. Em Kubernetes, liveness probe detecta travamento do container."
+        ],
+        "routing_layer": "",
+        "skill_id": "",
+        "skill_intent": "",
+        "skill_target": "",
+        "skill_source": "",
+        "skill_operation": "",
+        "buffer_chunks": 0,
+        "buffer_chars": 0,
+        "context_window_preview": ""
+      }
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "ts": "2026-03-15T05:37:18.967976+00:00",
+  "question": "Qual a diferenca entre terraform plan e terraform apply?",
+  "raw_input": "Qual a diferenca entre terraform plan e terraform apply?",
+  "transcript_text": "Qual a diferenca entre terraform plan e terraform apply?",
+  "mode": "generic",
+  "conversation_id": "",
+  "skill_routing": {
+    "matched": false,
+    "payload": {}
+  },
+  "connector_routing": {
+    "matched": false,
+    "intent": "",
+    "backend": "semantic_local",
+    "knowledge_context": {}
+  },
+  "semantic_context": {
+    "search_query": "Qual a diferenca entre terraform plan e terraform apply?",
+    "used_search": true,
+    "search_backend": "semantic_local",
+    "semantic_api_ok": true,
+    "fallback_used": false,
+    "result_count": 0,
+    "query_tags": {},
+    "query_tags_used": [],
+    "used_tag_routing": false,
+    "used_global_fallback": false,
+    "sources": [],
+    "context": "",
+    "debug": {
+      "used_search": true,
+      "query": "Qual a diferenca entre terraform plan e terraform apply?",
+      "result_count": 0,
+      "search_error": "",
+      "semantic_error": "",
+      "semantic_api_ok": true,
+      "fallback_used": false,
+      "semantic_duration_ms": 83,
+      "search_cache_hit": true,
+      "embedding_cache_hit": false,
+      "openai_called": false,
+      "semantic_path": "response_cache",
+      "search_backend": "semantic_local",
+      "context_used": false,
+      "context_len": 0,
+      "query_tags_inferred": {},
+      "query_tags_used": [],
+      "used_tag_routing": false,
+      "used_global_fallback": false,
+      "routed_result_count": 0,
+      "global_result_count": 0,
+      "sources": []
+    }
+  },
+  "response": {
+    "answer": "Automação de infraestrutura reduz erro humano e acelera entregas.",
+    "bullets": [
+      "Eu aplico IaC para padronizar ambientes, com pipelines de validação e revisão para garantir segurança.",
+      "Deixa eu organizar a estratégia de automação.",
+      "Você usa Ansible, Terraform ou outra ferramenta de IaC?"
+    ],
+    "response_stage": "final",
+    "readiness": "high"
+  }
+}

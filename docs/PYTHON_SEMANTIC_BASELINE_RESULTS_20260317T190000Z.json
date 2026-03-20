@@ -1,0 +1,186 @@
+[
+  {
+    "question": "O que \u00e9 um m\u00f3dulo em Python?",
+    "lexical": {
+      "chunk_id": "tutorial-module-1",
+      "source_family": "tutorial",
+      "source_file": "tutorial",
+      "title": "Defining a module in Python",
+      "section": "h1",
+      "snippet": "This tutorial is designed for programmers that are new to the Python language, not beginners who are new to programming. Python is an easy to learn, powerful programming language. After reading it, yo",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "argparse-3",
+      "source_family": "modules",
+      "source_file": "argparse",
+      "title": "prog \u00b6",
+      "section": "h3",
+      "snippet": "prog \u00b6 By default, ArgumentParser calculates the name of the program to display in help messages depending on the way the Python interpreter was run: The base name of sys.argv[0] if a file was passed ",
+      "similarity": 0.09741941904819781,
+      "classification": "FALHA"
+    },
+    "justification": "Lexical top chunk tutorial-module-1 continua liderando, mas semantic chunk argparse-3 obt\u00e9m cosseno 0.097."
+  },
+  {
+    "question": "O que \u00e9 uma exce\u00e7\u00e3o em Python?",
+    "lexical": {
+      "chunk_id": "exceptions-concept-1",
+      "source_family": "builtins_exceptions",
+      "source_file": "exceptions",
+      "title": "Core exception concepts",
+      "section": "h1",
+      "snippet": "In Python, all exceptions must be instances of a class that derives from BaseException. In a try statement with an except clause that mentions a particular class, that clause also handles any exceptio",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "argparse-3",
+      "source_family": "modules",
+      "source_file": "argparse",
+      "title": "prog \u00b6",
+      "section": "h3",
+      "snippet": "prog \u00b6 By default, ArgumentParser calculates the name of the program to display in help messages depending on the way the Python interpreter was run: The base name of sys.argv[0] if a file was passed ",
+      "similarity": 0.045162625309910345,
+      "classification": "FALHA"
+    },
+    "justification": "Lexical top chunk exceptions-concept-1 continua liderando, mas semantic chunk argparse-3 obt\u00e9m cosseno 0.045."
+  },
+  {
+    "question": "Para que serve pathlib?",
+    "lexical": {
+      "chunk_id": "pathlib-1",
+      "source_family": "modules",
+      "source_file": "pathlib",
+      "title": "pathlib \u2014 Object-oriented filesystem paths \u00b6",
+      "section": "h1",
+      "snippet": "pathlib \u2014 Object-oriented filesystem paths \u00b6 Added in version 3.4. Source code: Lib/pathlib/ This module offers classes representing filesystem paths with semantics\nappropriate for different operating",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "argparse-29",
+      "source_family": "modules",
+      "source_file": "argparse",
+      "title": "dest \u00b6",
+      "section": "h3",
+      "snippet": "dest \u00b6 Most ArgumentParser actions add some value as an attribute of the object returned by parse_args() .  The name of this attribute is determined by the dest keyword argument of add_argument() .  F",
+      "similarity": 0.14531973037904816,
+      "classification": "FALHA"
+    },
+    "justification": "Lexical top chunk pathlib-1 continua liderando, mas semantic chunk argparse-29 obt\u00e9m cosseno 0.145."
+  },
+  {
+    "question": "O que subprocess.run() faz?",
+    "lexical": {
+      "chunk_id": "subprocess-1",
+      "source_family": "modules",
+      "source_file": "subprocess",
+      "title": "subprocess \u2014 Subprocess management \u00b6",
+      "section": "h1",
+      "snippet": "subprocess \u2014 Subprocess management \u00b6 Source code: Lib/subprocess.py The subprocess module allows you to spawn new processes, connect to their\ninput/output/error pipes, and obtain their return codes.  ",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "subprocess-9",
+      "source_family": "modules",
+      "source_file": "subprocess",
+      "title": "Windows Constants \u00b6",
+      "section": "h3",
+      "snippet": "Windows Constants \u00b6 The subprocess module exposes the following constants. subprocess. STD_INPUT_HANDLE \u00b6 The standard input device. Initially, this is the console input buffer, CONIN$ . subprocess. S",
+      "similarity": 0.24504135001394808,
+      "classification": "FALHA"
+    },
+    "justification": "Lexical top chunk subprocess-1 continua liderando, mas semantic chunk subprocess-9 obt\u00e9m cosseno 0.245."
+  },
+  {
+    "question": "Para que serve json.dumps()?",
+    "lexical": {
+      "chunk_id": "json-1",
+      "source_family": "modules",
+      "source_file": "json",
+      "title": "json \u2014 JSON encoder and decoder \u00b6",
+      "section": "h1",
+      "snippet": "json \u2014 JSON encoder and decoder \u00b6 Source code: Lib/json/__init__.py JSON (JavaScript Object Notation) , specified by RFC 7159 (which obsoletes RFC 4627 ) and by ECMA-404 ,\nis a lightweight data interc",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "argparse-14",
+      "source_family": "modules",
+      "source_file": "argparse",
+      "title": "add_help \u00b6",
+      "section": "h3",
+      "snippet": "add_help \u00b6 By default, ArgumentParser objects add an option which simply displays the parser\u2019s help message. If -h or --help is supplied at the command line, the ArgumentParser help will be printed. O",
+      "similarity": 0.07025074380342132,
+      "classification": "FALHA"
+    },
+    "justification": "Lexical top chunk json-1 continua liderando, mas semantic chunk argparse-14 obt\u00e9m cosseno 0.070."
+  },
+  {
+    "question": "O que argparse faz?",
+    "lexical": {
+      "chunk_id": "argparse-1",
+      "source_family": "modules",
+      "source_file": "argparse",
+      "title": "argparse \u2014 Parser for command-line options, arguments and subcommands \u00b6",
+      "section": "h1",
+      "snippet": "argparse \u2014 Parser for command-line options, arguments and subcommands \u00b6 Added in version 3.2. Source code: Lib/argparse.py Note While argparse is the default recommended standard library module\nfor im",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "argparse-51",
+      "source_family": "modules",
+      "source_file": "argparse",
+      "title": "Exceptions \u00b6",
+      "section": "h2",
+      "snippet": "Exceptions \u00b6 exception argparse. ArgumentError \u00b6 An error from creating or using an argument (optional or positional). The string value of this exception is the message, augmented with information abo",
+      "similarity": 0.16538046250569352,
+      "classification": "FALHA"
+    },
+    "justification": "Lexical top chunk argparse-1 continua liderando, mas semantic chunk argparse-51 obt\u00e9m cosseno 0.165."
+  },
+  {
+    "question": "Para que serve venv?",
+    "lexical": {
+      "chunk_id": "venv-1",
+      "source_family": "modules",
+      "source_file": "venv",
+      "title": "venv \u2014 Creation of virtual environments",
+      "section": "h1",
+      "snippet": "The venv module supports creating lightweight \u201cvirtual environments\u201d, each with their own independent set of Python packages installed in their site directories. A virtual environment is created on to",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "builtins_functions-1",
+      "source_family": "builtins_exceptions",
+      "source_file": "builtins_functions",
+      "title": "Built-in Functions \u00b6",
+      "section": "h1",
+      "snippet": "Built-in Functions \u00b6 The Python interpreter has a number of functions and types built into it that are always available.  They are listed here in alphabetical order. Built-in Functions A abs() aiter()",
+      "similarity": 0.0,
+      "classification": "FALHA"
+    },
+    "justification": "Lexical top chunk venv-1 continua liderando, mas semantic chunk builtins_functions-1 obt\u00e9m cosseno 0.000."
+  },
+  {
+    "question": "O que typing faz?",
+    "lexical": {
+      "chunk_id": "typing-1",
+      "source_family": "modules",
+      "source_file": "typing",
+      "title": "typing \u2014 Support for type hints",
+      "section": "h1",
+      "snippet": "Note: The Python runtime does not enforce function and variable type annotations. They can be used by third party tools such as type checkers, IDEs, linters, etc. The typing module provides runtime su",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "argparse-9",
+      "source_family": "modules",
+      "source_file": "argparse",
+      "title": "prefix_chars \u00b6",
+      "section": "h3",
+      "snippet": "prefix_chars \u00b6 Most command-line options will use - as the prefix, e.g. -f/--foo . Parsers that need to support different or additional prefix characters, e.g. for options like +f or /foo , may specif",
+      "similarity": 0.07265303486226683,
+      "classification": "FALHA"
+    },
+    "justification": "Lexical top chunk typing-1 continua liderando, mas semantic chunk argparse-9 obt\u00e9m cosseno 0.073."
+  }
+]

@@ -1,0 +1,125 @@
+{
+  "snapshot": {
+    "timestamp": "2026-03-15T22:24:00-03:00",
+    "manifest": "docs/C_SOURCE_MANIFEST.md"
+  },
+  "frozen": [
+    {
+      "name": "WG14 N2610 (C17)",
+      "category": "PRIMÁRIA",
+      "format": "PDF",
+      "path": "data/knowledge_raw/c/wg14/n2610.pdf",
+      "hash": "3d53887943a58dd1016477a0987fe17357cf708168053f12e2cf1c6b277c6624",
+      "note": "Draft substitui ISO oficial; compra pendente."
+    },
+    {
+      "name": "WG14 N2756 (C23)",
+      "category": "PRIMÁRIA",
+      "format": "PDF",
+      "path": "data/knowledge_raw/c/wg14/n2756.pdf",
+      "hash": "c76ce86b21a3639c62f7c3f00549487f31b84b15777b53610e4de0afd988a5d9",
+      "note": "Versão pública mais recente do WG14."
+    },
+    {
+      "name": "POSIX stdio.h",
+      "category": "PRIMÁRIA",
+      "format": "HTML",
+      "path": "data/knowledge_raw/c/posix_issue7/stdio.h.html",
+      "hash": "c8d4abfa736c9833fde57e2581d8fe76e1563445d22756759de8e2cc671935aa",
+      "note": "Capítulo oficial Issue 7."
+    },
+    {
+      "name": "POSIX stdlib.h",
+      "category": "PRIMÁRIA",
+      "format": "HTML",
+      "path": "data/knowledge_raw/c/posix_issue7/stdlib.h.html",
+      "hash": "dbaf7e1a2b6648480ce07b4eabdf2e8fd80cdca1169a28e83d11ac9b71f41973",
+      "note": "Biblioteca padrão."
+    },
+    {
+      "name": "POSIX pthread.h",
+      "category": "PRIMÁRIA",
+      "format": "HTML",
+      "path": "data/knowledge_raw/c/posix_issue7/pthread.h.html",
+      "hash": "a6b03b86d0df916c07ea39457ae217bc52b3f75038838a3befc028f2eedc376f",
+      "note": "Threading só POSIX."
+    },
+    {
+      "name": "POSIX unistd.h",
+      "category": "PRIMÁRIA",
+      "format": "HTML",
+      "path": "data/knowledge_raw/c/posix_issue7/unistd.h.html",
+      "hash": "6dd62a12af7ed4f68d36fe40a543329f5b070be76a36e411a3a310dc21b778a6",
+      "note": "Syscalls."
+    },
+    {
+      "name": "POSIX printf(3)",
+      "category": "PRIMÁRIA",
+      "format": "HTML",
+      "path": "data/knowledge_raw/c/posix_issue7/printf.html",
+      "hash": "7b2aefab4c62ad91335c54816281d583f5a2157df8d9cca42dd6e4865a436211",
+      "note": "Função básica de saída."
+    },
+    {
+      "name": "POSIX pthread_create(3)",
+      "category": "PRIMÁRIA",
+      "format": "HTML",
+      "path": "data/knowledge_raw/c/posix_issue7/pthread_create.html",
+      "hash": "eff09534f15a1b2a15e21278ad291b37f062304624dc33a8821baa5fd15cf2ee",
+      "note": "Criação de threads."
+    },
+    {
+      "name": "POSIX read(2)",
+      "category": "PRIMÁRIA",
+      "format": "HTML",
+      "path": "data/knowledge_raw/c/posix_issue7/read.html",
+      "hash": "682603d03e467c5e10c3ddd672dfb6548270a8e0ffd809a458240cee72f17b02",
+      "note": "System call read."
+    },
+    {
+      "name": "POSIX exit(3)",
+      "category": "PRIMÁRIA",
+      "format": "HTML",
+      "path": "data/knowledge_raw/c/posix_issue7/exit.html",
+      "hash": "b1a882fd05893babc784d7ba0bcaed3c01a6f635131d5984fbe590954404de45",
+      "note": "Finalização de processo (exit)."
+    },
+    {
+      "name": "Cppreference language",
+      "category": "SECUNDÁRIA",
+      "format": "HTML",
+      "path": "data/knowledge_raw/c/cppreference_c/language",
+      "hash": "1e200674475ae2233102dc7dab3eab03bf3a09e6101a40dc09984c135f25de23",
+      "note": "Wiki `language`."
+    },
+    {
+      "name": "Cppreference header",
+      "category": "SECUNDÁRIA",
+      "format": "HTML",
+      "path": "data/knowledge_raw/c/cppreference_c/header",
+      "hash": "f69ca1dabe8678ff82645891ce28fbaa64cf7ecd78be4e0bb68a31db7505da6d",
+      "note": "Wiki `header`."
+    },
+    {
+      "name": "Man-pages 6.02 tarball",
+      "category": "SECUNDÁRIA",
+      "format": "TAR.XZ",
+      "path": "data/knowledge_raw/c/man7/man-pages-6.02.tar.xz",
+      "hash": "66d809b62ba8681ebcbd1a8d0a0670776924ab93bfbbb54e1c31170e14303795",
+      "note": "GPL release extraída para man-pages-6.02/."
+    }
+  ],
+  "pending": [
+    {
+      "name": "ISO/IEC 9899:2018 (C17) oficial",
+      "reason": "Norma requer compra/licença; manter número do pedido e inserir no lock antes do parsing."
+    }
+  ],
+  "directories": [
+    "data/knowledge_raw/c/iso_c17",
+    "data/knowledge_raw/c/wg14",
+    "data/knowledge_raw/c/posix_issue7",
+    "data/knowledge_raw/c/cppreference_c",
+    "data/knowledge_raw/c/man7"
+  ]
+}

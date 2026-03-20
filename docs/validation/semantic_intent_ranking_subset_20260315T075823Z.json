@@ -1,0 +1,115 @@
+{
+  "run_id": "20260315T075823Z",
+  "questions": [
+    {
+      "timestamp": "2026-03-15T07:58:43.818173+00:00",
+      "domain": "Terraform",
+      "question": "Quando usar modulos no Terraform?",
+      "http_status": 200,
+      "answer": "Use modulos no Terraform quando when to write a module in principle any combination of resources and other constructs can be factored out into a module, but over-using modules can make your overall terraform",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta ainda é um trecho cru/metadado sem síntese didática."
+    },
+    {
+      "timestamp": "2026-03-15T07:58:43.860847+00:00",
+      "domain": "Terraform",
+      "question": "O que e um workspace no Terraform?",
+      "http_status": 200,
+      "answer": "um workspace no Terraform é workspaces allow the use of multiple states with a single configuration directory",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta ainda é um trecho cru/metadado sem síntese didática."
+    },
+    {
+      "timestamp": "2026-03-15T07:58:43.902809+00:00",
+      "domain": "Kubernetes",
+      "question": "Para que serve um Deployment no Kubernetes?",
+      "http_status": 200,
+      "answer": "um Deployment no Kubernetes serve para a _deployment_ provides declarative updates for and",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta ainda é um trecho cru/metadado sem síntese didática."
+    },
+    {
+      "timestamp": "2026-03-15T07:58:43.944840+00:00",
+      "domain": "Kubernetes",
+      "question": "Quando usar um Ingress no Kubernetes?",
+      "http_status": 200,
+      "answer": "Use um Ingress no Kubernetes quando what is ingress",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta ainda é um trecho cru/metadado sem síntese didática."
+    },
+    {
+      "timestamp": "2026-03-15T07:58:43.986700+00:00",
+      "domain": "Docker",
+      "question": "O que e port publishing no Docker?",
+      "http_status": 200,
+      "answer": "port publishing no Docker é keywords: network, iptables, firewall --- by default, for both ipv4 and ipv6, the docker d",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta ainda é um trecho cru/metadado sem síntese didática."
+    },
+    {
+      "timestamp": "2026-03-15T07:58:44.028481+00:00",
+      "domain": "Docker",
+      "question": "O que e o host network driver no Docker?",
+      "http_status": 200,
+      "answer": "o host network driver no Docker é keywords: network, host, standalone, host mode networking - /network",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta ainda é um trecho cru/metadado sem síntese didática."
+    },
+    {
+      "timestamp": "2026-03-15T07:58:44.070401+00:00",
+      "domain": "Docker",
+      "question": "Para que serve o modo rootless no Docker?",
+      "http_status": 200,
+      "answer": "o modo rootless no Docker serve para keywords: security, namespaces, rootless --- rootless mode lets you run t",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta ainda é um trecho cru/metadado sem síntese didática."
+    },
+    {
+      "timestamp": "2026-03-15T07:58:44.112391+00:00",
+      "domain": "Docker",
+      "question": "O que e content trust no Docker?",
+      "http_status": 200,
+      "answer": "content trust no Docker é keywords: content, trust, security, docker, documentation - /engine/security/trust/content",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta ainda é um trecho cru/metadado sem síntese didática."
+    },
+    {
+      "timestamp": "2026-03-15T07:58:44.154391+00:00",
+      "domain": "Observabilidade",
+      "question": "O que e uma alerting rule no Prometheus?",
+      "http_status": 200,
+      "answer": "uma alerting rule no Prometheus é alerting rules allow you to define alert conditions based on prometheus expression language expressions and to send notifications about",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta ainda é um trecho cru/metadado sem síntese didática."
+    },
+    {
+      "timestamp": "2026-03-15T07:58:44.196542+00:00",
+      "domain": "Observabilidade",
+      "question": "O que e uma notification policy no Grafana Alerting?",
+      "http_status": 200,
+      "answer": "uma notification policy no Grafana Alerting é /notification-policies/notifications/ /docs/grafana//alerting/fundamentals/notification-policies/notifications/",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta ainda é um trecho cru/metadado sem síntese didática."
+    }
+  ]
+}

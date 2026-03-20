@@ -1,0 +1,29 @@
+{
+  "front_name": "JAVA",
+  "domain": "java",
+  "status": "closed",
+  "lifecycle_stage": "closure_decision",
+  "source_policy_defined": true,
+  "source_manifest_defined": true,
+  "corpus_locked": true,
+  "chunking_executed": true,
+  "lexical_baseline_executed": true,
+  "semantic_embeddings_executed": true,
+  "semantic_baseline_executed": true,
+  "closure_decision_made": true,
+  "source_count": 3,
+  "document_count": 30,
+  "chunk_count": 2648,
+  "notes": [
+    "Frente avançou até a reavaliação de lexical_baseline após chunking_refinement.",
+    "Chunking consolidado sobre o corpus oficial da frente JAVA.",
+    "Fontes usadas: JLS, Java SE API Documentation e JEP Index core materializados localmente.",
+    "Lexical baseline reavaliado e reportado em docs/JAVA_LEXICAL_BASELINE_REPORT_20260319T032614Z.md.",
+    "Refinamento de chunking executado com novos artefatos focados em classes críticas e trechos do JLS.",
+    "Embeddings gerados em data/semantic_index_experiments/java_pilot/ com 2644 vetores e modelo text-embedding-3-large, incrementados com +4 vetores de refinement.",
+    "Semantic baseline executado em docs/JAVA_SEMANTIC_BASELINE_REPORT_20260319T034239Z.md com resultados estruturados em docs/JAVA_SEMANTIC_BASELINE_RESULTS_20260319T034239Z.json.",
+    "Refinement adicional adicionou 4 chunks focados (streams, record, thread lifecycle, volatile vs synchronized) e embeddings incrementais anexados.",
+    "Semantic baseline rerodado em docs/JAVA_SEMANTIC_BASELINE_REPORT_20260319T041654Z.md com resultados em docs/JAVA_SEMANTIC_BASELINE_RESULTS_20260319T041654Z.json; todas as consultas ficaram COERENTE.",
+    "closure_decision concluída; frente fechada com relatório final e handoff registrados."
+  ]
+}

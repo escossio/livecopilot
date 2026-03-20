@@ -1,0 +1,116 @@
+{
+  "ts": "2026-03-15T06:03:53.115602+00:00",
+  "question": "Qual a diferenca entre terraform plan e terraform apply?",
+  "raw_input": "Qual a diferenca entre terraform plan e terraform apply?",
+  "transcript_text": "Qual a diferenca entre terraform plan e terraform apply?",
+  "mode": "generic",
+  "conversation_id": "",
+  "skill_routing": {
+    "matched": false,
+    "payload": {}
+  },
+  "connector_routing": {
+    "matched": false,
+    "intent": "",
+    "backend": "semantic_local",
+    "knowledge_context": {}
+  },
+  "semantic_context": {
+    "search_query": "Qual a diferenca entre terraform plan e terraform apply?",
+    "used_search": true,
+    "search_backend": "semantic_local",
+    "semantic_api_ok": true,
+    "fallback_used": false,
+    "result_count": 3,
+    "query_tags": {},
+    "query_tags_used": [],
+    "used_tag_routing": false,
+    "used_global_fallback": false,
+    "sources": [
+      {
+        "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md",
+        "title": "index",
+        "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md::b9e2488ddc17::0002::56251630",
+        "sequence": 0,
+        "score": 0.657417,
+        "matched_tags": []
+      },
+      {
+        "source_file": "terraform_docs_selected/cli/commands/apply.md",
+        "title": "apply",
+        "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/apply.md::4fa476a0fd3e::0001::2737f37d",
+        "sequence": 0,
+        "score": 0.636436,
+        "matched_tags": []
+      },
+      {
+        "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+        "title": "apply",
+        "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/apply.md::4fa476a0fd3e::0001::2737f37d",
+        "sequence": 0,
+        "score": 0.636436,
+        "matched_tags": []
+      }
+    ],
+    "context": "QUERY: Qual a diferenca entre terraform plan e terraform apply?\n\nSOURCE: terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: ### Plan The `terraform plan` command evaluates a Terraform configuration to determine the desired state of all the resources it declares, then compares that desired state to the\n\nSOURCE: terraform_docs_selected/cli/commands/apply.md\nTITLE: apply\nSIGNALS: none\nSNIPPET: --- page_title: terraform apply command reference description: The `terraform apply` command executes the actions proposed in a Terraform plan to create, update, or destroy infrast\n\nSOURCE: terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/apply.md\nTITLE: apply\nSIGNALS: none\nSNIPPET: --- page_title: terraform apply command reference description: The `terraform apply` command executes the actions proposed in a Terraform plan to create, update, or destroy infrast",
+    "debug": {
+      "used_search": true,
+      "query": "Qual a diferenca entre terraform plan e terraform apply?",
+      "result_count": 3,
+      "search_error": "",
+      "semantic_error": "",
+      "semantic_api_ok": true,
+      "fallback_used": false,
+      "semantic_duration_ms": 67,
+      "search_cache_hit": true,
+      "embedding_cache_hit": false,
+      "openai_called": false,
+      "semantic_path": "response_cache",
+      "search_backend": "semantic_local",
+      "context_used": false,
+      "context_len": 972,
+      "query_tags_inferred": {},
+      "query_tags_used": [],
+      "used_tag_routing": false,
+      "used_global_fallback": false,
+      "routed_result_count": 0,
+      "global_result_count": 0,
+      "sources": [
+        {
+          "title": "index",
+          "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md::b9e2488ddc17::0002::56251630",
+          "score": 0.657417,
+          "matched_tags": [],
+          "excerpt_summary": "### Plan The `terraform plan` command evaluates a Terraform configuration to determine the desired state of all the resources it declares,..."
+        },
+        {
+          "title": "apply",
+          "source_file": "terraform_docs_selected/cli/commands/apply.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected/cli/commands/apply.md::4fa476a0fd3e::0001::2737f37d",
+          "score": 0.636436,
+          "matched_tags": [],
+          "excerpt_summary": "page_title: terraform apply command reference description: The `terraform apply` command executes the actions proposed in a Terraform plan..."
+        },
+        {
+          "title": "apply",
+          "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/apply.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/commands/apply.md::4fa476a0fd3e::0001::2737f37d",
+          "score": 0.636436,
+          "matched_tags": [],
+          "excerpt_summary": "page_title: terraform apply command reference description: The `terraform apply` command executes the actions proposed in a Terraform plan..."
+        }
+      ]
+    }
+  },
+  "response": {
+    "answer": "Resumo técnico inicial: QUERY: Qual a diferenca entre terraform plan e terraform apply? SOURCE: terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md TITLE: index SIGNALS: none SNIPPET: ### Plan The `terraform plan`...",
+    "bullets": [
+      "Resumo técnico inicial: QUERY: Qual a diferenca entre terraform plan e terraform apply? SOURCE:...",
+      "Só um instante para consolidar os pontos técnicos mais relevantes antes de te responder com precisão.",
+      "Você quer foco em visão de arquitetura, passo a passo de implementação, ou troubleshooting para: Qual a diferenca entre terraform plan e terraform apply??"
+    ],
+    "response_stage": "final",
+    "readiness": "high"
+  }
+}

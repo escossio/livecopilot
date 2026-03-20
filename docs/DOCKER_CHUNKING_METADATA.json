@@ -1,0 +1,31 @@
+{
+  "domain": "docker_core",
+  "status": "closed",
+  "chunk_count": 12,
+  "embedding_model": "text-embedding-3-large",
+  "updated_at": "2026-03-19T02:05:27Z",
+  "semantic_embeddings": {
+    "index_path": "data/semantic_index_experiments/docker_pilot",
+    "embeddings_file": "data/semantic_index_experiments/docker_pilot/embeddings.jsonl",
+    "metadata_file": "data/semantic_index_experiments/docker_pilot/metadata.json",
+    "model": "text-embedding-3-large",
+    "embedding_dim": 3072,
+    "num_chunks": 12,
+    "generated_at": "2026-03-19T02:05:27.085301+00:00"
+  },
+  "semantic_baseline": {
+    "report_file": "docs/DOCKER_SEMANTIC_BASELINE_REPORT_20260319T020532Z.md",
+    "results_file": "docs/DOCKER_SEMANTIC_BASELINE_RESULTS_20260319T020532Z.json",
+    "summary": {
+      "COERENTE": 11,
+      "PARCIALMENTE_COERENTE": 1,
+      "FALHA": 0
+    }
+  },
+  "closure": {
+    "decision": "closed",
+    "report_file": "docs/DOCKER_FINAL_REPORT_20260319T021500Z.md",
+    "handoff_file": "docs/HANDOFF_LIVECOPILOT_DOCKER_FRONT_CLOSURE_20260319T021500Z.md",
+    "closed_at": "2026-03-19T02:15:00Z"
+  }
+}

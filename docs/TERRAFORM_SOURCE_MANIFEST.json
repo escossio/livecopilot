@@ -1,0 +1,138 @@
+{
+  "generated": "2026-03-17T21:00:00Z",
+  "domain": "terraform",
+  "sources": [
+    {
+      "name": "Terraform CLI docs",
+      "category": "PRIMARIA",
+      "type": "HTML/CLI",
+      "url": "https://www.terraform.io/docs/cli/index.html",
+      "mirror": "https://developer.hashicorp.com/terraform/cli",
+      "availability": "public",
+      "notes": "license Apache 2.0 (HashiCorp)",
+      "strategy": "download key CLI pages, pin release used",
+      "priority": "alta",
+      "lote": 1
+    },
+    {
+      "name": "Terraform language docs",
+      "category": "PRIMARIA",
+      "type": "HTML/LANGUAGE",
+      "url": "https://www.terraform.io/docs/language/index.html",
+      "mirror": "https://developer.hashicorp.com/terraform/language",
+      "availability": "public",
+      "notes": "official HashiCorp",
+      "strategy": "capture chapters on HCL, expressions, vars, outputs, modules",
+      "priority": "alta",
+      "lote": 1
+    },
+    {
+      "name": "Terraform state/backends/workspaces docs",
+      "category": "PRIMARIA",
+      "type": "HTML/STATE",
+      "url": "https://www.terraform.io/docs/backends/index.html",
+      "mirror": "https://developer.hashicorp.com/terraform/backends",
+      "availability": "public",
+      "notes": "official HashiCorp",
+      "strategy": "pull sections for S3, GCS, Terraform Cloud backends + workspaces",
+      "priority": "alta",
+      "lote": 1
+    },
+    {
+      "name": "Terraform modules documentation",
+      "category": "PRIMARIA",
+      "type": "HTML/MODULES",
+      "url": "https://www.terraform.io/docs/language/modules/index.html",
+      "mirror": "https://developer.hashicorp.com/terraform/language/modules",
+      "availability": "public",
+      "notes": "official HashiCorp",
+      "strategy": "capture module structure/composition best practices",
+      "priority": "alta",
+      "lote": 2
+    },
+    {
+      "name": "Terraform Registry provider AWS",
+      "category": "PRIMARIA",
+      "type": "REGISTRY",
+      "url": "https://registry.terraform.io/providers/hashicorp/aws/latest/docs",
+      "mirror": null,
+      "availability": "public",
+      "notes": "Apache 2.0",
+      "strategy": "download doc for EC2, IAM, S3, networking resources for subset",
+      "priority": "media",
+      "lote": 3
+    },
+    {
+      "name": "Terraform Registry provider Azure",
+      "category": "PRIMARIA",
+      "type": "REGISTRY",
+      "url": "https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs",
+      "mirror": null,
+      "availability": "public",
+      "notes": "Apache 2.0",
+      "strategy": "focus on App Service, network, storage resources for Azure",
+      "priority": "media",
+      "lote": 3
+    },
+    {
+      "name": "Terraform Registry provider Google",
+      "category": "PRIMARIA",
+      "type": "REGISTRY",
+      "url": "https://registry.terraform.io/providers/hashicorp/google/latest/docs",
+      "mirror": null,
+      "availability": "public",
+      "notes": "Apache 2.0",
+      "strategy": "prioritize compute, storage, IAM resource docs",
+      "priority": "media",
+      "lote": 3
+    },
+    {
+      "name": "HashiCorp Learn Terraform tutorials",
+      "category": "SECUNDARIA",
+      "type": "GUIDE",
+      "url": "https://developer.hashicorp.com/terraform/tutorials",
+      "mirror": null,
+      "availability": "public",
+      "notes": "official",
+      "strategy": "extract tutorials that align with CLI/language/state/modules",
+      "priority": "baixa",
+      "lote": 4
+    },
+    {
+      "name": "Terraform release notes (CLI & Providers)",
+      "category": "SECUNDARIA",
+      "type": "DOC",
+      "url": "https://www.terraform.io/docs/release/index.html",
+      "mirror": null,
+      "availability": "public",
+      "notes": "official",
+      "strategy": "collect relevant entries when they impact CLI/providers",
+      "priority": "baixa",
+      "lote": 4
+    },
+    {
+      "name": "Terraform Cloud authentication guide",
+      "category": "SECUNDARIA",
+      "type": "GUIDE",
+      "url": "https://developer.hashicorp.com/terraform/cloud",
+      "mirror": null,
+      "availability": "public",
+      "notes": "official HashiCorp",
+      "strategy": "capture backend/workspace authentication chapters",
+      "priority": "baixa",
+      "lote": 2
+    }
+  ],
+  "notes": {
+    "risks": [
+      "Terraform Registry muda com frequência; controle de versão obrigatório.",
+      "HashiCorp Learn e docs oficiais podem se sobrepor e gerar duplicação.",
+      "Providers produzem grande volume de conteúdo; limitamos ao subset inicial."
+    ],
+    "next_steps": [
+      "Congelar lotes aprovados antes de parsing/chunking.",
+      "Registrar URL, hash e metadados de cada lote.",
+      "Definir bateria de perguntas iniciais antes da fase de chunking."
+    ]
+  }
+}

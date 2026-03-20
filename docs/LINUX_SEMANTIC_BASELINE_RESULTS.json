@@ -1,0 +1,53 @@
+{
+  "front": "LINUX",
+  "model": "text-embedding-3-large",
+  "embedding_dim": 3072,
+  "chunk_index_path": "/lab/projects/livecopilot/data/semantic_index_experiments/linux",
+  "queries": [
+    {
+      "query": "linux kernel subsystem",
+      "top1": "kernel_subsystem-chunks.json",
+      "top3": [
+        "kernel_subsystem-chunks.json",
+        "networking-chunks.json",
+        "systemd_overview-chunks.json"
+      ],
+      "noise": "none",
+      "adherence": "strong"
+    },
+    {
+      "query": "systemd overview",
+      "top1": "systemd_overview-chunks.json",
+      "top3": [
+        "systemd_overview-chunks.json",
+        "kernel_subsystem-chunks.json",
+        "man_ps-chunks.json"
+      ],
+      "noise": "none",
+      "adherence": "strong"
+    },
+    {
+      "query": "linux networking basics",
+      "top1": "networking-chunks.json",
+      "top3": [
+        "networking-chunks.json",
+        "kernel_subsystem-chunks.json",
+        "systemd_overview-chunks.json"
+      ],
+      "noise": "none",
+      "adherence": "strong"
+    },
+    {
+      "query": "ps command linux",
+      "top1": "man_ps-chunks.json",
+      "top3": [
+        "man_ps-chunks.json",
+        "systemd_overview-chunks.json",
+        "kernel_subsystem-chunks.json"
+      ],
+      "noise": "none",
+      "adherence": "strong"
+    }
+  ],
+  "decision": "baseline approved"
+}

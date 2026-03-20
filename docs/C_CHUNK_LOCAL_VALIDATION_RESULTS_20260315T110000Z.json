@@ -1,0 +1,129 @@
+{
+  "results": [
+    {
+      "question": "O que é comportamento definido pela implementação em C?",
+      "top_chunk": "data/knowledge_chunks/c/posix_issue7/posix_issue7-05.txt",
+      "source_family": "posix_issue7",
+      "source_file": "read.txt",
+      "title": "read",
+      "section": "function",
+      "snippet": "NAME SYNOPSIS #include < unistd.h > ssize_t pread(int fildes , void * buf , size_t nbyte , off_t offset ); ssize_t read(int fildes , void * buf , size_t nbyte ); DESCRIPTION The read () function shall attempt to read nbyte bytes from the file associated with the open file descriptor, fildes , into the buffer pointed to by buf . The behavior of multiple concurrent reads on the same pipe, FIFO, or t",
+      "score": 30,
+      "evaluation": "RESPONDIVEL",
+      "justification": "RESPONDIVEL com score 30 e palavras-chave encontradas"
+    },
+    {
+      "question": "O que é locale em C?",
+      "top_chunk": "data/knowledge_chunks/c/man7/man7-03.txt",
+      "source_family": "man7",
+      "source_file": "printf-3.txt",
+      "title": "printf(3) DESCRIPTION",
+      "section": "DESCRIPTION",
+      "snippet": "The functions in the printf() family produce output according to a for‐ mat as described below.  The functions  printf()  and  vprintf()  write output  to stdout, the standard output stream; fprintf() and vfprintf() write  output  to  the  given  output  stream;  sprintf(),  snprintf(), vsprintf(), and vsnprintf() write to the character string str. The  function dprintf() is the same as fprintf() ",
+      "score": 12,
+      "evaluation": "RESPONDIVEL",
+      "justification": "RESPONDIVEL com score 12 e palavras-chave encontradas"
+    },
+    {
+      "question": "Para que serve stdio.h?",
+      "top_chunk": "data/knowledge_chunks/c/posix_issue7/posix_issue7-01.txt",
+      "source_family": "posix_issue7",
+      "source_file": "stdio.h.txt",
+      "title": "stdio.h",
+      "section": "function",
+      "snippet": "NAME SYNOPSIS #include <stdio.h> DESCRIPTION The <stdio.h> header shall define the following data types through typedef : FILE A structure containing information about a file. fpos_t A non-array type containing all information needed to specify uniquely every position within a file. off_t As described in <sys/types.h> . size_t As described in <stddef.h> . ssize_t [ CX ] As described in <sys/types.",
+      "score": 103,
+      "evaluation": "RESPONDIVEL",
+      "justification": "RESPONDIVEL com score 103 e palavras-chave encontradas"
+    },
+    {
+      "question": "O que pthread_create faz?",
+      "top_chunk": "data/knowledge_chunks/c/posix_issue7/posix_issue7-03.txt",
+      "source_family": "posix_issue7",
+      "source_file": "pthread.h.txt",
+      "title": "pthread.h",
+      "section": "function",
+      "snippet": "NAME SYNOPSIS #include <pthread.h> DESCRIPTION The <pthread.h> header shall define the following symbolic constants: PTHREAD_BARRIER_SERIAL_THREAD PTHREAD_CANCEL_ASYNCHRONOUS PTHREAD_CANCEL_ENABLE PTHREAD_CANCEL_DEFERRED PTHREAD_CANCEL_DISABLE PTHREAD_CANCELED PTHREAD_CREATE_DETACHED PTHREAD_CREATE_JOINABLE [ TPS ] PTHREAD_EXPLICIT_SCHED PTHREAD_INHERIT_SCHED PTHREAD_MUTEX_DEFAULT PTHREAD_MUTEX_ER",
+      "score": 764,
+      "evaluation": "RESPONDIVEL",
+      "justification": "RESPONDIVEL com score 764 e palavras-chave encontradas"
+    },
+    {
+      "question": "O que read faz?",
+      "top_chunk": "data/knowledge_chunks/c/posix_issue7/posix_issue7-03.txt",
+      "source_family": "posix_issue7",
+      "source_file": "pthread.h.txt",
+      "title": "pthread.h",
+      "section": "function",
+      "snippet": "NAME SYNOPSIS #include <pthread.h> DESCRIPTION The <pthread.h> header shall define the following symbolic constants: PTHREAD_BARRIER_SERIAL_THREAD PTHREAD_CANCEL_ASYNCHRONOUS PTHREAD_CANCEL_ENABLE PTHREAD_CANCEL_DEFERRED PTHREAD_CANCEL_DISABLE PTHREAD_CANCELED PTHREAD_CREATE_DETACHED PTHREAD_CREATE_JOINABLE [ TPS ] PTHREAD_EXPLICIT_SCHED PTHREAD_INHERIT_SCHED PTHREAD_MUTEX_DEFAULT PTHREAD_MUTEX_ER",
+      "score": 380,
+      "evaluation": "RESPONDIVEL",
+      "justification": "RESPONDIVEL com score 380 e palavras-chave encontradas"
+    },
+    {
+      "question": "O que é <assert.h>?",
+      "top_chunk": "data/knowledge_chunks/c/cppreference_c/cppreference_c-06.txt",
+      "source_family": "cppreference_c",
+      "source_file": "header.txt",
+      "title": "<assert.h>",
+      "section": "header entry",
+      "snippet": "<assert.h>",
+      "score": 2,
+      "evaluation": "PARCIALMENTE_RESPONDIVEL",
+      "justification": "PARCIALMENTE_RESPONDIVEL com score 2 e palavras-chave encontradas"
+    },
+    {
+      "question": "Para que serve assert?",
+      "top_chunk": "data/knowledge_chunks/c/posix_issue7/posix_issue7-01.txt",
+      "source_family": "posix_issue7",
+      "source_file": "stdio.h.txt",
+      "title": "stdio.h",
+      "section": "function",
+      "snippet": "NAME SYNOPSIS #include <stdio.h> DESCRIPTION The <stdio.h> header shall define the following data types through typedef : FILE A structure containing information about a file. fpos_t A non-array type containing all information needed to specify uniquely every position within a file. off_t As described in <sys/types.h> . size_t As described in <stddef.h> . ssize_t [ CX ] As described in <sys/types.",
+      "score": 6,
+      "evaluation": "RESPONDIVEL",
+      "justification": "RESPONDIVEL com score 6 e palavras-chave encontradas"
+    },
+    {
+      "question": "O que printf retorna?",
+      "top_chunk": "data/knowledge_chunks/c/man7/man7-04.txt",
+      "source_family": "man7",
+      "source_file": "printf-3.txt",
+      "title": "printf(3) RETURN VALUE",
+      "section": "RETURN VALUE",
+      "snippet": "Upon successful return, these functions return the number of characters printed (excluding the null byte used to end output to strings). The functions snprintf() and vsnprintf() do not write  more  than  size bytes  (including the terminating null byte ('\\0')).  If the output was truncated due to this limit, then the return value  is  the  number  of characters  (excluding the terminating null byt",
+      "score": 69,
+      "evaluation": "RESPONDIVEL",
+      "justification": "RESPONDIVEL com score 69 e palavras-chave encontradas"
+    },
+    {
+      "question": "Quando printf pode falhar?",
+      "top_chunk": "data/knowledge_chunks/c/posix_issue7/posix_issue7-05.txt",
+      "source_family": "posix_issue7",
+      "source_file": "read.txt",
+      "title": "read",
+      "section": "function",
+      "snippet": "NAME SYNOPSIS #include < unistd.h > ssize_t pread(int fildes , void * buf , size_t nbyte , off_t offset ); ssize_t read(int fildes , void * buf , size_t nbyte ); DESCRIPTION The read () function shall attempt to read nbyte bytes from the file associated with the open file descriptor, fildes , into the buffer pointed to by buf . The behavior of multiple concurrent reads on the same pipe, FIFO, or t",
+      "score": 99,
+      "evaluation": "RESPONDIVEL",
+      "justification": "RESPONDIVEL com score 99 e palavras-chave encontradas"
+    }
+  ],
+  "family_summary": {
+    "posix_issue7": {
+      "RESPONDIVEL": 6,
+      "PARCIALMENTE_RESPONDIVEL": 0,
+      "NAO_RESPONDIVEL": 0
+    },
+    "man7": {
+      "RESPONDIVEL": 2,
+      "PARCIALMENTE_RESPONDIVEL": 0,
+      "NAO_RESPONDIVEL": 0
+    },
+    "cppreference_c": {
+      "RESPONDIVEL": 0,
+      "PARCIALMENTE_RESPONDIVEL": 1,
+      "NAO_RESPONDIVEL": 0
+    }
+  }
+}

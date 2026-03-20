@@ -1,0 +1,139 @@
+{
+  "chunks": [
+    {
+      "source_family": "cli",
+      "source_file": "https://developer.hashicorp.com/terraform/cli",
+      "title": "Terraform CLI Documentation",
+      "section": "Terraform CLI Documentation",
+      "chunk_id": "terraform-cli-001",
+      "length": 47,
+      "path": "data/knowledge_chunks/terraform/cli/terraform-cli-001.json"
+    },
+    {
+      "source_family": "cli",
+      "source_file": "https://developer.hashicorp.com/terraform/cli/commands/plan",
+      "title": "terraform plan command",
+      "section": "Introduction",
+      "chunk_id": "terraform-cli-plan-002",
+      "length": 73,
+      "path": "data/knowledge_chunks/terraform/cli/terraform-cli-plan-002.json"
+    },
+    {
+      "source_family": "cli",
+      "source_file": "https://developer.hashicorp.com/terraform/cli/commands/apply",
+      "title": "terraform apply command",
+      "section": "Usage",
+      "chunk_id": "terraform-cli-apply-003",
+      "length": 70,
+      "path": "data/knowledge_chunks/terraform/cli/terraform-cli-apply-003.json"
+    },
+    {
+      "source_family": "state",
+      "source_file": "https://developer.hashicorp.com/terraform/cli/commands/state",
+      "title": "terraform state commands",
+      "section": "Introduction",
+      "chunk_id": "terraform-state-003",
+      "length": 55,
+      "path": "data/knowledge_chunks/terraform/state/terraform-state-003.json"
+    },
+    {
+      "source_family": "state",
+      "source_file": "https://developer.hashicorp.com/terraform/language/backend",
+      "title": "Backend block configuration overview",
+      "section": "Overview",
+      "chunk_id": "terraform-backend-004",
+      "length": 73,
+      "path": "data/knowledge_chunks/terraform/state/terraform-backend-004.json"
+    },
+    {
+      "source_family": "state",
+      "source_file": "https://developer.hashicorp.com/terraform/language/state/workspaces",
+      "title": "Workspaces",
+      "section": "Workspaces",
+      "chunk_id": "terraform-workspaces-005",
+      "length": 56,
+      "path": "data/knowledge_chunks/terraform/state/terraform-workspaces-005.json"
+    },
+    {
+      "source_family": "modules",
+      "source_file": "https://developer.hashicorp.com/terraform/language/modules",
+      "title": "Modules overview",
+      "section": "Introduction",
+      "chunk_id": "terraform-modules-001",
+      "length": 62,
+      "path": "data/knowledge_chunks/terraform/modules/terraform-modules-001.json"
+    },
+    {
+      "source_family": "modules",
+      "source_file": "https://developer.hashicorp.com/terraform/language/block/module",
+      "title": "module block reference",
+      "section": "Configuration model",
+      "chunk_id": "terraform-module-source-002",
+      "length": 56,
+      "path": "data/knowledge_chunks/terraform/modules/terraform-module-source-002.json"
+    },
+    {
+      "source_family": "modules",
+      "source_file": "https://developer.hashicorp.com/terraform/language/values/variables",
+      "title": "Use input variables to add module arguments",
+      "section": "Define variables",
+      "chunk_id": "terraform-module-inputs-003",
+      "length": 61,
+      "path": "data/knowledge_chunks/terraform/modules/terraform-module-inputs-003.json"
+    },
+    {
+      "source_family": "modules",
+      "source_file": "https://developer.hashicorp.com/terraform/language/values/outputs",
+      "title": "Use outputs to expose module data",
+      "section": "Define outputs",
+      "chunk_id": "terraform-module-outputs-004",
+      "length": 59,
+      "path": "data/knowledge_chunks/terraform/modules/terraform-module-outputs-004.json"
+    },
+    {
+      "source_family": "providers/aws",
+      "source_file": "data/knowledge_parsed/terraform/providers/aws/aws-overview.html",
+      "title": "AWS Provider",
+      "section": "AWS Provider",
+      "chunk_id": "terraform-aws-001",
+      "length": 4528,
+      "path": "data/knowledge_chunks/terraform/providers/aws/terraform-aws-001.json"
+    },
+    {
+      "source_family": "providers/aws",
+      "source_file": "data/knowledge_parsed/terraform/providers/aws/aws-overview.html",
+      "title": "Example Usage",
+      "section": "Example Usage",
+      "chunk_id": "terraform-aws-002",
+      "length": 79,
+      "path": "data/knowledge_chunks/terraform/providers/aws/terraform-aws-002.json"
+    },
+    {
+      "source_family": "providers/aws",
+      "source_file": "data/knowledge_parsed/terraform/providers/aws/aws-instance.html",
+      "title": "List Resource: aws_instance",
+      "section": "List Resource: aws_instance",
+      "chunk_id": "terraform-aws-instance-001",
+      "length": 240,
+      "path": "data/knowledge_chunks/terraform/providers/aws/terraform-aws-instance-001.json"
+    },
+    {
+      "source_family": "providers/aws",
+      "source_file": "data/knowledge_parsed/terraform/providers/aws/aws-instance.html",
+      "title": "Example Usage",
+      "section": "Example Usage",
+      "chunk_id": "terraform-aws-instance-002",
+      "length": 43,
+      "path": "data/knowledge_chunks/terraform/providers/aws/terraform-aws-instance-002.json"
+    },
+    {
+      "source_family": "providers/aws",
+      "source_file": "data/knowledge_parsed/terraform/providers/aws/aws-instance.html",
+      "title": "Argument Reference",
+      "section": "Argument Reference",
+      "chunk_id": "terraform-aws-instance-003",
+      "length": 128,
+      "path": "data/knowledge_chunks/terraform/providers/aws/terraform-aws-instance-003.json"
+    }
+  ]
+}

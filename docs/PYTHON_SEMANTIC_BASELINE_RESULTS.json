@@ -1,0 +1,53 @@
+{
+  "front": "PYTHON",
+  "model": "text-embedding-3-large",
+  "embedding_dim": 3072,
+  "chunk_index_path": "/lab/projects/livecopilot/data/semantic_index_experiments/python",
+  "queries": [
+    {
+      "query": "python language reference",
+      "top1": "language_reference-chunks.json",
+      "top3": [
+        "language_reference-chunks.json",
+        "library_asyncio-chunks.json",
+        "packaging-chunks.json"
+      ],
+      "noise": "none",
+      "adherence": "strong"
+    },
+    {
+      "query": "python asyncio",
+      "top1": "library_asyncio-chunks.json",
+      "top3": [
+        "library_asyncio-chunks.json",
+        "language_reference-chunks.json",
+        "cli-chunks.json"
+      ],
+      "noise": "none",
+      "adherence": "strong"
+    },
+    {
+      "query": "python packaging",
+      "top1": "packaging-chunks.json",
+      "top3": [
+        "packaging-chunks.json",
+        "language_reference-chunks.json",
+        "cli-chunks.json"
+      ],
+      "noise": "none",
+      "adherence": "strong"
+    },
+    {
+      "query": "python cli arguments",
+      "top1": "cli-chunks.json",
+      "top3": [
+        "cli-chunks.json",
+        "language_reference-chunks.json",
+        "packaging-chunks.json"
+      ],
+      "noise": "none",
+      "adherence": "strong"
+    }
+  ],
+  "decision": "baseline approved"
+}

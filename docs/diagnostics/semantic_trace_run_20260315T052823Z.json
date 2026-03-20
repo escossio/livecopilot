@@ -1,0 +1,114 @@
+{
+  "ts": "2026-03-15T05:28:23.101760+00:00",
+  "question": "Qual a diferenca entre Pod e Service no Kubernetes?",
+  "mode": "generic",
+  "conversation_id": "",
+  "skill_routing": {
+    "matched": false,
+    "payload": {}
+  },
+  "connector_routing": {
+    "matched": false,
+    "intent": "",
+    "backend": "semantic_local",
+    "knowledge_context": {}
+  },
+  "semantic_context": {
+    "search_query": "A principal diferença entre Pod e Service no Kubernetes é a função que cada um desempenha. Um **Pod** é a menor unidade de implementação no Kubernetes, que pode conter um ou mais contêineres que compartilham armazenamento e rede, além de especificações sobre como executar os contêineres. Já um **Service** é um abstrato que define uma política de acesso a um conjunto de Pods, permitindo comunicação estável entre eles, mesmo que os Pods que compõem o serviço sejam criados ou destruídos ao longo do tempo. Em resumo, os Pods representam a execução das aplicações, enquanto os Services facilitam a comunicação entre essas aplicações.",
+    "used_search": true,
+    "search_backend": "semantic_local",
+    "semantic_api_ok": true,
+    "fallback_used": false,
+    "result_count": 3,
+    "query_tags": {},
+    "query_tags_used": [],
+    "used_tag_routing": false,
+    "used_global_fallback": false,
+    "sources": [
+      {
+        "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+        "title": "service",
+        "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0002::81b91316",
+        "sequence": 0,
+        "score": 0.66451,
+        "matched_tags": []
+      },
+      {
+        "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+        "title": "service",
+        "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0004::1eea2cf2",
+        "sequence": 0,
+        "score": 0.663828,
+        "matched_tags": []
+      },
+      {
+        "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+        "title": "service",
+        "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0003::5d98d632",
+        "sequence": 0,
+        "score": 0.650262,
+        "matched_tags": []
+      }
+    ],
+    "context": "QUERY: A principal diferença entre Pod e Service no Kubernetes é a função que cada um desempenha. Um **Pod** é a menor unidade de implementação no Kubernetes, que pode conter um ou mais contêineres que compartilham armazenamento e rede, além de especificações sobre como executar os contêineres. Já um **Service** é um abstrato que define uma política de acesso a um conjunto de Pods, permitindo comunicação estável entre eles, mesmo que os Pods que compõem o serviço sejam criados ou destruídos ao longo do tempo. Em resumo, os Pods representam a execução das aplicações, enquanto os Services facilitam a comunicação entre essas aplicações.\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: A key aim of Services in Kubernetes is that you don't need to modify your existing application to use an unfamiliar service discovery mechanism. You can run code in Pods, whether t\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: The Service API, part of Kubernetes, is an abstraction to help you expose groups of Pods over a network. Each Service object defines a logical set of endpoints (usually these endpo\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: Each Pod gets its own IP address (Kubernetes expects network plugins to ensure this). For a given Deployment in your cluster, the set of Pods running in one moment in time could be",
+    "debug": {
+      "used_search": true,
+      "query": "A principal diferença entre Pod e Service no Kubernetes é a função que cada um desempenha. Um **Pod** é a menor unidade de implementação no Kubernetes, que pode conter um ou mais contêineres que compartilham armazenamento e rede, além de especificações sobre como executar os contêineres. Já um **Service** é um abstrato que define uma política de acesso a um conjunto de Pods, permitindo comunicação estável entre eles, mesmo que os Pods que compõem o serviço sejam criados ou destruídos ao longo do tempo. Em resumo, os Pods representam a execução das aplicações, enquanto os Services facilitam a comunicação entre essas aplicações.",
+      "result_count": 3,
+      "search_error": "",
+      "semantic_error": "",
+      "semantic_api_ok": true,
+      "fallback_used": false,
+      "semantic_duration_ms": 468,
+      "search_cache_hit": false,
+      "embedding_cache_hit": false,
+      "openai_called": true,
+      "semantic_path": "openai_fresh",
+      "search_backend": "semantic_local",
+      "context_used": false,
+      "context_len": 1568,
+      "query_tags_inferred": {},
+      "query_tags_used": [],
+      "used_tag_routing": false,
+      "used_global_fallback": false,
+      "routed_result_count": 0,
+      "global_result_count": 0,
+      "sources": [
+        {
+          "title": "service",
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0002::81b91316",
+          "score": 0.66451,
+          "matched_tags": [],
+          "excerpt_summary": "A key aim of Services in Kubernetes is that you don't need to modify your existing application to use an unfamiliar service discovery..."
+        },
+        {
+          "title": "service",
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0004::1eea2cf2",
+          "score": 0.663828,
+          "matched_tags": [],
+          "excerpt_summary": "The Service API, part of Kubernetes, is an abstraction to help you expose groups of Pods over a network. Each Service object defines a..."
+        },
+        {
+          "title": "service",
+          "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+          "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0003::5d98d632",
+          "score": 0.650262,
+          "matched_tags": [],
+          "excerpt_summary": "Each Pod gets its own IP address (Kubernetes expects network plugins to ensure this). For a given Deployment in your cluster, the set of..."
+        }
+      ]
+    }
+  },
+  "response": {
+    "answer": "Em redes de computadores, começo pelo escopo (LAN/WAN) e pelos requisitos.",
+    "bullets": [
+      "Resumo técnico inicial: QUERY: A principal diferença entre Pod e Service no Kubernetes é a função que cada um desempenha. Um **Pod** é a menor unidade de implementação no...",
+      "Só um instante para consolidar os pontos técnicos mais relevantes antes de te responder com precisão.",
+      "Você quer foco em visão de arquitetura, passo a passo de implementação, ou troubleshooting para: A principal diferença entre Pod e Service no Kubernetes é a função que cada um..."
+    ],
+    "response_stage": "final",
+    "readiness": "high"
+  }
+}

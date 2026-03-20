@@ -1,0 +1,137 @@
+{
+  "generated_at": "20260315T211004Z",
+  "status": "search-snapshot",
+  "note": "Chance of metadata still surfacing because semantic persistence failed (ModuleNotFoundError: No module named 'psycopg'); rerun --semantic-persist after psycopg is available.",
+  "queries": [
+    {
+      "query": "O que e um workspace no Terraform?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "title": "workspaces",
+        "snippet": "---\n+page_title: 'State: Workspaces'\n+description: >-\n+Workspaces allow the use of multiple states with a single configuration\ndirectory.\n+# START AUTO GENERATED METADATA, DO NOT EDIT\n+",
+        "chunk_id": "chunk::doc::terraform_docs_selected/language/state/workspaces.md::a56f4877d390::0001::0fbd76a0",
+        "similarity": 0.642986,
+        "source_file": "terraform_docs_selected/language/state/workspaces.md"
+      }
+    },
+    {
+      "query": "Quando usar modulos no Terraform?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "title": "index",
+        "snippet": "## When to write a module\n+\n+In principle any combination of resources and other constructs can be factored\n+out into a module, but over-using modules can make your overall Terraform\n+",
+        "chunk_id": "chunk::doc::terraform_docs_selected/language/modules/develop/index.md::ef5233aa30a1::0004::57484b6b",
+        "similarity": 0.650396,
+        "source_file": "terraform_docs_selected/language/modules/develop/index.md"
+      }
+    },
+    {
+      "query": "O que e o host network driver no Docker?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "title": "host",
+        "snippet": "---\n+title: Host network driver\ndescription: All about exposing containers on the Docker host's network\n+keywords: network, host, standalone, host mode networking\n+aliases:\n+- /network",
+        "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/network/drivers/host.md::235bfb98fe3a::0001::c4eb3278",
+        "similarity": 0.655415,
+        "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/host.md"
+      }
+    },
+    {
+      "query": "Para que serve o modo rootless no Docker?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "title": "index",
+        "snippet": "---\n+description: Run the Docker daemon as a non-root user (Rootless mode)\n+keywords: security, namespaces, rootless\ntitle: Rootless mode\n+weight: 10\n+---\n+\n+Rootless mode lets you run t",
+        "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/rootless/_index.md::f4477a61978b::0001::96bea747",
+        "similarity": 0.612108,
+        "source_file": "docker_docs_selected/content/manuals/engine/security/rootless/_index.md"
+      }
+    },
+    {
+      "query": "O que e content trust no Docker?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "title": "index",
+        "snippet": "---\n+description: Enabling content trust in Docker\n+keywords: content, trust, security, docker, documentation\ntitle: Content trust in Docker\n+aliases:\n+- /engine/security/trust/content",
+        "chunk_id": "chunk::doc::docker_docs_selected/content/manuals/engine/security/trust/_index.md::096be8f22b56::0001::dd25043c",
+        "similarity": 0.691296,
+        "source_file": "docker_docs_selected/content/manuals/engine/security/trust/_index.md"
+      }
+    },
+    {
+      "query": "O que e uma notification policy no Grafana Alerting?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "title": "notification policies",
+        "snippet": "---\n+aliases:\n+- ../notification-policies/notifications/ # /docs/grafana/<GRAFANA_VERSION>/alerting/fundamentals/notification-policies/notifications/\n+canonical: https://grafana.com/d",
+        "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/fundamentals/notifications/notification-policies.md::0b41f591d6f4::0001::0e0799ae",
+        "similarity": 0.701117,
+        "source_file": "observability_docs_selected/grafana/docs/sources/alerting/fundamentals/notifications/notification-policies.md"
+      }
+    },
+    {
+      "query": "Para que serve o promtool?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "title": "promtool",
+        "snippet": "---\n+title: promtool\n+---\n+\n+Tooling for the Prometheus monitoring system.\n+\n+## Flags\n+\n+| Flag | Description |\n+| --- | --- |\n+| <code class=\"text-nowrap\">-h</code>, <code class=\"text-nowr",
+        "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/command-line/promtool.md::07b544dea4d5::0001::5da53196",
+        "similarity": 0.573701,
+        "source_file": "observability_docs_selected/prometheus/docs/command-line/promtool.md"
+      }
+    },
+    {
+      "query": "O que e uma alerting rule no Prometheus?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "title": "alerting rules",
+        "snippet": "---\n+title: Alerting rules\n+sort_rank: 3\n+---\n+\n+Alerting rules allow you to define alert conditions based on Prometheus\n+expression language expressions and to send notifications about ",
+        "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/alerting_rules.md::92085dedf36a::0001::3e75e016",
+        "similarity": 0.714854,
+        "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md"
+      }
+    },
+    {
+      "query": "Para que serve um Deployment no Kubernetes?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "title": "deployment",
+        "snippet": "A _Deployment_ provides declarative updates for {{< glossary_tooltip text=\"Pods\" term_id=\"pod\" >}} and\n+{{< glossary_tooltip term_id=\"replica-set\" text=\"ReplicaSets\" >}}.\n+\n+You descr",
+        "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/workloads/controllers/deployment.md::d37668472566::0002::bf2ff4cb",
+        "similarity": 0.624734,
+        "source_file": "kubernetes_docs_selected/content/en/docs/concepts/workloads/controllers/deployment.md"
+      }
+    },
+    {
+      "query": "Quando usar um Ingress no Kubernetes?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "title": "ingress",
+        "snippet": "## What is Ingress?\n+\n+[Ingress](/docs/reference/generated/kubernetes-api/{{< param \"version\" >}}/#ingress-v1-networking-k8s-io)\n+exposes HTTP and HTTPS routes from outside the cluste",
+        "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md::b93613d1621f::0004::77a0d4e2",
+        "similarity": 0.61126,
+        "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md"
+      }
+    }
+  ]
+}

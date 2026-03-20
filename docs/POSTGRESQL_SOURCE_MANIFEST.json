@@ -1,0 +1,47 @@
+{
+  "generated": "2026-03-19T05:45:00Z",
+  "domain": "postgresql",
+  "sources": [
+    {
+      "name": "PostgreSQL Documentation Home",
+      "category": "PRIMARY",
+      "type": "HTML/OVERVIEW",
+      "url": "https://www.postgresql.org/docs/current/",
+      "notes": "Architecture, deployment, operations."
+    },
+    {
+      "name": "SQL Command Reference",
+      "category": "PRIMARY",
+      "type": "HTML/SQL",
+      "url": "https://www.postgresql.org/docs/current/sql.html",
+      "notes": "DDL/DML command semantics."
+    },
+    {
+      "name": "Indexing and Performance",
+      "category": "PRIMARY",
+      "type": "HTML/PERFORMANCE",
+      "url": "https://www.postgresql.org/docs/current/indexes.html",
+      "notes": "Index types, maintenance, best practices."
+    },
+    {
+      "name": "JSON & JSONB Functions",
+      "category": "PRIMARY",
+      "type": "HTML/JSON",
+      "url": "https://www.postgresql.org/docs/current/functions-json.html",
+      "notes": "Usage, indexing, operators."
+    },
+    {
+      "name": "Extensions Overview",
+      "category": "PRIMARY",
+      "type": "HTML/EXTENSIONS",
+      "url": "https://www.postgresql.org/docs/current/extend.html",
+      "notes": "Extensions such as PostGIS, pg_stat_statements."
+    }
+  ],
+  "notes": {
+    "scope": "Initial capture includes SQL, indexing, JSONB, extensions, and performance guides from the official docs.",
+    "next_steps": [
+      "Download each approved page into `data/knowledge_raw/postgresql/` with metadata before parsing."
+    ]
+  }
+}

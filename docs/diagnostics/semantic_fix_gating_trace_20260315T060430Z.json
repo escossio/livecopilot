@@ -1,0 +1,21 @@
+{
+  "run_id": "20260315T060430Z",
+  "focus": "terraform_domain_gating",
+  "items": [
+    {
+      "question": "Para que serve o arquivo de state no Terraform?",
+      "semantic_search_count_before_fix": 3,
+      "semantic_top_sources": [
+        "terraform_docs_selected/language/state/index.md",
+        "terraform_docs_selected/language/state/purpose.md",
+        "terraform_docs_selected/language/state/index.md"
+      ],
+      "result_count_before_fix": 0,
+      "result_count_after_fix": 3,
+      "context_before_fix": "",
+      "context_after_fix": "QUERY: Para que serve o arquivo de state no Terraform?\n\nSOURCE: terraform_docs_selected/language/state/index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: Terraform uses state to determine which changes to make to your infrastructure. Prior to any operation, Terraform does a [refresh](/terraform/cli/commands/refresh) to update the st\n\nSOURCE: terraform_docs_selected/language/state/purpose.md\nTITLE: purpose\nSIGNALS: none\nSNIPPET: --- page_title: State description: >- Terraform must store state about your managed infrastructure and configuration. This state is used by Terraform to map real world resources to\n\nSOURCE: terraform_docs_selected/language/state/index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: --- page_title: State description: >- An introduction to state, information that Terraform uses to map resources to a configuration, track metadata, and improve performance. # STAR",
+      "answer_before_fix": "Automação de infraestrutura reduz erro humano e acelera entregas.",
+      "answer_after_fix": "Resumo técnico inicial: QUERY: Para que serve o arquivo de state no Terraform? SOURCE: terraform_docs_selected/language/state/index.md TITLE: index SIGNALS: none SNIPPET: Terraform uses state to determine which changes to make to your infrastructure."
+    }
+  ]
+}

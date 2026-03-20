@@ -1,0 +1,34 @@
+{
+  "run_id": "20260315T070944Z",
+  "scope": "semantic_synthesis_refinement",
+  "questions": [
+    {
+      "domain": "Docker",
+      "question": "Para que serve um Dockerfile?",
+      "http_status": 200,
+      "answer": "Dockerfile é um arquivo de instruções usado para construir uma imagem Docker. Ele define passos como qual imagem base usar, quais arquivos copiar, quais comandos executar e qual processo será iniciado quando o container rodar.",
+      "classification": "COERENTE",
+      "justification": "responde diretamente a função do Dockerfile como receita de build da imagem.",
+      "backend": "semantic_local",
+      "result_count": 3
+    },
+    {
+      "domain": "Kubernetes",
+      "question": "O que é um ConfigMap no Kubernetes?",
+      "http_status": 200,
+      "answer": "No Kubernetes, um ConfigMap é um recurso usado para armazenar configurações não sensíveis separadas da imagem do container. Ele permite injetar variáveis de ambiente, arquivos de configuração ou parâmetros dentro dos Pods.",
+      "classification": "COERENTE",
+      "justification": "sintetiza o conceito de ConfigMap com uso prático sem despejar trecho cru.",
+      "backend": "semantic_local",
+      "result_count": 3
+    }
+  ],
+  "impact_summary": {
+    "Docker": "1/1 coerentes nesta revalidacao pontual",
+    "Kubernetes": "1/1 coerentes nesta revalidacao pontual",
+    "expected_domain_impact": {
+      "Docker": "passa de 0/1 para 1/1 coerentes no recorte da baseline",
+      "Kubernetes": "passa de 2/3 para 3/3 coerentes no recorte da baseline"
+    }
+  }
+}

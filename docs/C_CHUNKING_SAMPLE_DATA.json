@@ -1,0 +1,182 @@
+[
+  {
+    "source_family": "WG14",
+    "source_file": "data/knowledge_parsed/c/wg14/n2756.txt",
+    "chunk_file": "data/knowledge_chunks/c/wg14/wg14-01.txt",
+    "description": "1. INTRODUCTION",
+    "removed": "headers/pagination",
+    "preserved": "section narrative",
+    "evaluation": "ready for normative responses"
+  },
+  {
+    "source_family": "WG14",
+    "source_file": "data/knowledge_parsed/c/wg14/n2756.txt",
+    "chunk_file": "data/knowledge_chunks/c/wg14/wg14-02.txt",
+    "description": "2. LIMITS AND EXPECTATIONS FOR THE CONCRETE MEMORY MODEL",
+    "removed": "headers/pagination",
+    "preserved": "section narrative",
+    "evaluation": "ready for normative responses"
+  },
+  {
+    "source_family": "WG14",
+    "source_file": "data/knowledge_parsed/c/wg14/n2756.txt",
+    "chunk_file": "data/knowledge_chunks/c/wg14/wg14-03.txt",
+    "description": "2      unsigned char x ;",
+    "removed": "headers/pagination",
+    "preserved": "section narrative",
+    "evaluation": "ready for normative responses"
+  },
+  {
+    "source_family": "WG14",
+    "source_file": "data/knowledge_parsed/c/wg14/n2756.txt",
+    "chunk_file": "data/knowledge_chunks/c/wg14/wg14-04.txt",
+    "description": "4      return x ;",
+    "removed": "headers/pagination",
+    "preserved": "section narrative",
+    "evaluation": "ready for normative responses"
+  },
+  {
+    "source_family": "POSIX",
+    "source_file": "data/knowledge_parsed/c/posix_issue7/stdio.h.txt",
+    "chunk_file": "data/knowledge_chunks/c/posix_issue7/posix_issue7-01.txt",
+    "description": "stdio.h",
+    "removed": "nav HTML",
+    "preserved": "function description and parameters",
+    "evaluation": "function chunk ready"
+  },
+  {
+    "source_family": "POSIX",
+    "source_file": "data/knowledge_parsed/c/posix_issue7/stdlib.h.txt",
+    "chunk_file": "data/knowledge_chunks/c/posix_issue7/posix_issue7-02.txt",
+    "description": "stdlib.h",
+    "removed": "nav HTML",
+    "preserved": "function description and parameters",
+    "evaluation": "function chunk ready"
+  },
+  {
+    "source_family": "POSIX",
+    "source_file": "data/knowledge_parsed/c/posix_issue7/pthread.h.txt",
+    "chunk_file": "data/knowledge_chunks/c/posix_issue7/posix_issue7-03.txt",
+    "description": "pthread.h",
+    "removed": "nav HTML",
+    "preserved": "function description and parameters",
+    "evaluation": "function chunk ready"
+  },
+  {
+    "source_family": "POSIX",
+    "source_file": "data/knowledge_parsed/c/posix_issue7/pthread_create.txt",
+    "chunk_file": "data/knowledge_chunks/c/posix_issue7/posix_issue7-04.txt",
+    "description": "pthread_create",
+    "removed": "nav HTML",
+    "preserved": "function description and parameters",
+    "evaluation": "function chunk ready"
+  },
+  {
+    "source_family": "Cppreference language",
+    "source_file": "data/knowledge_parsed/c/cppreference_c/language.txt",
+    "chunk_file": "data/knowledge_chunks/c/cppreference_c/cppreference_c-01.txt",
+    "description": "Basic concepts",
+    "removed": "nav noise",
+    "preserved": "concept list",
+    "evaluation": "concept chunk ready"
+  },
+  {
+    "source_family": "Cppreference language",
+    "source_file": "data/knowledge_parsed/c/cppreference_c/language.txt",
+    "chunk_file": "data/knowledge_chunks/c/cppreference_c/cppreference_c-02.txt",
+    "description": "Keywords",
+    "removed": "nav noise",
+    "preserved": "concept list",
+    "evaluation": "concept chunk ready"
+  },
+  {
+    "source_family": "Cppreference language",
+    "source_file": "data/knowledge_parsed/c/cppreference_c/language.txt",
+    "chunk_file": "data/knowledge_chunks/c/cppreference_c/cppreference_c-03.txt",
+    "description": "Preprocessor",
+    "removed": "nav noise",
+    "preserved": "concept list",
+    "evaluation": "concept chunk ready"
+  },
+  {
+    "source_family": "Cppreference language",
+    "source_file": "data/knowledge_parsed/c/cppreference_c/language.txt",
+    "chunk_file": "data/knowledge_chunks/c/cppreference_c/cppreference_c-04.txt",
+    "description": "Statements",
+    "removed": "nav noise",
+    "preserved": "concept list",
+    "evaluation": "concept chunk ready"
+  },
+  {
+    "source_family": "Cppreference headers",
+    "source_file": "data/knowledge_parsed/c/cppreference_c/header.txt",
+    "chunk_file": "data/knowledge_chunks/c/cppreference_c/cppreference_c-06.txt",
+    "description": "<assert.h>",
+    "removed": "wiki chrome",
+    "preserved": "header summary",
+    "evaluation": "header chunk ready"
+  },
+  {
+    "source_family": "Cppreference headers",
+    "source_file": "data/knowledge_parsed/c/cppreference_c/header.txt",
+    "chunk_file": "data/knowledge_chunks/c/cppreference_c/cppreference_c-07.txt",
+    "description": "<complex.h>",
+    "removed": "wiki chrome",
+    "preserved": "header summary",
+    "evaluation": "header chunk ready"
+  },
+  {
+    "source_family": "Cppreference headers",
+    "source_file": "data/knowledge_parsed/c/cppreference_c/header.txt",
+    "chunk_file": "data/knowledge_chunks/c/cppreference_c/cppreference_c-08.txt",
+    "description": "<ctype.h>",
+    "removed": "wiki chrome",
+    "preserved": "header summary",
+    "evaluation": "header chunk ready"
+  },
+  {
+    "source_family": "Cppreference headers",
+    "source_file": "data/knowledge_parsed/c/cppreference_c/header.txt",
+    "chunk_file": "data/knowledge_chunks/c/cppreference_c/cppreference_c-09.txt",
+    "description": "<errno.h>",
+    "removed": "wiki chrome",
+    "preserved": "header summary",
+    "evaluation": "header chunk ready"
+  },
+  {
+    "source_family": "Man7",
+    "source_file": "data/knowledge_parsed/c/man7/printf-3.txt",
+    "chunk_file": "data/knowledge_chunks/c/man7/man7-01.txt",
+    "description": "NAME",
+    "removed": "troff escapes",
+    "preserved": "section text",
+    "evaluation": "section chunk ready"
+  },
+  {
+    "source_family": "Man7",
+    "source_file": "data/knowledge_parsed/c/man7/printf-3.txt",
+    "chunk_file": "data/knowledge_chunks/c/man7/man7-02.txt",
+    "description": "SYNOPSIS",
+    "removed": "troff escapes",
+    "preserved": "section text",
+    "evaluation": "section chunk ready"
+  },
+  {
+    "source_family": "Man7",
+    "source_file": "data/knowledge_parsed/c/man7/printf-3.txt",
+    "chunk_file": "data/knowledge_chunks/c/man7/man7-03.txt",
+    "description": "DESCRIPTION",
+    "removed": "troff escapes",
+    "preserved": "section text",
+    "evaluation": "section chunk ready"
+  },
+  {
+    "source_family": "Man7",
+    "source_file": "data/knowledge_parsed/c/man7/printf-3.txt",
+    "chunk_file": "data/knowledge_chunks/c/man7/man7-04.txt",
+    "description": "RETURN VALUE",
+    "removed": "troff escapes",
+    "preserved": "section text",
+    "evaluation": "section chunk ready"
+  }
+]

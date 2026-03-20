@@ -1,0 +1,113 @@
+{
+  "generated_at": "2026-03-17T03:40:26Z",
+  "batch": "Lote 1",
+  "sources": [
+    {
+      "name": "argparse",
+      "slug": "argparse",
+      "path": "data/knowledge_raw/python/modules/argparse/argparse.html",
+      "hash": "0d0d92696ebb85097f06ce6ef97114bbb98539e2c658153ab19a0835860c3589",
+      "size_bytes": 324702,
+      "collected": "2026-03-17T03:39:49Z",
+      "format": "HTML",
+      "url": "https://docs.python.org/3/library/argparse.html"
+    },
+    {
+      "name": "Built-in Exceptions",
+      "slug": "builtins_exceptions",
+      "path": "data/knowledge_raw/python/builtins_exceptions/exceptions.html",
+      "hash": "8387cbe2b33ce348572b9d39ed2e2bfedbd595155e30d6cba75ef49ffafe1c8c",
+      "size_bytes": 143012,
+      "collected": "2026-03-17T03:39:49Z",
+      "format": "HTML",
+      "url": "https://docs.python.org/3/library/exceptions.html"
+    },
+    {
+      "name": "Built-in Functions",
+      "slug": "builtins_functions",
+      "path": "data/knowledge_raw/python/builtins_exceptions/functions.html",
+      "hash": "bdf9db74eb35548a838ae3c8c716c0057735bdbc6f7500236f5ca786f04d5b4d",
+      "size_bytes": 315449,
+      "collected": "2026-03-17T03:39:49Z",
+      "format": "HTML",
+      "url": "https://docs.python.org/3/library/functions.html"
+    },
+    {
+      "name": "json",
+      "slug": "json",
+      "path": "data/knowledge_raw/python/modules/json/json.html",
+      "hash": "97edc8154637f0327165428189cd946790a8618cb5fdec658dbc78697f36a87e",
+      "size_bytes": 112880,
+      "collected": "2026-03-17T03:39:49Z",
+      "format": "HTML",
+      "url": "https://docs.python.org/3/library/json.html"
+    },
+    {
+      "name": "Python Language Reference",
+      "slug": "language_reference",
+      "path": "data/knowledge_raw/python/language_reference/index.html",
+      "hash": "f914530d447e752d8a3cd3428a1ef3a15a70862a645bc9788a8bdf76b87d3cec",
+      "size_bytes": 28256,
+      "collected": "2026-03-17T03:39:49Z",
+      "format": "HTML",
+      "url": "https://docs.python.org/3/reference/"
+    },
+    {
+      "name": "pathlib",
+      "slug": "pathlib",
+      "path": "data/knowledge_raw/python/modules/pathlib/pathlib.html",
+      "hash": "7e5a3c80547570d1ee1249434af3ff49393e0516bce9c1fdfc5819c87eeedc26",
+      "size_bytes": 268816,
+      "collected": "2026-03-17T03:39:49Z",
+      "format": "HTML",
+      "url": "https://docs.python.org/3/library/pathlib.html"
+    },
+    {
+      "name": "subprocess",
+      "slug": "subprocess",
+      "path": "data/knowledge_raw/python/modules/subprocess/subprocess.html",
+      "hash": "5bf3a0ad0b4f78f4d4a165b7dd36ad953685b46bfc25532ba33131b9ec5b4c39",
+      "size_bytes": 206788,
+      "collected": "2026-03-17T03:39:49Z",
+      "format": "HTML",
+      "url": "https://docs.python.org/3/library/subprocess.html"
+    },
+    {
+      "name": "Python Tutorial",
+      "slug": "tutorial",
+      "path": "data/knowledge_raw/python/tutorial/index.html",
+      "hash": "ad6b41ba15950379ca06d6d03402c1435bf21e177c471caf479668d93826934d",
+      "size_bytes": 37108,
+      "collected": "2026-03-17T03:39:49Z",
+      "format": "HTML",
+      "url": "https://docs.python.org/3/tutorial/"
+    },
+    {
+      "name": "typing",
+      "slug": "typing",
+      "path": "data/knowledge_raw/python/modules/typing/typing.html",
+      "hash": "1dc35fc5480cbadc975776765d6a40dace6bdf3443a0f347d2c1b579067175f2",
+      "size_bytes": 536000,
+      "collected": "2026-03-17T03:39:49Z",
+      "format": "HTML",
+      "url": "https://docs.python.org/3/library/typing.html"
+    },
+    {
+      "name": "venv",
+      "slug": "venv",
+      "path": "data/knowledge_raw/python/modules/venv/venv.html",
+      "hash": "0cb3e2527b15c7e122f438822fd5ea317f9f655d29f38671b887ef22664333b3",
+      "size_bytes": 103685,
+      "collected": "2026-03-17T03:39:49Z",
+      "format": "HTML",
+      "url": "https://docs.python.org/3/library/venv.html"
+    }
+  ],
+  "pending": [
+    "pip",
+    "Packaging User Guide",
+    "PEP 484",
+    "PEP 585"
+  ],
+  "notes": "Lote 2 e 3 precisam de pr\u00f3xima autoriza\u00e7\u00e3o antes de serem congelados."
+}

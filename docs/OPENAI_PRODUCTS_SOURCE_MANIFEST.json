@@ -1,0 +1,148 @@
+{
+  "front_name": "OPENAI_PRODUCTS",
+  "status": "opened",
+  "sources": [
+    {
+      "name": "OpenAI API Reference",
+      "type": "official_docs",
+      "url_pattern": "https://platform.openai.com/docs/api-reference/*",
+      "priority": "alta",
+      "included": true,
+      "notes": "Endpoints, auth, rate limits, error codes."
+    },
+    {
+      "name": "OpenAI Models",
+      "type": "official_docs",
+      "url_pattern": "https://platform.openai.com/docs/models/*",
+      "priority": "alta",
+      "included": true,
+      "notes": "Model capabilities, contexts, versions."
+    },
+    {
+      "name": "Embeddings",
+      "type": "official_docs",
+      "url_pattern": "https://platform.openai.com/docs/guides/embeddings*",
+      "priority": "alta",
+      "included": true,
+      "notes": "Usage, dimensions, limits."
+    },
+    {
+      "name": "Realtime API",
+      "type": "official_docs",
+      "url_pattern": "https://platform.openai.com/docs/guides/realtime*",
+      "priority": "alta",
+      "included": true,
+      "notes": "Streaming protocol, events, limits."
+    },
+    {
+      "name": "Audio & Speech",
+      "type": "official_docs",
+      "url_pattern": "https://platform.openai.com/docs/guides/speech*",
+      "priority": "alta",
+      "included": true,
+      "notes": "TTS, transcription."
+    },
+    {
+      "name": "Images",
+      "type": "official_docs",
+      "url_pattern": "https://platform.openai.com/docs/guides/images*",
+      "priority": "alta",
+      "included": true,
+      "notes": "Image generation parameters e safety."
+    },
+    {
+      "name": "Rate Limits & Pricing",
+      "type": "official_docs",
+      "url_pattern": "https://platform.openai.com/docs/guides/rate-limits*",
+      "priority": "alta",
+      "included": true,
+      "notes": "Limits, quotas, pricing/usage constraints."
+    },
+    {
+      "name": "Official Technical Blog Posts",
+      "type": "official_blog",
+      "url_pattern": "https://openai.com/blog/*",
+      "priority": "média",
+      "included": true,
+      "notes": "Só posts técnicos que detalhem APIs/modelos; excluir anúncios puramente de marketing."
+    },
+    {
+      "name": "Codex overview",
+      "type": "official_blog",
+      "url_pattern": "https://openai.com/codex/",
+      "priority": "alta",
+      "included": true,
+      "notes": "Landing oficial do Codex."
+    },
+    {
+      "name": "Introducing Codex",
+      "type": "official_blog",
+      "url_pattern": "https://openai.com/index/introducing-codex/",
+      "priority": "alta",
+      "included": true,
+      "notes": "Post técnico de anúncio do Codex."
+    },
+    {
+      "name": "Introducing the Codex app",
+      "type": "official_blog",
+      "url_pattern": "https://openai.com/index/introducing-the-codex-app/",
+      "priority": "alta",
+      "included": true,
+      "notes": "Post oficial do app Codex."
+    },
+    {
+      "name": "Codex IDE extension",
+      "type": "official_docs",
+      "url_pattern": "https://developers.openai.com/codex/ide/*",
+      "priority": "alta",
+      "included": true,
+      "notes": "Docs oficiais da extensão IDE Codex."
+    },
+    {
+      "name": "Codex changelog",
+      "type": "official_docs",
+      "url_pattern": "https://developers.openai.com/codex/changelog/*",
+      "priority": "alta",
+      "included": true,
+      "notes": "Changelog oficial do Codex."
+    },
+    {
+      "name": "Codex prompting guide",
+      "type": "official_docs",
+      "url_pattern": "https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide/*",
+      "priority": "alta",
+      "included": true,
+      "notes": "Guia oficial de prompting para Codex."
+    },
+    {
+      "name": "Codex help center article",
+      "type": "official_help",
+      "url_pattern": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "priority": "média",
+      "included": true,
+      "notes": "Artigo oficial sobre uso do Codex."
+    },
+    {
+      "name": "Codex help collection",
+      "type": "official_help",
+      "url_pattern": "https://help.openai.com/en/collections/14937394-codex*",
+      "priority": "média",
+      "included": true,
+      "notes": "Coleção oficial de artigos Codex."
+    },
+    {
+      "name": "Introducing gpt-5.3-codex",
+      "type": "official_blog",
+      "url_pattern": "https://openai.com/index/introducing-gpt-5-3-codex/",
+      "priority": "alta",
+      "included": true,
+      "notes": "Post técnico de anúncio do modelo gpt-5.3-codex."
+    }
+  ],
+  "exclusions": [
+    "tutoriais externos",
+    "cursos ou vídeos não oficiais",
+    "artigos opinativos",
+    "qualquer conteúdo fora de domínios oficiais da OpenAI"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "generated_at": "20260315T211200Z",
+  "status": "pending_reindex",
+  "note": "Regressão expandida atual permanece igual à rodada anterior porque a persistência semântica falhou (psycopg ausente). Rerodar pós-instalação resolve os dados de ranking.",
+  "domains": [
+    {
+      "name": "Terraform",
+      "total": 5,
+      "coerentes": 3,
+      "parciais": 2,
+      "falhas": 0
+    },
+    {
+      "name": "Kubernetes",
+      "total": 5,
+      "coerentes": 3,
+      "parciais": 2,
+      "falhas": 0
+    },
+    {
+      "name": "Docker",
+      "total": 5,
+      "coerentes": 1,
+      "parciais": 4,
+      "falhas": 0
+    },
+    {
+      "name": "Observabilidade",
+      "total": 5,
+      "coerentes": 2,
+      "parciais": 2,
+      "falhas": 1
+    }
+  ],
+  "details": {
+    "coerente_targets": [
+      "Terraform: state/backends",
+      "Kubernetes: deployment/pods",
+      "Docker: dockerfile",
+      "Observabilidade: alertmanager/configurations"
+    ],
+    "partial_targets": [
+      "Terraform: workspace/modulos",
+      "Kubernetes: ingress/deployment",
+      "Docker: networking/rootless/content trust",
+      "Observabilidade: notification policy/alerting rule"
+    ]
+  }
+}

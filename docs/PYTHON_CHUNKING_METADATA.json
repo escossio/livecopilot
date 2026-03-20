@@ -1,0 +1,1019 @@
+[
+  {
+    "source_family": "builtins_exceptions",
+    "source_file": "builtins_functions",
+    "chunk_id": "builtins_functions-1",
+    "title": "Built-in Functions ¶",
+    "section": "h1",
+    "length": 13743,
+    "local_path": "data/knowledge_chunks/python/builtins_exceptions/builtins_functions_chunk_1.json"
+  },
+  {
+    "source_family": "language_reference",
+    "source_file": "language_reference",
+    "chunk_id": "language_reference-1",
+    "title": "The Python Language Reference ¶",
+    "section": "h1",
+    "length": 381,
+    "local_path": "data/knowledge_chunks/python/language_reference/language_reference_chunk_1.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-1",
+    "title": "argparse — Parser for command-line options, arguments and subcommands ¶",
+    "section": "h1",
+    "length": 13259,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_1.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-10",
+    "title": "fromfile_prefix_chars ¶",
+    "section": "h3",
+    "length": 290,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_10.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-11",
+    "title": "argument_default ¶",
+    "section": "h3",
+    "length": 118,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_11.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-12",
+    "title": "allow_abbrev ¶",
+    "section": "h3",
+    "length": 92,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_12.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-13",
+    "title": "conflict_handler ¶",
+    "section": "h3",
+    "length": 243,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_13.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-14",
+    "title": "add_help ¶",
+    "section": "h3",
+    "length": 180,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_14.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-15",
+    "title": "exit_on_error ¶",
+    "section": "h3",
+    "length": 119,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_15.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-16",
+    "title": "suggest_on_error ¶",
+    "section": "h3",
+    "length": 193,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_16.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-17",
+    "title": "color ¶",
+    "section": "h3",
+    "length": 178,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_17.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-18",
+    "title": "The add_argument() method ¶",
+    "section": "h2",
+    "length": 4833,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_18.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-19",
+    "title": "name or flags ¶",
+    "section": "h3",
+    "length": 286,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_19.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-2",
+    "title": "ArgumentParser objects ¶",
+    "section": "h2",
+    "length": 3188,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_2.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-20",
+    "title": "action ¶",
+    "section": "h3",
+    "length": 934,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_20.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-21",
+    "title": "nargs ¶",
+    "section": "h3",
+    "length": 579,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_21.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-22",
+    "title": "const ¶",
+    "section": "h3",
+    "length": 160,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_22.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-23",
+    "title": "default ¶",
+    "section": "h3",
+    "length": 376,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_23.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-24",
+    "title": "type ¶",
+    "section": "h3",
+    "length": 452,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_24.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-25",
+    "title": "choices ¶",
+    "section": "h3",
+    "length": 258,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_25.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-26",
+    "title": "required ¶",
+    "section": "h3",
+    "length": 140,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_26.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-27",
+    "title": "help ¶",
+    "section": "h3",
+    "length": 233,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_27.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-28",
+    "title": "metavar ¶",
+    "section": "h3",
+    "length": 344,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_28.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-29",
+    "title": "dest ¶",
+    "section": "h3",
+    "length": 247,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_29.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-3",
+    "title": "prog ¶",
+    "section": "h3",
+    "length": 250,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_3.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-30",
+    "title": "deprecated ¶",
+    "section": "h3",
+    "length": 138,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_30.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-31",
+    "title": "Action classes ¶",
+    "section": "h3",
+    "length": 418,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_31.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-32",
+    "title": "The parse_args() method ¶",
+    "section": "h2",
+    "length": 1253,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_32.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-33",
+    "title": "Option value syntax ¶",
+    "section": "h3",
+    "length": 223,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_33.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-34",
+    "title": "Invalid arguments ¶",
+    "section": "h3",
+    "length": 155,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_34.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-35",
+    "title": "Arguments containing - ¶",
+    "section": "h3",
+    "length": 331,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_35.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-36",
+    "title": "Argument abbreviations (prefix matching) ¶",
+    "section": "h3",
+    "length": 129,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_36.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-37",
+    "title": "Beyond sys.argv ¶",
+    "section": "h3",
+    "length": 162,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_37.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-38",
+    "title": "The Namespace object ¶",
+    "section": "h3",
+    "length": 168,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_38.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-39",
+    "title": "Other utilities ¶",
+    "section": "h2",
+    "length": 3592,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_39.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-4",
+    "title": "usage ¶",
+    "section": "h3",
+    "length": 159,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_4.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-40",
+    "title": "Subcommands ¶",
+    "section": "h3",
+    "length": 1357,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_40.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-41",
+    "title": "FileType objects ¶",
+    "section": "h3",
+    "length": 255,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_41.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-42",
+    "title": "Argument groups ¶",
+    "section": "h3",
+    "length": 381,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_42.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-43",
+    "title": "Mutual exclusion ¶",
+    "section": "h3",
+    "length": 373,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_43.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-44",
+    "title": "Parser defaults ¶",
+    "section": "h3",
+    "length": 235,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_44.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-45",
+    "title": "Printing help ¶",
+    "section": "h3",
+    "length": 156,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_45.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-46",
+    "title": "Partial parsing ¶",
+    "section": "h3",
+    "length": 165,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_46.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-47",
+    "title": "Customizing file parsing ¶",
+    "section": "h3",
+    "length": 122,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_47.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-48",
+    "title": "Exiting methods ¶",
+    "section": "h3",
+    "length": 116,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_48.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-49",
+    "title": "Intermixed parsing ¶",
+    "section": "h3",
+    "length": 221,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_49.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-5",
+    "title": "description ¶",
+    "section": "h3",
+    "length": 72,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_5.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-50",
+    "title": "Registering custom types or actions ¶",
+    "section": "h3",
+    "length": 208,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_50.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-51",
+    "title": "Exceptions ¶",
+    "section": "h2",
+    "length": 62,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_51.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-6",
+    "title": "epilog ¶",
+    "section": "h3",
+    "length": 109,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_6.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-7",
+    "title": "parents ¶",
+    "section": "h3",
+    "length": 211,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_7.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-8",
+    "title": "formatter_class ¶",
+    "section": "h3",
+    "length": 509,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_8.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "argparse",
+    "chunk_id": "argparse-9",
+    "title": "prefix_chars ¶",
+    "section": "h3",
+    "length": 110,
+    "local_path": "data/knowledge_chunks/python/modules/argparse_chunk_9.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "json",
+    "chunk_id": "json-1",
+    "title": "json — JSON encoder and decoder ¶",
+    "section": "h1",
+    "length": 4237,
+    "local_path": "data/knowledge_chunks/python/modules/json_chunk_1.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "json",
+    "chunk_id": "json-10",
+    "title": "Implementation Limitations ¶",
+    "section": "h3",
+    "length": 130,
+    "local_path": "data/knowledge_chunks/python/modules/json_chunk_10.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "json",
+    "chunk_id": "json-11",
+    "title": "Command-line interface ¶",
+    "section": "h2",
+    "length": 271,
+    "local_path": "data/knowledge_chunks/python/modules/json_chunk_11.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "json",
+    "chunk_id": "json-12",
+    "title": "Command-line options ¶",
+    "section": "h3",
+    "length": 138,
+    "local_path": "data/knowledge_chunks/python/modules/json_chunk_12.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "json",
+    "chunk_id": "json-2",
+    "title": "Basic Usage ¶",
+    "section": "h2",
+    "length": 1265,
+    "local_path": "data/knowledge_chunks/python/modules/json_chunk_2.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "json",
+    "chunk_id": "json-3",
+    "title": "Encoders and Decoders ¶",
+    "section": "h2",
+    "length": 1142,
+    "local_path": "data/knowledge_chunks/python/modules/json_chunk_3.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "json",
+    "chunk_id": "json-4",
+    "title": "Exceptions ¶",
+    "section": "h2",
+    "length": 64,
+    "local_path": "data/knowledge_chunks/python/modules/json_chunk_4.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "json",
+    "chunk_id": "json-5",
+    "title": "Standard Compliance and Interoperability ¶",
+    "section": "h2",
+    "length": 740,
+    "local_path": "data/knowledge_chunks/python/modules/json_chunk_5.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "json",
+    "chunk_id": "json-6",
+    "title": "Character Encodings ¶",
+    "section": "h3",
+    "length": 196,
+    "local_path": "data/knowledge_chunks/python/modules/json_chunk_6.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "json",
+    "chunk_id": "json-7",
+    "title": "Infinite and NaN Number Values ¶",
+    "section": "h3",
+    "length": 126,
+    "local_path": "data/knowledge_chunks/python/modules/json_chunk_7.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "json",
+    "chunk_id": "json-8",
+    "title": "Repeated Names Within an Object ¶",
+    "section": "h3",
+    "length": 82,
+    "local_path": "data/knowledge_chunks/python/modules/json_chunk_8.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "json",
+    "chunk_id": "json-9",
+    "title": "Top-level Non-Object, Non-Array Values ¶",
+    "section": "h3",
+    "length": 87,
+    "local_path": "data/knowledge_chunks/python/modules/json_chunk_9.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-1",
+    "title": "pathlib — Object-oriented filesystem paths ¶",
+    "section": "h1",
+    "length": 9286,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_1.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-10",
+    "title": "Parsing and generating URIs ¶",
+    "section": "h3",
+    "length": 282,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_10.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-11",
+    "title": "Expanding and resolving paths ¶",
+    "section": "h3",
+    "length": 374,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_11.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-12",
+    "title": "Querying file type and status ¶",
+    "section": "h3",
+    "length": 1090,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_12.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-13",
+    "title": "Reading and writing files ¶",
+    "section": "h3",
+    "length": 350,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_13.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-14",
+    "title": "Reading directories ¶",
+    "section": "h3",
+    "length": 1145,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_14.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-15",
+    "title": "Creating files and directories ¶",
+    "section": "h3",
+    "length": 436,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_15.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-16",
+    "title": "Copying, moving and deleting ¶",
+    "section": "h3",
+    "length": 682,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_16.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-17",
+    "title": "Permissions and ownership ¶",
+    "section": "h3",
+    "length": 278,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_17.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-18",
+    "title": "Pattern language ¶",
+    "section": "h2",
+    "length": 281,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_18.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-19",
+    "title": "Comparison to the glob module ¶",
+    "section": "h2",
+    "length": 163,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_19.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-2",
+    "title": "Basic use ¶",
+    "section": "h2",
+    "length": 125,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_2.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-20",
+    "title": "Comparison to the os and os.path modules ¶",
+    "section": "h2",
+    "length": 385,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_20.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-21",
+    "title": "Corresponding tools ¶",
+    "section": "h3",
+    "length": 103,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_21.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-22",
+    "title": "Protocols ¶",
+    "section": "h2",
+    "length": 269,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_22.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-3",
+    "title": "Exceptions ¶",
+    "section": "h2",
+    "length": 27,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_3.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-4",
+    "title": "Pure paths ¶",
+    "section": "h2",
+    "length": 2905,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_4.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-5",
+    "title": "General properties ¶",
+    "section": "h3",
+    "length": 127,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_5.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-6",
+    "title": "Operators ¶",
+    "section": "h3",
+    "length": 225,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_6.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-7",
+    "title": "Accessing individual parts ¶",
+    "section": "h3",
+    "length": 73,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_7.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-8",
+    "title": "Methods and properties ¶",
+    "section": "h3",
+    "length": 2068,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_8.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "pathlib",
+    "chunk_id": "pathlib-9",
+    "title": "Concrete paths ¶",
+    "section": "h2",
+    "length": 4935,
+    "local_path": "data/knowledge_chunks/python/modules/pathlib_chunk_9.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-1",
+    "title": "subprocess — Subprocess management ¶",
+    "section": "h1",
+    "length": 8606,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_1.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-10",
+    "title": "Older high-level API ¶",
+    "section": "h2",
+    "length": 835,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_10.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-11",
+    "title": "Replacing Older Functions with the subprocess Module ¶",
+    "section": "h2",
+    "length": 590,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_11.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-12",
+    "title": "Replacing /bin/sh shell command substitution ¶",
+    "section": "h3",
+    "length": 20,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_12.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-13",
+    "title": "Replacing shell pipeline ¶",
+    "section": "h3",
+    "length": 121,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_13.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-14",
+    "title": "Replacing os.system() ¶",
+    "section": "h3",
+    "length": 155,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_14.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-15",
+    "title": "Replacing the os.spawn family ¶",
+    "section": "h3",
+    "length": 117,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_15.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-16",
+    "title": "Replacing os.popen() ¶",
+    "section": "h3",
+    "length": 76,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_16.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-17",
+    "title": "Legacy Shell Invocation Functions ¶",
+    "section": "h2",
+    "length": 300,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_17.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-18",
+    "title": "Notes ¶",
+    "section": "h2",
+    "length": 393,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_18.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-19",
+    "title": "Timeout Behavior ¶",
+    "section": "h3",
+    "length": 99,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_19.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-2",
+    "title": "Using the subprocess Module ¶",
+    "section": "h2",
+    "length": 4396,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_2.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-20",
+    "title": "Converting an argument sequence to a string on Windows ¶",
+    "section": "h3",
+    "length": 161,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_20.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-21",
+    "title": "Disable use of posix_spawn() ¶",
+    "section": "h3",
+    "length": 131,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_21.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-3",
+    "title": "Frequently Used Arguments ¶",
+    "section": "h3",
+    "length": 549,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_3.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-4",
+    "title": "Popen Constructor ¶",
+    "section": "h3",
+    "length": 2442,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_4.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-5",
+    "title": "Exceptions ¶",
+    "section": "h3",
+    "length": 166,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_5.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-6",
+    "title": "Security Considerations ¶",
+    "section": "h2",
+    "length": 150,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_6.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-7",
+    "title": "Popen Objects ¶",
+    "section": "h2",
+    "length": 958,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_7.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-8",
+    "title": "Windows Popen Helpers ¶",
+    "section": "h2",
+    "length": 888,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_8.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "subprocess",
+    "chunk_id": "subprocess-9",
+    "title": "Windows Constants ¶",
+    "section": "h3",
+    "length": 514,
+    "local_path": "data/knowledge_chunks/python/modules/subprocess_chunk_9.json"
+  },
+  {
+    "source_family": "tutorial",
+    "source_file": "tutorial",
+    "chunk_id": "tutorial-1",
+    "title": "The Python Tutorial ¶",
+    "section": "h1",
+    "length": 893,
+    "local_path": "data/knowledge_chunks/python/tutorial/tutorial_chunk_1.json"
+  },
+  {
+    "source_family": "tutorial",
+    "source_file": "tutorial",
+    "chunk_id": "tutorial-module-1",
+    "title": "Defining a module in Python",
+    "section": "h1",
+    "length": 986,
+    "local_path": "data/knowledge_chunks/python/tutorial/tutorial_module_concept_chunk_1.json"
+  },
+  {
+    "source_family": "builtins_exceptions",
+    "source_file": "exceptions",
+    "chunk_id": "exceptions-concept-1",
+    "title": "Core exception concepts",
+    "section": "h1",
+    "length": 2748,
+    "local_path": "data/knowledge_chunks/python/builtins_exceptions/builtins_exceptions_concept_chunk_1.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "typing",
+    "chunk_id": "typing-1",
+    "title": "typing — Support for type hints",
+    "section": "h1",
+    "length": 1533,
+    "local_path": "data/knowledge_chunks/python/modules/typing/typing_concept_chunk_1.json"
+  },
+  {
+    "source_family": "modules",
+    "source_file": "venv",
+    "chunk_id": "venv-1",
+    "title": "venv — Creation of virtual environments",
+    "section": "h1",
+    "length": 3736,
+    "local_path": "data/knowledge_chunks/python/modules/venv/venv_concept_chunk_1.json"
+  }
+]

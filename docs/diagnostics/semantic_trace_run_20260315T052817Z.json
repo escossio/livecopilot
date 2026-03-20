@@ -1,0 +1,114 @@
+{
+  "ts": "2026-03-15T05:28:17.086959+00:00",
+  "question": "Para que serve o arquivo de state no Terraform?",
+  "mode": "generic",
+  "conversation_id": "",
+  "skill_routing": {
+    "matched": false,
+    "payload": {}
+  },
+  "connector_routing": {
+    "matched": false,
+    "intent": "",
+    "backend": "semantic_local",
+    "knowledge_context": {}
+  },
+  "semantic_context": {
+    "search_query": "O arquivo de state no Terraform serve para armazenar o estado atual da infraestrutura que está sendo gerenciada. Ele mantém um registro dos recursos provisionados, suas configurações e relacionamentos. Isso permite que o Terraform saiba quais recursos estão sendo gerenciados, permitindo realizar operações como atualização, remoção ou adição de novos recursos de maneira eficiente e controlada. Além disso, o arquivo de state é fundamental para garantir que as alterações feitas no código de configuração sejam aplicadas corretamente à infraestrutura existente.",
+    "used_search": true,
+    "search_backend": "semantic_local",
+    "semantic_api_ok": true,
+    "fallback_used": false,
+    "result_count": 3,
+    "query_tags": {},
+    "query_tags_used": [],
+    "used_tag_routing": false,
+    "used_global_fallback": false,
+    "sources": [
+      {
+        "source_file": "terraform_docs_selected/language/state/index.md",
+        "title": "index",
+        "chunk_id": "chunk::doc::terraform_docs_selected/language/state/index.md::ab0083c64278::0002::8be866f7",
+        "sequence": 0,
+        "score": 0.708409,
+        "matched_tags": []
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/purpose.md",
+        "title": "purpose",
+        "chunk_id": "chunk::doc::terraform_docs_selected/language/state/purpose.md::edee54fda47d::0001::d11ccd74",
+        "sequence": 0,
+        "score": 0.665523,
+        "matched_tags": []
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/index.md",
+        "title": "index",
+        "chunk_id": "chunk::doc::terraform_docs_selected/language/state/index.md::ab0083c64278::0001::e7d3620b",
+        "sequence": 0,
+        "score": 0.660152,
+        "matched_tags": []
+      }
+    ],
+    "context": "QUERY: O arquivo de state no Terraform serve para armazenar o estado atual da infraestrutura que está sendo gerenciada. Ele mantém um registro dos recursos provisionados, suas configurações e relacionamentos. Isso permite que o Terraform saiba quais recursos estão sendo gerenciados, permitindo realizar operações como atualização, remoção ou adição de novos recursos de maneira eficiente e controlada. Além disso, o arquivo de state é fundamental para garantir que as alterações feitas no código de configuração sejam aplicadas corretamente à infraestrutura existente.\n\nSOURCE: terraform_docs_selected/language/state/index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: Terraform uses state to determine which changes to make to your infrastructure. Prior to any operation, Terraform does a [refresh](/terraform/cli/commands/refresh) to update the st\n\nSOURCE: terraform_docs_selected/language/state/purpose.md\nTITLE: purpose\nSIGNALS: none\nSNIPPET: --- page_title: State description: >- Terraform must store state about your managed infrastructure and configuration. This state is used by Terraform to map real world resources to\n\nSOURCE: terraform_docs_selected/language/state/index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: --- page_title: State description: >- An introduction to state, information that Terraform uses to map resources to a configuration, track metadata, and improve performance. # STAR",
+    "debug": {
+      "used_search": true,
+      "query": "O arquivo de state no Terraform serve para armazenar o estado atual da infraestrutura que está sendo gerenciada. Ele mantém um registro dos recursos provisionados, suas configurações e relacionamentos. Isso permite que o Terraform saiba quais recursos estão sendo gerenciados, permitindo realizar operações como atualização, remoção ou adição de novos recursos de maneira eficiente e controlada. Além disso, o arquivo de state é fundamental para garantir que as alterações feitas no código de configuração sejam aplicadas corretamente à infraestrutura existente.",
+      "result_count": 3,
+      "search_error": "",
+      "semantic_error": "",
+      "semantic_api_ok": true,
+      "fallback_used": false,
+      "semantic_duration_ms": 465,
+      "search_cache_hit": false,
+      "embedding_cache_hit": false,
+      "openai_called": true,
+      "semantic_path": "openai_fresh",
+      "search_backend": "semantic_local",
+      "context_used": false,
+      "context_len": 1395,
+      "query_tags_inferred": {},
+      "query_tags_used": [],
+      "used_tag_routing": false,
+      "used_global_fallback": false,
+      "routed_result_count": 0,
+      "global_result_count": 0,
+      "sources": [
+        {
+          "title": "index",
+          "source_file": "terraform_docs_selected/language/state/index.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/index.md::ab0083c64278::0002::8be866f7",
+          "score": 0.708409,
+          "matched_tags": [],
+          "excerpt_summary": "Terraform uses state to determine which changes to make to your infrastructure. Prior to any operation, Terraform does a..."
+        },
+        {
+          "title": "purpose",
+          "source_file": "terraform_docs_selected/language/state/purpose.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/purpose.md::edee54fda47d::0001::d11ccd74",
+          "score": 0.665523,
+          "matched_tags": [],
+          "excerpt_summary": "page_title: State description: >- Terraform must store state about your managed infrastructure and configuration. This state is used by..."
+        },
+        {
+          "title": "index",
+          "source_file": "terraform_docs_selected/language/state/index.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/index.md::ab0083c64278::0001::e7d3620b",
+          "score": 0.660152,
+          "matched_tags": [],
+          "excerpt_summary": "page_title: State description: >- An introduction to state, information that Terraform uses to map resources to a configuration, track..."
+        }
+      ]
+    }
+  },
+  "response": {
+    "answer": "Automação de infraestrutura reduz erro humano e acelera entregas.",
+    "bullets": [
+      "Resumo técnico inicial: QUERY: O arquivo de state no Terraform serve para armazenar o estado atual da infraestrutura que está sendo gerenciada. Ele mantém um registro dos recursos...",
+      "Só um instante para consolidar os pontos técnicos mais relevantes antes de te responder com precisão.",
+      "Você quer foco em visão de arquitetura, passo a passo de implementação, ou troubleshooting para: O arquivo de state no Terraform serve para armazenar o estado atual da..."
+    ],
+    "response_stage": "final",
+    "readiness": "high"
+  }
+}

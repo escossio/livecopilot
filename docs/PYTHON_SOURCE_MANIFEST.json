@@ -1,0 +1,48 @@
+{
+  "generated": "2026-03-19T05:45:00Z",
+  "domain": "python",
+  "sources": [
+    {
+      "name": "Python Language Reference",
+      "category": "PRIMARY",
+      "type": "HTML/LANGUAGE",
+      "url": "https://docs.python.org/3/reference/",
+      "notes": "Syntax and semantics of the language."
+    },
+    {
+      "name": "Python Standard Library Reference",
+      "category": "PRIMARY",
+      "type": "HTML/LIBRARY",
+      "url": "https://docs.python.org/3/library/",
+      "notes": "Core modules (asyncio, concurrent, os, sys, pathlib)."
+    },
+    {
+      "name": "Packaging Guide",
+      "category": "PRIMARY",
+      "type": "HTML/PACKAGING",
+      "url": "https://packaging.python.org/en/latest/",
+      "notes": "pip, builds, distribution, project metadata."
+    },
+    {
+      "name": "AsyncIO Reference",
+      "category": "PRIMARY",
+      "type": "HTML/ASYNC",
+      "url": "https://docs.python.org/3/library/asyncio.html",
+      "notes": "Event loop, tasks, concurrency patterns."
+    },
+    {
+      "name": "Using Python on the Command Line",
+      "category": "PRIMARY",
+      "type": "HTML/CLI",
+      "url": "https://docs.python.org/3/using/cmdline.html",
+      "notes": "Command-line options, environment variables."
+    }
+  ],
+  "notes": {
+    "scope": "Focus on official releases (3.12/3.13) covering language, stdlib, packaging, async and CLI.",
+    "next_steps": [
+      "Capture approved URLs into `data/knowledge_raw/python/`.",
+      "Convert to markdown with hash metadata before parsing."
+    ]
+  }
+}

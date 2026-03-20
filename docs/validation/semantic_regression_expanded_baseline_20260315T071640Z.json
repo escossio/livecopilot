@@ -1,0 +1,217 @@
+{
+  "run_id": "20260315T071640Z",
+  "scope": "semantic_regression_expanded",
+  "domains_evidenced": {
+    "Terraform": {
+      "evidence": [
+        "data/knowledge_raw/terraform_docs_selected*",
+        "docs/validation/semantic_regression_report_20260315T061700Z.md (66 docs / 452 chunks somando as colecoes Terraform)",
+        "docs/coverage/semantic_persist_terraform43_validation_20260312.json (43 docs / 209 chunks no recorte persistido principal)"
+      ]
+    },
+    "Kubernetes": {
+      "evidence": [
+        "data/knowledge_raw/kubernetes_docs_selected",
+        "docs/coverage/kubernetes_semantic_persist_validation_20260312T154518Z.json (12 docs / 95 chunks)",
+        "source files cobrindo ConfigMap, Namespace, Service, Ingress, Deployment, PV, RBAC e probes"
+      ]
+    },
+    "Docker": {
+      "evidence": [
+        "data/knowledge_raw/docker_docs_selected",
+        "docs/validation/semantic_regression_report_20260315T061700Z.md (79 docs / 84 chunks)",
+        "titulos ativos em networking e security: port publishing, host network driver, rootless mode, content trust"
+      ]
+    },
+    "Observabilidade": {
+      "evidence": [
+        "data/knowledge_raw/observability_docs_selected",
+        "docs/coverage/semantic_persist_observability35_validation_20260312.json (35 docs / 234 chunks)",
+        "source files ativos em Alertmanager, Prometheus rules/promtool e Grafana alerting/notification policies"
+      ]
+    }
+  },
+  "smoke_short_questions": [
+    "Para que serve o arquivo de state no Terraform?",
+    "Qual a diferenca entre terraform plan e terraform apply?",
+    "O que e um backend no Terraform?",
+    "Qual a diferenca entre Pod e Service no Kubernetes?",
+    "O que e um Namespace no Kubernetes?",
+    "O que e um ConfigMap no Kubernetes?",
+    "Para que serve um Dockerfile?",
+    "O que faz o Alertmanager?",
+    "O que e uma recording rule no Prometheus?"
+  ],
+  "expanded_questions": [
+    {
+      "domain": "Terraform",
+      "question": "Para que serve o arquivo de state no Terraform?",
+      "why": "conceito central do workflow de Terraform e item do smoke curto",
+      "acceptable_min_answer": "explicar que o state mapeia a infraestrutura real e orienta o plano/aplicacao",
+      "in_smoke_short": true
+    },
+    {
+      "domain": "Terraform",
+      "question": "Qual a diferenca entre terraform plan e terraform apply?",
+      "why": "valida fluxo basico entre previsao e execucao",
+      "acceptable_min_answer": "diferenciar preview de mudancas e execucao real",
+      "in_smoke_short": true
+    },
+    {
+      "domain": "Terraform",
+      "question": "O que e um backend no Terraform?",
+      "why": "mede conceito estrutural de state local/remoto",
+      "acceptable_min_answer": "explicar que backend define onde o state fica armazenado e acessado",
+      "in_smoke_short": true
+    },
+    {
+      "domain": "Terraform",
+      "question": "Quando usar modulos no Terraform?",
+      "why": "corpus ativo inclui docs de modules e composicao; avalia recomendacao pratica",
+      "acceptable_min_answer": "indicar reutilizacao/organizacao de conjuntos de recursos sem overuse",
+      "in_smoke_short": false
+    },
+    {
+      "domain": "Terraform",
+      "question": "O que e um workspace no Terraform?",
+      "why": "workspace aparece no corpus de state e ajuda a medir organizacao de estados",
+      "acceptable_min_answer": "explicar que permite multiplos states em uma mesma configuracao",
+      "in_smoke_short": false
+    },
+    {
+      "domain": "Kubernetes",
+      "question": "Qual a diferenca entre Pod e Service no Kubernetes?",
+      "why": "conceito basico de execucao vs exposicao; item do smoke curto",
+      "acceptable_min_answer": "separar unidade de execucao e ponto estavel de acesso",
+      "in_smoke_short": true
+    },
+    {
+      "domain": "Kubernetes",
+      "question": "O que e um Namespace no Kubernetes?",
+      "why": "valida organizacao logica do cluster; item do smoke curto",
+      "acceptable_min_answer": "explicar escopo logico/isolamento de nomes e recursos",
+      "in_smoke_short": true
+    },
+    {
+      "domain": "Kubernetes",
+      "question": "O que e um ConfigMap no Kubernetes?",
+      "why": "item do smoke curto refinado recentemente; mede preservacao do fix de sintese",
+      "acceptable_min_answer": "explicar armazenamento de configuracoes nao sensiveis desacopladas da imagem",
+      "in_smoke_short": true
+    },
+    {
+      "domain": "Kubernetes",
+      "question": "Para que serve um Deployment no Kubernetes?",
+      "why": "deployment esta no corpus e mede controle declarativo de rollout",
+      "acceptable_min_answer": "explicar que gerencia replicas/rollouts declarativos de Pods",
+      "in_smoke_short": false
+    },
+    {
+      "domain": "Kubernetes",
+      "question": "Quando usar um Ingress no Kubernetes?",
+      "why": "ingress esta no corpus e mede exposicao HTTP/HTTPS externa",
+      "acceptable_min_answer": "indicar uso para expor rotas HTTP/HTTPS externas ao cluster",
+      "in_smoke_short": false
+    },
+    {
+      "domain": "Docker",
+      "question": "Para que serve um Dockerfile?",
+      "why": "item do smoke curto refinado recentemente; valida preservacao do fix de sintese",
+      "acceptable_min_answer": "explicar que descreve como construir uma imagem Docker",
+      "in_smoke_short": true
+    },
+    {
+      "domain": "Docker",
+      "question": "O que e port publishing no Docker?",
+      "why": "port publishing aparece no corpus de networking e mede operacao pratica comum",
+      "acceptable_min_answer": "explicar mapeamento de portas do host para o container",
+      "in_smoke_short": false
+    },
+    {
+      "domain": "Docker",
+      "question": "O que e o host network driver no Docker?",
+      "why": "host network driver esta no corpus de networking e mede entendimento de rede",
+      "acceptable_min_answer": "explicar que o container usa a rede do host sem NAT/bridge tradicional",
+      "in_smoke_short": false
+    },
+    {
+      "domain": "Docker",
+      "question": "Para que serve o modo rootless no Docker?",
+      "why": "rootless aparece no corpus de security e mede entendimento de execucao sem root",
+      "acceptable_min_answer": "explicar que roda daemon/containers sem privilegios root para reduzir risco",
+      "in_smoke_short": false
+    },
+    {
+      "domain": "Docker",
+      "question": "O que e content trust no Docker?",
+      "why": "content trust esta no corpus de security e mede integridade de imagens",
+      "acceptable_min_answer": "explicar verificacao/assinatura de conteudo para confiar em imagens",
+      "in_smoke_short": false
+    },
+    {
+      "domain": "Observabilidade",
+      "question": "O que faz o Alertmanager?",
+      "why": "item do smoke curto; mede orquestracao de alertas",
+      "acceptable_min_answer": "explicar agrupamento, roteamento, silenciamento e notificacao",
+      "in_smoke_short": true
+    },
+    {
+      "domain": "Observabilidade",
+      "question": "O que e uma recording rule no Prometheus?",
+      "why": "item do smoke curto; mede precomputacao de series",
+      "acceptable_min_answer": "explicar precomputacao de consultas gravadas como nova serie temporal",
+      "in_smoke_short": true
+    },
+    {
+      "domain": "Observabilidade",
+      "question": "O que e uma alerting rule no Prometheus?",
+      "why": "alerting rules estao no corpus e medem regra pratica de disparo",
+      "acceptable_min_answer": "explicar condicao de alerta baseada em expressao PromQL que gera alertas",
+      "in_smoke_short": false
+    },
+    {
+      "domain": "Observabilidade",
+      "question": "Para que serve o promtool?",
+      "why": "promtool esta no corpus e mede ferramenta operacional importante de validacao",
+      "acceptable_min_answer": "explicar validacao de regras/configuracao e testes de Prometheus",
+      "in_smoke_short": false
+    },
+    {
+      "domain": "Observabilidade",
+      "question": "O que e uma notification policy no Grafana Alerting?",
+      "why": "notification policies estao no corpus Grafana e medem roteamento de notificacoes",
+      "acceptable_min_answer": "explicar regra de roteamento/agrupamento de notificacoes no Grafana Alerting",
+      "in_smoke_short": false
+    }
+  ],
+  "domains": {
+    "Terraform": {
+      "total": 5,
+      "COERENTE": 3,
+      "PARCIALMENTE COERENTE": 2,
+      "FRACA-GENERICA": 0,
+      "FALHA": 0
+    },
+    "Kubernetes": {
+      "total": 5,
+      "COERENTE": 3,
+      "PARCIALMENTE COERENTE": 2,
+      "FRACA-GENERICA": 0,
+      "FALHA": 0
+    },
+    "Docker": {
+      "total": 5,
+      "COERENTE": 1,
+      "PARCIALMENTE COERENTE": 4,
+      "FRACA-GENERICA": 0,
+      "FALHA": 0
+    },
+    "Observabilidade": {
+      "total": 5,
+      "COERENTE": 2,
+      "PARCIALMENTE COERENTE": 2,
+      "FRACA-GENERICA": 0,
+      "FALHA": 1
+    }
+  }
+}

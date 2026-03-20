@@ -1,0 +1,221 @@
+{
+  "run_id": "20260315T054100Z",
+  "queries": [
+    {
+      "query": "Para que serve o arquivo de state no Terraform?",
+      "topic": "automação de infraestrutura",
+      "classification": "pergunta técnica",
+      "knowledge_context_after_generate_suggestions": {
+        "query": "Para que serve o arquivo de state no Terraform?",
+        "used_search": true,
+        "search_error": "",
+        "semantic_error": "",
+        "semantic_api_ok": true,
+        "fallback_used": false,
+        "semantic_duration_ms": 39,
+        "search_backend": "semantic_local",
+        "context_used": false,
+        "context": "",
+        "result_count": 0,
+        "query_tags": {},
+        "query_tags_used": [],
+        "used_tag_routing": false,
+        "used_global_fallback": false,
+        "sources": []
+      },
+      "knowledge_debug_after_generate_suggestions": {
+        "used_search": true,
+        "query": "Para que serve o arquivo de state no Terraform?",
+        "result_count": 0,
+        "search_error": "",
+        "semantic_error": "",
+        "semantic_api_ok": true,
+        "fallback_used": false,
+        "semantic_duration_ms": 39,
+        "search_cache_hit": true,
+        "embedding_cache_hit": false,
+        "openai_called": false,
+        "semantic_path": "response_cache",
+        "search_backend": "semantic_local",
+        "context_used": false,
+        "context_len": 0,
+        "query_tags_inferred": {},
+        "query_tags_used": [],
+        "used_tag_routing": false,
+        "used_global_fallback": false,
+        "routed_result_count": 0,
+        "global_result_count": 0,
+        "sources": []
+      },
+      "suggestions": [
+        "Automação de infraestrutura reduz erro humano e acelera entregas.",
+        "Eu aplico IaC para padronizar ambientes, com pipelines de validação e revisão para garantir segurança.",
+        "Deixa eu organizar a estratégia de automação.",
+        "Você usa Ansible, Terraform ou outra ferramenta de IaC?"
+      ],
+      "final_answer_slot": "Automação de infraestrutura reduz erro humano e acelera entregas.",
+      "knowledge_summary_slot": "Eu aplico IaC para padronizar ambientes, com pipelines de validação e revisão para garantir segurança."
+    },
+    {
+      "query": "Qual a diferenca entre terraform plan e terraform apply?",
+      "topic": "automação de infraestrutura",
+      "classification": "pergunta técnica",
+      "knowledge_context_after_generate_suggestions": {
+        "query": "Qual a diferenca entre terraform plan e terraform apply?",
+        "used_search": true,
+        "search_error": "",
+        "semantic_error": "",
+        "semantic_api_ok": true,
+        "fallback_used": false,
+        "semantic_duration_ms": 39,
+        "search_backend": "semantic_local",
+        "context_used": false,
+        "context": "",
+        "result_count": 0,
+        "query_tags": {},
+        "query_tags_used": [],
+        "used_tag_routing": false,
+        "used_global_fallback": false,
+        "sources": []
+      },
+      "knowledge_debug_after_generate_suggestions": {
+        "used_search": true,
+        "query": "Qual a diferenca entre terraform plan e terraform apply?",
+        "result_count": 0,
+        "search_error": "",
+        "semantic_error": "",
+        "semantic_api_ok": true,
+        "fallback_used": false,
+        "semantic_duration_ms": 39,
+        "search_cache_hit": true,
+        "embedding_cache_hit": false,
+        "openai_called": false,
+        "semantic_path": "response_cache",
+        "search_backend": "semantic_local",
+        "context_used": false,
+        "context_len": 0,
+        "query_tags_inferred": {},
+        "query_tags_used": [],
+        "used_tag_routing": false,
+        "used_global_fallback": false,
+        "routed_result_count": 0,
+        "global_result_count": 0,
+        "sources": []
+      },
+      "suggestions": [
+        "Automação de infraestrutura reduz erro humano e acelera entregas.",
+        "Eu aplico IaC para padronizar ambientes, com pipelines de validação e revisão para garantir segurança.",
+        "Deixa eu organizar a estratégia de automação.",
+        "Você usa Ansible, Terraform ou outra ferramenta de IaC?"
+      ],
+      "final_answer_slot": "Automação de infraestrutura reduz erro humano e acelera entregas.",
+      "knowledge_summary_slot": "Eu aplico IaC para padronizar ambientes, com pipelines de validação e revisão para garantir segurança."
+    },
+    {
+      "query": "Qual a diferenca entre Pod e Service no Kubernetes?",
+      "topic": null,
+      "classification": "pergunta técnica",
+      "knowledge_context_after_generate_suggestions": {
+        "query": "Qual a diferenca entre Pod e Service no Kubernetes?",
+        "used_search": true,
+        "search_error": "",
+        "semantic_error": "",
+        "semantic_api_ok": true,
+        "fallback_used": false,
+        "semantic_duration_ms": 39,
+        "search_backend": "semantic_local",
+        "context_used": false,
+        "context": "QUERY: Qual a diferenca entre Pod e Service no Kubernetes?\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: Each Pod gets its own IP address (Kubernetes expects network plugins to ensure this). For a given Deployment in your cluster, the set of Pods running in one moment in time could be\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: The set of Pods targeted by a Service is usually determined by a {{< glossary_tooltip text=\"selector\" term_id=\"selector\" >}} that you define. To learn about other ways to define Se\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: A key aim of Services in Kubernetes is that you don't need to modify your existing application to use an unfamiliar service discovery mechanism. You can run code in Pods, whether t",
+        "result_count": 3,
+        "query_tags": {},
+        "query_tags_used": [],
+        "used_tag_routing": false,
+        "used_global_fallback": false,
+        "sources": [
+          {
+            "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+            "title": "service",
+            "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0003::5d98d632",
+            "sequence": 0,
+            "score": 0.667656,
+            "matched_tags": []
+          },
+          {
+            "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+            "title": "service",
+            "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0005::957a16ad",
+            "sequence": 0,
+            "score": 0.665696,
+            "matched_tags": []
+          },
+          {
+            "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+            "title": "service",
+            "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0002::81b91316",
+            "sequence": 0,
+            "score": 0.661595,
+            "matched_tags": []
+          }
+        ]
+      },
+      "knowledge_debug_after_generate_suggestions": {
+        "used_search": true,
+        "query": "Qual a diferenca entre Pod e Service no Kubernetes?",
+        "result_count": 3,
+        "search_error": "",
+        "semantic_error": "",
+        "semantic_api_ok": true,
+        "fallback_used": false,
+        "semantic_duration_ms": 39,
+        "search_cache_hit": true,
+        "embedding_cache_hit": false,
+        "openai_called": false,
+        "semantic_path": "response_cache",
+        "search_backend": "semantic_local",
+        "context_used": false,
+        "context_len": 985,
+        "query_tags_inferred": {},
+        "query_tags_used": [],
+        "used_tag_routing": false,
+        "used_global_fallback": false,
+        "routed_result_count": 0,
+        "global_result_count": 0,
+        "sources": [
+          {
+            "title": "service",
+            "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+            "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0003::5d98d632",
+            "score": 0.667656,
+            "matched_tags": [],
+            "excerpt_summary": "Each Pod gets its own IP address (Kubernetes expects network plugins to ensure this). For a given Deployment in your cluster, the set of..."
+          },
+          {
+            "title": "service",
+            "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+            "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0005::957a16ad",
+            "score": 0.665696,
+            "matched_tags": [],
+            "excerpt_summary": "The set of Pods targeted by a Service is usually determined by a {{< glossary_tooltip text=\"selector\" term_id=\"selector\" >}} that you..."
+          },
+          {
+            "title": "service",
+            "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md",
+            "chunk_id": "chunk::doc::kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md::23a8849983df::0002::81b91316",
+            "score": 0.661595,
+            "matched_tags": [],
+            "excerpt_summary": "A key aim of Services in Kubernetes is that you don't need to modify your existing application to use an unfamiliar service discovery..."
+          }
+        ]
+      },
+      "suggestions": [
+        "Pelo contexto técnico, o caminho mais seguro é começar por fundamentos e validar em ambiente controlado.",
+        "Resumo técnico inicial: QUERY: Qual a diferenca entre Pod e Service no Kubernetes?\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: Each Pod gets its own IP address (Kubernetes expects network plugins to ensure this). For a given Deployment in your cluster, the set of Pods running in one moment in time could be\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: The set of Pods targeted by a Service is usually determined by a {{< glossary_tooltip text=\"selector\" term_id=\"selector\" >}} that you define. To learn about other ways to define Se\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: A key aim of Services in Kubernetes is that you don't need to modify your existing application to use an unfamiliar service discovery mechanism. You can run code in Pods, whether t",
+        "Só um instante para consolidar os pontos técnicos mais relevantes antes de te responder com precisão.",
+        "Você quer foco em visão de arquitetura, passo a passo de implementação, ou troubleshooting para: Qual a diferenca entre Pod e Service no Kubernetes??",
+        "A base de conhecimento local sugere: QUERY: Qual a diferenca entre Pod e Service no Kubernetes?\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: Each Pod gets its own IP address (Kubernetes expects network plugins to ensure this). For a given Deployment in your cluster, the set of Pods running in one moment in time could be\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: The set of Pods targeted by a Service is usually determined by a {{< glossary_tooltip text=\"selector\" term_id=\"selector\" >}} that you define. To learn about other ways to define Se\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: A key aim of Services in Kubernetes is that you don't need to modify your existing application to use an unfamiliar service discovery mechanism. You can run code in Pods, whether t"
+      ],
+      "final_answer_slot": "Pelo contexto técnico, o caminho mais seguro é começar por fundamentos e validar em ambiente controlado.",
+      "knowledge_summary_slot": "Resumo técnico inicial: QUERY: Qual a diferenca entre Pod e Service no Kubernetes?\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: Each Pod gets its own IP address (Kubernetes expects network plugins to ensure this). For a given Deployment in your cluster, the set of Pods running in one moment in time could be\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: The set of Pods targeted by a Service is usually determined by a {{< glossary_tooltip text=\"selector\" term_id=\"selector\" >}} that you define. To learn about other ways to define Se\n\nSOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md\nTITLE: service\nSIGNALS: none\nSNIPPET: A key aim of Services in Kubernetes is that you don't need to modify your existing application to use an unfamiliar service discovery mechanism. You can run code in Pods, whether t"
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+[
+  {
+    "url": "https://scikit-learn.org/stable/user_guide.html",
+    "domain": "scikit-learn.org",
+    "category": "framework user guide",
+    "description": "Guia oficial do scikit-learn com padrões de API, pipelines e receitas para classificação, regressão e clustering."
+  },
+  {
+    "url": "https://pytorch.org/docs/stable/index.html",
+    "domain": "pytorch.org",
+    "category": "framework reference",
+    "description": "Documentação estável do PyTorch cobrindo tensor APIs, autograd, nn modules, otimização e exemplos de treinamento."
+  },
+  {
+    "url": "https://www.tensorflow.org/guide",
+    "domain": "tensorflow.org",
+    "category": "framework guide",
+    "description": "Guia oficial do TensorFlow com práticas recomendadas, tutoriais de modelos, keras e integração com tf.data e tf.keras."
+  },
+  {
+    "url": "https://developers.google.com/machine-learning/crash-course",
+    "domain": "developers.google.com",
+    "category": "educational course",
+    "description": "Google Machine Learning Crash Course, oferecendo fundamentos de ML, visualizações e exercícios interativos mantidos pela equipe do Google Brain."
+  },
+  {
+    "url": "https://developers.google.com/machine-learning/crash-course/prereqs-and-prework",
+    "domain": "developers.google.com",
+    "category": "foundations",
+    "description": "Sessão Prework introduzindo conceitos básicos de álgebra, probabilidade e pipelines de dados que sustentam o Crash Course."
+  },
+  {
+    "url": "https://developers.google.com/machine-learning/crash-course/linear-regression",
+    "domain": "developers.google.com",
+    "category": "algorithms",
+    "description": "Página linear regression descrevendo a arquitetura, o cálculo do loss e o papel do gradient descent para otimização."
+  },
+  {
+    "url": "https://developers.google.com/machine-learning/crash-course/overfitting",
+    "domain": "developers.google.com",
+    "category": "evaluation",
+    "description": "Seção Overfitting cobrindo a generalização, matrizes de confusão e métricas de validação cruzada para benchmarks."
+  },
+  {
+    "url": "https://scikit-learn.org/stable/tutorial/machine_learning_map/",
+    "domain": "scikit-learn.org",
+    "category": "framework_guides",
+    "description": "Mapa conceitual e tutorial que conecta algoritmos do scikit-learn aos principais problemas supervisionados e não supervisionados."
+  },
+  {
+    "url": "https://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html",
+    "domain": "pytorch.org",
+    "category": "framework_guides",
+    "description": "Tutorial Deep Learning 60 minutos blitz explicando tensores, autograd e treinamento de redes com PyTorch."
+  },
+  {
+    "url": "https://www.tensorflow.org/tutorials/keras/classification",
+    "domain": "tensorflow.org",
+    "category": "framework_guides",
+    "description": "Tutorial de classificação com tf.keras mostrando como preparar datasets, definir modelos e executar treinamento e avaliação."
+  },
+  {
+    "url": "https://developers.google.com/machine-learning/crash-course/classification/precision-and-recall",
+    "domain": "developers.google.com",
+    "category": "evaluation",
+    "description": "Seção oficial sobre precision e recall para reforçar métricas de classificação."
+  },
+  {
+    "url": "https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc",
+    "domain": "developers.google.com",
+    "category": "evaluation",
+    "description": "Seção oficial sobre ROC e AUC para complementar métricas de avaliação."
+  },
+  {
+    "url": "https://scikit-learn.org/stable/modules/model_evaluation.html",
+    "domain": "scikit-learn.org",
+    "category": "evaluation",
+    "description": "Guia oficial de model evaluation cobrindo confusion matrix, metrics e score selection."
+  },
+  {
+    "url": "https://scikit-learn.org/stable/modules/learning_curve.html",
+    "domain": "scikit-learn.org",
+    "category": "evaluation",
+    "description": "Guia oficial de learning curve para apoiar análise de overfitting e bias-variance tradeoff."
+  },
+  {
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.validation_curve.html",
+    "domain": "scikit-learn.org",
+    "category": "evaluation",
+    "description": "Referência oficial da validation_curve para diagnosticar bias-variance tradeoff com ajuste de hiperparâmetros."
+  },
+  {
+    "url": "https://scikit-learn.org/stable/modules/generated/sklearn.metrics.confusion_matrix.html",
+    "domain": "scikit-learn.org",
+    "category": "evaluation",
+    "description": "Referência oficial da confusion_matrix para detalhar a métrica usada em classificação."
+  },
+  {
+    "url": "https://pytorch.org/tutorials/beginner/basics/intro.html",
+    "domain": "pytorch.org",
+    "category": "framework_guides",
+    "description": "Introdução oficial do PyTorch com visão geral prática para alinhamento de framework."
+  },
+  {
+    "url": "https://www.tensorflow.org/tutorials/quickstart/beginner",
+    "domain": "tensorflow.org",
+    "category": "framework_guides",
+    "description": "Quickstart oficial do TensorFlow para reforçar onboarding e uso básico do framework."
+  },
+  {
+    "url": "https://scikit-learn.org/stable/getting_started.html",
+    "domain": "scikit-learn.org",
+    "category": "framework_guides",
+    "description": "Getting started oficial do scikit-learn para visão geral menos navegacional e mais explicativa."
+  },
+  {
+    "url": "https://scikit-learn.org/1.3/tutorial/basic/tutorial.html",
+    "domain": "scikit-learn.org",
+    "category": "framework_guides",
+    "description": "Tutorial básico oficial do scikit-learn com fluxo mais instrutivo para uso inicial do framework."
+  },
+  {
+    "url": "https://scikit-learn.org/stable/auto_examples/index.html",
+    "domain": "scikit-learn.org",
+    "category": "framework_guides",
+    "description": "Galeria oficial de exemplos do scikit-learn com uso prático do framework em múltiplos cenários."
+  },
+  {
+    "url": "https://scikit-learn.org/1.3/tutorial/text_analytics/working_with_text_data.html",
+    "domain": "scikit-learn.org",
+    "category": "framework_guides",
+    "description": "Tutorial prático oficial do scikit-learn mostrando fluxo de uso e aplicação de ferramentas do framework."
+  },
+  {
+    "url": "https://scikit-learn.org/1.3/tutorial/statistical_inference/supervised_learning.html",
+    "domain": "scikit-learn.org",
+    "category": "framework_guides",
+    "description": "Tutorial oficial de supervised learning com explicação prática sobre uso do scikit-learn em cenários reais."
+  },
+  {
+    "url": "https://scikit-learn.org/1.3/tutorial/statistical_inference/model_selection.html",
+    "domain": "scikit-learn.org",
+    "category": "framework_guides",
+    "description": "Tutorial oficial de model selection com cross-validation e tuning, útil para uso prático do framework."
+  },
+  {
+    "url": "https://scikit-learn.org/stable/modules/cross_validation.html",
+    "domain": "scikit-learn.org",
+    "category": "evaluation",
+    "description": "Módulo oficial de cross-validation para overfitting, generalização e bias-variance tradeoff."
+  },
+  {
+    "url": "https://pytorch.org/tutorials/beginner/basics/quickstart_tutorial.html",
+    "domain": "pytorch.org",
+    "category": "framework_guides",
+    "description": "Quickstart oficial do PyTorch com fluxo prático de treinamento e avaliação."
+  },
+  {
+    "url": "https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html",
+    "domain": "pytorch.org",
+    "category": "framework_guides",
+    "description": "Tutorial oficial do PyTorch para construção de modelo e treino com explicação prática."
+  }
+]

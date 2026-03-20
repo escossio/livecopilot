@@ -1,0 +1,116 @@
+{
+  "ts": "2026-03-15T06:40:22.744763+00:00",
+  "question": "Para que serve o arquivo de state no Terraform?",
+  "raw_input": "Para que serve o arquivo de state no Terraform?",
+  "transcript_text": "Para que serve o arquivo de state no Terraform?",
+  "mode": "generic",
+  "conversation_id": "",
+  "skill_routing": {
+    "matched": false,
+    "payload": {}
+  },
+  "connector_routing": {
+    "matched": false,
+    "intent": "",
+    "backend": "semantic_local",
+    "knowledge_context": {}
+  },
+  "semantic_context": {
+    "search_query": "Para que serve o arquivo de state no Terraform?",
+    "used_search": true,
+    "search_backend": "semantic_local",
+    "semantic_api_ok": true,
+    "fallback_used": false,
+    "result_count": 3,
+    "query_tags": {},
+    "query_tags_used": [],
+    "used_tag_routing": false,
+    "used_global_fallback": false,
+    "sources": [
+      {
+        "source_file": "terraform_docs_selected/language/state/index.md",
+        "title": "index",
+        "chunk_id": "chunk::doc::terraform_docs_selected/language/state/index.md::ab0083c64278::0002::8be866f7",
+        "sequence": 0,
+        "score": 0.661331,
+        "matched_tags": []
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/purpose.md",
+        "title": "purpose",
+        "chunk_id": "chunk::doc::terraform_docs_selected/language/state/purpose.md::edee54fda47d::0001::d11ccd74",
+        "sequence": 0,
+        "score": 0.645067,
+        "matched_tags": []
+      },
+      {
+        "source_file": "terraform_docs_selected/language/state/index.md",
+        "title": "index",
+        "chunk_id": "chunk::doc::terraform_docs_selected/language/state/index.md::ab0083c64278::0001::e7d3620b",
+        "sequence": 0,
+        "score": 0.637123,
+        "matched_tags": []
+      }
+    ],
+    "context": "QUERY: Para que serve o arquivo de state no Terraform?\n\nSOURCE: terraform_docs_selected/language/state/index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: Terraform uses state to determine which changes to make to your infrastructure. Prior to any operation, Terraform does a [refresh](/terraform/cli/commands/refresh) to update the st\n\nSOURCE: terraform_docs_selected/language/state/purpose.md\nTITLE: purpose\nSIGNALS: none\nSNIPPET: --- page_title: State description: >- Terraform must store state about your managed infrastructure and configuration. This state is used by Terraform to map real world resources to\n\nSOURCE: terraform_docs_selected/language/state/index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: --- page_title: State description: >- An introduction to state, information that Terraform uses to map resources to a configuration, track metadata, and improve performance. # STAR",
+    "debug": {
+      "used_search": true,
+      "query": "Para que serve o arquivo de state no Terraform?",
+      "result_count": 3,
+      "search_error": "",
+      "semantic_error": "",
+      "semantic_api_ok": true,
+      "fallback_used": false,
+      "semantic_duration_ms": 51,
+      "search_cache_hit": true,
+      "embedding_cache_hit": false,
+      "openai_called": false,
+      "semantic_path": "response_cache",
+      "search_backend": "semantic_local",
+      "context_used": false,
+      "context_len": 880,
+      "query_tags_inferred": {},
+      "query_tags_used": [],
+      "used_tag_routing": false,
+      "used_global_fallback": false,
+      "routed_result_count": 0,
+      "global_result_count": 0,
+      "sources": [
+        {
+          "title": "index",
+          "source_file": "terraform_docs_selected/language/state/index.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/index.md::ab0083c64278::0002::8be866f7",
+          "score": 0.661331,
+          "matched_tags": [],
+          "excerpt_summary": "Terraform uses state to determine which changes to make to your infrastructure. Prior to any operation, Terraform does a..."
+        },
+        {
+          "title": "purpose",
+          "source_file": "terraform_docs_selected/language/state/purpose.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/purpose.md::edee54fda47d::0001::d11ccd74",
+          "score": 0.645067,
+          "matched_tags": [],
+          "excerpt_summary": "page_title: State description: >- Terraform must store state about your managed infrastructure and configuration. This state is used by..."
+        },
+        {
+          "title": "index",
+          "source_file": "terraform_docs_selected/language/state/index.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected/language/state/index.md::ab0083c64278::0001::e7d3620b",
+          "score": 0.637123,
+          "matched_tags": [],
+          "excerpt_summary": "page_title: State description: >- An introduction to state, information that Terraform uses to map resources to a configuration, track..."
+        }
+      ]
+    }
+  },
+  "response": {
+    "answer": "No Terraform, o state guarda o mapeamento da infraestrutura real e ajuda a determinar quais mudanças precisam ser aplicadas.",
+    "bullets": [
+      "No Terraform, o state guarda o mapeamento da infraestrutura real e ajuda a determinar quais mudanças precisam ser aplicadas.",
+      "Só um instante para consolidar os pontos técnicos mais relevantes antes de te responder com precisão.",
+      "Você quer foco em visão de arquitetura, passo a passo de implementação, ou troubleshooting para: Para que serve o arquivo de state no Terraform??"
+    ],
+    "response_stage": "final",
+    "readiness": "high"
+  }
+}

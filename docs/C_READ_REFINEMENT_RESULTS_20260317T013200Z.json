@@ -1,0 +1,86 @@
+[
+  {
+    "question": "O que read faz em C?",
+    "before": {
+      "top_chunk": "cppreference_c-08",
+      "source_family": "cppreference_c",
+      "source_file": "header.txt",
+      "title": "<ctype.h>",
+      "section": "header entry",
+      "snippet": "<ctype.h>"
+    },
+    "after": {
+      "top_chunk": "posix_issue7-read-summary",
+      "source_family": "posix_issue7",
+      "source_file": "read.txt",
+      "title": "read() overview",
+      "section": "function summary",
+      "snippet": "read() (declared in <unistd.h>) is the POSIX syscall that copies up to nbyte bytes from the file associated with the open file descriptor fildes into the buffer buf and returns how many bytes were actually transferred. The prototype `ssize_t read(int fildes, void *buf, size_t nbyte);` mirrors pread() except that it adv..."
+    },
+    "classification": "COERENTE",
+    "justification": "A nova visão geral do syscall aparece no topo e descreve assinatura, cópia de bytes e retorno, cobrindo a pergunta diretamente."
+  },
+  {
+    "question": "Como funciona read?",
+    "before": {
+      "top_chunk": "posix_issue7-05",
+      "source_family": "posix_issue7",
+      "source_file": "read.txt",
+      "title": "read",
+      "section": "function",
+      "snippet": "NAME SYNOPSIS #include < unistd.h > ssize_t pread(int fildes , void * buf , size_t nbyte , off_t offset ); ssize_t read(int fildes , void * buf , size_t nbyte ); DESCRIPTION The read () function shall attempt to read nbyte bytes from the file associated with the open file descriptor, fildes , into the buffer pointed to..."
+    },
+    "after": {
+      "top_chunk": "posix_issue7-read-summary",
+      "source_family": "posix_issue7",
+      "source_file": "read.txt",
+      "title": "read() overview",
+      "section": "function summary",
+      "snippet": "read() (declared in <unistd.h>) is the POSIX syscall that copies up to nbyte bytes from the file associated with the open file descriptor fildes into the buffer buf and returns how many bytes were actually transferred. The prototype `ssize_t read(int fildes, void *buf, size_t nbyte);` mirrors pread() except that it adv..."
+    },
+    "classification": "COERENTE",
+    "justification": "O snapshot resumido substitui o chunk técnico e destaca o funcionamento, tornando a resposta clara e preferível."
+  },
+  {
+    "question": "Qual o retorno da função read?",
+    "before": {
+      "top_chunk": "posix_issue7-05",
+      "source_family": "posix_issue7",
+      "source_file": "read.txt",
+      "title": "read",
+      "section": "function",
+      "snippet": "NAME SYNOPSIS #include < unistd.h > ssize_t pread(int fildes , void * buf , size_t nbyte , off_t offset ); ssize_t read(int fildes , void * buf , size_t nbyte ); DESCRIPTION The read () function shall attempt to read nbyte bytes from the file associated with the open file descriptor, fildes , into the buffer pointed to..."
+    },
+    "after": {
+      "top_chunk": "posix_issue7-read-summary",
+      "source_family": "posix_issue7",
+      "source_file": "read.txt",
+      "title": "read() overview",
+      "section": "function summary",
+      "snippet": "read() (declared in <unistd.h>) is the POSIX syscall that copies up to nbyte bytes from the file associated with the open file descriptor fildes into the buffer buf and returns how many bytes were actually transferred. The prototype `ssize_t read(int fildes, void *buf, size_t nbyte);` mirrors pread() except that it adv..."
+    },
+    "classification": "COERENTE",
+    "justification": "O novo chunk documenta o retorno (número de bytes, 0 no EOF e -1 nos erros) e é o primeiro resultado, resolvendo a ambiguidade."
+  },
+  {
+    "question": "O que acontece quando read retorna 0?",
+    "before": {
+      "top_chunk": "posix_issue7-05",
+      "source_family": "posix_issue7",
+      "source_file": "read.txt",
+      "title": "read",
+      "section": "function",
+      "snippet": "NAME SYNOPSIS #include < unistd.h > ssize_t pread(int fildes , void * buf , size_t nbyte , off_t offset ); ssize_t read(int fildes , void * buf , size_t nbyte ); DESCRIPTION The read () function shall attempt to read nbyte bytes from the file associated with the open file descriptor, fildes , into the buffer pointed to..."
+    },
+    "after": {
+      "top_chunk": "posix_issue7-read-summary",
+      "source_family": "posix_issue7",
+      "source_file": "read.txt",
+      "title": "read() overview",
+      "section": "function summary",
+      "snippet": "read() (declared in <unistd.h>) is the POSIX syscall that copies up to nbyte bytes from the file associated with the open file descriptor fildes into the buffer buf and returns how many bytes were actually transferred. The prototype `ssize_t read(int fildes, void *buf, size_t nbyte);` mirrors pread() except that it adv..."
+    },
+    "classification": "COERENTE",
+    "justification": "O chunk resumido explica que 0 significa EOF e que read() mantém o offset, respondendo diretamente à pergunta."
+  }
+]

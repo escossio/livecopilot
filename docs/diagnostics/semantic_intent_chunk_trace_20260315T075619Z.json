@@ -1,0 +1,115 @@
+{
+  "run_id": "20260315T075619Z",
+  "entries": [
+    {
+      "domain": "Terraform",
+      "question": "Quando usar modulos no Terraform?",
+      "intent": "when_to_use",
+      "chunk_type": "use",
+      "ideal_type": "use",
+      "mismatch": false,
+      "direction": "aligned",
+      "score": 0.650396,
+      "snippet": "## When to write a module\n\nIn principle any combination of resources and other constructs can be factored\nout into a module, but over-using modules can make your overall Terraform\n"
+    },
+    {
+      "domain": "Terraform",
+      "question": "O que e um workspace no Terraform?",
+      "intent": "what_is",
+      "chunk_type": "noise",
+      "ideal_type": "definition",
+      "mismatch": true,
+      "direction": "noise -> definition",
+      "score": 0.642986,
+      "snippet": "---\npage_title: 'State: Workspaces'\ndescription: >-\nWorkspaces allow the use of multiple states with a single configuration\ndirectory.\n# START AUTO GENERATED METADATA, DO NOT EDIT\n"
+    },
+    {
+      "domain": "Kubernetes",
+      "question": "Para que serve um Deployment no Kubernetes?",
+      "intent": "purpose",
+      "chunk_type": "definition",
+      "ideal_type": "purpose",
+      "mismatch": true,
+      "direction": "definition -> purpose",
+      "score": 0.624734,
+      "snippet": "A _Deployment_ provides declarative updates for {{< glossary_tooltip text=\"Pods\" term_id=\"pod\" >}} and\n{{< glossary_tooltip term_id=\"replica-set\" text=\"ReplicaSets\" >}}.\n\nYou descr"
+    },
+    {
+      "domain": "Kubernetes",
+      "question": "Quando usar um Ingress no Kubernetes?",
+      "intent": "when_to_use",
+      "chunk_type": "definition",
+      "ideal_type": "use",
+      "mismatch": true,
+      "direction": "definition -> use",
+      "score": 0.61126,
+      "snippet": "## What is Ingress?\n\n[Ingress](/docs/reference/generated/kubernetes-api/{{< param \"version\" >}}/#ingress-v1-networking-k8s-io)\nexposes HTTP and HTTPS routes from outside the cluste"
+    },
+    {
+      "domain": "Docker",
+      "question": "O que e port publishing no Docker?",
+      "intent": "what_is",
+      "chunk_type": "noise",
+      "ideal_type": "definition",
+      "mismatch": true,
+      "direction": "noise -> definition",
+      "score": 0.578649,
+      "snippet": "---\ntitle: Port publishing and mapping\nweight: 10\ndescription: Accessing container ports\nkeywords: network, iptables, firewall\n---\n\nBy default, for both IPv4 and IPv6, the Docker d"
+    },
+    {
+      "domain": "Docker",
+      "question": "O que e o host network driver no Docker?",
+      "intent": "what_is",
+      "chunk_type": "noise",
+      "ideal_type": "definition",
+      "mismatch": true,
+      "direction": "noise -> definition",
+      "score": 0.655415,
+      "snippet": "---\ntitle: Host network driver\ndescription: All about exposing containers on the Docker host's network\nkeywords: network, host, standalone, host mode networking\naliases:\n- /network"
+    },
+    {
+      "domain": "Docker",
+      "question": "Para que serve o modo rootless no Docker?",
+      "intent": "purpose",
+      "chunk_type": "noise",
+      "ideal_type": "purpose",
+      "mismatch": true,
+      "direction": "noise -> purpose",
+      "score": 0.612108,
+      "snippet": "---\ndescription: Run the Docker daemon as a non-root user (Rootless mode)\nkeywords: security, namespaces, rootless\ntitle: Rootless mode\nweight: 10\n---\n\nRootless mode lets you run t"
+    },
+    {
+      "domain": "Docker",
+      "question": "O que e content trust no Docker?",
+      "intent": "what_is",
+      "chunk_type": "noise",
+      "ideal_type": "definition",
+      "mismatch": true,
+      "direction": "noise -> definition",
+      "score": 0.691296,
+      "snippet": "---\ndescription: Enabling content trust in Docker\nkeywords: content, trust, security, docker, documentation\ntitle: Content trust in Docker\naliases:\n- /engine/security/trust/content"
+    },
+    {
+      "domain": "Observabilidade",
+      "question": "O que e uma alerting rule no Prometheus?",
+      "intent": "what_is",
+      "chunk_type": "noise",
+      "ideal_type": "definition",
+      "mismatch": true,
+      "direction": "noise -> definition",
+      "score": 0.714854,
+      "snippet": "---\ntitle: Alerting rules\nsort_rank: 3\n---\n\nAlerting rules allow you to define alert conditions based on Prometheus\nexpression language expressions and to send notifications about "
+    },
+    {
+      "domain": "Observabilidade",
+      "question": "O que e uma notification policy no Grafana Alerting?",
+      "intent": "what_is",
+      "chunk_type": "noise",
+      "ideal_type": "definition",
+      "mismatch": true,
+      "direction": "noise -> definition",
+      "score": 0.701117,
+      "snippet": "---\naliases:\n- ../notification-policies/notifications/ # /docs/grafana/<GRAFANA_VERSION>/alerting/fundamentals/notification-policies/notifications/\ncanonical: https://grafana.com/d"
+    }
+  ]
+}

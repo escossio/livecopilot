@@ -1,0 +1,107 @@
+[
+  {
+    "question": "O que é <assert.h>?",
+    "before": {
+      "chunk_id": "cppreference_c-06",
+      "source_family": "cppreference_c",
+      "source_file": "header.txt",
+      "title": "<assert.h>",
+      "section": "header entry",
+      "snippet": "<assert.h>"
+    },
+    "after": {
+      "chunk_id": "man7-06",
+      "source_family": "man7",
+      "source_file": "assert.3",
+      "title": "assert(3) macro",
+      "section": "description",
+      "snippet": "The header <assert.h> defines the assert(expression) macro to abort the program when a boolean expression is false. When an assertion fails, assert prints an error message on stderr that includes the program name, the source file, the line number, and the expression text, and then calls abort(3), helping developers locate bugs or enforce invariants."
+    },
+    "classification": "COERENTE",
+    "justification": "O chunk do man7 agora aparece primeiro e oferece o texto completo sobre o macro de assert, garantindo que a pergunta seja respondida com o padrão normativo."
+  },
+  {
+    "question": "Para que serve assert?",
+    "before": {
+      "chunk_id": "cppreference_c-06",
+      "source_family": "cppreference_c",
+      "source_file": "header.txt",
+      "title": "<assert.h>",
+      "section": "header entry",
+      "snippet": "<assert.h>"
+    },
+    "after": {
+      "chunk_id": "man7-06",
+      "source_family": "man7",
+      "source_file": "assert.3",
+      "title": "assert(3) macro",
+      "section": "description",
+      "snippet": "The header <assert.h> defines the assert(expression) macro to abort the program when a boolean expression is false. When an assertion fails, assert prints an error message on stderr that includes the program name, the source file, the line number, and the expression text, and then calls abort(3), helping developers locate bugs or enforce invariants."
+    },
+    "classification": "COERENTE",
+    "justification": "O chunk man7 mantém-se na primeira posição e traz o comportamento esperado e o efeito de abort, então a pergunta agora devolve uma explicação completa."
+  },
+  {
+    "question": "O que read faz em C?",
+    "before": {
+      "chunk_id": "cppreference_c-08",
+      "source_family": "cppreference_c",
+      "source_file": "header.txt",
+      "title": "<ctype.h>",
+      "section": "header entry",
+      "snippet": "<ctype.h>"
+    },
+    "after": {
+      "chunk_id": "cppreference_c-08",
+      "source_family": "cppreference_c",
+      "source_file": "header.txt",
+      "title": "<ctype.h>",
+      "section": "header entry",
+      "snippet": "<ctype.h>"
+    },
+    "classification": "PARCIALMENTE COERENTE",
+    "justification": "A semântica continua favorecendo o chunk <ctype.h>, embora o chunk específico de read esteja em segundo lugar; ainda falta sinal mais forte para o syscall."
+  },
+  {
+    "question": "O que printf retorna?",
+    "before": {
+      "chunk_id": "man7-04",
+      "source_family": "man7",
+      "source_file": "printf-3.txt",
+      "title": "printf(3) RETURN VALUE",
+      "section": "RETURN VALUE",
+      "snippet": "Upon successful return, these functions return the number of characters printed (excluding the null byte used to end output to strings)."
+    },
+    "after": {
+      "chunk_id": "man7-04",
+      "source_family": "man7",
+      "source_file": "printf-3.txt",
+      "title": "printf(3) RETURN VALUE",
+      "section": "RETURN VALUE",
+      "snippet": "Upon successful return, these functions return the number of characters printed (excluding the null byte used to end output to strings). The functions snprintf() and vsnprintf() do not write more than size bytes (including the terminating null byte ('\\0'))."
+    },
+    "classification": "COERENTE",
+    "justification": "O mesmo chunk RETURN VALUE permanece no topo e continua a descrever o valor retornado e os casos de truncamento."
+  },
+  {
+    "question": "O que pthread_create faz?",
+    "before": {
+      "chunk_id": "posix_issue7-04",
+      "source_family": "posix_issue7",
+      "source_file": "pthread_create.txt",
+      "title": "pthread_create",
+      "section": "function",
+      "snippet": "NAME SYNOPSIS #include < pthread.h > int pthread_create(pthread_t *restrict thread , const pthread_attr_t *restrict attr , void *(* start_routine )(void*), void *restrict arg ); DESCRIPTION The pthread_create () function shall create a new thread, with attributes specified by attr , within a process."
+    },
+    "after": {
+      "chunk_id": "posix_issue7-04",
+      "source_family": "posix_issue7",
+      "source_file": "pthread_create.txt",
+      "title": "pthread_create",
+      "section": "function",
+      "snippet": "NAME SYNOPSIS #include < pthread.h > int pthread_create(pthread_t *restrict thread , const pthread_attr_t *restrict attr , void *(* start_routine )(void*), void *restrict arg ); DESCRIPTION The pthread_create () function shall create a new thread, with attributes specified by attr , within a process. If attr is NULL, t..."
+    },
+    "classification": "COERENTE",
+    "justification": "Nenhuma regressão: o chunk dedicado a pthread_create continua no topo com a mesma explicação de criação de threads."
+  }
+]

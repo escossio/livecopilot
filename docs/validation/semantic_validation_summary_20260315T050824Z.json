@@ -1,0 +1,59 @@
+{
+  "run_id": "20260315T050902Z",
+  "summary": [
+    {
+      "id": "tf_state_purpose",
+      "topic": "terraform",
+      "question": "Para que serve o arquivo de state no Terraform?",
+      "http_status": 200,
+      "backend": "semantic_local",
+      "search_backend": "semantic_local",
+      "answer_snippet": "Automação de infraestrutura reduz erro humano e acelera entregas."
+    },
+    {
+      "id": "tf_plan_vs_apply",
+      "topic": "terraform",
+      "question": "Qual a diferenca entre terraform plan e terraform apply?",
+      "http_status": 200,
+      "backend": "semantic_local",
+      "search_backend": "semantic_local",
+      "answer_snippet": "Automação de infraestrutura reduz erro humano e acelera entregas."
+    },
+    {
+      "id": "tf_backend",
+      "topic": "terraform",
+      "question": "O que e um backend no Terraform e para que serve?",
+      "http_status": 200,
+      "backend": "infra_status_connector",
+      "search_backend": "infra_status_connector",
+      "answer_snippet": "O backend principal do Livecopilot esta saudavel e respondendo com runtime coerente."
+    },
+    {
+      "id": "k8s_namespace",
+      "topic": "kubernetes",
+      "question": "O que e um Namespace no Kubernetes?",
+      "http_status": 200,
+      "backend": "semantic_local",
+      "search_backend": "semantic_local",
+      "answer_snippet": "No TCP/IP, o foco é entender transporte (TCP/UDP) e endereçamento (IP)."
+    },
+    {
+      "id": "k8s_pod_vs_service",
+      "topic": "kubernetes",
+      "question": "Qual a diferenca entre Pod e Service no Kubernetes?",
+      "http_status": 200,
+      "backend": "semantic_local",
+      "search_backend": "semantic_local",
+      "answer_snippet": "Em redes de computadores, começo pelo escopo (LAN/WAN) e pelos requisitos."
+    },
+    {
+      "id": "k8s_configmap",
+      "topic": "kubernetes",
+      "question": "O que e um ConfigMap no Kubernetes?",
+      "http_status": 200,
+      "backend": "semantic_local",
+      "search_backend": "semantic_local",
+      "answer_snippet": "Pelo contexto técnico, o caminho mais seguro é começar por fundamentos e validar em ambiente controlado."
+    }
+  ]
+}

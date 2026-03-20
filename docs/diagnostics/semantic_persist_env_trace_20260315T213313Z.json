@@ -1,0 +1,136 @@
+{
+  "generated_at": "20260315T213318Z",
+  "embedding_mode": "mock",
+  "queries": [
+    {
+      "query": "O que e um workspace no Terraform?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/intro/core-workflow.md::6e256f0e871a::0011::2f196767",
+        "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/intro/core-workflow.md",
+        "title": "core workflow",
+        "snippet": "core workflow",
+        "similarity": 0.537114
+      }
+    },
+    {
+      "query": "Quando usar modulos no Terraform?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/language/style.md::7001699ab038::0027::7b94623a",
+        "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/language/style.md",
+        "title": "style",
+        "snippet": "style",
+        "similarity": 0.627426
+      }
+    },
+    {
+      "query": "O que e o host network driver no Docker?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive---Second-Edition-by-Nigel-Poulton.epub::2a3d94571542::0005::ace3cc1e",
+        "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive - Second Edition by Nigel Poulton.epub",
+        "title": "Part 1: The big picture stuff",
+        "snippet": "Part 1: The big picture stuff",
+        "similarity": 0.40669
+      }
+    },
+    {
+      "query": "Para que serve o modo rootless no Docker?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "chunk_id": "semantic-api-85f18cac-1",
+        "source_file": "inline://smoke-semantic-api",
+        "title": "1. Em Kubernetes, liveness probe detecta travamento do container.",
+        "snippet": "1. Em Kubernetes, liveness probe detecta travamento do container.",
+        "similarity": 0.406196
+      }
+    },
+    {
+      "query": "O que e content trust no Docker?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "chunk_id": "chunk::doc::livros/docker/Nigel_Poulton/Docker-Deep-Dive-for-Raymond-Rhine-by-Nigel-Poulton.epub::b06b421cbb83::0001::5959e8cd",
+        "source_file": "livros/docker/Nigel_Poulton/Docker Deep Dive (for Raymond Rhine) by Nigel Poulton.epub",
+        "title": "Title Page",
+        "snippet": "Title Page",
+        "similarity": 0.424829
+      }
+    },
+    {
+      "query": "O que e uma notification policy no Grafana Alerting?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "chunk_id": "semantic-api-b34a20f9-3",
+        "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+        "title": "## Example NetworkPolicy",
+        "snippet": "## Example NetworkPolicy",
+        "similarity": 0.372678
+      }
+    },
+    {
+      "query": "Para que serve o promtool?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "chunk_id": "semantic-api-94fbd8c4-1",
+        "source_file": "inline://invalidate-smoke",
+        "title": "1. teste de invalidação",
+        "snippet": "1. teste de invalidação",
+        "similarity": 0.376284
+      }
+    },
+    {
+      "query": "O que e uma alerting rule no Prometheus?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "chunk_id": "chunk::doc::codex_docs_selected/shell-tool-mcp/README.md::bf4494ef04e1::0002::24e0a934",
+        "source_file": "codex_docs_selected/shell-tool-mcp/README.md",
+        "title": "README",
+        "snippet": "README",
+        "similarity": 0.347497
+      }
+    },
+    {
+      "query": "Para que serve um Deployment no Kubernetes?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "chunk_id": "semantic-api-3ff9ac8c-1",
+        "source_file": "tmp/kubectl_ops_round/kubectl_rollout_restart_deployment.md",
+        "title": "# kubectl rollout restart deployment",
+        "snippet": "# kubectl rollout restart deployment",
+        "similarity": 0.51542
+      }
+    },
+    {
+      "query": "Quando usar um Ingress no Kubernetes?",
+      "status": 200,
+      "model": "text-embedding-3-small",
+      "result_count": 5,
+      "top_chunk": {
+        "chunk_id": "semantic-api-b34a20f9-5",
+        "source_file": "tmp/semantic_gap_round2/networkpolicy_access_control.md",
+        "title": "Keywords: networkpolicy kubernetes example ingress policy.",
+        "snippet": "Keywords: networkpolicy kubernetes example ingress policy.",
+        "similarity": 0.519835
+      }
+    }
+  ]
+}

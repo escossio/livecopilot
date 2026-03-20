@@ -1,0 +1,392 @@
+{
+  "run_id": "20260315T063320Z",
+  "items": [
+    {
+      "question": "O que e um backend no Terraform?",
+      "before": {
+        "http_status": 200,
+        "answer": "O backend principal do Livecopilot esta saudavel e respondendo com runtime coerente.",
+        "result_count": 2,
+        "backend": "infra_status_connector"
+      },
+      "after": {
+        "http_status": 200,
+        "answer": "No Terraform, backend é o componente que define onde o state fica armazenado e como ele é acessado, podendo ser local ou remoto.",
+        "result_count": 3,
+        "backend": "semantic_local"
+      },
+      "semantic_search": {
+        "count": 3,
+        "top_results": [
+          {
+            "source_file": "terraform_docs_selected/language/backend/index.md",
+            "title": "index",
+            "similarity": 0.634712
+          },
+          {
+            "source_file": "terraform_docs_selected/language/backend/index.md",
+            "title": "index",
+            "similarity": 0.611421
+          },
+          {
+            "source_file": "terraform_docs_selected/language/backend/index.md",
+            "title": "index",
+            "similarity": 0.606884
+          }
+        ]
+      },
+      "knowledge_context": {
+        "query": "O que e um backend no Terraform?",
+        "used_search": true,
+        "search_error": "",
+        "semantic_error": "",
+        "semantic_api_ok": true,
+        "fallback_used": false,
+        "semantic_duration_ms": 44,
+        "search_backend": "semantic_local",
+        "context_used": false,
+        "context": "QUERY: O que e um backend no Terraform?\n\nSOURCE: terraform_docs_selected/language/backend/index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: ### Default backend Terraform uses a backend called [`local`](/terraform/language/backend/local) by default. The `local` backend type stores state as a local file on disk. ### Ba\n\nSOURCE: terraform_docs_selected/language/backend/index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: Terraform writes the backend configuration in plain text in two separate files. - The `.terraform/terraform.tfstate` file contains the backend configuration for the current working\n\nSOURCE: terraform_docs_selected/language/backend/index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: Backends store state in a remote service, which allows multiple people to access it. Accessing remote state generally requires access credentials, since state data contains extreme",
+        "result_count": 3,
+        "query_tags": {},
+        "query_tags_used": [],
+        "used_tag_routing": false,
+        "used_global_fallback": false,
+        "sources": [
+          {
+            "source_file": "terraform_docs_selected/language/backend/index.md",
+            "title": "index",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/index.md::a0d9e5a6a9d0::0003::4f4b311d",
+            "sequence": 0,
+            "score": 0.634712,
+            "matched_tags": []
+          },
+          {
+            "source_file": "terraform_docs_selected/language/backend/index.md",
+            "title": "index",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/index.md::a0d9e5a6a9d0::0006::8a6f3f21",
+            "sequence": 0,
+            "score": 0.611421,
+            "matched_tags": []
+          },
+          {
+            "source_file": "terraform_docs_selected/language/backend/index.md",
+            "title": "index",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/index.md::a0d9e5a6a9d0::0005::73704f15",
+            "sequence": 0,
+            "score": 0.606884,
+            "matched_tags": []
+          }
+        ]
+      },
+      "knowledge_debug": {
+        "used_search": true,
+        "query": "O que e um backend no Terraform?",
+        "result_count": 3,
+        "search_error": "",
+        "semantic_error": "",
+        "semantic_api_ok": true,
+        "fallback_used": false,
+        "semantic_duration_ms": 44,
+        "search_cache_hit": true,
+        "embedding_cache_hit": false,
+        "openai_called": false,
+        "semantic_path": "response_cache",
+        "search_backend": "semantic_local",
+        "context_used": false,
+        "context_len": 865,
+        "query_tags_inferred": {},
+        "query_tags_used": [],
+        "used_tag_routing": false,
+        "used_global_fallback": false,
+        "routed_result_count": 0,
+        "global_result_count": 0,
+        "sources": [
+          {
+            "title": "index",
+            "source_file": "terraform_docs_selected/language/backend/index.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/index.md::a0d9e5a6a9d0::0003::4f4b311d",
+            "score": 0.634712,
+            "matched_tags": [],
+            "excerpt_summary": "### Default backend Terraform uses a backend called [`local`](/terraform/language/backend/local) by default. The `local` backend type..."
+          },
+          {
+            "title": "index",
+            "source_file": "terraform_docs_selected/language/backend/index.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/index.md::a0d9e5a6a9d0::0006::8a6f3f21",
+            "score": 0.611421,
+            "matched_tags": [],
+            "excerpt_summary": "Terraform writes the backend configuration in plain text in two separate files. - The `.terraform/terraform.tfstate` file contains the..."
+          },
+          {
+            "title": "index",
+            "source_file": "terraform_docs_selected/language/backend/index.md",
+            "chunk_id": "chunk::doc::terraform_docs_selected/language/backend/index.md::a0d9e5a6a9d0::0005::73704f15",
+            "score": 0.606884,
+            "matched_tags": [],
+            "excerpt_summary": "Backends store state in a remote service, which allows multiple people to access it. Accessing remote state generally requires access..."
+          }
+        ]
+      },
+      "classification": "COERENTE",
+      "justification": "agora prioriza o dominio Terraform e explica backend como armazenamento/acesso ao state."
+    },
+    {
+      "question": "O que faz o Alertmanager?",
+      "before": {
+        "http_status": 200,
+        "answer": "Ainda nao sei responder isso com confianca porque nao tenho uma fonte confiavel suficiente para este caso.",
+        "result_count": 1,
+        "backend": "response_guidance"
+      },
+      "after": {
+        "http_status": 200,
+        "answer": "O Alertmanager recebe alertas, agrupa ocorrencias relacionadas, aplica rotas e silenciamentos, e envia as notificacoes para os canais configurados.",
+        "result_count": 3,
+        "backend": "semantic_local"
+      },
+      "semantic_search": {
+        "count": 3,
+        "top_results": [
+          {
+            "source_file": "observability_docs_selected/alertmanager/docs/alertmanager.md",
+            "title": "alertmanager",
+            "similarity": 0.585707
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+            "title": "alerting rules",
+            "similarity": 0.578761
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md",
+            "title": "index",
+            "similarity": 0.546737
+          }
+        ]
+      },
+      "knowledge_context": {
+        "query": "O que faz o Alertmanager?",
+        "used_search": true,
+        "search_error": "",
+        "semantic_error": "",
+        "semantic_api_ok": true,
+        "fallback_used": false,
+        "semantic_duration_ms": 39,
+        "search_backend": "semantic_local",
+        "context_used": false,
+        "context": "QUERY: O que faz o Alertmanager?\n\nSOURCE: observability_docs_selected/alertmanager/docs/alertmanager.md\nTITLE: alertmanager\nSIGNALS: none\nSNIPPET: --- title: Alertmanager sort_rank: 2 nav_icon: sliders --- The [Alertmanager](https://github.com/prometheus/alertmanager) handles alerts sent by client applications such as the Pr\n\nSOURCE: observability_docs_selected/prometheus/docs/configuration/alerting_rules.md\nTITLE: alerting rules\nSIGNALS: none\nSNIPPET: ## Sending alert notifications Prometheus's alerting rules are good at figuring what is broken *right now*, but they are not a fully-fledged notification solution. Another layer i\n\nSOURCE: observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: # Configure Alertmanagers Grafana Alerting is based on the architecture of the Prometheus alerting system. Grafana sends firing and resolved alerts to an Alertmanager, which is re",
+        "result_count": 3,
+        "query_tags": {},
+        "query_tags_used": [],
+        "used_tag_routing": false,
+        "used_global_fallback": false,
+        "sources": [
+          {
+            "source_file": "observability_docs_selected/alertmanager/docs/alertmanager.md",
+            "title": "alertmanager",
+            "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/alertmanager.md::6fda2c11cd14::0001::0a1b7ac4",
+            "sequence": 0,
+            "score": 0.585707,
+            "matched_tags": []
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+            "title": "alerting rules",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/alerting_rules.md::92085dedf36a::0007::20a04585",
+            "sequence": 0,
+            "score": 0.578761,
+            "matched_tags": []
+          },
+          {
+            "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md",
+            "title": "index",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md::1e0cd8a6bedc::0004::e4a31269",
+            "sequence": 0,
+            "score": 0.546737,
+            "matched_tags": []
+          }
+        ]
+      },
+      "knowledge_debug": {
+        "used_search": true,
+        "query": "O que faz o Alertmanager?",
+        "result_count": 3,
+        "search_error": "",
+        "semantic_error": "",
+        "semantic_api_ok": true,
+        "fallback_used": false,
+        "semantic_duration_ms": 39,
+        "search_cache_hit": true,
+        "embedding_cache_hit": false,
+        "openai_called": false,
+        "semantic_path": "response_cache",
+        "search_backend": "semantic_local",
+        "context_used": false,
+        "context_len": 959,
+        "query_tags_inferred": {},
+        "query_tags_used": [],
+        "used_tag_routing": false,
+        "used_global_fallback": false,
+        "routed_result_count": 0,
+        "global_result_count": 0,
+        "sources": [
+          {
+            "title": "alertmanager",
+            "source_file": "observability_docs_selected/alertmanager/docs/alertmanager.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/alertmanager/docs/alertmanager.md::6fda2c11cd14::0001::0a1b7ac4",
+            "score": 0.585707,
+            "matched_tags": [],
+            "excerpt_summary": "title: Alertmanager sort_rank: 2 nav_icon: sliders --- The [Alertmanager](https://github.com/prometheus/alertmanager) handles alerts sent..."
+          },
+          {
+            "title": "alerting rules",
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/alerting_rules.md::92085dedf36a::0007::20a04585",
+            "score": 0.578761,
+            "matched_tags": [],
+            "excerpt_summary": "## Sending alert notifications Prometheus's alerting rules are good at figuring what is broken *right now*, but they are not a..."
+          },
+          {
+            "title": "index",
+            "source_file": "observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/grafana/docs/sources/alerting/set-up/configure-alertmanager/_index.md::1e0cd8a6bedc::0004::e4a31269",
+            "score": 0.546737,
+            "matched_tags": [],
+            "excerpt_summary": "# Configure Alertmanagers Grafana Alerting is based on the architecture of the Prometheus alerting system. Grafana sends firing and..."
+          }
+        ]
+      },
+      "classification": "COERENTE",
+      "justification": "retrieval, contexto e answer final ficaram alinhados ao corpus de Alertmanager."
+    },
+    {
+      "question": "O que e uma recording rule no Prometheus?",
+      "before": {
+        "http_status": 200,
+        "answer": "title: Defining recording rules nav_title: Recording rules sort_rank: 2 --- ## Configuring rules Prometheus supports two types of rules which may be configured and then evalu Além disso, When the file is syntactically valid, the checker prints a textual...",
+        "result_count": 3,
+        "backend": "semantic_local"
+      },
+      "after": {
+        "http_status": 200,
+        "answer": "No Prometheus, uma recording rule precomputa uma consulta e grava o resultado como uma nova série temporal, o que acelera consultas e simplifica alertas.",
+        "result_count": 3,
+        "backend": "semantic_local"
+      },
+      "semantic_search": {
+        "count": 3,
+        "top_results": [
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+            "title": "recording rules",
+            "similarity": 0.650013
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+            "title": "recording rules",
+            "similarity": 0.5685
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+            "title": "recording rules",
+            "similarity": 0.52565
+          }
+        ]
+      },
+      "knowledge_context": {
+        "query": "O que e uma recording rule no Prometheus?",
+        "used_search": true,
+        "search_error": "",
+        "semantic_error": "",
+        "semantic_api_ok": true,
+        "fallback_used": false,
+        "semantic_duration_ms": 38,
+        "search_backend": "semantic_local",
+        "context_used": false,
+        "context": "QUERY: O que e uma recording rule no Prometheus?\n\nSOURCE: observability_docs_selected/prometheus/docs/configuration/recording_rules.md\nTITLE: recording rules\nSIGNALS: none\nSNIPPET: --- title: Defining recording rules nav_title: Recording rules sort_rank: 2 --- ## Configuring rules Prometheus supports two types of rules which may be configured and then evalu\n\nSOURCE: observability_docs_selected/prometheus/docs/configuration/recording_rules.md\nTITLE: recording rules\nSIGNALS: none\nSNIPPET: When the file is syntactically valid, the checker prints a textual representation of the parsed rules to standard output and then exits with a `0` return status. If there are any\n\nSOURCE: observability_docs_selected/prometheus/docs/configuration/recording_rules.md\nTITLE: recording rules\nSIGNALS: none\nSNIPPET: rules: [ - <rule> ... ] ``` ### `<rule>` The syntax for recording rules is: ```yaml # The name of the time series to output to. Must be a valid metric name. record: <string> #",
+        "result_count": 3,
+        "query_tags": {},
+        "query_tags_used": [],
+        "used_tag_routing": false,
+        "used_global_fallback": false,
+        "sources": [
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+            "title": "recording rules",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/recording_rules.md::7d9a9264340a::0001::30684486",
+            "sequence": 0,
+            "score": 0.650013,
+            "matched_tags": []
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+            "title": "recording rules",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/recording_rules.md::7d9a9264340a::0002::fccbddf3",
+            "sequence": 0,
+            "score": 0.5685,
+            "matched_tags": []
+          },
+          {
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+            "title": "recording rules",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/recording_rules.md::7d9a9264340a::0004::01396e82",
+            "sequence": 0,
+            "score": 0.52565,
+            "matched_tags": []
+          }
+        ]
+      },
+      "knowledge_debug": {
+        "used_search": true,
+        "query": "O que e uma recording rule no Prometheus?",
+        "result_count": 3,
+        "search_error": "",
+        "semantic_error": "",
+        "semantic_api_ok": true,
+        "fallback_used": false,
+        "semantic_duration_ms": 38,
+        "search_cache_hit": true,
+        "embedding_cache_hit": false,
+        "openai_called": false,
+        "semantic_path": "response_cache",
+        "search_backend": "semantic_local",
+        "context_used": false,
+        "context_len": 978,
+        "query_tags_inferred": {},
+        "query_tags_used": [],
+        "used_tag_routing": false,
+        "used_global_fallback": false,
+        "routed_result_count": 0,
+        "global_result_count": 0,
+        "sources": [
+          {
+            "title": "recording rules",
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/recording_rules.md::7d9a9264340a::0001::30684486",
+            "score": 0.650013,
+            "matched_tags": [],
+            "excerpt_summary": "title: Defining recording rules nav_title: Recording rules sort_rank: 2 --- ## Configuring rules Prometheus supports two types of rules..."
+          },
+          {
+            "title": "recording rules",
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/recording_rules.md::7d9a9264340a::0002::fccbddf3",
+            "score": 0.5685,
+            "matched_tags": [],
+            "excerpt_summary": "When the file is syntactically valid, the checker prints a textual representation of the parsed rules to standard output and then exits..."
+          },
+          {
+            "title": "recording rules",
+            "source_file": "observability_docs_selected/prometheus/docs/configuration/recording_rules.md",
+            "chunk_id": "chunk::doc::observability_docs_selected/prometheus/docs/configuration/recording_rules.md::7d9a9264340a::0004::01396e82",
+            "score": 0.52565,
+            "matched_tags": [],
+            "excerpt_summary": "rules: [ - <rule> ... ] ``` ### `<rule>` The syntax for recording rules is: ```yaml # The name of the time series to output to. Must be a..."
+          }
+        ]
+      },
+      "classification": "COERENTE",
+      "justification": "explica o conceito em linguagem natural e ancorada ao corpus de Prometheus."
+    }
+  ]
+}

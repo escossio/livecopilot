@@ -1,0 +1,246 @@
+{
+  "timestamp": "20260318T184516Z",
+  "model": "text-embedding-3-large",
+  "source_embeddings": "data/semantic_index_experiments/terraform_pilot/embeddings.jsonl",
+  "results": [
+    {
+      "question": "What does terraform plan do?",
+      "lexical": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "score": 1,
+        "classification": "FALHA"
+      },
+      "semantic": {
+        "chunk_id": "terraform-aws-002",
+        "source_family": "providers/aws",
+        "title": "Example Usage",
+        "snippet": "Example Usage Terraform 0.13 and later: terraform { required_providers { aws = { source = \"hashicorp/aws\" version = \"~> 6.0\" } } } # Configure the AWS Provider provider \"aws\" { region = \"us-east-1\" } # Create a VPC resource \"aws_vpc\" \"example\" { cidr_block = \"10.0.0.0/16\" } Terraform 0.12 and earlier: # Configure the A",
+        "similarity": 0.2658,
+        "classification": "FALHA"
+      },
+      "comparison": "EMPATE",
+      "justification": "Ambos os rankings caem em chunks do AWS provider/example usage; os chunks de CLI permanecem placeholders de HashiConf e nao explicam o comando plan."
+    },
+    {
+      "question": "What does terraform apply do?",
+      "lexical": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "score": 7,
+        "classification": "FALHA"
+      },
+      "semantic": {
+        "chunk_id": "terraform-aws-002",
+        "source_family": "providers/aws",
+        "title": "Example Usage",
+        "snippet": "Example Usage Terraform 0.13 and later: terraform { required_providers { aws = { source = \"hashicorp/aws\" version = \"~> 6.0\" } } } # Configure the AWS Provider provider \"aws\" { region = \"us-east-1\" } # Create a VPC resource \"aws_vpc\" \"example\" { cidr_block = \"10.0.0.0/16\" } Terraform 0.12 and earlier: # Configure the A",
+        "similarity": 0.2862,
+        "classification": "FALHA"
+      },
+      "comparison": "EMPATE",
+      "justification": "Nem lexical nem semantico retornam um chunk que descreva apply; os dois caminhos ficam presos em trechos do provider AWS."
+    },
+    {
+      "question": "What is Terraform state?",
+      "lexical": {
+        "chunk_id": "terraform-aws-instance-001",
+        "source_family": "providers/aws",
+        "title": "List Resource: aws_instance",
+        "snippet": "List Resource: aws_instance ~> Note: The aws_instance List Resource is in beta. Its interface and behavior may change as the feature evolves, and breaking changes are possible. It is offered as a technical preview without compatibility guarantees until Terraform 1.14 is generally available. Lists EC2 Instance resources",
+        "score": 2,
+        "classification": "FALHA"
+      },
+      "semantic": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "similarity": 0.3585,
+        "classification": "FALHA"
+      },
+      "comparison": "EMPATE",
+      "justification": "O lexical acha aws_instance por causa da palavra state em stopped state; o semantico volta para o overview do provider AWS, sem cobrir state do Terraform."
+    },
+    {
+      "question": "What is a backend in Terraform?",
+      "lexical": {
+        "chunk_id": null,
+        "source_family": null,
+        "title": null,
+        "snippet": "",
+        "score": 0,
+        "classification": "FALHA"
+      },
+      "semantic": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "similarity": 0.3909,
+        "classification": "FALHA"
+      },
+      "comparison": "EMPATE",
+      "justification": "Nao ha chunk lexical valido para backend e o embedding aproxima backend do chunk generico do AWS provider, o que nao responde a pergunta."
+    },
+    {
+      "question": "What are Terraform workspaces?",
+      "lexical": {
+        "chunk_id": null,
+        "source_family": null,
+        "title": null,
+        "snippet": "",
+        "score": 0,
+        "classification": "FALHA"
+      },
+      "semantic": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "similarity": 0.3725,
+        "classification": "FALHA"
+      },
+      "comparison": "EMPATE",
+      "justification": "Workspaces continuam sem cobertura: o lexical nao encontra match util e o semantico retorna novamente o overview do provider AWS."
+    },
+    {
+      "question": "What is a Terraform module?",
+      "lexical": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "score": 5,
+        "classification": "FALHA"
+      },
+      "semantic": {
+        "chunk_id": "terraform-aws-002",
+        "source_family": "providers/aws",
+        "title": "Example Usage",
+        "snippet": "Example Usage Terraform 0.13 and later: terraform { required_providers { aws = { source = \"hashicorp/aws\" version = \"~> 6.0\" } } } # Configure the AWS Provider provider \"aws\" { region = \"us-east-1\" } # Create a VPC resource \"aws_vpc\" \"example\" { cidr_block = \"10.0.0.0/16\" } Terraform 0.12 and earlier: # Configure the A",
+        "similarity": 0.375,
+        "classification": "FALHA"
+      },
+      "comparison": "EMPATE",
+      "justification": "A pergunta sobre modules nao encontra o chunk correto; lexical e semantico ficam em chunks AWS por falta de conteudo util no chunk de modules."
+    },
+    {
+      "question": "How do Terraform modules use source?",
+      "lexical": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "score": 52,
+        "classification": "FALHA"
+      },
+      "semantic": {
+        "chunk_id": "terraform-aws-002",
+        "source_family": "providers/aws",
+        "title": "Example Usage",
+        "snippet": "Example Usage Terraform 0.13 and later: terraform { required_providers { aws = { source = \"hashicorp/aws\" version = \"~> 6.0\" } } } # Configure the AWS Provider provider \"aws\" { region = \"us-east-1\" } # Create a VPC resource \"aws_vpc\" \"example\" { cidr_block = \"10.0.0.0/16\" } Terraform 0.12 and earlier: # Configure the A",
+        "similarity": 0.4318,
+        "classification": "PARCIALMENTE_COERENTE"
+      },
+      "comparison": "MELHORA",
+      "justification": "O semantico sobe para o chunk terraform-aws-002, que ao menos contem o atributo source em required_providers; ainda nao e source de module, mas fica um pouco mais proximo do tema que o lexical."
+    },
+    {
+      "question": "What are module inputs in Terraform?",
+      "lexical": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "score": 5,
+        "classification": "FALHA"
+      },
+      "semantic": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "similarity": 0.4445,
+        "classification": "FALHA"
+      },
+      "comparison": "EMPATE",
+      "justification": "Nem lexical nem semantico encontram definicao de inputs de module; ambos ficam presos no AWS provider."
+    },
+    {
+      "question": "What are module outputs in Terraform?",
+      "lexical": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "score": 13,
+        "classification": "FALHA"
+      },
+      "semantic": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "similarity": 0.3844,
+        "classification": "FALHA"
+      },
+      "comparison": "EMPATE",
+      "justification": "Os rankings recuperam exemplos/output tags do provider AWS, nao a semantica de outputs de modules."
+    },
+    {
+      "question": "What is the AWS provider in Terraform?",
+      "lexical": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "score": 174,
+        "classification": "COERENTE"
+      },
+      "semantic": {
+        "chunk_id": "terraform-aws-002",
+        "source_family": "providers/aws",
+        "title": "Example Usage",
+        "snippet": "Example Usage Terraform 0.13 and later: terraform { required_providers { aws = { source = \"hashicorp/aws\" version = \"~> 6.0\" } } } # Configure the AWS Provider provider \"aws\" { region = \"us-east-1\" } # Create a VPC resource \"aws_vpc\" \"example\" { cidr_block = \"10.0.0.0/16\" } Terraform 0.12 and earlier: # Configure the A",
+        "similarity": 0.5824,
+        "classification": "PARCIALMENTE_COERENTE"
+      },
+      "comparison": "PIORA",
+      "justification": "O lexical acerta o overview do AWS provider; o semantico prefere o chunk de Example Usage, que e util mas menos direto para uma pergunta definicional."
+    },
+    {
+      "question": "What is aws_instance in Terraform?",
+      "lexical": {
+        "chunk_id": "terraform-aws-instance-001",
+        "source_family": "providers/aws",
+        "title": "List Resource: aws_instance",
+        "snippet": "List Resource: aws_instance ~> Note: The aws_instance List Resource is in beta. Its interface and behavior may change as the feature evolves, and breaking changes are possible. It is offered as a technical preview without compatibility guarantees until Terraform 1.14 is generally available. Lists EC2 Instance resources",
+        "score": 4,
+        "classification": "COERENTE"
+      },
+      "semantic": {
+        "chunk_id": "terraform-aws-instance-001",
+        "source_family": "providers/aws",
+        "title": "List Resource: aws_instance",
+        "snippet": "List Resource: aws_instance ~> Note: The aws_instance List Resource is in beta. Its interface and behavior may change as the feature evolves, and breaking changes are possible. It is offered as a technical preview without compatibility guarantees until Terraform 1.14 is generally available. Lists EC2 Instance resources",
+        "similarity": 0.6133,
+        "classification": "COERENTE"
+      },
+      "comparison": "EMPATE",
+      "justification": "Os dois caminhos retornam terraform-aws-instance-001, que descreve corretamente o recurso list aws_instance."
+    }
+  ],
+  "summary": {
+    "COERENTE": 1,
+    "PARCIALMENTE_COERENTE": 2,
+    "FALHA": 8,
+    "MELHORA": 1,
+    "EMPATE": 9,
+    "PIORA": 1
+  }
+}

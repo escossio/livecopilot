@@ -1,0 +1,436 @@
+{
+  "domain": "openai_products",
+  "model": "text-embedding-3-large",
+  "generated_at": "2026-03-19T05:02:27.291482",
+  "corpus": {
+    "documents": 9,
+    "chunks": 122
+  },
+  "queries": [
+    {
+      "query": "what is the responses api",
+      "semantic_top_chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0020",
+      "semantic_top_title": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide",
+      "semantic_top_source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+      "semantic_score": 0.443979,
+      "semantic_classification": "COERENTE",
+      "top5": [
+        {
+          "chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0020",
+          "source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+          "score": 0.443979
+        },
+        {
+          "chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0028",
+          "source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+          "score": 0.396501
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-ide-0001",
+          "source": "codex/https-developers-openai-com-codex-ide.md",
+          "score": 0.382101
+        },
+        {
+          "chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0019",
+          "source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+          "score": 0.363258
+        },
+        {
+          "chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0001",
+          "source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+          "score": 0.360443
+        }
+      ]
+    },
+    {
+      "query": "difference between responses api and chat completions",
+      "semantic_top_chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0019",
+      "semantic_top_title": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide",
+      "semantic_top_source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+      "semantic_score": 0.401384,
+      "semantic_classification": "COERENTE",
+      "top5": [
+        {
+          "chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0019",
+          "source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+          "score": 0.401384
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-ide-0001",
+          "source": "codex/https-developers-openai-com-codex-ide.md",
+          "score": 0.391337
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-ide-0002",
+          "source": "codex/https-developers-openai-com-codex-ide.md",
+          "score": 0.383257
+        },
+        {
+          "chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0033",
+          "source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+          "score": 0.374712
+        },
+        {
+          "chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0001",
+          "source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+          "score": 0.371411
+        }
+      ]
+    },
+    {
+      "query": "openai rate limits",
+      "semantic_top_chunk_id": "https-platform-openai-com-docs-guides-rate-limits-0001",
+      "semantic_top_title": "https-platform-openai-com-docs-guides-rate-limits",
+      "semantic_top_source": "policies/https-platform-openai-com-docs-guides-rate-limits.md",
+      "semantic_score": 0.738491,
+      "semantic_classification": "COERENTE",
+      "top5": [
+        {
+          "chunk_id": "https-platform-openai-com-docs-guides-rate-limits-0001",
+          "source": "policies/https-platform-openai-com-docs-guides-rate-limits.md",
+          "score": 0.738491
+        },
+        {
+          "chunk_id": "https-platform-openai-com-docs-api-reference-introduction-0001",
+          "source": "api/https-platform-openai-com-docs-api-reference-introduction.md",
+          "score": 0.580933
+        },
+        {
+          "chunk_id": "https-openai-com-codex-0001",
+          "source": "codex/https-openai-com-codex.md",
+          "score": 0.573789
+        },
+        {
+          "chunk_id": "https-platform-openai-com-docs-models-0001",
+          "source": "models/https-platform-openai-com-docs-models.md",
+          "score": 0.550031
+        },
+        {
+          "chunk_id": "https-openai-com-index-introducing-codex-0001",
+          "source": "codex/https-openai-com-index-introducing-codex.md",
+          "score": 0.510971
+        }
+      ]
+    },
+    {
+      "query": "text-embedding-3-large",
+      "semantic_top_chunk_id": "https-openai-com-index-introducing-gpt-5-3-codex-0001",
+      "semantic_top_title": "https-openai-com-index-introducing-gpt-5-3-codex",
+      "semantic_top_source": "codex/https-openai-com-index-introducing-gpt-5-3-codex.md",
+      "semantic_score": 0.404629,
+      "semantic_classification": "COERENTE",
+      "top5": [
+        {
+          "chunk_id": "https-openai-com-index-introducing-gpt-5-3-codex-0001",
+          "source": "codex/https-openai-com-index-introducing-gpt-5-3-codex.md",
+          "score": 0.404629
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0025",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.357293
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0006",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.349305
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0057",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.348235
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-ide-0001",
+          "source": "codex/https-developers-openai-com-codex-ide.md",
+          "score": 0.347405
+        }
+      ]
+    },
+    {
+      "query": "how embeddings are used",
+      "semantic_top_chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0001",
+      "semantic_top_title": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide",
+      "semantic_top_source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+      "semantic_score": 0.326217,
+      "semantic_classification": "COERENTE",
+      "top5": [
+        {
+          "chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0001",
+          "source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+          "score": 0.326217
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-ide-0001",
+          "source": "codex/https-developers-openai-com-codex-ide.md",
+          "score": 0.32606
+        },
+        {
+          "chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0005",
+          "source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+          "score": 0.316388
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0001",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.304366
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-ide-0002",
+          "source": "codex/https-developers-openai-com-codex-ide.md",
+          "score": 0.294193
+        }
+      ]
+    },
+    {
+      "query": "openai realtime api",
+      "semantic_top_chunk_id": "https-platform-openai-com-docs-api-reference-introduction-0001",
+      "semantic_top_title": "https-platform-openai-com-docs-api-reference-introduction",
+      "semantic_top_source": "api/https-platform-openai-com-docs-api-reference-introduction.md",
+      "semantic_score": 0.533509,
+      "semantic_classification": "COERENTE",
+      "top5": [
+        {
+          "chunk_id": "https-platform-openai-com-docs-api-reference-introduction-0001",
+          "source": "api/https-platform-openai-com-docs-api-reference-introduction.md",
+          "score": 0.533509
+        },
+        {
+          "chunk_id": "https-platform-openai-com-docs-guides-rate-limits-0001",
+          "source": "policies/https-platform-openai-com-docs-guides-rate-limits.md",
+          "score": 0.494698
+        },
+        {
+          "chunk_id": "https-openai-com-codex-0001",
+          "source": "codex/https-openai-com-codex.md",
+          "score": 0.493896
+        },
+        {
+          "chunk_id": "https-platform-openai-com-docs-models-0001",
+          "source": "models/https-platform-openai-com-docs-models.md",
+          "score": 0.482883
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-ide-0001",
+          "source": "codex/https-developers-openai-com-codex-ide.md",
+          "score": 0.455012
+        }
+      ]
+    },
+    {
+      "query": "codex cli",
+      "semantic_top_chunk_id": "https-developers-openai-com-codex-ide-0008",
+      "semantic_top_title": "https-developers-openai-com-codex-ide",
+      "semantic_top_source": "codex/https-developers-openai-com-codex-ide.md",
+      "semantic_score": 0.531284,
+      "semantic_classification": "COERENTE",
+      "top5": [
+        {
+          "chunk_id": "https-developers-openai-com-codex-ide-0008",
+          "source": "codex/https-developers-openai-com-codex-ide.md",
+          "score": 0.531284
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0034",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.528665
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-ide-0005",
+          "source": "codex/https-developers-openai-com-codex-ide.md",
+          "score": 0.528038
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0068",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.52754
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0040",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.518381
+        }
+      ]
+    },
+    {
+      "query": "codex ide extension",
+      "semantic_top_chunk_id": "https-developers-openai-com-codex-ide-0005",
+      "semantic_top_title": "https-developers-openai-com-codex-ide",
+      "semantic_top_source": "codex/https-developers-openai-com-codex-ide.md",
+      "semantic_score": 0.606184,
+      "semantic_classification": "COERENTE",
+      "top5": [
+        {
+          "chunk_id": "https-developers-openai-com-codex-ide-0005",
+          "source": "codex/https-developers-openai-com-codex-ide.md",
+          "score": 0.606184
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-ide-0006",
+          "source": "codex/https-developers-openai-com-codex-ide.md",
+          "score": 0.597665
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-ide-0008",
+          "source": "codex/https-developers-openai-com-codex-ide.md",
+          "score": 0.543551
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-ide-0007",
+          "source": "codex/https-developers-openai-com-codex-ide.md",
+          "score": 0.533285
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0070",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.509273
+        }
+      ]
+    },
+    {
+      "query": "codex prompting guide",
+      "semantic_top_chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0006",
+      "semantic_top_title": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide",
+      "semantic_top_source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+      "semantic_score": 0.601078,
+      "semantic_classification": "COERENTE",
+      "top5": [
+        {
+          "chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0006",
+          "source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+          "score": 0.601078
+        },
+        {
+          "chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0004",
+          "source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+          "score": 0.589369
+        },
+        {
+          "chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0017",
+          "source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+          "score": 0.555809
+        },
+        {
+          "chunk_id": "https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide-0001",
+          "source": "codex/https-developers-openai-com-cookbook-examples-gpt-5-codex_prompting_guide.md",
+          "score": 0.54818
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-ide-0005",
+          "source": "codex/https-developers-openai-com-codex-ide.md",
+          "score": 0.518985
+        }
+      ]
+    },
+    {
+      "query": "codex changelog",
+      "semantic_top_chunk_id": "https-developers-openai-com-codex-changelog-0072",
+      "semantic_top_title": "https-developers-openai-com-codex-changelog",
+      "semantic_top_source": "codex/https-developers-openai-com-codex-changelog.md",
+      "semantic_score": 0.588812,
+      "semantic_classification": "COERENTE",
+      "top5": [
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0072",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.588812
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0058",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.54566
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0056",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.545151
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0035",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.536204
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0040",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.531036
+        }
+      ]
+    },
+    {
+      "query": "gpt-5.3-codex",
+      "semantic_top_chunk_id": "https-developers-openai-com-codex-changelog-0025",
+      "semantic_top_title": "https-developers-openai-com-codex-changelog",
+      "semantic_top_source": "codex/https-developers-openai-com-codex-changelog.md",
+      "semantic_score": 0.589139,
+      "semantic_classification": "COERENTE",
+      "top5": [
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0025",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.589139
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0059",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.571576
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0063",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.53959
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0065",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.535848
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0066",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.525223
+        }
+      ]
+    },
+    {
+      "query": "using codex with chatgpt plan",
+      "semantic_top_chunk_id": "https-developers-openai-com-codex-changelog-0059",
+      "semantic_top_title": "https-developers-openai-com-codex-changelog",
+      "semantic_top_source": "codex/https-developers-openai-com-codex-changelog.md",
+      "semantic_score": 0.604575,
+      "semantic_classification": "COERENTE",
+      "top5": [
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0059",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.604575
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0068",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.565825
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-ide-0007",
+          "source": "codex/https-developers-openai-com-codex-ide.md",
+          "score": 0.556283
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0069",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.553077
+        },
+        {
+          "chunk_id": "https-developers-openai-com-codex-changelog-0067",
+          "source": "codex/https-developers-openai-com-codex-changelog.md",
+          "score": 0.537082
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "COERENTE": 12,
+    "PARCIALMENTE_COERENTE": 0,
+    "FALHA": 0
+  }
+}

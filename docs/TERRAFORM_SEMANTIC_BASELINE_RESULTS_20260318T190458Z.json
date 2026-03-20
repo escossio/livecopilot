@@ -1,0 +1,464 @@
+{
+  "timestamp": "20260318T190458Z",
+  "model": "text-embedding-3-large",
+  "source_embeddings": "data/semantic_index_experiments/terraform_pilot/embeddings.jsonl",
+  "results": [
+    {
+      "question": "What does terraform plan do?",
+      "lexical": {
+        "chunk_id": "terraform-cli-apply-003",
+        "source_family": "cli",
+        "title": "terraform apply command",
+        "snippet": "The terraform apply command executes the operations proposed in a Terraform plan. If you run terraform apply without a saved plan file, Terraform creates a new execution plan, prompts for approval, and then performs the indicated operations. The -auto-approve option skips the approval prompt. If you pass a saved plan f",
+        "classification": "FALHA",
+        "score": 6
+      },
+      "semantic": {
+        "chunk_id": "terraform-cli-plan-002",
+        "source_family": "cli",
+        "title": "terraform plan command",
+        "snippet": "The terraform plan command creates an execution plan so you can preview changes before Terraform modifies infrastructure. By default, Terraform reads current state for existing remote objects, compares the current configuration with prior state, and proposes the actions needed to make real infrastructure match configur",
+        "classification": "COERENTE",
+        "similarity": 0.7798
+      },
+      "comparison": "MELHORA",
+      "semantic_top3": [
+        {
+          "chunk_id": "terraform-cli-plan-002",
+          "source_family": "cli",
+          "title": "terraform plan command",
+          "similarity": 0.7798
+        },
+        {
+          "chunk_id": "terraform-cli-apply-003",
+          "source_family": "cli",
+          "title": "terraform apply command",
+          "similarity": 0.6136
+        },
+        {
+          "chunk_id": "terraform-cli-001",
+          "source_family": "cli",
+          "title": "Terraform CLI Documentation",
+          "similarity": 0.5194
+        }
+      ]
+    },
+    {
+      "question": "What does terraform apply do?",
+      "lexical": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "classification": "FALHA",
+        "score": 7
+      },
+      "semantic": {
+        "chunk_id": "terraform-cli-apply-003",
+        "source_family": "cli",
+        "title": "terraform apply command",
+        "snippet": "The terraform apply command executes the operations proposed in a Terraform plan. If you run terraform apply without a saved plan file, Terraform creates a new execution plan, prompts for approval, and then performs the indicated operations. The -auto-approve option skips the approval prompt. If you pass a saved plan f",
+        "classification": "COERENTE",
+        "similarity": 0.7278
+      },
+      "comparison": "MELHORA",
+      "semantic_top3": [
+        {
+          "chunk_id": "terraform-cli-apply-003",
+          "source_family": "cli",
+          "title": "terraform apply command",
+          "similarity": 0.7278
+        },
+        {
+          "chunk_id": "terraform-cli-plan-002",
+          "source_family": "cli",
+          "title": "terraform plan command",
+          "similarity": 0.5559
+        },
+        {
+          "chunk_id": "terraform-cli-001",
+          "source_family": "cli",
+          "title": "Terraform CLI Documentation",
+          "similarity": 0.5217
+        }
+      ]
+    },
+    {
+      "question": "What is Terraform state?",
+      "lexical": {
+        "chunk_id": "terraform-state-003",
+        "source_family": "state",
+        "title": "terraform state commands",
+        "snippet": "Terraform uses persisted state data to keep track of the resources it manages. The terraform state commands provide advanced state management without editing state files directly. You can use terraform state subcommands such as list, mv, pull, replace-provider, rm, and show when you need to inspect or safely manipulate",
+        "classification": "COERENTE",
+        "score": 6
+      },
+      "semantic": {
+        "chunk_id": "terraform-state-003",
+        "source_family": "state",
+        "title": "terraform state commands",
+        "snippet": "Terraform uses persisted state data to keep track of the resources it manages. The terraform state commands provide advanced state management without editing state files directly. You can use terraform state subcommands such as list, mv, pull, replace-provider, rm, and show when you need to inspect or safely manipulate",
+        "classification": "COERENTE",
+        "similarity": 0.7579
+      },
+      "comparison": "EMPATE",
+      "semantic_top3": [
+        {
+          "chunk_id": "terraform-state-003",
+          "source_family": "state",
+          "title": "terraform state commands",
+          "similarity": 0.7579
+        },
+        {
+          "chunk_id": "terraform-backend-004",
+          "source_family": "state",
+          "title": "Backend block configuration overview",
+          "similarity": 0.6167
+        },
+        {
+          "chunk_id": "terraform-workspaces-005",
+          "source_family": "state",
+          "title": "Workspaces",
+          "similarity": 0.5791
+        }
+      ]
+    },
+    {
+      "question": "What is a backend in Terraform?",
+      "lexical": {
+        "chunk_id": "terraform-backend-004",
+        "source_family": "state",
+        "title": "Backend block configuration overview",
+        "snippet": "The backend block defines where Terraform stores its state data files. Terraform can store state locally on disk with the default local backend or in a remote backend so multiple users and automation systems can share state safely. To configure a backend, add a nested backend block inside the top-level terraform block.",
+        "classification": "COERENTE",
+        "score": 7
+      },
+      "semantic": {
+        "chunk_id": "terraform-backend-004",
+        "source_family": "state",
+        "title": "Backend block configuration overview",
+        "snippet": "The backend block defines where Terraform stores its state data files. Terraform can store state locally on disk with the default local backend or in a remote backend so multiple users and automation systems can share state safely. To configure a backend, add a nested backend block inside the top-level terraform block.",
+        "classification": "COERENTE",
+        "similarity": 0.7295
+      },
+      "comparison": "EMPATE",
+      "semantic_top3": [
+        {
+          "chunk_id": "terraform-backend-004",
+          "source_family": "state",
+          "title": "Backend block configuration overview",
+          "similarity": 0.7295
+        },
+        {
+          "chunk_id": "terraform-workspaces-005",
+          "source_family": "state",
+          "title": "Workspaces",
+          "similarity": 0.6167
+        },
+        {
+          "chunk_id": "terraform-cli-001",
+          "source_family": "cli",
+          "title": "Terraform CLI Documentation",
+          "similarity": 0.4898
+        }
+      ]
+    },
+    {
+      "question": "What are Terraform workspaces?",
+      "lexical": {
+        "chunk_id": "terraform-workspaces-005",
+        "source_family": "state",
+        "title": "Workspaces",
+        "snippet": "A Terraform workspace is a named state instance stored in a backend for one configuration. A backend starts with a default workspace, and some backends support multiple named workspaces so the same configuration can manage separate state for environments such as dev, staging, or production. Terraform CLI workspaces are",
+        "classification": "COERENTE",
+        "score": 3
+      },
+      "semantic": {
+        "chunk_id": "terraform-workspaces-005",
+        "source_family": "state",
+        "title": "Workspaces",
+        "snippet": "A Terraform workspace is a named state instance stored in a backend for one configuration. A backend starts with a default workspace, and some backends support multiple named workspaces so the same configuration can manage separate state for environments such as dev, staging, or production. Terraform CLI workspaces are",
+        "classification": "COERENTE",
+        "similarity": 0.8088
+      },
+      "comparison": "EMPATE",
+      "semantic_top3": [
+        {
+          "chunk_id": "terraform-workspaces-005",
+          "source_family": "state",
+          "title": "Workspaces",
+          "similarity": 0.8088
+        },
+        {
+          "chunk_id": "terraform-modules-001",
+          "source_family": "modules",
+          "title": "Modules overview",
+          "similarity": 0.4763
+        },
+        {
+          "chunk_id": "terraform-cli-001",
+          "source_family": "cli",
+          "title": "Terraform CLI Documentation",
+          "similarity": 0.4706
+        }
+      ]
+    },
+    {
+      "question": "What is a Terraform module?",
+      "lexical": {
+        "chunk_id": "terraform-module-inputs-003",
+        "source_family": "modules",
+        "title": "Use input variables to add module arguments",
+        "snippet": "Input variables define the input interface for a module. When a child module declares variable blocks, a parent module can pass values into that child module by setting arguments in the module block. Module inputs make a module reusable because consumers can provide values such as instance type, subnet, environment, or",
+        "classification": "PARCIALMENTE_COERENTE",
+        "score": 7
+      },
+      "semantic": {
+        "chunk_id": "terraform-modules-001",
+        "source_family": "modules",
+        "title": "Modules overview",
+        "snippet": "A Terraform module is a collection of resources that Terraform manages together. Every configuration has a root module in its working directory, and module blocks call child modules from that root module. Child modules can be reused multiple times and modules can call nested child modules. Modules help codify repeated ",
+        "classification": "COERENTE",
+        "similarity": 0.8321
+      },
+      "comparison": "MELHORA",
+      "semantic_top3": [
+        {
+          "chunk_id": "terraform-modules-001",
+          "source_family": "modules",
+          "title": "Modules overview",
+          "similarity": 0.8321
+        },
+        {
+          "chunk_id": "terraform-module-source-002",
+          "source_family": "modules",
+          "title": "module block reference",
+          "similarity": 0.634
+        },
+        {
+          "chunk_id": "terraform-module-outputs-004",
+          "source_family": "modules",
+          "title": "Use outputs to expose module data",
+          "similarity": 0.5079
+        }
+      ]
+    },
+    {
+      "question": "How do Terraform modules use source?",
+      "lexical": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "classification": "FALHA",
+        "score": 52
+      },
+      "semantic": {
+        "chunk_id": "terraform-module-source-002",
+        "source_family": "modules",
+        "title": "module block reference",
+        "snippet": "Terraform can load modules from several sources, including the local file system, the public Terraform Registry, private registries, and version control repositories. In a module block, the source argument is required and tells Terraform where to install the child module from. source is the key setting that connects a ",
+        "classification": "COERENTE",
+        "similarity": 0.7948
+      },
+      "comparison": "MELHORA",
+      "semantic_top3": [
+        {
+          "chunk_id": "terraform-module-source-002",
+          "source_family": "modules",
+          "title": "module block reference",
+          "similarity": 0.7948
+        },
+        {
+          "chunk_id": "terraform-modules-001",
+          "source_family": "modules",
+          "title": "Modules overview",
+          "similarity": 0.6316
+        },
+        {
+          "chunk_id": "terraform-module-outputs-004",
+          "source_family": "modules",
+          "title": "Use outputs to expose module data",
+          "similarity": 0.4642
+        }
+      ]
+    },
+    {
+      "question": "What are module inputs in Terraform?",
+      "lexical": {
+        "chunk_id": "terraform-module-inputs-003",
+        "source_family": "modules",
+        "title": "Use input variables to add module arguments",
+        "snippet": "Input variables define the input interface for a module. When a child module declares variable blocks, a parent module can pass values into that child module by setting arguments in the module block. Module inputs make a module reusable because consumers can provide values such as instance type, subnet, environment, or",
+        "classification": "COERENTE",
+        "score": 8
+      },
+      "semantic": {
+        "chunk_id": "terraform-module-inputs-003",
+        "source_family": "modules",
+        "title": "Use input variables to add module arguments",
+        "snippet": "Input variables define the input interface for a module. When a child module declares variable blocks, a parent module can pass values into that child module by setting arguments in the module block. Module inputs make a module reusable because consumers can provide values such as instance type, subnet, environment, or",
+        "classification": "COERENTE",
+        "similarity": 0.6696
+      },
+      "comparison": "EMPATE",
+      "semantic_top3": [
+        {
+          "chunk_id": "terraform-module-inputs-003",
+          "source_family": "modules",
+          "title": "Use input variables to add module arguments",
+          "similarity": 0.6696
+        },
+        {
+          "chunk_id": "terraform-modules-001",
+          "source_family": "modules",
+          "title": "Modules overview",
+          "similarity": 0.6195
+        },
+        {
+          "chunk_id": "terraform-module-outputs-004",
+          "source_family": "modules",
+          "title": "Use outputs to expose module data",
+          "similarity": 0.5867
+        }
+      ]
+    },
+    {
+      "question": "What are module outputs in Terraform?",
+      "lexical": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "classification": "FALHA",
+        "score": 13
+      },
+      "semantic": {
+        "chunk_id": "terraform-module-outputs-004",
+        "source_family": "modules",
+        "title": "Use outputs to expose module data",
+        "snippet": "Output blocks expose module data. A child module can expose resource attributes and computed values to its parent module through outputs. Root modules display outputs in CLI output after apply, and other Terraform configurations can read root outputs through remote state. Module outputs are the standard way to return i",
+        "classification": "COERENTE",
+        "similarity": 0.7562
+      },
+      "comparison": "MELHORA",
+      "semantic_top3": [
+        {
+          "chunk_id": "terraform-module-outputs-004",
+          "source_family": "modules",
+          "title": "Use outputs to expose module data",
+          "similarity": 0.7562
+        },
+        {
+          "chunk_id": "terraform-modules-001",
+          "source_family": "modules",
+          "title": "Modules overview",
+          "similarity": 0.6035
+        },
+        {
+          "chunk_id": "terraform-module-source-002",
+          "source_family": "modules",
+          "title": "module block reference",
+          "similarity": 0.5286
+        }
+      ]
+    },
+    {
+      "question": "What is the AWS provider in Terraform?",
+      "lexical": {
+        "chunk_id": "terraform-aws-001",
+        "source_family": "providers/aws",
+        "title": "AWS Provider",
+        "snippet": "AWS Provider The Amazon Web Services (AWS) provider is Terraform’s most widely-used provider and the industry-standard way to manage AWS infrastructure as code. It is an indispensable part of how leading technology companies, global banks, government agencies, and some of the largest enterprises in the world build and ",
+        "classification": "COERENTE",
+        "score": 174
+      },
+      "semantic": {
+        "chunk_id": "terraform-aws-002",
+        "source_family": "providers/aws",
+        "title": "Example Usage",
+        "snippet": "Example Usage Terraform 0.13 and later: terraform { required_providers { aws = { source = \"hashicorp/aws\" version = \"~> 6.0\" } } } # Configure the AWS Provider provider \"aws\" { region = \"us-east-1\" } # Create a VPC resource \"aws_vpc\" \"example\" { cidr_block = \"10.0.0.0/16\" } Terraform 0.12 and earlier: # Configure the A",
+        "classification": "PARCIALMENTE_COERENTE",
+        "similarity": 0.5821
+      },
+      "comparison": "PIORA",
+      "semantic_top3": [
+        {
+          "chunk_id": "terraform-aws-002",
+          "source_family": "providers/aws",
+          "title": "Example Usage",
+          "similarity": 0.5821
+        },
+        {
+          "chunk_id": "terraform-aws-001",
+          "source_family": "providers/aws",
+          "title": "AWS Provider",
+          "similarity": 0.5642
+        },
+        {
+          "chunk_id": "terraform-state-003",
+          "source_family": "state",
+          "title": "terraform state commands",
+          "similarity": 0.4324
+        }
+      ]
+    },
+    {
+      "question": "What is aws_instance in Terraform?",
+      "lexical": {
+        "chunk_id": "terraform-aws-instance-001",
+        "source_family": "providers/aws",
+        "title": "List Resource: aws_instance",
+        "snippet": "List Resource: aws_instance ~> Note: The aws_instance List Resource is in beta. Its interface and behavior may change as the feature evolves, and breaking changes are possible. It is offered as a technical preview without compatibility guarantees until Terraform 1.14 is generally available. Lists EC2 Instance resources",
+        "classification": "COERENTE",
+        "score": 4
+      },
+      "semantic": {
+        "chunk_id": "terraform-aws-instance-001",
+        "source_family": "providers/aws",
+        "title": "List Resource: aws_instance",
+        "snippet": "List Resource: aws_instance ~> Note: The aws_instance List Resource is in beta. Its interface and behavior may change as the feature evolves, and breaking changes are possible. It is offered as a technical preview without compatibility guarantees until Terraform 1.14 is generally available. Lists EC2 Instance resources",
+        "classification": "COERENTE",
+        "similarity": 0.6131
+      },
+      "comparison": "EMPATE",
+      "semantic_top3": [
+        {
+          "chunk_id": "terraform-aws-instance-001",
+          "source_family": "providers/aws",
+          "title": "List Resource: aws_instance",
+          "similarity": 0.6131
+        },
+        {
+          "chunk_id": "terraform-aws-instance-002",
+          "source_family": "providers/aws",
+          "title": "Example Usage",
+          "similarity": 0.5218
+        },
+        {
+          "chunk_id": "terraform-aws-002",
+          "source_family": "providers/aws",
+          "title": "Example Usage",
+          "similarity": 0.4904
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "lexical": {
+      "COERENTE": 6,
+      "PARCIALMENTE_COERENTE": 1,
+      "FALHA": 4
+    },
+    "semantic": {
+      "COERENTE": 10,
+      "PARCIALMENTE_COERENTE": 1,
+      "FALHA": 0
+    },
+    "comparison": {
+      "MELHORA": 5,
+      "EMPATE": 5,
+      "PIORA": 1
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "run_id": "20260315T073846Z",
+  "questions": [
+    {
+      "timestamp": "2026-03-15T07:38:45.939797Z",
+      "domain": "Terraform",
+      "question": "Quando usar modulos no Terraform?",
+      "http_status": 200,
+      "answer": "Use modulos no Terraform quando when to write a module in principle any combination of resources and other constructs can be factored out into a module, but over-using modules can make your overall terraform",
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Mantém o principio da pergunta mas o fragmento ainda vem em forma de keywords/documentos.",
+      "previous_classification": "PARCIALMENTE COERENTE"
+    },
+    {
+      "timestamp": "2026-03-15T07:38:45.996527Z",
+      "domain": "Terraform",
+      "question": "O que e um workspace no Terraform?",
+      "http_status": 200,
+      "answer": "um workspace no Terraform é workspaces allow the use of multiple states with a single configuration directory",
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Mantém o principio da pergunta mas o fragmento ainda vem em forma de keywords/documentos.",
+      "previous_classification": "PARCIALMENTE COERENTE"
+    },
+    {
+      "timestamp": "2026-03-15T07:38:46.054434Z",
+      "domain": "Kubernetes",
+      "question": "Para que serve um Deployment no Kubernetes?",
+      "http_status": 200,
+      "answer": "um Deployment no Kubernetes serve para a _deployment_ provides declarative updates for and",
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Mantém o principio da pergunta mas o fragmento ainda vem em forma de keywords/documentos.",
+      "previous_classification": "PARCIALMENTE COERENTE"
+    },
+    {
+      "timestamp": "2026-03-15T07:38:46.111710Z",
+      "domain": "Kubernetes",
+      "question": "Quando usar um Ingress no Kubernetes?",
+      "http_status": 200,
+      "answer": "Use um Ingress no Kubernetes quando what is ingress",
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Mantém o principio da pergunta mas o fragmento ainda vem em forma de keywords/documentos.",
+      "previous_classification": "PARCIALMENTE COERENTE"
+    },
+    {
+      "timestamp": "2026-03-15T07:38:46.168478Z",
+      "domain": "Docker",
+      "question": "O que e port publishing no Docker?",
+      "http_status": 200,
+      "answer": "port publishing no Docker é keywords: network, iptables, firewall --- by default, for both ipv4 and ipv6, the docker d",
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Mantém o principio da pergunta mas o fragmento ainda vem em forma de keywords/documentos.",
+      "previous_classification": "PARCIALMENTE COERENTE"
+    },
+    {
+      "timestamp": "2026-03-15T07:38:46.226203Z",
+      "domain": "Docker",
+      "question": "O que e o host network driver no Docker?",
+      "http_status": 200,
+      "answer": "o host network driver no Docker é keywords: network, host, standalone, host mode networking - /network",
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Mantém o principio da pergunta mas o fragmento ainda vem em forma de keywords/documentos.",
+      "previous_classification": "PARCIALMENTE COERENTE"
+    },
+    {
+      "timestamp": "2026-03-15T07:38:46.280572Z",
+      "domain": "Docker",
+      "question": "Para que serve o modo rootless no Docker?",
+      "http_status": 200,
+      "answer": "o modo rootless no Docker serve para keywords: security, namespaces, rootless --- rootless mode lets you run t",
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Mantém o principio da pergunta mas o fragmento ainda vem em forma de keywords/documentos.",
+      "previous_classification": "PARCIALMENTE COERENTE"
+    },
+    {
+      "timestamp": "2026-03-15T07:38:46.324015Z",
+      "domain": "Docker",
+      "question": "O que e content trust no Docker?",
+      "http_status": 200,
+      "answer": "content trust no Docker é keywords: content, trust, security, docker, documentation - /engine/security/trust/content",
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Mantém o principio da pergunta mas o fragmento ainda vem em forma de keywords/documentos.",
+      "previous_classification": "PARCIALMENTE COERENTE"
+    },
+    {
+      "timestamp": "2026-03-15T07:38:46.368929Z",
+      "domain": "Observabilidade",
+      "question": "O que e uma alerting rule no Prometheus?",
+      "http_status": 200,
+      "answer": "uma alerting rule no Prometheus é alerting rules allow you to define alert conditions based on prometheus expression language expressions and to send notifications about",
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Mantém o principio da pergunta mas o fragmento ainda vem em forma de keywords/documentos.",
+      "previous_classification": "PARCIALMENTE COERENTE"
+    },
+    {
+      "timestamp": "2026-03-15T07:38:46.418080Z",
+      "domain": "Observabilidade",
+      "question": "O que e uma notification policy no Grafana Alerting?",
+      "http_status": 200,
+      "answer": "uma notification policy no Grafana Alerting é /notification-policies/notifications/ /docs/grafana//alerting/fundamentals/notification-policies/notifications/",
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Mantém o principio da pergunta mas o fragmento ainda vem em forma de keywords/documentos.",
+      "previous_classification": "PARCIALMENTE COERENTE"
+    }
+  ]
+}

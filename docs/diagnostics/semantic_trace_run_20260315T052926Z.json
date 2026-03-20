@@ -1,0 +1,116 @@
+{
+  "ts": "2026-03-15T05:29:26.557354+00:00",
+  "question": "Qual a diferenca entre terraform plan e terraform apply?",
+  "raw_input": "Qual a diferenca entre terraform plan e terraform apply?",
+  "transcript_text": "A diferença entre `terraform plan` e `terraform apply` é que o `terraform plan` gera um plano de execução, mostrando as mudanças que serão feitas na infraestrutura, sem realmente aplicar essas mudanças. Ele permite que você revise o que irá acontecer. Por outro lado, o `terraform apply` executa as mudanças propostas, aplicando-as efetivamente na infraestrutura.",
+  "mode": "generic",
+  "conversation_id": "",
+  "skill_routing": {
+    "matched": false,
+    "payload": {}
+  },
+  "connector_routing": {
+    "matched": false,
+    "intent": "",
+    "backend": "semantic_local",
+    "knowledge_context": {}
+  },
+  "semantic_context": {
+    "search_query": "A diferença entre `terraform plan` e `terraform apply` é que o `terraform plan` gera um plano de execução, mostrando as mudanças que serão feitas na infraestrutura, sem realmente aplicar essas mudanças. Ele permite que você revise o que irá acontecer. Por outro lado, o `terraform apply` executa as mudanças propostas, aplicando-as efetivamente na infraestrutura.",
+    "used_search": true,
+    "search_backend": "semantic_local",
+    "semantic_api_ok": true,
+    "fallback_used": false,
+    "result_count": 3,
+    "query_tags": {},
+    "query_tags_used": [],
+    "used_tag_routing": false,
+    "used_global_fallback": false,
+    "sources": [
+      {
+        "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md",
+        "title": "index",
+        "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md::b9e2488ddc17::0002::56251630",
+        "sequence": 0,
+        "score": 0.757503,
+        "matched_tags": []
+      },
+      {
+        "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md",
+        "title": "index",
+        "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md::b9e2488ddc17::0003::6b5c6e7a",
+        "sequence": 0,
+        "score": 0.707484,
+        "matched_tags": []
+      },
+      {
+        "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+        "title": "plan",
+        "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md::ef9e9012f797::0003::bc50aa4e",
+        "sequence": 0,
+        "score": 0.69705,
+        "matched_tags": []
+      }
+    ],
+    "context": "QUERY: A diferença entre `terraform plan` e `terraform apply` é que o `terraform plan` gera um plano de execução, mostrando as mudanças que serão feitas na infraestrutura, sem realmente aplicar essas mudanças. Ele permite que você revise o que irá acontecer. Por outro lado, o `terraform apply` executa as mudanças propostas, aplicando-as efetivamente na infraestrutura.\n\nSOURCE: terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: ### Plan The `terraform plan` command evaluates a Terraform configuration to determine the desired state of all the resources it declares, then compares that desired state to the\n\nSOURCE: terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md\nTITLE: plan\nSIGNALS: none\nSNIPPET: If Terraform detects that no changes are needed to resource instances or to root module output values, `terraform plan` will report that no actions need to be taken. If you are us\n\nSOURCE: terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md\nTITLE: index\nSIGNALS: none\nSNIPPET: For details, see [the `terraform plan` command](/terraform/cli/commands/plan). ### Apply The `terraform apply` command performs a plan just like `terraform plan` does, but then a",
+    "debug": {
+      "used_search": true,
+      "query": "A diferença entre `terraform plan` e `terraform apply` é que o `terraform plan` gera um plano de execução, mostrando as mudanças que serão feitas na infraestrutura, sem realmente aplicar essas mudanças. Ele permite que você revise o que irá acontecer. Por outro lado, o `terraform apply` executa as mudanças propostas, aplicando-as efetivamente na infraestrutura.",
+      "result_count": 3,
+      "search_error": "",
+      "semantic_error": "",
+      "semantic_api_ok": true,
+      "fallback_used": false,
+      "semantic_duration_ms": 476,
+      "search_cache_hit": false,
+      "embedding_cache_hit": false,
+      "openai_called": true,
+      "semantic_path": "openai_fresh",
+      "search_backend": "semantic_local",
+      "context_used": false,
+      "context_len": 1312,
+      "query_tags_inferred": {},
+      "query_tags_used": [],
+      "used_tag_routing": false,
+      "used_global_fallback": false,
+      "routed_result_count": 0,
+      "global_result_count": 0,
+      "sources": [
+        {
+          "title": "index",
+          "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md::b9e2488ddc17::0002::56251630",
+          "score": 0.757503,
+          "matched_tags": [],
+          "excerpt_summary": "### Plan The `terraform plan` command evaluates a Terraform configuration to determine the desired state of all the resources it declares,..."
+        },
+        {
+          "title": "index",
+          "source_file": "terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md::b9e2488ddc17::0003::6b5c6e7a",
+          "score": 0.707484,
+          "matched_tags": [],
+          "excerpt_summary": "For details, see [the `terraform plan` command](/terraform/cli/commands/plan). ### Apply The `terraform apply` command performs a plan just..."
+        },
+        {
+          "title": "plan",
+          "source_file": "terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md",
+          "chunk_id": "chunk::doc::terraform_docs_selected_incremental/content/terraform/v1.14.x/docs/cli/commands/plan.md::ef9e9012f797::0003::bc50aa4e",
+          "score": 0.69705,
+          "matched_tags": [],
+          "excerpt_summary": "If Terraform detects that no changes are needed to resource instances or to root module output values, `terraform plan` will report that no..."
+        }
+      ]
+    }
+  },
+  "response": {
+    "answer": "Automação de infraestrutura reduz erro humano e acelera entregas.",
+    "bullets": [
+      "Resumo técnico inicial: QUERY: A diferença entre `terraform plan` e `terraform apply` é que o `terraform plan` gera um plano de execução, mostrando as mudanças que serão feitas na...",
+      "Só um instante para consolidar os pontos técnicos mais relevantes antes de te responder com precisão.",
+      "Você quer foco em visão de arquitetura, passo a passo de implementação, ou troubleshooting para: A diferença entre `terraform plan` e `terraform apply` é que o `terraform plan`..."
+    ],
+    "response_stage": "final",
+    "readiness": "high"
+  }
+}

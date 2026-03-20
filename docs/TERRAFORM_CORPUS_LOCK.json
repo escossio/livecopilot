@@ -1,0 +1,53 @@
+{
+  "generated": "2026-03-18T06:04:26Z",
+  "batch": "Lote 3 (Providers AWS)",
+  "included": [
+    {
+      "name": "Terraform CLI docs",
+      "url": "https://www.terraform.io/docs/cli/index.html",
+      "path": "data/knowledge_raw/terraform/cli/terraform-cli-index.html",
+      "hash": "f25b4857c3b426ab93454b1458987431f1485abb11860f5a086d736dd164bf23",
+      "format": "html"
+    },
+    {
+      "name": "Terraform language docs",
+      "url": "https://www.terraform.io/docs/language/index.html",
+      "path": "data/knowledge_raw/terraform/language/terraform-language-index.html",
+      "hash": "a33ecebe49b3568d063ef9fca18d3e8b7c9419de21566a03f61f72aacb102667",
+      "format": "html"
+    },
+    {
+      "name": "Terraform backends/state/workspaces docs",
+      "url": "https://www.terraform.io/docs/backends/index.html",
+      "path": "data/knowledge_raw/terraform/state/terraform-backends-index.html",
+      "hash": "06fe1c8415b2217f61b1e4559c01c68714de42b0e4a81d15fe3a59d288142d3f",
+      "format": "html"
+    },
+    {
+      "name": "Terraform modules docs",
+      "url": "https://www.terraform.io/docs/language/modules/index.html",
+      "path": "data/knowledge_raw/terraform/modules/terraform-modules-index.html",
+      "hash": "72a44e9e02ecdcddb776ba921625e1e03a307424f48d7b4c18a1469b995a93d4",
+      "format": "html"
+    },
+    {
+      "name": "Terraform AWS provider overview",
+      "url": "https://registry.terraform.io/providers/hashicorp/aws/latest/docs",
+      "path": "data/knowledge_raw/terraform/providers/aws/aws-overview.html",
+      "hash": "e2971d5dfc52fe082eff60e34afada113a3795ddf305e1a25658dc99725766e8",
+      "format": "html"
+    },
+    {
+      "name": "AWS Instance resource",
+      "url": "https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance",
+      "path": "data/knowledge_raw/terraform/providers/aws/aws-instance.html",
+      "hash": "9bc18ff26011d27c4c87a78f546e3b100e4d2b91c7f08e0cac7faea9e014225d",
+      "format": "html"
+    }
+  ],
+  "excluded": [
+    "Terraform Registry providers AWS/Azure/Google (lote 3)",
+    "HashiCorp Learn / release notes / Terraform Cloud guides (lote 4)"
+  ],
+  "notes": "Coleta feita com curl -L diretamente dos URLs oficiais e dos fontes gerados via website/docs do provedor HashiCorp; nenhuma fonte externa foi usada."
+}

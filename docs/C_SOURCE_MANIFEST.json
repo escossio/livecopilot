@@ -1,0 +1,62 @@
+[
+  {
+    "name": "ISO/IEC 9899:2018 (C17, capítulos 1–7 + anexos A/B)",
+    "category": "PRIMÁRIA",
+    "type": "PDF",
+    "primary_url": "https://www.iso.org/standard/74528.html",
+    "mirror_url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2610.pdf",
+    "availability": "Pago via ISO; usar espelho WG14 até a compra oficial ser concluída",
+    "license": "Compra paga da ISO (direitos de citação); WG14 N2610 é público",
+    "collection_strategy": "Registrar número da norma, baixar PDF para data/knowledge_raw/c/iso-9899-2018.pdf e usar o espelho para chunking imediato; revisar relançamentos trimestralmente",
+    "priority": "Essencial",
+    "batch": "Lote 1"
+  },
+  {
+    "name": "Drafts WG14 (N2610 - C17 final draft, N2756 - C23)",
+    "category": "PRIMÁRIA",
+    "type": "PDF",
+    "primary_url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2610.pdf",
+    "mirror_url": "https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2756.pdf",
+    "availability": "Públicos e atualizados sempre que o comitê libera novas revisões",
+    "license": "Distribuição livre autorizada pelo WG14",
+    "collection_strategy": "Baixar os PDFs via wget, salvar em data/knowledge_raw/c/wg14/ e manter changelog/hash para detectar novas revisões; chunk por seção numerada",
+    "priority": "Imediata",
+    "batch": "Lote 1"
+  },
+  {
+    "name": "The Open Group Base Specifications Issue 7 (POSIX.1-2017)",
+    "category": "PRIMÁRIA",
+    "type": "HTML",
+    "primary_url": "https://pubs.opengroup.org/onlinepubs/9699919799/",
+    "mirror_url": "https://www.opengroup.org/ogspecs/posix.1-2017",
+    "availability": "Sempre online e gratuito",
+    "license": "Open Group (atribuir conforme https://www.opengroup.org/copyright)",
+    "collection_strategy": "Mirror completo com wget -r -np -k para data/knowledge_raw/c/posix; mapear capítulos sobre stdio, stdlib, pthread e unistd para chunking",
+    "priority": "Alta",
+    "batch": "Lote 1"
+  },
+  {
+    "name": "cppreference: C language + headers",
+    "category": "SECUNDÁRIA",
+    "type": "HTML",
+    "primary_url": "https://en.cppreference.com/w/c/language",
+    "mirror_url": "https://en.cppreference.com/w/c/header",
+    "availability": "Wiki pública, atualizada constantemente",
+    "license": "CC BY-SA (atribuição exigida)",
+    "collection_strategy": "Clonar https://github.com/cppreference/cppreference e baixar páginas language/header via mwclient para data/knowledge_raw/c/cppreference; registrar commit usado",
+    "priority": "Média",
+    "batch": "Lote 3"
+  },
+  {
+    "name": "Man7 / man-pages (seções 2 e 3)",
+    "category": "SECUNDÁRIA",
+    "type": "HTML/TROFF",
+    "primary_url": "https://man7.org/linux/man-pages/dir_section_2.html",
+    "mirror_url": "https://github.com/man-pages/man-pages",
+    "availability": "Downloads públicos via man7 e releases man-pages-6.xx.tar.xz",
+    "license": "GNU General Public License (GPL)",
+    "collection_strategy": "Clonar o repositório oficial, converter troff em HTML/texto usando man -Thtml e armazenar em data/knowledge_raw/c/man-pages; focar em funções printf(3), pthread_create(3), read(2) e similares",
+    "priority": "Moderada",
+    "batch": "Lote 3"
+  }
+]

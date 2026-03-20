@@ -1,0 +1,48 @@
+{
+  "generated": "2026-03-19T05:45:00Z",
+  "domain": "linux",
+  "sources": [
+    {
+      "name": "Kernel Documentation",
+      "category": "PRIMARY",
+      "type": "HTML/KERNEL",
+      "url": "https://www.kernel.org/doc/html/latest/",
+      "notes": "Subsystems, kernel APIs, filesystems."
+    },
+    {
+      "name": "systemd Documentation",
+      "category": "PRIMARY",
+      "type": "HTML/SYSTEMD",
+      "url": "https://www.freedesktop.org/wiki/Software/systemd/",
+      "notes": "Units, journal, networkd, timers."
+    },
+    {
+      "name": "systemd Man Pages",
+      "category": "PRIMARY",
+      "type": "MAN/SYSTEMD",
+      "url": "https://www.freedesktop.org/software/systemd/man/index.html",
+      "notes": "Command reference for systemctl, journalctl, busctl."
+    },
+    {
+      "name": "Linux Networking",
+      "category": "PRIMARY",
+      "type": "HTML/NETWORK",
+      "url": "https://www.kernel.org/doc/html/latest/networking/",
+      "notes": "Protocols, kernel networking stack."
+    },
+    {
+      "name": "Linux Man Pages",
+      "category": "PRIMARY",
+      "type": "MAN/PAGES",
+      "url": "https://man7.org/linux/man-pages/dir_section_1.html",
+      "notes": "Commands like ps, ip, mount, journalctl."
+    }
+  ],
+  "notes": {
+    "scope": "Official upstream kernel, systemd/freedesktop and man7 documentation covering administration, networking, filesystems, and processes.",
+    "next_steps": [
+      "Fetch approved documents into `data/knowledge_raw/linux/` with hash tracking.",
+      "Convert each to markdown preserving command examples and sections."
+    ]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "front": "POSTGRESQL",
+  "model": "text-embedding-3-large",
+  "embedding_dim": 3072,
+  "chunk_index_path": "/lab/projects/livecopilot/data/semantic_index_experiments/postgresql",
+  "queries": [
+    {
+      "query": "postgresql architecture",
+      "top1": "architecture-chunks.json",
+      "top3": [
+        "architecture-chunks.json",
+        "indexing-chunks.json",
+        "sql_commands-chunks.json"
+      ],
+      "noise": "none",
+      "adherence": "strong"
+    },
+    {
+      "query": "sql commands postgres",
+      "top1": "sql_commands-chunks.json",
+      "top3": [
+        "sql_commands-chunks.json",
+        "architecture-chunks.json",
+        "jsonb-chunks.json"
+      ],
+      "noise": "none",
+      "adherence": "strong"
+    },
+    {
+      "query": "postgres indexing",
+      "top1": "indexing-chunks.json",
+      "top3": [
+        "indexing-chunks.json",
+        "sql_commands-chunks.json",
+        "architecture-chunks.json"
+      ],
+      "noise": "none",
+      "adherence": "strong"
+    },
+    {
+      "query": "postgres jsonb",
+      "top1": "jsonb-chunks.json",
+      "top3": [
+        "jsonb-chunks.json",
+        "indexing-chunks.json",
+        "sql_commands-chunks.json"
+      ],
+      "noise": "none",
+      "adherence": "strong"
+    }
+  ],
+  "decision": "baseline approved"
+}

@@ -1,0 +1,225 @@
+{
+  "run_id": "20260315T081014Z",
+  "questions": [
+    {
+      "timestamp": "2026-03-15T08:10:06.304575+00:00",
+      "domain": "Terraform",
+      "question": "Para que serve o arquivo de state no Terraform?",
+      "http_status": 200,
+      "answer": "No Terraform, o state guarda o mapeamento da infraestrutura real e ajuda a determinar quais mudanças precisam ser aplicadas.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:06.363129+00:00",
+      "domain": "Terraform",
+      "question": "Qual a diferenca entre terraform plan e terraform apply?",
+      "http_status": 200,
+      "answer": "No Terraform, `plan` mostra as mudanças previstas antes da execução; `apply` executa essas mudanças na infraestrutura.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:06.420764+00:00",
+      "domain": "Terraform",
+      "question": "O que e um backend no Terraform?",
+      "http_status": 200,
+      "answer": "No Terraform, backend é o componente que define onde o state fica armazenado e como ele é acessado, podendo ser local ou remoto.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:06.478773+00:00",
+      "domain": "Terraform",
+      "question": "Quando usar modulos no Terraform?",
+      "http_status": 200,
+      "answer": "Use modulos no Terraform quando when to write a module in principle any combination of resources and other constructs can be factored out into a module, but over-using modules can make your overall terraform",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:06.537082+00:00",
+      "domain": "Terraform",
+      "question": "O que e um workspace no Terraform?",
+      "http_status": 200,
+      "answer": "um workspace no Terraform é workspaces allow the use of multiple states with a single configuration directory",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:06.595551+00:00",
+      "domain": "Kubernetes",
+      "question": "Qual a diferenca entre Pod e Service no Kubernetes?",
+      "http_status": 200,
+      "answer": "No Kubernetes, Pod é a unidade que executa os containers e recebe IP próprio; Service oferece um ponto estável para alcançar e distribuir tráfego para um conjunto de Pods.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:06.645947+00:00",
+      "domain": "Kubernetes",
+      "question": "O que e um Namespace no Kubernetes?",
+      "http_status": 200,
+      "answer": "um Namespace no Kubernetes é namespaces provide a scope for names",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:06.691577+00:00",
+      "domain": "Kubernetes",
+      "question": "O que e um ConfigMap no Kubernetes?",
+      "http_status": 200,
+      "answer": "No Kubernetes, um ConfigMap é um recurso usado para armazenar configurações não sensíveis separadas da imagem do container. Ele permite injetar variáveis de ambiente, arquivos de configuração ou parâmetros dentro dos Pods.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:06.736771+00:00",
+      "domain": "Kubernetes",
+      "question": "Para que serve um Deployment no Kubernetes?",
+      "http_status": 200,
+      "answer": "um Deployment no Kubernetes serve para a _deployment_ provides declarative updates for and",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:06.780929+00:00",
+      "domain": "Kubernetes",
+      "question": "Quando usar um Ingress no Kubernetes?",
+      "http_status": 200,
+      "answer": "Use um Ingress no Kubernetes quando what is ingress",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:06.825803+00:00",
+      "domain": "Docker",
+      "question": "Para que serve um Dockerfile?",
+      "http_status": 200,
+      "answer": "Dockerfile é um arquivo de instruções usado para construir uma imagem Docker. Ele define passos como qual imagem base usar, quais arquivos copiar, quais comandos executar e qual processo será iniciado quando o container rodar.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:06.869639+00:00",
+      "domain": "Docker",
+      "question": "O que e port publishing no Docker?",
+      "http_status": 200,
+      "answer": "port publishing no Docker é keywords: network, iptables, firewall --- by default, for both ipv4 and ipv6, the docker d",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:06.914492+00:00",
+      "domain": "Docker",
+      "question": "O que e o host network driver no Docker?",
+      "http_status": 200,
+      "answer": "o host network driver no Docker é keywords: network, host, standalone, host mode networking - /network",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:06.959128+00:00",
+      "domain": "Docker",
+      "question": "Para que serve o modo rootless no Docker?",
+      "http_status": 200,
+      "answer": "o modo rootless no Docker serve para keywords: security, namespaces, rootless --- rootless mode lets you run t",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:07.002716+00:00",
+      "domain": "Docker",
+      "question": "O que e content trust no Docker?",
+      "http_status": 200,
+      "answer": "content trust no Docker é keywords: content, trust, security, docker, documentation - /engine/security/trust/content",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:07.048110+00:00",
+      "domain": "Observabilidade",
+      "question": "O que faz o Alertmanager?",
+      "http_status": 200,
+      "answer": "O Alertmanager recebe alertas, agrupa ocorrencias relacionadas, aplica rotas e silenciamentos, e envia as notificacoes para os canais configurados.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:07.092165+00:00",
+      "domain": "Observabilidade",
+      "question": "O que e uma recording rule no Prometheus?",
+      "http_status": 200,
+      "answer": "No Prometheus, uma recording rule precomputa uma consulta e grava o resultado como uma nova série temporal, o que acelera consultas e simplifica alertas.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:07.136956+00:00",
+      "domain": "Observabilidade",
+      "question": "O que e uma alerting rule no Prometheus?",
+      "http_status": 200,
+      "answer": "uma alerting rule no Prometheus é alerting rules allow you to define alert conditions based on prometheus expression language expressions and to send notifications about",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta manteve coerência."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:07.180334+00:00",
+      "domain": "Observabilidade",
+      "question": "Para que serve o promtool?",
+      "http_status": 200,
+      "answer": "Promtool e a CLI do Prometheus que valida arquivos de configuracao, testa regras de alertas e executa consultas para garantir que a instancia esteja ajustada antes de rodar em producao.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "FALHA",
+      "justification": "Resposta segue parcial/documental após front matter filter."
+    },
+    {
+      "timestamp": "2026-03-15T08:10:07.224714+00:00",
+      "domain": "Observabilidade",
+      "question": "O que e uma notification policy no Grafana Alerting?",
+      "http_status": 200,
+      "answer": "uma notification policy no Grafana Alerting é /notification-policies/notifications/ /docs/grafana//alerting/fundamentals/notification-policies/notifications/",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "Resposta manteve coerência."
+    }
+  ]
+}

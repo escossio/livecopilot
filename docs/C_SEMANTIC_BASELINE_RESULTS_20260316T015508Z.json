@@ -1,0 +1,291 @@
+{
+  "generated_at": "2026-03-16T01:55:08.532376+00:00",
+  "lexical_source": "docs/C_CHUNK_LOCAL_VALIDATION_RESULTS_20260315T110000Z.json",
+  "semantic_source": "tmp/c_semantic_search_results.json",
+  "questions": [
+    {
+      "question": "O que é comportamento definido pela implementação em C?",
+      "lexical": {
+        "chunk_path": "data/knowledge_chunks/c/posix_issue7/posix_issue7-05.txt",
+        "source_family": "posix_issue7",
+        "source_file": "read.txt",
+        "title": "read",
+        "score": 30,
+        "evaluation": "RESPONDIVEL",
+        "classification": "COERENTE",
+        "snippet": "NAME SYNOPSIS #include < unistd.h > ssize_t pread(int fildes , void * buf , size_t nbyte , off_t offset ); ssize_t read(int fildes , void * buf , size_t nbyte ); DESCRIPTION The read () function shall attempt to read nbyte bytes from the file associated with the open file descriptor, fildes , into the buffer pointed to by buf . The behavior of multiple concurrent reads on the same pipe, FIFO, or t",
+        "justification": "RESPONDIVEL com score 30 e palavras-chave encontradas"
+      },
+      "semantic": {
+        "chunk_id": "wg14-01",
+        "chunk_path": "data/knowledge_chunks/c/wg14/wg14-01.txt",
+        "source_family": "wg14",
+        "source_file": "n2756.txt",
+        "title": "1. INTRODUCTION",
+        "section": "section",
+        "score": 0.3491,
+        "classification": "COERENTE",
+        "snippet": "Unfortunately, there are many different interpretations of the C standard to explain behavior (or not) of uninitialized objects. In particular, it is debated endlessly where and when reading of such objects or acting on the resulting values has undefined behavior or where it leads to unspecified results or unspecified control flow. It seems that some optimizing compilers rely on some of these inte",
+        "justification": "WG14 fala diretamente sobre implementações e comportamento indefinido, trazendo contexto de comportamento definido pela implementação."
+      },
+      "comparison_note": "semântico similar"
+    },
+    {
+      "question": "O que é locale em C?",
+      "lexical": {
+        "chunk_path": "data/knowledge_chunks/c/man7/man7-03.txt",
+        "source_family": "man7",
+        "source_file": "printf-3.txt",
+        "title": "printf(3) DESCRIPTION",
+        "score": 12,
+        "evaluation": "RESPONDIVEL",
+        "classification": "COERENTE",
+        "snippet": "The functions in the printf() family produce output according to a for‐ mat as described below.  The functions  printf()  and  vprintf()  write output  to stdout, the standard output stream; fprintf() and vfprintf() write  output  to  the  given  output  stream;  sprintf(),  snprintf(), vsprintf(), and vsnprintf() write to the character string str. The  function dprintf() is the same as fprintf() ",
+        "justification": "RESPONDIVEL com score 12 e palavras-chave encontradas"
+      },
+      "semantic": {
+        "chunk_id": "cppreference_c-08",
+        "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-08.txt",
+        "source_family": "cppreference_c",
+        "source_file": "header.txt",
+        "title": "<ctype.h>",
+        "section": "header entry",
+        "score": 0.3612,
+        "classification": "FALHA",
+        "snippet": "<ctype.h>",
+        "justification": "O chunk selecionado é apenas o título <ctype.h>; não há explicação sobre locales."
+      },
+      "comparison_note": "semântico pior"
+    },
+    {
+      "question": "Para que serve stdio.h?",
+      "lexical": {
+        "chunk_path": "data/knowledge_chunks/c/posix_issue7/posix_issue7-01.txt",
+        "source_family": "posix_issue7",
+        "source_file": "stdio.h.txt",
+        "title": "stdio.h",
+        "score": 103,
+        "evaluation": "RESPONDIVEL",
+        "classification": "COERENTE",
+        "snippet": "NAME SYNOPSIS #include <stdio.h> DESCRIPTION The <stdio.h> header shall define the following data types through typedef : FILE A structure containing information about a file. fpos_t A non-array type containing all information needed to specify uniquely every position within a file. off_t As described in <sys/types.h> . size_t As described in <stddef.h> . ssize_t [ CX ] As described in <sys/types.",
+        "justification": "RESPONDIVEL com score 103 e palavras-chave encontradas"
+      },
+      "semantic": {
+        "chunk_id": "posix_issue7-01",
+        "chunk_path": "data/knowledge_chunks/c/posix_issue7/posix_issue7-01.txt",
+        "source_family": "posix_issue7",
+        "source_file": "stdio.h.txt",
+        "title": "stdio.h",
+        "section": "function",
+        "score": 0.4867,
+        "classification": "COERENTE",
+        "snippet": "NAME SYNOPSIS #include <stdio.h> DESCRIPTION The <stdio.h> header shall define the following data types through typedef : FILE A structure containing information about a file. fpos_t A non-array type containing all information needed to specify uniquely every position within a file. off_t As described in <sys/types.h> . size_t As described in <stddef.h> . ssize_t [ CX ] As described in <sys/types.",
+        "justification": "Chunk stdio.h enumera os tipos e a responsabilidade do cabeçalho, respondendo ao propósito do header."
+      },
+      "comparison_note": "semântico similar"
+    },
+    {
+      "question": "O que pthread_create faz?",
+      "lexical": {
+        "chunk_path": "data/knowledge_chunks/c/posix_issue7/posix_issue7-03.txt",
+        "source_family": "posix_issue7",
+        "source_file": "pthread.h.txt",
+        "title": "pthread.h",
+        "score": 764,
+        "evaluation": "RESPONDIVEL",
+        "classification": "COERENTE",
+        "snippet": "NAME SYNOPSIS #include <pthread.h> DESCRIPTION The <pthread.h> header shall define the following symbolic constants: PTHREAD_BARRIER_SERIAL_THREAD PTHREAD_CANCEL_ASYNCHRONOUS PTHREAD_CANCEL_ENABLE PTHREAD_CANCEL_DEFERRED PTHREAD_CANCEL_DISABLE PTHREAD_CANCELED PTHREAD_CREATE_DETACHED PTHREAD_CREATE_JOINABLE [ TPS ] PTHREAD_EXPLICIT_SCHED PTHREAD_INHERIT_SCHED PTHREAD_MUTEX_DEFAULT PTHREAD_MUTEX_ER",
+        "justification": "RESPONDIVEL com score 764 e palavras-chave encontradas"
+      },
+      "semantic": {
+        "chunk_id": "posix_issue7-04",
+        "chunk_path": "data/knowledge_chunks/c/posix_issue7/posix_issue7-04.txt",
+        "source_family": "posix_issue7",
+        "source_file": "pthread_create.txt",
+        "title": "pthread_create",
+        "section": "function",
+        "score": 0.5675,
+        "classification": "COERENTE",
+        "snippet": "NAME SYNOPSIS #include < pthread.h > int pthread_create(pthread_t *restrict thread , const pthread_attr_t *restrict attr , void *(* start_routine )(void*), void *restrict arg ); DESCRIPTION The pthread_create () function shall create a new thread, with attributes specified by attr , within a process. If attr is NULL, the default attributes shall be used. If the attributes specified by attr are mod",
+        "justification": "Chunk pthread_create descreve assinatura e comportamento da criação de threads."
+      },
+      "comparison_note": "semântico similar"
+    },
+    {
+      "question": "O que read faz?",
+      "lexical": {
+        "chunk_path": "data/knowledge_chunks/c/posix_issue7/posix_issue7-03.txt",
+        "source_family": "posix_issue7",
+        "source_file": "pthread.h.txt",
+        "title": "pthread.h",
+        "score": 380,
+        "evaluation": "RESPONDIVEL",
+        "classification": "COERENTE",
+        "snippet": "NAME SYNOPSIS #include <pthread.h> DESCRIPTION The <pthread.h> header shall define the following symbolic constants: PTHREAD_BARRIER_SERIAL_THREAD PTHREAD_CANCEL_ASYNCHRONOUS PTHREAD_CANCEL_ENABLE PTHREAD_CANCEL_DEFERRED PTHREAD_CANCEL_DISABLE PTHREAD_CANCELED PTHREAD_CREATE_DETACHED PTHREAD_CREATE_JOINABLE [ TPS ] PTHREAD_EXPLICIT_SCHED PTHREAD_INHERIT_SCHED PTHREAD_MUTEX_DEFAULT PTHREAD_MUTEX_ER",
+        "justification": "RESPONDIVEL com score 380 e palavras-chave encontradas"
+      },
+      "semantic": {
+        "chunk_id": "posix_issue7-05",
+        "chunk_path": "data/knowledge_chunks/c/posix_issue7/posix_issue7-05.txt",
+        "source_family": "posix_issue7",
+        "source_file": "read.txt",
+        "title": "read",
+        "section": "function",
+        "score": 0.3189,
+        "classification": "COERENTE",
+        "snippet": "NAME SYNOPSIS #include < unistd.h > ssize_t pread(int fildes , void * buf , size_t nbyte , off_t offset ); ssize_t read(int fildes , void * buf , size_t nbyte ); DESCRIPTION The read () function shall attempt to read nbyte bytes from the file associated with the open file descriptor, fildes , into the buffer pointed to by buf . The behavior of multiple concurrent reads on the same pipe, FIFO, or t",
+        "justification": "Chunk read() explica a função, parâmetros e efeito de leitura, adequando-se à pergunta."
+      },
+      "comparison_note": "semântico similar"
+    },
+    {
+      "question": "O que é <assert.h>?",
+      "lexical": {
+        "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-06.txt",
+        "source_family": "cppreference_c",
+        "source_file": "header.txt",
+        "title": "<assert.h>",
+        "score": 2,
+        "evaluation": "PARCIALMENTE_RESPONDIVEL",
+        "classification": "PARCIALMENTE COERENTE",
+        "snippet": "<assert.h>",
+        "justification": "PARCIALMENTE_RESPONDIVEL com score 2 e palavras-chave encontradas"
+      },
+      "semantic": {
+        "chunk_id": "cppreference_c-06",
+        "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-06.txt",
+        "source_family": "cppreference_c",
+        "source_file": "header.txt",
+        "title": "<assert.h>",
+        "section": "header entry",
+        "score": 0.7503,
+        "classification": "FALHA",
+        "snippet": "<assert.h>",
+        "justification": "O chunk contém apenas o nome do cabeçalho sem detalhes úteis."
+      },
+      "comparison_note": "semântico pior"
+    },
+    {
+      "question": "Para que serve assert?",
+      "lexical": {
+        "chunk_path": "data/knowledge_chunks/c/posix_issue7/posix_issue7-01.txt",
+        "source_family": "posix_issue7",
+        "source_file": "stdio.h.txt",
+        "title": "stdio.h",
+        "score": 6,
+        "evaluation": "RESPONDIVEL",
+        "classification": "COERENTE",
+        "snippet": "NAME SYNOPSIS #include <stdio.h> DESCRIPTION The <stdio.h> header shall define the following data types through typedef : FILE A structure containing information about a file. fpos_t A non-array type containing all information needed to specify uniquely every position within a file. off_t As described in <sys/types.h> . size_t As described in <stddef.h> . ssize_t [ CX ] As described in <sys/types.",
+        "justification": "RESPONDIVEL com score 6 e palavras-chave encontradas"
+      },
+      "semantic": {
+        "chunk_id": "cppreference_c-06",
+        "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-06.txt",
+        "source_family": "cppreference_c",
+        "source_file": "header.txt",
+        "title": "<assert.h>",
+        "section": "header entry",
+        "score": 0.5559,
+        "classification": "FALHA",
+        "snippet": "<assert.h>",
+        "justification": "Mesmo chunk minimalista não fornece justificativa sobre assert()."
+      },
+      "comparison_note": "semântico pior"
+    },
+    {
+      "question": "O que printf retorna?",
+      "lexical": {
+        "chunk_path": "data/knowledge_chunks/c/man7/man7-04.txt",
+        "source_family": "man7",
+        "source_file": "printf-3.txt",
+        "title": "printf(3) RETURN VALUE",
+        "score": 69,
+        "evaluation": "RESPONDIVEL",
+        "classification": "COERENTE",
+        "snippet": "Upon successful return, these functions return the number of characters printed (excluding the null byte used to end output to strings). The functions snprintf() and vsnprintf() do not write  more  than  size bytes  (including the terminating null byte ('\\0')).  If the output was truncated due to this limit, then the return value  is  the  number  of characters  (excluding the terminating null byt",
+        "justification": "RESPONDIVEL com score 69 e palavras-chave encontradas"
+      },
+      "semantic": {
+        "chunk_id": "man7-04",
+        "chunk_path": "data/knowledge_chunks/c/man7/man7-04.txt",
+        "source_family": "man7",
+        "source_file": "printf-3.txt",
+        "title": "printf(3) RETURN VALUE",
+        "section": "RETURN VALUE",
+        "score": 0.4529,
+        "classification": "COERENTE",
+        "snippet": "Upon successful return, these functions return the number of characters printed (excluding the null byte used to end output to strings). The functions snprintf() and vsnprintf() do not write  more  than  size bytes  (including the terminating null byte ('\\0')).  If the output was truncated due to this limit, then the return value  is  the  number  of characters  (excluding the terminating null byt",
+        "justification": "Return value do man7 explica exatamente o valor devolvido e condições de truncamento."
+      },
+      "comparison_note": "semântico similar"
+    },
+    {
+      "question": "Quando printf pode falhar?",
+      "lexical": {
+        "chunk_path": "data/knowledge_chunks/c/posix_issue7/posix_issue7-05.txt",
+        "source_family": "posix_issue7",
+        "source_file": "read.txt",
+        "title": "read",
+        "score": 99,
+        "evaluation": "RESPONDIVEL",
+        "classification": "COERENTE",
+        "snippet": "NAME SYNOPSIS #include < unistd.h > ssize_t pread(int fildes , void * buf , size_t nbyte , off_t offset ); ssize_t read(int fildes , void * buf , size_t nbyte ); DESCRIPTION The read () function shall attempt to read nbyte bytes from the file associated with the open file descriptor, fildes , into the buffer pointed to by buf . The behavior of multiple concurrent reads on the same pipe, FIFO, or t",
+        "justification": "RESPONDIVEL com score 99 e palavras-chave encontradas"
+      },
+      "semantic": {
+        "chunk_id": "man7-04",
+        "chunk_path": "data/knowledge_chunks/c/man7/man7-04.txt",
+        "source_family": "man7",
+        "source_file": "printf-3.txt",
+        "title": "printf(3) RETURN VALUE",
+        "section": "RETURN VALUE",
+        "score": 0.4542,
+        "classification": "COERENTE",
+        "snippet": "Upon successful return, these functions return the number of characters printed (excluding the null byte used to end output to strings). The functions snprintf() and vsnprintf() do not write  more  than  size bytes  (including the terminating null byte ('\\0')).  If the output was truncated due to this limit, then the return value  is  the  number  of characters  (excluding the terminating null byt",
+        "justification": "Mesma seção relata valores negativos retornados em caso de erro de saída."
+      },
+      "comparison_note": "semântico similar"
+    }
+  ],
+  "family_summary": {
+    "lexical": {
+      "posix_issue7": {
+        "COERENTE": 6,
+        "PARCIALMENTE COERENTE": 0,
+        "FALHA": 0
+      },
+      "man7": {
+        "COERENTE": 2,
+        "PARCIALMENTE COERENTE": 0,
+        "FALHA": 0
+      },
+      "cppreference_c": {
+        "COERENTE": 0,
+        "PARCIALMENTE COERENTE": 1,
+        "FALHA": 0
+      }
+    },
+    "semantic": {
+      "wg14": {
+        "COERENTE": 1,
+        "PARCIALMENTE COERENTE": 0,
+        "FALHA": 0
+      },
+      "cppreference_c": {
+        "COERENTE": 0,
+        "PARCIALMENTE COERENTE": 0,
+        "FALHA": 3
+      },
+      "posix_issue7": {
+        "COERENTE": 3,
+        "PARCIALMENTE COERENTE": 0,
+        "FALHA": 0
+      },
+      "man7": {
+        "COERENTE": 2,
+        "PARCIALMENTE COERENTE": 0,
+        "FALHA": 0
+      }
+    }
+  }
+}

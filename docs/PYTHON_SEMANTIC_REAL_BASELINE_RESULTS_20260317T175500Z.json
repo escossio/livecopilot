@@ -1,0 +1,186 @@
+[
+  {
+    "question": "O que é um módulo em Python?",
+    "lexical": {
+      "chunk_id": "tutorial-module-1",
+      "source_family": "tutorial",
+      "source_file": "tutorial",
+      "title": "Defining a module in Python",
+      "section": "h1",
+      "snippet": "Python is an easy to learn, powerful programming language. After reading it, you will be able to read and write Python modules and programs, and you will be ready to learn more about the various Python library modules described in The Python Standard Library. For a description of standard objects and modules, see The Python Standard Library. The Python Lang...",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "tutorial-module-1",
+      "source_family": "tutorial",
+      "source_file": "tutorial",
+      "title": "Defining a module in Python",
+      "section": "h1",
+      "snippet": "Python is an easy to learn, powerful programming language. After reading it, you will be able to read and write Python modules and programs, and you will be ready to learn more about the various Python library modules described in The Python Standard Library. For a description of standard objects and modules, see The Python Standard Library. The Python Lang...",
+      "similarity": 0.4342,
+      "classification": "COERENTE"
+    },
+    "justification": "O semântico devolve tutorial-module-1 (similaridade 0.4342) e a classificação ficou COERENTE."
+  },
+  {
+    "question": "O que é uma exceção em Python?",
+    "lexical": {
+      "chunk_id": "exceptions-concept-1",
+      "source_family": "builtins_exceptions",
+      "source_file": "exceptions",
+      "title": "Core exception concepts",
+      "section": "h1",
+      "snippet": "In Python, all exceptions must be instances of a class that derives from BaseException. In a try statement with an except clause that mentions a particular class, that clause also handles any exception classes derived from that class (but not exception classes from which it is derived). Two exception classes that are not related via subclassing are never equ...",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "exceptions-concept-1",
+      "source_family": "builtins_exceptions",
+      "source_file": "exceptions",
+      "title": "Core exception concepts",
+      "section": "h1",
+      "snippet": "In Python, all exceptions must be instances of a class that derives from BaseException. In a try statement with an except clause that mentions a particular class, that clause also handles any exception classes derived from that class (but not exception classes from which it is derived). Two exception classes that are not related via subclassing are never equ...",
+      "similarity": 0.5269,
+      "classification": "COERENTE"
+    },
+    "justification": "O semântico devolve exceptions-concept-1 (similaridade 0.5269) e a classificação ficou COERENTE."
+  },
+  {
+    "question": "Para que serve pathlib?",
+    "lexical": {
+      "chunk_id": "pathlib-1",
+      "source_family": "modules",
+      "source_file": "pathlib",
+      "title": "pathlib — Object-oriented filesystem paths ¶",
+      "section": "h1",
+      "snippet": "pathlib — Object-oriented filesystem paths ¶ Added in version 3.4. Source code: Lib/pathlib/ This module offers classes representing filesystem paths with semantics appropriate for different operating systems. Path classes are divided between pure paths , which provide purely computational operations without I/O, and concrete paths , which inherit from pure...",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "pathlib-20",
+      "source_family": "modules",
+      "source_file": "pathlib",
+      "title": "Comparison to the os and os.path modules ¶",
+      "section": "h2",
+      "snippet": "Comparison to the os and os.path modules ¶ pathlib implements path operations using PurePath and Path objects, and so it’s said to be object-oriented . On the other hand, the os and os.path modules supply functions that work with low-level str and bytes objects, which is a more procedural approach. Some users consider the object-oriented style to be more rea...",
+      "similarity": 0.5304,
+      "classification": "PARCIALMENTE COERENTE"
+    },
+    "justification": "Lexical continua com pathlib-1; o semântico retornou pathlib-20, que compara pathlib aos módulos os/os.path e, por focar em trade-offs, responde apenas parcialmente “para que serve pathlib?”, ficando PARCIALMENTE COERENTE."
+  },
+  {
+    "question": "O que subprocess.run() faz?",
+    "lexical": {
+      "chunk_id": "subprocess-1",
+      "source_family": "modules",
+      "source_file": "subprocess",
+      "title": "subprocess — Subprocess management ¶",
+      "section": "h1",
+      "snippet": "subprocess — Subprocess management ¶ Source code: Lib/subprocess.py The subprocess module allows you to spawn new processes, connect to their input/output/error pipes, and obtain their return codes. This module intends to replace several older modules and functions: os . system os . spawn * Information about how the subprocess module can be used to replace t...",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "subprocess-1",
+      "source_family": "modules",
+      "source_file": "subprocess",
+      "title": "subprocess — Subprocess management ¶",
+      "section": "h1",
+      "snippet": "subprocess — Subprocess management ¶ Source code: Lib/subprocess.py The subprocess module allows you to spawn new processes, connect to their input/output/error pipes, and obtain their return codes. This module intends to replace several older modules and functions: os . system os . spawn * Information about how the subprocess module can be used to replace t...",
+      "similarity": 0.504,
+      "classification": "COERENTE"
+    },
+    "justification": "O semântico devolve subprocess-1 (similaridade 0.504) e a classificação ficou COERENTE."
+  },
+  {
+    "question": "Para que serve json.dumps()?",
+    "lexical": {
+      "chunk_id": "json-1",
+      "source_family": "modules",
+      "source_file": "json",
+      "title": "json — JSON encoder and decoder ¶",
+      "section": "h1",
+      "snippet": "ionaries alphabetically by key. Added in version 3.5. --no-ensure-ascii ¶ Disable escaping of non-ascii characters, see json.dumps() for more information. Added in version 3.9. --json-lines ¶ Parse every input line as separate JSON object. Added in version 3.8. --indent , --tab , --no-indent , --compact ¶ Mutually exclusive options for whitespace control. Ad...",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "json-1",
+      "source_family": "modules",
+      "source_file": "json",
+      "title": "json — JSON encoder and decoder ¶",
+      "section": "h1",
+      "snippet": "ionaries alphabetically by key. Added in version 3.5. --no-ensure-ascii ¶ Disable escaping of non-ascii characters, see json.dumps() for more information. Added in version 3.9. --json-lines ¶ Parse every input line as separate JSON object. Added in version 3.8. --indent , --tab , --no-indent , --compact ¶ Mutually exclusive options for whitespace control. Ad...",
+      "similarity": 0.4283,
+      "classification": "COERENTE"
+    },
+    "justification": "O semântico devolve json-1 (similaridade 0.4283) e a classificação ficou COERENTE."
+  },
+  {
+    "question": "O que argparse faz?",
+    "lexical": {
+      "chunk_id": "argparse-1",
+      "source_family": "modules",
+      "source_file": "argparse",
+      "title": "argparse — Parser for command-line options, arguments and subcommands ¶",
+      "section": "h1",
+      "snippet": "argparse — Parser for command-line options, arguments and subcommands ¶ Added in version 3.2. Source code: Lib/argparse.py Note While argparse is the default recommended standard library module for implementing basic command line applications, authors with more exacting requirements for exactly how their command line applications behave may find it doesn’t p...",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "argparse-1",
+      "source_family": "modules",
+      "source_file": "argparse",
+      "title": "argparse — Parser for command-line options, arguments and subcommands ¶",
+      "section": "h1",
+      "snippet": "argparse — Parser for command-line options, arguments and subcommands ¶ Added in version 3.2. Source code: Lib/argparse.py Note While argparse is the default recommended standard library module for implementing basic command line applications, authors with more exacting requirements for exactly how their command line applications behave may find it doesn’t p...",
+      "similarity": 0.5034,
+      "classification": "COERENTE"
+    },
+    "justification": "O semântico devolve argparse-1 (similaridade 0.5034) e a classificação ficou COERENTE."
+  },
+  {
+    "question": "Para que serve venv?",
+    "lexical": {
+      "chunk_id": "venv-1",
+      "source_family": "modules",
+      "source_file": "venv",
+      "title": "venv — Creation of virtual environments",
+      "section": "h1",
+      "snippet": "The venv module supports creating lightweight “virtual environments”, each with their own independent set of Python packages installed in their site directories. A virtual environment is created on top of an existing Python installation, known as the virtual environment's “base” Python, and by default is isolated from the packages in the base environment, so...",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "venv-1",
+      "source_family": "modules",
+      "source_file": "venv",
+      "title": "venv — Creation of virtual environments",
+      "section": "h1",
+      "snippet": "The venv module supports creating lightweight “virtual environments”, each with their own independent set of Python packages installed in their site directories. A virtual environment is created on top of an existing Python installation, known as the virtual environment's “base” Python, and by default is isolated from the packages in the base environment, so...",
+      "similarity": 0.6005,
+      "classification": "COERENTE"
+    },
+    "justification": "O semântico devolve venv-1 (similaridade 0.6005) e a classificação ficou COERENTE."
+  },
+  {
+    "question": "O que typing faz?",
+    "lexical": {
+      "chunk_id": "typing-1",
+      "source_family": "modules",
+      "source_file": "typing",
+      "title": "typing — Support for type hints",
+      "section": "h1",
+      "snippet": "ion and variable type annotations. They can be used by third party tools such as type checkers, IDEs, linters, etc. The typing module provides runtime support for type hints. Consider the function below: def surface_area_of_cube(edge_length: float) -> str: return f\"The surface area of the cube is {6 * edge_length**2}.\" The function surface_area_of_cube takes...",
+      "classification": "COERENTE"
+    },
+    "semantic": {
+      "chunk_id": "typing-1",
+      "source_family": "modules",
+      "source_file": "typing",
+      "title": "typing — Support for type hints",
+      "section": "h1",
+      "snippet": "ion and variable type annotations. They can be used by third party tools such as type checkers, IDEs, linters, etc. The typing module provides runtime support for type hints. Consider the function below: def surface_area_of_cube(edge_length: float) -> str: return f\"The surface area of the cube is {6 * edge_length**2}.\" The function surface_area_of_cube takes...",
+      "similarity": 0.3091,
+      "classification": "COERENTE"
+    },
+    "justification": "O semântico devolve typing-1 (similaridade 0.3091) e a classificação ficou COERENTE."
+  }
+]

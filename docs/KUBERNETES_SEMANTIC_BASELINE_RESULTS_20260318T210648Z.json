@@ -1,0 +1,128 @@
+{
+  "domain": "kubernetes_core",
+  "model": "text-embedding-3-large",
+  "source_embeddings": "data/semantic_index_experiments/kubernetes_pilot/embeddings.jsonl",
+  "generated_at": "2026-03-18T21:06:59.023955+00:00",
+  "questions": [
+    {
+      "question": "What is a Kubernetes cluster?",
+      "expected_topic": "cluster",
+      "lexical_top_chunk_id": "kubernetes-namespace-0007",
+      "lexical_top_title": "namespace",
+      "semantic_top_chunk_id": "kubernetes-core-0001",
+      "semantic_top_title": "pods",
+      "semantic_score": 0.542315,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What is a node in Kubernetes?",
+      "expected_topic": "node",
+      "lexical_top_chunk_id": "kubernetes-core-0002",
+      "lexical_top_title": "deployment",
+      "semantic_top_chunk_id": "kubernetes-core-0001",
+      "semantic_top_title": "pods",
+      "semantic_score": 0.642531,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What is a pod?",
+      "expected_topic": "pod",
+      "lexical_top_chunk_id": "kubernetes-core-0004",
+      "lexical_top_title": "probes",
+      "semantic_top_chunk_id": "kubernetes-core-0001",
+      "semantic_top_title": "pods",
+      "semantic_score": 0.569385,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What is a deployment?",
+      "expected_topic": "deployment",
+      "lexical_top_chunk_id": "kubernetes-core-0002",
+      "lexical_top_title": "deployment",
+      "semantic_top_chunk_id": "kubernetes-core-0002",
+      "semantic_top_title": "deployment",
+      "semantic_score": 0.558047,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What is a service in Kubernetes?",
+      "expected_topic": "service",
+      "lexical_top_chunk_id": "kubernetes-networking-0001",
+      "lexical_top_title": "service",
+      "semantic_top_chunk_id": "kubernetes-networking-0001",
+      "semantic_top_title": "service",
+      "semantic_score": 0.655483,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What is a namespace?",
+      "expected_topic": "namespace",
+      "lexical_top_chunk_id": "kubernetes-namespace-0007",
+      "lexical_top_title": "namespace",
+      "semantic_top_chunk_id": "kubernetes-namespace-0007",
+      "semantic_top_title": "namespace",
+      "semantic_score": 0.613287,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What is a ConfigMap?",
+      "expected_topic": "configmap",
+      "lexical_top_chunk_id": "kubernetes-secret-0008",
+      "lexical_top_title": "secret",
+      "semantic_top_chunk_id": "kubernetes-core-0003",
+      "semantic_top_title": "configmap",
+      "semantic_score": 0.689863,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What is a Secret in Kubernetes?",
+      "expected_topic": "secret",
+      "lexical_top_chunk_id": "kubernetes-secret-0008",
+      "lexical_top_title": "secret",
+      "semantic_top_chunk_id": "kubernetes-secret-0008",
+      "semantic_top_title": "secret",
+      "semantic_score": 0.738108,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What are volumes in Kubernetes?",
+      "expected_topic": "volumes",
+      "lexical_top_chunk_id": "kubernetes-storage-0001",
+      "lexical_top_title": "volumes",
+      "semantic_top_chunk_id": "kubernetes-storage-0001",
+      "semantic_top_title": "volumes",
+      "semantic_score": 0.700156,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What are liveness and readiness probes?",
+      "expected_topic": "probes",
+      "lexical_top_chunk_id": "kubernetes-core-0004",
+      "lexical_top_title": "probes",
+      "semantic_top_chunk_id": "kubernetes-core-0004",
+      "semantic_top_title": "probes",
+      "semantic_score": 0.779283,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What does kubectl do?",
+      "expected_topic": "kubectl",
+      "lexical_top_chunk_id": "kubernetes-cli-0001",
+      "lexical_top_title": "kubectl",
+      "semantic_top_chunk_id": "kubernetes-cli-0001",
+      "semantic_top_title": "kubectl",
+      "semantic_score": 0.683362,
+      "classification": "COERENTE"
+    },
+    {
+      "question": "What is a Kubernetes manifest YAML?",
+      "expected_topic": "yaml manifests",
+      "lexical_top_chunk_id": "kubernetes-core-0006",
+      "lexical_top_title": "yaml manifests",
+      "semantic_top_chunk_id": "kubernetes-core-0006",
+      "semantic_top_title": "yaml manifests",
+      "semantic_score": 0.75214,
+      "classification": "COERENTE"
+    }
+  ]
+}

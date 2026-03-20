@@ -1,0 +1,149 @@
+{
+  "run_id": "20260315T065905Z",
+  "questions": [
+    {
+      "timestamp": "2026-03-15T06:59:10Z",
+      "domain": "Terraform",
+      "question": "Para que serve o arquivo de state no Terraform?",
+      "http_status": 200,
+      "answer": "No Terraform, o state guarda o mapeamento da infraestrutura real e ajuda a determinar quais mudanças precisam ser aplicadas.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "source_titles": [
+        "index",
+        "purpose"
+      ],
+      "context": "QUERY: Para que serve o arquivo de state no Terraform? SOURCE: terraform_docs_selected/language/state/index.md TITLE: index SIGNALS: none SNIPPET: Terraform uses state to determine which changes to make to your...",
+      "classification": "COERENTE",
+      "justification": "responde diretamente ao papel do state e segue aderente ao corpus."
+    },
+    {
+      "timestamp": "2026-03-15T06:59:11Z",
+      "domain": "Terraform",
+      "question": "Qual a diferenca entre terraform plan e terraform apply?",
+      "http_status": 200,
+      "answer": "No Terraform, `plan` mostra as mudanças previstas antes da execução; `apply` executa essas mudanças na infraestrutura.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "source_titles": [
+        "index",
+        "apply"
+      ],
+      "context": "QUERY: Qual a diferenca entre terraform plan e terraform apply? SOURCE: terraform_docs_selected_incremental_round2/content/terraform/v1.14.x/docs/cli/run/index.md TITLE: index SIGNALS: none SNIPPET: ### Plan The...",
+      "classification": "COERENTE",
+      "justification": "diferencia previsao e execucao de forma direta."
+    },
+    {
+      "timestamp": "2026-03-15T06:59:12Z",
+      "domain": "Terraform",
+      "question": "O que e um backend no Terraform?",
+      "http_status": 200,
+      "answer": "No Terraform, backend é o componente que define onde o state fica armazenado e como ele é acessado, podendo ser local ou remoto.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "source_titles": [
+        "index",
+        "index"
+      ],
+      "context": "QUERY: O que e um backend no Terraform? SOURCE: terraform_docs_selected/language/backend/index.md TITLE: index SIGNALS: none SNIPPET: ### Default backend Terraform uses a backend called...",
+      "classification": "COERENTE",
+      "justification": "agora responde o conceito de backend no Terraform e nao mais o backend do Livecopilot."
+    },
+    {
+      "timestamp": "2026-03-15T06:59:13Z",
+      "domain": "Kubernetes",
+      "question": "Qual a diferenca entre Pod e Service no Kubernetes?",
+      "http_status": 200,
+      "answer": "No Kubernetes, Pod é a unidade que executa os containers e recebe IP próprio; Service oferece um ponto estável para alcançar e distribuir tráfego para um conjunto de Pods.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "source_titles": [
+        "service",
+        "service"
+      ],
+      "context": "QUERY: Qual a diferenca entre Pod e Service no Kubernetes? SOURCE: kubernetes_docs_selected/content/en/docs/concepts/services-networking/service.md TITLE: service SIGNALS: none SNIPPET: Each Pod gets its own IP address...",
+      "classification": "COERENTE",
+      "justification": "distingue corretamente unidade de execucao e ponto estavel de acesso."
+    },
+    {
+      "timestamp": "2026-03-15T06:59:15Z",
+      "domain": "Kubernetes",
+      "question": "O que e um Namespace no Kubernetes?",
+      "http_status": 200,
+      "answer": "Namespaces provide a scope for names. Names of resources need to be unique within a namespace, but not across namespaces.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "source_titles": [
+        "namespaces",
+        "namespaces"
+      ],
+      "context": "QUERY: O que e um Namespace no Kubernetes? SOURCE: kubernetes_docs_selected/content/en/docs/concepts/overview/working-with-objects/namespaces.md TITLE: namespaces SIGNALS: none SNIPPET: Namespaces provide a scope for...",
+      "classification": "COERENTE",
+      "justification": "segue correto, embora em ingles."
+    },
+    {
+      "timestamp": "2026-03-15T06:59:16Z",
+      "domain": "Kubernetes",
+      "question": "O que e um ConfigMap no Kubernetes?",
+      "http_status": 200,
+      "answer": "## ConfigMap object A ConfigMap is an {{< glossary_tooltip text=\"API object\" term_id=\"object\" >}} that lets you store configuration for other objects to use. Unlike most Kubernete Além disso, title: ConfigMaps api_metadata: - apiVersion: \"v1\" kind:...",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "source_titles": [
+        "configmap",
+        "configmap"
+      ],
+      "context": "QUERY: O que e um ConfigMap no Kubernetes? SOURCE: kubernetes_docs_selected/content/en/docs/concepts/configuration/configmap.md TITLE: configmap SIGNALS: none SNIPPET: ## ConfigMap object A ConfigMap is an {{<...",
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "permanece no topico certo, mas ainda sai como trecho cru da documentacao."
+    },
+    {
+      "timestamp": "2026-03-15T06:59:17Z",
+      "domain": "Docker",
+      "question": "Para que serve um Dockerfile?",
+      "http_status": 200,
+      "answer": "Docker solves the \"it works on my machine\" problem by packaging applications and their dependencies into containers. This makes it easy to run the same application on different env Além disso, ## Create a base image If you need to completely control the...",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "source_titles": [
+        "multi platform",
+        "base images"
+      ],
+      "context": "QUERY: Para que serve um Dockerfile? SOURCE: docker_docs_selected/content/manuals/build/building/multi-platform.md TITLE: multi platform SIGNALS: none SNIPPET: Docker solves the \"it works on my machine\" problem by...",
+      "classification": "PARCIALMENTE COERENTE",
+      "justification": "continua no dominio certo, mas ainda nao sintetiza diretamente a funcao do Dockerfile."
+    },
+    {
+      "timestamp": "2026-03-15T06:59:18Z",
+      "domain": "Observabilidade",
+      "question": "O que faz o Alertmanager?",
+      "http_status": 200,
+      "answer": "O Alertmanager recebe alertas, agrupa ocorrencias relacionadas, aplica rotas e silenciamentos, e envia as notificacoes para os canais configurados.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "source_titles": [
+        "alertmanager",
+        "alerting rules"
+      ],
+      "context": "QUERY: O que faz o Alertmanager? SOURCE: observability_docs_selected/alertmanager/docs/alertmanager.md TITLE: alertmanager SIGNALS: none SNIPPET: --- title: Alertmanager sort_rank: 2 nav_icon: sliders --- The...",
+      "classification": "COERENTE",
+      "justification": "segue coerente apos o ajuste do domain gating e da sintese de Observabilidade."
+    },
+    {
+      "timestamp": "2026-03-15T06:59:19Z",
+      "domain": "Observabilidade",
+      "question": "O que e uma recording rule no Prometheus?",
+      "http_status": 200,
+      "answer": "No Prometheus, uma recording rule precomputa uma consulta e grava o resultado como uma nova série temporal, o que acelera consultas e simplifica alertas.",
+      "backend": "semantic_local",
+      "result_count": 3,
+      "source_titles": [
+        "recording rules",
+        "recording rules"
+      ],
+      "context": "QUERY: O que e uma recording rule no Prometheus? SOURCE: observability_docs_selected/prometheus/docs/configuration/recording_rules.md TITLE: recording rules SIGNALS: none SNIPPET: --- title: Defining recording rules...",
+      "classification": "COERENTE",
+      "justification": "segue coerente com sintese limpa e aderente ao corpus."
+    }
+  ]
+}

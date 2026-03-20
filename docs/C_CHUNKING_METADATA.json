@@ -1,0 +1,228 @@
+[
+  {
+    "chunk_id": "wg14-01",
+    "source_family": "wg14",
+    "source_file": "n2756.txt",
+    "title": "1. INTRODUCTION",
+    "section": "section",
+    "chunk_path": "data/knowledge_chunks/c/wg14/wg14-01.txt",
+    "size_words": 280
+  },
+  {
+    "chunk_id": "wg14-02",
+    "source_family": "wg14",
+    "source_file": "n2756.txt",
+    "title": "2. LIMITS AND EXPECTATIONS FOR THE CONCRETE MEMORY MODEL",
+    "section": "section",
+    "chunk_path": "data/knowledge_chunks/c/wg14/wg14-02.txt",
+    "size_words": 269
+  },
+  {
+    "chunk_id": "wg14-03",
+    "source_family": "wg14",
+    "source_file": "n2756.txt",
+    "title": "2      unsigned char x ;",
+    "section": "section",
+    "chunk_path": "data/knowledge_chunks/c/wg14/wg14-03.txt",
+    "size_words": 41
+  },
+  {
+    "chunk_id": "wg14-04",
+    "source_family": "wg14",
+    "source_file": "n2756.txt",
+    "title": "4      return x ;",
+    "section": "section",
+    "chunk_path": "data/knowledge_chunks/c/wg14/wg14-04.txt",
+    "size_words": 2
+  },
+  {
+    "chunk_id": "posix_issue7-01",
+    "source_family": "posix_issue7",
+    "source_file": "stdio.h.txt",
+    "title": "stdio.h",
+    "section": "function",
+    "chunk_path": "data/knowledge_chunks/c/posix_issue7/posix_issue7-01.txt",
+    "size_words": 1341
+  },
+  {
+    "chunk_id": "posix_issue7-02",
+    "source_family": "posix_issue7",
+    "source_file": "stdlib.h.txt",
+    "title": "stdlib.h",
+    "section": "function",
+    "chunk_path": "data/knowledge_chunks/c/posix_issue7/posix_issue7-02.txt",
+    "size_words": 970
+  },
+  {
+    "chunk_id": "posix_issue7-03",
+    "source_family": "posix_issue7",
+    "source_file": "pthread.h.txt",
+    "title": "pthread.h",
+    "section": "function",
+    "chunk_path": "data/knowledge_chunks/c/posix_issue7/posix_issue7-03.txt",
+    "size_words": 1341
+  },
+  {
+    "chunk_id": "posix_issue7-04",
+    "source_family": "posix_issue7",
+    "source_file": "pthread_create.txt",
+    "title": "pthread_create",
+    "section": "function",
+    "chunk_path": "data/knowledge_chunks/c/posix_issue7/posix_issue7-04.txt",
+    "size_words": 1661
+  },
+  {
+    "chunk_id": "posix_issue7-05",
+    "source_family": "posix_issue7",
+    "source_file": "read.txt",
+    "title": "read",
+    "section": "function",
+    "chunk_path": "data/knowledge_chunks/c/posix_issue7/posix_issue7-05.txt",
+    "size_words": 3643
+  },
+  {
+    "chunk_id": "cppreference_c-01",
+    "source_family": "cppreference_c",
+    "source_file": "language.txt",
+    "title": "Basic concepts",
+    "section": "language section",
+    "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-01.txt",
+    "size_words": 3
+  },
+  {
+    "chunk_id": "cppreference_c-02",
+    "source_family": "cppreference_c",
+    "source_file": "language.txt",
+    "title": "Keywords",
+    "section": "language section",
+    "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-02.txt",
+    "size_words": 4
+  },
+  {
+    "chunk_id": "cppreference_c-03",
+    "source_family": "cppreference_c",
+    "source_file": "language.txt",
+    "title": "Preprocessor",
+    "section": "language section",
+    "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-03.txt",
+    "size_words": 7
+  },
+  {
+    "chunk_id": "cppreference_c-04",
+    "source_family": "cppreference_c",
+    "source_file": "language.txt",
+    "title": "Statements",
+    "section": "language section",
+    "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-04.txt",
+    "size_words": 9
+  },
+  {
+    "chunk_id": "cppreference_c-05",
+    "source_family": "cppreference_c",
+    "source_file": "language.txt",
+    "title": "Expressions",
+    "section": "language section",
+    "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-05.txt",
+    "size_words": 10
+  },
+  {
+    "chunk_id": "cppreference_c-06",
+    "source_family": "cppreference_c",
+    "source_file": "header.txt",
+    "title": "<assert.h>",
+    "section": "header entry",
+    "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-06.txt",
+    "size_words": 1
+  },
+  {
+    "chunk_id": "cppreference_c-07",
+    "source_family": "cppreference_c",
+    "source_file": "header.txt",
+    "title": "<complex.h>",
+    "section": "header entry",
+    "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-07.txt",
+    "size_words": 1
+  },
+  {
+    "chunk_id": "cppreference_c-08",
+    "source_family": "cppreference_c",
+    "source_file": "header.txt",
+    "title": "<ctype.h>",
+    "section": "header entry",
+    "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-08.txt",
+    "size_words": 1
+  },
+  {
+    "chunk_id": "cppreference_c-09",
+    "source_family": "cppreference_c",
+    "source_file": "header.txt",
+    "title": "<errno.h>",
+    "section": "header entry",
+    "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-09.txt",
+    "size_words": 1
+  },
+  {
+    "chunk_id": "cppreference_c-10",
+    "source_family": "cppreference_c",
+    "source_file": "header.txt",
+    "title": "<fenv.h>",
+    "section": "header entry",
+    "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-10.txt",
+    "size_words": 1
+  },
+  {
+    "chunk_id": "man7-01",
+    "source_family": "man7",
+    "source_file": "printf-3.txt",
+    "title": "printf(3) NAME",
+    "section": "NAME",
+    "chunk_path": "data/knowledge_chunks/c/man7/man7-01.txt",
+    "size_words": 21
+  },
+  {
+    "chunk_id": "man7-02",
+    "source_family": "man7",
+    "source_file": "printf-3.txt",
+    "title": "printf(3) SYNOPSIS",
+    "section": "SYNOPSIS",
+    "chunk_path": "data/knowledge_chunks/c/man7/man7-02.txt",
+    "size_words": 127
+  },
+  {
+    "chunk_id": "man7-03",
+    "source_family": "man7",
+    "source_file": "printf-3.txt",
+    "title": "printf(3) DESCRIPTION",
+    "section": "DESCRIPTION",
+    "chunk_path": "data/knowledge_chunks/c/man7/man7-03.txt",
+    "size_words": 2900
+  },
+  {
+    "chunk_id": "man7-04",
+    "source_family": "man7",
+    "source_file": "printf-3.txt",
+    "title": "printf(3) RETURN VALUE",
+    "section": "RETURN VALUE",
+    "chunk_path": "data/knowledge_chunks/c/man7/man7-04.txt",
+    "size_words": 753
+  }
+,
+  {
+    "chunk_id": "man7-05",
+    "source_family": "man7",
+    "source_file": "locale.7",
+    "title": "locale(7) overview",
+    "section": "description",
+    "chunk_path": "data/knowledge_chunks/c/man7/man7-05.txt",
+    "size_words": 237
+  },
+  {
+    "chunk_id": "man7-06",
+    "source_family": "man7",
+    "source_file": "assert.3",
+    "title": "assert(3) macro",
+    "section": "description",
+    "chunk_path": "data/knowledge_chunks/c/man7/man7-06.txt",
+    "size_words": 180
+  }
+]

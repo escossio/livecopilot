@@ -1,0 +1,156 @@
+{
+  "generated_at": "2026-03-16T02:02:00.000000+00:00",
+  "questions": [
+    {
+      "question": "O que é locale em C?",
+      "lexical_before": {
+        "chunk_path": "data/knowledge_chunks/c/man7/man7-03.txt",
+        "source_family": "man7",
+        "source_file": "printf-3.txt",
+        "title": "printf(3) DESCRIPTION",
+        "score": 12,
+        "evaluation": "RESPONDIVEL",
+        "classification": "COERENTE",
+        "snippet": "The functions in the printf() family produce output according to a for‐ mat as described below.  The functions  printf()  and  vprintf()  write output  to stdout, the standard output stream; fprintf() and vfprintf() write  output  to  the  given  output  stream;  sprintf(),  snprintf(), vsprintf(), and vsnprintf() write to the character string str. The  function dprintf() is the same as fprintf() ",
+        "justification": "RESPONDIVEL com score 12 e palavras-chave encontradas"
+      },
+      "lexical_after": {
+        "question": "O que é locale em C?",
+        "chunk_id": "man7-05",
+        "chunk_path": "data/knowledge_chunks/c/man7/man7-05.txt",
+        "source_family": "man7",
+        "source_file": "locale.7",
+        "title": "locale(7) overview",
+        "section": "description",
+        "score": 31,
+        "classification": "COERENTE",
+        "snippet": "a locale is a collection of language and cultural rules such as the language in which messages appear, character sets, and lexicographic conventions. the standard header <locale.h> declares the types, functions, and macros needed to adapt a program to these variations.  the primary helpers are setlocale(3), which installs the current locale for one of the predefined categories, and localeconv(3), ",
+        "justification": "COERENTE because text mentions locale, setlocale"
+      },
+      "semantic_before": {
+        "chunk_id": "cppreference_c-08",
+        "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-08.txt",
+        "source_family": "cppreference_c",
+        "source_file": "header.txt",
+        "title": "<ctype.h>",
+        "section": "header entry",
+        "score": 0.3612,
+        "classification": "FALHA",
+        "snippet": "<ctype.h>",
+        "justification": "O chunk selecionado é apenas o título <ctype.h>; não há explicação sobre locales."
+      },
+      "semantic_after": {
+        "chunk_id": "man7-05",
+        "chunk_path": "data/knowledge_chunks/c/man7/man7-05.txt",
+        "source_family": "man7",
+        "source_file": "locale.7",
+        "title": "locale(7) overview",
+        "score": 0.5443,
+        "classification": "COERENTE",
+        "snippet": "A locale is a collection of language and cultural rules such as the language in which messages appear, character sets, and lexicographic conventions. The standard header <locale.h> declares the types, functions, and macros needed to adapt a program to these variations.  The primary helpers are setlocale(3), which installs the current locale for one of the predefined categories, and localeconv(3), ",
+        "justification": "Detailed locale context"
+      }
+    },
+    {
+      "question": "O que é <assert.h>?",
+      "lexical_before": {
+        "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-06.txt",
+        "source_family": "cppreference_c",
+        "source_file": "header.txt",
+        "title": "<assert.h>",
+        "score": 2,
+        "evaluation": "PARCIALMENTE_RESPONDIVEL",
+        "classification": "PARCIALMENTE COERENTE",
+        "snippet": "<assert.h>",
+        "justification": "PARCIALMENTE_RESPONDIVEL com score 2 e palavras-chave encontradas"
+      },
+      "lexical_after": {
+        "question": "O que é <assert.h>?",
+        "chunk_id": "man7-06",
+        "chunk_path": "data/knowledge_chunks/c/man7/man7-06.txt",
+        "source_family": "man7",
+        "source_file": "assert.3",
+        "title": "assert(3) macro",
+        "section": "description",
+        "score": 12,
+        "classification": "COERENTE",
+        "snippet": "the header <assert.h> defines the assert(expression) macro to abort the program when a boolean expression is false. when an assertion fails, assert prints an error message on stderr that includes the program name, the source file, the line number, and the expression text, and then calls abort(3), helping developers locate bugs or enforce invariants.  if the macro ndebug is defined before including",
+        "justification": "COERENTE because text mentions assert.h, assert"
+      },
+      "semantic_before": {
+        "chunk_id": "cppreference_c-06",
+        "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-06.txt",
+        "source_family": "cppreference_c",
+        "source_file": "header.txt",
+        "title": "<assert.h>",
+        "section": "header entry",
+        "score": 0.7503,
+        "classification": "FALHA",
+        "snippet": "<assert.h>",
+        "justification": "O chunk contém apenas o nome do cabeçalho sem detalhes úteis."
+      },
+      "semantic_after": {
+        "chunk_id": "cppreference_c-06",
+        "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-06.txt",
+        "source_family": "cppreference_c",
+        "source_file": "header.txt",
+        "title": "<assert.h>",
+        "score": 0.7502,
+        "classification": "FALHA",
+        "snippet": "<assert.h>",
+        "justification": "Chunk remains limited to the header name <assert.h>"
+      }
+    },
+    {
+      "question": "Para que serve assert?",
+      "lexical_before": {
+        "chunk_path": "data/knowledge_chunks/c/posix_issue7/posix_issue7-01.txt",
+        "source_family": "posix_issue7",
+        "source_file": "stdio.h.txt",
+        "title": "stdio.h",
+        "score": 6,
+        "evaluation": "RESPONDIVEL",
+        "classification": "COERENTE",
+        "snippet": "NAME SYNOPSIS #include <stdio.h> DESCRIPTION The <stdio.h> header shall define the following data types through typedef : FILE A structure containing information about a file. fpos_t A non-array type containing all information needed to specify uniquely every position within a file. off_t As described in <sys/types.h> . size_t As described in <stddef.h> . ssize_t [ CX ] As described in <sys/types.",
+        "justification": "RESPONDIVEL com score 6 e palavras-chave encontradas"
+      },
+      "lexical_after": {
+        "question": "Para que serve assert?",
+        "chunk_id": "man7-06",
+        "chunk_path": "data/knowledge_chunks/c/man7/man7-06.txt",
+        "source_family": "man7",
+        "source_file": "assert.3",
+        "title": "assert(3) macro",
+        "section": "description",
+        "score": 18,
+        "classification": "COERENTE",
+        "snippet": "the header <assert.h> defines the assert(expression) macro to abort the program when a boolean expression is false. when an assertion fails, assert prints an error message on stderr that includes the program name, the source file, the line number, and the expression text, and then calls abort(3), helping developers locate bugs or enforce invariants.  if the macro ndebug is defined before including",
+        "justification": "COERENTE because text mentions assert, macro"
+      },
+      "semantic_before": {
+        "chunk_id": "cppreference_c-06",
+        "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-06.txt",
+        "source_family": "cppreference_c",
+        "source_file": "header.txt",
+        "title": "<assert.h>",
+        "section": "header entry",
+        "score": 0.5559,
+        "classification": "FALHA",
+        "snippet": "<assert.h>",
+        "justification": "Mesmo chunk minimalista não fornece justificativa sobre assert()."
+      },
+      "semantic_after": {
+        "chunk_id": "cppreference_c-06",
+        "chunk_path": "data/knowledge_chunks/c/cppreference_c/cppreference_c-06.txt",
+        "source_family": "cppreference_c",
+        "source_file": "header.txt",
+        "title": "<assert.h>",
+        "score": 0.5559,
+        "classification": "FALHA",
+        "snippet": "<assert.h>",
+        "justification": "Chunk remains limited to the header name <assert.h>"
+      }
+    }
+  ],
+  "notes": "locale now maps to man7-05, while assert still depends on cppreference minimal text; lexical now prefers the new man7 chunks."
+}

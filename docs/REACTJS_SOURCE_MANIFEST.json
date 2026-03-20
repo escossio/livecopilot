@@ -1,0 +1,34 @@
+{
+  "generated": "2026-03-19T16:42:15Z",
+  "domain": "reactjs",
+  "sources": [
+    {
+      "name": "React.dev Homepage",
+      "category": "PRIMARY",
+      "type": "HTML/HOMEPAGE",
+      "url": "https://react.dev/",
+      "notes": "Visão geral, filosofia e pontes para os principais guias."
+    },
+    {
+      "name": "React.dev Learn",
+      "category": "PRIMARY",
+      "type": "HTML/LEARN",
+      "url": "https://react.dev/learn",
+      "notes": "Capítulos detalhados sobre componentes, props/state, hooks e efeitos."
+    },
+    {
+      "name": "React.dev API Reference",
+      "category": "PRIMARY",
+      "type": "HTML/REFERENCE",
+      "url": "https://react.dev/reference/react",
+      "notes": "Referência oficial de APIs, hooks e utilitários documentados pelo React Team."
+    }
+  ],
+  "notes": {
+    "scope": "Conteúdo oficial do domínio `react.dev`, focado na API pública do React 18+ e em fluxos recomendados.",
+    "next_steps": [
+      "Capturar os URLs aprovados em `data/knowledge_raw/reactjs/` e registrar hashes antes de parsing.",
+      "Expandir o manifest caso o React Team publique novas seções no domínio oficial."
+    ]
+  }
+}

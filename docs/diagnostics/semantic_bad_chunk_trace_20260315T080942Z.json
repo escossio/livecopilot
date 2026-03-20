@@ -1,0 +1,183 @@
+{
+  "run_id": "20260315T080942Z",
+  "entries": [
+    {
+      "domain": "Terraform",
+      "question": "Quando usar modulos no Terraform?",
+      "intent": "when_to_use",
+      "before_chunk_type": "use",
+      "before_snippet": "## When to write a module\n\nIn principle any combination of resources and other constructs can be factored\nout into a module, but over-using modules can make your overall Terraform\n",
+      "after_chunk_type": "use",
+      "after_snippet": "## When to write a module\n\nIn principle any combination of resources and other constructs can be factored\nout into a module, but over-using modules can make your overall Terraform\n",
+      "score": 0.650396,
+      "noise_penalty": 0.0,
+      "noise_reasons": [],
+      "improved": false,
+      "direction": "use -> use",
+      "source_file": "terraform_docs_selected/language/modules/develop/index.md"
+    },
+    {
+      "domain": "Terraform",
+      "question": "O que e um workspace no Terraform?",
+      "intent": "what_is",
+      "before_chunk_type": "noise",
+      "before_snippet": "---\npage_title: 'State: Workspaces'\ndescription: >-\nWorkspaces allow the use of multiple states with a single configuration\ndirectory.\n# START AUTO GENERATED METADATA, DO NOT EDIT\n",
+      "after_chunk_type": "noise",
+      "after_snippet": "---\npage_title: 'State: Workspaces'\ndescription: >-\nWorkspaces allow the use of multiple states with a single configuration\ndirectory.\n# START AUTO GENERATED METADATA, DO NOT EDIT\n",
+      "score": 0.642986,
+      "noise_penalty": 0.37,
+      "noise_reasons": [
+        "page_title",
+        "description",
+        "generated_metadata"
+      ],
+      "improved": false,
+      "direction": "noise -> noise",
+      "source_file": "terraform_docs_selected/language/state/workspaces.md"
+    },
+    {
+      "domain": "Kubernetes",
+      "question": "Para que serve um Deployment no Kubernetes?",
+      "intent": "purpose",
+      "before_chunk_type": "definition",
+      "before_snippet": "A _Deployment_ provides declarative updates for {{< glossary_tooltip text=\"Pods\" term_id=\"pod\" >}} and\n{{< glossary_tooltip term_id=\"replica-set\" text=\"ReplicaSets\" >}}.\n\nYou descr",
+      "after_chunk_type": "definition",
+      "after_snippet": "A _Deployment_ provides declarative updates for {{< glossary_tooltip text=\"Pods\" term_id=\"pod\" >}} and\n{{< glossary_tooltip term_id=\"replica-set\" text=\"ReplicaSets\" >}}.\n\nYou descr",
+      "score": 0.624734,
+      "noise_penalty": 0.0,
+      "noise_reasons": [],
+      "improved": false,
+      "direction": "definition -> definition",
+      "source_file": "kubernetes_docs_selected/content/en/docs/concepts/workloads/controllers/deployment.md"
+    },
+    {
+      "domain": "Kubernetes",
+      "question": "Quando usar um Ingress no Kubernetes?",
+      "intent": "when_to_use",
+      "before_chunk_type": "definition",
+      "before_snippet": "## What is Ingress?\n\n[Ingress](/docs/reference/generated/kubernetes-api/{{< param \"version\" >}}/#ingress-v1-networking-k8s-io)\nexposes HTTP and HTTPS routes from outside the cluste",
+      "after_chunk_type": "definition",
+      "after_snippet": "## What is Ingress?\n\n[Ingress](/docs/reference/generated/kubernetes-api/{{< param \"version\" >}}/#ingress-v1-networking-k8s-io)\nexposes HTTP and HTTPS routes from outside the cluste",
+      "score": 0.61126,
+      "noise_penalty": 0.08,
+      "noise_reasons": [
+        "docs_path"
+      ],
+      "improved": false,
+      "direction": "definition -> definition",
+      "source_file": "kubernetes_docs_selected/content/en/docs/concepts/services-networking/ingress.md"
+    },
+    {
+      "domain": "Docker",
+      "question": "O que e port publishing no Docker?",
+      "intent": "what_is",
+      "before_chunk_type": "noise",
+      "before_snippet": "---\ntitle: Port publishing and mapping\nweight: 10\ndescription: Accessing container ports\nkeywords: network, iptables, firewall\n---\n\nBy default, for both IPv4 and IPv6, the Docker d",
+      "after_chunk_type": "noise",
+      "after_snippet": "---\ntitle: Port publishing and mapping\nweight: 10\ndescription: Accessing container ports\nkeywords: network, iptables, firewall\n---\n\nBy default, for both IPv4 and IPv6, the Docker d",
+      "score": 0.578649,
+      "noise_penalty": 0.6,
+      "noise_reasons": [
+        "front_matter",
+        "description",
+        "keywords"
+      ],
+      "improved": false,
+      "direction": "noise -> noise",
+      "source_file": "docker_docs_selected/content/manuals/engine/network/port-publishing.md"
+    },
+    {
+      "domain": "Docker",
+      "question": "O que e o host network driver no Docker?",
+      "intent": "what_is",
+      "before_chunk_type": "noise",
+      "before_snippet": "---\ntitle: Host network driver\ndescription: All about exposing containers on the Docker host's network\nkeywords: network, host, standalone, host mode networking\naliases:\n- /network",
+      "after_chunk_type": "noise",
+      "after_snippet": "---\ntitle: Host network driver\ndescription: All about exposing containers on the Docker host's network\nkeywords: network, host, standalone, host mode networking\naliases:\n- /network",
+      "score": 0.655415,
+      "noise_penalty": 0.39,
+      "noise_reasons": [
+        "description",
+        "keywords",
+        "aliases"
+      ],
+      "improved": false,
+      "direction": "noise -> noise",
+      "source_file": "docker_docs_selected/content/manuals/engine/network/drivers/host.md"
+    },
+    {
+      "domain": "Docker",
+      "question": "Para que serve o modo rootless no Docker?",
+      "intent": "purpose",
+      "before_chunk_type": "noise",
+      "before_snippet": "---\ndescription: Run the Docker daemon as a non-root user (Rootless mode)\nkeywords: security, namespaces, rootless\ntitle: Rootless mode\nweight: 10\n---\n\nRootless mode lets you run t",
+      "after_chunk_type": "noise",
+      "after_snippet": "---\ndescription: Run the Docker daemon as a non-root user (Rootless mode)\nkeywords: security, namespaces, rootless\ntitle: Rootless mode\nweight: 10\n---\n\nRootless mode lets you run t",
+      "score": 0.612108,
+      "noise_penalty": 0.6,
+      "noise_reasons": [
+        "front_matter",
+        "description",
+        "keywords"
+      ],
+      "improved": false,
+      "direction": "noise -> noise",
+      "source_file": "docker_docs_selected/content/manuals/engine/security/rootless/_index.md"
+    },
+    {
+      "domain": "Docker",
+      "question": "O que e content trust no Docker?",
+      "intent": "what_is",
+      "before_chunk_type": "noise",
+      "before_snippet": "---\ndescription: Enabling content trust in Docker\nkeywords: content, trust, security, docker, documentation\ntitle: Content trust in Docker\naliases:\n- /engine/security/trust/content",
+      "after_chunk_type": "noise",
+      "after_snippet": "---\ndescription: Enabling content trust in Docker\nkeywords: content, trust, security, docker, documentation\ntitle: Content trust in Docker\naliases:\n- /engine/security/trust/content",
+      "score": 0.691296,
+      "noise_penalty": 0.39,
+      "noise_reasons": [
+        "description",
+        "keywords",
+        "aliases"
+      ],
+      "improved": false,
+      "direction": "noise -> noise",
+      "source_file": "docker_docs_selected/content/manuals/engine/security/trust/_index.md"
+    },
+    {
+      "domain": "Observabilidade",
+      "question": "O que e uma alerting rule no Prometheus?",
+      "intent": "what_is",
+      "before_chunk_type": "noise",
+      "before_snippet": "---\ntitle: Alerting rules\nsort_rank: 3\n---\n\nAlerting rules allow you to define alert conditions based on Prometheus\nexpression language expressions and to send notifications about ",
+      "after_chunk_type": "noise",
+      "after_snippet": "---\ntitle: Alerting rules\nsort_rank: 3\n---\n\nAlerting rules allow you to define alert conditions based on Prometheus\nexpression language expressions and to send notifications about ",
+      "score": 0.714854,
+      "noise_penalty": 0.35,
+      "noise_reasons": [
+        "front_matter"
+      ],
+      "improved": false,
+      "direction": "noise -> noise",
+      "source_file": "observability_docs_selected/prometheus/docs/configuration/alerting_rules.md"
+    },
+    {
+      "domain": "Observabilidade",
+      "question": "O que e uma notification policy no Grafana Alerting?",
+      "intent": "what_is",
+      "before_chunk_type": "noise",
+      "before_snippet": "---\naliases:\n- ../notification-policies/notifications/ # /docs/grafana/<GRAFANA_VERSION>/alerting/fundamentals/notification-policies/notifications/\ncanonical: https://grafana.com/d",
+      "after_chunk_type": "noise",
+      "after_snippet": "---\naliases:\n- ../notification-policies/notifications/ # /docs/grafana/<GRAFANA_VERSION>/alerting/fundamentals/notification-policies/notifications/\ncanonical: https://grafana.com/d",
+      "score": 0.701117,
+      "noise_penalty": 0.28,
+      "noise_reasons": [
+        "aliases",
+        "docs_path",
+        "notification_path"
+      ],
+      "improved": false,
+      "direction": "noise -> noise",
+      "source_file": "observability_docs_selected/grafana/docs/sources/alerting/fundamentals/notifications/notification-policies.md"
+    }
+  ]
+}
