@@ -31,3 +31,9 @@
   - `o que falta`
   - `se precisa aprovacao`
   - `se houve erro`
+
+## Disciplina operacional do Codex
+- Antes de executar qualquer comando, cumprir o PRE-RUN CHECK documentado em `docs/CODEX_EXECUTION_CONTRACT.md` e garantir que todos os campos obrigatórios estejam presentes.
+- Toda rodada deve obedecer ao contrato operacional, referenciando o template em `docs/CODEX_INSTRUCTION_TEMPLATE.md` e registando o uso do watchdog descrito em `docs/CODEX_WATCHDOG_POLICY.md`.
+- O watchdog dispara quando há ação fora do escopo, alteração em muitos arquivos (>5), toque em arquivos críticos listados ou instruções que misturam domínios; nesses casos, justificar claramente e aguardar aprovação.
+- Antes de agir, comparar o `MODELO_RECOMENDADO` da instrução com o modelo ativo e seguir a política de `docs/CODEX_MODEL_POLICY.md`; em caso de divergência, responder com `MODEL POLICY WARNING` e aguardar confirmação humana.

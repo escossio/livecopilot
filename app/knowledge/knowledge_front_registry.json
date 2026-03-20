@@ -1,0 +1,187 @@
+{
+  "registry_version": "2026-03-19",
+  "last_updated": "2026-03-20T00:00:00Z",
+  "fronts": [
+    {
+      "name": "JAVA",
+      "status": "closed",
+      "index_path": "data/semantic_index_experiments/java_pilot",
+      "domain_summary": "Core Java language and platform documentation covering syntax, generics, collections, streams, concurrency primitives, and the standard APIs.",
+      "keywords": [
+        "java language",
+        "collections",
+        "streams",
+        "stream map",
+        "stream filter",
+        "collect",
+        "concurrency",
+        "jdk api"
+      ],
+      "enabled_for_routing": true,
+      "final_report": "docs/JAVA_FINAL_REPORT_20260319T042134Z.md",
+      "handoff": "docs/HANDOFF_LIVECOPILOT_JAVA_FRONT_CLOSURE_20260319T042134Z.md"
+    },
+    {
+      "name": "OPENAI_PRODUCTS",
+      "status": "closed",
+      "index_path": "data/semantic_index_experiments/openai_products",
+      "domain_summary": "Official OpenAI product documentation that spans the REST/Realtime APIs, GPT models, embeddings, and platform controls for API usage.",
+      "keywords": [
+        "openai api",
+        "openai models",
+        "realtime api",
+        "chatcompletions",
+        "embeddings",
+        "platform docs"
+      ],
+      "enabled_for_routing": true,
+      "final_report": "docs/OPENAI_PRODUCTS_FINAL_REPORT_20260319T050414Z.md",
+      "handoff": "docs/HANDOFF_LIVECOPILOT_OPENAI_PRODUCTS_FRONT_CLOSURE_20260319T050414Z.md"
+    },
+    {
+      "name": "TERRAFORM",
+      "status": "closed",
+      "index_path": "data/semantic_index_experiments/terraform_pilot",
+      "domain_summary": "HashiCorp Terraform core reference covering CLI commands, state handling, workspaces, backends, modules, and provider configuration semantics.",
+      "keywords": [
+        "terraform cli",
+        "terraform state",
+        "terraform workspaces",
+        "terraform modules",
+        "terraform backend",
+        "terraform plan",
+        "terraform apply"
+      ],
+      "enabled_for_routing": true,
+      "final_report": "docs/TERRAFORM_SEMANTIC_REFINEMENT_REPORT_20260318T190458Z.md",
+      "handoff": "docs/HANDOFF_LIVECOPILOT_TERRAFORM_SEMANTIC_REFINEMENT_20260318T190458Z.md"
+    },
+    {
+      "name": "DOCKER",
+      "status": "closed",
+      "index_path": "data/semantic_index_experiments/docker_pilot",
+      "domain_summary": "Docker runtime and tooling documentation covering images, containers, registries, networking, volumes, and Compose patterns.",
+      "keywords": [
+        "docker containers",
+        "docker images",
+        "docker networking",
+        "docker volumes",
+        "docker compose",
+        "dockerfile",
+        "multi-stage",
+        "bind mount",
+        "volume"
+      ],
+      "enabled_for_routing": true,
+      "final_report": "docs/DOCKER_FINAL_REPORT_20260319T021500Z.md",
+      "handoff": "docs/HANDOFF_LIVECOPILOT_DOCKER_FRONT_CLOSURE_20260319T021500Z.md"
+    },
+    {
+      "name": "KUBERNETES",
+      "status": "closed",
+      "index_path": "data/semantic_index_experiments/kubernetes_pilot",
+      "domain_summary": "Kubernetes core API reference that explains resources such as Pods, Services, Deployments, StatefulSets, scheduling, and networking behavior.",
+      "keywords": [
+        "kubernetes api",
+        "pods",
+        "deployments",
+        "services",
+        "cluster networking",
+        "statefulset"
+      ],
+      "enabled_for_routing": true,
+      "final_report": "docs/KUBERNETES_FINAL_REPORT_20260318T211000Z.md",
+      "handoff": "docs/HANDOFF_LIVECOPILOT_KUBERNETES_FRONT_CLOSURE_20260318T211000Z.md"
+    },
+    {
+      "name": "PYTHON",
+      "status": "closed",
+      "index_path": "data/semantic_index_experiments/python",
+      "domain_summary": "Python language reference, standard library, packaging guides, and async/CLI behaviors drawn from docs.python.org.",
+      "keywords": [
+        "python language",
+        "asyncio",
+        "stdlib",
+        "packaging",
+        "pip"
+      ],
+      "enabled_for_routing": true,
+      "final_report": "docs/PYTHON_FINAL_REPORT_20260319T063000Z.md",
+      "handoff": "docs/HANDOFF_LIVECOPILOT_PYTHON_FRONT_CLOSURE_20260319T063000Z.md"
+    },
+    {
+      "name": "POSTGRESQL",
+      "status": "closed",
+      "index_path": "data/semantic_index_experiments/postgresql",
+      "domain_summary": "PostgreSQL core documentation focused on SQL commands, indexing, JSONB usage, replication, and performance tuning.",
+      "keywords": [
+        "postgresql sql",
+        "jsonb",
+        "jsonb indexing",
+        "indexes",
+        "performance tuning",
+        "replication"
+      ],
+      "enabled_for_routing": true,
+      "final_report": "docs/POSTGRESQL_FINAL_REPORT_20260319T063500Z.md",
+      "handoff": "docs/HANDOFF_LIVECOPILOT_POSTGRESQL_FRONT_CLOSURE_20260319T063500Z.md"
+    },
+    {
+      "name": "LINUX",
+      "status": "closed",
+      "index_path": "data/semantic_index_experiments/linux",
+      "domain_summary": "Linux kernel and operations guidance covering kernel docs, systemd unit types, networking, filesystems, and CLI administration.",
+      "keywords": [
+        "linux kernel",
+        "systemd",
+        "networking",
+        "filesystem",
+        "command line",
+        "oneshot",
+        "service"
+      ],
+      "enabled_for_routing": true,
+      "final_report": "docs/LINUX_FINAL_REPORT_20260319T064000Z.md",
+      "handoff": "docs/HANDOFF_LIVECOPILOT_LINUX_FRONT_CLOSURE_20260319T064000Z.md"
+    },
+    {
+      "name": "C_PILOT",
+      "status": "closed",
+      "index_path": "data/knowledge_domains/c_programming",
+      "domain_summary": "Isolated C programming pilot (man7, POSIX, ISO C references) covering assert, system calls, and core semantics; kept offline from the global router.",
+      "keywords": [
+        "c language",
+        "posix",
+        "assert",
+        "system calls",
+        "man7"
+      ],
+      "enabled_for_routing": true,
+      "final_report": "docs/C_PILOT_FINAL_REPORT.md",
+      "handoff": "docs/HANDOFF_LIVECOPILOT_C_PILOT_CLOSURE_20260317T180000Z.md"
+    },
+    {
+      "name": "MACHINE_LEARNING",
+      "status": "closed",
+      "index_path": "data/knowledge_embeddings/machine_learning",
+      "domain_summary": "Official machine learning documentation covering overfitting, supervised and unsupervised learning, linear regression, classification, evaluation metrics, and major framework guides from scikit-learn, PyTorch, TensorFlow, and Google Crash Course.",
+      "keywords": [
+        "machine learning",
+        "overfitting",
+        "supervised learning",
+        "unsupervised learning",
+        "linear regression",
+        "classification",
+        "gradient descent",
+        "confusion matrix",
+        "bias variance",
+        "scikit-learn",
+        "pytorch",
+        "tensorflow"
+      ],
+      "enabled_for_routing": true,
+      "final_report": "docs/MACHINE_LEARNING_FINAL_REPORT_20260320T012410Z.md",
+      "handoff": "docs/HANDOFF_LIVECOPILOT_MACHINE_LEARNING_FRONT_CLOSURE_20260320T012410Z.md"
+    }
+  ]
+}

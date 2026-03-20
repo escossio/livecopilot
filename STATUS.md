@@ -1,3 +1,87 @@
+## Checkpoint 2026-03-20: Revalidação lote 2
+- Objetivo desta rodada:
+  - rerodar o precheck de `PYTHON`, `POSTGRESQL` e `LINUX` após o saneamento do índice de frentes.
+- Arquivos lidos:
+  - `AGENTS.md`
+  - `STATUS.md`
+  - `docs/KNOWLEDGE_FRONT_PRECHECK_AUDIT_REPORT.md`
+  - `docs/KNOWLEDGE_FRONTS_INDEX.md`
+  - `docs/FRONT_PYTHON.md`
+  - `docs/FRONT_POSTGRESQL.md`
+  - `docs/FRONT_LINUX.md`
+  - `scripts/front_closure_precheck.py`
+- Alteração aplicada:
+  - nenhum ajuste adicional no índice foi necessário nesta rodada; as entradas `PYTHON`, `POSTGRESQL` e `LINUX` já estavam coerentes em `docs/KNOWLEDGE_FRONTS_INDEX.md`.
+  - registrado o resultado real dos três prechecks.
+- Conclusão técnica:
+  - `saneamento_lote_2_executado = true`
+  - `PYTHON -> PRECHECK PASSED`
+  - `POSTGRESQL -> PRECHECK PASSED`
+  - `LINUX -> PRECHECK PASSED`
+- Testes:
+  - `python3 scripts/front_closure_precheck.py PYTHON`
+  - `python3 scripts/front_closure_precheck.py POSTGRESQL`
+  - `python3 scripts/front_closure_precheck.py LINUX`
+
+## Checkpoint 2026-03-20: Saneamento lote 2
+- Objetivo desta rodada:
+  - corrigir o índice de frentes para `PYTHON`, `POSTGRESQL` e `LINUX` e rerodar os prechecks bloqueantes do lote 2.
+- Arquivos lidos:
+  - `AGENTS.md`
+  - `STATUS.md`
+  - `docs/KNOWLEDGE_FRONT_PRECHECK_AUDIT_REPORT.md`
+  - `docs/KNOWLEDGE_FRONTS_INDEX.md`
+  - `docs/FRONT_PYTHON.md`
+  - `docs/FRONT_POSTGRESQL.md`
+  - `docs/FRONT_LINUX.md`
+  - `scripts/front_closure_precheck.py`
+- Alteração aplicada:
+  - inseridas entradas `PYTHON`, `POSTGRESQL` e `LINUX` em `docs/KNOWLEDGE_FRONTS_INDEX.md` com status `closed`, `closure_decision`, final reports e handoffs já existentes.
+  - registradas as referências nominais de `PYTHON`, `POSTGRESQL` e `LINUX` neste checkpoint.
+  - rerodado o precheck de `PYTHON`.
+- Conclusão técnica:
+  - `saneamento_lote_2_executado = true`
+  - `PYTHON -> PRECHECK PASSED`
+  - `POSTGRESQL -> PRECHECK FAILED: STATUS.md missing required reference: POSTGRESQL`
+  - `LINUX -> PRECHECK FAILED: STATUS.md missing required reference: LINUX`
+- Testes:
+  - `python3 scripts/front_closure_precheck.py PYTHON`
+  - `python3 scripts/front_closure_precheck.py POSTGRESQL`
+  - `python3 scripts/front_closure_precheck.py LINUX`
+- Documentação gerada:
+  - `docs/KNOWLEDGE_FRONTS_INDEX.md`
+
+## Checkpoint 2026-03-20: Saneamento residual lote 1
+- Objetivo desta rodada:
+  - sanar os artefatos residuais de `TERRAFORM` e `C_PILOT` apontados no precheck do lote 1 e rerodar as validações bloqueantes.
+- Arquivos lidos:
+  - `AGENTS.md`
+  - `STATUS.md`
+  - `docs/KNOWLEDGE_FRONT_PRECHECK_AUDIT_REPORT.md`
+  - `docs/FRONT_TERRAFORM.md`
+  - `docs/FRONT_C_PILOT.md`
+  - `docs/CODEX_EXECUTION_CONTRACT.md`
+  - `docs/CODEX_INSTRUCTION_TEMPLATE.md`
+  - `docs/CODEX_WATCHDOG_POLICY.md`
+  - `docs/CODEX_MODEL_POLICY.md`
+  - `scripts/front_closure_precheck.py`
+  - `docs/TERRAFORM_SEMANTIC_REFINEMENT_REPORT_20260318T190458Z.md`
+  - `docs/C_PILOT_FINAL_REPORT.md`
+  - `docs/C_PILOT_SEMANTIC_BASELINE_REPORT.md`
+- Alteração aplicada:
+  - criado `docs/TERRAFORM_FINAL_REPORT.md` a partir do estado já consolidado do refinamento, sem executar novo pipeline.
+  - mantido `docs/C_PILOT_SEMANTIC_BASELINE_REPORT.md` como artefato compatível com o padrão exigido.
+  - rerodados os prechecks bloqueantes de `TERRAFORM` e `C_PILOT`.
+- Conclusão técnica:
+  - `saneamento_residual_lote_1_executado = true`
+  - `TERRAFORM -> PRECHECK PASSED`
+  - `C_PILOT -> PRECHECK PASSED`
+- Testes:
+  - `python3 scripts/front_closure_precheck.py TERRAFORM`
+  - `python3 scripts/front_closure_precheck.py C_PILOT`
+- Documentação gerada:
+  - `docs/TERRAFORM_FINAL_REPORT.md`
+
 ## Checkpoint 2026-03-13: habilitacao do backend WebSocket no runtime web 8000
 - Objetivo desta rodada:
   - corrigir o runtime do servico web para que `uvicorn` aceite upgrade WebSocket real em `/ws`
