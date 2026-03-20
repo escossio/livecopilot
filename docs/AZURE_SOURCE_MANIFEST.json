@@ -1,0 +1,55 @@
+{
+  "generated": "2026-03-19T16:41:56Z",
+  "domain": "azure",
+  "sources": [
+    {
+      "name": "Azure Architecture Center",
+      "category": "PRIMARY",
+      "type": "HTML/ARCHITECTURE",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/",
+      "notes": "Visão geral dos serviços core, padrões e referências oficiais."
+    },
+    {
+      "name": "Azure Compute documentation",
+      "category": "PRIMARY",
+      "type": "HTML/COMPUTE",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/",
+      "notes": "Instâncias, escala, App Services e práticas recomendadas de compute."
+    },
+    {
+      "name": "Azure Networking documentation",
+      "category": "PRIMARY",
+      "type": "HTML/NETWORKING",
+      "url": "https://learn.microsoft.com/en-us/azure/networking/",
+      "notes": "VNETs, load balancers, firewalls, private link e conectividade global."
+    },
+    {
+      "name": "Azure Storage documentation",
+      "category": "PRIMARY",
+      "type": "HTML/STORAGE",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/",
+      "notes": "Blobs, files, data lake, tiers e políticas de dados."
+    },
+    {
+      "name": "Azure Identity documentation",
+      "category": "PRIMARY",
+      "type": "HTML/IDENTITY",
+      "url": "https://learn.microsoft.com/en-us/azure/active-directory/",
+      "notes": "Azure AD, RBAC, entitlements e governança de identidade."
+    },
+    {
+      "name": "Azure CLI documentation",
+      "category": "PRIMARY",
+      "type": "HTML/CLI",
+      "url": "https://learn.microsoft.com/en-us/cli/azure/",
+      "notes": "Referência dos comandos oficiais `az` e extensões recomendadas."
+    }
+  ],
+  "notes": {
+    "scope": "Foco exclusivo em documentação oficial Microsoft Learn e domínios microsoft.com que tratem dos serviços listados em FRONT_AZURE.",
+    "next_steps": [
+      "Capturar os recursos aprovados em `data/knowledge_raw/azure/` e registrar hash+metadados antes do parsing.",
+      "Atualizar o manifest caso novas páginas microsoft.com/azure sejam formalmente incluídas."
+    ]
+  }
+}

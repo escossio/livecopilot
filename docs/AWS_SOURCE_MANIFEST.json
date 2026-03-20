@@ -1,0 +1,55 @@
+{
+  "generated": "2026-03-19T16:42:24Z",
+  "domain": "aws",
+  "sources": [
+    {
+      "name": "AWS Service Overview",
+      "category": "PRIMARY",
+      "type": "HTML/OVERVIEW",
+      "url": "https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html",
+      "notes": "Visão geral dos serviços core da AWS."
+    },
+    {
+      "name": "Amazon EC2 Documentation",
+      "category": "PRIMARY",
+      "type": "HTML/COMPUTE",
+      "url": "https://docs.aws.amazon.com/ec2/",
+      "notes": "Instâncias, AMIs, Auto Scaling e networking EC2."
+    },
+    {
+      "name": "Amazon S3 Documentation",
+      "category": "PRIMARY",
+      "type": "HTML/STORAGE",
+      "url": "https://docs.aws.amazon.com/s3/",
+      "notes": "Buckets, políticas, camadas, replicação e segurança."
+    },
+    {
+      "name": "AWS IAM Documentation",
+      "category": "PRIMARY",
+      "type": "HTML/IDENTITY",
+      "url": "https://docs.aws.amazon.com/iam/",
+      "notes": "Identidade, permissões, políticas e RBAC."
+    },
+    {
+      "name": "Amazon VPC Documentation",
+      "category": "PRIMARY",
+      "type": "HTML/NETWORKING",
+      "url": "https://docs.aws.amazon.com/vpc/",
+      "notes": "Redes, subnets, gateways e conectividade segura."
+    },
+    {
+      "name": "AWS CLI Command Reference",
+      "category": "PRIMARY",
+      "type": "HTML/CLI",
+      "url": "https://docs.aws.amazon.com/cli/latest/reference/",
+      "notes": "Referência completa da CLI oficial."
+    }
+  ],
+  "notes": {
+    "scope": "Explorar os domínios `docs.aws.amazon.com` e `aws.amazon.com` que tratem diretamente dos serviços EC2, S3, IAM, VPC e da AWS CLI.",
+    "next_steps": [
+      "Materializar os recursos aprovados em `data/knowledge_raw/aws/` antes de avançar para parsing.",
+      "Monitorar novas páginas oficiais da AWS e atualizar o manifesto quando houver expansão do escopo."
+    ]
+  }
+}
