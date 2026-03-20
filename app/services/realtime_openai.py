@@ -24,11 +24,11 @@ def _build_mode_instructions(mode: str) -> str:
     base = str(runtime.get("instructions", "") or "").strip()
     mode_clean = str(mode or "generic").strip().lower()
     if mode_clean == "interview":
-        extra = " Priorize respostas curtas de entrevista, com uma linha principal e no maximo dois pontos de apoio."
+        extra = " Use a sessao para transcrever a fala com fidelidade. Nao gere resposta final propria; a decisao logica fica no backend unificado do Livecopilot."
     elif mode_clean == "study":
-        extra = " Priorize explicacoes curtas, conceituais e com um proximo passo de estudo."
+        extra = " Use a sessao para transcrever a fala com fidelidade. Nao gere resposta final propria; a decisao logica fica no backend unificado do Livecopilot."
     else:
-        extra = " Priorize respostas curtas, claras e utilitarias."
+        extra = " Use a sessao para transcrever a fala com fidelidade. Nao gere resposta final propria; a decisao logica fica no backend unificado do Livecopilot."
     return (base + extra).strip()
 
 
@@ -53,7 +53,7 @@ def create_realtime_client_secret(*, mode: str = "generic") -> dict[str, Any]:
             "type": "realtime",
             "model": str(runtime.get("model", "gpt-realtime-mini") or "gpt-realtime-mini"),
             "instructions": _build_mode_instructions(mode),
-            "output_modalities": ["audio"],
+            "output_modalities": ["text"],
             "max_output_tokens": 1024,
             "audio": {
                 "input": {
@@ -63,8 +63,8 @@ def create_realtime_client_secret(*, mode: str = "generic") -> dict[str, Any]:
                     },
                     "turn_detection": {
                         "type": "server_vad",
-                        "create_response": True,
-                        "interrupt_response": True,
+                        "create_response": False,
+                        "interrupt_response": False,
                     },
                 },
                 "output": {

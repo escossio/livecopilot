@@ -1,4 +1,5 @@
 import os
+import base64
 from typing import Any
 
 from app.core.config import settings
@@ -73,6 +74,8 @@ def _synthesize_external(text: str, *, model: str) -> dict[str, Any]:
         "fallback_reason": "",
         "audio_output_available": True,
         "audio_bytes": len(audio_bytes),
+        "audio_base64": base64.b64encode(audio_bytes).decode("ascii"),
+        "mime_type": "audio/mpeg",
         "model": model,
     }
 

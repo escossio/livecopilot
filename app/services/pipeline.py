@@ -1,6 +1,6 @@
 from app.services.state import ConversationState
 from app.services.ingestion import normalize_input
-from app.services.transcription import transcribe_with_trace
+from app.services.transcription import transcribe_text_input_with_trace
 from app.services.context import update_context
 from app.services.suggestions import generate_suggestions
 from app.services.quick_replies import generate_quick_replies
@@ -10,7 +10,7 @@ from app.services.terms import suggest_terms
 
 def process_ingest(state: ConversationState, text: str) -> dict:
     normalized = normalize_input(text)
-    trace = transcribe_with_trace(normalized)
+    trace = transcribe_text_input_with_trace(normalized)
     transcript_text = str(trace.get("text", ""))
     context_metadata = {
         "context_source": "audio_comprehension",

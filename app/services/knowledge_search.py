@@ -1,6 +1,7 @@
 import argparse
 import json
 import math
+import os
 import re
 import time
 from pathlib import Path
@@ -9,6 +10,7 @@ from typing import Any
 from app.services.knowledge_chunks import CHUNKS_DIR
 from app.services.knowledge_tags import infer_query_tags, infer_tags, merge_tags
 from app.services.search_metrics import log_search_metrics
+from app.services.source_prefix_resolution import normalize_source_prefix
 
 KNOWLEDGE_MANIFEST_PATH = Path(__file__).resolve().parents[2] / "data" / "knowledge_index" / "knowledge_manifest.json"
 
@@ -154,10 +156,39 @@ FALLBACK_MIN_SIGNALLED_SCORE_RATIO_TO_TOP1 = 0.20
 MIN_STRONG_RESULTS_BEFORE_FLOOR = 6
 CONTEXT_SNIPPET_CHAR_LIMIT = 280
 CONTEXT_CHAR_LIMIT = 3200
+EMBEDDINGS_DIR = Path(__file__).resolve().parents[2] / "data" / "knowledge_embeddings"
+
+INTENT_ALIGNMENT_BONUS = 0.09
+INTENT_CHUNK_TYPE_MAP = {
+    "what_is": {"definition"},
+    "purpose": {"purpose", "use"},
+    "when_to_use": {"use"},
+    "difference": {"difference"},
+    "how": {"mechanism"},
+}
+STRUCTURAL_NOISE_PATTERNS = (
+    (re.compile(r"^\s*---", re.MULTILINE), 0.35, "front_matter"),
+    (re.compile(r"page_title:\s*", re.IGNORECASE), 0.15, "page_title"),
+    (re.compile(r"description:\s*", re.IGNORECASE), 0.12, "description"),
+    (re.compile(r"keywords:\s*", re.IGNORECASE), 0.15, "keywords"),
+    (re.compile(r"aliases:\s*", re.IGNORECASE), 0.12, "aliases"),
+    (re.compile(r"/docs/", re.IGNORECASE), 0.08, "docs_path"),
+    (re.compile(r"/notification-policies/", re.IGNORECASE), 0.08, "notification_path"),
+    (re.compile(r"reviewer:", re.IGNORECASE), 0.08, "reviewer"),
+    (re.compile(r"start auto generated metadata", re.IGNORECASE), 0.1, "generated_metadata"),
+    (re.compile(r"^#+\s*(index|introduction|overview)\b", re.IGNORECASE | re.MULTILINE), 0.07, "intro_heading"),
+)
 
 
 def _normalize(text: str) -> str:
     return re.sub(r"\s+", " ", text).strip().lower()
+
+
+def _source_front(source_file: str) -> str:
+    normalized = str(source_file or "").replace("\\", "/").strip()
+    if not normalized:
+        return ""
+    return normalized.split("/", 1)[0]
 
 
 def _tokenize(text: str) -> list[str]:
@@ -170,6 +201,72 @@ def _match_count(text: str, token: str) -> int:
         return 0
     escaped = re.escape(token)
     return len(re.findall(rf"(?<!\w){escaped}(?!\w)", text))
+
+
+def _detect_query_intent(query: str) -> str | None:
+    text = (query or "").lower()
+    if "qual a diferença entre" in text or "qual a diferenca entre" in text:
+        return "difference"
+    if any(token in text for token in ["o que é", "o que e", "what is", "who is"]):
+        return "what_is"
+    if "para que serve" in text or "serve para" in text or "para que" in text:
+        return "purpose"
+    if any(token in text for token in ["quando usar", "quando empregar", "quando aplicar", "when to"]):
+        return "when_to_use"
+    if "como funciona" in text or "how" in text:
+        return "how"
+    return None
+
+
+def _has_front_matter(content: str) -> bool:
+    if not content:
+        return False
+    stripped = content.lstrip()
+    if stripped.startswith("---"):
+        return True
+    lower = stripped.lower()
+    return "page_title:" in lower and "description:" in lower
+
+
+def _classify_chunk_semantic_type(content: str, title: str, section_hint: str) -> str:
+    combined = " ".join(filter(None, [title or "", section_hint or "", content or ""])).lower()
+    if not combined:
+        return "other"
+    if _has_front_matter(content):
+        return "noise"
+    if re.search(r"\bwhen to\b|\bquando usar\b|\buse case\b|\buse cases\b", combined):
+        return "use"
+    if re.search(r"\bserve para\b|\bused to\b|\bused for\b|\bpurpose\b|\bserves to\b", combined):
+        return "purpose"
+    if re.search(r"\bdifference\b|\bdiferenc(?:a|e)\b|\bversus\b|\bcompar", combined):
+        return "difference"
+    if re.search(r"\bcomo\b|\bhow\b|\bworks\b|\boperates\b|\bprocess\b|\bworkflow\b", combined):
+        return "mechanism"
+    if re.search(r"\bwhat is\b|\bo que (?:é|e)\b|\bis a\b|\bis the\b|\bdefines\b|\bprovides\b|\bé um\b|\bé uma\b", combined):
+        return "definition"
+    return "other"
+
+
+def _structural_noise_penalty(content: str, title: str, section_hint: str) -> tuple[float, list[str]]:
+    if not content:
+        return 0.0, []
+    score = 0.0
+    reasons: list[str] = []
+    normalized = " ".join(filter(None, [(title or ""), (section_hint or ""), content or ""]))
+    for pattern, weight, label in STRUCTURAL_NOISE_PATTERNS:
+        if pattern.search(normalized):
+            score += weight
+            reasons.append(label)
+    score = min(score, 0.6)
+    return round(score, 3), reasons
+
+
+def _intent_chunk_alignment_bonus(intent: str | None, chunk_type: str) -> float:
+    if not intent or not chunk_type:
+        return 0.0
+    if chunk_type in INTENT_CHUNK_TYPE_MAP.get(intent, set()):
+        return INTENT_ALIGNMENT_BONUS
+    return 0.0
 
 
 def _score_structural_context(
@@ -527,6 +624,71 @@ def _load_chunk_entries() -> list[dict[str, Any]]:
     return entries
 
 
+def _filter_chunks_by_source_prefix(chunks: list[dict[str, Any]], source_prefix: str | None) -> list[dict[str, Any]]:
+    if not source_prefix:
+        return chunks
+    normalized_prefix = normalize_source_prefix(source_prefix)
+    return [
+        chunk
+        for chunk in chunks
+        if str(chunk.get("source_file", "")).replace("\\", "/").startswith(f"{normalized_prefix}/")
+        or str(chunk.get("source_file", "")).replace("\\", "/") == normalized_prefix
+    ]
+
+
+def _load_embeddings_index(source_prefix: str | None = None) -> dict[str, dict[str, Any]]:
+    prefixes = [normalize_source_prefix(source_prefix)] if source_prefix else []
+    index: dict[str, dict[str, Any]] = {}
+    if not EMBEDDINGS_DIR.exists():
+        return index
+
+    embedding_dirs = [EMBEDDINGS_DIR / prefix for prefix in prefixes] if prefixes else [path for path in EMBEDDINGS_DIR.iterdir() if path.is_dir()]
+    for embedding_dir in embedding_dirs:
+        embeddings_file = embedding_dir / "embeddings.jsonl"
+        if not embeddings_file.is_file():
+            continue
+        try:
+            lines = embeddings_file.read_text(encoding="utf-8").splitlines()
+        except Exception:
+            continue
+        for line in lines:
+            if not line.strip():
+                continue
+            try:
+                record = json.loads(line)
+            except Exception:
+                continue
+            chunk_id = str(record.get("chunk_id", "")).strip()
+            embedding = record.get("embedding")
+            if not chunk_id or not isinstance(embedding, list) or not embedding:
+                continue
+            vector = [float(value) for value in embedding]
+            norm = math.sqrt(sum(value * value for value in vector))
+            if norm <= 0:
+                continue
+            index[chunk_id] = {
+                "chunk_id": chunk_id,
+                "source_file": str(record.get("source_file", "")),
+                "title": str(record.get("title", "")),
+                "sequence": int(record.get("sequence", 0) or 0),
+                "embedding": vector,
+                "embedding_norm": norm,
+                "content": str(record.get("content", "")),
+            }
+    return index
+
+
+def _dot_product(left: list[float], right: list[float]) -> float:
+    return sum(l * r for l, r in zip(left, right))
+
+
+def _cosine_similarity(query_vector: list[float], candidate_vector: list[float], candidate_norm: float) -> float:
+    query_norm = math.sqrt(sum(value * value for value in query_vector))
+    if query_norm <= 0 or candidate_norm <= 0:
+        return 0.0
+    return _dot_product(query_vector, candidate_vector) / (query_norm * candidate_norm)
+
+
 def _extract_all_tags(tag_payload: dict[str, Any]) -> set[str]:
     return set(str(item) for item in tag_payload.get("all", []) if str(item).strip())
 
@@ -546,6 +708,7 @@ def _search_chunks_scored(
     term_weights: dict[str, float],
     query_tags: dict[str, list[str]],
     practicality_bonus_weight: float = PRACTICALITY_BONUS_WEIGHT_DEFAULT,
+    intent: str | None = None,
 ) -> list[dict[str, Any]]:
     query_tag_set = _extract_all_tags(query_tags)
     results: list[dict[str, Any]] = []
@@ -600,6 +763,10 @@ def _search_chunks_scored(
         hygiene_score = float(hygiene.get("hygiene_score", 1.0) or 1.0)
         hygiene_flags = [str(flag) for flag in hygiene.get("hygiene_flags", []) if str(flag).strip()]
         adjusted_score = (base_score * LEXICAL_WEIGHT * hygiene_score) + (practicality_bonus * practicality_bonus_weight)
+        chunk_type = _classify_chunk_semantic_type(content, title, section_hint)
+        intent_bonus = _intent_chunk_alignment_bonus(intent, chunk_type)
+        noise_penalty, noise_reasons = _structural_noise_penalty(content, title, section_hint)
+        final_score = max(0.0, adjusted_score + intent_bonus - noise_penalty)
         why_matched = _build_why_matched(
             chapter_title=chapter_title,
             section_hint=section_hint,
@@ -615,11 +782,13 @@ def _search_chunks_scored(
         results.append(
             {
                 "source_file": str(chunk.get("source_file", "")),
+                "front": _source_front(str(chunk.get("source_file", ""))),
+                "path": str(chunk.get("source_file", "")),
                 "title": title,
                 "chunk_id": str(chunk.get("chunk_id", "")),
                 "sequence": int(chunk.get("sequence", 0) or 0),
                 "trecho_relevante": excerpt,
-                "score": round(adjusted_score, 3),
+                "score": round(final_score, 3),
                 "base_score": round(base_score, 3),
                 "adjusted_score": round(adjusted_score, 3),
                 "hygiene_score": round(hygiene_score, 3),
@@ -633,6 +802,11 @@ def _search_chunks_scored(
                 "why_matched": why_matched,
                 "tags": chunk_tags,
                 "matched_tags": matched_tags,
+                "chunk_type": chunk_type,
+                "intent": intent,
+                "intent_bonus": round(intent_bonus, 3),
+                "structural_noise_penalty": round(noise_penalty, 3),
+                "structural_noise_reasons": noise_reasons,
             }
         )
         if chapter_title:
@@ -645,7 +819,61 @@ def _search_chunks_scored(
     return results
 
 
-def search_knowledge_chunks_with_debug(query: str, limit: int = 5) -> dict[str, Any]:
+def _search_chunks_semantic(
+    query: str,
+    chunks: list[dict[str, Any]],
+    embeddings_index: dict[str, dict[str, Any]],
+    source_prefix: str | None = None,
+) -> list[dict[str, Any]]:
+    try:
+        from openai import OpenAI
+    except Exception:
+        return []
+
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        return []
+
+    client = OpenAI(api_key=api_key)
+    query_vector = client.embeddings.create(model="text-embedding-3-large", input=query).data[0].embedding
+    query_norm = math.sqrt(sum(value * value for value in query_vector))
+    if query_norm <= 0:
+        return []
+
+    results: list[dict[str, Any]] = []
+    allowed_chunks = chunks if not source_prefix else _filter_chunks_by_source_prefix(chunks, source_prefix)
+    allowed_chunk_ids = {str(chunk.get("chunk_id", "")).strip() for chunk in allowed_chunks if str(chunk.get("chunk_id", "")).strip()}
+
+    for chunk_id, record in embeddings_index.items():
+        if allowed_chunk_ids and chunk_id not in allowed_chunk_ids:
+            continue
+        candidate_vector = record.get("embedding")
+        candidate_norm = float(record.get("embedding_norm", 0.0) or 0.0)
+        if not isinstance(candidate_vector, list):
+            continue
+        semantic_score = _cosine_similarity(query_vector, candidate_vector, candidate_norm)
+        if semantic_score <= 0:
+            continue
+        results.append(
+            {
+                "source_file": str(record.get("source_file", "")),
+                "title": str(record.get("title", "")),
+                "chunk_id": chunk_id,
+                "sequence": int(record.get("sequence", 0) or 0),
+                "score": round(semantic_score, 6),
+                "semantic_score": round(semantic_score, 6),
+                "path": str(record.get("source_file", "")),
+                "front": _source_front(str(record.get("source_file", ""))),
+                "chunk_origin": str(record.get("source_file", "")),
+                "content": str(record.get("content", "")),
+            }
+        )
+
+    results.sort(key=lambda item: (-item["score"], item["sequence"], item["chunk_id"]))
+    return results
+
+
+def search_knowledge_chunks_with_debug(query: str, limit: int = 5, source_prefix: str | None = None) -> dict[str, Any]:
     started_at = time.perf_counter()
 
     def _finalize(payload: dict[str, Any]) -> dict[str, Any]:
@@ -661,6 +889,8 @@ def search_knowledge_chunks_with_debug(query: str, limit: int = 5) -> dict[str, 
         return payload
 
     normalized_query = _normalize(query)
+    intent = _detect_query_intent(query)
+    normalized_source_prefix = normalize_source_prefix(source_prefix) if source_prefix else ""
     if not normalized_query:
         return _finalize(
             {
@@ -670,6 +900,7 @@ def search_knowledge_chunks_with_debug(query: str, limit: int = 5) -> dict[str, 
                 "query_tags_used": [],
                 "used_tag_routing": False,
                 "used_global_fallback": False,
+                "query_intent": intent,
                 "routed_result_count": 0,
                 "global_result_count": 0,
             },
@@ -681,6 +912,8 @@ def search_knowledge_chunks_with_debug(query: str, limit: int = 5) -> dict[str, 
         terms = [normalized_query]
 
     chunks = _load_chunk_entries()
+    if normalized_source_prefix:
+        chunks = _filter_chunks_by_source_prefix(chunks, normalized_source_prefix)
     doc_count = max(1, len(chunks))
     document_frequency: dict[str, int] = {term: 0 for term in terms}
     for chunk in chunks:
@@ -715,15 +948,26 @@ def search_knowledge_chunks_with_debug(query: str, limit: int = 5) -> dict[str, 
     if used_tag_routing and practical_intent_detected:
         practicality_bonus_weight = PRACTICALITY_BONUS_WEIGHT_PRACTICAL_INTENT
 
-    routed_results = _search_chunks_scored(
-        query=query,
-        terms=terms,
-        normalized_query=normalized_query,
-        chunks=routed_chunks,
-        term_weights=term_weights,
-        query_tags=query_tags,
-        practicality_bonus_weight=practicality_bonus_weight,
-    )
+    embeddings_index = _load_embeddings_index(normalized_source_prefix or None)
+    routed_results = []
+    if normalized_source_prefix and embeddings_index:
+        routed_results = _search_chunks_semantic(
+            query=query,
+            chunks=routed_chunks,
+            embeddings_index=embeddings_index,
+            source_prefix=normalized_source_prefix,
+        )
+    if not routed_results:
+        routed_results = _search_chunks_scored(
+            query=query,
+            terms=terms,
+            normalized_query=normalized_query,
+            chunks=routed_chunks,
+            term_weights=term_weights,
+            query_tags=query_tags,
+            practicality_bonus_weight=practicality_bonus_weight,
+            intent=intent,
+        )
 
     min_tag_results = max(1, min(2, limit))
     used_global_fallback = bool(used_tag_routing and len(routed_results) < min_tag_results)
@@ -742,6 +986,8 @@ def search_knowledge_chunks_with_debug(query: str, limit: int = 5) -> dict[str, 
                 "max_results_per_source": MAX_RESULTS_PER_SOURCE_DEFAULT,
                 "routed_result_count": len(routed_results),
                 "global_result_count": len(routed_results),
+                "query_intent": intent,
+                "source_prefix": normalized_source_prefix,
             },
             },
         )
@@ -750,10 +996,11 @@ def search_knowledge_chunks_with_debug(query: str, limit: int = 5) -> dict[str, 
         query=query,
         terms=terms,
         normalized_query=normalized_query,
-        chunks=chunks,
+        chunks=routed_chunks if normalized_source_prefix else chunks,
         term_weights=term_weights,
         query_tags=query_tags,
         practicality_bonus_weight=practicality_bonus_weight,
+        intent=intent,
     )
 
     merged_candidates: list[dict[str, Any]] = []
@@ -781,6 +1028,8 @@ def search_knowledge_chunks_with_debug(query: str, limit: int = 5) -> dict[str, 
                 "max_results_per_source": MAX_RESULTS_PER_SOURCE_DEFAULT,
                 "routed_result_count": len(routed_results),
                 "global_result_count": len(global_results),
+                "query_intent": intent,
+                "source_prefix": normalized_source_prefix,
         },
         },
     )
@@ -930,6 +1179,7 @@ def _main() -> None:
     parser = argparse.ArgumentParser(description="Busca textual local em data/knowledge_chunks")
     parser.add_argument("query", nargs="?", default="", help="Termo, frase ou palavras-chave para busca")
     parser.add_argument("--limit", type=int, default=5, help="Limite de resultados")
+    parser.add_argument("--source-prefix", default="", help="Restringe a busca a uma frente/prefixo")
     parser.add_argument("--pretty", action="store_true", help="Imprime JSON com identacao")
     parser.add_argument("--build-context", action="store_true", help="Monta contexto textual compacto dos melhores resultados")
     parser.add_argument("--top-k", type=int, default=3, help="Quantidade de blocos no contexto textual")
@@ -946,7 +1196,7 @@ def _main() -> None:
         "search_debug": {},
     }
     if args.query.strip():
-        enriched = search_knowledge_chunks_with_debug(args.query, limit=args.limit)
+        enriched = search_knowledge_chunks_with_debug(args.query, limit=args.limit, source_prefix=args.source_prefix)
         matches = enriched.get("results", [])
         output["count"] = len(matches)
         output["results"] = matches

@@ -14,16 +14,30 @@ from app.services.knowledge_search import search_knowledge_chunks_with_debug
 from app.services.knowledge_hygiene import build_knowledge_hygiene_report
 from app.services.knowledge_gap_analyzer import analyze_knowledge_gap
 from app.services.gap_priority_queue import get_gap_report, record_gap_analysis
+from app.services.mikrotik_connector import resolve_mikrotik_query
 from app.services.pipeline import process_ingest
 from app.services.question_bank_action import build_question_bank_action_report
 from app.services.question_bank_coverage import build_question_bank_coverage_report
 from app.services.question_bank_search import search_question_bank_items_with_debug
 from app.services.knowledge_search import build_context_from_results
 from app.services.semantic_min_api import ingest_min_document, semantic_search
+from app.services.infra_status_connector import resolve_infra_status_query
+from app.services.operational_memory import append_event
+from app.services.operational_skills import OPERATIONAL_SKILLS_FILE, match_operational_skill
+from app.services.project_state_connector import resolve_project_state_query
+from app.services.response_guidance import RESPONSE_GUIDANCE_FILE, resolve_response_guidance
 from app.services.state import ConversationState
 from app.services.realtime_openai import create_realtime_client_secret, get_realtime_runtime
 from app.services.transcription import get_transcription_runtime
 from app.services.voice_output import get_voice_output_runtime, synthesize_voice_output_realtime_controlled
+from app.services.voice_observability import (
+    VOICE_EVENTS_FILE,
+    VOICE_EVENTS_RETENTION_DAYS,
+    VOICE_SESSION_ROOT,
+    get_latest_voice_session_dir,
+    record_voice_event,
+    summarize_text,
+)
 
 router = APIRouter()
 logger = get_logger(__name__)
@@ -36,6 +50,32 @@ REALTIME_SESSION_TTL_SECONDS = 1800
 REALTIME_PERSIST_DIR = Path("/lab/projects/livecopilot/var/realtime")
 REALTIME_SESSIONS_FILE = REALTIME_PERSIST_DIR / "sessions.json"
 REALTIME_METRICS_FILE = REALTIME_PERSIST_DIR / "realtime_metrics.ndjson"
+SEMANTIC_TRACE_DIR = Path("/lab/projects/livecopilot/docs/diagnostics")
+
+
+def _normalize_semantic_canary(text: str) -> str:
+    cleaned = re.sub(r"\s+", " ", str(text or "")).strip().lower()
+    cleaned = re.sub(r"[?!.]+$", "", cleaned).strip()
+    return cleaned
+
+
+def _is_semantic_canary(text: str) -> bool:
+    normalized = _normalize_semantic_canary(text)
+    return normalized in {
+        "para que serve o arquivo de state no terraform",
+        "qual a diferenca entre terraform plan e terraform apply",
+        "qual a diferenca entre pod e service no kubernetes",
+    }
+
+
+def _write_semantic_trace(payload: dict) -> None:
+    try:
+        SEMANTIC_TRACE_DIR.mkdir(parents=True, exist_ok=True)
+        run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+        path = SEMANTIC_TRACE_DIR / f"semantic_trace_run_{run_id}.json"
+        path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception as exc:
+        logger.warning("semantic_trace_write_failed", extra={"error": str(exc)})
 
 
 def _error_response(status_code: int, message: str) -> JSONResponse:
@@ -79,6 +119,121 @@ def _handle_semantic_error(exc: Exception) -> JSONResponse:
 
     return _error_response(status_code, message)
 
+
+def _build_operational_skill_static_payload(skill_match: dict[str, object], query: str, reason: str) -> dict:
+    skill = skill_match.get("skill", {}) if isinstance(skill_match.get("skill", {}), dict) else {}
+    response_policy = skill_match.get("response_policy", {}) if isinstance(skill_match.get("response_policy", {}), dict) else {}
+    summary = str(response_policy.get("summary_template", "")).strip() or "Skill operacional reconhecida."
+    detail = str(response_policy.get("detail_template", "")).strip()
+    bullets = [detail] if detail else []
+    if reason == "connector_not_integrated":
+        bullets.append("Skill reconhecida no catalogo, mas ainda sem conector operacional integrado.")
+    elif reason == "connector_unmatched":
+        bullets.append("Skill reconhecida no roteador, mas o conector associado nao retornou match nesta consulta.")
+    return {
+        "matched": True,
+        "intent": str(skill_match.get("intent", "")).strip(),
+        "status": "info",
+        "answer": summary,
+        "bullets": bullets[:4],
+        "knowledge_context": {
+            "query": str(query or "").strip(),
+            "used_search": False,
+            "search_backend": "operational_skills",
+            "context_used": False,
+            "fallback_used": False,
+            "semantic_api_ok": False,
+            "semantic_duration_ms": 0,
+            "result_count": 1,
+            "context": summary,
+            "sources": [
+                {
+                    "title": "operational_skills",
+                    "source_file": str(OPERATIONAL_SKILLS_FILE),
+                }
+            ],
+            "connector": "operational_skills",
+            "intent": str(skill_match.get("intent", "")).strip(),
+            "target": str(skill_match.get("target", "")).strip(),
+            "status": "info",
+            "reason": reason,
+            "skill_id": str(skill.get("id", "")).strip(),
+            "skill_source": str(skill_match.get("source", "")).strip(),
+            "skill_operation": str(skill_match.get("action", {}).get("operation", "")).strip()
+            if isinstance(skill_match.get("action", {}), dict)
+            else "",
+        },
+    }
+
+
+def _resolve_operational_skill_query(req: Request, query: str) -> dict:
+    skill_match = match_operational_skill(query)
+    if not bool(skill_match.get("matched", False)):
+        return {"matched": False}
+
+    skill = skill_match.get("skill", {}) if isinstance(skill_match.get("skill", {}), dict) else {}
+    skill_id = str(skill.get("id", "")).strip()
+    skill_source = str(skill_match.get("source", "")).strip()
+    action = skill_match.get("action", {}) if isinstance(skill_match.get("action", {}), dict) else {}
+    operation = str(action.get("operation", "")).strip()
+    intent = str(skill_match.get("intent", "")).strip()
+    target = str(skill_match.get("target", "")).strip()
+
+    logger.info(
+        "operational_skill_routed",
+        extra={
+            "skill_id": skill_id,
+            "intent": intent,
+            "target": target,
+            "source": skill_source,
+            "operation": operation,
+        },
+    )
+    try:
+        append_event(
+            kind="project_event",
+            target_type="operational_skill",
+            target_name=skill_id or "unknown_skill",
+            status="info",
+            summary=f"skill routed intent={intent} target={target} source={skill_source} operation={operation}",
+            source="operational_routing",
+        )
+    except Exception:
+        pass
+
+    if skill_source == "infra_status_connector":
+        payload = resolve_infra_status_query(req, query)
+    elif skill_source == "project_state_connector":
+        payload = resolve_project_state_query(query)
+    elif skill_source in {"mikrotik", "mikrotik_connector"}:
+        payload = resolve_mikrotik_query(query, operation)
+    else:
+        payload = _build_operational_skill_static_payload(skill_match, query, reason="connector_not_integrated")
+
+    if not bool(payload.get("matched", False)):
+        payload = _build_operational_skill_static_payload(skill_match, query, reason="connector_unmatched")
+
+    knowledge_context = payload.get("knowledge_context", {})
+    if not isinstance(knowledge_context, dict):
+        knowledge_context = {}
+        payload["knowledge_context"] = knowledge_context
+    sources = knowledge_context.get("sources")
+    if not isinstance(sources, list):
+        sources = []
+        knowledge_context["sources"] = sources
+    if not any(
+        isinstance(item, dict) and str(item.get("source_file", "")).strip() == str(OPERATIONAL_SKILLS_FILE)
+        for item in sources
+    ):
+        sources.append({"title": "operational_skills", "source_file": str(OPERATIONAL_SKILLS_FILE)})
+    knowledge_context["routing_layer"] = "operational_skills"
+    knowledge_context["skill_id"] = skill_id
+    knowledge_context["skill_intent"] = intent
+    knowledge_context["skill_target"] = target
+    knowledge_context["skill_source"] = skill_source
+    knowledge_context["skill_operation"] = operation
+    return payload
+
 class IngestRequest(BaseModel):
     text: str
     source: Optional[str] = None
@@ -121,6 +276,29 @@ class ChatRequest(BaseModel):
 
 class RealtimeSessionRequest(BaseModel):
     mode: Optional[str] = Field(default=None, pattern="^(interview|study|generic)$")
+
+
+class VoiceEventRequest(BaseModel):
+    event: str = Field(..., min_length=1, max_length=80)
+    session_id: Optional[str] = Field(default=None, max_length=128)
+    conversation_id: Optional[str] = Field(default=None, max_length=128)
+    transcript_excerpt: Optional[str] = Field(default=None, max_length=240)
+    response_summary: Optional[str] = Field(default=None, max_length=240)
+    error_message: Optional[str] = Field(default=None, max_length=240)
+    http_status: Optional[int] = Field(default=None, ge=100, le=599)
+    source: Optional[str] = Field(default="frontend", max_length=32)
+    transport: Optional[str] = Field(default=None, max_length=32)
+    provider_event_type: Optional[str] = Field(default=None, max_length=120)
+    ts: Optional[str] = Field(default=None, max_length=64)
+    started_at: Optional[str] = Field(default=None, max_length=64)
+    url: Optional[str] = Field(default=None, max_length=512)
+    model: Optional[str] = Field(default=None, max_length=128)
+    voice: Optional[str] = Field(default=None, max_length=64)
+    secure_context: Optional[bool] = Field(default=None)
+    media_devices: Optional[bool] = Field(default=None)
+    get_user_media: Optional[bool] = Field(default=None)
+    user_agent: Optional[str] = Field(default=None, max_length=512)
+    model_config = {"extra": "allow"}
 
 
 def _default_short_answer(mode: str) -> str:
@@ -408,7 +586,43 @@ def _summarize_knowledge_context(payload: dict) -> dict:
         "semantic_api_ok": bool(payload.get("semantic_api_ok", False)),
         "semantic_duration_ms": int(payload.get("semantic_duration_ms", 0) or 0),
         "source_titles": source_titles,
+        "routing_layer": str(payload.get("routing_layer", "") or ""),
+        "skill_id": str(payload.get("skill_id", "") or ""),
+        "skill_intent": str(payload.get("skill_intent", "") or ""),
+        "skill_target": str(payload.get("skill_target", "") or ""),
+        "skill_source": str(payload.get("skill_source", "") or ""),
+        "skill_operation": str(payload.get("skill_operation", "") or ""),
     }
+
+
+def _select_primary_answer(
+    suggestions: list[str],
+    knowledge_context: dict,
+    default_answer: str,
+) -> str:
+    answer = str(default_answer or "").strip()
+    if not suggestions:
+        return answer
+
+    result_count = int(knowledge_context.get("result_count", 0) or 0) if isinstance(knowledge_context, dict) else 0
+    context = str(knowledge_context.get("context", "") or "").strip() if isinstance(knowledge_context, dict) else ""
+    if result_count <= 0 or not context:
+        return answer
+
+    generic_prefixes = (
+        "Pelo contexto técnico, o caminho mais seguro",
+        "Automação de infraestrutura reduz erro humano",
+    )
+    if answer and not answer.startswith(generic_prefixes):
+        return answer
+
+    for candidate in suggestions:
+        text = str(candidate).strip()
+        if not text:
+            continue
+        if text.startswith("A base de conhecimento local sugere:"):
+            return text
+    return answer
 
 
 def _normalize_mode(mode: Optional[str], fallback: str = "generic") -> str:
@@ -651,6 +865,7 @@ def _build_livecopilot_reply(
     text_input = str(text_input or "").strip()
     conversation_id = str(conversation_id or "").strip()
     started = time.monotonic()
+    ingest_started = time.monotonic()
 
     session = None
     if conversation_id:
@@ -679,26 +894,82 @@ def _build_livecopilot_reply(
         effective_input_text = _clean_text(effective_input_text, limit=320)
 
     previous_turns = len(state.transcript)
-    snapshot = process_ingest(state, effective_input_text)
-    if len(state.transcript) > REALTIME_MAX_SESSION_TURNS:
-        state.transcript = state.transcript[-REALTIME_MAX_SESSION_TURNS:]
+    connector_started = time.monotonic()
+    connector_payload = _resolve_operational_skill_query(req, effective_input_text)
+    skill_payload = connector_payload
+    skill_matched = bool(connector_payload.get("matched", False))
+    connector_ms = int((time.monotonic() - connector_started) * 1000)
+    if skill_matched:
+        state.add_turn(
+            "user",
+            effective_input_text,
+            metadata={
+                "context_source": "operational_skill_routing",
+                "recognized_context": True,
+                "skill_id": connector_payload.get("knowledge_context", {}).get("skill_id", ""),
+                "skill_intent": connector_payload.get("knowledge_context", {}).get("skill_intent", ""),
+                "skill_target": connector_payload.get("knowledge_context", {}).get("skill_target", ""),
+            },
+        )
         snapshot = state.snapshot()
+        process_ingest_ms = 0
+    else:
+        snapshot = process_ingest(state, effective_input_text)
+        process_ingest_ms = int((time.monotonic() - ingest_started) * 1000)
+        if len(state.transcript) > REALTIME_MAX_SESSION_TURNS:
+            state.transcript = state.transcript[-REALTIME_MAX_SESSION_TURNS:]
+            snapshot = state.snapshot()
 
     suggestions = snapshot.get("suggestions", []) or []
+    raw_knowledge_context = snapshot.get("knowledge_context", {}) or {}
     answer = str(suggestions[0]).strip() if suggestions else _default_short_answer(resolved_mode)
+    answer = _select_primary_answer(suggestions, raw_knowledge_context, answer)
     bullets = [str(item).strip() for item in suggestions[1:4] if str(item).strip()]
+    guidance_semantic_keys: list[str] = []
+    guidance_context_fields: dict[str, object] = {}
 
-    knowledge_context = _summarize_knowledge_context(snapshot.get("knowledge_context", {}) or {})
+    if not skill_matched:
+        connector_started = time.monotonic()
+        connector_payload = resolve_infra_status_query(req, effective_input_text)
+        if not bool(connector_payload.get("matched", False)):
+            connector_payload = resolve_project_state_query(effective_input_text)
+        connector_ms = int((time.monotonic() - connector_started) * 1000)
+    connector_matched = bool(connector_payload.get("matched", False))
+    connector_context = connector_payload.get("knowledge_context", {}) if connector_matched else {}
+
+    knowledge_context = _summarize_knowledge_context(raw_knowledge_context)
     backend = knowledge_context.get("search_backend", "") or "no_search"
     if knowledge_context.get("fallback_used", False):
         backend = "fallback"
-    if int(knowledge_context.get("result_count", 0) or 0) == 0 and not _looks_technical_text(effective_input_text):
+    if connector_matched:
+        answer = str(connector_payload.get("answer", "")).strip() or answer
+        bullets = [str(item).strip() for item in connector_payload.get("bullets", []) if str(item).strip()] or bullets
+        snapshot["suggestions"] = [answer, *bullets]
+        snapshot["knowledge_context"] = connector_context
+        knowledge_context = _summarize_knowledge_context(connector_context)
+        knowledge_context["connector"] = str(connector_context.get("connector", "connector"))
+        knowledge_context["intent"] = str(connector_payload.get("intent", ""))
+        knowledge_context["source_paths"] = [
+            str(item.get("source_file", "")).strip()
+            for item in connector_context.get("sources", [])
+            if isinstance(item, dict) and str(item.get("source_file", "")).strip()
+        ]
+        knowledge_context["target"] = str(connector_context.get("target", ""))
+        backend = str(connector_context.get("search_backend", "connector")) or "connector"
+        if str(connector_context.get("reason", "")).strip() == "server_target_not_mapped":
+            guidance_semantic_keys.append("unmapped_target")
+            for key in ("target", "requested_target", "checked_host", "reason"):
+                if connector_context.get(key) not in (None, ""):
+                    guidance_context_fields[key] = connector_context.get(key)
+    elif int(knowledge_context.get("result_count", 0) or 0) == 0 and not _looks_technical_text(effective_input_text):
         answer = "Não tenho base suficiente para afirmar isso com segurança agora."
         bullets = [
             "Posso responder de forma geral, sem inventar detalhes.",
             "Se você quiser, eu mudo para modo técnico e foco no seu contexto de entrevista.",
             "Também posso reformular em uma resposta curta e neutra.",
         ]
+        guidance_semantic_keys.append("no_confident_source")
+        guidance_context_fields["reason"] = "no_confident_source"
     else:
         answer, bullets = _style_answer_and_bullets(answer, bullets, mode=resolved_mode)
 
@@ -712,7 +983,7 @@ def _build_livecopilot_reply(
     readiness = str(readiness_payload.get("readiness", "medium"))
     should_wait_more = bool(readiness_payload.get("should_wait_more", False))
 
-    if response_stage == "partial":
+    if response_stage == "partial" and (from_incremental_buffer or not connector_matched):
         if int(knowledge_context.get("result_count", 0) or 0) == 0 and not _looks_technical_text(effective_input_text):
             answer = "Ainda está cedo para responder isso com segurança."
             bullets = [
@@ -725,12 +996,63 @@ def _build_livecopilot_reply(
                 "Se você finalizar a frase/pergunta, eu consolido uma resposta final.",
             ]
 
+    guidance_payload = resolve_response_guidance(
+        query=effective_input_text,
+        semantic_keys=guidance_semantic_keys,
+        scope="livecopilot_reply",
+    )
+    if bool(guidance_payload.get("matched", False)):
+        answer = str(guidance_payload.get("answer", "")).strip() or answer
+        bullets = [str(item).strip() for item in guidance_payload.get("bullets", []) if str(item).strip()] or bullets
+        snapshot["suggestions"] = [answer, *bullets]
+        guidance_context = {
+            "query": effective_input_text,
+            "used_search": False,
+            "search_backend": "response_guidance",
+            "context_used": False,
+            "fallback_used": False,
+            "semantic_api_ok": False,
+            "semantic_duration_ms": 0,
+            "result_count": 1,
+            "context": "resposta ensinada explicitamente e persistida em response_guidance.json",
+            "sources": [
+                {
+                    "title": "response_guidance",
+                    "source_file": str(RESPONSE_GUIDANCE_FILE),
+                }
+            ],
+            "connector": "response_guidance",
+            "intent": "response_guidance",
+            "target": str(guidance_context_fields.get("target", "") or ""),
+            "guidance_rule_id": str(guidance_payload.get("rule_id", "")).strip(),
+            "guidance_scope": str(guidance_payload.get("scope", "")).strip(),
+            "guidance_trigger_type": str(guidance_payload.get("trigger_type", "")).strip(),
+            "guidance_priority": int(guidance_payload.get("priority", 0) or 0),
+            "guidance_version": int(guidance_payload.get("version", 0) or 0),
+            "semantic_keys": list(guidance_payload.get("semantic_keys", []) or []),
+            "policy_notes": str(guidance_payload.get("policy_notes", "")).strip(),
+            **guidance_context_fields,
+        }
+        snapshot["knowledge_context"] = guidance_context
+        knowledge_context = _summarize_knowledge_context(guidance_context)
+        knowledge_context["connector"] = "response_guidance"
+        knowledge_context["intent"] = "response_guidance"
+        knowledge_context["target"] = str(guidance_context.get("target", "") or "")
+        knowledge_context["source_paths"] = [str(RESPONSE_GUIDANCE_FILE)]
+        backend = "response_guidance"
+
+    voice_output_started = time.monotonic()
     voice_output = synthesize_voice_output_realtime_controlled(
         text=answer,
         response_stage=response_stage,
         should_wait_more=should_wait_more,
         enabled_override=voice_output_enabled,
     )
+    voice_output_ms = int((time.monotonic() - voice_output_started) * 1000)
+    if isinstance(voice_output, dict):
+        voice_output["timing"] = {
+            "voice_output_ms": voice_output_ms,
+        }
 
     context_used = bool(knowledge_context.get("context_used", False))
     if not context_used and conversation_id and previous_turns > 0:
@@ -739,10 +1061,17 @@ def _build_livecopilot_reply(
     buffer_chunks = len(buffer_chunks_list)
     buffer_chars = len(_buffer_to_text(buffer_chunks_list, max_chunks=REALTIME_MAX_BUFFER_CHUNKS))
     latency_ms = int((time.monotonic() - started) * 1000)
+    latency_breakdown = {
+        "build_livecopilot_reply_ms": latency_ms,
+        "process_ingest_ms": process_ingest_ms,
+        "connector_ms": connector_ms,
+        "voice_output_ms": voice_output_ms,
+    }
     if isinstance(session, dict) and conversation_id:
         session["last_seen"] = time.monotonic()
         session["last_seen_iso"] = _now_iso()
         _persist_realtime_session(conversation_id, session)
+    snapshot["suggestions"] = [answer, *bullets]
     _append_realtime_metric(
         "respond",
         {
@@ -752,11 +1081,58 @@ def _build_livecopilot_reply(
             "readiness": readiness,
             "backend": backend,
             "latency_ms": latency_ms,
+            "latency_breakdown": latency_breakdown,
             "context_turns": len(snapshot.get("transcript", []) or []),
             "buffer_chunks": buffer_chunks,
             "buffer_chars": buffer_chars,
         },
     )
+
+    if _is_semantic_canary(effective_input_text):
+        transcript_tail = ""
+        if isinstance(snapshot.get("transcript", []), list) and snapshot.get("transcript"):
+            transcript_tail = str(snapshot.get("transcript", [])[-1].get("text", ""))
+        trace_payload = {
+            "ts": _now_iso(),
+            "question": effective_input_text,
+            "raw_input": text_input,
+            "transcript_text": transcript_tail,
+            "mode": resolved_mode,
+            "conversation_id": conversation_id,
+            "skill_routing": {
+                "matched": skill_matched,
+                "payload": skill_payload if skill_matched else {},
+            },
+            "connector_routing": {
+                "matched": connector_matched,
+                "intent": connector_payload.get("intent", ""),
+                "backend": backend,
+                "knowledge_context": connector_context if connector_matched else {},
+            },
+            "semantic_context": {
+                "search_query": state.knowledge_context.get("query", ""),
+                "used_search": state.knowledge_context.get("used_search", False),
+                "search_backend": state.knowledge_context.get("search_backend", ""),
+                "semantic_api_ok": state.knowledge_context.get("semantic_api_ok", False),
+                "fallback_used": state.knowledge_context.get("fallback_used", False),
+                "result_count": state.knowledge_context.get("result_count", 0),
+                "query_tags": state.knowledge_context.get("query_tags", {}),
+                "query_tags_used": state.knowledge_context.get("query_tags_used", []),
+                "used_tag_routing": state.knowledge_context.get("used_tag_routing", False),
+                "used_global_fallback": state.knowledge_context.get("used_global_fallback", False),
+                "sources": state.knowledge_context.get("sources", []),
+                "context": state.knowledge_context.get("context", ""),
+                "debug": state.knowledge_debug,
+            },
+            "response": {
+                "answer": answer,
+                "bullets": bullets,
+                "response_stage": response_stage,
+                "readiness": readiness,
+            },
+        }
+        _write_semantic_trace(trace_payload)
+
     return {
         "status": "ok",
         "mode": resolved_mode,
@@ -769,6 +1145,7 @@ def _build_livecopilot_reply(
         "answer": answer,
         "bullets": bullets,
         "voice_output": voice_output,
+        "latency_breakdown": latency_breakdown,
         "knowledge_context": {
             **knowledge_context,
             "context_used": context_used,
@@ -883,6 +1260,10 @@ async def status(req: Request):
         "realtime_api_language": realtime_runtime.get("language"),
         "realtime_api_key_present": bool(realtime_runtime.get("api_key_present", False)),
         "knowledge_debug_enabled": settings.knowledge_debug,
+        "voice_observability_file": str(VOICE_EVENTS_FILE),
+        "voice_observability_retention_days": VOICE_EVENTS_RETENTION_DAYS,
+        "voice_session_trace_root": str(VOICE_SESSION_ROOT),
+        "voice_session_trace_latest": get_latest_voice_session_dir(),
     }
 
 @router.post("/ingest")
@@ -942,6 +1323,28 @@ async def api_realtime_session(payload: RealtimeSessionRequest):
         "transcription_model": created.get("transcription_model", runtime.get("transcription_model", "")),
         "session": created.get("session", {}),
     }
+
+
+@router.post("/api/voice/events")
+async def api_voice_events(payload: VoiceEventRequest):
+    event_payload = payload.model_dump(exclude_none=True)
+    event_name = str(event_payload.pop("event", "") or "").strip()
+    event_payload["session_id"] = str(event_payload.get("session_id", "") or "").strip()
+    event_payload["conversation_id"] = str(event_payload.get("conversation_id", "") or "").strip()
+    event_payload["transcript_excerpt"] = summarize_text(event_payload.get("transcript_excerpt", "") or "", limit=180)
+    event_payload["response_summary"] = summarize_text(event_payload.get("response_summary", "") or "", limit=180)
+    event_payload["error_message"] = summarize_text(event_payload.get("error_message", "") or "", limit=180)
+    event_payload["source"] = str(event_payload.get("source", "frontend") or "frontend").strip() or "frontend"
+    event_payload["transport"] = str(event_payload.get("transport", "") or "").strip()
+    event_payload["provider_event_type"] = str(event_payload.get("provider_event_type", "") or "").strip()
+    event_payload["client_ts"] = str(event_payload.pop("ts", "") or "").strip()
+    event_payload["started_at"] = str(event_payload.get("started_at", "") or "").strip()
+    event_payload["url"] = str(event_payload.get("url", "") or "").strip()
+    event_payload["model"] = str(event_payload.get("model", "") or "").strip()
+    event_payload["voice"] = str(event_payload.get("voice", "") or "").strip()
+    event_payload["user_agent"] = str(event_payload.get("user_agent", "") or "").strip()
+    session_dir = record_voice_event(event_name, **event_payload)
+    return {"status": "ok", "accepted": True, "session_dir": session_dir}
 
 
 @router.post("/realtime/ingest")
@@ -1108,16 +1511,75 @@ async def realtime_metrics():
 
 @router.post("/realtime/respond")
 async def realtime_respond(req: Request, payload: RealtimeRespondRequest):
+    started = time.monotonic()
+    clean_text = summarize_text(payload.text or "", limit=180)
+    clean_conversation_id = str(payload.conversation_id or "").strip()
+    record_voice_event(
+        "voice_backend_request_received",
+        session_id=clean_conversation_id,
+        conversation_id=clean_conversation_id,
+        transcript_excerpt=clean_text,
+        source="backend",
+        transport="http",
+    )
     try:
-        return _build_livecopilot_reply(
+        response = _build_livecopilot_reply(
             req=req,
             text_input=payload.text or "",
             mode=payload.mode,
             conversation_id=payload.conversation_id,
             voice_output_enabled=payload.voice_output_enabled,
         )
+        request_total_ms = int((time.monotonic() - started) * 1000)
+        if isinstance(response.get("latency_breakdown"), dict):
+            response["latency_breakdown"]["request_total_ms"] = request_total_ms
+        record_voice_event(
+            "voice_backend_response_completed",
+            session_id=clean_conversation_id,
+            conversation_id=response.get("conversation_id", clean_conversation_id),
+            transcript_excerpt=clean_text,
+            response_summary=summarize_text(response.get("answer", ""), limit=180),
+            http_status=200,
+            source="backend",
+            transport="http",
+            backend=str(response.get("backend", "")).strip(),
+            response_stage=str(response.get("response_stage", "")).strip(),
+            readiness=str(response.get("readiness", "")).strip(),
+            latency_ms=request_total_ms,
+            latency_breakdown=response.get("latency_breakdown", {}),
+            latency_backend_total_ms=request_total_ms,
+            latency_backend_build_reply_ms=response.get("latency_breakdown", {}).get("build_livecopilot_reply_ms"),
+            latency_backend_process_ingest_ms=response.get("latency_breakdown", {}).get("process_ingest_ms"),
+            latency_backend_connector_ms=response.get("latency_breakdown", {}).get("connector_ms"),
+            latency_backend_voice_output_ms=response.get("latency_breakdown", {}).get("voice_output_ms"),
+        )
+        return response
     except ValueError as exc:
+        record_voice_event(
+            "voice_backend_response_failed",
+            session_id=clean_conversation_id,
+            conversation_id=clean_conversation_id,
+            transcript_excerpt=clean_text,
+            error_message=summarize_text(str(exc), limit=180),
+            http_status=400,
+            source="backend",
+            transport="http",
+            latency_ms=int((time.monotonic() - started) * 1000),
+        )
         return _error_response(400, str(exc))
+    except Exception as exc:
+        record_voice_event(
+            "voice_backend_response_failed",
+            session_id=clean_conversation_id,
+            conversation_id=clean_conversation_id,
+            transcript_excerpt=clean_text,
+            error_message=summarize_text(str(exc), limit=180),
+            http_status=500,
+            source="backend",
+            transport="http",
+            latency_ms=int((time.monotonic() - started) * 1000),
+        )
+        raise
 
 
 @router.get("/api/knowledge/search")

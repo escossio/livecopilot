@@ -13,6 +13,28 @@ def transcribe_mock(text: str) -> str:
     return text
 
 
+def transcribe_text_input_with_trace(text: str) -> dict:
+    started = time.monotonic()
+    output = transcribe_mock(text)
+    return {
+        "text": output,
+        "provider_selected": "text",
+        "provider_used": "mock",
+        "fallback_used": False,
+        "fallback_reason": "",
+        "transcription_latency_ms": int((time.monotonic() - started) * 1000),
+        "configured_provider": "text",
+        "effective_provider": "mock",
+        "local_available": False,
+        "local_model": None,
+        "local_timeout_ms": 0,
+        "transcription_preference": "text",
+        "external_preferred": False,
+        "external_available": False,
+        "external_model": "",
+    }
+
+
 def get_transcription_runtime() -> dict:
     provider = (settings.transcription_provider or "external").strip().lower()
     preference = (settings.transcription_preference or "").strip().lower()

@@ -40,15 +40,38 @@ const uiState = {
     transport: 'webrtc',
     sessionId: '',
     sessionStartedAt: '',
+    conversationId: '',
+    lastEvent: '',
+    lastEventAt: '',
+    lastBackendStatus: '',
+    lastError: '',
+    sessionTraceDir: '',
     pc: null,
     dc: null,
     localStream: null,
     assistantTranscript: '',
+    requestInFlight: false,
+    lastSubmittedTranscript: '',
+    pendingTranscript: '',
+    lastVoiceOutputStatus: '',
+    stopReason: '',
+    stopDetail: '',
+    stopRequestedAt: '',
+    autoStopLogged: false,
     diagnostics: {
       secureContext: false,
       mediaDevicesAvailable: false,
       getUserMediaAvailable: false,
       rtcPeerConnectionAvailable: false,
+    },
+    timing: {
+      turnStartedAtMs: 0,
+      transcriptionCompletedAtMs: 0,
+      backendRequestSentAtMs: 0,
+      backendResponseReceivedAtMs: 0,
+      voiceOutputReceivedAtMs: 0,
+      playRequestedAtMs: 0,
+      playStartedAtMs: 0,
     },
   },
 };
@@ -87,12 +110,26 @@ function renderList(el, items) {
   });
 }
 
+function renderInteractionLog() {
+  interactionLogEl.innerHTML = '';
+  (uiState.interactionLog || []).forEach((entry) => {
+    const li = document.createElement('li');
+    li.textContent = `${entry.role}: ${entry.text}`;
+    if (entry.role === 'usuario') {
+      li.dataset.testid = 'chat-message-user';
+    } else if (entry.role === 'livecopilot') {
+      li.dataset.testid = 'chat-message-assistant';
+    }
+    interactionLogEl.appendChild(li);
+  });
+}
+
 function pushInteraction(role, text) {
   const clean = String(text || '').trim();
   if (!clean) return;
-  uiState.interactionLog.push(`${role}: ${clean}`);
+  uiState.interactionLog.push({ role, text: clean });
   uiState.interactionLog = uiState.interactionLog.slice(-20);
-  renderList(interactionLogEl, uiState.interactionLog);
+  renderInteractionLog();
 }
 
 function renderVoiceMeta() {
@@ -103,6 +140,12 @@ function renderVoiceMeta() {
     `modelo: ${uiState.realtimeModel || 'indefinido'}`,
     `voz: ${uiState.realtimeVoice || 'indefinida'}`,
     `transporte: ${uiState.voice.transport}`,
+    `ultimo_evento: ${uiState.voice.lastEvent || 'n/a'}`,
+    `ultimo_evento_ts: ${uiState.voice.lastEventAt || 'n/a'}`,
+    `backend_http: ${uiState.voice.lastBackendStatus || 'n/a'}`,
+    `ultimo_erro: ${uiState.voice.lastError || 'nenhum'}`,
+    `voice_output: ${uiState.voice.lastVoiceOutputStatus || 'n/a'}`,
+    `trace_dir: ${uiState.voice.sessionTraceDir || 'n/a'}`,
     `secure_context: ${String(Boolean(diagnostics.secureContext))}`,
     `media_devices: ${String(Boolean(diagnostics.mediaDevicesAvailable))}`,
     `get_user_media: ${String(Boolean(diagnostics.getUserMediaAvailable))}`,
@@ -208,11 +251,91 @@ function resetVoiceTransport() {
   }
   if (remoteAudioEl) {
     remoteAudioEl.srcObject = null;
+    remoteAudioEl.removeAttribute('src');
+    try { remoteAudioEl.pause(); } catch (_) {}
+    try { remoteAudioEl.load(); } catch (_) {}
   }
   uiState.voice.pc = null;
   uiState.voice.dc = null;
   uiState.voice.localStream = null;
   uiState.voice.assistantTranscript = '';
+  uiState.voice.requestInFlight = false;
+  uiState.voice.lastSubmittedTranscript = '';
+  uiState.voice.pendingTranscript = '';
+  uiState.voice.lastVoiceOutputStatus = '';
+  uiState.voice.autoStopLogged = false;
+  resetVoiceTiming();
+}
+
+async function playBackendVoiceOutput(voiceOutput, transcriptText = '') {
+  const payload = voiceOutput && typeof voiceOutput === 'object' ? voiceOutput : {};
+  const mimeType = String(payload.mime_type || 'audio/mpeg').trim() || 'audio/mpeg';
+  const audioBase64 = String(payload.audio_base64 || '').trim();
+  const voiceStatus = String(payload.voice_status || '').trim() || 'unknown';
+  uiState.voice.timing.voiceOutputReceivedAtMs = nowPerfMs();
+  uiState.voice.lastVoiceOutputStatus = voiceStatus;
+  renderVoiceMeta();
+  void emitVoiceEvent('voice_output_received', {
+    transcript_excerpt: summarizeForVoiceLog(transcriptText, 180),
+    response_summary: summarizeForVoiceLog(JSON.stringify({
+      voice_status: voiceStatus,
+      provider: payload.voice_provider || '',
+      audio_output_available: Boolean(payload.audio_output_available),
+      audio_bytes: payload.audio_bytes || 0,
+      mime_type: mimeType,
+    }), 220),
+    ...buildVoiceLatencyFields({
+      latency_backend_voice_output_ms: payload?.timing?.voice_output_ms,
+    }),
+  });
+  if (!payload.audio_output_available || !audioBase64) {
+    return;
+  }
+  if (!remoteAudioEl) {
+    void emitVoiceEvent('voice_output_play_failed', {
+      transcript_excerpt: summarizeForVoiceLog(transcriptText, 180),
+      error_message: 'elemento de audio remoto indisponivel',
+      response_summary: voiceStatus,
+    });
+    return;
+  }
+
+  try {
+    remoteAudioEl.srcObject = null;
+    remoteAudioEl.src = `data:${mimeType};base64,${audioBase64}`;
+    remoteAudioEl.autoplay = true;
+    uiState.voice.timing.playRequestedAtMs = nowPerfMs();
+    void emitVoiceEvent('voice_output_play_requested', {
+      transcript_excerpt: summarizeForVoiceLog(transcriptText, 180),
+      response_summary: summarizeForVoiceLog(`${voiceStatus} -> play()`, 120),
+      ...buildVoiceLatencyFields({
+        latency_backend_voice_output_ms: payload?.timing?.voice_output_ms,
+      }),
+    });
+    await remoteAudioEl.play();
+    uiState.voice.timing.playStartedAtMs = nowPerfMs();
+    uiState.voice.lastVoiceOutputStatus = 'playing';
+    renderVoiceMeta();
+    void emitVoiceEvent('voice_output_play_started', {
+      transcript_excerpt: summarizeForVoiceLog(transcriptText, 180),
+      response_summary: summarizeForVoiceLog(`${voiceStatus} -> reproduzindo`, 120),
+      ...buildVoiceLatencyFields({
+        latency_backend_voice_output_ms: payload?.timing?.voice_output_ms,
+      }),
+    });
+  } catch (err) {
+    uiState.voice.lastVoiceOutputStatus = 'play_failed';
+    renderVoiceMeta();
+    void emitVoiceEvent('voice_output_play_failed', {
+      transcript_excerpt: summarizeForVoiceLog(transcriptText, 180),
+      error_message: summarizeForVoiceLog(err?.message || 'falha ao iniciar audio de saida', 180),
+      response_summary: voiceStatus,
+      ...buildVoiceLatencyFields({
+        latency_backend_voice_output_ms: payload?.timing?.voice_output_ms,
+      }),
+    });
+    setChatFeedback(`Resposta em texto exibida. Audio nao iniciou automaticamente: ${err?.message || 'falha de autoplay'}`, true);
+  }
 }
 
 function setVoiceState(state, extraStatus) {
@@ -265,6 +388,161 @@ function describeVoiceError(err) {
   return String(err?.message || 'falha realtime');
 }
 
+function summarizeForVoiceLog(value, limit = 160) {
+  const clean = String(value || '').trim().replace(/\s+/g, ' ');
+  if (clean.length <= limit) return clean;
+  return `${clean.slice(0, Math.max(0, limit - 3)).trim()}...`;
+}
+
+function nowPerfMs() {
+  if (typeof window.performance === 'object' && typeof window.performance.now === 'function') {
+    return window.performance.now();
+  }
+  return Date.now();
+}
+
+function resetVoiceTiming() {
+  uiState.voice.timing = {
+    turnStartedAtMs: 0,
+    transcriptionCompletedAtMs: 0,
+    backendRequestSentAtMs: 0,
+    backendResponseReceivedAtMs: 0,
+    voiceOutputReceivedAtMs: 0,
+    playRequestedAtMs: 0,
+    playStartedAtMs: 0,
+  };
+}
+
+function buildVoiceLatencyFields(extra = {}) {
+  const timing = uiState.voice.timing || {};
+  const turnStartedAtMs = Number(timing.turnStartedAtMs || 0);
+  const transcriptionCompletedAtMs = Number(timing.transcriptionCompletedAtMs || 0);
+  const backendRequestSentAtMs = Number(timing.backendRequestSentAtMs || 0);
+  const backendResponseReceivedAtMs = Number(timing.backendResponseReceivedAtMs || 0);
+  const voiceOutputReceivedAtMs = Number(timing.voiceOutputReceivedAtMs || 0);
+  const playRequestedAtMs = Number(timing.playRequestedAtMs || 0);
+  const playStartedAtMs = Number(timing.playStartedAtMs || 0);
+  const duration = (start, end) => (start > 0 && end > 0 && end >= start ? Math.round(end - start) : undefined);
+  return {
+    latency_capture_to_transcription_ms: duration(turnStartedAtMs, transcriptionCompletedAtMs),
+    latency_transcription_to_backend_send_ms: duration(transcriptionCompletedAtMs, backendRequestSentAtMs),
+    latency_backend_wait_ms: duration(backendRequestSentAtMs, backendResponseReceivedAtMs),
+    latency_backend_response_to_voice_output_ms: duration(backendResponseReceivedAtMs, voiceOutputReceivedAtMs),
+    latency_voice_output_to_play_requested_ms: duration(voiceOutputReceivedAtMs, playRequestedAtMs),
+    latency_play_request_to_started_ms: duration(playRequestedAtMs, playStartedAtMs),
+    latency_capture_to_play_started_ms: duration(turnStartedAtMs, playStartedAtMs),
+    ...extra,
+  };
+}
+
+function summarizeRealtimeEvent(event) {
+  if (!event || typeof event !== 'object') return '';
+  const summary = {};
+  const scalarKeys = ['type', 'event_id', 'response_id', 'item_id', 'output_index', 'content_index', 'role', 'status'];
+  scalarKeys.forEach((key) => {
+    const value = event[key];
+    if (value !== undefined && value !== null && value !== '') {
+      summary[key] = value;
+    }
+  });
+  const errorMessage = String(event?.error?.message || '').trim();
+  if (errorMessage) {
+    summary.error_message = errorMessage;
+  }
+  const text = extractEventText(event);
+  if (text) {
+    summary.text = summarizeForVoiceLog(text, 120);
+  }
+  if (Array.isArray(event?.response?.output) && event.response.output.length) {
+    summary.response_output_types = event.response.output
+      .slice(0, 3)
+      .map((item) => String(item?.type || '').trim())
+      .filter(Boolean);
+  }
+  if (event?.item?.content?.[0]?.type) {
+    summary.item_content_type = String(event.item.content[0].type).trim();
+  }
+  return summarizeForVoiceLog(JSON.stringify(summary), 220);
+}
+
+function summarizeRtcError(err) {
+  if (!err) return '';
+  const name = String(err.name || '').trim();
+  const message = String(err.message || '').trim();
+  const error = String(err.error || '').trim();
+  return summarizeForVoiceLog([name, message, error].filter(Boolean).join(': '), 180);
+}
+
+function getVoiceTrackState(track) {
+  if (!track) return '';
+  return summarizeForVoiceLog(JSON.stringify({
+    kind: String(track.kind || '').trim(),
+    enabled: Boolean(track.enabled),
+    muted: Boolean(track.muted),
+    readyState: String(track.readyState || '').trim(),
+    label: String(track.label || '').trim(),
+  }), 220);
+}
+
+function emitTrackState(eventName, track, extra = {}) {
+  if (!track) return;
+  void emitVoiceEvent(eventName, {
+    response_summary: getVoiceTrackState(track),
+    ...extra,
+  });
+}
+
+function markAutoStop(reason, detail = '') {
+  if (uiState.voice.autoStopLogged) return;
+  uiState.voice.autoStopLogged = true;
+  uiState.voice.stopReason = reason;
+  uiState.voice.stopDetail = detail;
+  uiState.voice.stopRequestedAt = new Date().toISOString();
+  void emitVoiceEvent('voice_session_auto_stopped', {
+    response_summary: summarizeForVoiceLog(detail || reason, 180),
+    provider_event_type: reason,
+  });
+}
+
+async function emitVoiceEvent(eventName, payload = {}) {
+  const sessionId = payload.session_id || uiState.voice.sessionId || '';
+  const conversationId = payload.conversation_id || uiState.voice.conversationId || sessionId || '';
+  const eventPayload = {
+    event: eventName,
+    session_id: sessionId,
+    conversation_id: conversationId,
+    source: 'frontend',
+    transport: uiState.voice.transport || 'webrtc',
+    ts: new Date().toISOString(),
+    ...payload,
+  };
+  uiState.voice.lastEvent = String(eventName || '').trim();
+  uiState.voice.lastEventAt = eventPayload.ts;
+  if (eventPayload.http_status) {
+    uiState.voice.lastBackendStatus = String(eventPayload.http_status);
+  }
+  if (eventPayload.error_message) {
+    uiState.voice.lastError = summarizeForVoiceLog(eventPayload.error_message, 120);
+  }
+  renderVoiceMeta();
+  console.info('voice_event', eventPayload);
+  try {
+    const res = await fetch('/api/voice/events', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(eventPayload),
+      keepalive: true,
+    });
+    const payloadResponse = await res.json();
+    if (res.ok && payloadResponse && payloadResponse.session_dir) {
+      uiState.voice.sessionTraceDir = String(payloadResponse.session_dir || '').trim();
+      renderVoiceMeta();
+    }
+  } catch (_) {
+    // Observabilidade nao deve quebrar a trilha de voz.
+  }
+}
+
 function handleUnsupportedVoiceEnvironment() {
   const diagnostics = collectVoiceDiagnostics();
   uiState.voice.diagnostics = diagnostics;
@@ -278,6 +556,11 @@ function handleUnsupportedVoiceEnvironment() {
     `get_user_media: ${String(Boolean(diagnostics.getUserMediaAvailable))}`,
   ]);
   setChatFeedback(message, true);
+  uiState.voice.lastError = summarizeForVoiceLog(message, 120);
+  void emitVoiceEvent('voice_error', {
+    error_message: message,
+    response_summary: 'ambiente sem suporte para captura',
+  });
   console.warn('voice_unsupported_environment', diagnostics);
 }
 
@@ -311,6 +594,10 @@ function extractEventText(event) {
 function handleRealtimeEvent(event) {
   const type = String(event?.type || '').trim();
   if (!type) return;
+  void emitVoiceEvent(type === 'error' ? 'realtime_error_event' : 'realtime_event_received', {
+    provider_event_type: type,
+    response_summary: summarizeRealtimeEvent(event),
+  });
 
   if (type === 'session.created' || type === 'session.updated') {
     uiState.latestStatus = [
@@ -324,6 +611,8 @@ function handleRealtimeEvent(event) {
   }
 
   if (type === 'input_audio_buffer.speech_started') {
+    resetVoiceTiming();
+    uiState.voice.timing.turnStartedAtMs = nowPerfMs();
     setVoiceState('live', ['canal: voz', 'evento: fala_detectada', 'estado: ouvindo para consultar']);
     return;
   }
@@ -337,47 +626,177 @@ function handleRealtimeEvent(event) {
   if (type === 'conversation.item.input_audio_transcription.completed') {
     const text = extractEventText(event);
     if (text) {
+      uiState.voice.timing.transcriptionCompletedAtMs = nowPerfMs();
       pushInteraction('voz->consulta', text);
-      uiState.latestStatus = ['canal: voz', 'evento: transcricao_final', 'fluxo: consulta enviada ao livecopilot'];
+      uiState.latestStatus = ['canal: voz', 'evento: transcricao_final', 'fluxo: enviando ao backend unificado'];
       renderInteractionStatus();
+      void emitVoiceEvent('transcription_completed', {
+        transcript_excerpt: summarizeForVoiceLog(text, 180),
+        provider_event_type: type,
+        ...buildVoiceLatencyFields(),
+      });
+      void submitVoiceTranscriptToBackend(text);
     }
     return;
   }
 
   if (type === 'response.output_audio_transcript.delta' || type === 'response.audio_transcript.delta') {
-    const delta = extractEventText(event);
-    if (delta) {
-      uiState.voice.assistantTranscript += delta;
-      updateAnswer(uiState.voice.assistantTranscript, uiState.latestBullets);
-    }
     return;
   }
 
   if (type === 'response.output_audio_transcript.done' || type === 'response.audio_transcript.done') {
-    const text = extractEventText(event) || uiState.voice.assistantTranscript;
-    if (text) {
-      uiState.voice.assistantTranscript = text;
-      updateAnswer(text, uiState.latestBullets);
-      pushInteraction('livecopilot', text);
-    }
-    uiState.latestStatus = ['canal: voz', 'evento: resposta_final', 'motor: livecopilot', 'estado: concluido'];
-    renderInteractionStatus();
     return;
   }
 
   if (type === 'response.done') {
-    const text = extractEventText(event);
-    if (text && !uiState.voice.assistantTranscript) {
-      uiState.voice.assistantTranscript = text;
-      updateAnswer(text, uiState.latestBullets);
-      pushInteraction('livecopilot', text);
-    }
     return;
   }
 
   if (type === 'error') {
     const text = extractEventText(event) || String(event?.error?.message || 'erro realtime');
+    uiState.voice.lastError = summarizeForVoiceLog(text, 120);
+    markAutoStop('realtime_error', text);
+    void emitVoiceEvent('voice_error', {
+      error_message: text,
+      provider_event_type: type,
+    });
     setVoiceState('error', [`canal: voz`, `erro: ${text}`]);
+  }
+}
+
+async function submitVoiceTranscriptToBackend(text) {
+  const cleanText = String(text || '').trim();
+  if (!cleanText) return;
+  if (uiState.voice.requestInFlight) {
+    if (cleanText === uiState.voice.lastSubmittedTranscript) {
+      void emitVoiceEvent('voice_error', {
+        error_message: 'transcricao final duplicada ignorada',
+        transcript_excerpt: summarizeForVoiceLog(cleanText, 180),
+      });
+      return;
+    }
+    const replacedTranscript = String(uiState.voice.pendingTranscript || '').trim();
+    uiState.voice.pendingTranscript = cleanText;
+    void emitVoiceEvent(replacedTranscript && replacedTranscript !== cleanText ? 'voice_transcript_replaced_in_queue' : 'voice_transcript_queued', {
+      transcript_excerpt: summarizeForVoiceLog(cleanText, 180),
+      response_summary: summarizeForVoiceLog(replacedTranscript || 'transcricao final aguardando conclusao do request atual', 180),
+    });
+    return;
+  }
+  if (cleanText === uiState.voice.lastSubmittedTranscript) {
+    void emitVoiceEvent('voice_error', {
+      error_message: 'transcricao final duplicada ignorada',
+      transcript_excerpt: summarizeForVoiceLog(cleanText, 180),
+    });
+    return;
+  }
+
+  uiState.voice.requestInFlight = true;
+  uiState.voice.lastSubmittedTranscript = cleanText;
+  uiState.voice.lastVoiceOutputStatus = '';
+  uiState.voice.timing.backendRequestSentAtMs = nowPerfMs();
+  setChatFeedback('Transcricao final recebida. Consultando o backend unificado do Livecopilot...');
+  uiState.latestStatus = ['canal: voz', 'evento: backend_request', 'fluxo: voz -> transcricao -> /realtime/respond'];
+  renderInteractionStatus();
+  void emitVoiceEvent('voice_transcript_sent_to_backend', {
+    transcript_excerpt: summarizeForVoiceLog(cleanText, 180),
+    ...buildVoiceLatencyFields(),
+  });
+
+  try {
+    const res = await fetch('/realtime/respond', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        text: cleanText,
+        mode: modeSelect.value || 'generic',
+        conversation_id: uiState.voice.conversationId || uiState.voice.sessionId || undefined,
+        voice_output_enabled: true,
+      }),
+    });
+    const payload = await res.json();
+    uiState.voice.timing.backendResponseReceivedAtMs = nowPerfMs();
+    uiState.voice.lastBackendStatus = String(res.status);
+    if (!res.ok) {
+      void emitVoiceEvent('voice_error', {
+        transcript_excerpt: summarizeForVoiceLog(cleanText, 180),
+        http_status: res.status,
+        error_message: payload.error || 'falha no /realtime/respond',
+      });
+      throw new Error(payload.error || 'falha no /realtime/respond');
+    }
+
+    uiState.voice.conversationId = payload.conversation_id || uiState.voice.conversationId || uiState.voice.sessionId;
+    uiState.conversationId = payload.conversation_id || uiState.conversationId;
+    uiState.latestContext = payload.knowledge_context || {};
+    uiState.latestStatus = [
+      'canal: voz',
+      'motor: backend_unificado',
+      `backend: ${payload.backend || 'n/a'}`,
+      `stage: ${payload.response_stage || 'final'}`,
+      `readiness: ${payload.readiness || 'n/a'}`,
+      `latencia_ms: ${payload.latency_ms ?? 'n/a'}`,
+    ];
+    uiState.voice.assistantTranscript = String(payload.answer || '').trim();
+    void emitVoiceEvent('voice_backend_response_received', {
+      transcript_excerpt: summarizeForVoiceLog(cleanText, 180),
+      http_status: res.status,
+      response_summary: summarizeForVoiceLog(payload.answer || '', 180),
+      ...buildVoiceLatencyFields({
+        latency_backend_total_ms: payload?.latency_breakdown?.request_total_ms,
+        latency_backend_build_reply_ms: payload?.latency_breakdown?.build_livecopilot_reply_ms,
+        latency_backend_connector_ms: payload?.latency_breakdown?.connector_ms,
+        latency_backend_voice_output_ms: payload?.latency_breakdown?.voice_output_ms,
+      }),
+    });
+    updateAnswer(payload.answer, payload.bullets);
+    pushInteraction('livecopilot', payload.answer || '');
+    renderInteractionStatus();
+    renderBackendContext();
+    if (uiState.knowledgeDebugEnabled && payload.snapshot && payload.snapshot.knowledge_debug && knowledgeDebugEl) {
+      knowledgeDebugEl.textContent = JSON.stringify(payload.snapshot.knowledge_debug, null, 2);
+    }
+    await playBackendVoiceOutput(payload.voice_output, cleanText);
+    void emitVoiceEvent('voice_backend_response_rendered', {
+      transcript_excerpt: summarizeForVoiceLog(cleanText, 180),
+      http_status: res.status,
+      response_summary: summarizeForVoiceLog(payload.answer || '', 180),
+      ...buildVoiceLatencyFields({
+        latency_backend_total_ms: payload?.latency_breakdown?.request_total_ms,
+        latency_backend_build_reply_ms: payload?.latency_breakdown?.build_livecopilot_reply_ms,
+        latency_backend_connector_ms: payload?.latency_breakdown?.connector_ms,
+        latency_backend_voice_output_ms: payload?.latency_breakdown?.voice_output_ms,
+      }),
+    });
+    if (uiState.voice.lastVoiceOutputStatus === 'play_failed') {
+      // Mantem o feedback explicito de falha de autoplay/playback.
+    } else if (uiState.voice.lastVoiceOutputStatus === 'playing') {
+      setChatFeedback('Resposta em texto e audio recebida do backend unificado do Livecopilot.');
+    } else {
+      setChatFeedback('Resposta da voz recebida do backend unificado do Livecopilot.');
+    }
+  } catch (err) {
+    uiState.voice.lastSubmittedTranscript = '';
+    uiState.voice.lastError = summarizeForVoiceLog(err.message || 'falha inesperada', 120);
+    void emitVoiceEvent('voice_error', {
+      transcript_excerpt: summarizeForVoiceLog(cleanText, 180),
+      error_message: err.message || 'falha inesperada',
+      http_status: Number(uiState.voice.lastBackendStatus || 0) || undefined,
+    });
+    setChatFeedback(`Erro na convergencia da voz: ${err.message || 'falha inesperada'}`, true);
+    uiState.latestStatus = ['canal: voz', 'motor: backend_unificado', 'erro: true'];
+    renderInteractionStatus();
+  } finally {
+    uiState.voice.requestInFlight = false;
+    const pendingTranscript = String(uiState.voice.pendingTranscript || '').trim();
+    if (pendingTranscript && pendingTranscript !== cleanText) {
+      uiState.voice.pendingTranscript = '';
+      void emitVoiceEvent('voice_transcript_dequeued', {
+        transcript_excerpt: summarizeForVoiceLog(pendingTranscript, 180),
+        response_summary: 'transcricao pendente despachada apos conclusao do request anterior',
+      });
+      void submitVoiceTranscriptToBackend(pendingTranscript);
+    }
   }
 }
 
@@ -394,43 +813,192 @@ async function startVoiceSession() {
   }
   setVoiceState('connecting', ['canal: voz', 'estado: criando sessao']);
   try {
+    void emitVoiceEvent('voice_session_open_requested', {
+      response_summary: 'inicio da abertura da sessao realtime',
+    });
     const sessionRes = await fetch('/api/realtime/session', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ mode: modeSelect.value || 'generic' }),
     });
     const sessionPayload = await sessionRes.json();
+    void emitVoiceEvent('voice_session_open_response_received', {
+      http_status: sessionRes.status,
+      response_summary: summarizeForVoiceLog(JSON.stringify({
+        status: sessionPayload.status,
+        channel: sessionPayload.channel,
+        provider: sessionPayload.provider,
+        model: sessionPayload.model,
+        voice: sessionPayload.voice,
+        has_client_secret: Boolean(sessionPayload.client_secret),
+      }), 220),
+    });
     if (!sessionRes.ok) {
       throw new Error(sessionPayload.error || 'falha ao criar sessao realtime');
     }
 
     const pc = new RTCPeerConnection();
     const dc = pc.createDataChannel('oai-events');
+    uiState.voice.autoStopLogged = false;
+    uiState.voice.stopReason = '';
+    uiState.voice.stopDetail = '';
+    uiState.voice.stopRequestedAt = '';
+    void emitVoiceEvent('rtc_peer_connection_created', {
+      response_summary: summarizeForVoiceLog(JSON.stringify({
+        iceConnectionState: pc.iceConnectionState,
+        connectionState: pc.connectionState,
+        signalingState: pc.signalingState,
+      }), 220),
+    });
+    void emitVoiceEvent('rtc_datachannel_created', {
+      response_summary: summarizeForVoiceLog(JSON.stringify({
+        label: dc.label,
+        readyState: dc.readyState,
+        ordered: dc.ordered,
+      }), 220),
+    });
+    void emitVoiceEvent('microphone_access_requested', {
+      response_summary: 'inicio do getUserMedia(audio)',
+    });
     const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    void emitVoiceEvent('microphone_access_granted', {
+      response_summary: summarizeForVoiceLog(JSON.stringify({
+        tracks: stream.getTracks().length,
+        active: Boolean(stream.active),
+        id: stream.id || '',
+      }), 220),
+    });
     stream.getTracks().forEach((track) => pc.addTrack(track, stream));
+    stream.getTracks().forEach((track) => {
+      emitTrackState('microphone_track_state', track, {
+        provider_event_type: 'track_added',
+      });
+      track.onmute = () => {
+        emitTrackState('microphone_track_state', track, { provider_event_type: 'track_mute' });
+      };
+      track.onunmute = () => {
+        emitTrackState('microphone_track_state', track, { provider_event_type: 'track_unmute' });
+      };
+      track.onended = () => {
+        const detail = getVoiceTrackState(track);
+        markAutoStop('microphone_track_ended', detail);
+        emitTrackState('microphone_track_state', track, { provider_event_type: 'track_ended' });
+      };
+    });
 
     pc.ontrack = (event) => {
+      void emitVoiceEvent('rtc_track_received', {
+        response_summary: summarizeForVoiceLog(JSON.stringify({
+          streams: Array.isArray(event.streams) ? event.streams.length : 0,
+          track_kind: String(event.track?.kind || '').trim(),
+          track_state: String(event.track?.readyState || '').trim(),
+        }), 220),
+        provider_event_type: 'pc.ontrack',
+      });
       if (remoteAudioEl) {
         remoteAudioEl.srcObject = event.streams[0];
       }
     };
+    pc.oniceconnectionstatechange = () => {
+      const detail = `ice=${pc.iceConnectionState}`;
+      void emitVoiceEvent('rtc_ice_connection_state_changed', {
+        response_summary: detail,
+        provider_event_type: 'pc.oniceconnectionstatechange',
+      });
+      if (['failed', 'closed', 'disconnected'].includes(pc.iceConnectionState)) {
+        markAutoStop(`ice_${pc.iceConnectionState}`, detail);
+      }
+    };
+    pc.onsignalingstatechange = () => {
+      void emitVoiceEvent('rtc_signaling_state_changed', {
+        response_summary: `signaling=${pc.signalingState}`,
+        provider_event_type: 'pc.onsignalingstatechange',
+      });
+    };
+    pc.onicecandidateerror = (event) => {
+      const detail = summarizeForVoiceLog(JSON.stringify({
+        errorCode: event?.errorCode,
+        errorText: event?.errorText,
+        url: event?.url,
+      }), 220);
+      markAutoStop('ice_candidate_error', detail);
+      void emitVoiceEvent('rtc_peer_connection_error', {
+        error_message: detail || 'ice candidate error',
+        provider_event_type: 'pc.onicecandidateerror',
+      });
+    };
     pc.onconnectionstatechange = () => {
+      const detail = `connection=${pc.connectionState}`;
+      void emitVoiceEvent('rtc_connection_state_changed', {
+        response_summary: detail,
+        provider_event_type: 'pc.onconnectionstatechange',
+      });
       if (pc.connectionState === 'connected') {
         setVoiceState('live', ['canal: voz', 'estado: conectado', 'fluxo: voz pronta para consulta']);
       } else if (['failed', 'disconnected', 'closed'].includes(pc.connectionState)) {
+        markAutoStop(`connection_${pc.connectionState}`, detail);
         setVoiceState('idle', ['canal: voz', `estado: ${pc.connectionState}`]);
       }
     };
+    dc.onopen = () => {
+      void emitVoiceEvent('rtc_datachannel_opened', {
+        response_summary: summarizeForVoiceLog(JSON.stringify({
+          label: dc.label,
+          readyState: dc.readyState,
+        }), 220),
+        provider_event_type: 'dc.onopen',
+      });
+    };
+    dc.onclose = () => {
+      const detail = summarizeForVoiceLog(JSON.stringify({
+        label: dc.label,
+        readyState: dc.readyState,
+      }), 220);
+      markAutoStop('datachannel_closed', detail);
+      void emitVoiceEvent('rtc_datachannel_closed', {
+        response_summary: detail,
+        provider_event_type: 'dc.onclose',
+      });
+    };
+    dc.onerror = (event) => {
+      const detail = summarizeRtcError(event);
+      markAutoStop('datachannel_error', detail);
+      void emitVoiceEvent('rtc_datachannel_error', {
+        error_message: detail || 'erro no data channel',
+        provider_event_type: 'dc.onerror',
+      });
+    };
     dc.onmessage = (event) => {
+      const rawMessage = String(event?.data || '');
+      void emitVoiceEvent('rtc_message_received', {
+        response_summary: summarizeForVoiceLog(rawMessage, 220),
+        provider_event_type: 'dc.onmessage',
+      });
       try {
         handleRealtimeEvent(JSON.parse(event.data));
-      } catch (_) {
-        // Ignora eventos nao parseaveis.
+      } catch (err) {
+        void emitVoiceEvent('rtc_message_parse_failed', {
+          error_message: summarizeForVoiceLog(err?.message || 'falha ao parsear mensagem do data channel', 180),
+          response_summary: summarizeForVoiceLog(rawMessage, 220),
+          provider_event_type: 'dc.onmessage',
+        });
       }
     };
 
     const offer = await pc.createOffer();
+    void emitVoiceEvent('rtc_offer_created', {
+      response_summary: summarizeForVoiceLog(JSON.stringify({
+        type: offer.type,
+        sdp_length: String(offer.sdp || '').length,
+      }), 220),
+    });
     await pc.setLocalDescription(offer);
+    void emitVoiceEvent('rtc_local_description_set', {
+      response_summary: summarizeForVoiceLog(JSON.stringify({
+        type: pc.localDescription?.type || '',
+        sdp_length: String(pc.localDescription?.sdp || '').length,
+      }), 220),
+    });
 
     const sdpRes = await fetch(`${sessionPayload.webrtc_url}?model=${encodeURIComponent(sessionPayload.model)}`, {
       method: 'POST',
@@ -441,29 +1009,79 @@ async function startVoiceSession() {
       body: offer.sdp,
     });
     const answerSdp = await sdpRes.text();
+    void emitVoiceEvent('rtc_remote_description_received', {
+      http_status: sdpRes.status,
+      response_summary: summarizeForVoiceLog(JSON.stringify({
+        ok: sdpRes.ok,
+        sdp_length: String(answerSdp || '').length,
+      }), 220),
+    });
     if (!sdpRes.ok) {
       throw new Error(answerSdp || 'falha ao negociar WebRTC com a OpenAI');
     }
     await pc.setRemoteDescription({ type: 'answer', sdp: answerSdp });
+    void emitVoiceEvent('rtc_remote_description_set', {
+      response_summary: summarizeForVoiceLog(JSON.stringify({
+        type: pc.remoteDescription?.type || '',
+        sdp_length: String(pc.remoteDescription?.sdp || '').length,
+      }), 220),
+    });
 
     uiState.voice.pc = pc;
     uiState.voice.dc = dc;
     uiState.voice.localStream = stream;
     uiState.voice.sessionId = `rt-${String(sessionPayload.expires_at || Date.now())}`;
     uiState.voice.sessionStartedAt = new Date().toISOString();
+    uiState.voice.conversationId = uiState.voice.sessionId;
+    uiState.voice.lastBackendStatus = '';
+    uiState.voice.lastError = '';
     uiState.realtimeModel = sessionPayload.model || uiState.realtimeModel;
     uiState.realtimeVoice = sessionPayload.voice || uiState.realtimeVoice;
     renderVoiceMeta();
+    void emitVoiceEvent('voice_session_started', {
+      started_at: uiState.voice.sessionStartedAt,
+      url: window.location.href,
+      model: uiState.realtimeModel || sessionPayload.model || '',
+      voice: uiState.realtimeVoice || sessionPayload.voice || '',
+      secure_context: Boolean(diagnostics.secureContext),
+      media_devices: Boolean(diagnostics.mediaDevicesAvailable),
+      get_user_media: Boolean(diagnostics.getUserMediaAvailable),
+      user_agent: navigator.userAgent || '',
+      response_summary: 'sessao realtime iniciada para captura/transcricao',
+      provider_event_type: 'session.created',
+    });
     setVoiceState('live', ['canal: voz', 'estado: fale agora', 'fluxo: falar em vez de digitar']);
   } catch (err) {
     resetVoiceTransport();
     const message = describeVoiceError(err);
+    uiState.voice.lastError = summarizeForVoiceLog(message, 120);
+    markAutoStop('session_start_failed', message);
+    void emitVoiceEvent('microphone_access_failed', {
+      error_message: message,
+      provider_event_type: 'getUserMedia/session_start_failed',
+    });
+    void emitVoiceEvent('voice_error', {
+      error_message: message,
+      provider_event_type: 'session.start_failed',
+    });
     setVoiceState('error', [`canal: voz`, `erro: ${message}`]);
     setChatFeedback(`Erro de voz: ${message}`, true);
   }
 }
 
-function stopVoiceSession() {
+function stopVoiceSession(reason = 'manual', detail = '') {
+  uiState.voice.autoStopLogged = true;
+  uiState.voice.stopReason = reason;
+  uiState.voice.stopDetail = detail;
+  uiState.voice.stopRequestedAt = new Date().toISOString();
+  void emitVoiceEvent('voice_stop_requested', {
+    response_summary: summarizeForVoiceLog(detail || reason, 180),
+    provider_event_type: reason,
+  });
+  void emitVoiceEvent('voice_session_stopped', {
+    response_summary: summarizeForVoiceLog(detail || 'sessao realtime encerrada', 180),
+    provider_event_type: reason,
+  });
   resetVoiceTransport();
   setVoiceState('idle', ['canal: voz', 'estado: encerrado']);
 }
@@ -539,7 +1157,7 @@ voiceStartBtn.addEventListener('click', async () => {
 });
 
 voiceStopBtn.addEventListener('click', () => {
-  stopVoiceSession();
+  stopVoiceSession('manual', 'encerramento manual solicitado pelo usuario');
 });
 
 bootstrapStatus();

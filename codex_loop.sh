@@ -44,7 +44,10 @@ ENQUEUE_FILE_REQUESTED=0
 SIMULATE_OUTPUT=""
 SIMULATE_OUTPUT_FILE=""
 CODEX_TIMEOUT_SECONDS="${CODEX_TIMEOUT_SECONDS:-900}"
-CODEX_MODEL="${CODEX_MODEL:-gpt-5.4}"
+CODEX_MODEL="${CODEX_MODEL:-gpt-5.1-codex-mini}"
+CODEX_CALL_PAUSE_SECONDS="${CODEX_CALL_PAUSE_SECONDS:-2}"
+CODEX_MAX_RETRIES="${CODEX_MAX_RETRIES:-5}"
+LAST_CODEX_CALL_TS=0
 SIMULATE_DELAY_SECONDS="${SIMULATE_DELAY_SECONDS:-0}"
 SIMULATE_TIMEOUT="${SIMULATE_TIMEOUT:-0}"
 LOCK_HELD=0
@@ -967,6 +970,74 @@ se houve erro: codex nao encontrado" > "$result_capture_file"
     - < "$LAST_PROMPT_FILE" >"$raw_log_file" 2>&1
 }
 
+ensure_codex_call_spacing() {
+  if [[ "${CODEX_CALL_PAUSE_SECONDS:-0}" -le 0 ]]; then
+    return 0
+  fi
+  if [[ "$LAST_CODEX_CALL_TS" -le 0 ]]; then
+    return 0
+  fi
+
+  local now elapsed wait
+  now="$(date +%s)"
+  elapsed=$(( now - LAST_CODEX_CALL_TS ))
+  wait=$(( CODEX_CALL_PAUSE_SECONDS - elapsed ))
+  if (( wait > 0 )); then
+    sleep "$wait"
+  fi
+}
+
+should_retry_codex_failure() {
+  local rc="$1"
+  local raw_log_file="$2"
+  if [[ "$rc" -eq 0 || "$rc" -eq 124 || "$rc" -eq 127 ]]; then
+    return 1
+  fi
+  if [[ ! -f "$raw_log_file" ]]; then
+    return 1
+  fi
+
+  local content
+  content="$(tr '[:upper:]' '[:lower:]' < "$raw_log_file" 2>/dev/null || true)"
+  local patterns=("rate limit" "too many requests" "429" "retry after" "retry later" "request was rejected" "throttl" "quota exceeded")
+  for pattern in "${patterns[@]}"; do
+    if [[ "$content" == *"$pattern"* ]]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
+execute_codex_with_backoff() {
+  local raw_log_file="$1"
+  local result_capture_file="$2"
+  local attempt=1
+  local backoff_delay=2
+  local run_rc=0
+
+  while true; do
+    ensure_codex_call_spacing
+    run_codex_exec "$raw_log_file" "$result_capture_file"
+    run_rc=$?
+    LAST_CODEX_CALL_TS="$(date +%s)"
+    if [[ "$run_rc" -eq 0 ]]; then
+      break
+    fi
+    if (( attempt >= CODEX_MAX_RETRIES )); then
+      break
+    fi
+    if ! should_retry_codex_failure "$run_rc" "$raw_log_file"; then
+      break
+    fi
+    printf '%s\n' "[retry] codex exec failed (rc=$run_rc); waiting ${backoff_delay}s before attempt $((attempt + 1))"
+    sleep "$backoff_delay"
+    backoff_delay=$(( backoff_delay < 8 ? backoff_delay * 2 : 8 ))
+    attempt=$((attempt + 1))
+  done
+
+  return "$run_rc"
+}
+
 contains_risk_signal() {
   local text_file="$1"
   python3 - "$text_file" "${RISK_TERMS[@]}" <<'PY'
@@ -1265,7 +1336,7 @@ run_single_iteration() {
   echo "[run] prompt consolidado salvo em state/last_prompt.md"
 
   run_rc=0
-  run_codex_exec "$raw_log_file" "$result_capture_file" || run_rc=$?
+  execute_codex_with_backoff "$raw_log_file" "$result_capture_file" || run_rc=$?
   if [[ "$run_rc" -ne 0 ]]; then
     if [[ "$run_rc" -eq 124 ]]; then
       exec_status="timeout"

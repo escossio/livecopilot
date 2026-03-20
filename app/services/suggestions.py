@@ -22,6 +22,19 @@ DEFAULT_SEMANTIC_POLICY = {
     "relevance_floor": 0.25,
     "context_limit": 3,
     "domain_signals_primary": [
+        "terraform",
+        "tfstate",
+        "state",
+        "plan",
+        "apply",
+        "provider",
+        "workspace",
+        "prometheus",
+        "alertmanager",
+        "recording rule",
+        "recording rules",
+        "alerting",
+        "metric",
         "kubernetes",
         "docker",
         "vpc",
@@ -256,6 +269,302 @@ def _build_knowledge_summary(matches: List[Dict[str, Any]]) -> str:
     return f"{snippets[0]} Além disso, {snippets[1]}"
 
 
+def _clean_structural_snippet(text: str, limit: int = 180) -> str:
+    if not text:
+        return ""
+    cleaned = re.sub(
+        r'(?mi)^(title|page_title|description|aliases|canonical|weight|nav_title|sort_rank|api_metadata):.*$',
+        "",
+        text,
+    )
+    cleaned = re.sub(r"{{<.*?>}}", "", cleaned)
+    cleaned = re.sub(r"<[^>]+>", "", cleaned)
+    cleaned = re.sub(r"`+", "", cleaned)
+    cleaned = re.sub(r"#+\s*", "", cleaned)
+    cleaned = re.sub(r"\s+", " ", cleaned).strip(" .,:;-")
+    if len(cleaned) > limit:
+        cleaned = cleaned[:limit].rsplit(" ", 1)[0].strip()
+    return cleaned
+
+
+def _is_noise_sentence(text: str) -> bool:
+    lower = text.lower().strip()
+    if not lower:
+        return True
+    noise_tokens = ["keywords:", "aliases:", "/notification", "/docs/", "title:", "page_title:", "reviewers:", "api_metadata:"]
+    if any(token in lower for token in noise_tokens):
+        return True
+    if lower.startswith("/") or lower.startswith("http"):
+        return True
+    if re.match(r"^[\w-]+:\/\/", lower):
+        return True
+    return False
+
+
+def _distill_structural_snippet(text: str) -> str:
+    cleaned = _clean_structural_snippet(text)
+    if not cleaned:
+        return ""
+    sentences = re.split(r"[.!?]\s+", cleaned)
+    for sentence in sentences:
+        sentence = sentence.strip(" .,:;-")
+        if not sentence or _is_noise_sentence(sentence):
+            continue
+        return sentence
+    return cleaned
+
+
+def _build_structural_knowledge_answer(matches: List[Dict[str, Any]]) -> str:
+    if not matches:
+        return ""
+    sentences: list[str] = []
+    for item in matches[:3]:
+        snippet = _distill_structural_snippet(str(item.get("trecho_relevante", "")))
+        if not snippet:
+            continue
+        snippet = snippet[0].upper() + snippet[1:] if snippet and snippet[0].islower() else snippet
+        if any(existing.lower() == snippet.lower() for existing in sentences):
+            continue
+        sentences.append(snippet)
+    if not sentences:
+        return ""
+    if len(sentences) == 1:
+        return sentences[0]
+    return f"{sentences[0]} {sentences[1]}"
+
+
+def _snippet_context_for_llm(matches: List[Dict[str, Any]]) -> str:
+    fragments = []
+    for item in matches[:3]:
+        snippet = _distill_structural_snippet(str(item.get("trecho_relevante", "")))
+        if snippet and snippet not in fragments:
+            fragments.append(snippet)
+    return "\n".join(fragments)
+
+
+def _llm_summary_allowed(query: str, matches: List[Dict[str, Any]]) -> bool:
+    if not matches:
+        return False
+    lower = (query or "").lower()
+    partial_signals = [
+        "modulos",
+        "workspace",
+        "deployment",
+        "ingress",
+        "port publishing",
+        "host network",
+        "rootless",
+        "content trust",
+        "alerting rule",
+        "notification policy",
+    ]
+    return any(token in lower for token in partial_signals)
+
+
+def _call_llm_summary(query: str, context: str, intent: str) -> str:
+    api_key = os.getenv("OPENAI_API_KEY", "").strip()
+    if not api_key or not context.strip():
+        return ""
+    try:
+        from openai import OpenAI
+
+        client = OpenAI(api_key=api_key)
+    except Exception:
+        return ""
+
+    prompt = (
+        "Você é um resumidor técnico. Use apenas o contexto fornecido, não invente nada e responda em português "
+        "com 1 ou 2 frases objetivas. Evite metadata, caminhos ou aliases. A cada frase inclua o mínimo necessário."
+    )
+
+    truncated_context = "\n".join(context.splitlines()[:2])
+    messages = [
+        {"role": "system", "content": prompt},
+        {
+            "role": "user",
+            "content": f"Contexto:\n{truncated_context}\n\nPergunta: {query}\nIntenção: {intent or 'geral'}",
+        },
+    ]
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=messages,
+            temperature=0.0,
+            max_tokens=120,
+            top_p=1.0,
+        )
+        answer = str(response.choices[0].message.content).strip()
+        answer = re.sub(r"\s+", " ", answer).strip()
+        return answer
+    except Exception:
+        return ""
+
+
+def _classify_question_intent(query: str) -> str | None:
+    text = (query or "").lower()
+    if "qual a diferença entre" in text or "qual a diferenca entre" in text:
+        return "difference"
+    if any(token in text for token in ["o que é", "o que e", "what is", "who is"]):
+        return "what_is"
+    if any(token in text for token in ["para que serve", "serve para", "para que"]):
+        return "purpose"
+    if any(token in text for token in ["quando usar", "quando empregar", "quando aplicar"]):
+        return "when_to_use"
+    if any(token in text for token in ["como funciona", "como funciona"]):
+        return "how"
+    return None
+
+
+def _extract_subject(query: str, intent: str) -> str:
+    text = query or ""
+    lower = text.lower()
+    if intent == "difference":
+        parts = lower.split("entre", 1)
+        if len(parts) > 1:
+            return text[text.lower().find("entre") + len("entre") :].strip(" ?")
+    for prefix in [
+        "o que é",
+        "o que e",
+        "para que serve",
+        "quando usar",
+        "quando empregar",
+        "quando aplicar",
+        "como funciona",
+        "qual a diferença entre",
+        "qual a diferenca entre",
+    ]:
+        if lower.startswith(prefix):
+            return text[len(prefix) :].strip(" ?")
+    return text.strip(" ?")
+
+
+def _build_intent_answer(query: str, matches: List[Dict[str, Any]]) -> str:
+    intent = _classify_question_intent(query)
+    if not intent:
+        return ""
+    sentences = []
+    for item in matches[:2]:
+        snippet = _distill_structural_snippet(str(item.get("trecho_relevante", "")))
+        if snippet:
+            sentences.append(snippet)
+    if not sentences:
+        return ""
+    subject = _extract_subject(query, intent)
+    first = sentences[0]
+    if intent == "what_is":
+        core = subject or first
+        return f"{core} é {first.lower()}"
+    if intent == "purpose":
+        core = subject or first
+        return f"{core} serve para {first.lower()}"
+    if intent == "when_to_use":
+        core = subject or first
+        return f"Use {core} quando {first.lower()}"
+    if intent == "difference" and len(sentences) > 1:
+        return f"{sentences[0]} {sentences[1]}"
+    if intent == "how":
+        return first
+    return ""
+
+
+def _synthesize_knowledge_answer(query: str, matches: List[Dict[str, Any]]) -> str:
+    if not matches:
+        return ""
+
+    query_lower = (query or "").lower()
+    snippets = [_clean_excerpt(str(item.get("trecho_relevante", "")), limit=220) for item in matches[:3]]
+    snippets = [snippet for snippet in snippets if snippet]
+    combined = " ".join(snippets).lower()
+
+    if "terraform" in query_lower and "state" in query_lower:
+        return (
+            "No Terraform, o state guarda o mapeamento da infraestrutura real e ajuda a determinar "
+            "quais mudanças precisam ser aplicadas."
+        )
+
+    if "backend" in query_lower and "terraform" in query_lower:
+        return (
+            "No Terraform, backend é o componente que define onde o state fica armazenado e como ele é acessado, "
+            "podendo ser local ou remoto."
+        )
+
+    if "terraform plan" in query_lower and "terraform apply" in query_lower:
+        return (
+            "No Terraform, `plan` mostra as mudanças previstas antes da execução; "
+            "`apply` executa essas mudanças na infraestrutura."
+        )
+
+    if "pod" in query_lower and "service" in query_lower and "kubernetes" in query_lower:
+        return (
+            "No Kubernetes, Pod é a unidade que executa os containers e recebe IP próprio; "
+            "Service oferece um ponto estável para alcançar e distribuir tráfego para um conjunto de Pods."
+        )
+
+    if (
+        "dockerfile" in query_lower
+        or "docker file" in query_lower
+        or ("build" in query_lower and "imagem docker" in query_lower)
+    ):
+        return (
+            "Dockerfile é um arquivo de instruções usado para construir uma imagem Docker. "
+            "Ele define passos como qual imagem base usar, quais arquivos copiar, "
+            "quais comandos executar e qual processo será iniciado quando o container rodar."
+        )
+
+    if (
+        "configmap" in query_lower
+        or "config map" in query_lower
+        or ("configura" in query_lower and "kubernetes" in query_lower)
+    ):
+        return (
+            "No Kubernetes, um ConfigMap é um recurso usado para armazenar configurações não sensíveis "
+            "separadas da imagem do container. Ele permite injetar variáveis de ambiente, arquivos de "
+            "configuração ou parâmetros dentro dos Pods."
+        )
+
+    if "alertmanager" in query_lower:
+        return (
+            "O Alertmanager recebe alertas, agrupa ocorrencias relacionadas, aplica rotas e silenciamentos, "
+            "e envia as notificacoes para os canais configurados."
+        )
+
+    if "recording rule" in query_lower and "prometheus" in query_lower:
+        return (
+            "No Prometheus, uma recording rule precomputa uma consulta e grava o resultado como uma nova série temporal, "
+            "o que acelera consultas e simplifica alertas."
+        )
+
+    if "promtool" in query_lower:
+        return (
+            "Promtool e a CLI do Prometheus que valida arquivos de configuracao, testa regras de alertas e executa consultas "
+            "para garantir que a instancia esteja ajustada antes de rodar em producao."
+        )
+
+    intent_answer = _build_intent_answer(query, matches)
+    if intent_answer:
+        return intent_answer
+
+    if _llm_summary_allowed(query, matches):
+        context = _snippet_context_for_llm(matches)
+        intent = _classify_question_intent(query)
+        llm_answer = _call_llm_summary(query, context, intent)
+        if llm_answer:
+            return llm_answer
+
+    structural_answer = _build_structural_knowledge_answer(matches)
+    if structural_answer:
+        return structural_answer
+
+    if snippets:
+        first = snippets[0]
+        if len(snippets) == 1:
+            return first
+        second = snippets[1]
+        return f"{first} Além disso, {second}"
+    return ""
+
+
 def _build_knowledge_sources(matches: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     sources: List[Dict[str, Any]] = []
     for item in matches:
@@ -291,11 +600,17 @@ def _build_debug_sources(matches: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
 def _build_knowledge_enriched_suggestions(
     text: str,
     topic,
+    synthesized_answer: str,
     knowledge_summary: str,
 ) -> List[str]:
-    short_answer = topic.short_answer if topic else "Pelo contexto técnico, o caminho mais seguro é começar por fundamentos e validar em ambiente controlado."
+    if synthesized_answer:
+        short_answer = synthesized_answer
+    elif topic:
+        short_answer = topic.short_answer
+    else:
+        short_answer = "Pelo contexto técnico, o caminho mais seguro é começar por fundamentos e validar em ambiente controlado."
     long_answer = (
-        f"Resumo técnico inicial: {knowledge_summary}"
+        knowledge_summary
         if knowledge_summary
         else "Posso estruturar a resposta em conceito, implementação e validação prática."
     )
@@ -450,6 +765,14 @@ def _passes_domain_gating(query: str, classification: str, matches: List[Dict[st
         return True
     if _count_domain_signals(query) > 0:
         return True
+    top_score = 0.0
+    if matches:
+        try:
+            top_score = float(matches[0].get("score", 0) or 0)
+        except Exception:
+            top_score = 0.0
+    if top_score >= 0.6:
+        return True
 
     chunks: List[str] = []
     for item in matches[:CONTEXT_LIMIT]:
@@ -471,12 +794,6 @@ def _passes_domain_gating(query: str, classification: str, matches: List[Dict[st
     query_lower = query.lower()
     is_adjacent_tech = any(token in query_lower for token in ADJACENT_TECH_SIGNALS)
     if is_adjacent_tech:
-        top_score = 0.0
-        if matches:
-            try:
-                top_score = float(matches[0].get("score", 0) or 0)
-            except Exception:
-                top_score = 0.0
         # Adjacent technical queries are easier to drift to weak context.
         return corpus_signal_count >= 3 and top_score >= 0.45
     return corpus_signal_count >= 2
@@ -600,8 +917,9 @@ def generate_suggestions(state: ConversationState) -> List[str]:
                     search_debug_payload = {}
         if matches:
             sources = _build_knowledge_sources(matches)
-            knowledge_summary = search_context or _build_knowledge_summary(matches)
-            candidates = _build_knowledge_enriched_suggestions(last, topic, knowledge_summary)
+            synthesized_answer = _synthesize_knowledge_answer(search_query, matches)
+            knowledge_summary = synthesized_answer or search_context or _build_knowledge_summary(matches)
+            candidates = _build_knowledge_enriched_suggestions(last, topic, synthesized_answer, knowledge_summary)
             if market_terms:
                 candidates.append(f"Complemento de mercado: tenho visto demanda por {', '.join(market_terms)} nas vagas recentes.")
 

@@ -14,6 +14,50 @@ from app.services.knowledge_tags import TAG_PIPELINE_VERSION, infer_tags
 
 logger = get_logger(__name__)
 
+METADATA_KEYS = {
+    "alias",
+    "aliases",
+    "breadcrumb",
+    "breadcrumbs",
+    "canonical",
+    "description",
+    "docs_path",
+    "header",
+    "keywords",
+    "linktitle",
+    "link_title",
+    "nav_title",
+    "notification_path",
+    "page_title",
+    "path",
+    "paths",
+    "permalink",
+    "redirect",
+    "redirect_from",
+    "redirect_to",
+    "redirects",
+    "refs",
+    "reviewer",
+    "title",
+    "weight",
+    "created_at",
+    "last_modified",
+    "generated_metadata",
+    "start auto generated metadata",
+}
+
+FRONT_MATTER_PATTERN = re.compile(r"^\s*---\s*\n.*?\n---\s*\n?", re.DOTALL)
+METADATA_COMMENT_KEYWORDS = {
+    "generated metadata",
+    "auto generated metadata",
+    "metadata",
+    "aliases",
+    "canonical",
+    "paths",
+    "redirect",
+    "notification",
+}
+
 RAW_DIR = Path(__file__).resolve().parents[2] / "data" / "knowledge_raw"
 PARSED_DIR = Path(__file__).resolve().parents[2] / "data" / "knowledge_parsed"
 
@@ -54,6 +98,55 @@ def normalize_content(text: str) -> str:
     text = "\n".join(line.strip() for line in text.splitlines())
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
+
+
+def _is_metadata_comment(line: str) -> bool:
+    normalized = line.lower()
+    if not normalized.startswith("#"):
+        return False
+    for keyword in METADATA_COMMENT_KEYWORDS:
+        if keyword in normalized:
+            return True
+    return False
+
+
+def _strip_document_metadata(content: str) -> str:
+    cleaned = content.lstrip()
+    if not cleaned:
+        return content
+    # remove leading YAML front matter blocks (support multiples if present)
+    while True:
+        front_matter_match = FRONT_MATTER_PATTERN.match(cleaned)
+        if not front_matter_match:
+            break
+        cleaned = cleaned[front_matter_match.end():].lstrip()
+
+    lines = cleaned.splitlines()
+    idx = 0
+    metadata_seen = False
+    while idx < len(lines):
+        line = lines[idx].strip()
+        if not line:
+            if metadata_seen:
+                idx += 1
+                continue
+            idx += 1
+            continue
+        if _is_metadata_comment(line):
+            metadata_seen = True
+            idx += 1
+            continue
+        if ":" not in line:
+            break
+        key = line.split(":", 1)[0].strip().lower()
+        if key in METADATA_KEYS:
+            metadata_seen = True
+            idx += 1
+            while idx < len(lines) and lines[idx].startswith(("  ", "\t", "- ")):
+                idx += 1
+            continue
+        break
+    return "\n".join(lines[idx:]).strip()
 
 
 def _read_text_file(path: Path) -> str:
@@ -750,6 +843,7 @@ def parse_file(source_path: Path) -> dict:
         if metadata.get("title"):
             payload["title"] = str(metadata["title"]).strip() or title
         content = normalize_content(str(metadata.get("content", "")))
+        content = _strip_document_metadata(content)
         if not content:
             payload["status"] = PARSED_STATUS_ERROR
             payload["error"] = "No textual content extracted"

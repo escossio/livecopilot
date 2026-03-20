@@ -1,7 +1,7 @@
 import re
 from typing import Any
 
-TAG_PIPELINE_VERSION = "2026-02-28-precision-v3"
+TAG_PIPELINE_VERSION = "2026-03-15-chunking-v1"
 
 TECH_TAG_HINTS: dict[str, list[str]] = {
     "java": ["java", "jvm", "spring", "springboot", "maven", "gradle", "jpa", "hibernate"],
