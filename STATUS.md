@@ -1,3 +1,15 @@
+## Checkpoint 2026-03-20: congelamento do remanescente fora de escopo
+- Estado consolidado:
+  - `baseline/governanca`, `core funcional principal` e `documentação principal/governança/validação` já foram publicados.
+  - `git diff --name-only` estava vazio antes desta edição.
+  - o remanescente atual ficou congelado como fora de escopo nesta rodada.
+- Trilhas congeladas:
+  - `AWS/AZURE`
+  - `pipeline lab`
+  - `scripts/testes auxiliares`
+- Próxima trilha sugerida:
+  - `AWS/AZURE`, por ser o bloco paralelo mais autocontido para retomada futura.
+
 ## Checkpoint 2026-03-20: Revalidação lote 2
 - Objetivo desta rodada:
   - rerodar o precheck de `PYTHON`, `POSTGRESQL` e `LINUX` após o saneamento do índice de frentes.
