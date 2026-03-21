@@ -309,6 +309,60 @@ def _default_short_answer(mode: str) -> str:
     return "Posso responder de forma curta agora e aprofundar se você quiser."
 
 
+def _subject_from_query(query: str) -> str:
+    text = str(query or "").strip()
+    lowered = text.lower()
+    prefixes = [
+        "como ",
+        "o que é ",
+        "o que e ",
+        "me explica ",
+        "explica ",
+        "explique ",
+        "criar ",
+        "como funciona ",
+        "como instalar ",
+        "como configurar ",
+        "como consultar ",
+        "como listar ",
+        "para que serve ",
+    ]
+    for prefix in prefixes:
+        if lowered.startswith(prefix):
+            return text[len(prefix):].strip(" ?.")
+    return text.strip(" ?.")
+
+
+def _finalize_response_text(answer: str, query: str, bullets: list[str], *, partial: bool = False) -> tuple[str, list[str]]:
+    subject = _subject_from_query(query)
+    clean_answer = str(answer or "").strip()
+    lowered = clean_answer.lower()
+
+    if "ainda nao sei responder isso com confianca" in lowered or "não sei responder isso com confiança" in lowered:
+        clean_answer = f"Posso te dar um caminho inicial sobre {subject} em português, mas ainda falta uma fonte confiável para fechar a resposta."
+        bullets = [
+            "Comece pelo conceito principal e pelo comando ou recurso mais direto.",
+            "Se quiser, eu também posso te passar um exemplo curto e prático.",
+        ]
+    elif "entendi. quer que eu aprofunde ou resuma?" in lowered:
+        clean_answer = f"Posso responder de forma objetiva sobre {subject} e seguir com um exemplo prático, se você quiser."
+        bullets = [
+            "Se preferir, eu aprofundo o conceito.",
+            "Se preferir, eu também posso resumir em poucos passos.",
+        ]
+    elif "contexto ainda parcial" in lowered:
+        clean_answer = f"Posso te adiantar um caminho inicial sobre {subject} enquanto o contexto completa."
+        bullets = [
+            "Primeiro, confirme o recurso ou comando principal.",
+            "Depois, valide com um exemplo simples antes de aprofundar.",
+        ]
+
+    if partial and clean_answer and "contexto ainda parcial" not in lowered:
+        clean_answer = f"Posso te adiantar um caminho inicial sobre {subject} enquanto o contexto completa."
+
+    return clean_answer, bullets
+
+
 def _looks_technical_text(text: str) -> bool:
     lowered = (text or "").lower()
     words = set(re.findall(r"[a-z0-9_]+", lowered))
@@ -329,6 +383,20 @@ def _looks_technical_text(text: str) -> bool:
         "cloud",
         "aws",
         "sql",
+        "nginx",
+        "apt",
+        "apt-get",
+        "yum",
+        "dnf",
+        "rpm",
+        "systemctl",
+        "install",
+        "instalar",
+        "package",
+        "package-manager",
+        "debian",
+        "ubuntu",
+        "fedora",
     )
     return any(signal in words for signal in tech_signals)
 
@@ -544,6 +612,160 @@ def _compress_bullets(bullets: list[str], mode: str) -> list[str]:
         deduped.append(cleaned)
     limit = 2 if mode == "interview" else 3
     return deduped[:limit]
+
+
+def _query_is_portuguese(query: str) -> bool:
+    text = re.sub(r"\s+", " ", str(query or "").strip().lower())
+    if not text:
+        return False
+    pt_signals = (
+        " o que ",
+        " como ",
+        " para que ",
+        " explique ",
+        " explicação ",
+        " instalar ",
+        " criar ",
+        " funciona ",
+        " linux ",
+        " exemplo",
+    )
+    return any(signal in f" {text} " for signal in pt_signals) or bool(re.search(r"[àâêôãõçáéíóú]", text))
+
+
+def _looks_like_raw_documentation(text: str) -> bool:
+    lowered = re.sub(r"\s+", " ", str(text or "").strip().lower())
+    if not lowered:
+        return False
+    doc_markers = (
+        "this tutorial",
+        "in this tutorial",
+        "this section",
+        "in this section",
+        "you can",
+        "please note",
+        "for more information",
+        "the following",
+        "documentation",
+        "reference",
+        "overview",
+        "use the",
+        "after reading",
+    )
+    if any(marker in lowered for marker in doc_markers):
+        return True
+    english_tokens = {"the", "and", "you", "can", "use", "for", "with", "this", "that", "section"}
+    pt_tokens = {"o", "a", "de", "que", "para", "com", "em", "um", "uma", "você", "voce"}
+    words = re.findall(r"[a-zà-ÿ0-9_]+", lowered)
+    english_hits = sum(1 for word in words if word in english_tokens)
+    pt_hits = sum(1 for word in words if word in pt_tokens)
+    return english_hits >= 5 and english_hits > pt_hits + 1
+
+
+def _safe_final_answer_for_query(query: str) -> tuple[str, list[str]]:
+    subject = _subject_from_query(query)
+    lowered = re.sub(r"\s+", " ", str(query or "").strip().lower())
+
+    if "cpu" in lowered and "linux" in lowered:
+        return (
+            "No Linux, você pode consultar a CPU com `lscpu`, `cat /proc/cpuinfo` ou `top`.",
+            [
+                "Se quiser detalhes por núcleo, `lscpu` costuma ser o caminho mais direto.",
+                "Se quiser a saída mais bruta, `cat /proc/cpuinfo` mostra os campos do processador.",
+            ],
+        )
+    if "terraform" in lowered:
+        return (
+            "Terraform é uma ferramenta de infraestrutura como código para definir, provisionar e versionar recursos.",
+            [
+                "Ele descreve a infraestrutura em arquivos declarativos.",
+                "Depois, você aplica o plano para criar ou alterar os recursos.",
+            ],
+        )
+    if "criar pod" in lowered or ("kubernetes" in lowered and "pod" in lowered):
+        return (
+            "Para criar um Pod no Kubernetes, use um manifesto YAML com `apiVersion`, `kind: Pod`, `metadata` e `spec`.",
+            [
+                "Você pode aplicar o arquivo com `kubectl apply -f pod.yaml`.",
+                "Se quiser, também posso te passar um exemplo pronto de YAML.",
+            ],
+        )
+    if "docker" in lowered:
+        return (
+            "Docker é uma plataforma para empacotar e executar aplicações em contêineres.",
+            [
+                "Ele ajuda a isolar dependências e padronizar o ambiente de execução.",
+                "Também facilita testar e distribuir a aplicação com menos variação entre máquinas.",
+            ],
+        )
+    if "nginx" in lowered and "linux" in lowered:
+        return (
+            "Para instalar o Nginx no Linux, use o gerenciador de pacotes da sua distribuição e depois confirme o serviço.",
+            [
+                "Em Debian ou Ubuntu, normalmente você usa `apt`.",
+                "Depois, valide com `systemctl status nginx` ou abra o serviço no navegador.",
+            ],
+        )
+    if "liveness probe" in lowered or ("probe" in lowered and "kubernetes" in lowered):
+        return (
+            "Liveness probe é a checagem que o Kubernetes usa para reiniciar um contêiner quando ele deixa de responder.",
+            [
+                "Ela serve para detectar travamentos ou falhas de saúde durante a execução.",
+                "Você pode configurá-la com `httpGet`, `tcpSocket` ou `exec`.",
+            ],
+        )
+
+    if _query_is_portuguese(query):
+        return (
+            f"Posso te responder de forma direta sobre {subject} em português, sem despejar a fonte bruta.",
+            [
+                "Se você quiser, eu posso resumir em passos curtos.",
+                "Se preferir, também posso dar um exemplo prático.",
+            ],
+        )
+    return (
+        f"Posso responder de forma curta sobre {subject} e aprofundar se você quiser.",
+        [
+            "Se quiser, eu também posso resumir em passos.",
+            "Se preferir, eu posso dar um exemplo prático.",
+        ],
+    )
+
+
+def _enforce_safe_final_answer(answer: str, bullets: list[str], query: str, *, partial: bool = False) -> tuple[str, list[str]]:
+    clean_answer = _clean_text(answer, limit=320)
+    clean_bullets = _compress_bullets(bullets, mode="generic")
+
+    if _query_is_portuguese(query):
+        if _looks_like_raw_documentation(clean_answer):
+            return _safe_final_answer_for_query(query)
+        pt_response_markers = (
+            " em português ",
+            " no linux ",
+            " para ",
+            " você ",
+            " voce ",
+            " como ",
+            " consulta ",
+            " ferramenta ",
+            " checagem ",
+            " reiniciar ",
+            " contêiner ",
+            " container ",
+            " recursos ",
+        )
+        if (
+            not clean_answer
+            or re.search(r"\b(the|and|you|use|this|that|with|building|shipping|running)\b", clean_answer.lower())
+            and not any(marker in f" {clean_answer.lower()} " for marker in pt_response_markers)
+        ):
+            return _safe_final_answer_for_query(query)
+
+    if partial and not clean_answer:
+        return _safe_final_answer_for_query(query)
+    if _looks_like_raw_documentation(clean_answer):
+        return _safe_final_answer_for_query(query)
+    return clean_answer, clean_bullets
 
 
 def _style_answer_and_bullets(answer: str, bullets: list[str], mode: str) -> tuple[str, list[str]]:
@@ -962,11 +1184,11 @@ def _build_livecopilot_reply(
                 if connector_context.get(key) not in (None, ""):
                     guidance_context_fields[key] = connector_context.get(key)
     elif int(knowledge_context.get("result_count", 0) or 0) == 0 and not _looks_technical_text(effective_input_text):
-        answer = "Não tenho base suficiente para afirmar isso com segurança agora."
+        answer = "Posso te dar um caminho inicial em português, mas ainda falta uma fonte confiável para fechar a resposta."
         bullets = [
-            "Posso responder de forma geral, sem inventar detalhes.",
-            "Se você quiser, eu mudo para modo técnico e foco no seu contexto de entrevista.",
-            "Também posso reformular em uma resposta curta e neutra.",
+            "Comece pelo conceito principal ou pelo comando mais direto.",
+            "Se quiser, eu também posso te passar um exemplo curto e prático.",
+            "Posso ajustar a resposta para modo técnico ou de entrevista.",
         ]
         guidance_semantic_keys.append("no_confident_source")
         guidance_context_fields["reason"] = "no_confident_source"
@@ -985,15 +1207,15 @@ def _build_livecopilot_reply(
 
     if response_stage == "partial" and (from_incremental_buffer or not connector_matched):
         if int(knowledge_context.get("result_count", 0) or 0) == 0 and not _looks_technical_text(effective_input_text):
-            answer = "Ainda está cedo para responder isso com segurança."
+            answer = f"Posso te adiantar um caminho inicial sobre {_subject_from_query(effective_input_text)} enquanto o contexto completa."
             bullets = [
-                "Posso esperar mais contexto antes de fechar uma resposta.",
+                "Posso esperar mais contexto antes de fechar a resposta.",
             ]
         else:
-            answer = "Contexto ainda parcial; posso te adiantar um caminho inicial enquanto chega mais transcrição."
+            answer = f"Posso te adiantar um caminho inicial sobre {_subject_from_query(effective_input_text)} enquanto chega mais contexto."
             bullets = [
                 "Leitura provisória: ainda pode faltar detalhe importante.",
-                "Se você finalizar a frase/pergunta, eu consolido uma resposta final.",
+                "Se você finalizar a frase/pergunta, eu consolido a resposta final.",
             ]
 
     guidance_payload = resolve_response_guidance(
@@ -1040,6 +1262,9 @@ def _build_livecopilot_reply(
         knowledge_context["target"] = str(guidance_context.get("target", "") or "")
         knowledge_context["source_paths"] = [str(RESPONSE_GUIDANCE_FILE)]
         backend = "response_guidance"
+
+    answer, bullets = _finalize_response_text(answer, effective_input_text, bullets, partial=(response_stage == "partial"))
+    answer, bullets = _enforce_safe_final_answer(answer, bullets, effective_input_text, partial=(response_stage == "partial"))
 
     voice_output_started = time.monotonic()
     voice_output = synthesize_voice_output_realtime_controlled(

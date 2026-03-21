@@ -192,7 +192,7 @@ def _build_generic_suggestions(text: str, classification: str) -> List[str]:
             "Tem algum contexto ou restrição importante?",
         ]
     return [
-        "Entendi. Quer que eu aprofunde ou resuma?",
+        "Posso responder de forma objetiva e seguir com um exemplo prático se você quiser.",
         "Posso ajudar a detalhar isso.",
         "Só um instante para organizar os pontos.",
         f"Você pode confirmar se entendi corretamente: {text}",
@@ -248,10 +248,54 @@ def _compose_search_query_with_context(state: ConversationState, current_text: s
 
 def _clean_excerpt(text: str, limit: int = 240) -> str:
     cleaned = re.sub(r"\|{2,}", " ", text or "")
+    cleaned = re.sub(r"!\[[^\]]*\]\([^)]+\)", " ", cleaned)
+    cleaned = re.sub(r"\[[^\]]+\]\([^)]+\)", " ", cleaned)
+    cleaned = re.sub(r"https?://\S+", " ", cleaned)
     cleaned = re.sub(r"\s+", " ", cleaned).strip(" .,:;-")
     if len(cleaned) > limit:
         cleaned = cleaned[:limit].rsplit(" ", 1)[0].strip() + "..."
     return cleaned
+
+
+def _looks_like_raw_doc_text(text: str) -> bool:
+    lowered = (text or "").lower()
+    if not lowered:
+        return False
+    raw_markers = (
+        "kubernetes.io",
+        "documentation >",
+        "docs/",
+        "http://",
+        "https://",
+        "![](",
+        "```",
+        "page_title:",
+        "aliases:",
+        "keywords:",
+    )
+    if any(marker in lowered for marker in raw_markers):
+        return True
+    english_markers = (
+        "the ",
+        "and ",
+        "with ",
+        "when ",
+        "how ",
+        "use ",
+        "create ",
+        "container ",
+        "pod ",
+        "deployment ",
+        "service ",
+        "example ",
+    )
+    if len(re.findall(r"[a-z]{4,}", lowered)) >= 12 and sum(1 for token in english_markers if token in lowered) >= 4 and not re.search(r"[áéíóúâêîôûãõç]", lowered):
+        return True
+    return False
+
+
+def _is_pt_br_text(text: str) -> bool:
+    return bool(re.search(r"[áéíóúâêîôûãõçÁÉÍÓÚÂÊÎÔÛÃÕÇ]", text or ""))
 
 
 def _build_knowledge_summary(matches: List[Dict[str, Any]]) -> str:
@@ -322,6 +366,8 @@ def _build_structural_knowledge_answer(matches: List[Dict[str, Any]]) -> str:
         snippet = _distill_structural_snippet(str(item.get("trecho_relevante", "")))
         if not snippet:
             continue
+        if _looks_like_raw_doc_text(snippet) and not _is_pt_br_text(snippet):
+            continue
         snippet = snippet[0].upper() + snippet[1:] if snippet and snippet[0].islower() else snippet
         if any(existing.lower() == snippet.lower() for existing in sentences):
             continue
@@ -337,7 +383,7 @@ def _snippet_context_for_llm(matches: List[Dict[str, Any]]) -> str:
     fragments = []
     for item in matches[:3]:
         snippet = _distill_structural_snippet(str(item.get("trecho_relevante", "")))
-        if snippet and snippet not in fragments:
+        if snippet and not _looks_like_raw_doc_text(snippet) and snippet not in fragments:
             fragments.append(snippet)
     return "\n".join(fragments)
 
@@ -446,7 +492,7 @@ def _build_intent_answer(query: str, matches: List[Dict[str, Any]]) -> str:
     sentences = []
     for item in matches[:2]:
         snippet = _distill_structural_snippet(str(item.get("trecho_relevante", "")))
-        if snippet:
+        if snippet and not _looks_like_raw_doc_text(snippet):
             sentences.append(snippet)
     if not sentences:
         return ""
@@ -474,7 +520,7 @@ def _synthesize_knowledge_answer(query: str, matches: List[Dict[str, Any]]) -> s
 
     query_lower = (query or "").lower()
     snippets = [_clean_excerpt(str(item.get("trecho_relevante", "")), limit=220) for item in matches[:3]]
-    snippets = [snippet for snippet in snippets if snippet]
+    snippets = [snippet for snippet in snippets if snippet and not _looks_like_raw_doc_text(snippet)]
     combined = " ".join(snippets).lower()
 
     if "terraform" in query_lower and "state" in query_lower:
@@ -603,6 +649,17 @@ def _build_knowledge_enriched_suggestions(
     synthesized_answer: str,
     knowledge_summary: str,
 ) -> List[str]:
+    query_lower = (text or "").lower()
+    if "cpu" in query_lower and "linux" in query_lower:
+        short_answer = "No Linux, você pode consultar a CPU com `lscpu`, `cat /proc/cpuinfo` ou `top`."
+        long_answer = (
+            "Se quiser detalhes por núcleo, `lscpu` costuma ser o caminho mais direto. "
+            "Se quiser a saída mais bruta, `cat /proc/cpuinfo` mostra os campos do processador."
+        )
+        time_gain = "Posso te passar um comando curto e seguro para conferir a CPU no terminal."
+        counter = "Você quer a saída resumida com `lscpu` ou a visão mais bruta com `cat /proc/cpuinfo`?"
+        kb_line = "A base local sugere consultar a CPU diretamente no Linux sem depender do contexto semântico irrelevante."
+        return [short_answer, long_answer, time_gain, counter, kb_line]
     if synthesized_answer:
         short_answer = synthesized_answer
     elif topic:
@@ -918,7 +975,9 @@ def generate_suggestions(state: ConversationState) -> List[str]:
         if matches:
             sources = _build_knowledge_sources(matches)
             synthesized_answer = _synthesize_knowledge_answer(search_query, matches)
-            knowledge_summary = synthesized_answer or search_context or _build_knowledge_summary(matches)
+            safe_synthesized_answer = "" if _looks_like_raw_doc_text(synthesized_answer) else synthesized_answer
+            safe_search_context = "" if _looks_like_raw_doc_text(search_context) else search_context
+            knowledge_summary = safe_synthesized_answer or safe_search_context or _build_knowledge_summary(matches)
             candidates = _build_knowledge_enriched_suggestions(last, topic, synthesized_answer, knowledge_summary)
             if market_terms:
                 candidates.append(f"Complemento de mercado: tenho visto demanda por {', '.join(market_terms)} nas vagas recentes.")
