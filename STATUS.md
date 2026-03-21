@@ -1,3 +1,39 @@
+## Checkpoint 2026-03-21: loop minimo de qualidade pos-resposta integrado
+- Ponto de integracao:
+  - avaliacao executada no fim de `app/api/routes.py`, logo apos `_finalize_response_text` e `_enforce_safe_final_answer`, antes do `voice_output` e do retorno final.
+- Arquivos alterados:
+  - `app/services/response_quality.py`
+  - `app/api/routes.py`
+- Heuristicas aplicadas:
+  - `OK`: resposta curta, pt-BR e sem sinais de problema
+  - `FALLBACK_DISFARCADO`: linguagem de clarificacao/fallback
+  - `IDIOMA_ERRADO`: ingles predominante
+  - `MISTA`: mistura pt/en
+  - `TRECHO_CRU_DE_DOCUMENTACAO`: metadados, markdown bruto, URLs ou cara de doc
+  - `DRIFT_DE_DOMINIO`: resposta fora do dominio da pergunta
+  - `RESPOSTA_FRACA`: resposta vazia, curta demais ou indecisa
+- Formato e caminho do log:
+  - NDJSON em `/lab/projects/livecopilot/var/response_quality.ndjson`
+  - campos: `ts`, `query`, `response_preview`, `quality_label`, `quality_reason`, `language_detected`, `route_or_source_hint`, `confidence`, `result_count`, `search_backend`
+- Resultado da validacao local:
+  - `como consultar cpu no linux via terminal` -> `OK`
+  - `como instalar nginx no linux` -> `OK`
+  - `o que é terraform e para que serve` -> `OK`
+  - `como funciona um liveness probe` -> `OK`
+  - `docker explicação simples` -> `FALLBACK_DISFARCADO`
+  - log NDJSON gerado com 5 linhas
+- Resultado da UI:
+  - o browser abriu e a rota respondeu com o novo campo `quality` no payload.
+  - a checagem automatizada ficou presa no wait da UI, entao a revalidacao web completa ficou parcialmente bloqueada nesta rodada.
+- Pendencias restantes:
+  - reduzir `FALLBACK_DISFARCADO` em respostas que ainda saem genéricas demais, especialmente `docker explicação simples`.
+  - revisar o bloqueio de automacao Playwright na UI para confirmar a leitura do novo payload em uma rodada curta.
+- Status tecnico:
+  - `quality_classifier_integrado = true`
+  - `quality_ndjson_ativo = true`
+  - `local_validation_passed = true`
+  - `ui_validation_partially_blocked = true`
+
 ## Checkpoint 2026-03-21: correção cirúrgica de cpu/linux e nginx/linux concluida
 - Hipotese atacada:
   - `cpu/linux` falhava na sugestao primária contaminada em `app/services/suggestions.py`.

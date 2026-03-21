@@ -26,6 +26,7 @@ from app.services.operational_memory import append_event
 from app.services.operational_skills import OPERATIONAL_SKILLS_FILE, match_operational_skill
 from app.services.project_state_connector import resolve_project_state_query
 from app.services.response_guidance import RESPONSE_GUIDANCE_FILE, resolve_response_guidance
+from app.services.response_quality import append_response_quality_event, classify_response_quality
 from app.services.state import ConversationState
 from app.services.realtime_openai import create_realtime_client_secret, get_realtime_runtime
 from app.services.transcription import get_transcription_runtime
@@ -1265,6 +1266,13 @@ def _build_livecopilot_reply(
 
     answer, bullets = _finalize_response_text(answer, effective_input_text, bullets, partial=(response_stage == "partial"))
     answer, bullets = _enforce_safe_final_answer(answer, bullets, effective_input_text, partial=(response_stage == "partial"))
+    quality_event = classify_response_quality(
+        query=effective_input_text,
+        response=answer,
+        knowledge_context=knowledge_context,
+        route_or_source_hint=backend,
+    )
+    append_response_quality_event(quality_event)
 
     voice_output_started = time.monotonic()
     voice_output = synthesize_voice_output_realtime_controlled(
@@ -1358,6 +1366,9 @@ def _build_livecopilot_reply(
         }
         _write_semantic_trace(trace_payload)
 
+    quality_event["route_or_source_hint"] = backend
+    quality_event["confidence"] = knowledge_context.get("confidence", None)
+
     return {
         "status": "ok",
         "mode": resolved_mode,
@@ -1369,6 +1380,7 @@ def _build_livecopilot_reply(
         "input_text": effective_input_text,
         "answer": answer,
         "bullets": bullets,
+        "quality": quality_event,
         "voice_output": voice_output,
         "latency_breakdown": latency_breakdown,
         "knowledge_context": {
