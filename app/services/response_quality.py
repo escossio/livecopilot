@@ -80,12 +80,28 @@ def _looks_like_drift(query: str, response: str) -> bool:
     r = str(response or "").lower()
     if not q or not r:
         return False
-    if "linux" in q and any(token in r for token in ("kubernetes", "docker", "terraform", "pod", "service")) and not any(
-        token in r for token in ("cpu", "lscpu", "nginx", "apt", "systemctl")
+    if "linux" in q and "docker" in q:
+        if any(token in r for token in ("cpu", "lscpu", "kubernetes", "terraform", "postgres", "nginx")) and not any(
+            token in r for token in ("docker", "container", "contêiner", "conteiner", "namespace", "cgroup", "kernel")
+        ):
+            return True
+    if "linux" in q and any(token in r for token in ("kubernetes", "terraform", "pod", "service")) and not any(
+        token in r for token in ("cpu", "lscpu", "nginx", "apt", "systemctl", "ps", "top", "htop")
     ):
         return True
+    if "docker" in q and not any(token in r for token in ("docker", "container", "contêiner", "conteiner", "imagem", "image")):
+        if any(token in r for token in ("cpu", "lscpu", "kubernetes", "terraform", "postgres")):
+            return True
+    if ("kubernetes" in q or "pod" in q) and not any(
+        token in r for token in ("kubernetes", "pod", "yaml", "kubectl", "manifesto", "deployment", "service")
+    ):
+        if any(token in r for token in ("cpu", "docker", "terraform", "postgres", "nginx")):
+            return True
     if "terraform" in q and not any(token in r for token in ("terraform", "infraestrutura como código", "state", "plan", "apply")):
         return True
+    if "postgres" in q and not any(token in r for token in ("postgres", "postgresql", "sql", "database", "banco", "db", "apt", "systemctl")):
+        if any(token in r for token in ("cpu", "docker", "terraform", "kubernetes", "pod")):
+            return True
     return False
 
 

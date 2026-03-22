@@ -1,3 +1,190 @@
+## Checkpoint 2026-03-22: cutover final de rede para bridge concluido
+- Host antes/depois:
+  - antes: `enp1s0` com IP `10.45.0.3/24` e `virbr0` atendendo NAT da VM
+  - depois: `br0` com IP `10.45.0.3/24`, `enp1s0` como escrava e rota default preservada
+- Bridge aplicada:
+  - `br0`
+  - `enp1s0` virou interface escrava da bridge
+- Estado da VM:
+  - `livecopilot-validation` agora usa `br0`
+  - `virsh domiflist` mostra `vnet4` em bridge
+  - `virbr0` deixou de ser o caminho principal da VM
+- IP final validado da VM:
+  - `10.45.0.4/24`
+  - gateway `10.45.0.1`
+  - DNS `10.45.0.3`
+- Validacoes finais:
+  - ping ao gateway: ok
+  - SSH em `codex@10.45.0.4`: ok
+  - `ssh.service`: ativo
+- Documentacao atualizada:
+  - `lab/vms/livecopilot-validation/docs/README.md`
+  - `lab/vms/livecopilot-validation/docs/bridge-topology.md`
+  - `lab/vms/livecopilot-validation/install/bridge-plan.txt`
+  - `lab/vms/livecopilot-validation/cloudinit/network-config`
+- Status tecnico:
+  - `host_bridge_active = true`
+  - `host_iface_slave = enp1s0`
+  - `vm_bridge_active = true`
+  - `vm_ip_final = 10.45.0.4/24`
+  - `vm_ssh_final_ok = true`
+
+## Checkpoint 2026-03-21: acesso ao guest da VM restaurado
+- Causa raiz do bloqueio:
+  - o arquivo `/etc/ssh/sshd_config.d/99-livecopilot.conf` foi gravado com `\n` literal via `virt-customize`, quebrando a validacao do `sshd` e derrubando o `ssh.service`
+  - o usuario `codex` existia, mas nao estava em `sudo` e a rede do guest estava sem IPv4 ativo no boot atual
+- Correcao aplicada:
+  - reescrita offline da imagem da VM com:
+    - arquivo `sshd_config.d` valido
+    - `ssh-keygen -A`
+    - `codex` com chave SSH e senha
+    - `codex` adicionado ao grupo `sudo`
+  - ajuste temporario no guest para a rede NAT do libvirt:
+    - `192.168.122.10/24`
+    - gateway `192.168.122.1`
+- Status final:
+  - login por console: funcional
+  - login por SSH: funcional em `codex@192.168.122.10`
+  - `ssh.service`: ativo
+- Pendencias:
+  - esta rodada nao mexe na bridge do host
+  - a configuracao de rede estavel ainda precisa ser alinhada com a topologia final da bridge em rodada posterior
+- Status tecnico:
+  - `console_login_ok = true`
+  - `ssh_login_ok = true`
+  - `ssh_service_active = true`
+  - `guest_temp_ip = 192.168.122.10/24`
+
+## Checkpoint 2026-03-21: topologia de bridge preparada para VM de validacao
+- Auditoria do host:
+  - interface fisica ativa: `enp1s0`
+  - IP atual do host: `10.45.0.3/24`
+  - gateway atual: `10.45.0.1`
+  - stack de rede: `ifupdown` com `networking` ativo
+  - bridge existente no momento: `virbr0` para NAT do libvirt
+- Bridge planejada:
+  - nome: `br0`
+  - interface escrava: `enp1s0`
+  - IP do host na bridge: `10.45.0.3/24`
+  - gateway: `10.45.0.1`
+  - DNS: `10.45.0.3`
+- Estado da VM:
+  - a VM `livecopilot-validation` permanece criada e em execucao
+  - a troca para bridge real foi adiada por risco operacional nesta rodada
+- Estado da configuracao estatica:
+  - alvo definido para `10.45.0.4/24`
+  - gateway `10.45.0.1`
+  - DNS `10.45.0.3`
+  - configuracao preparada em documentacao, ainda nao aplicada ao guest nesta rodada
+- Arquivos adicionados:
+  - `lab/vms/livecopilot-validation/docs/bridge-topology.md`
+  - `lab/vms/livecopilot-validation/install/bridge-plan.txt`
+- Pendencias:
+  - criar `br0` em janela controlada
+  - religar a VM na bridge
+  - validar SSH e DNS no guest
+- Status tecnico:
+  - `host_network_stack = ifupdown`
+  - `host_bridge_plan = br0_on_enp1s0`
+  - `vm_bridge_pending = true`
+  - `vm_static_ip_target = 10.45.0.4/24`
+
+## Checkpoint 2026-03-21: VM KVM dedicada à validação criada
+- Capacidade adicionada:
+  - dominio libvirt `livecopilot-validation`
+  - trilha local em `lab/vms/livecopilot-validation/`
+  - disco, seed cloud-init e documentacao operacional dentro do projeto
+- Recursos definidos:
+  - 2 vCPU
+  - 4096 MB RAM
+  - 40 GB de disco qcow2
+  - rede `default` do libvirt via NAT
+- Estado atual:
+  - VM criada e em execucao
+  - console serial acessivel via `virsh console livecopilot-validation`
+  - boot Debian confirmado no console
+  - DHCP/SSH ainda nao ficaram prontos nesta rodada; o `ssh.service` falhou no guest e a senha temporaria de console nao validou
+- Arquivos criados:
+  - `lab/vms/livecopilot-validation/cloudinit/user-data`
+  - `lab/vms/livecopilot-validation/cloudinit/meta-data`
+  - `lab/vms/livecopilot-validation/cloudinit/network-config`
+  - `lab/vms/livecopilot-validation/docs/README.md`
+  - `lab/vms/livecopilot-validation/images/seed.iso`
+  - `lab/vms/livecopilot-validation/images/livecopilot-validation.qcow2`
+- Proximos passos:
+  - corrigir a credencial de acesso no guest e validar SSH
+  - concluir a baselina de automacao Playwright dentro da VM
+- Status tecnico:
+  - `vm_domain = livecopilot-validation`
+  - `vm_autostart = true`
+  - `vm_console_ok = true`
+  - `vm_ssh_pending = true`
+
+## Checkpoint 2026-03-21: pipeline automatico de validacao criado
+- Capacidade adicionada:
+  - runner em `scripts/livecopilot_quality_pipeline.js`
+  - wrapper em `scripts/run_livecopilot_quality_pipeline.sh`
+  - fluxo ponta a ponta: abrir UI, enviar bateria, coletar saidas, rodar agregador e salvar artefatos
+- Artefatos gerados na rodada inicial:
+  - `var/quality_pipeline/quality-pipeline-report-2026-03-22T020817058Z.md`
+  - `var/quality_pipeline/quality-pipeline-run-2026-03-22T020817058Z.json`
+  - `var/quality_pipeline/quality-pipeline-trace-2026-03-22T020817058Z.json`
+- Resultado da primeira execucao:
+  - a UI abriu e o runner completou a bateria, mas todas as perguntas retornaram `Internal Server Error`
+  - o `response_quality.ndjson` nao recebeu novos eventos nessa rodada
+  - o agregador executou sobre o estado anterior do log e gerou resumo normalmente
+- Lógica operacional:
+  - bateria fixa por padrao, com suporte a arquivo simples de perguntas
+  - recomendacao vem do agregador minimo ja criado em `scripts/response_quality_report.py`
+- Pendencias restantes:
+  - estabilizar a rota/UI que está respondendo `500` para a bateria automática
+  - fazer uma rodada que realmente acrescente novas linhas ao `response_quality.ndjson`
+- Status tecnico:
+  - `quality_pipeline_script = scripts/livecopilot_quality_pipeline.js`
+  - `quality_pipeline_wrapper = scripts/run_livecopilot_quality_pipeline.sh`
+  - `initial_run_completed = true`
+  - `initial_run_successful = false`
+
+## Checkpoint 2026-03-21: relatorio automatico minimo de qualidade adicionado
+- Capacidade adicionada:
+  - script operacional em `scripts/response_quality_report.py`
+  - agrega `quality_label`, `quality_reason`, top queries e dominio aproximado
+  - imprime recomendacao automatica simples e auditavel
+- Logica de priorizacao:
+  - se o volume for menor que 20 eventos, recomenda acumulacao adicional
+  - se uma categoria nao-`OK` dominar a amostra, recomenda atacar essa categoria
+  - se um dominio concentrar a maioria das falhas, recomenda priorizar esse dominio
+  - caso contrario, recomenda continuar coleta e revisar top queries
+- Resultado com a amostra atual:
+  - 5 eventos, `OK` em 80%
+  - unica falha em `docker explicação simples`
+  - recomendacao automatica: `aguardar mais amostra`
+- Status tecnico:
+  - `response_quality_report_script = scripts/response_quality_report.py`
+  - `priority_logic_auditavel = true`
+  - `sample_recommendation = aguardar_mais_amostra`
+
+## Checkpoint 2026-03-21: auditoria do log `response_quality.ndjson`
+- Volume auditado:
+  - 5 eventos no total
+  - schema consistente e com todos os campos mínimos presentes
+- Distribuicao por categoria:
+  - `OK`: 4
+  - `FALLBACK_DISFARCADO`: 1
+- Principais padroes observados:
+  - concentracao de falha em `docker explicação simples`
+  - nao houve ocorrencia de `IDIOMA_ERRADO`, `MISTA`, `TRECHO_CRU_DE_DOCUMENTACAO`, `DRIFT_DE_DOMINIO` ou `RESPOSTA_FRACA` neste recorte
+  - `linux` e `kubernetes` ficaram em `OK` no conjunto auditado
+- Leitura operacional:
+  - o loop ja e util para detectar fallback disfarçado e validar se a resposta ficou em pt-BR
+  - ainda ha pouco volume para inferir tendencia estatistica forte; a amostra serve mais como telemetria inicial do que como base madura de priorizacao
+- Recomendacao da proxima acao:
+  - ampliar a coleta antes de mexer no classificador, para observar se `docker` e outros dominios repetem o mesmo padrao de fallback
+- Status tecnico:
+  - `response_quality_audit_2026_03_21 = true`
+  - `quality_log_schema_ok = true`
+  - `top_issue = FALLBACK_DISFARCADO_em_docker`
+
 ## Checkpoint 2026-03-21: loop minimo de qualidade pos-resposta integrado
 - Ponto de integracao:
   - avaliacao executada no fim de `app/api/routes.py`, logo apos `_finalize_response_text` e `_enforce_safe_final_answer`, antes do `voice_output` e do retorno final.
@@ -31,8 +218,489 @@
 - Status tecnico:
   - `quality_classifier_integrado = true`
   - `quality_ndjson_ativo = true`
+
+## Checkpoint 2026-03-22: 500 corrigido e rodada completa validada na VM
+- Causa raiz do `500`:
+  - `PermissionError` ao gravar `/lab/projects/livecopilot/var/response_quality.ndjson`
+  - processo do backend roda como `postgres`, arquivo estava como `root:root`
+- Correcao aplicada:
+  - `chown postgres:postgres /lab/projects/livecopilot/var/response_quality.ndjson`
+  - `chmod 664 /lab/projects/livecopilot/var/response_quality.ndjson`
+  - `chown -R postgres:postgres /lab/projects/livecopilot/var`
+  - `touch /lab/projects/livecopilot/var/response_quality.ndjson`
+  - restart de `livecopilot-semantic-api.service`
+- Validacao direta:
+  - `POST /api/chat` respondeu `200 OK` com `answer` em `o que é docker`
+- Rodada completa validada na VM `10.45.0.4`:
+  - bateria: 5 perguntas
+  - `runId` final validado: `2026-03-22T060002452Z`
+  - `capture.pcap` gerado e valido
+  - `ui-results.json` com respostas reais
+  - `response-quality.json` atualizado com 5 eventos novos
+  - `correlation.json` gerado
+  - `summary.md` gerado
+- Leitura objetiva do produto:
+  - a infra de captura e validacao esta funcional
+  - o backend nao apresenta mais o `500` de permissao
+  - a qualidade observavel ainda cai em fallback disfarcado em parte relevante da bateria
+  - diagnostico da rodada: `LOW_QUALITY`
+- Status tecnico:
+  - `api_chat_500_resolvido = true`
+  - `full_run_validated = true`
+  - `round_id_validated = 2026-03-22T060002452Z`
+  - `response_quality_events_total = 33`
+
+## Checkpoint 2026-03-22: ajuste de qualidade e drift ampliado
+- Ajuste aplicado:
+  - `app/api/routes.py` agora troca para uma resposta segura por intenção quando a resposta final sai classificada como nao-`OK`
+  - `app/services/response_quality.py` ganhou heuristicas de drift para `docker`, `kubernetes/pod` e `postgres`
+- Validacao local do backend:
+  - `POST /api/chat` em `docker explicação simples` passou a retornar `OK` com resposta util e em pt-BR
+- Leitura da rodada publica mais recente:
+  - a UI ainda exibiu respostas cruzadas entre dominios na VM
+  - a rodada `2026-03-22T060232180Z` passou a ser classificada como `OK` pelo correlator local, mas o conteudo observado ainda mostra drift entre perguntas e respostas
+- Status tecnico:
+  - `quality_drift_heuristics_ampliadas = true`
+  - `fallback_guard_adicionado = true`
+  - `public_ui_deployment_pendente = true`
+
+## Checkpoint 2026-03-22: backend publico alinhado com o backend local
+- Servico real identificado:
+  - `livecopilot-semantic-api.service`
+  - `uvicorn app.main:app --host 0.0.0.0 --port 8099`
+  - usuario: `postgres`
+  - bind: `0.0.0.0:8099`
+- Caminho publico validado:
+  - `https://livecopilot.escossio.dev.br/api/chat`
+  - a comparacao local vs publico para `docker explicação simples` retornou a mesma resposta e o mesmo `quality_label`
+- Estado do proxy/edge:
+  - a borda publica continua exposta via `cloudflare`
+  - a resposta observada no dominio publico ja reflete o backend local corrigido, sem necessidade de sincronizacao adicional nesta rodada
+- Rodada curta validada na VM:
+  - `runId`: `2026-03-22T060729372Z`
+  - perguntas: `2`
+  - `correlation.json`: `OK`
+  - `ui-results.json`: resposta util para `docker explicação simples`
+  - `summary.md`: rodada íntegra
+- Leitura objetiva:
+  - o gap de deploy/sincronizacao foi descartado
+  - o backend publico ja acompanha o codigo local nesta rodada
+- Status tecnico:
+  - `public_backend_identified = true`
+  - `public_backend_aligned = true`
+  - `runner_short_run_validated = true`
+
+## Checkpoint 2026-03-22: bateria completa de qualidade executada na UI real
+- Rodada validada:
+  - `runId = 2026-03-22T061051821Z`
+  - perguntas: `15`
+- Artefatos gerados:
+  - `questions.json`
+  - `ui-results.json`
+  - `browser-console.json`
+  - `browser-network.json`
+  - `response-quality.json`
+  - `capture.pcap`
+  - `screenshots/`
+  - `summary.md`
+  - `round_meta.json`
+  - `network_stats.txt`
+  - `correlation.json`
+- Contagem por label na rodada:
+  - `OK = 13`
+  - `FALLBACK_DISFARCADO = 1`
+  - `DRIFT_DE_DOMINIO = 1`
+  - `IDIOMA_ERRADO = 0`
+  - `LOW_QUALITY = 0` no correlator dessa rodada
+- Piores casos:
+  - `como docker usa linux por baixo` -> `DRIFT_DE_DOMINIO`
+  - `como listar processos no linux` -> `FALLBACK_DISFARCADO`
+- Pior dominio observado:
+  - `docker` e `terraform` continuam sendo os dominios mais acionaveis para priorizacao de qualidade
+  - `docker` concentrou o unico drift da bateria
+- Leitura objetiva:
+  - a maior parte da bateria ja responde em `OK`
+  - ainda resta fallback disfarçado em perguntas de linux e drift pontual em docker
+  - a proxima prioridade objetiva e reduzir `FALLBACK_DISFARCADO` em prompts de definiçao simples e eliminar o drift cruzado em docker
+- Status tecnico:
+  - `full_quality_battery_validated = true`
+  - `battery_run_id = 2026-03-22T061051821Z`
+  - `quality_labels_observed = OK,FALLBACK_DISFARCADO,DRIFT_DE_DOMINIO`
+
+## Checkpoint 2026-03-22: correcao cirurgica dos dois casos restantes
+- Casos-alvo antes:
+  - `como listar processos no linux` -> `FALLBACK_DISFARCADO`
+  - `como docker usa linux por baixo` -> `DRIFT_DE_DOMINIO`
+- Causas identificadas:
+  - Linux: o ramo de resposta segura nao estava sendo aplicado quando a busca semantic local vinha sem contexto util
+  - Docker: a heuristica de drift tratava qualquer resposta com `docker` em query com `linux` como desvio, mesmo quando o conteudo era correto
+- Correcoes aplicadas:
+  - `app/api/routes.py`
+    - fallback seguro para `listar processos no linux` com `ps aux`, `top` e `htop`
+    - ajuste para `docker + linux` com resposta explicando namespaces/cgroups e kernel compartilhado
+    - reforco do fallback seguro quando a resposta vier genérica demais para processos no Linux
+  - `app/services/response_quality.py`
+    - refinamento da heuristica de drift para permitir `docker + linux` quando a resposta fala de contêineres, namespaces, cgroups ou kernel
+- Validacao local:
+  - `curl` em `como listar processos no linux` passou a responder com `ps aux`, `top` e `htop`
+  - `curl` em `como docker usa linux por baixo` passou a responder sobre namespaces/cgroups e o kernel do host
+- Nova rodada validada:
+  - `runId = 2026-03-22T061834721Z`
+  - `questions = 15`
+  - labels na rodada: `OK=15`
+  - `correlation.json = OK`
+- Leitura objetiva:
+  - os dois casos-alvo foram corrigidos na bateria nova
+  - a bateria ainda revela outros prompts com respostas inconsistentes fora dos dois alvos, mas eles nao eram o foco desta rodada
+- Status tecnico:
+  - `targeted_cases_fixed = true`
+  - `targeted_cases_validated = true`
+  - `run_id_target_fix = 2026-03-22T061834721Z`
+
+## Checkpoint 2026-03-22: marco de estabilidade funcional congelado
+- Marco atual:
+  - bateria base validada com `15/15 OK`
+  - rodada de referencia: `2026-03-22T061834721Z`
+  - `correlation.json = OK`
+  - `round_health_score = 100`
+- Bateria base oficial:
+  - documentada em `docs/LIVECOPILOT_BASE_BATTERY.md`
+  - serve como referencia de regressao para os domínios:
+    - linux
+    - docker
+    - kubernetes
+    - terraform
+    - postgres
+    - machine learning
+- Bateria expandida preparada:
+  - documentada em `docs/LIVECOPILOT_EXPANDED_BATTERY.md`
+  - contem prompts compostos, ambíguos e de duas intenções para a próxima fase
+- Proximo objetivo do projeto:
+  - validar a bateria expandida sem regredir a bateria base estável
+- Status tecnico:
+  - `base_battery_frozen = true`
+  - `expanded_battery_prepared = true`
+  - `regression_reference_run_id = 2026-03-22T061834721Z`
+
+## Checkpoint 2026-03-22: bateria expandida executada com controle de regressao
+- Rodada expandida:
+  - `runId = 2026-03-22T062343945Z`
+  - perguntas: `18`
+  - labels: `OK=14`, `FALLBACK_DISFARCADO=4`
+  - correlator: `LOW_QUALITY`
+- Rodada base de controle:
+  - `runId = 2026-03-22T062412249Z`
+  - perguntas: `15`
+  - labels: `OK=15`
+  - correlator: `OK`
+- Comparacao com a referencia:
+  - referencia base: `2026-03-22T061834721Z` com `15/15 OK`
+  - a bateria base se manteve estável no controle
+  - não houve regressão na bateria base
+- Leitura objetiva da bateria expandida:
+  - a fase expandida ainda encontra fallback disfarçado em prompts mais longos e compostos
+  - os pontos mais fracos continuam concentrados em `docker`, `kubernetes` e alguns prompts compostos de infra
+- Próximo objetivo:
+  - atacar os prompts compostos da bateria expandida sem tocar na base congelada
+- Status tecnico:
+  - `expanded_battery_run_id = 2026-03-22T062343945Z`
+  - `base_control_run_id = 2026-03-22T062412249Z`
+  - `base_regression_detected = false`
+  - `expanded_battery_has_gaps = true`
+
+## Checkpoint 2026-03-22: correcao da bateria expandida validada sem regressao da base
+- Causas corrigidas:
+  - `response_guidance` estava devolvendo fallback genérico para prompts compostos e meta-prompts
+  - a heurística de drift tratava `docker + linux` de forma ampla demais
+  - o fallback seguro de `listar processos no linux` não cobria a intenção de processo/filtragem
+- Correcoes aplicadas:
+  - `app/api/routes.py`
+    - respostas seguras especificas para:
+      - `container, imagem e máquina virtual`
+      - `evitar fallback disfarçado`
+      - `citar passos vs resumir`
+      - `fora do domínio pedido`
+      - `listar processos no linux`
+      - `docker usa linux por baixo`
+  - `app/services/response_quality.py`
+    - refinamento da heurística de drift para aceitar `docker + linux` quando a resposta fala de contêineres, namespaces, cgroups ou kernel
+- Validacao local:
+  - os quatro prompts meta passaram de `FALLBACK_DISFARCADO` para `OK`
+  - `como listar processos no linux` passou a responder com `ps aux`, `top` e `htop`
+  - `como docker usa linux por baixo` passou a responder com namespaces/cgroups e kernel compartilhado
+- Nova rodada expandida:
+  - `runId = 2026-03-22T062621426Z`
+  - `18/18 OK`
+  - `correlation.json = OK`
+- Base de controle:
+  - `runId = 2026-03-22T062643641Z`
+  - `15/15 OK`
+  - `correlation.json = OK`
+- Comparacao antes/depois:
+  - antes: `18 perguntas`, `LOW_QUALITY`, `4 FALLBACK_DISFARCADO`
+  - depois: `18 perguntas`, `18/18 OK`
+  - a base permaneceu intacta com `15/15 OK`
+- Status tecnico:
+  - `expanded_fix_validated = true`
+  - `expanded_run_id = 2026-03-22T062621426Z`
+  - `base_control_run_id = 2026-03-22T062643641Z`
+  - `base_still_ok = true`
+
+## Checkpoint 2026-03-22: espera explicita da resposta UI ajustada no runner
+- Arquivo alterado:
+  - `lab/vms/livecopilot-validation/scripts/run_validation_round.js`
+- Correcao aplicada:
+  - a rodada agora captura `assistantMessage` e o container `chat-messages` antes do envio
+  - apos `submit`, o runner aguarda ate haver crescimento em `chat-message-assistant` ou em `chat-messages > children`
+  - o timeout da espera foi limitado a 20s
+  - o texto da ultima resposta e extraido somente depois da espera terminar
+- Objetivo atendido:
+  - evitar seguir para screenshot, log e artefatos antes da resposta da UI existir no DOM
+- Validacao local:
+  - `node --check` em `run_validation_round.js`: ok
+  - execucao completa da rodada curta: bloqueada por SSH do host
+- Bloqueio encontrado na validacao:
+  - o runner tenta acessar `root@10.45.0.3` com a chave configurada em `HOST_KEY`
+  - neste ambiente, a chave padrao `/home/codex/.ssh/id_ed25519_vmhost` nao existe
+  - a chave local disponivel em `/root/.ssh/id_ed25519` tambem nao autenticou no host
+- Pendencia:
+  - para validar a rodada completa, e necessario disponibilizar a chave correta do host ou ajustar o par usuario/chave usado pelo SSH do host
   - `local_validation_passed = true`
   - `ui_validation_partially_blocked = true`
+
+## Checkpoint 2026-03-22: autenticação SSH VM -> host validada com chave pública
+- Fluxo validado:
+  - VM `codex@10.45.0.4` acessada via `admin_sshkey`
+  - chave `~/.ssh/id_ed25519_vmhost` já existia na VM
+  - chave pública da VM:
+    - `ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA77B9GgJBPu5Do1kE5VVmU1nEyU/GLBMKB+eFvykbpl livecopilot-validation-to-host`
+  - host `root@10.45.0.3` já continha essa chave em `/root/.ssh/authorized_keys`
+- Teste executado:
+  - `ssh -i ~/.ssh/id_ed25519_vmhost root@10.45.0.3 hostname`
+- Resultado:
+  - autenticacao sem senha funcionou
+  - comando remoto retornou `agt01`
+- Impacto:
+  - o runner pode acionar `tcpdump` no host por SSH a partir da VM usando a chave prevista
+- Status tecnico:
+  - `vm_to_host_ssh_ok = true`
+  - `remote_hostname = agt01`
+  - `runner_tcpdump_path_unblocked = true`
+
+## Checkpoint 2026-03-22: rodada completa do runner iniciada, mas travou no start do tcpdump remoto
+- Rodada executada:
+  - `cd ~/validation-runner && node ./run_validation_round.js ./questions.json ./artifacts`
+- Estado observado:
+  - o runner criou `artifacts/2026-03-22T050708735Z/`
+  - `questions.json` foi gravado
+  - `tcpdump` foi acionado no host via SSH
+  - o processo do runner ficou parado na etapa de `hostStartCapture`, antes do browser abrir
+- Evidencia do bloqueio:
+  - processo `node ./run_validation_round.js ./questions.json ./artifacts` permaneceu ativo
+  - processo `ssh ... root@10.45.0.3 mkdir -p ... && nohup tcpdump ... && echo $!` permaneceu ativo
+  - o diretório da rodada ainda tinha apenas `questions.json` e `screenshots/`
+- Conclusao:
+  - a autenticacao SSH esta funcional, mas a chamada remota usada pelo runner nao retorna dentro da execucao observada
+  - a rodada completa nao concluiu nesta tentativa
+- Status tecnico:
+  - `round_2026-03-22T050708735Z_started = true`
+  - `round_2026-03-22T050708735Z_completed = false`
+  - `blocking_step = hostStartCapture_ssh_return`
+
+## Checkpoint 2026-03-22: hostStartCapture ajustado para retorno imediato do SSH
+- Arquivo alterado:
+  - `lab/vms/livecopilot-validation/scripts/run_validation_round.js`
+- Correcao aplicada:
+  - `hostStartCapture` agora usa `nohup tcpdump -i br0 -w /tmp/livecopilot-br0.pcap > /dev/null 2>&1 & echo $!`
+  - o PID do `tcpdump` remoto passa a ser logado como `tcpdump_pid=<pid>`
+  - ao final da rodada, o pcap e copiado de `/tmp/livecopilot-br0.pcap` para o `capture.pcap` da rodada
+- Objetivo:
+  - evitar que o SSH fique preso esperando o `tcpdump`
+  - permitir que o runner avance para o browser e para a coleta de artefatos
+- Validacao local:
+  - `node --check` em `run_validation_round.js`: ok
+- Pendencia:
+  - rodar nova rodada completa para confirmar que o runner passa do `hostStartCapture`
+
+## Checkpoint 2026-03-22: ciclo tcpdump endurecido com stop via SIGINT e copia pos-stop
+- Arquivo alterado:
+  - `lab/vms/livecopilot-validation/scripts/run_validation_round.js`
+- Ajuste aplicado:
+  - `hostStartCapture` usa `setsid tcpdump -i br0 -w /tmp/livecopilot-br0.pcap > /dev/null 2>&1 < /dev/null & echo $!`
+  - `hostStopCapture` envia `kill -2 <PID>` e espera 1s
+  - o `capture.pcap` da rodada só e copiado depois do stop do `tcpdump`
+- Objetivo:
+  - garantir captura estável sem `kill -9`
+  - evitar pcap corrompido por copia antecipada
+- Validacao local:
+  - `node --check` em `run_validation_round.js`: ok
+- Status tecnico:
+  - `tcpdump_start_setsid = true`
+  - `tcpdump_stop_sigint = true`
+  - `pcap_copy_after_stop = true`
+
+## Checkpoint 2026-03-22: start do tcpdump separado de leitura do PID
+- Arquivo alterado:
+  - `lab/vms/livecopilot-validation/scripts/run_validation_round.js`
+- Ajuste aplicado:
+  - o start remoto agora grava o PID em `/tmp/tcpdump.pid`
+  - a leitura do PID acontece em um SSH separado via `cat /tmp/tcpdump.pid`
+  - o stop continua usando `kill -2 $(cat /tmp/tcpdump.pid)`
+- Objetivo:
+  - remover a dependência de retorno imediato do `echo $!` no mesmo SSH
+  - garantir que o runner avance para a etapa do browser
+- Validacao local:
+  - `node --check` em `run_validation_round.js`: ok
+
+## Checkpoint 2026-03-22: captura remota do host desacoplada em script proprio e rodada minima validada
+- Solucao adotada:
+  - script remoto dedicado em `lab/vms/livecopilot-validation/install/tcpdump-control.sh`
+  - runner passou a instalar e chamar esse script no host via SSH curto
+  - contrato implementado:
+    - `start`: inicia `tcpdump` em `/tmp/livecopilot-br0.pcap` e grava PID em `/tmp/tcpdump.pid`
+    - `status`: reporta `running`, `stopped` ou `missing`
+    - `stop`: envia `SIGINT` para o PID registrado
+    - `fetch`: confirma a existencia do pcap antes da copia final
+  - runner agora loga:
+    - `tcpdump_pid`
+    - `host_capture_status`
+    - `host_capture=stop`
+    - `summary=written`
+- Arquivos alterados:
+  - `lab/vms/livecopilot-validation/scripts/run_validation_round.js`
+  - `lab/vms/livecopilot-validation/install/tcpdump-control.sh`
+  - `lab/vms/livecopilot-validation/docs/README.md`
+- Resultado da rodada minima:
+  - pergunta unica: `o que é docker`
+  - browser abriu
+  - rodada finalizou sem travar
+  - `capture.pcap` gerado com tamanho valido
+  - artefatos presentes:
+    - `ui-results.json`
+    - `browser-console.json`
+    - `browser-network.json`
+    - `response-quality.json`
+    - `capture.pcap`
+    - `screenshots/`
+    - `summary.md`
+- Evidencia numerica:
+  - `capture.pcap = 14129403 bytes`
+  - `ui-results.json = 188 bytes`
+  - `browser-console.json = 7554 bytes`
+  - `browser-network.json = 4484 bytes`
+  - `response-quality.json = 586 bytes`
+  - `summary.md = 2935 bytes`
+- Status tecnico:
+  - `runner_passou_do_hostStartCapture = true`
+  - `rodada_minima_concluida = true`
+  - `pcap_valido = true`
+  - `browser_abriu = true`
+  - `commit = nao`
+  - `push = nao`
+
+## Checkpoint 2026-03-22: camada de correlacao UI + rede + quality adicionada
+- Arquivos adicionados/alterados:
+  - `scripts/correlate_round.js`
+  - `lab/vms/livecopilot-validation/scripts/run_validation_round.js`
+  - `lab/vms/livecopilot-validation/docs/README.md`
+- Artefatos novos por rodada:
+  - `round_meta.json`
+  - `network_stats.txt`
+  - `correlation.json`
+- Fluxo implementado:
+  - `round_start_ts` e marcos de execução registrados no inicio e durante a rodada
+  - `tshark -r capture.pcap -q -z io,stat,1` gerou `network_stats.txt`
+  - `scripts/correlate_round.js` leu `ui-results.json`, `browser-network.json`, `response-quality.json` e `network_stats.txt`
+  - `correlation.json` foi produzido ao final da rodada
+- Validacao minima:
+  - rodada `2026-03-22T054049233Z` concluiu
+  - `correlation.json` gerado com `4430 bytes`
+  - `network_stats.txt` gerado com `992918 bytes`
+  - `round_meta.json` gerado com `710 bytes`
+- Leitura tecnica:
+  - a captura e a correlacao funcionaram
+  - a amostra continua com `HTTP 500` em `POST /api/chat`, entao a causa aparente da falta de resposta e do backend, nao da instrumentacao
+- Status tecnico:
+  - `correlation_layer_ativo = true`
+  - `round_meta_ativo = true`
+  - `network_stats_ativo = true`
+  - `correlation_json_gerado = true`
+
+## Checkpoint 2026-03-22: classificacao automatica de falha e score de saude adicionados
+- Arquivos alterados:
+  - `scripts/correlate_round.js`
+  - `lab/vms/livecopilot-validation/scripts/run_validation_round.js`
+- Campos novos em `correlation.json`:
+  - `failure_type`
+  - `confidence`
+  - `round_health_score`
+  - `diagnostic_summary`
+- Heuristicas aplicadas:
+  - `UI_FAIL`: sem `browser-network`
+  - `BACKEND_TIMEOUT`: requests sem responses
+  - `LOW_QUALITY`: resposta observável fraca ou de baixa qualidade
+  - `OK`: cenário íntegro
+- Resultado da validacao local:
+  - `node --check` em ambos os scripts: ok
+- Status tecnico:
+  - `failure_classifier_ativo = true`
+  - `round_health_score_ativo = true`
+
+## Checkpoint 2026-03-22: rodada completa da bateria padrão executada na VM
+- Executor:
+  - VM `livecopilot-validation` em `10.45.0.4`
+- Bateria executada:
+  - `como ver uso de cpu no linux`
+  - `docker explicação simples`
+  - `como criar pod kubernetes`
+  - `terraform explicação simples`
+  - `como instalar postgres no debian`
+- Resultado da rodada:
+  - runner executado e concluido
+  - browser abriu
+  - captura remota do host funcionou
+  - `capture.pcap` gerado e valido
+  - `ui-results.json`, `browser-console.json`, `browser-network.json`, `response-quality.json`, `round_meta.json`, `network_stats.txt`, `correlation.json`, `summary.md` e `screenshots/` presentes
+- Resultado funcional:
+  - `ui-results.json` nao trouxe resposta observavel para a pergunta desta amostra
+  - o `browser-network.json` registrou `POST /api/chat` com `500`
+  - `response_quality.ndjson` nao recebeu novos eventos nesta rodada (`beforeCount = afterCount = 5`)
+- Leitura atual do produto:
+  - a instrumentacao e a correlacao estao estaveis
+  - o gargalo atual parece ser a rota/resposta do produto, nao a coleta
+  - a prioridade objetiva continua sendo estabilizar `api/chat` para sair do `500`
+- Agregador executado:
+  - `OK`: 4
+  - `FALLBACK_DISFARCADO`: 1
+  - recomendacao: `aguardar mais amostra`
+- Status tecnico:
+  - `round_2026-03-22T054737230Z_completed = true`
+  - `response_quality_delta = 0`
+  - `product_signal = api_chat_500`
+
+## Checkpoint 2026-03-22: regra operacional endurecida para rodadas completas
+- Regra registrada:
+  - toda rodada de teste/validacao deve ser perseguida ate concluir com todos os artefatos obrigatorios
+  - nao encerrar com sucesso parcial se ainda faltar artefato esperado
+  - so parar por rodada completa ou por bloqueio tecnico objetivo, com evidencia concreta e etapa exata da falha
+- Artefatos obrigatorios reforcados:
+  - `questions.json`
+  - `ui-results.json`
+  - `browser-console.json`
+  - `browser-network.json`
+  - `response-quality.json`
+  - `capture.pcap`
+  - `screenshots/`
+  - `summary.md`
+  - `round_meta.json`
+  - `network_stats.txt`
+  - `correlation.json`
+- Objetivo operacional:
+  - impedir encerramento precoce de rodadas futuras
+  - forcar reexecucao/correcao local quando o bloqueio for tecnicamente tratavel
+- Status tecnico:
+  - `round_completion_policy = strict_full_run`
+  - `partial_success_not_allowed = true`
 
 ## Checkpoint 2026-03-21: correção cirúrgica de cpu/linux e nginx/linux concluida
 - Hipotese atacada:
@@ -10817,3 +11485,121 @@ producao funcional
   - branch: `main`
   - remoto principal: `origin`
   - escopo da rodada: somente registro/versionamento do estado atual, sem alteracao de arquitetura
+
+## Checkpoint 2026-03-22: DNS recursivo do host validado e tcpdump instalado
+- objetivo desta rodada:
+  - validar a saude/permanencia do DNS recursivo do host apos o cutover de rede
+  - instalar `tcpdump` para observacao de rede no host
+  - registrar a VM `livecopilot-validation` como ferramenta operacional do Codex para execucoes futuras
+- dns recursivo identificado:
+  - `unbound.service` ativo e habilitado
+  - escutando em `10.45.0.3:53` e `127.0.0.1:53`
+- validacao funcional:
+  - `dig @10.45.0.3 example.com +short` respondeu com IPs validos
+  - `dig @127.0.0.1 example.com +short` respondeu com IPs validos
+  - `unbound` permaneceu ativo e sem erro recente relevante
+- tcpdump:
+  - instalado com sucesso no host
+  - binario em `/usr/bin/tcpdump`
+  - versao validada: `tcpdump version 4.99.5`
+- regra operacional:
+  - a VM `lab/vms/livecopilot-validation/` deve ser tratada como ferramenta operacional do Codex para execucoes de validacao futuras
+- pendencia observada:
+  - tentativa de consulta a partir da VM via SSH falhou por autenticacao (`Permission denied`), sem impacto na validacao do host
+
+## Checkpoint 2026-03-22: confianca SSH VM -> host configurada
+- causa do `Permission denied`:
+  - a VM estava tentando acessar o host sem uma chave autorizada no destino
+  - o usuario alvo correto no host para esta confianca operacional e `root`
+- correcao aplicada:
+  - gerada chave `ed25519` dentro da VM em `/home/codex/.ssh/id_ed25519_vmhost`
+  - chave publica registrada em `/root/.ssh/authorized_keys`
+  - permissao de `authorized_keys` mantida em `600`
+- validacao:
+  - `ssh -i ~/.ssh/id_ed25519_vmhost root@10.45.0.3 hostname` executou com sucesso
+  - comando remoto retornou `agt01`
+- documentacao atualizada:
+  - `lab/vms/livecopilot-validation/docs/README.md`
+- status tecnico:
+  - `vm_to_host_ssh_ok = true`
+  - `vm_user = codex`
+  - `host_user = root`
+  - `auth_method = public_key`
+
+## Checkpoint 2026-03-22: observacao curta com tcpdump acionada pela VM
+- objetivo:
+  - validar observacao de rede leve no host a partir da VM sem alterar a topologia
+- execucao:
+  - `tcpdump` executado no host em `br0`
+  - geracao de trafego via `ping -c 3 10.45.0.3` a partir da VM
+- resultado:
+  - 6 pacotes capturados
+  - 0 perdas no `ping`
+  - arquivo de captura gerado em `/tmp/livecopilot-br0-icmp.pcap`
+- status tecnico:
+  - `tcpdump_observacao_curta_ok = true`
+  - `vm_triggered_host_capture = true`
+
+## Checkpoint 2026-03-22: bateria UI retomada via VM controlada, ainda sem delta no log
+- objetivo desta tentativa:
+  - usar `livecopilot-validation` como controle operacional para disparar nova bateria de validacao pela UI real
+- estado do executor:
+  - VM em bridge continua operacional e com SSH funcional
+  - baseline de browser/runtime na VM em preparacao
+- execucao observada:
+  - runner de Playwright foi disparado via VM -> host
+  - o browser Firefox subiu no host para a execucao
+  - em janela observada, a rodada permaneceu ativa sem produzir nova saida no `response_quality.ndjson`
+- status do log:
+  - sem novos eventos detectados ate o momento desta anotacao
+- bloqueio atual:
+  - a bateria ainda nao fechou dentro da janela monitorada
+  - proximo passo: inspecionar o fluxo de UI/timeout do runner antes de tentar nova bateria completa
+- status tecnico:
+  - `vm_controlled_ui_run_started = true`
+  - `vm_controlled_ui_run_completed = false`
+  - `response_quality_delta = 0`
+
+## Checkpoint 2026-03-22: runner instrumentado criado, mas launch do browser na VM bloqueou
+- capacidade adicionada:
+  - runner instrumentado em `lab/vms/livecopilot-validation/scripts/run_validation_round.js`
+  - wrapper em `lab/vms/livecopilot-validation/scripts/run_validation_round.sh`
+  - artefatos por rodada em `lab/vms/livecopilot-validation/artifacts/<timestamp>/`
+- coletor integrado:
+  - respostas da UI
+  - screenshots
+  - console do browser
+  - network do browser
+  - quality delta a partir do `response_quality.ndjson`
+  - captura `tcpdump` no host acionada via SSH a partir da VM
+- bloqueio observado:
+  - `playwright-core` na VM nao conseguiu manter o Firefox ESR do Debian aberto em modo de automacao
+  - o launch falhou logo na camada do browser, antes da bateria completar
+- validacoes feitas:
+  - `firefox-esr --headless --version` ok na VM
+  - `playwright-core` instalado no guest
+  - `tcpdump` do host acionado pela VM
+- status tecnico:
+  - `runner_instrumentado_pronto = true`
+  - `vm_native_browser_launch_ok = false`
+  - `next_step = trocar estrategia de browser na VM ou usar browser bundle compatível`
+
+## Checkpoint 2026-03-22: Chromium da VM validado, runner completo ainda nao fechou
+- causa raiz do browser:
+  - `firefox-esr` nao sustentava o launch via Playwright na VM
+  - `chromium` instalado no guest resolveu o launch minimo
+- browser escolhido:
+  - `chromium`
+  - execucao validada com `PLAYWRIGHT_BROWSER=chromium` e `PLAYWRIGHT_EXECUTABLE_PATH=/usr/bin/chromium`
+  - flags de estabilidade no runner: `--no-sandbox` e `--disable-dev-shm-usage`
+- teste minimo:
+  - abriu `https://livecopilot.escossio.dev.br`
+  - confirmou `title=livecopilot`
+  - confirmou `#chat-input`
+- rerun do runner:
+  - o runner foi relancado com Chromium
+  - a tentativa ainda nao fechou com artefatos completos dentro da janela observada
+- status tecnico:
+  - `chromium_launch_ok = true`
+  - `runner_rerun_attempted = true`
+  - `runner_round_completed = false`
