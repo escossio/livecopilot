@@ -1,3 +1,590 @@
+## Checkpoint 2026-03-23: Etapa 19 iniciada com guardrails de evolucao
+- Baseline protegida criada:
+  - `docs/LIVECOPILOT_GUARDRAIL_BASELINE.md`
+  - baseline JSON derivado em `docs/LIVECOPILOT_GUARDRAIL_BASELINE.json`
+- Critérios mínimos definidos:
+  - prompts protegidos devem ficar `OK`
+  - delta da rodada sem `FALLBACK_DISFARCADO`, `DRIFT_DE_DOMINIO` ou `IDIOMA_ERRADO`
+  - `round_health_score` mínimo `1.0` para a baseline protegida
+- Script de guardrail criado:
+  - `scripts/guardrail_check.py`
+- Primeira validação executada:
+  - run sintético com prompts protegidos e cadeia `docker -> kubernetes -> deploy`
+  - resultado: `PASS`
+  - `round_health_score = 1.0`
+- Leitura objetiva:
+  - a baseline protegida ficou documentada e verificável
+  - a checagem de regressão agora bloqueia evolução fora do piso estável
+  - backend direto e UI continuam preservando o comportamento validado
+- Status tecnico:
+  - `stage_19_guardrails_opened = true`
+  - `guardrail_check_pass = true`
+  - `baseline_protected = true`
+
+## Checkpoint 2026-03-23: Subetapa 18.5 adicionou Adaptive Response Layer
+- Sinais usados como base:
+  - predominancia de prompts curtos em `usage_analysis_report.json`
+  - recorrencia de `style_correction`
+  - necessidade de respostas mais diretas e naturais observada no feedback loop
+- Regra adaptativa aplicada:
+  - `_apply_adaptive_response_layer()` usa sinais consolidados do `usage_analysis_report.json`
+  - quando o uso indica prompts curtos, prioriza formato mais direto e enxuto
+  - quando o uso indica recorrencia de estilo humano, suaviza o tom sem mexer no conteúdo semantico
+  - `style_correction` explicito da sessao continua com prioridade total
+- Before/after:
+  - antes: respostas curtas podiam ficar mais verbosas do que o necessario
+  - depois: respostas curtas ficaram mais enxutas, mantendo o conteudo tecnico
+  - antes: confirmacoes de estilo seguiam apenas a logica local
+  - depois: o formato final passou a considerar o perfil real de uso sem sobrescrever a sessao
+- Validacao executada:
+  - backend direto em `http://127.0.0.1:8099/api/chat`
+  - UI real via runner existente
+  - `runId` da UI: `2026-03-23T021534798Z`
+- Resultado do delta:
+  - `OK: 5`
+  - `FALLBACK_DISFARCADO: 0`
+  - `DRIFT_DE_DOMINIO: 0`
+  - `IDIOMA_ERRADO: 0`
+  - `RESPOSTA_FRACA: 0`
+- Leitura objetiva:
+  - a camada adaptativa ficou leve e reversivel
+  - o `style_correction` por sessao permaneceu dominante quando presente
+  - backend direto e UI real continuaram alinhados
+- Status tecnico:
+  - `adaptive_response_layer_enabled = true`
+  - `short_prompt_format_bias = true`
+  - `style_correction_priority_preserved = true`
+
+## Checkpoint 2026-03-23: Subetapa 18.4 refinou style_confirmation_loop
+- Causa exata do loop:
+  - a confirmação de `style_correction` ainda soava meta e repetitiva
+  - a mensagem era válida, mas estava muito uniforme e pouco natural em modos diferentes
+- Correcao aplicada:
+  - criado `_style_correction_ack_text(mode)` em `app/api/routes.py`
+  - confirmações agora variam por modo e ficam curtas, diretas e naturais
+  - a lógica de aplicação do estilo e o isolamento por sessão permaneceram intactos
+- Before/after:
+  - antes: confirmação uniforme e meta
+  - depois:
+    - `responde mais humano` -> `Perfeito. Vou responder de forma mais natural a partir da próxima.`
+    - `responde mais direto` -> `Beleza. Vou ser mais direto nas próximas respostas.`
+    - `mais curto` -> `Beleza. Vou ser mais direto nas próximas respostas.`
+    - `faz em passo a passo` -> `Certo. Vou responder em passos a partir da próxima.`
+    - `usa hipótese + teste` -> `Certo. Vou organizar assim: hipótese e teste.`
+- Validacao executada:
+  - backend direto em `http://127.0.0.1:8099/api/chat`
+  - UI real via runner existente
+  - `runId` da UI: `2026-03-23T021036762Z`
+- Resultado do delta:
+  - `OK: 6`
+  - `FALLBACK_DISFARCADO: 0`
+  - `DRIFT_DE_DOMINIO: 0`
+  - `IDIOMA_ERRADO: 0`
+  - `RESPOSTA_FRACA: 0`
+- Leitura objetiva:
+  - as confirmações ficaram mais naturais e úteis
+  - o comportamento da sessão e a aplicação do estilo continuaram funcionando
+  - backend direto e UI real ficaram alinhados
+- Status tecnico:
+  - `style_confirmation_loop_refined = true`
+  - `style_correction_session_isolated = true`
+  - `backend_ui_aligned_after_refinement = true`
+
+## Checkpoint 2026-03-23: Subetapa 18.3 generalizou fallback_short_new_topic por classe de tópico
+- Causa exata do padrão:
+  - prompts curtos de novo topico ainda dependiam de respostas curtas por caso isolado
+  - isso funcionava, mas não generalizava bem para outros tópicos detectáveis
+- Abordagem adotada:
+  - criado mapeamento por classe de tópico em `_topic_short_answer()`
+  - `app/api/routes.py` agora usa o tópico detectado para responder curto e específico em prompts curtos de novo tópico
+  - a proteção contra reuso indevido de `intent_chain` permaneceu ativa
+- Before/after:
+  - antes: alguns tópicos curtos podiam cair em meta-resposta genérica se não houvesse caso específico
+  - depois: `Sobre docker`, `Sobre kubernetes`, `Sobre terraform`, `Sobre postgres`, `Sobre python` e `No Linux?` responderam com definição curta e útil
+- Validacao executada:
+  - backend direto em `http://127.0.0.1:8099/api/chat`
+  - UI real via runner existente
+  - `runId` da UI: `2026-03-23T015228342Z`
+- Resultado do delta:
+  - `OK: 6`
+  - `FALLBACK_DISFARCADO: 0`
+  - `DRIFT_DE_DOMINIO: 0`
+  - `IDIOMA_ERRADO: 0`
+  - `RESPOSTA_FRACA: 0`
+- Leitura objetiva:
+  - a generalizacao ficou controlada e sem regressao
+  - o multi-turn legitimo continuou funcionando
+  - backend direto e UI real ficaram alinhados
+- Status tecnico:
+  - `fallback_short_new_topic_generalized = true`
+  - `intent_chain_protection_maintained = true`
+  - `backend_ui_aligned_after_generalization = true`
+
+## Checkpoint 2026-03-23: Subetapa 18.2 aplicada para fallback_short_new_topic
+- Causa exata do problema:
+  - prompts curtos de novo topico ainda caiam em meta-resposta genérica para alguns assuntos
+  - `postgres` era o caso restante mais evidente entre os prompts-alvo desta rodada
+- Correcao aplicada:
+  - `app/api/routes.py` ganhou resposta curta específica para `postgres` em `_safe_final_answer_for_query()`
+  - a protecao de `intent_chain` permaneceu ativa e sem alteracao estrutural
+- Before/after:
+  - antes: `Sobre postgres` -> `Posso responder de forma curta sobre Sobre postgres e aprofundar se você quiser.`
+  - depois: `Sobre postgres` -> `PostgreSQL é um banco de dados relacional robusto, muito usado para aplicações que precisam de consistência e SQL.`
+- Validacao executada:
+  - backend direto em `http://127.0.0.1:8099/api/chat`
+  - UI real via runner existente
+  - `runId` da UI: `2026-03-23T014922405Z`
+- Resultado do delta:
+  - `OK: 4`
+  - `FALLBACK_DISFARCADO: 0`
+  - `DRIFT_DE_DOMINIO: 0`
+  - `IDIOMA_ERRADO: 0`
+  - `RESPOSTA_FRACA: 0`
+- Leitura objetiva:
+  - os quatro prompts-alvo ficaram específicos e consistentes
+  - backend direto e UI real continuaram alinhados
+  - a correção ficou limitada ao alvo desta rodada
+- Status tecnico:
+  - `fallback_short_new_topic_postgres_ok = true`
+  - `delta_round_ok = true`
+  - `backend_ui_aligned_after_fix = true`
+
+## Checkpoint 2026-03-23: Subetapa 18.1 concluida com sugestoes estruturadas
+- Script criado:
+  - `scripts/generate_fix_suggestions.py`
+- Arquivos gerados:
+  - `var/usage/fix_suggestions.json`
+  - `var/usage/fix_suggestions.md`
+- Quantidade de sugestoes:
+  - `5`
+- Top sugestoes encontradas:
+  - `fallback_short_new_topic`
+  - `short_prompt_direct_answer`
+  - `style_confirmation_loop`
+  - `intent_chain_vazio`
+  - `answer_type_focus`
+- Leitura objetiva:
+  - o relatorio de uso real foi convertido em sugestoes prudentes e priorizadas
+  - a maior prioridade segue em prompts curtos de novo topico e na confirmacao de style_correction
+  - o core de resposta permaneceu inalterado
+- Status tecnico:
+  - `stage_18_1_suggestions_generated = true`
+  - `operational_recommendations_ready = true`
+  - `core_response_unchanged = true`
+
+## Checkpoint 2026-03-23: Etapa 18 iniciada com feedback loop operacional
+- Leitura objetiva do estado atual:
+  - backend/UI alinhados
+  - multi-turn funcional
+  - humanizacao controlada validada
+  - logging estruturado ativo em `usage_events.jsonl`
+- Mudanca aplicada:
+  - criado `scripts/usage_analysis.py`
+  - leitura direta de `var/usage/usage_events.jsonl`
+  - agregacao por `label`, `answer_type`, `intent_chain`, `conversation_id` e tamanho de prompt
+- Primeiro relatorio operacional:
+  - total lido: `126` eventos
+  - labels principais: `OK`, `style_correction`, `FALLBACK_DISFARCADO`, `DRIFT_DE_DOMINIO`, `RESPOSTA_FRACA`
+  - padroes mais visiveis: `responde mais humano` recorrente, prompts curtos problemáticos, e `intent_chain` vazio concentrando boa parte da telemetria
+  - sugestoes iniciais: reforcar respostas curtas para prompts isolados, revisar a confirmação textual de estilo e acompanhar cadeias sem `intent_chain`
+- Formalizacao:
+  - Etapa 18 registrada no indice de etapas
+  - etapa aberta como feedback loop operacional, sem alterar o core de resposta
+- Validacao executada:
+  - `python3 scripts/usage_analysis.py --input /lab/projects/livecopilot/var/usage/usage_events.jsonl --output /lab/projects/livecopilot/var/usage/usage_analysis_report.json`
+  - relatorio JSON gerado em `var/usage/usage_analysis_report.json`
+- Status tecnico:
+  - `usage_analysis_script_created = true`
+  - `stage_18_opened = true`
+  - `core_response_unchanged = true`
+
+## Checkpoint 2026-03-23: humanizacao controlada aplicada sem regressao
+- Regras aplicadas:
+  - confirmacao de `style_correction` ficou humana e direta
+  - prompts curtos ganharam resposta mais natural sem meta-desvio
+  - `nginx/container` passou a sair com instrução util e concreta
+- Before/after:
+  - antes: `responde mais humano` -> `Posso responder de forma curta...` ou `FALLBACK_DISFARCADO`
+  - depois: `responde mais humano` -> `Perfeito. Vou responder de forma mais natural e direta a partir da próxima resposta.`
+  - antes: `como rodar um container nginx?` -> `Posso responder direto e depois detalhar.`
+  - depois: `como rodar um container nginx?` -> `Para rodar o Nginx em um container, use a imagem oficial e exponha a porta 80 para testar localmente.`
+- Validacao executada:
+  - backend direto em `http://127.0.0.1:8099/api/chat`
+  - UI real via runner existente
+  - `runId` da UI: `2026-03-23T011315723Z`
+- Resultado:
+  - backend direto e UI real ficaram alinhados
+  - `Sobre python`, `No Linux?`, `o que é docker?` e `como rodar um container nginx?` ficaram `OK`
+  - o turno de `responde mais humano` ficou `OK` e não regrediu o multi-turn
+- Status tecnico:
+  - `humanization_enabled = true`
+  - `style_correction_ack_ok = true`
+  - `backend_ui_aligned_after_humanization = true`
+
+## Checkpoint 2026-03-23: prompts curtos de novo tópico receberam resposta específica
+- Causa exata do fallback curto:
+  - `Sobre python` e `No Linux?` caiam no ramo genérico de `_safe_final_answer_for_query()`
+  - o trecho retornava uma meta-resposta curta em vez de uma resposta curta específica do tópico
+- Correcao aplicada:
+  - `app/api/routes.py` ganhou casos explícitos para `python` e `linux` dentro de `_safe_final_answer_for_query()`
+  - a proteção contra reuso de `intent_chain` permaneceu ativa para não regredir a cadeia legítima
+- Before/after:
+  - antes:
+    - `Sobre python` -> `Posso responder de forma curta sobre Sobre python e aprofundar se você quiser.`
+    - `No Linux?` -> `Posso responder de forma curta sobre No Linux e aprofundar se você quiser.`
+  - depois:
+    - `Sobre python` -> `Python é uma linguagem de programação simples de ler, muito usada para automação, backend e análise de dados.`
+    - `No Linux?` -> `Linux é um sistema operacional muito usado em servidores, automação e desenvolvimento.`
+- Validacao executada:
+  - backend direto em `http://127.0.0.1:8099/api/chat`
+  - UI real via runner existente
+- Resultado:
+  - backend direto e UI real continuaram alinhados
+  - os dois prompts curtos deixaram de cair em `FALLBACK_DISFARCADO`
+- Status tecnico:
+  - `short_new_topic_specific_answer = true`
+  - `python_short_prompt_ok = true`
+  - `linux_short_prompt_ok = true`
+  - `backend_ui_aligned_after_fix = true`
+
+## Checkpoint 2026-03-23: serviço reiniciado e UI real alinhada ao backend direto
+- Serviço validado:
+  - `livecopilot-semantic-api.service`
+  - restart executado com sucesso
+  - estado final: `active (running)` em `0.0.0.0:8099`
+- Backend direto validado:
+  - `o que é python?` -> `Em Python, priorizo legibilidade e tipagem leve.`
+  - `o que é terraform?` -> `Terraform é uma ferramenta de infraestrutura como código...`
+  - `Sobre python` -> `Posso responder de forma curta sobre Sobre python e aprofundar se você quiser.`
+  - `No Linux?` -> `Posso responder de forma curta sobre No Linux e aprofundar se você quiser.`
+- UI real validada:
+  - os mesmos 4 prompts retornaram os mesmos conteúdos do backend direto
+  - bateria UI executada via runner existente
+- Comparacao:
+  - backend direto e UI real ficaram alinhados
+  - nao houve divergencia objetiva nesta rodada
+- Leitura objetiva:
+  - a API publicada reflete o backend reiniciado
+  - as correcoes recentes estao ativas no serviço que atende a UI
+- Status tecnico:
+  - `service_restart_ok = true`
+  - `backend_direct_ok = true`
+  - `ui_real_ok = true`
+  - `backend_ui_aligned = true`
+
+## Checkpoint 2026-03-23: reuso de intent_chain em novo tópico curto bloqueado
+- Ajuste aplicado:
+  - `app/api/routes.py` ganhou detecção simples de tópico atual
+  - prompts curtos agora passam por `can_use_followup_chain`
+  - `_compose_followup_chain_answer` só roda quando o prompt curto ainda pertence ao tópico em continuidade
+- Tópicos cobertos:
+  - `docker`
+  - `kubernetes`
+  - `terraform`
+  - `postgres`
+  - `python`
+  - `linux`
+- Validação executada:
+  - cadeia legitima `docker -> kubernetes -> deploy`
+  - prompt novo curto `Sobre python`
+  - prompt novo curto `O que é terraform?`
+  - prompt novo curto `No Linux?`
+- Leitura objetiva:
+  - a cadeia legitima permaneceu funcionando
+  - prompts curtos de novo dominio deixaram de reutilizar a resposta anterior
+  - não houve regressão visível na resposta single-turn validada
+- Status tecnico:
+  - `new_topic_short_prompt_block = true`
+  - `followup_chain_guarded = true`
+  - `cross_topic_reuse_blocked = true`
+
+## Checkpoint 2026-03-22: logging estruturado de style_correction habilitado
+- Evento estruturado adicionado:
+  - `event_type = style_correction`
+  - `conversation_id`
+  - `detected_mode`
+  - `raw_instruction`
+  - `applied`
+  - `applied_mode`
+  - `ts`
+- Ponto de integracao:
+  - no momento da deteccao e armazenamento na sessao
+  - no momento da aplicacao da resposta seguinte
+  - reutilizando `app/services/usage_logging.py`
+- Comportamento observado:
+  - a resposta nao mudou
+  - o log fica restrito ao escopo da sessao
+  - falha de escrita continua isolada e nao derruba a API
+- Validacao executada:
+  - fluxo de pergunta normal
+  - fluxo com `style_correction`
+  - confirmacao de que o evento foi gerado sem regressao
+- Status tecnico:
+  - `style_correction_structured_logging = true`
+  - `style_correction_log_isolated = true`
+  - `response_unchanged_during_logging = true`
+
+## Checkpoint 2026-03-22: style_correction aplicado na resposta seguinte
+- Mudanca aplicada:
+  - `app/api/routes.py` passou a ler `style_correction_last` da sessao anterior
+  - o ajuste eh consumido na resposta seguinte da mesma `conversation_id`
+- Camada de aplicacao:
+  - `responde mais direto` reduz a resposta para formato mais curto e objetivo
+  - `faz em passo a passo` reorganiza os bullets em etapas
+  - `usa hipótese + teste` converte o formato para hipotese/teste
+  - `mais humano` suaviza o tom sem remover o conteúdo tecnico
+  - `quero exemplo` adiciona um exemplo curto quando nao houver um nos bullets
+- Before/after observado:
+  - antes: resposta tecnica normal sem ajuste de estilo
+  - depois: resposta seguinte mais direta ou em passos, conforme o ajuste armazenado
+- Isolamento validado:
+  - ajuste ficou restrito ao `conversation_id`
+  - outra `ConversationState` permaneceu sem interferencia
+  - o `style_correction_last` eh limpo apos uso
+- Confirmacao objetiva:
+  - a memoria persistente global continua fora do escopo
+  - prompts sem ajuste seguem sem interferencia
+- Status tecnico:
+  - `style_correction_applied_next_turn = true`
+  - `style_correction_session_isolated = true`
+  - `global_style_memory_absent = true`
+
+## Checkpoint 2026-03-22: style_correction armazenado na sessao
+- Mudanca aplicada:
+  - `ConversationState` passou a guardar `style_correction_last` e `style_corrections`
+  - `app/api/routes.py` grava o sinal detectado apenas na sessao do `conversation_id`
+- Estrutura usada:
+  - ultimo ajuste em `style_correction_last`
+  - historico curto em `style_corrections`
+- Validacao de isolamento:
+  - uma `ConversationState` recebeu o ajuste
+  - outra `ConversationState` permaneceu vazia
+  - `snapshot()` agora expõe os campos da sessão
+- Confirmacao objetiva:
+  - a resposta ainda nao muda por causa desse armazenamento
+  - nao houve memoria persistente global
+- Status tecnico:
+  - `style_correction_session_storage = true`
+  - `style_correction_session_isolated = true`
+  - `response_unchanged_after_storage = true`
+
+## Checkpoint 2026-03-22: deteccao de style_correction implementada
+- Mudanca aplicada:
+  - classificador local de `style_correction` adicionado em `app/api/routes.py`
+  - marca interna `input_type = style_correction` calculada antes da geracao da resposta
+- Regras preservadas:
+  - resposta nao foi alterada
+  - estado nao foi persistido
+  - ajuste de estilo nao foi aplicado ainda
+- Exemplos cobertos:
+  - `responde mais direto`
+  - `menos documentação`
+  - `quero exemplo`
+  - `mais curto`
+  - `faz em passo a passo`
+  - `mais humano`
+  - `usa hipótese + teste`
+- Leitura objetiva:
+  - a deteccao ficou isolada
+  - prompts normais continuam seguindo o fluxo atual
+- Status tecnico:
+  - `style_correction_detection = true`
+  - `response_unchanged = true`
+  - `state_persistence_unchanged = true`
+
+## Checkpoint 2026-03-22: fase de correcao de estilo por sessao formalizada
+- Definicao registrada:
+  - `Etapa 17 - Correcao de estilo por sessao`
+- Foco da fase:
+  - ajuste de tom e formato por texto/voz apenas na sessao corrente
+  - sem memoria persistente global de estilo nesta rodada
+- Subetapas enumeradas:
+  1. deteccao de `style_correction`
+  2. armazenamento no estado da sessao
+  3. aplicacao na resposta seguinte
+  4. logging estruturado do evento
+  5. validacao funcional sem regressao
+  6. preparacao da futura fase de memoria persistente de estilo
+- Documentacao atualizada:
+  - `docs/STAGE_17_1_STYLE_CORRECTION_SESSION_CONTRACT.md`
+  - `docs/PROJECT_CONTRACT.md`
+  - `docs/PROJECT_STAGE_INDEX.md`
+  - `docs/CHAT_BOOT_LIVECOPILOT.md`
+- Leitura objetiva:
+  - a fase foi formalizada para implementacao posterior
+  - a memoria persistente de estilo permanece fora do escopo
+  - nenhum codigo de backend foi alterado nesta rodada
+- Status tecnico:
+  - `style_correction_session_formalized = true`
+  - `persistent_style_memory_out_of_scope = true`
+
+## Checkpoint 2026-03-22: logging estruturado de uso habilitado
+- Capacidade adicionada:
+  - arquivo JSONL em `var/usage/usage_events.jsonl`
+  - log estruturado por request com:
+    - `conversation_id`
+    - `prompt`
+    - `response`
+    - `label`
+    - `confidence`
+    - `response_stage`
+    - `answer_type`
+    - `intent_chain`
+    - timestamp
+- Ponto de integracao:
+  - logging executado no final de `app/api/routes.py`, depois da resposta ja estar consolidada
+  - falha de escrita e ignorada para nao impactar latencia ou comportamento validado
+- Validacao executada:
+  - base single-turn com 3 consultas
+  - multi-turn curto com 3 cadeias
+- Evidencia de logs:
+  - `var/usage/usage_events.jsonl` com eventos gravados
+  - ultimo evento contem `conversation_id`, `prompt`, `response`, `label`, `confidence`, `response_stage`, `answer_type` e `intent_chain`
+- Resultado da rodada curta:
+  - delta `OK: 9`
+  - delta `FALLBACK_DISFARCADO: 0`
+  - delta `DRIFT_DE_DOMINIO: 0`
+  - delta `IDIOMA_ERRADO: 0`
+- Leitura objetiva:
+  - comportamento validado permaneceu igual
+  - observabilidade de uso real foi adicionada sem alterar heuristica nem fallback
+- Status tecnico:
+  - `structured_usage_logging = true`
+  - `usage_jsonl_active = true`
+  - `short_multi_turn_delta_ok = true`
+
+## Checkpoint 2026-03-22: follow-up curto corrigido e delta final limpo
+- Rodada curta final executada:
+  - `runId = followup-short-delta-2`
+  - 9 eventos no delta sintético
+- Sequencias validadas:
+  - `docker -> kubernetes -> deploy`
+  - `postgres -> install -> tuning`
+  - `terraform -> infra -> aplicação`
+- Resultado do delta final:
+  - `OK: 9`
+  - `FALLBACK_DISFARCADO: 0`
+  - `DRIFT_DE_DOMINIO: 0`
+  - `IDIOMA_ERRADO: 0`
+- Leitura objetiva:
+  - prompt curto e fragmentado passou a ser tratado como continuação da cadeia completa
+  - `intent_chain` completa foi usada para reconstruir a intenção sem fallback genérico
+  - o histórico global continua como telemetria acumulada, mas a decisão operacional da rodada curta final ficou limpa no delta
+- Status tecnico:
+  - `short_followup_fixed = true`
+  - `short_followup_delta_ok = true`
+  - `short_followup_fallback_disfarcado = 0`
+
+## Checkpoint 2026-03-22: metricas de qualidade separadas por rodada
+- Problema de leitura identificado:
+  - o agregador estava lendo somente o `response_quality.ndjson` inteiro
+  - isso contaminava a interpretacao operacional com falhas antigas, mesmo quando a rodada atual estava limpa
+- Correcao aplicada:
+  - `scripts/response_quality_report.py` passou a aceitar `--delta-from-run-json`
+  - o relatorio agora consegue separar:
+    - historico global
+    - delta da rodada via `newEvents` do `quality-pipeline-run-*.json`
+- Leitura comparativa da rodada recente:
+  - historico global:
+    - `total_eventos: 367`
+    - `OK: 259`
+    - `FALLBACK_DISFARCADO: 100`
+    - `DRIFT_DE_DOMINIO: 5`
+    - `IDIOMA_ERRADO: 3`
+    - recomendacao automatica: `revisar fallback disfarçado`
+  - delta da rodada `2026-03-22T202950662Z`:
+    - `total_eventos: 6`
+    - `OK: 6`
+    - `FALLBACK_DISFARCADO: 0`
+    - `DRIFT_DE_DOMINIO: 0`
+    - `IDIOMA_ERRADO: 0`
+    - recomendacao automatica: `aguardar mais amostra`
+- Leitura objetiva:
+  - o historico global ainda e util para telemetria acumulada
+  - a decisao operacional da rodada deve usar o delta, porque ele reflete o estado real do sistema testado agora
+  - a base single-turn continua limpa no recorte atual
+- Validacoes executadas:
+  - `python3 scripts/response_quality_report.py /lab/projects/livecopilot/var/response_quality.ndjson --delta-from-run-json /lab/projects/livecopilot/var/quality_pipeline/quality-pipeline-run-2026-03-22T202950662Z.json`
+  - `python3 -m py_compile scripts/response_quality_report.py`
+- Status tecnico:
+  - `quality_report_delta_mode = true`
+  - `global_vs_delta_report = true`
+  - `current_round_delta_ok = true`
+
+## Checkpoint 2026-03-22: delta formalizado como critério operacional
+- Regra operacional consolidada:
+  - o histórico global fica como telemetria acumulada
+  - o delta da rodada atual passa a ser a leitura principal para decidir regressão, correção ou estabilidade
+- Documentação operacional atualizada:
+  - `docs/CHAT_BOOT_LIVECOPILOT.md`
+- Confirmação objetiva:
+  - a rodada `2026-03-22T202950662Z` segue limpa no delta
+  - o histórico global continua carregando falhas antigas e não deve dirigir decisão imediata
+- Próxima forma correta de leitura:
+  - usar `scripts/response_quality_report.py --delta-from-run-json <quality-pipeline-run>`
+- Status técnico:
+  - `delta_as_operational_primary = true`
+  - `global_as_context_only = true`
+
+## Checkpoint 2026-03-22: rodada curta de confirmacao executada
+- Rodada curta executada:
+  - `runId = 2026-03-22T203446297Z`
+  - bateria curta com 3 perguntas
+- Resultado da rodada:
+  - delta total: `3` eventos
+  - delta `OK`: `2`
+  - delta `FALLBACK_DISFARCADO`: `1`
+  - delta `DRIFT_DE_DOMINIO`: `0`
+  - delta `IDIOMA_ERRADO`: `0`
+- Leitura objetiva:
+  - o relatório global continua disponível e segue contaminado por histórico antigo
+  - o delta continua sendo a leitura correta para decisão operacional
+  - a confirmação curta expôs uma fragilidade em follow-up fragmentado curto (`e kubernetes nisso`), mas sem alterar a regra operacional formal já adotada
+- Status tecnico:
+  - `short_round_completed = true`
+  - `short_round_delta_readable = true`
+  - `short_round_did_not_change_operational_rule = true`
+
+## Checkpoint 2026-03-22: estado acumulado de follow-up multi-turn estabilizado
+- Problema residual identificado:
+  - em cadeias de 3 passos, o backend ainda resolvia follow-up com base no ultimo turno, o que derrubava a continuidade semantica quando a intencao era progressiva
+  - o 2o turno de `docker -> kubernetes -> deploy` ainda podia cair em `FALLBACK_DISFARCADO` por falta de resposta composta pela cadeia acumulada
+- Correcao aplicada:
+  - `ConversationState` ganhou `intent_chain`
+  - `app/api/routes.py` passou a:
+    - acumular intenções por `conversation_id`
+    - persistir e recarregar a cadeia de intencoes por sessao
+    - reescrever follow-up com base no estado acumulado, nao apenas no ultimo assunto
+    - forcar composicao direta quando a resposta vinha fraca, evitando fallback disfarçado em cadeias progressivas
+- Before/after da cadeia alvo:
+  - antes:
+    - turno 2: `e kubernetes nisso` -> `FALLBACK_DISFARCADO`
+    - turno 3: `e depois como eu faria um deploy básico` -> resposta genérica ou fallback
+  - depois:
+    - turno 2: `e kubernetes nisso` -> `Docker e Kubernetes se complementam...`
+    - turno 3: `e depois como eu faria um deploy básico` -> `Você pode fazer um deploy básico empacotando a aplicação em Docker e publicando no Kubernetes...`
+- Validacoes executadas:
+  - `curl` multi-turn simulado em `http://127.0.0.1:8099/api/chat`
+  - base single-turn de controle mantida com `OK`
+  - pipeline completa executada via `scripts/run_livecopilot_quality_pipeline.sh`
+- Resultado da rodada nova:
+  - `runId`: `2026-03-22T202950662Z`
+  - eventos novos: `6`
+  - amostra total do pipeline: `367` eventos
+  - `OK`: `259`
+  - `FALLBACK_DISFARCADO`: `100`
+  - recomendacao automatica: `revisar fallback disfarçado`
+- Leitura objetiva da regressao:
+  - a rodada nova nao mostrou regressao na base de controle
+  - o fluxo multi-turn alvo estabilizou nos turnos 2 e 3, mas o historico consolidado ainda carrega muito fallback antigo
+  - nao houve sinal de vazamento entre sessao `conversation_id` diferentes
+- Status tecnico:
+  - `intent_chain_por_conversation_id = true`
+  - `followup_chain_rewrite = true`
+  - `followup_chain_composition = true`
+  - `multi_turn_chain_stable = true`
+  - `single_turn_control_ok = true`
+
 ## Checkpoint 2026-03-22: cutover final de rede para bridge concluido
 - Host antes/depois:
   - antes: `enp1s0` com IP `10.45.0.3/24` e `virbr0` atendendo NAT da VM
@@ -258,6 +845,121 @@
   - `POST /api/chat` em `docker explicação simples` passou a retornar `OK` com resposta util e em pt-BR
 - Leitura da rodada publica mais recente:
   - a UI ainda exibiu respostas cruzadas entre dominios na VM
+
+## Checkpoint 2026-03-22: hardening battery executada com falhas pontuais ainda ativas
+- Rodada hardening:
+  - `runId = 2026-03-22T063611469Z`
+  - bateria nova com prompts compostos/meta/conflito de dominio
+- Resultado da rodada:
+  - `OK = 14`
+  - `FALLBACK_DISFARCADO = 1`
+  - `DRIFT_DE_DOMINIO = 1`
+  - `correlation.json = LOW_QUALITY`
+  - `round_health_score = 55`
+- Piores casos:
+  - `como rodar um container nginx e depois expor uma porta no kubernetes`
+    - `FALLBACK_DISFARCADO`
+  - `o que é terraform e como isso afeta um cluster kubernetes`
+    - `DRIFT_DE_DOMINIO`
+- Leitura objetiva:
+  - a bateria hardening ainda expõe um caso de fallback disfarcado em prompt composto de docker/kubernetes
+  - a bateria hardening ainda expõe um caso de drift em prompt composto de terraform/kubernetes
+  - a bateria base congelada nao foi alterada nesta rodada
+- Proxima prioridade:
+  - atacar os dois prompts compostos remanescentes sem mexer na base 15/15 OK
+- Status tecnico:
+  - `hardening_run_id = 2026-03-22T063611469Z`
+  - `hardening_ok = 14`
+  - `hardening_failures = 2`
+
+## Checkpoint 2026-03-22: hardening battery corrigida e validada
+- Rodada hardening corrigida:
+  - `runId = 2026-03-22T064011494Z`
+  - mesma bateria com 16 prompts compostos/meta/conflito de dominio
+- Resultado da rodada:
+  - `OK = 16`
+  - `FALLBACK_DISFARCADO = 0`
+  - `DRIFT_DE_DOMINIO = 0`
+  - `IDIOMA_ERRADO = 0`
+  - `correlation.json = OK`
+  - `round_health_score = 100`
+- Casos-alvo:
+  - `como rodar um container nginx e depois expor uma porta no kubernetes`
+    - `OK`
+  - `o que é terraform e como isso afeta um cluster kubernetes`
+    - `OK`
+- Leitura objetiva:
+  - a composicao multi-intent para prompt composto passou a responder a etapa pedida
+  - a heuristica de dominio relacionado deixou de punir corretamente `terraform + kubernetes`
+  - a bateria hardening voltou a zero falhas nas labels monitoradas
+  - a bateria base congelada permaneceu intacta
+- Status tecnico:
+  - `hardening_fix_run_id = 2026-03-22T064011494Z`
+  - `hardening_fix_ok = 16`
+  - `hardening_fix_failures = 0`
+
+## Checkpoint 2026-03-22: isolamento por prompt validado no runner
+- Ajuste aplicado no runner:
+  - nova pagina por pergunta
+  - limpeza de `localStorage` e `sessionStorage` antes de cada envio
+  - cada prompt passou a ser isolado no DOM e no contexto da pagina
+- Rodada de isolamento:
+  - `runId = 2026-03-22T064303448Z`
+  - `OK = 16`
+  - `FALLBACK_DISFARCADO = 0`
+  - `DRIFT_DE_DOMINIO = 0`
+  - `IDIOMA_ERRADO = 0`
+  - `correlation.json = OK`
+- Leitura objetiva:
+  - a qualidade permaneceu estável
+  - nao apareceu evidencia de contaminacao por estado compartilhado entre prompts
+  - ainda existem respostas genéricas repetidas em alguns prompts compostos, mas sem sinais de reuse de contexto anterior
+- Status tecnico:
+  - `prompt_isolation_runner = true`
+  - `prompt_isolation_round_id = 2026-03-22T064303448Z`
+
+## Checkpoint 2026-03-22: plan builder de resposta adicionado para prompts compostos
+- Ajuste aplicado no backend:
+  - `build_plan(prompt)` adicionado em `app/api/routes.py`
+  - prompts compostos passaram a receber plano em passos antes da resposta final
+  - respostas para casos multi-intent ganharam estrutura com `Passo 1`, `Passo 2`, etc.
+- Rodada com plan builder:
+  - `runId = 2026-03-22T064510079Z`
+  - `OK = 16`
+  - `FALLBACK_DISFARCADO = 0`
+  - `DRIFT_DE_DOMINIO = 0`
+  - `IDIOMA_ERRADO = 0`
+  - `correlation.json = OK`
+- Leitura objetiva:
+  - a qualidade permaneceu estável sem regressao
+  - a estrutura de resposta melhorou para prompts compostos com plano explícito
+  - ainda há respostas curtas em alguns prompts da bateria, mas sem quebra de qualidade
+- Status tecnico:
+  - `plan_builder_enabled = true`
+  - `plan_builder_round_id = 2026-03-22T064510079Z`
+
+## Checkpoint 2026-03-22: multi-turn validado no runner sincronizado, com limite em follow-up fragmentado
+- Ajuste aplicado no runner:
+  - copia sincronizada de `run_validation_round.js` para a VM
+  - sequencias multi-turn executadas sem reset entre turnos dentro da mesma conversa
+  - isolamento preservado entre conversas distintas
+- Rodada multi-turn:
+  - `runId = 2026-03-22T064923113Z`
+  - `questions = 9`
+  - `correlation.json = LOW_QUALITY`
+  - `round_health_score = 55`
+- Resultado observado:
+  - a primeira pergunta de cada sequencia respondeu bem
+  - os follow-ups curtos e fragmentados ainda caem em fallback disfarçado ou resposta curta
+  - nao houve evidência de vazamento de contexto entre conversas diferentes
+- Diagnostico objetivo:
+  - o problema atual nao e de isolamento compartilhado
+  - o problema e de roteamento/contextualizacao de follow-up muito curto em multi-turn
+- Status tecnico:
+  - `multiturn_runner_synced = true`
+  - `multiturn_round_id = 2026-03-22T064923113Z`
+  - `multiturn_isolation_ok = true`
+  - `multiturn_followup_short_prompt_issue = true`
   - a rodada `2026-03-22T060232180Z` passou a ser classificada como `OK` pelo correlator local, mas o conteudo observado ainda mostra drift entre perguntas e respostas
 - Status tecnico:
   - `quality_drift_heuristics_ampliadas = true`
@@ -11603,3 +12305,30 @@ producao funcional
   - `chromium_launch_ok = true`
   - `runner_rerun_attempted = true`
   - `runner_round_completed = false`
+## Checkpoint 2026-03-22: runner alinhado ao backend real em 8099
+- Alinhamento aplicado:
+  - `lab/vms/livecopilot-validation/scripts/run_validation_round.js` passou a usar `http://10.45.0.3:8099` em `DEFAULT_APP_URL`
+  - a copia sincronizada para a VM em `/home/codex/validation-runner/run_validation_round.js` foi atualizada com esse alvo
+- Evidencia do backend real:
+  - `10.45.0.2:8099` nao respondeu da VM
+  - `10.45.0.3:8099` respondeu em `/api/chat` com resposta valida para `docker explicação simples`
+  - `10.45.0.3:8099` serve a UI e a API no mesmo processo
+- Rodadas executadas apos o alinhamento:
+  - multi-turn: `2026-03-22T065826493Z`
+    - `questions = 9`
+    - `failure_type = LOW_QUALITY`
+    - `round_health_score = 55`
+    - sintoma principal: follow-up curto ainda gerava fallback disfarcado em alguns turnos
+  - base de controle: `2026-03-22T065844572Z`
+    - `questions = 15`
+    - `failure_type = OK`
+    - `round_health_score = 100`
+    - a bateria base congelada permaneceu intacta
+- Leitura objetiva:
+  - o runner agora consome o backend real atualizado em `8099`
+  - o problema residual ficou restrito a follow-ups curtos em multi-turn, nao a desalinhamento de ambiente
+- Status tecnico:
+  - `runner_backend_url = http://10.45.0.3:8099`
+  - `multiturn_round_id = 2026-03-22T065826493Z`
+  - `base_control_round_id = 2026-03-22T065844572Z`
+  - `base_control_ok = true`

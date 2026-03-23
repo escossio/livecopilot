@@ -1,0 +1,22 @@
+{
+  "prompts": [
+    "Sobre python",
+    "No Linux?",
+    "o que é docker?",
+    "como rodar um container nginx?",
+    "docker -> kubernetes -> deploy",
+    "responde mais humano",
+    "responde mais direto",
+    "faz em passo a passo",
+    "usa hipótese + teste"
+  ],
+  "acceptable_labels": [
+    "OK"
+  ],
+  "must_not_labels": [
+    "FALLBACK_DISFARCADO",
+    "DRIFT_DE_DOMINIO",
+    "IDIOMA_ERRADO"
+  ],
+  "min_round_health_score": 1.0
+}

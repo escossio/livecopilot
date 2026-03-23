@@ -24,13 +24,26 @@ Indice oficial de etapas/frentes do projeto, consolidado a partir de `STATUS.md`
 | 14 | ASR local robusto | Pilha local robusta de transcricao em hardware dedicado. | concluida | 12 | `docs/PROJECT_EXECUTION_MAP.md`, `docs/PROJECT_CONTRACT.md`, `docs/STAGE_14_1_ASR_LOCAL_CONTRACT.md`, `docs/HANDOFF_STAGE_14_2_COMPLETION.md`, `docs/HANDOFF_STAGE_14_3_COMPLETION.md`, `docs/HANDOFF_STAGE_14_4_COMPLETION.md` |
 | 15 | Ingestao das literaturas no banco semantico | Consolidar base interna local-first com chunking, embeddings, persistencia e validacao de recuperacao. | concluida | 3, 5, 6 | `README.md`, `INGESTION_POLICY.md`, `docs/STAGE_15_1_INGESTION_OPERATIONAL_CONTRACT.md`, `docs/HANDOFF_STAGE_15_1_COMPLETION.md`, `docs/HANDOFF_STAGE_15_2_COMPLETION.md`, `docs/HANDOFF_STAGE_15_3_COMPLETION.md`, `docs/HANDOFF_STAGE_15_4_COMPLETION.md`, `docs/ROUND_SUMMARY_STAGE_15_4_RUNTIME_LOCAL_FIRST.md`, `docs/HANDOFF_STAGE_15_MACRO_CLOSURE.md` |
 | 16 | Busca externa com governanca ampliada | Expansao externa posterior e controlada, complementar ao core local consolidado. | parcial | 11, 15 | `docs/PROJECT_EXECUTION_MAP.md`, `docs/PROJECT_CONTRACT.md`, `docs/ROUND_SUMMARY_NEXT_STAGE_PROPOSAL_AFTER_14.md`, `docs/STAGE_16_1_EXTERNAL_SEARCH_CONTRACT.md`, `docs/HANDOFF_STAGE_16_1_COMPLETION.md` |
+| 17 | Correcao de estilo por sessao | Ajustar tom e formato por texto/voz dentro da sessao corrente, sem memoria persistente global de estilo. | proposta | 2, 7, 10 | `docs/PROJECT_CONTRACT.md`, `docs/STAGE_17_1_STYLE_CORRECTION_SESSION_CONTRACT.md` |
+| 18 | Feedback Loop operacional | Ler logs reais de uso, detectar padroes de falha e gerar recomendacoes acionaveis sem alterar o core de resposta. | proposta | 17 | `STATUS.md`, `app/services/usage_logging.py`, `scripts/usage_analysis.py` |
+| 19 | Guardrails de Evolucao | Formalizar baseline protegida, checagem de regressao e criterios mínimos para manter estabilidade de evolucao. | proposta | 18 | `docs/LIVECOPILOT_GUARDRAIL_BASELINE.md`, `scripts/guardrail_check.py`, `STATUS.md` |
 
 ## Etapa atual oficial
 - **Etapa 16 - Busca externa com governanca ampliada** (`parcial`).
 - Motivo: `16.1` (contrato operacional) concluida sem implementacao funcional; adaptador segue para subetapa posterior.
 
 ## Proxima Etapa Proposta
-- **Etapa 16 - Busca externa com governanca ampliada** (`em andamento no escopo documental`).
-- Objetivo central: ampliar busca externa de forma controlada e auditavel somente apos consolidacao da base interna local-first na etapa 15.
-- Referencia da proposta: `docs/ROUND_SUMMARY_NEXT_STAGE_PROPOSAL_AFTER_14.md`.
-- Estado desta rodada: `16.1` concluida com contrato operacional (`docs/STAGE_16_1_EXTERNAL_SEARCH_CONTRACT.md`) e sem abertura de adaptador/crawler.
+- **Etapa 17 - Correcao de estilo por sessao** (`proposta formalizada`).
+- Objetivo central: ajustar tom e formato por sessao, com aplicacao temporal e sem memoria persistente global de estilo.
+- Referencia da proposta: `docs/STAGE_17_1_STYLE_CORRECTION_SESSION_CONTRACT.md`.
+- Estado desta rodada: `17.1` concluida com contrato operacional e sem implementacao funcional.
+
+## Etapa 18 proposta
+- **Etapa 18 - Feedback Loop operacional**
+- Objetivo central: analisar `usage_events.jsonl`, agrupar padroes de uso real e emitir recomendacoes operacionais para proximas correcoes.
+- Base inicial: `app/services/usage_logging.py` + `scripts/usage_analysis.py`.
+
+## Etapa 19 proposta
+- **Etapa 19 - Guardrails de Evolucao**
+- Objetivo central: bloquear regressao por meio de baseline protegida e checagem automatica de aceitação por rodada.
+- Base inicial: `docs/LIVECOPILOT_GUARDRAIL_BASELINE.md` + `scripts/guardrail_check.py`.
