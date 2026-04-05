@@ -6,6 +6,7 @@
 - Apache continua como borda de publicação e reverse proxy
 - O frontend estático agora é servido a partir de `/lab/projects/livecopilot/web`
 - O backend FastAPI segue escutando em `127.0.0.1:8099` via `livecopilot-semantic-api.service`
+- O vhost do Livecopilot responde em `127.0.0.1:8080` com `Host: livecopilot.escossio.dev.br`
 
 ## Responsabilidades por camada
 
@@ -26,6 +27,7 @@
 - `/realtime/*` -> backend FastAPI em `127.0.0.1:8099`
 - `/ws` -> backend FastAPI com suporte a WebSocket
 - `/panel/*` -> backend FastAPI, mantido por compatibilidade operacional
+- `:80` continua com o vhost padrão do Debian; a borda do Livecopilot fica em `:8080`
 
 ## Rollback simples
 
@@ -37,3 +39,4 @@
 ## Observação
 
 - `/project-status-data` continua sendo dado de apoio do backend, porque a tela estática ainda consome o estado operacional do projeto.
+- A validação desta rodada foi feita na borda `127.0.0.1:8080` com o host `livecopilot.escossio.dev.br`.

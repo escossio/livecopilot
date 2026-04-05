@@ -8,11 +8,13 @@
   - a tela de status passou a existir como frontend estático em `web/project-status/index.html`, mantendo o consumo de `/project-status-data` como apoio operacional.
   - os assets atuais foram materializados em `web/static/` para que o Apache sirva a UI sem renderização de template pelo FastAPI.
   - `livecopilot.conf` passou a servir a raiz em `DocumentRoot /lab/projects/livecopilot/web` e a encaminhar `health`, `status`, `project-status-data`, `api/*`, `realtime/*`, `ws` e `panel/*` para o backend em `127.0.0.1:8099`.
+  - a validação desta rodada foi fechada na borda `127.0.0.1:8080` usando o host `livecopilot.escossio.dev.br`, porque `:80` continua com o vhost padrão do Debian.
 - Decisão arquitetural:
   - frontend: `web/` com HTML, CSS e JS estáticos
   - backend: FastAPI em `8099` com `health`, `status`, `api/*`, `realtime/*`, `ws` e apoio operacional
   - `project-status-data` ficou no backend por ser dado operacional consumido pela UI estática
   - Apache segue como borda de publicação, não como aplicação
+  - o WebSocket em `/ws` segue no backend; a prova local por cliente WebSocket ficou limitada pela ausência de biblioteca `websocket`/`websockets` no ambiente, então a validação ficou documentada como pendente de cliente específico apesar das rotas HTTP já estarem ok
 - Rollback:
   - backups estruturais desta rodada estão em `/lab/projects/livecopilot/backups/20260404-livecopilot-split/`
   - restaurar `app/main.py` e `livecopilot.conf` a partir desses backups reverte a separação com impacto mínimo
