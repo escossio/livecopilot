@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>livecopilot - status do projeto</title>
+  <link rel="stylesheet" href="/static/project_status.css" />
+</head>
+<body>
+  <main class="project-status">
+    <header class="project-header">
+      <div>
+        <h1 id="project-name">Livecopilot</h1>
+        <p id="mission-subtitle">Status operacional do projeto</p>
+      </div>
+      <div class="project-meta">
+        <div class="status-badge" id="status-badge">SEM STATUS</div>
+        <div class="clock" id="clock">--:--:--</div>
+      </div>
+    </header>
+
+    <section class="status-summary">
+      <article class="status-card">
+        <h2>Missão atual</h2>
+        <p id="mission-current">Carregando...</p>
+      </article>
+      <article class="status-card">
+        <h2>Agora</h2>
+        <p id="now-current">--</p>
+      </article>
+      <article class="status-card">
+        <h2>Próximo passo</h2>
+        <p id="now-next">--</p>
+      </article>
+      <article class="status-card">
+        <h2>Evitar agora</h2>
+        <p id="now-avoid">--</p>
+      </article>
+    </section>
+
+    <section class="status-panel">
+      <div class="status-panel-header">
+        <h2>Etapas</h2>
+        <p id="round-focus">--</p>
+      </div>
+      <div id="stage-index" class="stage-index"></div>
+    </section>
+
+    <footer class="status-footer">
+      <span>Atualizado em <strong id="last-updated">--</strong></span>
+    </footer>
+  </main>
+  <script src="/static/project_status.js"></script>
+</body>
+</html>

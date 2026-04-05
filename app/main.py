@@ -1,8 +1,7 @@
 import json
 from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
 from fastapi.exceptions import RequestValidationError
-from fastapi.responses import HTMLResponse, JSONResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.responses import JSONResponse
 from pathlib import Path
 
 from app.core.config import settings
@@ -32,9 +31,7 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
             message = f"payload invalido: {detail}"
     return JSONResponse(status_code=422, content={"status": "error", "error": message})
 
-BASE_DIR = Path(__file__).resolve().parent
-PROJECT_STATUS_STATE_PATH = BASE_DIR.parent / "docs" / "project_status_state.json"
-app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
+PROJECT_STATUS_STATE_PATH = Path(__file__).resolve().parent.parent / "docs" / "project_status_state.json"
 
 state = ConversationState()
 hub = WebSocketHub()
@@ -52,18 +49,6 @@ async def on_startup():
 async def on_shutdown():
     logger.info("shutdown", extra={"event": "shutdown"})
     audio_capture.stop()
-
-@app.get("/", response_class=HTMLResponse)
-async def index():
-    html_path = BASE_DIR / "templates" / "index.html"
-    return HTMLResponse(html_path.read_text(encoding="utf-8"))
-
-
-@app.get("/project-status", response_class=HTMLResponse)
-async def project_status():
-    html_path = BASE_DIR / "templates" / "project_status.html"
-    return HTMLResponse(html_path.read_text(encoding="utf-8"))
-
 
 @app.get("/project-status-data")
 async def project_status_data():
