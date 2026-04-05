@@ -1,5 +1,7 @@
 # Livecopilot Architecture (Reanchor 2026-03-09)
 
+> Nota: este documento descreve a arquitetura histórica/funcional em nível de módulos. A topologia canônica atual de publicação e roteamento está em `docs/ARCHITECTURE_CURRENT.md`.
+
 ## 1) Proposito principal do projeto
 Livecopilot e um copiloto contextual em tempo real, apoiado por base tecnica semantica, banco de questoes e aprendizagem por lacuna, para responder rapido em cenarios de entrevista, troubleshooting e comunicacao tecnica.
 

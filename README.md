@@ -17,13 +17,16 @@ O repositorio esta organizado em cinco blocos:
 5. Ops/Runbook Mode: automacao e CLI operacional para fluxos de incidente/runbook.
 
 Referencias:
+- `docs/ARCHITECTURE_CURRENT.md`
+- `artifacts/livecopilot_publication_map.md`
 - `ARCHITECTURE.md`
 - `docs/PROJECT_STAGE_INDEX.md`
 - `docs/PROJECT_CONTRACT.md`
 
 ## Capacidades atuais
 
-- API FastAPI com UI local em `http://localhost:8000`.
+- API FastAPI com backend em `http://localhost:8099`.
+- Frontend estático publicado via Apache em `http://livecopilot.escossio.dev.br` ou `http://127.0.0.1:8080`.
 - Fluxo realtime com estado de conversa e respostas curtas.
 - Ingestao de knowledge local (`txt`, `md`, `pdf`, `docx`, `html`) com manifestos e estado incremental.
 - Ingestao separada de question bank com cobertura e action plan.
@@ -71,8 +74,9 @@ scripts/start.sh
 
 Abrir:
 
-- `http://localhost:8000`
-- `http://localhost:8000/project-status`
+- `http://127.0.0.1:8080`
+- `http://127.0.0.1:8080/project-status`
+- `http://127.0.0.1:8099/health`
 
 ### Testes locais
 
@@ -99,6 +103,7 @@ Esse gate executa as suites:
 Referencias de estado:
 
 - `STATUS.md`
+- `docs/ARCHITECTURE_CURRENT.md`
 - `docs/HANDOFF_GITHUB_PRECHECK_20260312T233115Z.md`
 - `docs/PROJECT_STAGE_INDEX.md`
 

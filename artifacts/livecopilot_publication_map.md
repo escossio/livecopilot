@@ -1,5 +1,7 @@
 # Livecopilot publication map
 
+> Referência canônica atual: `docs/ARCHITECTURE_CURRENT.md`
+
 ## Topologia atual
 
 - Internet -> Cloudflared -> Apache -> FastAPI

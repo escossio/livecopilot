@@ -26,6 +26,26 @@
   - WebSocket em `/ws` validado com `wscat` via Apache: ok
   - ajuste final do `AliasMatch` para fazer `/project-status` responder `200` direto: ok
 
+## 2026-04-04 - consolidação da arquitetura atual
+- Pre-run / escopo:
+  - li `STATUS.md`, `README.md`, `ARCHITECTURE.md`, `artifacts/livecopilot_publication_map.md` e os handoffs de publicação antes de formalizar a arquitetura atual.
+  - objetivo desta rodada: transformar a separação frontend/backend recém-publicada em referência canônica do projeto, sem mudar código funcional.
+- Consolidação aplicada:
+  - criado `docs/ARCHITECTURE_CURRENT.md` como documento canônico da topologia atual.
+  - `README.md` passou a apontar para a arquitetura atual e para o mapa de publicação.
+  - `ARCHITECTURE.md` ganhou nota curta indicando que a visão detalhada antiga foi superseded pela arquitetura atual.
+  - `artifacts/livecopilot_publication_map.md` foi alinhado para explicitar porta, borda e roteamento atuais.
+- Estado formalizado:
+  - Internet -> Cloudflared -> Apache -> frontend estático ou backend FastAPI.
+  - Apache é a borda do Livecopilot em `127.0.0.1:8080`.
+  - backend FastAPI permanece em `127.0.0.1:8099`.
+  - `/`, `/project-status` e `/static/*` ficam no frontend estático.
+  - `/health`, `/status`, `/project-status-data`, `/api/*`, `/realtime/*`, `/ws` e `/panel/*` ficam no backend.
+  - `:80` do host Debian não é a borda do Livecopilot.
+- Observação operacional:
+  - `project-status-data` permanece no backend por ser dado operacional consumido pela UI estática.
+  - o rollback documentado continua sendo restaurar os backups da rodada de separação e repontar Apache para o backend.
+
 ## 2026-03-26 02:49 - rodada adicional de validação UI + backend + VM
 - Pre-run / escopo:
   - MODELO_RECOMENDADO=gpt-5-codex-mini; li `STATUS.md` e confirmei que não havia alteração nova de código pedida nesta rodada. O objetivo foi reforçar a confiança no tutor conversacional e na UX de quick replies com testes reais.
